@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Model;
 class Error
 {
     /**
-     * @var string
+     * @var int
      */
     protected $code;
     /**
@@ -24,19 +24,19 @@ class Error
     protected $message;
 
     /**
-     * @return string|null
+     * @return int|null
      */
-    public function getCode(): ?string
+    public function getCode(): ?int
     {
         return $this->code;
     }
 
     /**
-     * @param string|null $code
+     * @param int|null $code
      *
      * @return self
      */
-    public function setCode(?string $code): self
+    public function setCode(?int $code): self
     {
         $this->code = $code;
 
