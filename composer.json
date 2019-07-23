@@ -1,0 +1,25 @@
+{
+    "name": "afosto/io-sdk",
+    "description": "Afosto IO SDK",
+    "type": "package",
+    "keywords": [
+        "sdk",
+        "api",
+        "afosto"
+    ],
+    "homepage": "https://afosto.io",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Afosto Team"
+        }
+    ],
+    "require": {
+        "jane-php/open-api-runtime": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Afosto\\Sdk\\": "src"
+        }
+    }
+}
