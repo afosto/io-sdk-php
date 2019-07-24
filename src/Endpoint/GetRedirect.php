@@ -84,6 +84,7 @@ class GetRedirect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\GetRedirectBadRequestException
      * @throws \Afosto\Sdk\Exception\GetRedirectUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetRedirectNotFoundException
      *
@@ -93,6 +94,9 @@ class GetRedirect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamAuthorizationResponse', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetRedirectBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetRedirectUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

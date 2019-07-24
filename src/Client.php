@@ -1751,6 +1751,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\IamClientUpdateModel $body  Update object
      * @param string                                 $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
+     * @throws \Afosto\Sdk\Exception\UpdateClientBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateClientUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateClientNotFoundException
      *
@@ -1821,6 +1822,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
+     * @throws \Afosto\Sdk\Exception\GetRedirectBadRequestException
      * @throws \Afosto\Sdk\Exception\GetRedirectUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetRedirectNotFoundException
      *
@@ -1837,6 +1839,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\IamTokenRequest $body  Token request object
      * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
+     * @throws \Afosto\Sdk\Exception\GetAccessTokenBadRequestException
      * @throws \Afosto\Sdk\Exception\GetAccessTokenUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetAccessTokenNotFoundException
      *

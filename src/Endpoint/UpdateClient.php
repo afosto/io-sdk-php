@@ -51,6 +51,7 @@ class UpdateClient extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\UpdateClientBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateClientUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateClientNotFoundException
      *
@@ -60,6 +61,9 @@ class UpdateClient extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamClient', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateClientBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateClientUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

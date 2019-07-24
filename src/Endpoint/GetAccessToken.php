@@ -47,6 +47,7 @@ class GetAccessToken extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\GetAccessTokenBadRequestException
      * @throws \Afosto\Sdk\Exception\GetAccessTokenUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetAccessTokenNotFoundException
      *
@@ -56,6 +57,9 @@ class GetAccessToken extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamAccessToken', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetAccessTokenBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetAccessTokenUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
