@@ -477,16 +477,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\PkrGetResponse200|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getPkr(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPkr(), $fetch);
-    }
-
-    /**
      * a tailored endpoint to receive shippings.
      *
      * @param array $queryParameters {
