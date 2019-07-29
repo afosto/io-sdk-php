@@ -100,6 +100,16 @@ class NormalizerFactory
         $normalizers[] = new SplHubImageNormalizer();
         $normalizers[] = new SplNetworkDeviceNormalizer();
         $normalizers[] = new SplCreateNetworkDeviceNormalizer();
+        $normalizers[] = new SplCustomerModelNormalizer();
+        $normalizers[] = new SplCustomerNormalizer();
+        $normalizers[] = new SplGroupNormalizer();
+        $normalizers[] = new SplGroupModelNormalizer();
+        $normalizers[] = new SplAddressNormalizer();
+        $normalizers[] = new SplVerifyRequestNormalizer();
+        $normalizers[] = new SplTokenRequestNormalizer();
+        $normalizers[] = new SplPasswordResetNormalizer();
+        $normalizers[] = new SplSignOnNormalizer();
+        $normalizers[] = new SplTokenResponseNormalizer();
         $normalizers[] = new MesUsageRecordNormalizer();
         $normalizers[] = new MesReportRequestNormalizer();
         $normalizers[] = new MesReportNormalizer();

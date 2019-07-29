@@ -1199,6 +1199,150 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Add a new customer to the list.
+     *
+     * @param \Afosto\Sdk\Model\SplCustomerModel $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateCustomerBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateCustomerUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateCustomerNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\SplCustomer|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createCustomer(\Afosto\Sdk\Model\SplCustomerModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateCustomer($body), $fetch);
+    }
+
+    /**
+     * Returns a list of customers.
+     *
+     * @param string $id    Id that belongs to the tenant
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListCustomersBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListCustomersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListCustomersNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\SplCustomer[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listCustomers(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCustomers($id), $fetch);
+    }
+
+    /**
+     * update a customer.
+     *
+     * @param string                             $id    Id that belongs to the tenant
+     * @param \Afosto\Sdk\Model\SplCustomerModel $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateCustomerBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateCustomerUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateCustomerNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\SplCustomer|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateCustomer(string $id, \Afosto\Sdk\Model\SplCustomerModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateCustomer($id, $body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListGroupsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListGroupsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListGroupsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\SplGroup[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listGroups(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListGroups(), $fetch);
+    }
+
+    /**
+     * @param \Afosto\Sdk\Model\SplGroupModel $body
+     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateGroupBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateGroupUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\SplGroup[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createGroup(\Afosto\Sdk\Model\SplGroupModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateGroup($body), $fetch);
+    }
+
+    /**
+     * Returns a  signed id token.
+     *
+     * @param \Afosto\Sdk\Model\SplSignOn $body
+     * @param string                      $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateIdTokenBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateIdTokenUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\SplTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createIdToken(\Afosto\Sdk\Model\SplSignOn $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateIdToken($body), $fetch);
+    }
+
+    /**
+     * Returns a new token to confirm identity or reset a password.
+     *
+     * @param \Afosto\Sdk\Model\SplTokenRequest $body
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetTokenBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTokenUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\SplTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getToken(\Afosto\Sdk\Model\SplTokenRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetToken($body), $fetch);
+    }
+
+    /**
+     * So the user can login.
+     *
+     * @param \Afosto\Sdk\Model\IamPasswordReset $body  Reset object
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ResetPasswordUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ResetPasswordNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamUser|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function resetPassword(\Afosto\Sdk\Model\IamPasswordReset $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ResetPassword($body), $fetch);
+    }
+
+    /**
+     * Mark the identity as verified.
+     *
+     * @param \Afosto\Sdk\Model\SplVerifyRequest $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\VerifyIdentityBadRequestException
+     * @throws \Afosto\Sdk\Exception\VerifyIdentityUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\SplTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function verifyIdentity(\Afosto\Sdk\Model\SplVerifyRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\VerifyIdentity($body), $fetch);
+    }
+
+    /**
      * Announce an new profile.
      *
      * @param string    $path  the key we want to register
@@ -1494,22 +1638,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function joinTenant(\Afosto\Sdk\Model\IamPasswordReset $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\JoinTenant($body), $fetch);
-    }
-
-    /**
-     * So the user can login.
-     *
-     * @param \Afosto\Sdk\Model\IamPasswordReset $body  Reset object
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ResetPasswordUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ResetPasswordNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\IamUser|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function resetPassword(\Afosto\Sdk\Model\IamPasswordReset $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ResetPassword($body), $fetch);
     }
 
     /**
