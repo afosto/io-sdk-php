@@ -10,16 +10,16 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class SplTokenResponse
+class OmsVerifyRequest
 {
     /**
      * @var string
      */
     protected $token;
     /**
-     * @var \DateTime
+     * @var string
      */
-    protected $expiresAt;
+    protected $email;
 
     /**
      * @return string|null
@@ -42,21 +42,21 @@ class SplTokenResponse
     }
 
     /**
-     * @return \DateTime|null
+     * @return string|null
      */
-    public function getExpiresAt(): ?\DateTime
+    public function getEmail(): ?string
     {
-        return $this->expiresAt;
+        return $this->email;
     }
 
     /**
-     * @param \DateTime|null $expiresAt
+     * @param string|null $email
      *
      * @return self
      */
-    public function setExpiresAt(?\DateTime $expiresAt): self
+    public function setEmail(?string $email): self
     {
-        $this->expiresAt = $expiresAt;
+        $this->email = $email;
 
         return $this;
     }

@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class SplCustomerNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OmsCustomerNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplCustomer';
+        return $type === 'Afosto\\Sdk\\Model\\OmsCustomer';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplCustomer';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OmsCustomer';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class SplCustomerNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\SplCustomer();
+        $object = new \Afosto\Sdk\Model\OmsCustomer();
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
@@ -71,14 +71,14 @@ class SplCustomerNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'billing') && $data->{'billing'} !== null) {
             $values = [];
             foreach ($data->{'billing'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\SplAddress', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OmsAddress', 'json', $context);
             }
             $object->setBilling($values);
         }
         if (property_exists($data, 'shipping') && $data->{'shipping'} !== null) {
             $values_1 = [];
             foreach ($data->{'shipping'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\SplAddress', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OmsAddress', 'json', $context);
             }
             $object->setShipping($values_1);
         }

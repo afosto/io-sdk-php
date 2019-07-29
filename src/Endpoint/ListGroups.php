@@ -21,7 +21,7 @@ class ListGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     public function getUri(): string
     {
-        return '/spl/groups';
+        return '/oms/groups';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -41,12 +41,12 @@ class ListGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      * @throws \Afosto\Sdk\Exception\ListGroupsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListGroupsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\SplGroup[]|null
+     * @return \Afosto\Sdk\Model\OmsGroup[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\SplGroup[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OmsGroup[]', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ListGroupsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

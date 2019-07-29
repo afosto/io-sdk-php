@@ -15,9 +15,9 @@ class CreateCustomer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * Add a new customer to the list.
      *
-     * @param \Afosto\Sdk\Model\SplCustomerModel $body
+     * @param \Afosto\Sdk\Model\OmsCustomerModel $body
      */
-    public function __construct(\Afosto\Sdk\Model\SplCustomerModel $body)
+    public function __construct(\Afosto\Sdk\Model\OmsCustomerModel $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class CreateCustomer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 
     public function getUri(): string
     {
-        return '/spl/customers';
+        return '/oms/customers';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -51,12 +51,12 @@ class CreateCustomer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      * @throws \Afosto\Sdk\Exception\CreateCustomerUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateCustomerNotFoundException
      *
-     * @return \Afosto\Sdk\Model\SplCustomer|null
+     * @return \Afosto\Sdk\Model\OmsCustomer|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\SplCustomer', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OmsCustomer', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\CreateCustomerBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

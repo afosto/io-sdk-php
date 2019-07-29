@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class SplCustomerModel
+class OmsCustomerModel
 {
     /**
      * @var string
@@ -45,11 +45,11 @@ class SplCustomerModel
      */
     protected $email;
     /**
-     * @var SplAddress[]
+     * @var OmsAddress[]
      */
     protected $billing;
     /**
-     * @var SplAddress[]
+     * @var OmsAddress[]
      */
     protected $shipping;
     /**
@@ -218,7 +218,7 @@ class SplCustomerModel
     }
 
     /**
-     * @return SplAddress[]|null
+     * @return OmsAddress[]|null
      */
     public function getBilling(): ?array
     {
@@ -226,7 +226,7 @@ class SplCustomerModel
     }
 
     /**
-     * @param SplAddress[]|null $billing
+     * @param OmsAddress[]|null $billing
      *
      * @return self
      */
@@ -238,7 +238,7 @@ class SplCustomerModel
     }
 
     /**
-     * @return SplAddress[]|null
+     * @return OmsAddress[]|null
      */
     public function getShipping(): ?array
     {
@@ -246,7 +246,7 @@ class SplCustomerModel
     }
 
     /**
-     * @param SplAddress[]|null $shipping
+     * @param OmsAddress[]|null $shipping
      *
      * @return self
      */

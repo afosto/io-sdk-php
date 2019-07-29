@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class SplTokenResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OmsGroupModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplTokenResponse';
+        return $type === 'Afosto\\Sdk\\Model\\OmsGroupModel';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplTokenResponse';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OmsGroupModel';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,12 @@ class SplTokenResponseNormalizer implements DenormalizerInterface, NormalizerInt
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\SplTokenResponse();
-        if (property_exists($data, 'token') && $data->{'token'} !== null) {
-            $object->setToken($data->{'token'});
+        $object = new \Afosto\Sdk\Model\OmsGroupModel();
+        if (property_exists($data, 'is_default') && $data->{'is_default'} !== null) {
+            $object->setIsDefault($data->{'is_default'});
         }
-        if (property_exists($data, 'expires_at') && $data->{'expires_at'} !== null) {
-            $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
+        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+            $object->setName($data->{'name'});
         }
 
         return $object;
@@ -51,11 +51,11 @@ class SplTokenResponseNormalizer implements DenormalizerInterface, NormalizerInt
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getToken()) {
-            $data->{'token'} = $object->getToken();
+        if (null !== $object->getIsDefault()) {
+            $data->{'is_default'} = $object->getIsDefault();
         }
-        if (null !== $object->getExpiresAt()) {
-            $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");
+        if (null !== $object->getName()) {
+            $data->{'name'} = $object->getName();
         }
 
         return $data;

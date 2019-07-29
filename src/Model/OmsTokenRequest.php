@@ -10,33 +10,33 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class SplPasswordReset
+class OmsTokenRequest
 {
     /**
      * @var string
      */
-    protected $token;
+    protected $type;
     /**
      * @var string
      */
-    protected $password;
+    protected $email;
 
     /**
      * @return string|null
      */
-    public function getToken(): ?string
+    public function getType(): ?string
     {
-        return $this->token;
+        return $this->type;
     }
 
     /**
-     * @param string|null $token
+     * @param string|null $type
      *
      * @return self
      */
-    public function setToken(?string $token): self
+    public function setType(?string $type): self
     {
-        $this->token = $token;
+        $this->type = $type;
 
         return $this;
     }
@@ -44,19 +44,19 @@ class SplPasswordReset
     /**
      * @return string|null
      */
-    public function getPassword(): ?string
+    public function getEmail(): ?string
     {
-        return $this->password;
+        return $this->email;
     }
 
     /**
-     * @param string|null $password
+     * @param string|null $email
      *
      * @return self
      */
-    public function setPassword(?string $password): self
+    public function setEmail(?string $email): self
     {
-        $this->password = $password;
+        $this->email = $email;
 
         return $this;
     }

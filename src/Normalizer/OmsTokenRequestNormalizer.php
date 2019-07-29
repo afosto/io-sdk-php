@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class SplSignOnNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OmsTokenRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplSignOn';
+        return $type === 'Afosto\\Sdk\\Model\\OmsTokenRequest';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplSignOn';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OmsTokenRequest';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,18 +37,12 @@ class SplSignOnNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\SplSignOn();
+        $object = new \Afosto\Sdk\Model\OmsTokenRequest();
+        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+            $object->setType($data->{'type'});
+        }
         if (property_exists($data, 'email') && $data->{'email'} !== null) {
             $object->setEmail($data->{'email'});
-        }
-        if (property_exists($data, 'password') && $data->{'password'} !== null) {
-            $object->setPassword($data->{'password'});
-        }
-        if (property_exists($data, 'audience') && $data->{'audience'} !== null) {
-            $object->setAudience($data->{'audience'});
-        }
-        if (property_exists($data, 'should_expire_at') && $data->{'should_expire_at'} !== null) {
-            $object->setShouldExpireAt($data->{'should_expire_at'});
         }
 
         return $object;
@@ -57,17 +51,11 @@ class SplSignOnNormalizer implements DenormalizerInterface, NormalizerInterface,
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getType()) {
+            $data->{'type'} = $object->getType();
+        }
         if (null !== $object->getEmail()) {
             $data->{'email'} = $object->getEmail();
-        }
-        if (null !== $object->getPassword()) {
-            $data->{'password'} = $object->getPassword();
-        }
-        if (null !== $object->getAudience()) {
-            $data->{'audience'} = $object->getAudience();
-        }
-        if (null !== $object->getShouldExpireAt()) {
-            $data->{'should_expire_at'} = $object->getShouldExpireAt();
         }
 
         return $data;

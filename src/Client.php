@@ -1201,16 +1201,16 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add a new customer to the list.
      *
-     * @param \Afosto\Sdk\Model\SplCustomerModel $body
+     * @param \Afosto\Sdk\Model\OmsCustomerModel $body
      * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateCustomerBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateCustomerUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateCustomerNotFoundException
      *
-     * @return \Afosto\Sdk\Model\SplCustomer|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OmsCustomer|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createCustomer(\Afosto\Sdk\Model\SplCustomerModel $body, string $fetch = self::FETCH_OBJECT)
+    public function createCustomer(\Afosto\Sdk\Model\OmsCustomerModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateCustomer($body), $fetch);
     }
@@ -1225,7 +1225,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListCustomersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListCustomersNotFoundException
      *
-     * @return \Afosto\Sdk\Model\SplCustomer[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OmsCustomer[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listCustomers(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -1236,16 +1236,16 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * update a customer.
      *
      * @param string                             $id    Id that belongs to the tenant
-     * @param \Afosto\Sdk\Model\SplCustomerModel $body
+     * @param \Afosto\Sdk\Model\OmsCustomerModel $body
      * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateCustomerBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateCustomerUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateCustomerNotFoundException
      *
-     * @return \Afosto\Sdk\Model\SplCustomer|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OmsCustomer|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateCustomer(string $id, \Afosto\Sdk\Model\SplCustomerModel $body, string $fetch = self::FETCH_OBJECT)
+    public function updateCustomer(string $id, \Afosto\Sdk\Model\OmsCustomerModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateCustomer($id, $body), $fetch);
     }
@@ -1257,7 +1257,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListGroupsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListGroupsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\SplGroup[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OmsGroup[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listGroups(string $fetch = self::FETCH_OBJECT)
     {
@@ -1265,15 +1265,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * @param \Afosto\Sdk\Model\SplGroupModel $body
+     * @param \Afosto\Sdk\Model\OmsGroupModel $body
      * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateGroupBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateGroupUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\SplGroup[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OmsGroup[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createGroup(\Afosto\Sdk\Model\SplGroupModel $body, string $fetch = self::FETCH_OBJECT)
+    public function createGroup(\Afosto\Sdk\Model\OmsGroupModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateGroup($body), $fetch);
     }
@@ -1281,15 +1281,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a  signed id token.
      *
-     * @param \Afosto\Sdk\Model\SplSignOn $body
+     * @param \Afosto\Sdk\Model\OmsSignOn $body
      * @param string                      $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateIdTokenBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateIdTokenUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\SplTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OmsTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createIdToken(\Afosto\Sdk\Model\SplSignOn $body, string $fetch = self::FETCH_OBJECT)
+    public function createIdToken(\Afosto\Sdk\Model\OmsSignOn $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateIdToken($body), $fetch);
     }
@@ -1297,15 +1297,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a new token to confirm identity or reset a password.
      *
-     * @param \Afosto\Sdk\Model\SplTokenRequest $body
+     * @param \Afosto\Sdk\Model\OmsTokenRequest $body
      * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetTokenBadRequestException
      * @throws \Afosto\Sdk\Exception\GetTokenUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\SplTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OmsTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getToken(\Afosto\Sdk\Model\SplTokenRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function getToken(\Afosto\Sdk\Model\OmsTokenRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetToken($body), $fetch);
     }
@@ -1329,15 +1329,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Mark the identity as verified.
      *
-     * @param \Afosto\Sdk\Model\SplVerifyRequest $body
+     * @param \Afosto\Sdk\Model\OmsVerifyRequest $body
      * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\VerifyIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\VerifyIdentityUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\SplTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OmsTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function verifyIdentity(\Afosto\Sdk\Model\SplVerifyRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function verifyIdentity(\Afosto\Sdk\Model\OmsVerifyRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\VerifyIdentity($body), $fetch);
     }

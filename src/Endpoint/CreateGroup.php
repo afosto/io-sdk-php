@@ -13,9 +13,9 @@ namespace Afosto\Sdk\Endpoint;
 class CreateGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * @param \Afosto\Sdk\Model\SplGroupModel $body
+     * @param \Afosto\Sdk\Model\OmsGroupModel $body
      */
-    public function __construct(\Afosto\Sdk\Model\SplGroupModel $body)
+    public function __construct(\Afosto\Sdk\Model\OmsGroupModel $body)
     {
         $this->body = $body;
     }
@@ -29,7 +29,7 @@ class CreateGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return '/spl/groups';
+        return '/oms/groups';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -48,12 +48,12 @@ class CreateGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\CreateGroupBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateGroupUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\SplGroup[]|null
+     * @return \Afosto\Sdk\Model\OmsGroup[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\SplGroup[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OmsGroup[]', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\CreateGroupBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
