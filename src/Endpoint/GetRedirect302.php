@@ -67,9 +67,14 @@ class GetRedirect302 extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      *
      * @throws \Afosto\Sdk\Exception\GetRedirect302UnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetRedirect302NotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamOauthForwardReferenceGetResponse200|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
+        if (200 === $status) {
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamOauthForwardReferenceGetResponse200', 'json');
+        }
         if (302 === $status) {
             return null;
         }

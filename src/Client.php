@@ -1982,7 +1982,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetRedirect302UnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetRedirect302NotFoundException
      *
-     * @return \Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamOauthForwardReferenceGetResponse200|\Psr\Http\Message\ResponseInterface|null
      */
     public function getRedirect302(string $reference, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
