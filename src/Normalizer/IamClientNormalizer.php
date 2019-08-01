@@ -73,8 +73,8 @@ class IamClientNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'is_approved') && $data->{'is_approved'} !== null) {
             $object->setIsApproved($data->{'is_approved'});
         }
-        if (property_exists($data, 'collection') && $data->{'collection'} !== null) {
-            $object->setCollection($data->{'collection'});
+        if (property_exists($data, 'author') && $data->{'author'} !== null) {
+            $object->setAuthor($data->{'author'});
         }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -124,8 +124,8 @@ class IamClientNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (null !== $object->getIsApproved()) {
             $data->{'is_approved'} = $object->getIsApproved();
         }
-        if (null !== $object->getCollection()) {
-            $data->{'collection'} = $object->getCollection();
+        if (null !== $object->getAuthor()) {
+            $data->{'author'} = $object->getAuthor();
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

@@ -51,7 +51,7 @@ class IamClient
     /**
      * @var string
      */
-    protected $collection;
+    protected $author;
     /**
      * @var \DateTime
      */
@@ -244,19 +244,19 @@ class IamClient
     /**
      * @return string|null
      */
-    public function getCollection(): ?string
+    public function getAuthor(): ?string
     {
-        return $this->collection;
+        return $this->author;
     }
 
     /**
-     * @param string|null $collection
+     * @param string|null $author
      *
      * @return self
      */
-    public function setCollection(?string $collection): self
+    public function setAuthor(?string $author): self
     {
-        $this->collection = $collection;
+        $this->author = $author;
 
         return $this;
     }
