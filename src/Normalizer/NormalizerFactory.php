@@ -148,6 +148,7 @@ class NormalizerFactory
         $normalizers[] = new IamUsageProjectionRequestNormalizer();
         $normalizers[] = new IamUsageProjectionResponseNormalizer();
         $normalizers[] = new IamLogNormalizer();
+        $normalizers[] = new CntDirectoriesGetResponse200Normalizer();
         $normalizers[] = new IamTenantsPostResponse200Normalizer();
         $normalizers[] = new IamOauthForwardReferenceGetResponse200Normalizer();
         $normalizers[] = new IamCardsPostBodyNormalizer();

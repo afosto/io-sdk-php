@@ -859,6 +859,26 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a list of directories.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $path
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListDirectoriesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListDirectoriesUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\CntDirectoriesGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listDirectories(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListDirectories($queryParameters), $fetch);
+    }
+
+    /**
      * Returns a list of files.
      *
      * @param array $queryParameters {
