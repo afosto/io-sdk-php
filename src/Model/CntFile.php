@@ -19,11 +19,23 @@ class CntFile
     /**
      * @var string
      */
-    protected $path;
+    protected $filename;
+    /**
+     * @var string
+     */
+    protected $label;
+    /**
+     * @var string
+     */
+    protected $dir;
     /**
      * @var string
      */
     protected $type;
+    /**
+     * @var string
+     */
+    protected $mime;
     /**
      * @var string
      */
@@ -44,6 +56,10 @@ class CntFile
      * @var \DateTime
      */
     protected $createdAt;
+    /**
+     * @var \DateTime
+     */
+    protected $updatedAt;
 
     /**
      * @return string|null
@@ -68,19 +84,59 @@ class CntFile
     /**
      * @return string|null
      */
-    public function getPath(): ?string
+    public function getFilename(): ?string
     {
-        return $this->path;
+        return $this->filename;
     }
 
     /**
-     * @param string|null $path
+     * @param string|null $filename
      *
      * @return self
      */
-    public function setPath(?string $path): self
+    public function setFilename(?string $filename): self
     {
-        $this->path = $path;
+        $this->filename = $filename;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getLabel(): ?string
+    {
+        return $this->label;
+    }
+
+    /**
+     * @param string|null $label
+     *
+     * @return self
+     */
+    public function setLabel(?string $label): self
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDir(): ?string
+    {
+        return $this->dir;
+    }
+
+    /**
+     * @param string|null $dir
+     *
+     * @return self
+     */
+    public function setDir(?string $dir): self
+    {
+        $this->dir = $dir;
 
         return $this;
     }
@@ -101,6 +157,26 @@ class CntFile
     public function setType(?string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getMime(): ?string
+    {
+        return $this->mime;
+    }
+
+    /**
+     * @param string|null $mime
+     *
+     * @return self
+     */
+    public function setMime(?string $mime): self
+    {
+        $this->mime = $mime;
 
         return $this;
     }
@@ -201,6 +277,26 @@ class CntFile
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime|null $updatedAt
+     *
+     * @return self
+     */
+    public function setUpdatedAt(?\DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

@@ -12,6 +12,20 @@ namespace Afosto\Sdk\Endpoint;
 
 class ListFiles extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
+    /**
+     * Returns a list of files.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $dir
+     *     @var string $is_public
+     * }
+     */
+    public function __construct(array $queryParameters = [])
+    {
+        $this->queryParameters = $queryParameters;
+    }
+
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
@@ -32,6 +46,18 @@ class ListFiles extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['dir', 'is_public']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('dir', ['string']);
+        $optionsResolver->setAllowedTypes('is_public', ['string']);
+
+        return $optionsResolver;
     }
 
     /**

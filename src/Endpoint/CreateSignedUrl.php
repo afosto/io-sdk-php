@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Endpoint;
 class CreateSignedUrl extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * Returns a new signed upload url.
+     * Returns a new upload signature.
      *
      * @param \Afosto\Sdk\Model\CntUploadRequest $body
      */
@@ -31,7 +31,7 @@ class CreateSignedUrl extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 
     public function getUri(): string
     {
-        return '/cnt/files/url';
+        return '/cnt/files/signature';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array

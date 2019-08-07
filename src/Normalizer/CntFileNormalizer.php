@@ -41,11 +41,20 @@ class CntFileNormalizer implements DenormalizerInterface, NormalizerInterface, D
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'path') && $data->{'path'} !== null) {
-            $object->setPath($data->{'path'});
+        if (property_exists($data, 'filename') && $data->{'filename'} !== null) {
+            $object->setFilename($data->{'filename'});
+        }
+        if (property_exists($data, 'label') && $data->{'label'} !== null) {
+            $object->setLabel($data->{'label'});
+        }
+        if (property_exists($data, 'dir') && $data->{'dir'} !== null) {
+            $object->setDir($data->{'dir'});
         }
         if (property_exists($data, 'type') && $data->{'type'} !== null) {
             $object->setType($data->{'type'});
+        }
+        if (property_exists($data, 'mime') && $data->{'mime'} !== null) {
+            $object->setMime($data->{'mime'});
         }
         if (property_exists($data, 'url') && $data->{'url'} !== null) {
             $object->setUrl($data->{'url'});
@@ -62,6 +71,9 @@ class CntFileNormalizer implements DenormalizerInterface, NormalizerInterface, D
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
+        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
+        }
 
         return $object;
     }
@@ -72,11 +84,20 @@ class CntFileNormalizer implements DenormalizerInterface, NormalizerInterface, D
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getPath()) {
-            $data->{'path'} = $object->getPath();
+        if (null !== $object->getFilename()) {
+            $data->{'filename'} = $object->getFilename();
+        }
+        if (null !== $object->getLabel()) {
+            $data->{'label'} = $object->getLabel();
+        }
+        if (null !== $object->getDir()) {
+            $data->{'dir'} = $object->getDir();
         }
         if (null !== $object->getType()) {
             $data->{'type'} = $object->getType();
+        }
+        if (null !== $object->getMime()) {
+            $data->{'mime'} = $object->getMime();
         }
         if (null !== $object->getUrl()) {
             $data->{'url'} = $object->getUrl();
@@ -92,6 +113,9 @@ class CntFileNormalizer implements DenormalizerInterface, NormalizerInterface, D
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getUpdatedAt()) {
+            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

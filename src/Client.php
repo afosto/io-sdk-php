@@ -856,6 +856,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a list of files.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $dir
+     *     @var string $is_public
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListFilesBadRequestException
@@ -863,9 +871,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntFile[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listFiles(string $fetch = self::FETCH_OBJECT)
+    public function listFiles(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListFiles(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListFiles($queryParameters), $fetch);
     }
 
     /**
@@ -885,7 +893,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Returns a new signed upload url.
+     * Returns a new upload signature.
      *
      * @param \Afosto\Sdk\Model\CntUploadRequest $body
      * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
