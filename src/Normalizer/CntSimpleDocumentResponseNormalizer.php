@@ -50,6 +50,9 @@ class CntSimpleDocumentResponseNormalizer implements DenormalizerInterface, Norm
         if (property_exists($data, 'model') && $data->{'model'} !== null) {
             $object->setModel($data->{'model'});
         }
+        if (property_exists($data, 'namespace') && $data->{'namespace'} !== null) {
+            $object->setNamespace($data->{'namespace'});
+        }
         if (property_exists($data, 'description') && $data->{'description'} !== null) {
             $object->setDescription($data->{'description'});
         }
@@ -77,6 +80,9 @@ class CntSimpleDocumentResponseNormalizer implements DenormalizerInterface, Norm
         }
         if (null !== $object->getModel()) {
             $data->{'model'} = $object->getModel();
+        }
+        if (null !== $object->getNamespace()) {
+            $data->{'namespace'} = $object->getNamespace();
         }
         if (null !== $object->getDescription()) {
             $data->{'description'} = $object->getDescription();

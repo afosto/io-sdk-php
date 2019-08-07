@@ -93,6 +93,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Run a complex search.
      *
+     * @param string                           $namespace        the namespace
      * @param string                           $code
      * @param string                           $model
      * @param \Afosto\Sdk\Model\CntSearchQuery $body             Query object
@@ -109,9 +110,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntSeachResponse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function searchModel(string $code, string $model, \Afosto\Sdk\Model\CntSearchQuery $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function searchModel(string $namespace = 'default', string $code, string $model, \Afosto\Sdk\Model\CntSearchQuery $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchModel($code, $model, $body, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchModel($namespace, $code, $model, $body, $headerParameters), $fetch);
     }
 
     /**
@@ -122,7 +123,8 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *     @var string $q The query
      *     @var int $limit The query
      *     @var array $codes The query
-     *     @var array $models The query
+     *     @var array $models The models we want to query
+     *     @var array $namespaces The namesapce we want to query
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -144,6 +146,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      *     @var string $code
      *     @var string $model
+     *     @var string $namespace
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

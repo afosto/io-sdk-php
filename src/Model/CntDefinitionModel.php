@@ -15,6 +15,10 @@ class CntDefinitionModel
     /**
      * @var string
      */
+    protected $namespace;
+    /**
+     * @var string
+     */
     protected $code;
     /**
      * @var string
@@ -28,6 +32,26 @@ class CntDefinitionModel
      * @var string
      */
     protected $type;
+
+    /**
+     * @return string|null
+     */
+    public function getNamespace(): ?string
+    {
+        return $this->namespace;
+    }
+
+    /**
+     * @param string|null $namespace
+     *
+     * @return self
+     */
+    public function setNamespace(?string $namespace): self
+    {
+        $this->namespace = $namespace;
+
+        return $this;
+    }
 
     /**
      * @return string|null

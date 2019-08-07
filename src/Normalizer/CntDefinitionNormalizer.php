@@ -41,6 +41,9 @@ class CntDefinitionNormalizer implements DenormalizerInterface, NormalizerInterf
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
+        if (property_exists($data, 'namespace') && $data->{'namespace'} !== null) {
+            $object->setNamespace($data->{'namespace'});
+        }
         if (property_exists($data, 'code') && $data->{'code'} !== null) {
             $object->setCode($data->{'code'});
         }
@@ -72,6 +75,9 @@ class CntDefinitionNormalizer implements DenormalizerInterface, NormalizerInterf
         $data = new \stdClass();
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
+        }
+        if (null !== $object->getNamespace()) {
+            $data->{'namespace'} = $object->getNamespace();
         }
         if (null !== $object->getCode()) {
             $data->{'code'} = $object->getCode();

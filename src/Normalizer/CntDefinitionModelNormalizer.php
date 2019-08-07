@@ -38,6 +38,9 @@ class CntDefinitionModelNormalizer implements DenormalizerInterface, NormalizerI
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntDefinitionModel();
+        if (property_exists($data, 'namespace') && $data->{'namespace'} !== null) {
+            $object->setNamespace($data->{'namespace'});
+        }
         if (property_exists($data, 'code') && $data->{'code'} !== null) {
             $object->setCode($data->{'code'});
         }
@@ -57,6 +60,9 @@ class CntDefinitionModelNormalizer implements DenormalizerInterface, NormalizerI
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getNamespace()) {
+            $data->{'namespace'} = $object->getNamespace();
+        }
         if (null !== $object->getCode()) {
             $data->{'code'} = $object->getCode();
         }

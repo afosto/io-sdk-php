@@ -21,6 +21,10 @@ class CntSimpleQuery
      */
     protected $models;
     /**
+     * @var string[]
+     */
+    protected $namespaces;
+    /**
      * @var string
      */
     protected $q;
@@ -73,6 +77,26 @@ class CntSimpleQuery
     public function setModels(?array $models): self
     {
         $this->models = $models;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getNamespaces(): ?array
+    {
+        return $this->namespaces;
+    }
+
+    /**
+     * @param string[]|null $namespaces
+     *
+     * @return self
+     */
+    public function setNamespaces(?array $namespaces): self
+    {
+        $this->namespaces = $namespaces;
 
         return $this;
     }

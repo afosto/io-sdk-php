@@ -19,6 +19,7 @@ class ListDefinitions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      *
      *     @var string $code
      *     @var string $model
+     *     @var string $namespace
      * }
      */
     public function __construct(array $queryParameters = [])
@@ -51,11 +52,12 @@ class ListDefinitions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['code', 'model']);
+        $optionsResolver->setDefined(['code', 'model', 'namespace']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('code', ['string']);
         $optionsResolver->setAllowedTypes('model', ['string']);
+        $optionsResolver->setAllowedTypes('namespace', ['string']);
 
         return $optionsResolver;
     }

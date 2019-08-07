@@ -19,6 +19,10 @@ class CntDefinition
     /**
      * @var string
      */
+    protected $namespace;
+    /**
+     * @var string
+     */
     protected $code;
     /**
      * @var string
@@ -57,6 +61,26 @@ class CntDefinition
     public function setId(?string $id): self
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getNamespace(): ?string
+    {
+        return $this->namespace;
+    }
+
+    /**
+     * @param string|null $namespace
+     *
+     * @return self
+     */
+    public function setNamespace(?string $namespace): self
+    {
+        $this->namespace = $namespace;
 
         return $this;
     }

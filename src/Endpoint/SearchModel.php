@@ -12,12 +12,14 @@ namespace Afosto\Sdk\Endpoint;
 
 class SearchModel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
+    protected $namespace;
     protected $code;
     protected $model;
 
     /**
      * Run a complex search.
      *
+     * @param string                           $namespace        the namespace
      * @param string                           $code
      * @param string                           $model
      * @param \Afosto\Sdk\Model\CntSearchQuery $body             Query object
@@ -27,8 +29,9 @@ class SearchModel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *     @var int $x-page-size
      * }
      */
-    public function __construct(string $code, string $model, \Afosto\Sdk\Model\CntSearchQuery $body, array $headerParameters = [])
+    public function __construct(string $namespace = 'default', string $code, string $model, \Afosto\Sdk\Model\CntSearchQuery $body, array $headerParameters = [])
     {
+        $this->namespace = $namespace;
         $this->code = $code;
         $this->model = $model;
         $this->body = $body;
@@ -44,7 +47,7 @@ class SearchModel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return str_replace(['{code}', '{model}'], [$this->code, $this->model], '/cnt/search/{code}/{model}');
+        return str_replace(['{namespace}', '{code}', '{model}'], [$this->namespace, $this->code, $this->model], '/cnt/search/{namespace}/{code}/{model}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array

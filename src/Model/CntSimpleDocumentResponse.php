@@ -31,6 +31,10 @@ class CntSimpleDocumentResponse
     /**
      * @var string
      */
+    protected $namespace;
+    /**
+     * @var string
+     */
     protected $description;
     /**
      * @var string
@@ -117,6 +121,26 @@ class CntSimpleDocumentResponse
     public function setModel(?string $model): self
     {
         $this->model = $model;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getNamespace(): ?string
+    {
+        return $this->namespace;
+    }
+
+    /**
+     * @param string|null $namespace
+     *
+     * @return self
+     */
+    public function setNamespace(?string $namespace): self
+    {
+        $this->namespace = $namespace;
 
         return $this;
     }

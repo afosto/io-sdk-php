@@ -52,6 +52,13 @@ class CntSimpleQueryNormalizer implements DenormalizerInterface, NormalizerInter
             }
             $object->setModels($values_1);
         }
+        if (property_exists($data, 'namespaces') && $data->{'namespaces'} !== null) {
+            $values_2 = [];
+            foreach ($data->{'namespaces'} as $value_2) {
+                $values_2[] = $value_2;
+            }
+            $object->setNamespaces($values_2);
+        }
         if (property_exists($data, 'q') && $data->{'q'} !== null) {
             $object->setQ($data->{'q'});
         }
@@ -84,6 +91,13 @@ class CntSimpleQueryNormalizer implements DenormalizerInterface, NormalizerInter
                 $values_1[] = $value_1;
             }
             $data->{'models'} = $values_1;
+        }
+        if (null !== $object->getNamespaces()) {
+            $values_2 = [];
+            foreach ($object->getNamespaces() as $value_2) {
+                $values_2[] = $value_2;
+            }
+            $data->{'namespaces'} = $values_2;
         }
         if (null !== $object->getQ()) {
             $data->{'q'} = $object->getQ();

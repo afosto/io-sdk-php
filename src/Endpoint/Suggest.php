@@ -20,7 +20,8 @@ class Suggest extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\
      *     @var string $q The query
      *     @var int $limit The query
      *     @var array $codes The query
-     *     @var array $models The query
+     *     @var array $models The models we want to query
+     *     @var array $namespaces The namesapce we want to query
      * }
      */
     public function __construct(array $queryParameters = [])
@@ -53,13 +54,14 @@ class Suggest extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['q', 'limit', 'codes', 'models']);
+        $optionsResolver->setDefined(['q', 'limit', 'codes', 'models', 'namespaces']);
         $optionsResolver->setRequired(['q']);
         $optionsResolver->setDefaults(['limit' => 5]);
         $optionsResolver->setAllowedTypes('q', ['string']);
         $optionsResolver->setAllowedTypes('limit', ['int']);
         $optionsResolver->setAllowedTypes('codes', ['array']);
         $optionsResolver->setAllowedTypes('models', ['array']);
+        $optionsResolver->setAllowedTypes('namespaces', ['array']);
 
         return $optionsResolver;
     }
