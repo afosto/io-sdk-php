@@ -75,6 +75,248 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a list of stacks.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var int $page_size
+     *     @var int $page
+     *     @var string $type
+     *     @var string $sort
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListStacksUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListStacksNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrStack[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listStacks(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListStacks($queryParameters), $fetch);
+    }
+
+    /**
+     * Creates and returns the new stack.
+     *
+     * @param \Afosto\Sdk\Model\OdrStackModel $body
+     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateStackUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateStackNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createStack(\Afosto\Sdk\Model\OdrStackModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateStack($body), $fetch);
+    }
+
+    /**
+     * Adds items to the stack that was previously created.
+     *
+     * @param \Afosto\Sdk\Model\OdrStackAddModel $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AddToStackUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AddToStackNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function addToStack(\Afosto\Sdk\Model\OdrStackAddModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddToStack($body), $fetch);
+    }
+
+    /**
+     * Creates and returns the new stack.
+     *
+     * @param \Afosto\Sdk\Model\OdrTransitionModel $body
+     * @param string                               $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\TransitionStackUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\TransitionStackNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function transitionStack(\Afosto\Sdk\Model\OdrTransitionModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\TransitionStack($body), $fetch);
+    }
+
+    /**
+     * Removes a stack.
+     *
+     * @param string $type
+     * @param string $reference
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteStackUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteStackNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteStack(string $type, string $reference, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteStack($type, $reference), $fetch);
+    }
+
+    /**
+     * Returns a stack.
+     *
+     * @param string $type
+     * @param string $reference
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetStackUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetStackNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getStack(string $type, string $reference, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetStack($type, $reference), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListStackTypesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListStackTypesNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrType[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listStackTypes(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListStackTypes(), $fetch);
+    }
+
+    /**
+     * Returns a list of items grouped by sku, description and references.
+     *
+     * @param string $type
+     * @param string $reference
+     * @param array  $queryParameters {
+     *
+     *     @var int $page_size
+     *     @var int $page
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListItemsAsGroupUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListItemsAsGroupNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrGroup[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listItemsAsGroup(string $type, string $reference, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListItemsAsGroup($type, $reference, $queryParameters), $fetch);
+    }
+
+    /**
+     * Delete items from the given reference.
+     *
+     * @param string $type
+     * @param string $reference
+     * @param array  $body
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteItemsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteItems(string $type, string $reference, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteItems($type, $reference, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of items.
+     *
+     * @param string $type
+     * @param string $reference
+     * @param array  $queryParameters {
+     *
+     *     @var int $page_size
+     *     @var int $page
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListItemsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listItems(string $type, string $reference, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListItems($type, $reference, $queryParameters), $fetch);
+    }
+
+    /**
+     * Returns a list of groups.
+     *
+     * @param \Afosto\Sdk\Model\OdrSearch[] $body
+     * @param array                         $queryParameters {
+     *
+     *     @var int $page_size
+     *     @var int $page
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchGroupsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchGroupsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrGroup[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchGroups(array $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchGroups($body, $queryParameters), $fetch);
+    }
+
+    /**
+     * Returns a list of items.
+     *
+     * @param \Afosto\Sdk\Model\OdrSearch $body
+     * @param array                       $queryParameters {
+     *
+     *     @var int $page_size
+     *     @var int $page
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchItemsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchItems(\Afosto\Sdk\Model\OdrSearch $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchItems($body, $queryParameters), $fetch);
+    }
+
+    /**
+     * Provide the service with a set of valid skus.
+     *
+     * @param \Afosto\Sdk\Model\OdrSku[] $body
+     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AnnounceSkusUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AnnounceSkusNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrSkuResult|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function announceSkus(array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AnnounceSkus($body), $fetch);
+    }
+
+    /**
      * Run a complex search to find conversations.
      *
      * @param \Afosto\Sdk\Model\MesSearch $body  Search query object
