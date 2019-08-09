@@ -41,23 +41,8 @@ class IamSubscriptionItemNormalizer implements DenormalizerInterface, Normalizer
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'code') && $data->{'code'} !== null) {
-            $object->setCode($data->{'code'});
-        }
-        if (property_exists($data, 'unit') && $data->{'unit'} !== null) {
-            $object->setUnit($data->{'unit'});
-        }
-        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
-            $object->setQuantity($data->{'quantity'});
-        }
-        if (property_exists($data, 'limit') && $data->{'limit'} !== null) {
-            $object->setLimit($data->{'limit'});
-        }
-        if (property_exists($data, 'product_id') && $data->{'product_id'} !== null) {
-            $object->setProductId($data->{'product_id'});
-        }
-        if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
-            $object->setAmount($data->{'amount'});
+        if (property_exists($data, 'product') && $data->{'product'} !== null) {
+            $object->setProduct($this->denormalizer->denormalize($data->{'product'}, 'Afosto\\Sdk\\Model\\IamProduct', 'json', $context));
         }
         if (property_exists($data, 'type') && $data->{'type'} !== null) {
             $object->setType($data->{'type'});
@@ -72,23 +57,8 @@ class IamSubscriptionItemNormalizer implements DenormalizerInterface, Normalizer
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getCode()) {
-            $data->{'code'} = $object->getCode();
-        }
-        if (null !== $object->getUnit()) {
-            $data->{'unit'} = $object->getUnit();
-        }
-        if (null !== $object->getQuantity()) {
-            $data->{'quantity'} = $object->getQuantity();
-        }
-        if (null !== $object->getLimit()) {
-            $data->{'limit'} = $object->getLimit();
-        }
-        if (null !== $object->getProductId()) {
-            $data->{'product_id'} = $object->getProductId();
-        }
-        if (null !== $object->getAmount()) {
-            $data->{'amount'} = $object->getAmount();
+        if (null !== $object->getProduct()) {
+            $data->{'product'} = $this->normalizer->normalize($object->getProduct(), 'json', $context);
         }
         if (null !== $object->getType()) {
             $data->{'type'} = $object->getType();

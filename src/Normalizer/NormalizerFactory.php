@@ -148,6 +148,7 @@ class NormalizerFactory
         $normalizers[] = new IamUserTokenRequestNormalizer();
         $normalizers[] = new IamUserTokenResponseNormalizer();
         $normalizers[] = new IamSignupNormalizer();
+        $normalizers[] = new IamInvoiceNormalizer();
         $normalizers[] = new IamCardNormalizer();
         $normalizers[] = new IamSubscriptionNormalizer();
         $normalizers[] = new IamSubscriptionItemNormalizer();
@@ -155,17 +156,12 @@ class NormalizerFactory
         $normalizers[] = new IamProductNormalizer();
         $normalizers[] = new IamPlanNormalizer();
         $normalizers[] = new IamTierNormalizer();
-        $normalizers[] = new IamUsageRequestNormalizer();
-        $normalizers[] = new IamUsageResponseNormalizer();
-        $normalizers[] = new IamUsageProjectionRequestNormalizer();
-        $normalizers[] = new IamUsageProjectionResponseNormalizer();
+        $normalizers[] = new IamUsageRecordNormalizer();
         $normalizers[] = new IamLogNormalizer();
         $normalizers[] = new CntDirectoriesGetResponse200Normalizer();
         $normalizers[] = new IamTenantsPostResponse200Normalizer();
         $normalizers[] = new IamOauthForwardReferenceGetResponse200Normalizer();
         $normalizers[] = new IamCardsPostBodyNormalizer();
-        $normalizers[] = new IamSubscriptionsProjectionPostResponse200Normalizer();
-        $normalizers[] = new IamSubscriptionsProjectionPutBodyNormalizer();
         $normalizers[] = new IamLogsFiltersGetResponse200Normalizer();
 
         return $normalizers;

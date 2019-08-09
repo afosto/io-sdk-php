@@ -21,10 +21,6 @@ class IamSubscription
      */
     protected $isRenewing;
     /**
-     * @var IamTrial
-     */
-    protected $trial;
-    /**
      * @var \DateTime
      */
     protected $startAt;
@@ -73,26 +69,6 @@ class IamSubscription
     public function setIsRenewing(?bool $isRenewing): self
     {
         $this->isRenewing = $isRenewing;
-
-        return $this;
-    }
-
-    /**
-     * @return IamTrial|null
-     */
-    public function getTrial(): ?IamTrial
-    {
-        return $this->trial;
-    }
-
-    /**
-     * @param IamTrial|null $trial
-     *
-     * @return self
-     */
-    public function setTrial(?IamTrial $trial): self
-    {
-        $this->trial = $trial;
 
         return $this;
     }

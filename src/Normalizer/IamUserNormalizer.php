@@ -56,6 +56,9 @@ class IamUserNormalizer implements DenormalizerInterface, NormalizerInterface, D
         if (property_exists($data, 'is_pending_invite') && $data->{'is_pending_invite'} !== null) {
             $object->setIsPendingInvite($data->{'is_pending_invite'});
         }
+        if (property_exists($data, 'is_deleted') && $data->{'is_deleted'} !== null) {
+            $object->setIsDeleted($data->{'is_deleted'});
+        }
         if (property_exists($data, 'tenant_id') && $data->{'tenant_id'} !== null) {
             $object->setTenantId($data->{'tenant_id'});
         }
@@ -65,6 +68,9 @@ class IamUserNormalizer implements DenormalizerInterface, NormalizerInterface, D
                 $values[] = $value;
             }
             $object->setRoles($values);
+        }
+        if (property_exists($data, 'deleted_at') && $data->{'deleted_at'} !== null) {
+            $object->setDeletedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'deleted_at'}));
         }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -97,6 +103,9 @@ class IamUserNormalizer implements DenormalizerInterface, NormalizerInterface, D
         if (null !== $object->getIsPendingInvite()) {
             $data->{'is_pending_invite'} = $object->getIsPendingInvite();
         }
+        if (null !== $object->getIsDeleted()) {
+            $data->{'is_deleted'} = $object->getIsDeleted();
+        }
         if (null !== $object->getTenantId()) {
             $data->{'tenant_id'} = $object->getTenantId();
         }
@@ -106,6 +115,9 @@ class IamUserNormalizer implements DenormalizerInterface, NormalizerInterface, D
                 $values[] = $value;
             }
             $data->{'roles'} = $values;
+        }
+        if (null !== $object->getDeletedAt()) {
+            $data->{'deleted_at'} = $object->getDeletedAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

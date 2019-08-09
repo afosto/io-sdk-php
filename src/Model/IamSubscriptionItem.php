@@ -17,29 +17,9 @@ class IamSubscriptionItem
      */
     protected $id;
     /**
-     * @var string
+     * @var IamProduct
      */
-    protected $code;
-    /**
-     * @var string
-     */
-    protected $unit;
-    /**
-     * @var int
-     */
-    protected $quantity;
-    /**
-     * @var int
-     */
-    protected $limit;
-    /**
-     * @var string
-     */
-    protected $productId;
-    /**
-     * @var int
-     */
-    protected $amount;
+    protected $product;
     /**
      * @var string
      */
@@ -66,121 +46,21 @@ class IamSubscriptionItem
     }
 
     /**
-     * @return string|null
+     * @return IamProduct|null
      */
-    public function getCode(): ?string
+    public function getProduct(): ?IamProduct
     {
-        return $this->code;
+        return $this->product;
     }
 
     /**
-     * @param string|null $code
+     * @param IamProduct|null $product
      *
      * @return self
      */
-    public function setCode(?string $code): self
+    public function setProduct(?IamProduct $product): self
     {
-        $this->code = $code;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getUnit(): ?string
-    {
-        return $this->unit;
-    }
-
-    /**
-     * @param string|null $unit
-     *
-     * @return self
-     */
-    public function setUnit(?string $unit): self
-    {
-        $this->unit = $unit;
-
-        return $this;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getQuantity(): ?int
-    {
-        return $this->quantity;
-    }
-
-    /**
-     * @param int|null $quantity
-     *
-     * @return self
-     */
-    public function setQuantity(?int $quantity): self
-    {
-        $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getLimit(): ?int
-    {
-        return $this->limit;
-    }
-
-    /**
-     * @param int|null $limit
-     *
-     * @return self
-     */
-    public function setLimit(?int $limit): self
-    {
-        $this->limit = $limit;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getProductId(): ?string
-    {
-        return $this->productId;
-    }
-
-    /**
-     * @param string|null $productId
-     *
-     * @return self
-     */
-    public function setProductId(?string $productId): self
-    {
-        $this->productId = $productId;
-
-        return $this;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getAmount(): ?int
-    {
-        return $this->amount;
-    }
-
-    /**
-     * @param int|null $amount
-     *
-     * @return self
-     */
-    public function setAmount(?int $amount): self
-    {
-        $this->amount = $amount;
+        $this->product = $product;
 
         return $this;
     }

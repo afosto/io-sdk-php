@@ -18,6 +18,7 @@ class ListUsers extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      * @param array $queryParameters {
      *
      *     @var int $is_pending_invite
+     *     @var int $is_deleted
      * }
      */
     public function __construct(array $queryParameters = [])
@@ -50,10 +51,11 @@ class ListUsers extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['is_pending_invite']);
+        $optionsResolver->setDefined(['is_pending_invite', 'is_deleted']);
         $optionsResolver->setRequired([]);
-        $optionsResolver->setDefaults([]);
+        $optionsResolver->setDefaults(['is_deleted' => 0]);
         $optionsResolver->setAllowedTypes('is_pending_invite', ['int']);
+        $optionsResolver->setAllowedTypes('is_deleted', ['int']);
 
         return $optionsResolver;
     }

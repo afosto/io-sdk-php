@@ -44,9 +44,6 @@ class IamSubscriptionNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'is_renewing') && $data->{'is_renewing'} !== null) {
             $object->setIsRenewing($data->{'is_renewing'});
         }
-        if (property_exists($data, 'trial') && $data->{'trial'} !== null) {
-            $object->setTrial($this->denormalizer->denormalize($data->{'trial'}, 'Afosto\\Sdk\\Model\\IamTrial', 'json', $context));
-        }
         if (property_exists($data, 'start_at') && $data->{'start_at'} !== null) {
             $object->setStartAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'start_at'}));
         }
@@ -72,9 +69,6 @@ class IamSubscriptionNormalizer implements DenormalizerInterface, NormalizerInte
         }
         if (null !== $object->getIsRenewing()) {
             $data->{'is_renewing'} = $object->getIsRenewing();
-        }
-        if (null !== $object->getTrial()) {
-            $data->{'trial'} = $this->normalizer->normalize($object->getTrial(), 'json', $context);
         }
         if (null !== $object->getStartAt()) {
             $data->{'start_at'} = $object->getStartAt()->format("Y-m-d\TH:i:sP");

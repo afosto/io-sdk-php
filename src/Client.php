@@ -1780,6 +1780,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param array $queryParameters {
      *
      *     @var int $is_pending_invite
+     *     @var int $is_deleted
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -2375,42 +2376,46 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Get the billing's current allowance / limits.
+     * List of subscribed products.
      *
-     * @param \Afosto\Sdk\Model\IamUsageRequest[] $body  Email object
-     * @param string                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamUsageResponse[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getCurrentAllowance(array $body, string $fetch = self::FETCH_OBJECT)
+    public function getUsages(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetCurrentAllowance($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUsages($id), $fetch);
     }
 
     /**
-     * Test if product allowance is ok.
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @param \Afosto\Sdk\Model\IamUsageProjectionRequest[] $body  Email object
-     * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamSubscriptionsProjectionPostResponse200|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamInvoice[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getUsageProjection(array $body, string $fetch = self::FETCH_OBJECT)
+    public function listInvoices(string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUsageProjection($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInvoices(), $fetch);
     }
 
     /**
-     * Update a subscription based on the reference.
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @param \Afosto\Sdk\Model\IamSubscriptionsProjectionPutBody $body  Reference that belongs to the usage request
-     * @param string                                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamSubscription[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamInvoice|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateSubscription(\Afosto\Sdk\Model\IamSubscriptionsProjectionPutBody $body, string $fetch = self::FETCH_OBJECT)
+    public function getUpcoming(string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateSubscription($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUpcoming(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamTrial|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getTrial(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTrial(), $fetch);
     }
 
     /**

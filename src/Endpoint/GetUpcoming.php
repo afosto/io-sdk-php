@@ -10,33 +10,23 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class UpdateSubscription extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class GetUpcoming extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
-    /**
-     * Update a subscription based on the reference.
-     *
-     * @param \Afosto\Sdk\Model\IamSubscriptionsProjectionPutBody $body Reference that belongs to the usage request
-     */
-    public function __construct(\Afosto\Sdk\Model\IamSubscriptionsProjectionPutBody $body)
-    {
-        $this->body = $body;
-    }
-
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
-        return 'PUT';
+        return 'GET';
     }
 
     public function getUri(): string
     {
-        return '/iam/subscriptions/projection';
+        return '/iam/subscriptions/invoices/next';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
     {
-        return $this->getSerializedBody($serializer);
+        return [[], null];
     }
 
     public function getExtraHeaders(): array
@@ -48,12 +38,12 @@ class UpdateSubscription extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
      * {@inheritdoc}
      *
      *
-     * @return \Afosto\Sdk\Model\IamSubscription[]|null
+     * @return \Afosto\Sdk\Model\IamInvoice|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamSubscription[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamInvoice', 'json');
         }
     }
 }

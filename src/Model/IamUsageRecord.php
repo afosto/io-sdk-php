@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class IamUsageRequest
+class IamUsageRecord
 {
     /**
      * @var string
@@ -20,6 +20,10 @@ class IamUsageRequest
      * @var string
      */
     protected $unit;
+    /**
+     * @var int
+     */
+    protected $quantity;
 
     /**
      * @return string|null
@@ -57,6 +61,26 @@ class IamUsageRequest
     public function setUnit(?string $unit): self
     {
         $this->unit = $unit;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param int|null $quantity
+     *
+     * @return self
+     */
+    public function setQuantity(?int $quantity): self
+    {
+        $this->quantity = $quantity;
 
         return $this;
     }

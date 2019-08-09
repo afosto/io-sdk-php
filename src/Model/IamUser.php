@@ -37,6 +37,10 @@ class IamUser
      */
     protected $isPendingInvite;
     /**
+     * @var bool
+     */
+    protected $isDeleted;
+    /**
      * @var string
      */
     protected $tenantId;
@@ -44,6 +48,10 @@ class IamUser
      * @var string[]
      */
     protected $roles;
+    /**
+     * @var \DateTime
+     */
+    protected $deletedAt;
     /**
      * @var \DateTime
      */
@@ -174,6 +182,26 @@ class IamUser
     }
 
     /**
+     * @return bool|null
+     */
+    public function getIsDeleted(): ?bool
+    {
+        return $this->isDeleted;
+    }
+
+    /**
+     * @param bool|null $isDeleted
+     *
+     * @return self
+     */
+    public function setIsDeleted(?bool $isDeleted): self
+    {
+        $this->isDeleted = $isDeleted;
+
+        return $this;
+    }
+
+    /**
      * @return string|null
      */
     public function getTenantId(): ?string
@@ -209,6 +237,26 @@ class IamUser
     public function setRoles(?array $roles): self
     {
         $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getDeletedAt(): ?\DateTime
+    {
+        return $this->deletedAt;
+    }
+
+    /**
+     * @param \DateTime|null $deletedAt
+     *
+     * @return self
+     */
+    public function setDeletedAt(?\DateTime $deletedAt): self
+    {
+        $this->deletedAt = $deletedAt;
 
         return $this;
     }

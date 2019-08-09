@@ -10,33 +10,35 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class GetUsageProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class GetUsages extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
+    protected $id;
+
     /**
-     * Test if product allowance is ok.
+     * List of subscribed products.
      *
-     * @param \Afosto\Sdk\Model\IamUsageProjectionRequest[] $body Email object
+     * @param string $id
      */
-    public function __construct(array $body)
+    public function __construct(string $id)
     {
-        $this->body = $body;
+        $this->id = $id;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
-        return 'POST';
+        return 'GET';
     }
 
     public function getUri(): string
     {
-        return '/iam/subscriptions/projection';
+        return str_replace(['{id}'], [$this->id], '/iam/subscriptions/{id}/usages');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
     {
-        return $this->getSerializedBody($serializer);
+        return [[], null];
     }
 
     public function getExtraHeaders(): array
@@ -48,12 +50,12 @@ class GetUsageProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
      * {@inheritdoc}
      *
      *
-     * @return \Afosto\Sdk\Model\IamSubscriptionsProjectionPostResponse200|null
+     * @return \Afosto\Sdk\Model\IamUsageRecord[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamSubscriptionsProjectionPostResponse200', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamUsageRecord[]', 'json');
         }
     }
 }

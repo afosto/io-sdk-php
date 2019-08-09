@@ -10,33 +10,23 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class GetCurrentAllowance extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class ListInvoices extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
-    /**
-     * Get the billing's current allowance / limits.
-     *
-     * @param \Afosto\Sdk\Model\IamUsageRequest[] $body Email object
-     */
-    public function __construct(array $body)
-    {
-        $this->body = $body;
-    }
-
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
-        return 'POST';
+        return 'GET';
     }
 
     public function getUri(): string
     {
-        return '/iam/subscriptions/allowance';
+        return '/iam/subscriptions/invoices';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
     {
-        return $this->getSerializedBody($serializer);
+        return [[], null];
     }
 
     public function getExtraHeaders(): array
@@ -48,12 +38,12 @@ class GetCurrentAllowance extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
      * {@inheritdoc}
      *
      *
-     * @return \Afosto\Sdk\Model\IamUsageResponse[]|null
+     * @return \Afosto\Sdk\Model\IamInvoice[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamUsageResponse[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamInvoice[]', 'json');
         }
     }
 }
