@@ -12,33 +12,31 @@ namespace Afosto\Sdk\Endpoint;
 
 class GetUsages extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
-    protected $id;
-
     /**
      * List of subscribed products.
      *
-     * @param string $id
+     * @param \Afosto\Sdk\Model\IamUsageRequest $body
      */
-    public function __construct(string $id)
+    public function __construct(\Afosto\Sdk\Model\IamUsageRequest $body)
     {
-        $this->id = $id;
+        $this->body = $body;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
-        return 'GET';
+        return 'POST';
     }
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/iam/subscriptions/{id}/usages');
+        return '/iam/subscriptions/usages';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
     {
-        return [[], null];
+        return $this->getSerializedBody($serializer);
     }
 
     public function getExtraHeaders(): array

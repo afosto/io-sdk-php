@@ -2376,19 +2376,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * List of subscribed products.
-     *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getUsages(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUsages($id), $fetch);
-    }
-
-    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return \Afosto\Sdk\Model\IamInvoice[]|\Psr\Http\Message\ResponseInterface|null
@@ -2416,6 +2403,19 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function getTrial(string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTrial(), $fetch);
+    }
+
+    /**
+     * List of subscribed products.
+     *
+     * @param \Afosto\Sdk\Model\IamUsageRequest $body
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getUsages(\Afosto\Sdk\Model\IamUsageRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUsages($body), $fetch);
     }
 
     /**
