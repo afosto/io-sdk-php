@@ -73,8 +73,14 @@ class IamClientNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'is_approved') && $data->{'is_approved'} !== null) {
             $object->setIsApproved($data->{'is_approved'});
         }
+        if (property_exists($data, 'is_deleted') && $data->{'is_deleted'} !== null) {
+            $object->setIsDeleted($data->{'is_deleted'});
+        }
         if (property_exists($data, 'author') && $data->{'author'} !== null) {
             $object->setAuthor($data->{'author'});
+        }
+        if (property_exists($data, 'deleted_at') && $data->{'deleted_at'} !== null) {
+            $object->setDeletedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'deleted_at'}));
         }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -124,8 +130,14 @@ class IamClientNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (null !== $object->getIsApproved()) {
             $data->{'is_approved'} = $object->getIsApproved();
         }
+        if (null !== $object->getIsDeleted()) {
+            $data->{'is_deleted'} = $object->getIsDeleted();
+        }
         if (null !== $object->getAuthor()) {
             $data->{'author'} = $object->getAuthor();
+        }
+        if (null !== $object->getDeletedAt()) {
+            $data->{'deleted_at'} = $object->getDeletedAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

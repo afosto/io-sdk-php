@@ -12,17 +12,13 @@ namespace Afosto\Sdk\Endpoint;
 
 class Subscribe extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
-    protected $id;
-
     /**
-     * Add a subscription to recieve updates on this conversation.
+     * Add a product to the subscription.
      *
-     * @param int                               $id
-     * @param \Afosto\Sdk\Model\MesSubscription $body The subscription data
+     * @param \Afosto\Sdk\Model\IamSubscribe $body
      */
-    public function __construct(int $id, \Afosto\Sdk\Model\MesSubscription $body)
+    public function __construct(\Afosto\Sdk\Model\IamSubscribe $body)
     {
-        $this->id = $id;
         $this->body = $body;
     }
 
@@ -35,7 +31,7 @@ class Subscribe extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/mes/conversations/{id}/subscribe');
+        return '/iam/subscriptions';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -51,21 +47,13 @@ class Subscribe extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\SubscribeUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\SubscribeNotFoundException
      *
-     * @return \Afosto\Sdk\Model\MesConversation|null
+     * @return \Afosto\Sdk\Model\IamUsageRecord[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\MesConversation', 'json');
-        }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\SubscribeUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
-        if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\SubscribeNotFoundException();
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamUsageRecord[]', 'json');
         }
     }
 }

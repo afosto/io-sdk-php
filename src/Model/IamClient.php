@@ -49,9 +49,17 @@ class IamClient
      */
     protected $isApproved;
     /**
+     * @var bool
+     */
+    protected $isDeleted;
+    /**
      * @var string
      */
     protected $author;
+    /**
+     * @var \DateTime
+     */
+    protected $deletedAt;
     /**
      * @var \DateTime
      */
@@ -242,6 +250,26 @@ class IamClient
     }
 
     /**
+     * @return bool|null
+     */
+    public function getIsDeleted(): ?bool
+    {
+        return $this->isDeleted;
+    }
+
+    /**
+     * @param bool|null $isDeleted
+     *
+     * @return self
+     */
+    public function setIsDeleted(?bool $isDeleted): self
+    {
+        $this->isDeleted = $isDeleted;
+
+        return $this;
+    }
+
+    /**
      * @return string|null
      */
     public function getAuthor(): ?string
@@ -257,6 +285,26 @@ class IamClient
     public function setAuthor(?string $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getDeletedAt(): ?\DateTime
+    {
+        return $this->deletedAt;
+    }
+
+    /**
+     * @param \DateTime|null $deletedAt
+     *
+     * @return self
+     */
+    public function setDeletedAt(?\DateTime $deletedAt): self
+    {
+        $this->deletedAt = $deletedAt;
 
         return $this;
     }

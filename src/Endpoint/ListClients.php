@@ -12,6 +12,19 @@ namespace Afosto\Sdk\Endpoint;
 
 class ListClients extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
+    /**
+     * Returns a list of clients.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $is_deleted
+     * }
+     */
+    public function __construct(array $queryParameters = [])
+    {
+        $this->queryParameters = $queryParameters;
+    }
+
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
@@ -32,6 +45,17 @@ class ListClients extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['is_deleted']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['is_deleted' => 0]);
+        $optionsResolver->setAllowedTypes('is_deleted', ['string']);
+
+        return $optionsResolver;
     }
 
     /**

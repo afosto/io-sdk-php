@@ -154,6 +154,7 @@ class NormalizerFactory
         $normalizers[] = new IamSubscriptionItemNormalizer();
         $normalizers[] = new IamUsageRequestNormalizer();
         $normalizers[] = new IamTrialNormalizer();
+        $normalizers[] = new IamSubscribeNormalizer();
         $normalizers[] = new IamProductNormalizer();
         $normalizers[] = new IamPlanNormalizer();
         $normalizers[] = new IamTierNormalizer();

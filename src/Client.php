@@ -688,20 +688,16 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Add a subscription to recieve updates on this conversation.
+     * Add a product to the subscription.
      *
-     * @param int                               $id
-     * @param \Afosto\Sdk\Model\MesSubscription $body  The subscription data
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\IamSubscribe $body
+     * @param string                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\SubscribeUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\SubscribeNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function subscribe(int $id, \Afosto\Sdk\Model\MesSubscription $body, string $fetch = self::FETCH_OBJECT)
+    public function subscribe(\Afosto\Sdk\Model\IamSubscribe $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Subscribe($id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Subscribe($body), $fetch);
     }
 
     /**
@@ -2077,6 +2073,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a list of clients.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $is_deleted
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListClientsUnauthorizedException
@@ -2084,9 +2087,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\IamClient[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listClients(string $fetch = self::FETCH_OBJECT)
+    public function listClients(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListClients(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListClients($queryParameters), $fetch);
     }
 
     /**
