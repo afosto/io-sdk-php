@@ -21,6 +21,10 @@ class IamAuthorizationResponse
      */
     protected $clientName;
     /**
+     * @var string
+     */
+    protected $clientRedirectUri;
+    /**
      * @var IamScope[]
      */
     protected $scope;
@@ -73,6 +77,26 @@ class IamAuthorizationResponse
     public function setClientName(?string $clientName): self
     {
         $this->clientName = $clientName;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getClientRedirectUri(): ?string
+    {
+        return $this->clientRedirectUri;
+    }
+
+    /**
+     * @param string|null $clientRedirectUri
+     *
+     * @return self
+     */
+    public function setClientRedirectUri(?string $clientRedirectUri): self
+    {
+        $this->clientRedirectUri = $clientRedirectUri;
 
         return $this;
     }

@@ -17,7 +17,7 @@ class ListClients extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @param array $queryParameters {
      *
-     *     @var string $is_deleted
+     *     @var int $is_deleted
      * }
      */
     public function __construct(array $queryParameters = [])
@@ -53,7 +53,7 @@ class ListClients extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         $optionsResolver->setDefined(['is_deleted']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults(['is_deleted' => 0]);
-        $optionsResolver->setAllowedTypes('is_deleted', ['string']);
+        $optionsResolver->setAllowedTypes('is_deleted', ['int']);
 
         return $optionsResolver;
     }

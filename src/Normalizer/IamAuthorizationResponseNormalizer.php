@@ -44,6 +44,9 @@ class IamAuthorizationResponseNormalizer implements DenormalizerInterface, Norma
         if (property_exists($data, 'client_name') && $data->{'client_name'} !== null) {
             $object->setClientName($data->{'client_name'});
         }
+        if (property_exists($data, 'client_redirect_uri') && $data->{'client_redirect_uri'} !== null) {
+            $object->setClientRedirectUri($data->{'client_redirect_uri'});
+        }
         if (property_exists($data, 'scope') && $data->{'scope'} !== null) {
             $values = [];
             foreach ($data->{'scope'} as $value) {
@@ -72,6 +75,9 @@ class IamAuthorizationResponseNormalizer implements DenormalizerInterface, Norma
         }
         if (null !== $object->getClientName()) {
             $data->{'client_name'} = $object->getClientName();
+        }
+        if (null !== $object->getClientRedirectUri()) {
+            $data->{'client_redirect_uri'} = $object->getClientRedirectUri();
         }
         if (null !== $object->getScope()) {
             $values = [];

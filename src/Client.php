@@ -2077,7 +2077,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param array $queryParameters {
      *
-     *     @var string $is_deleted
+     *     @var int $is_deleted
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -2429,7 +2429,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *     @var string $method The method filter
      *     @var string $resource The resource filter
      *     @var string $user The user filter
-     *     @var string $created_after Timestamp to filter create date
+     *     @var string $logged_after Timestamp to filter log date
      * }
      *
      * @param array $headerParameters {

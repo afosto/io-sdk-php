@@ -53,6 +53,9 @@ class IamLogNormalizer implements DenormalizerInterface, NormalizerInterface, De
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
             $object->setMetadata($data->{'metadata'});
         }
+        if (property_exists($data, 'logged_at') && $data->{'logged_at'} !== null) {
+            $object->setLoggedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'logged_at'}));
+        }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
@@ -77,6 +80,9 @@ class IamLogNormalizer implements DenormalizerInterface, NormalizerInterface, De
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();
+        }
+        if (null !== $object->getLoggedAt()) {
+            $data->{'logged_at'} = $object->getLoggedAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

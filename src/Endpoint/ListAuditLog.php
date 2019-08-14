@@ -20,7 +20,7 @@ class ListAuditLog extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *     @var string $method The method filter
      *     @var string $resource The resource filter
      *     @var string $user The user filter
-     *     @var string $created_after Timestamp to filter create date
+     *     @var string $logged_after Timestamp to filter log date
      * }
      *
      * @param array $headerParameters {
@@ -60,13 +60,13 @@ class ListAuditLog extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['method', 'resource', 'user', 'created_after']);
+        $optionsResolver->setDefined(['method', 'resource', 'user', 'logged_after']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('method', ['string']);
         $optionsResolver->setAllowedTypes('resource', ['string']);
         $optionsResolver->setAllowedTypes('user', ['string']);
-        $optionsResolver->setAllowedTypes('created_after', ['string']);
+        $optionsResolver->setAllowedTypes('logged_after', ['string']);
 
         return $optionsResolver;
     }

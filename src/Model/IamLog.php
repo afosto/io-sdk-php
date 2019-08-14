@@ -35,6 +35,10 @@ class IamLog
     /**
      * @var \DateTime
      */
+    protected $loggedAt;
+    /**
+     * @var \DateTime
+     */
     protected $createdAt;
 
     /**
@@ -133,6 +137,26 @@ class IamLog
     public function setMetadata($metadata): self
     {
         $this->metadata = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getLoggedAt(): ?\DateTime
+    {
+        return $this->loggedAt;
+    }
+
+    /**
+     * @param \DateTime|null $loggedAt
+     *
+     * @return self
+     */
+    public function setLoggedAt(?\DateTime $loggedAt): self
+    {
+        $this->loggedAt = $loggedAt;
 
         return $this;
     }
