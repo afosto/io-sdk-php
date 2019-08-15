@@ -63,9 +63,6 @@ class IamSubtenantNormalizer implements DenormalizerInterface, NormalizerInterfa
             }
             $object->setRoles($values);
         }
-        if (property_exists($data, 'expires_at') && $data->{'expires_at'} !== null) {
-            $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
-        }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
@@ -100,9 +97,6 @@ class IamSubtenantNormalizer implements DenormalizerInterface, NormalizerInterfa
                 $values[] = $value;
             }
             $data->{'roles'} = $values;
-        }
-        if (null !== $object->getExpiresAt()) {
-            $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

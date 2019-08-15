@@ -168,7 +168,9 @@ class NormalizerFactory
         $normalizers[] = new CntDirectoriesGetResponse200Normalizer();
         $normalizers[] = new IamTenantsPostResponse200Normalizer();
         $normalizers[] = new IamTenantsIdPutBodyNormalizer();
+        $normalizers[] = new IamSubtenantsInvitesIdPutBodyNormalizer();
         $normalizers[] = new IamSubtenantsRequestsPostBodyNormalizer();
+        $normalizers[] = new IamSubtenantsAuthorizationsRequestsIdPutBodyNormalizer();
         $normalizers[] = new IamSubtenantsAuthorizationsInvitesPostBodyNormalizer();
         $normalizers[] = new IamOauthForwardReferenceGetResponse200Normalizer();
         $normalizers[] = new IamCardsPostBodyNormalizer();

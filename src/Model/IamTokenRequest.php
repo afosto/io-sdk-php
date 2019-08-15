@@ -28,14 +28,6 @@ class IamTokenRequest
      * @var string
      */
     protected $scope;
-    /**
-     * @var string
-     */
-    protected $username;
-    /**
-     * @var string
-     */
-    protected $password;
 
     /**
      * @return string|null
@@ -113,46 +105,6 @@ class IamTokenRequest
     public function setScope(?string $scope): self
     {
         $this->scope = $scope;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getUsername(): ?string
-    {
-        return $this->username;
-    }
-
-    /**
-     * @param string|null $username
-     *
-     * @return self
-     */
-    public function setUsername(?string $username): self
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    /**
-     * @param string|null $password
-     *
-     * @return self
-     */
-    public function setPassword(?string $password): self
-    {
-        $this->password = $password;
 
         return $this;
     }

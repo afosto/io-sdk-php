@@ -57,9 +57,6 @@ class IamAuthorizationNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'state') && $data->{'state'} !== null) {
             $object->setState($data->{'state'});
         }
-        if (property_exists($data, 'expires_at') && $data->{'expires_at'} !== null) {
-            $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
-        }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
@@ -91,9 +88,6 @@ class IamAuthorizationNormalizer implements DenormalizerInterface, NormalizerInt
         }
         if (null !== $object->getState()) {
             $data->{'state'} = $object->getState();
-        }
-        if (null !== $object->getExpiresAt()) {
-            $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

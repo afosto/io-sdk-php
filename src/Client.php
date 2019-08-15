@@ -1821,6 +1821,23 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Updates the invite state.
+     *
+     * @param string                                          $id
+     * @param \Afosto\Sdk\Model\IamSubtenantsInvitesIdPutBody $body
+     * @param string                                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateInviteUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateInviteNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamSubtenant|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateInvite(string $id, \Afosto\Sdk\Model\IamSubtenantsInvitesIdPutBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInvite($id, $body), $fetch);
+    }
+
+    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListPendingSubtenantsUnauthorizedException
@@ -1880,6 +1897,23 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function listPendingAuthorizationRequests(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListPendingAuthorizationRequests($queryParameters), $fetch);
+    }
+
+    /**
+     * Updates the request state.
+     *
+     * @param string                                                         $id
+     * @param \Afosto\Sdk\Model\IamSubtenantsAuthorizationsRequestsIdPutBody $body
+     * @param string                                                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateRequestUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateRequestNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamAuthorization|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateRequest(string $id, \Afosto\Sdk\Model\IamSubtenantsAuthorizationsRequestsIdPutBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateRequest($id, $body), $fetch);
     }
 
     /**
@@ -2349,11 +2383,12 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *     @var string $client_id
      *     @var string $response_type
      *     @var string $scope
+     *     @var string $tenant
      * }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Authorization Bearer token for user
+     *     @var string $Authorization Bearer ID token
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

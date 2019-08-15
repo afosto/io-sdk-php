@@ -43,10 +43,6 @@ class IamSubtenant
     /**
      * @var \DateTime
      */
-    protected $expiresAt;
-    /**
-     * @var \DateTime
-     */
     protected $createdAt;
 
     /**
@@ -185,26 +181,6 @@ class IamSubtenant
     public function setRoles(?array $roles): self
     {
         $this->roles = $roles;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getExpiresAt(): ?\DateTime
-    {
-        return $this->expiresAt;
-    }
-
-    /**
-     * @param \DateTime|null $expiresAt
-     *
-     * @return self
-     */
-    public function setExpiresAt(?\DateTime $expiresAt): self
-    {
-        $this->expiresAt = $expiresAt;
 
         return $this;
     }

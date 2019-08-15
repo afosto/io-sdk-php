@@ -35,10 +35,6 @@ class IamAuthorization
     /**
      * @var \DateTime
      */
-    protected $expiresAt;
-    /**
-     * @var \DateTime
-     */
     protected $createdAt;
     /**
      * @var \DateTime
@@ -141,26 +137,6 @@ class IamAuthorization
     public function setState(?string $state): self
     {
         $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getExpiresAt(): ?\DateTime
-    {
-        return $this->expiresAt;
-    }
-
-    /**
-     * @param \DateTime|null $expiresAt
-     *
-     * @return self
-     */
-    public function setExpiresAt(?\DateTime $expiresAt): self
-    {
-        $this->expiresAt = $expiresAt;
 
         return $this;
     }

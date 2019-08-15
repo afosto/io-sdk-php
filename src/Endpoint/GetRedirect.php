@@ -21,11 +21,12 @@ class GetRedirect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *     @var string $client_id
      *     @var string $response_type
      *     @var string $scope
+     *     @var string $tenant
      * }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Authorization Bearer token for user
+     *     @var string $Authorization Bearer ID token
      * }
      */
     public function __construct(array $queryParameters = [], array $headerParameters = [])
@@ -59,13 +60,14 @@ class GetRedirect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['redirect_uri', 'client_id', 'response_type', 'scope']);
+        $optionsResolver->setDefined(['redirect_uri', 'client_id', 'response_type', 'scope', 'tenant']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('redirect_uri', ['string']);
         $optionsResolver->setAllowedTypes('client_id', ['string']);
         $optionsResolver->setAllowedTypes('response_type', ['string']);
         $optionsResolver->setAllowedTypes('scope', ['string']);
+        $optionsResolver->setAllowedTypes('tenant', ['string']);
 
         return $optionsResolver;
     }

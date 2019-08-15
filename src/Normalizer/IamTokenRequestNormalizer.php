@@ -50,12 +50,6 @@ class IamTokenRequestNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'scope') && $data->{'scope'} !== null) {
             $object->setScope($data->{'scope'});
         }
-        if (property_exists($data, 'username') && $data->{'username'} !== null) {
-            $object->setUsername($data->{'username'});
-        }
-        if (property_exists($data, 'password') && $data->{'password'} !== null) {
-            $object->setPassword($data->{'password'});
-        }
 
         return $object;
     }
@@ -74,12 +68,6 @@ class IamTokenRequestNormalizer implements DenormalizerInterface, NormalizerInte
         }
         if (null !== $object->getScope()) {
             $data->{'scope'} = $object->getScope();
-        }
-        if (null !== $object->getUsername()) {
-            $data->{'username'} = $object->getUsername();
-        }
-        if (null !== $object->getPassword()) {
-            $data->{'password'} = $object->getPassword();
         }
 
         return $data;
