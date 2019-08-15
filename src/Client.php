@@ -1771,6 +1771,147 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Update the company name.
+     *
+     * @param string                                $id    Id that belongs to the tenant
+     * @param \Afosto\Sdk\Model\IamTenantsIdPutBody $body
+     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateCompanyNameUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateCompanyNameNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamTenant|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateCompanyName(string $id, \Afosto\Sdk\Model\IamTenantsIdPutBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateCompanyName($id, $body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListSubtenantsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListSubtenantsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamSubtenant[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listSubtenants(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListSubtenants(), $fetch);
+    }
+
+    /**
+     * Returns a list of subtenants.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $state
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListPendingInvitesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListPendingInvitesNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamSubtenant[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listPendingInvites(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListPendingInvites($queryParameters), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListPendingSubtenantsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListPendingSubtenantsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamPendingRequest[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listPendingSubtenants(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListPendingSubtenants(), $fetch);
+    }
+
+    /**
+     * Create a new subtenant request.
+     *
+     * @param \Afosto\Sdk\Model\IamSubtenantsRequestsPostBody $body
+     * @param string                                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SendSubtenantRequestUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SendSubtenantRequestNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamPendingRequest|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function sendSubtenantRequest(\Afosto\Sdk\Model\IamSubtenantsRequestsPostBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SendSubtenantRequest($body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListAuthorizationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListAuthorizationsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamAuthorization[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listAuthorizations(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListAuthorizations(), $fetch);
+    }
+
+    /**
+     * Returns a list of subtenants.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $state
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationRequestsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationRequestsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamAuthorization[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listPendingAuthorizationRequests(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListPendingAuthorizationRequests($queryParameters), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamPendingAuthorization[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listPendingAuthorizationInvites(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListPendingAuthorizationInvites(), $fetch);
+    }
+
+    /**
+     * Create a new subtenant request.
+     *
+     * @param \Afosto\Sdk\Model\IamSubtenantsAuthorizationsInvitesPostBody $body
+     * @param string                                                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SendInviteUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SendInviteNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamPendingAuthorization|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function sendInvite(\Afosto\Sdk\Model\IamSubtenantsAuthorizationsInvitesPostBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SendInvite($body), $fetch);
+    }
+
+    /**
      * Returns a list of users.
      *
      * @param array $queryParameters {

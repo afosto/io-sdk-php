@@ -127,6 +127,11 @@ class NormalizerFactory
         $normalizers[] = new MesReportNormalizer();
         $normalizers[] = new MesBucketNormalizer();
         $normalizers[] = new MesTypeNormalizer();
+        $normalizers[] = new IamSubtenantNormalizer();
+        $normalizers[] = new IamPendingRequestNormalizer();
+        $normalizers[] = new IamPendingAuthorizationNormalizer();
+        $normalizers[] = new IamAuthorizationNormalizer();
+        $normalizers[] = new IamSubtenantUserNormalizer();
         $normalizers[] = new IamRoleNormalizer();
         $normalizers[] = new IamSystemRoleNormalizer();
         $normalizers[] = new IamRoleModelNormalizer();
@@ -162,6 +167,9 @@ class NormalizerFactory
         $normalizers[] = new IamLogNormalizer();
         $normalizers[] = new CntDirectoriesGetResponse200Normalizer();
         $normalizers[] = new IamTenantsPostResponse200Normalizer();
+        $normalizers[] = new IamTenantsIdPutBodyNormalizer();
+        $normalizers[] = new IamSubtenantsRequestsPostBodyNormalizer();
+        $normalizers[] = new IamSubtenantsAuthorizationsInvitesPostBodyNormalizer();
         $normalizers[] = new IamOauthForwardReferenceGetResponse200Normalizer();
         $normalizers[] = new IamCardsPostBodyNormalizer();
         $normalizers[] = new IamLogsFiltersGetResponse200Normalizer();

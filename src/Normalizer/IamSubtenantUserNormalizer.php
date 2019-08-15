@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class IamUserUpdateModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class IamSubtenantUserNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamUserUpdateModel';
+        return $type === 'Afosto\\Sdk\\Model\\IamSubtenantUser';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamUserUpdateModel';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\IamSubtenantUser';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,18 @@ class IamUserUpdateModelNormalizer implements DenormalizerInterface, NormalizerI
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\IamUserUpdateModel();
+        $object = new \Afosto\Sdk\Model\IamSubtenantUser();
         if (property_exists($data, 'first_name') && $data->{'first_name'} !== null) {
             $object->setFirstName($data->{'first_name'});
         }
         if (property_exists($data, 'last_name') && $data->{'last_name'} !== null) {
             $object->setLastName($data->{'last_name'});
+        }
+        if (property_exists($data, 'email') && $data->{'email'} !== null) {
+            $object->setEmail($data->{'email'});
+        }
+        if (property_exists($data, 'company') && $data->{'company'} !== null) {
+            $object->setCompany($data->{'company'});
         }
 
         return $object;
@@ -56,6 +62,12 @@ class IamUserUpdateModelNormalizer implements DenormalizerInterface, NormalizerI
         }
         if (null !== $object->getLastName()) {
             $data->{'last_name'} = $object->getLastName();
+        }
+        if (null !== $object->getEmail()) {
+            $data->{'email'} = $object->getEmail();
+        }
+        if (null !== $object->getCompany()) {
+            $data->{'company'} = $object->getCompany();
         }
 
         return $data;
