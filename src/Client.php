@@ -688,16 +688,20 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Add a product to the subscription.
+     * Add a subscription to recieve updates on this conversation.
      *
-     * @param \Afosto\Sdk\Model\IamSubscribe $body
-     * @param string                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param int                               $id
+     * @param \Afosto\Sdk\Model\MesSubscription $body  The subscription data
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
+     * @throws \Afosto\Sdk\Exception\SubscribeUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SubscribeNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function subscribe(\Afosto\Sdk\Model\IamSubscribe $body, string $fetch = self::FETCH_OBJECT)
+    public function subscribe(int $id, \Afosto\Sdk\Model\MesSubscription $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Subscribe($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Subscribe($id, $body), $fetch);
     }
 
     /**
@@ -2552,6 +2556,19 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function listSubscriptions(string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListSubscriptions(), $fetch);
+    }
+
+    /**
+     * Add a product to the subscription.
+     *
+     * @param \Afosto\Sdk\Model\IamSubscribe $body
+     * @param string                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function addSubscription(\Afosto\Sdk\Model\IamSubscribe $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddSubscription($body), $fetch);
     }
 
     /**
