@@ -1825,6 +1825,19 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetDefaultSubtenantUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetDefaultSubtenantNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamSubtenant|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getDefaultSubtenant(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetDefaultSubtenant(), $fetch);
+    }
+
+    /**
      * Updates the invite state.
      *
      * @param string                                          $id
