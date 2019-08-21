@@ -41,6 +41,9 @@ class IamSubscriptionNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
+        if (property_exists($data, 'code') && $data->{'code'} !== null) {
+            $object->setCode($data->{'code'});
+        }
         if (property_exists($data, 'is_renewing') && $data->{'is_renewing'} !== null) {
             $object->setIsRenewing($data->{'is_renewing'});
         }
@@ -66,6 +69,9 @@ class IamSubscriptionNormalizer implements DenormalizerInterface, NormalizerInte
         $data = new \stdClass();
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
+        }
+        if (null !== $object->getCode()) {
+            $data->{'code'} = $object->getCode();
         }
         if (null !== $object->getIsRenewing()) {
             $data->{'is_renewing'} = $object->getIsRenewing();

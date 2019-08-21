@@ -2564,7 +2564,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamSubscription|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamSubscription[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listSubscriptions(string $fetch = self::FETCH_OBJECT)
     {

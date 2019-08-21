@@ -38,12 +38,12 @@ class ListSubscriptions extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      * {@inheritdoc}
      *
      *
-     * @return \Afosto\Sdk\Model\IamSubscription|null
+     * @return \Afosto\Sdk\Model\IamSubscription[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamSubscription', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamSubscription[]', 'json');
         }
     }
 }

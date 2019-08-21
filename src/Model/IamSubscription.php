@@ -17,6 +17,10 @@ class IamSubscription
      */
     protected $id;
     /**
+     * @var string
+     */
+    protected $code;
+    /**
      * @var bool
      */
     protected $isRenewing;
@@ -49,6 +53,26 @@ class IamSubscription
     public function setId(?string $id): self
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string|null $code
+     *
+     * @return self
+     */
+    public function setCode(?string $code): self
+    {
+        $this->code = $code;
 
         return $this;
     }
