@@ -317,6 +317,55 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Create a address set.
+     *
+     * @param \Afosto\Sdk\Model\OdrAddressSetModel $body
+     * @param string                               $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateAddressSetUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateAddressSetNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrAddressSet|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createAddressSet(\Afosto\Sdk\Model\OdrAddressSetModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateAddressSet($body), $fetch);
+    }
+
+    /**
+     * View an address set.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetAddressSetUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetAddressSetNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrAddressSet|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getAddressSet(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetAddressSet($id), $fetch);
+    }
+
+    /**
+     * Get a formatted address for a given address set.
+     *
+     * @param string                                   $id
+     * @param \Afosto\Sdk\Model\OdrAddressesIdPostBody $body
+     * @param string                                   $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetFormattedAddressesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetFormattedAddressesNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrFormattedAddressSet|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getFormattedAddresses(string $id, \Afosto\Sdk\Model\OdrAddressesIdPostBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFormattedAddresses($id, $body), $fetch);
+    }
+
+    /**
      * Run a complex search to find conversations.
      *
      * @param \Afosto\Sdk\Model\MesSearch $body  Search query object
