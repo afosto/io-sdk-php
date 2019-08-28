@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class RequestResetEmailNotFoundException extends \RuntimeException implements ClientException
+class RequestTokenNotFoundException extends \RuntimeException implements ClientException
 {
     private $error;
 

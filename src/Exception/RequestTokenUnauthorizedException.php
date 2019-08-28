@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class RequestResetEmailUnauthorizedException extends \RuntimeException implements ClientException
+class RequestTokenUnauthorizedException extends \RuntimeException implements ClientException
 {
     private $error;
 

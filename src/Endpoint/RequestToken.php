@@ -10,10 +10,10 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class RequestResetEmail extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class RequestToken extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * So the user can receive a password reset mail or cofirm mail.
+     * So the user can receive a password reset mail or confirm mail.
      *
      * @param \Afosto\Sdk\Model\IamUserTokenRequest $body Request reset object
      */
@@ -47,8 +47,8 @@ class RequestResetEmail extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\RequestResetEmailUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\RequestResetEmailNotFoundException
+     * @throws \Afosto\Sdk\Exception\RequestTokenUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RequestTokenNotFoundException
      *
      * @return \Afosto\Sdk\Model\IamUserTokenResponse|null
      */
@@ -58,10 +58,10 @@ class RequestResetEmail extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamUserTokenResponse', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\RequestResetEmailUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\RequestTokenUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\RequestResetEmailNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\RequestTokenNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

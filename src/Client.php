@@ -2119,19 +2119,19 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * So the user can receive a password reset mail or cofirm mail.
+     * So the user can receive a password reset mail or confirm mail.
      *
      * @param \Afosto\Sdk\Model\IamUserTokenRequest $body  Request reset object
      * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\RequestResetEmailUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\RequestResetEmailNotFoundException
+     * @throws \Afosto\Sdk\Exception\RequestTokenUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RequestTokenNotFoundException
      *
      * @return \Afosto\Sdk\Model\IamUserTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function requestResetEmail(\Afosto\Sdk\Model\IamUserTokenRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function requestToken(\Afosto\Sdk\Model\IamUserTokenRequest $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RequestResetEmail($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RequestToken($body), $fetch);
     }
 
     /**
