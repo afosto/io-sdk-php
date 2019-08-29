@@ -835,6 +835,84 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListOrdersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListOrdersNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrChannel[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listOrders(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListOrders(), $fetch);
+    }
+
+    /**
+     * Create a new channel.
+     *
+     * @param \Afosto\Sdk\Model\OdrChannelModel $body
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateChannelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateChannelNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrChannel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createChannel(\Afosto\Sdk\Model\OdrChannelModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateChannel($body), $fetch);
+    }
+
+    /**
+     * Delete an existing channel.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteChannelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteChannelNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrChannel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteChannel(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteChannel($id), $fetch);
+    }
+
+    /**
+     * View a single channel.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewChannelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewChannelNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrChannel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewChannel(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewChannel($id), $fetch);
+    }
+
+    /**
+     * Update the channel parameters.
+     *
+     * @param string                            $id
+     * @param \Afosto\Sdk\Model\OdrChannelModel $body
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateChannelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateChannelNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrChannel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateChannel(string $id, \Afosto\Sdk\Model\OdrChannelModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateChannel($id, $body), $fetch);
+    }
+
+    /**
      * Create a new phonenumber.
      *
      * @param \Afosto\Sdk\Model\OdrPhonenumberModel $body
