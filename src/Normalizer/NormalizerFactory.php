@@ -89,6 +89,8 @@ class NormalizerFactory
         $normalizers[] = new PkrShipmentWarehouseNormalizer();
         $normalizers[] = new PkrShipmentDocumentNormalizer();
         $normalizers[] = new PkrTaskNormalizer();
+        $normalizers[] = new OdrPhonenumberModelNormalizer();
+        $normalizers[] = new OdrPhonenumberNormalizer();
         $normalizers[] = new MesMailModelNormalizer();
         $normalizers[] = new MesContactModelNormalizer();
         $normalizers[] = new MesContactNormalizer();

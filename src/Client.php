@@ -835,6 +835,38 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Create a new phonenumber.
+     *
+     * @param \Afosto\Sdk\Model\OdrPhonenumberModel $body
+     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreatePhonenumberUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreatePhonenumberNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrPhonenumber|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createPhonenumber(\Afosto\Sdk\Model\OdrPhonenumberModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreatePhonenumber($body), $fetch);
+    }
+
+    /**
+     * View a phonenumber.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetPhonenumberUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetPhonenumberNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrPhonenumber|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getPhonenumber(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPhonenumber($id), $fetch);
+    }
+
+    /**
      * Returns a list of domains.
      *
      * @param array $queryParameters {
