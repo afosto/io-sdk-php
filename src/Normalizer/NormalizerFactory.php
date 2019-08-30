@@ -40,6 +40,10 @@ class NormalizerFactory
         $normalizers[] = new OdrAddressNormalizer();
         $normalizers[] = new OdrFormattedAddressSetNormalizer();
         $normalizers[] = new OdrFormattedAddressSetAddressesItemNormalizer();
+        $normalizers[] = new OdrOrderNormalizer();
+        $normalizers[] = new OdrOrderModelNormalizer();
+        $normalizers[] = new OdrOrderUpdateModelNormalizer();
+        $normalizers[] = new OdrStateNormalizer();
         $normalizers[] = new CntSimpleQueryNormalizer();
         $normalizers[] = new CntFilterNormalizer();
         $normalizers[] = new CntSearchQueryNormalizer();
@@ -178,6 +182,7 @@ class NormalizerFactory
         $normalizers[] = new IamUsageRecordNormalizer();
         $normalizers[] = new IamLogNormalizer();
         $normalizers[] = new OdrAddressesIdPostBodyNormalizer();
+        $normalizers[] = new OdrOrdersIdStackPostBodyNormalizer();
         $normalizers[] = new CntDirectoriesGetResponse200Normalizer();
         $normalizers[] = new IamTenantsPostResponse200Normalizer();
         $normalizers[] = new IamTenantsIdPutBodyNormalizer();

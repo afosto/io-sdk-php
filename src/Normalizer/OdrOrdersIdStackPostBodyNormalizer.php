@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrStackReferenceNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrOrdersIdStackPostBodyNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrStackReference';
+        return $type === 'Afosto\\Sdk\\Model\\OdrOrdersIdStackPostBody';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrStackReference';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrOrdersIdStackPostBody';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,9 @@ class OdrStackReferenceNormalizer implements DenormalizerInterface, NormalizerIn
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrStackReference();
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
-            $object->setReference($data->{'reference'});
-        }
-        if (property_exists($data, 'is_latest') && $data->{'is_latest'} !== null) {
-            $object->setIsLatest($data->{'is_latest'});
+        $object = new \Afosto\Sdk\Model\OdrOrdersIdStackPostBody();
+        if (property_exists($data, 'stack_reference') && $data->{'stack_reference'} !== null) {
+            $object->setStackReference($data->{'stack_reference'});
         }
 
         return $object;
@@ -51,11 +48,8 @@ class OdrStackReferenceNormalizer implements DenormalizerInterface, NormalizerIn
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getReference()) {
-            $data->{'reference'} = $object->getReference();
-        }
-        if (null !== $object->getIsLatest()) {
-            $data->{'is_latest'} = $object->getIsLatest();
+        if (null !== $object->getStackReference()) {
+            $data->{'stack_reference'} = $object->getStackReference();
         }
 
         return $data;

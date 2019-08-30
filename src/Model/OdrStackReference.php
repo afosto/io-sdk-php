@@ -15,31 +15,11 @@ class OdrStackReference
     /**
      * @var string
      */
-    protected $type;
-    /**
-     * @var string
-     */
     protected $reference;
-
     /**
-     * @return string|null
+     * @var bool
      */
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
+    protected $isLatest;
 
     /**
      * @return string|null
@@ -57,6 +37,26 @@ class OdrStackReference
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
+
+        return $this;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsLatest(): ?bool
+    {
+        return $this->isLatest;
+    }
+
+    /**
+     * @param bool|null $isLatest
+     *
+     * @return self
+     */
+    public function setIsLatest(?bool $isLatest): self
+    {
+        $this->isLatest = $isLatest;
 
         return $this;
     }

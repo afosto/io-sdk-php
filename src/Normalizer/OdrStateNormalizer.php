@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrStackReferenceNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrStateNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrStackReference';
+        return $type === 'Afosto\\Sdk\\Model\\OdrState';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrStackReference';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrState';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,15 @@ class OdrStackReferenceNormalizer implements DenormalizerInterface, NormalizerIn
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrStackReference();
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
-            $object->setReference($data->{'reference'});
+        $object = new \Afosto\Sdk\Model\OdrState();
+        if (property_exists($data, 'is_confirmed') && $data->{'is_confirmed'} !== null) {
+            $object->setIsConfirmed($data->{'is_confirmed'});
         }
-        if (property_exists($data, 'is_latest') && $data->{'is_latest'} !== null) {
-            $object->setIsLatest($data->{'is_latest'});
+        if (property_exists($data, 'is_accepted') && $data->{'is_accepted'} !== null) {
+            $object->setIsAccepted($data->{'is_accepted'});
+        }
+        if (property_exists($data, 'is_approved') && $data->{'is_approved'} !== null) {
+            $object->setIsApproved($data->{'is_approved'});
         }
 
         return $object;
@@ -51,11 +54,14 @@ class OdrStackReferenceNormalizer implements DenormalizerInterface, NormalizerIn
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getReference()) {
-            $data->{'reference'} = $object->getReference();
+        if (null !== $object->getIsConfirmed()) {
+            $data->{'is_confirmed'} = $object->getIsConfirmed();
         }
-        if (null !== $object->getIsLatest()) {
-            $data->{'is_latest'} = $object->getIsLatest();
+        if (null !== $object->getIsAccepted()) {
+            $data->{'is_accepted'} = $object->getIsAccepted();
+        }
+        if (null !== $object->getIsApproved()) {
+            $data->{'is_approved'} = $object->getIsApproved();
         }
 
         return $data;

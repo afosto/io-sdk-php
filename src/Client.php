@@ -366,6 +366,118 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListOrdersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListOrdersNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrChannel[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listOrders(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListOrders(), $fetch);
+    }
+
+    /**
+     * Create a new order.
+     *
+     * @param \Afosto\Sdk\Model\OdrOrderModel $body
+     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateOrderUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateOrderNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createOrder(\Afosto\Sdk\Model\OdrOrderModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateOrder($body), $fetch);
+    }
+
+    /**
+     * Delete an existing order.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteOrderUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteOrderNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteOrder(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteOrder($id), $fetch);
+    }
+
+    /**
+     * View a single order.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewOrderUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewOrderNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewOrder(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewOrder($id), $fetch);
+    }
+
+    /**
+     * Update the customer parameters for the order.
+     *
+     * @param string                                $id
+     * @param \Afosto\Sdk\Model\OdrOrderUpdateModel $body
+     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateOrderUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateOrder(string $id, \Afosto\Sdk\Model\OdrOrderUpdateModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateOrder($id, $body), $fetch);
+    }
+
+    /**
+     * Update the order state.
+     *
+     * @param string                     $id
+     * @param \Afosto\Sdk\Model\OdrState $body
+     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateOrderStateUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderStateNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateOrderState(string $id, \Afosto\Sdk\Model\OdrState $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateOrderState($id, $body), $fetch);
+    }
+
+    /**
+     * Attach new stack.
+     *
+     * @param string                                     $id
+     * @param \Afosto\Sdk\Model\OdrOrdersIdStackPostBody $body
+     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AttachStackUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AttachStackNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function attachStack(string $id, \Afosto\Sdk\Model\OdrOrdersIdStackPostBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachStack($id, $body), $fetch);
+    }
+
+    /**
      * Run a complex search to find conversations.
      *
      * @param \Afosto\Sdk\Model\MesSearch $body  Search query object
@@ -832,19 +944,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function getShipment(int $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetShipment($id), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListOrdersUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListOrdersNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrChannel[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listOrders(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListOrders(), $fetch);
     }
 
     /**
