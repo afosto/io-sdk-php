@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class RetrieveTheDefintionForTheGivenPathBadRequestException extends \RuntimeException implements ClientException
+class AnnounceProfileForbiddenException extends \RuntimeException implements ClientException
 {
     private $error;
 
     public function __construct(\Afosto\Sdk\Model\Error $error)
     {
-        parent::__construct('invalid request', 400);
+        parent::__construct('invalid namescape', 403);
         $this->error = $error;
     }
 

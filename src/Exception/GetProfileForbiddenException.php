@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class UpdateTheProfileByPathUnauthorizedException extends \RuntimeException implements ClientException
+class GetProfileForbiddenException extends \RuntimeException implements ClientException
 {
     private $errorList;
 
     public function __construct($errorList)
     {
-        parent::__construct('invalid JWT', 401);
+        parent::__construct('you dont have the correct permissions to view this profile', 403);
         $this->errorList = $errorList;
     }
 

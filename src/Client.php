@@ -1880,16 +1880,16 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \stdClass $body  Announce a profile definition for a given path
      * @param string    $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\AnnounceNewProfileBadRequestException
-     * @throws \Afosto\Sdk\Exception\AnnounceNewProfileUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AnnounceNewProfileForbiddenException
-     * @throws \Afosto\Sdk\Exception\AnnounceNewProfileConflictException
+     * @throws \Afosto\Sdk\Exception\AnnounceProfileBadRequestException
+     * @throws \Afosto\Sdk\Exception\AnnounceProfileUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AnnounceProfileForbiddenException
+     * @throws \Afosto\Sdk\Exception\AnnounceProfileConflictException
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function announceNewProfile(string $path, \stdClass $body, string $fetch = self::FETCH_OBJECT)
+    public function announceProfile(string $path, \stdClass $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AnnounceNewProfile($path, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AnnounceProfile($path, $body), $fetch);
     }
 
     /**
@@ -1898,15 +1898,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param string $path  the key we want to register
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\RetrieveTheDefintionForTheGivenPathBadRequestException
-     * @throws \Afosto\Sdk\Exception\RetrieveTheDefintionForTheGivenPathForbiddenException
-     * @throws \Afosto\Sdk\Exception\RetrieveTheDefintionForTheGivenPathNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsNotFoundException
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function retrieveTheDefintionForTheGivenPath(string $path, string $fetch = self::FETCH_OBJECT)
+    public function getProfileDefinitions(string $path, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RetrieveTheDefintionForTheGivenPath($path), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetProfileDefinitions($path), $fetch);
     }
 
     /**
@@ -1915,14 +1915,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param string $path  The correlationID of a configuration where we are updating the configuration off
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetProfileByPathForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetProfileByPathNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetProfileForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetProfileNotFoundException
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function getProfileByPath(string $path, string $fetch = self::FETCH_OBJECT)
+    public function getProfile(string $path, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetProfileByPath($path), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetProfile($path), $fetch);
     }
 
     /**
@@ -1932,16 +1932,16 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \stdClass $body  update a profile
      * @param string    $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\UpdateTheProfileByPathBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdateTheProfileByPathUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateTheProfileByPathForbiddenException
-     * @throws \Afosto\Sdk\Exception\UpdateTheProfileByPathConflictException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileConflictException
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function updateTheProfileByPath(string $path, \stdClass $body, string $fetch = self::FETCH_OBJECT)
+    public function updateProfile(string $path, \stdClass $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateTheProfileByPath($path, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateProfile($path, $body), $fetch);
     }
 
     /**

@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class AnnounceNewProfileConflictException extends \RuntimeException implements ClientException
+class GetProfileDefinitionsForbiddenException extends \RuntimeException implements ClientException
 {
     private $error;
 
     public function __construct(\Afosto\Sdk\Model\Error $error)
     {
-        parent::__construct('conflicted schema detected', 409);
+        parent::__construct('insufficient scopes', 403);
         $this->error = $error;
     }
 

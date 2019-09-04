@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class UpdateTheProfileByPathForbiddenException extends \RuntimeException implements ClientException
+class UpdateProfileBadRequestException extends \RuntimeException implements ClientException
 {
     private $errorList;
 
     public function __construct($errorList)
     {
-        parent::__construct('invalid namescape', 403);
+        parent::__construct('invalid request', 400);
         $this->errorList = $errorList;
     }
 

@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class UpdateTheProfileByPathConflictException extends \RuntimeException implements ClientException
+class UpdateProfileConflictException extends \RuntimeException implements ClientException
 {
     private $errorList;
 

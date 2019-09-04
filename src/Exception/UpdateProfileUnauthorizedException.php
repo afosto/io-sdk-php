@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class UpdateTheProfileByPathBadRequestException extends \RuntimeException implements ClientException
+class UpdateProfileUnauthorizedException extends \RuntimeException implements ClientException
 {
     private $errorList;
 
     public function __construct($errorList)
     {
-        parent::__construct('invalid request', 400);
+        parent::__construct('invalid JWT', 401);
         $this->errorList = $errorList;
     }
 

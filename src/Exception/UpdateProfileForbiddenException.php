@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class GetProfileByPathForbiddenException extends \RuntimeException implements ClientException
+class UpdateProfileForbiddenException extends \RuntimeException implements ClientException
 {
     private $errorList;
 
     public function __construct($errorList)
     {
-        parent::__construct('you dont have the correct permissions to view this profile', 403);
+        parent::__construct('invalid namescape', 403);
         $this->errorList = $errorList;
     }
 

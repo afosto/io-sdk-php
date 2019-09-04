@@ -10,14 +10,14 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class GetProfileByPath extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class GetProfileDefinitions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     protected $path;
 
     /**
-     * Get the profiles by its key.
+     * Announce new profiles.
      *
-     * @param string $path The correlationID of a configuration where we are updating the configuration off
+     * @param string $path the key we want to register
      */
     public function __construct(string $path)
     {
@@ -33,7 +33,7 @@ class GetProfileByPath extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     public function getUri(): string
     {
-        return str_replace(['{path}'], [$this->path], '/iam/profiles/{path}');
+        return str_replace(['{path}'], [$this->path], '/iam/profiles/{path}/definition');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -49,25 +49,23 @@ class GetProfileByPath extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\GetProfileByPathForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetProfileByPathNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsNotFoundException
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
             return json_decode($body);
         }
-        if (204 === $status) {
-            return json_decode($body);
-        }
-        if (206 === $status) {
-            return json_decode($body);
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetProfileDefinitionsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
-            throw new \Afosto\Sdk\Exception\GetProfileByPathForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error[]', 'json'));
+            throw new \Afosto\Sdk\Exception\GetProfileDefinitionsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\GetProfileByPathNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error[]', 'json'));
+            throw new \Afosto\Sdk\Exception\GetProfileDefinitionsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

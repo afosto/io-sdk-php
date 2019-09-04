@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class UpdateTheProfileByPath extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class UpdateProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     protected $path;
 
@@ -51,24 +51,24 @@ class UpdateTheProfileByPath extends \Jane\OpenApiRuntime\Client\BaseEndpoint im
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\UpdateTheProfileByPathBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdateTheProfileByPathUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateTheProfileByPathForbiddenException
-     * @throws \Afosto\Sdk\Exception\UpdateTheProfileByPathConflictException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileConflictException
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateTheProfileByPathBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error[]', 'json'));
+            throw new \Afosto\Sdk\Exception\UpdateProfileBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error[]', 'json'));
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateTheProfileByPathUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error[]', 'json'));
+            throw new \Afosto\Sdk\Exception\UpdateProfileUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error[]', 'json'));
         }
         if (403 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateTheProfileByPathForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error[]', 'json'));
+            throw new \Afosto\Sdk\Exception\UpdateProfileForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error[]', 'json'));
         }
         if (409 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateTheProfileByPathConflictException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error[]', 'json'));
+            throw new \Afosto\Sdk\Exception\UpdateProfileConflictException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error[]', 'json'));
         }
         if (200 === $status) {
             return json_decode($body);

@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class GetProfileByPathNotFoundException extends \RuntimeException implements ClientException
+class GetProfileNotFoundException extends \RuntimeException implements ClientException
 {
     private $errorList;
 
