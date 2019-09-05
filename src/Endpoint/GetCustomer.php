@@ -10,12 +10,12 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class ListCustomers extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class GetCustomer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     protected $id;
 
     /**
-     * Returns a list of customers.
+     * returns a customer by ID.
      *
      * @param string $id Id that belongs to the tenant
      */
@@ -33,7 +33,7 @@ class ListCustomers extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/oms/customers/{id}');
+        return str_replace(['{id}'], [$this->id], '/odr/customers/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -49,25 +49,25 @@ class ListCustomers extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ListCustomersBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListCustomersUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListCustomersNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetCustomerBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetCustomerUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetCustomerNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OmsCustomer[]|null
+     * @return \Afosto\Sdk\Model\OdrCustomer[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OmsCustomer[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrCustomer[]', 'json');
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\ListCustomersBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetCustomerBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ListCustomersUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetCustomerUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\ListCustomersNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetCustomerNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

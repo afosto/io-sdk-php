@@ -13,11 +13,11 @@ namespace Afosto\Sdk\Endpoint;
 class ResetPassword extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * So the user can login.
+     * Pass a token to reset the password.
      *
-     * @param \Afosto\Sdk\Model\IamPasswordReset $body Reset object
+     * @param \Afosto\Sdk\Model\OdrPasswordReset $body
      */
-    public function __construct(\Afosto\Sdk\Model\IamPasswordReset $body)
+    public function __construct(\Afosto\Sdk\Model\OdrPasswordReset $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class ResetPassword extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getUri(): string
     {
-        return '/iam/users/password';
+        return '/odr/identities/reset';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -47,21 +47,21 @@ class ResetPassword extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\ResetPasswordBadRequestException
      * @throws \Afosto\Sdk\Exception\ResetPasswordUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ResetPasswordNotFoundException
      *
-     * @return \Afosto\Sdk\Model\IamUser|null
+     * @return \Afosto\Sdk\Model\OdrTokenResponse|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamUser', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrTokenResponse', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ResetPasswordBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ResetPasswordUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
-        if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\ResetPasswordNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

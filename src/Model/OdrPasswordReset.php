@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OmsVerifyRequest
+class OdrPasswordReset
 {
     /**
      * @var string
@@ -19,7 +19,7 @@ class OmsVerifyRequest
     /**
      * @var string
      */
-    protected $email;
+    protected $password;
 
     /**
      * @return string|null
@@ -44,19 +44,19 @@ class OmsVerifyRequest
     /**
      * @return string|null
      */
-    public function getEmail(): ?string
+    public function getPassword(): ?string
     {
-        return $this->email;
+        return $this->password;
     }
 
     /**
-     * @param string|null $email
+     * @param string|null $password
      *
      * @return self
      */
-    public function setEmail(?string $email): self
+    public function setPassword(?string $password): self
     {
-        $this->email = $email;
+        $this->password = $password;
 
         return $this;
     }

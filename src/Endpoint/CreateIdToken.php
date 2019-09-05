@@ -15,9 +15,9 @@ class CreateIdToken extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * Returns a  signed id token.
      *
-     * @param \Afosto\Sdk\Model\OmsSignOn $body
+     * @param \Afosto\Sdk\Model\OdrSignOn $body
      */
-    public function __construct(\Afosto\Sdk\Model\OmsSignOn $body)
+    public function __construct(\Afosto\Sdk\Model\OdrSignOn $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class CreateIdToken extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getUri(): string
     {
-        return '/oms/identities/authenticate';
+        return '/odr/identities/authenticate';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -50,12 +50,12 @@ class CreateIdToken extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      * @throws \Afosto\Sdk\Exception\CreateIdTokenBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateIdTokenUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OmsTokenResponse|null
+     * @return \Afosto\Sdk\Model\OdrTokenResponse|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OmsTokenResponse', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrTokenResponse', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\CreateIdTokenBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

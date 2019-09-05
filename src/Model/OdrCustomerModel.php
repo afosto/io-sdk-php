@@ -10,12 +10,8 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OmsCustomer
+class OdrCustomerModel
 {
-    /**
-     * @var string
-     */
-    protected $id;
     /**
      * @var string
      */
@@ -35,10 +31,6 @@ class OmsCustomer
     /**
      * @var bool
      */
-    protected $isVerified;
-    /**
-     * @var bool
-     */
     protected $isFemale;
     /**
      * @var \DateTime
@@ -53,45 +45,17 @@ class OmsCustomer
      */
     protected $email;
     /**
-     * @var OmsAddress[]
+     * @var OdrAddress[]
      */
     protected $billing;
     /**
-     * @var OmsAddress[]
+     * @var OdrAddress[]
      */
     protected $shipping;
     /**
      * @var string
      */
     protected $groupId;
-    /**
-     * @var \DateTime
-     */
-    protected $createdAt;
-    /**
-     * @var \DateTime
-     */
-    protected $updatedAt;
-
-    /**
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
-    public function setId(?string $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 
     /**
      * @return string|null
@@ -169,26 +133,6 @@ class OmsCustomer
     public function setLastNamePrefix(?string $lastNamePrefix): self
     {
         $this->lastNamePrefix = $lastNamePrefix;
-
-        return $this;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsVerified(): ?bool
-    {
-        return $this->isVerified;
-    }
-
-    /**
-     * @param bool|null $isVerified
-     *
-     * @return self
-     */
-    public function setIsVerified(?bool $isVerified): self
-    {
-        $this->isVerified = $isVerified;
 
         return $this;
     }
@@ -274,7 +218,7 @@ class OmsCustomer
     }
 
     /**
-     * @return OmsAddress[]|null
+     * @return OdrAddress[]|null
      */
     public function getBilling(): ?array
     {
@@ -282,7 +226,7 @@ class OmsCustomer
     }
 
     /**
-     * @param OmsAddress[]|null $billing
+     * @param OdrAddress[]|null $billing
      *
      * @return self
      */
@@ -294,7 +238,7 @@ class OmsCustomer
     }
 
     /**
-     * @return OmsAddress[]|null
+     * @return OdrAddress[]|null
      */
     public function getShipping(): ?array
     {
@@ -302,7 +246,7 @@ class OmsCustomer
     }
 
     /**
-     * @param OmsAddress[]|null $shipping
+     * @param OdrAddress[]|null $shipping
      *
      * @return self
      */
@@ -329,46 +273,6 @@ class OmsCustomer
     public function setGroupId(?string $groupId): self
     {
         $this->groupId = $groupId;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getCreatedAt(): ?\DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
-    public function setCreatedAt(?\DateTime $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt(): ?\DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
-    public function setUpdatedAt(?\DateTime $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
 
         return $this;
     }

@@ -38,21 +38,20 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrGroup();
-        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
-            $object->setSku($data->{'sku'});
+        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+            $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
-            $object->setDescription($data->{'description'});
+        if (property_exists($data, 'is_default') && $data->{'is_default'} !== null) {
+            $object->setIsDefault($data->{'is_default'});
         }
-        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
-            $object->setQuantity($data->{'quantity'});
+        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+            $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'stacks') && $data->{'stacks'} !== null) {
-            $values = [];
-            foreach ($data->{'stacks'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context);
-            }
-            $object->setStacks($values);
+        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
+        }
+        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 
         return $object;
@@ -61,21 +60,20 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getSku()) {
-            $data->{'sku'} = $object->getSku();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getDescription()) {
-            $data->{'description'} = $object->getDescription();
+        if (null !== $object->getIsDefault()) {
+            $data->{'is_default'} = $object->getIsDefault();
         }
-        if (null !== $object->getQuantity()) {
-            $data->{'quantity'} = $object->getQuantity();
+        if (null !== $object->getName()) {
+            $data->{'name'} = $object->getName();
         }
-        if (null !== $object->getStacks()) {
-            $values = [];
-            foreach ($object->getStacks() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data->{'stacks'} = $values;
+        if (null !== $object->getCreatedAt()) {
+            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getUpdatedAt()) {
+            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

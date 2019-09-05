@@ -18,9 +18,9 @@ class UpdateCustomer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      * update a customer.
      *
      * @param string                             $id   Id that belongs to the tenant
-     * @param \Afosto\Sdk\Model\OmsCustomerModel $body
+     * @param \Afosto\Sdk\Model\OdrCustomerModel $body
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\OmsCustomerModel $body)
+    public function __construct(string $id, \Afosto\Sdk\Model\OdrCustomerModel $body)
     {
         $this->id = $id;
         $this->body = $body;
@@ -35,7 +35,7 @@ class UpdateCustomer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/oms/customers/{id}');
+        return str_replace(['{id}'], [$this->id], '/odr/customers/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -55,12 +55,12 @@ class UpdateCustomer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      * @throws \Afosto\Sdk\Exception\UpdateCustomerUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateCustomerNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OmsCustomer|null
+     * @return \Afosto\Sdk\Model\OdrCustomer|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OmsCustomer', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrCustomer', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateCustomerBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

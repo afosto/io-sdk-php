@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OmsGroupModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrPasswordResetNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OmsGroupModel';
+        return $type === 'Afosto\\Sdk\\Model\\OdrPasswordReset';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OmsGroupModel';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrPasswordReset';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,12 @@ class OmsGroupModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OmsGroupModel();
-        if (property_exists($data, 'is_default') && $data->{'is_default'} !== null) {
-            $object->setIsDefault($data->{'is_default'});
+        $object = new \Afosto\Sdk\Model\OdrPasswordReset();
+        if (property_exists($data, 'token') && $data->{'token'} !== null) {
+            $object->setToken($data->{'token'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
-            $object->setName($data->{'name'});
+        if (property_exists($data, 'password') && $data->{'password'} !== null) {
+            $object->setPassword($data->{'password'});
         }
 
         return $object;
@@ -51,11 +51,11 @@ class OmsGroupModelNormalizer implements DenormalizerInterface, NormalizerInterf
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getIsDefault()) {
-            $data->{'is_default'} = $object->getIsDefault();
+        if (null !== $object->getToken()) {
+            $data->{'token'} = $object->getToken();
         }
-        if (null !== $object->getName()) {
-            $data->{'name'} = $object->getName();
+        if (null !== $object->getPassword()) {
+            $data->{'password'} = $object->getPassword();
         }
 
         return $data;

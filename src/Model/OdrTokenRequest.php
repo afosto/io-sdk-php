@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OmsTokenRequest
+class OdrTokenRequest
 {
     /**
      * @var string

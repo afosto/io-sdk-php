@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OmsTokenRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrTokenRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OmsTokenRequest';
+        return $type === 'Afosto\\Sdk\\Model\\OdrTokenRequest';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OmsTokenRequest';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrTokenRequest';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class OmsTokenRequestNormalizer implements DenormalizerInterface, NormalizerInte
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OmsTokenRequest();
+        $object = new \Afosto\Sdk\Model\OdrTokenRequest();
         if (property_exists($data, 'type') && $data->{'type'} !== null) {
             $object->setType($data->{'type'});
         }

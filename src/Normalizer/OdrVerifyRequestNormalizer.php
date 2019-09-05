@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OmsPasswordResetNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrVerifyRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OmsPasswordReset';
+        return $type === 'Afosto\\Sdk\\Model\\OdrVerifyRequest';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OmsPasswordReset';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrVerifyRequest';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,12 @@ class OmsPasswordResetNormalizer implements DenormalizerInterface, NormalizerInt
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OmsPasswordReset();
+        $object = new \Afosto\Sdk\Model\OdrVerifyRequest();
         if (property_exists($data, 'token') && $data->{'token'} !== null) {
             $object->setToken($data->{'token'});
         }
-        if (property_exists($data, 'password') && $data->{'password'} !== null) {
-            $object->setPassword($data->{'password'});
+        if (property_exists($data, 'email') && $data->{'email'} !== null) {
+            $object->setEmail($data->{'email'});
         }
 
         return $object;
@@ -54,8 +54,8 @@ class OmsPasswordResetNormalizer implements DenormalizerInterface, NormalizerInt
         if (null !== $object->getToken()) {
             $data->{'token'} = $object->getToken();
         }
-        if (null !== $object->getPassword()) {
-            $data->{'password'} = $object->getPassword();
+        if (null !== $object->getEmail()) {
+            $data->{'email'} = $object->getEmail();
         }
 
         return $data;

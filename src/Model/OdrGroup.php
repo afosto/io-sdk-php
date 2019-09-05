@@ -15,96 +15,120 @@ class OdrGroup
     /**
      * @var string
      */
-    protected $sku;
+    protected $id;
+    /**
+     * @var bool
+     */
+    protected $isDefault;
     /**
      * @var string
      */
-    protected $description;
+    protected $name;
     /**
-     * @var int
+     * @var \DateTime
      */
-    protected $quantity;
+    protected $createdAt;
     /**
-     * @var OdrStackReference[]
+     * @var \DateTime
      */
-    protected $stacks;
-
-    /**
-     * @return string|null
-     */
-    public function getSku(): ?string
-    {
-        return $this->sku;
-    }
-
-    /**
-     * @param string|null $sku
-     *
-     * @return self
-     */
-    public function setSku(?string $sku): self
-    {
-        $this->sku = $sku;
-
-        return $this;
-    }
+    protected $updatedAt;
 
     /**
      * @return string|null
      */
-    public function getDescription(): ?string
+    public function getId(): ?string
     {
-        return $this->description;
+        return $this->id;
     }
 
     /**
-     * @param string|null $description
+     * @param string|null $id
      *
      * @return self
      */
-    public function setDescription(?string $description): self
+    public function setId(?string $id): self
     {
-        $this->description = $description;
+        $this->id = $id;
 
         return $this;
     }
 
     /**
-     * @return int|null
+     * @return bool|null
      */
-    public function getQuantity(): ?int
+    public function getIsDefault(): ?bool
     {
-        return $this->quantity;
+        return $this->isDefault;
     }
 
     /**
-     * @param int|null $quantity
+     * @param bool|null $isDefault
      *
      * @return self
      */
-    public function setQuantity(?int $quantity): self
+    public function setIsDefault(?bool $isDefault): self
     {
-        $this->quantity = $quantity;
+        $this->isDefault = $isDefault;
 
         return $this;
     }
 
     /**
-     * @return OdrStackReference[]|null
+     * @return string|null
      */
-    public function getStacks(): ?array
+    public function getName(): ?string
     {
-        return $this->stacks;
+        return $this->name;
     }
 
     /**
-     * @param OdrStackReference[]|null $stacks
+     * @param string|null $name
      *
      * @return self
      */
-    public function setStacks(?array $stacks): self
+    public function setName(?string $name): self
     {
-        $this->stacks = $stacks;
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getCreatedAt(): ?\DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime|null $createdAt
+     *
+     * @return self
+     */
+    public function setCreatedAt(?\DateTime $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime|null $updatedAt
+     *
+     * @return self
+     */
+    public function setUpdatedAt(?\DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
