@@ -45,11 +45,11 @@ class OdrCustomerModel
      */
     protected $email;
     /**
-     * @var OdrAddress[]
+     * @var string[]
      */
     protected $billing;
     /**
-     * @var OdrAddress[]
+     * @var string[]
      */
     protected $shipping;
     /**
@@ -218,7 +218,7 @@ class OdrCustomerModel
     }
 
     /**
-     * @return OdrAddress[]|null
+     * @return string[]|null
      */
     public function getBilling(): ?array
     {
@@ -226,7 +226,7 @@ class OdrCustomerModel
     }
 
     /**
-     * @param OdrAddress[]|null $billing
+     * @param string[]|null $billing
      *
      * @return self
      */
@@ -238,7 +238,7 @@ class OdrCustomerModel
     }
 
     /**
-     * @return OdrAddress[]|null
+     * @return string[]|null
      */
     public function getShipping(): ?array
     {
@@ -246,7 +246,7 @@ class OdrCustomerModel
     }
 
     /**
-     * @param OdrAddress[]|null $shipping
+     * @param string[]|null $shipping
      *
      * @return self
      */

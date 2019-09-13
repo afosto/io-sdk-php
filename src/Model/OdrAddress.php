@@ -13,115 +13,189 @@ namespace Afosto\Sdk\Model;
 class OdrAddress
 {
     /**
-     * @var bool
-     */
-    protected $isDefault;
-    /**
+     * Two letter country code.
+     *
      * @var string
      */
-    protected $street1;
+    protected $countryCode;
     /**
+     * The state or province name or abbreviation (optional).
+     *
      * @var string
      */
-    protected $street2;
+    protected $administrativeArea;
     /**
+     * City.
+     *
      * @var string
      */
-    protected $houseNumber;
+    protected $locality;
     /**
+     * Additional information about the locality (optional).
+     *
+     * @var string
+     */
+    protected $dependentLocality;
+    /**
+     * The complete postal code for the delivery point.
+     *
      * @var string
      */
     protected $postalCode;
     /**
+     * Allow sorting, for example to route mail (optional).
+     *
      * @var string
      */
-    protected $city;
+    protected $sortingCode;
+    /**
+     * The first address line.
+     *
+     * @var string
+     */
+    protected $addressLine1;
+    /**
+     * The second address line (optional).
+     *
+     * @var string
+     */
+    protected $addressLine2;
     /**
      * @var string
      */
-    protected $countryIso;
-
+    protected $thoroughfare;
     /**
-     * @return bool|null
+     * @var string
      */
-    public function getIsDefault(): ?bool
-    {
-        return $this->isDefault;
-    }
-
+    protected $premiseNumber;
     /**
-     * @param bool|null $isDefault
+     * @var string
+     */
+    protected $premiseNumberSuffix;
+    /**
+     * The name of the recipient, firm, or company at this address (optional).
      *
-     * @return self
+     * @var string
      */
-    public function setIsDefault(?bool $isDefault): self
-    {
-        $this->isDefault = $isDefault;
-
-        return $this;
-    }
+    protected $organization;
+    /**
+     * First name.
+     *
+     * @var string
+     */
+    protected $givenName;
+    /**
+     * Patronymic.
+     *
+     * @var string
+     */
+    protected $additionalName;
+    /**
+     * Last name.
+     *
+     * @var string
+     */
+    protected $familyName;
 
     /**
+     * Two letter country code.
+     *
      * @return string|null
      */
-    public function getStreet1(): ?string
+    public function getCountryCode(): ?string
     {
-        return $this->street1;
+        return $this->countryCode;
     }
 
     /**
-     * @param string|null $street1
+     * Two letter country code.
+     *
+     * @param string|null $countryCode
      *
      * @return self
      */
-    public function setStreet1(?string $street1): self
+    public function setCountryCode(?string $countryCode): self
     {
-        $this->street1 = $street1;
+        $this->countryCode = $countryCode;
 
         return $this;
     }
 
     /**
+     * The state or province name or abbreviation (optional).
+     *
      * @return string|null
      */
-    public function getStreet2(): ?string
+    public function getAdministrativeArea(): ?string
     {
-        return $this->street2;
+        return $this->administrativeArea;
     }
 
     /**
-     * @param string|null $street2
+     * The state or province name or abbreviation (optional).
+     *
+     * @param string|null $administrativeArea
      *
      * @return self
      */
-    public function setStreet2(?string $street2): self
+    public function setAdministrativeArea(?string $administrativeArea): self
     {
-        $this->street2 = $street2;
+        $this->administrativeArea = $administrativeArea;
 
         return $this;
     }
 
     /**
+     * City.
+     *
      * @return string|null
      */
-    public function getHouseNumber(): ?string
+    public function getLocality(): ?string
     {
-        return $this->houseNumber;
+        return $this->locality;
     }
 
     /**
-     * @param string|null $houseNumber
+     * City.
+     *
+     * @param string|null $locality
      *
      * @return self
      */
-    public function setHouseNumber(?string $houseNumber): self
+    public function setLocality(?string $locality): self
     {
-        $this->houseNumber = $houseNumber;
+        $this->locality = $locality;
 
         return $this;
     }
 
     /**
+     * Additional information about the locality (optional).
+     *
+     * @return string|null
+     */
+    public function getDependentLocality(): ?string
+    {
+        return $this->dependentLocality;
+    }
+
+    /**
+     * Additional information about the locality (optional).
+     *
+     * @param string|null $dependentLocality
+     *
+     * @return self
+     */
+    public function setDependentLocality(?string $dependentLocality): self
+    {
+        $this->dependentLocality = $dependentLocality;
+
+        return $this;
+    }
+
+    /**
+     * The complete postal code for the delivery point.
+     *
      * @return string|null
      */
     public function getPostalCode(): ?string
@@ -130,6 +204,8 @@ class OdrAddress
     }
 
     /**
+     * The complete postal code for the delivery point.
+     *
      * @param string|null $postalCode
      *
      * @return self
@@ -142,21 +218,73 @@ class OdrAddress
     }
 
     /**
+     * Allow sorting, for example to route mail (optional).
+     *
      * @return string|null
      */
-    public function getCity(): ?string
+    public function getSortingCode(): ?string
     {
-        return $this->city;
+        return $this->sortingCode;
     }
 
     /**
-     * @param string|null $city
+     * Allow sorting, for example to route mail (optional).
+     *
+     * @param string|null $sortingCode
      *
      * @return self
      */
-    public function setCity(?string $city): self
+    public function setSortingCode(?string $sortingCode): self
     {
-        $this->city = $city;
+        $this->sortingCode = $sortingCode;
+
+        return $this;
+    }
+
+    /**
+     * The first address line.
+     *
+     * @return string|null
+     */
+    public function getAddressLine1(): ?string
+    {
+        return $this->addressLine1;
+    }
+
+    /**
+     * The first address line.
+     *
+     * @param string|null $addressLine1
+     *
+     * @return self
+     */
+    public function setAddressLine1(?string $addressLine1): self
+    {
+        $this->addressLine1 = $addressLine1;
+
+        return $this;
+    }
+
+    /**
+     * The second address line (optional).
+     *
+     * @return string|null
+     */
+    public function getAddressLine2(): ?string
+    {
+        return $this->addressLine2;
+    }
+
+    /**
+     * The second address line (optional).
+     *
+     * @param string|null $addressLine2
+     *
+     * @return self
+     */
+    public function setAddressLine2(?string $addressLine2): self
+    {
+        $this->addressLine2 = $addressLine2;
 
         return $this;
     }
@@ -164,19 +292,155 @@ class OdrAddress
     /**
      * @return string|null
      */
-    public function getCountryIso(): ?string
+    public function getThoroughfare(): ?string
     {
-        return $this->countryIso;
+        return $this->thoroughfare;
     }
 
     /**
-     * @param string|null $countryIso
+     * @param string|null $thoroughfare
      *
      * @return self
      */
-    public function setCountryIso(?string $countryIso): self
+    public function setThoroughfare(?string $thoroughfare): self
     {
-        $this->countryIso = $countryIso;
+        $this->thoroughfare = $thoroughfare;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPremiseNumber(): ?string
+    {
+        return $this->premiseNumber;
+    }
+
+    /**
+     * @param string|null $premiseNumber
+     *
+     * @return self
+     */
+    public function setPremiseNumber(?string $premiseNumber): self
+    {
+        $this->premiseNumber = $premiseNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPremiseNumberSuffix(): ?string
+    {
+        return $this->premiseNumberSuffix;
+    }
+
+    /**
+     * @param string|null $premiseNumberSuffix
+     *
+     * @return self
+     */
+    public function setPremiseNumberSuffix(?string $premiseNumberSuffix): self
+    {
+        $this->premiseNumberSuffix = $premiseNumberSuffix;
+
+        return $this;
+    }
+
+    /**
+     * The name of the recipient, firm, or company at this address (optional).
+     *
+     * @return string|null
+     */
+    public function getOrganization(): ?string
+    {
+        return $this->organization;
+    }
+
+    /**
+     * The name of the recipient, firm, or company at this address (optional).
+     *
+     * @param string|null $organization
+     *
+     * @return self
+     */
+    public function setOrganization(?string $organization): self
+    {
+        $this->organization = $organization;
+
+        return $this;
+    }
+
+    /**
+     * First name.
+     *
+     * @return string|null
+     */
+    public function getGivenName(): ?string
+    {
+        return $this->givenName;
+    }
+
+    /**
+     * First name.
+     *
+     * @param string|null $givenName
+     *
+     * @return self
+     */
+    public function setGivenName(?string $givenName): self
+    {
+        $this->givenName = $givenName;
+
+        return $this;
+    }
+
+    /**
+     * Patronymic.
+     *
+     * @return string|null
+     */
+    public function getAdditionalName(): ?string
+    {
+        return $this->additionalName;
+    }
+
+    /**
+     * Patronymic.
+     *
+     * @param string|null $additionalName
+     *
+     * @return self
+     */
+    public function setAdditionalName(?string $additionalName): self
+    {
+        $this->additionalName = $additionalName;
+
+        return $this;
+    }
+
+    /**
+     * Last name.
+     *
+     * @return string|null
+     */
+    public function getFamilyName(): ?string
+    {
+        return $this->familyName;
+    }
+
+    /**
+     * Last name.
+     *
+     * @param string|null $familyName
+     *
+     * @return self
+     */
+    public function setFamilyName(?string $familyName): self
+    {
+        $this->familyName = $familyName;
 
         return $this;
     }

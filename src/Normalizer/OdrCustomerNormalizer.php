@@ -71,14 +71,14 @@ class OdrCustomerNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'billing') && $data->{'billing'} !== null) {
             $values = [];
             foreach ($data->{'billing'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrAddress', 'json', $context);
+                $values[] = $value;
             }
             $object->setBilling($values);
         }
         if (property_exists($data, 'shipping') && $data->{'shipping'} !== null) {
             $values_1 = [];
             foreach ($data->{'shipping'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrAddress', 'json', $context);
+                $values_1[] = $value_1;
             }
             $object->setShipping($values_1);
         }
@@ -131,14 +131,14 @@ class OdrCustomerNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (null !== $object->getBilling()) {
             $values = [];
             foreach ($object->getBilling() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+                $values[] = $value;
             }
             $data->{'billing'} = $values;
         }
         if (null !== $object->getShipping()) {
             $values_1 = [];
             foreach ($object->getShipping() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+                $values_1[] = $value_1;
             }
             $data->{'shipping'} = $values_1;
         }

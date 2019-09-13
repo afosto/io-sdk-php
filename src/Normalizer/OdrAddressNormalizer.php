@@ -38,26 +38,50 @@ class OdrAddressNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrAddress();
-        if (property_exists($data, 'is_default') && $data->{'is_default'} !== null) {
-            $object->setIsDefault($data->{'is_default'});
+        if (property_exists($data, 'country_code') && $data->{'country_code'} !== null) {
+            $object->setCountryCode($data->{'country_code'});
         }
-        if (property_exists($data, 'street_1') && $data->{'street_1'} !== null) {
-            $object->setStreet1($data->{'street_1'});
+        if (property_exists($data, 'administrative_area') && $data->{'administrative_area'} !== null) {
+            $object->setAdministrativeArea($data->{'administrative_area'});
         }
-        if (property_exists($data, 'street_2') && $data->{'street_2'} !== null) {
-            $object->setStreet2($data->{'street_2'});
+        if (property_exists($data, 'locality') && $data->{'locality'} !== null) {
+            $object->setLocality($data->{'locality'});
         }
-        if (property_exists($data, 'house_number') && $data->{'house_number'} !== null) {
-            $object->setHouseNumber($data->{'house_number'});
+        if (property_exists($data, 'dependent_locality') && $data->{'dependent_locality'} !== null) {
+            $object->setDependentLocality($data->{'dependent_locality'});
         }
         if (property_exists($data, 'postal_code') && $data->{'postal_code'} !== null) {
             $object->setPostalCode($data->{'postal_code'});
         }
-        if (property_exists($data, 'city') && $data->{'city'} !== null) {
-            $object->setCity($data->{'city'});
+        if (property_exists($data, 'sorting_code') && $data->{'sorting_code'} !== null) {
+            $object->setSortingCode($data->{'sorting_code'});
         }
-        if (property_exists($data, 'country_iso') && $data->{'country_iso'} !== null) {
-            $object->setCountryIso($data->{'country_iso'});
+        if (property_exists($data, 'address_line_1') && $data->{'address_line_1'} !== null) {
+            $object->setAddressLine1($data->{'address_line_1'});
+        }
+        if (property_exists($data, 'address_line_2') && $data->{'address_line_2'} !== null) {
+            $object->setAddressLine2($data->{'address_line_2'});
+        }
+        if (property_exists($data, 'thoroughfare') && $data->{'thoroughfare'} !== null) {
+            $object->setThoroughfare($data->{'thoroughfare'});
+        }
+        if (property_exists($data, 'premise_number') && $data->{'premise_number'} !== null) {
+            $object->setPremiseNumber($data->{'premise_number'});
+        }
+        if (property_exists($data, 'premise_number_suffix') && $data->{'premise_number_suffix'} !== null) {
+            $object->setPremiseNumberSuffix($data->{'premise_number_suffix'});
+        }
+        if (property_exists($data, 'organization') && $data->{'organization'} !== null) {
+            $object->setOrganization($data->{'organization'});
+        }
+        if (property_exists($data, 'given_name') && $data->{'given_name'} !== null) {
+            $object->setGivenName($data->{'given_name'});
+        }
+        if (property_exists($data, 'additional_name') && $data->{'additional_name'} !== null) {
+            $object->setAdditionalName($data->{'additional_name'});
+        }
+        if (property_exists($data, 'family_name') && $data->{'family_name'} !== null) {
+            $object->setFamilyName($data->{'family_name'});
         }
 
         return $object;
@@ -66,26 +90,50 @@ class OdrAddressNormalizer implements DenormalizerInterface, NormalizerInterface
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getIsDefault()) {
-            $data->{'is_default'} = $object->getIsDefault();
+        if (null !== $object->getCountryCode()) {
+            $data->{'country_code'} = $object->getCountryCode();
         }
-        if (null !== $object->getStreet1()) {
-            $data->{'street_1'} = $object->getStreet1();
+        if (null !== $object->getAdministrativeArea()) {
+            $data->{'administrative_area'} = $object->getAdministrativeArea();
         }
-        if (null !== $object->getStreet2()) {
-            $data->{'street_2'} = $object->getStreet2();
+        if (null !== $object->getLocality()) {
+            $data->{'locality'} = $object->getLocality();
         }
-        if (null !== $object->getHouseNumber()) {
-            $data->{'house_number'} = $object->getHouseNumber();
+        if (null !== $object->getDependentLocality()) {
+            $data->{'dependent_locality'} = $object->getDependentLocality();
         }
         if (null !== $object->getPostalCode()) {
             $data->{'postal_code'} = $object->getPostalCode();
         }
-        if (null !== $object->getCity()) {
-            $data->{'city'} = $object->getCity();
+        if (null !== $object->getSortingCode()) {
+            $data->{'sorting_code'} = $object->getSortingCode();
         }
-        if (null !== $object->getCountryIso()) {
-            $data->{'country_iso'} = $object->getCountryIso();
+        if (null !== $object->getAddressLine1()) {
+            $data->{'address_line_1'} = $object->getAddressLine1();
+        }
+        if (null !== $object->getAddressLine2()) {
+            $data->{'address_line_2'} = $object->getAddressLine2();
+        }
+        if (null !== $object->getThoroughfare()) {
+            $data->{'thoroughfare'} = $object->getThoroughfare();
+        }
+        if (null !== $object->getPremiseNumber()) {
+            $data->{'premise_number'} = $object->getPremiseNumber();
+        }
+        if (null !== $object->getPremiseNumberSuffix()) {
+            $data->{'premise_number_suffix'} = $object->getPremiseNumberSuffix();
+        }
+        if (null !== $object->getOrganization()) {
+            $data->{'organization'} = $object->getOrganization();
+        }
+        if (null !== $object->getGivenName()) {
+            $data->{'given_name'} = $object->getGivenName();
+        }
+        if (null !== $object->getAdditionalName()) {
+            $data->{'additional_name'} = $object->getAdditionalName();
+        }
+        if (null !== $object->getFamilyName()) {
+            $data->{'family_name'} = $object->getFamilyName();
         }
 
         return $data;
