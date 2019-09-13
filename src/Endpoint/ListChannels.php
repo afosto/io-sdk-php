@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class ListOrders extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class ListChannels extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
@@ -21,7 +21,7 @@ class ListOrders extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     public function getUri(): string
     {
-        return '/odr/orders';
+        return '/odr/channels';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -37,21 +37,21 @@ class ListOrders extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ListOrdersUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListOrdersNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListChannelsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListChannelsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrOrder[]|null
+     * @return \Afosto\Sdk\Model\OdrChannel[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrOrder[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrChannel[]', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ListOrdersUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ListChannelsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\ListOrdersNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ListChannelsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

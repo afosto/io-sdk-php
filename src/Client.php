@@ -371,7 +371,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListOrdersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListOrdersNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrChannel[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrOrder[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listOrders(string $fetch = self::FETCH_OBJECT)
     {
@@ -944,6 +944,19 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function getShipment(int $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetShipment($id), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListChannelsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListChannelsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrChannel[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listChannels(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListChannels(), $fetch);
     }
 
     /**
