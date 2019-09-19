@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class CntSimpleDocumentResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class ContentSimpleDocumentResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntSimpleDocumentResponse';
+        return $type === 'Afosto\\Sdk\\Model\\ContentSimpleDocumentResponse';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntSimpleDocumentResponse';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\ContentSimpleDocumentResponse';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class CntSimpleDocumentResponseNormalizer implements DenormalizerInterface, Norm
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\CntSimpleDocumentResponse();
+        $object = new \Afosto\Sdk\Model\ContentSimpleDocumentResponse();
         if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
             $object->setReference($data->{'reference'});
         }

@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class CntFacetNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class ContentSuggestResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntFacet';
+        return $type === 'Afosto\\Sdk\\Model\\ContentSuggestResponse';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntFacet';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\ContentSuggestResponse';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,16 +37,13 @@ class CntFacetNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\CntFacet();
-        if (property_exists($data, 'key') && $data->{'key'} !== null) {
-            $object->setKey($data->{'key'});
-        }
-        if (property_exists($data, 'buckets') && $data->{'buckets'} !== null) {
+        $object = new \Afosto\Sdk\Model\ContentSuggestResponse();
+        if (property_exists($data, 'hits') && $data->{'hits'} !== null) {
             $values = [];
-            foreach ($data->{'buckets'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CntBucket', 'json', $context);
+            foreach ($data->{'hits'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\ContentSimpleDocumentResponse', 'json', $context);
             }
-            $object->setBuckets($values);
+            $object->setHits($values);
         }
 
         return $object;
@@ -55,15 +52,12 @@ class CntFacetNormalizer implements DenormalizerInterface, NormalizerInterface, 
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getKey()) {
-            $data->{'key'} = $object->getKey();
-        }
-        if (null !== $object->getBuckets()) {
+        if (null !== $object->getHits()) {
             $values = [];
-            foreach ($object->getBuckets() as $value) {
+            foreach ($object->getHits() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
-            $data->{'buckets'} = $values;
+            $data->{'hits'} = $values;
         }
 
         return $data;

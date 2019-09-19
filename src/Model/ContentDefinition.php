@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class CntDefinition
+class ContentDefinition
 {
     /**
      * @var string
@@ -29,7 +29,7 @@ class CntDefinition
      */
     protected $model;
     /**
-     * @var CntField[]
+     * @var ContentField[]
      */
     protected $filters;
     /**
@@ -126,7 +126,7 @@ class CntDefinition
     }
 
     /**
-     * @return CntField[]|null
+     * @return ContentField[]|null
      */
     public function getFilters(): ?array
     {
@@ -134,7 +134,7 @@ class CntDefinition
     }
 
     /**
-     * @param CntField[]|null $filters
+     * @param ContentField[]|null $filters
      *
      * @return self
      */

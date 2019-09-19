@@ -10,15 +10,15 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class CntSuggestResponse
+class ContentSuggestResponse
 {
     /**
-     * @var CntSimpleDocumentResponse[]
+     * @var ContentSimpleDocumentResponse[]
      */
     protected $hits;
 
     /**
-     * @return CntSimpleDocumentResponse[]|null
+     * @return ContentSimpleDocumentResponse[]|null
      */
     public function getHits(): ?array
     {
@@ -26,7 +26,7 @@ class CntSuggestResponse
     }
 
     /**
-     * @param CntSimpleDocumentResponse[]|null $hits
+     * @param ContentSimpleDocumentResponse[]|null $hits
      *
      * @return self
      */

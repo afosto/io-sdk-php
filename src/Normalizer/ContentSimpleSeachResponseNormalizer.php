@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class CntSeachResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class ContentSimpleSeachResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntSeachResponse';
+        return $type === 'Afosto\\Sdk\\Model\\ContentSimpleSeachResponse';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntSeachResponse';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\ContentSimpleSeachResponse';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,23 +37,16 @@ class CntSeachResponseNormalizer implements DenormalizerInterface, NormalizerInt
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\CntSeachResponse();
+        $object = new \Afosto\Sdk\Model\ContentSimpleSeachResponse();
         if (property_exists($data, 'hits') && $data->{'hits'} !== null) {
             $values = [];
             foreach ($data->{'hits'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CntDocumentResponse', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\ContentSimpleDocumentResponse', 'json', $context);
             }
             $object->setHits($values);
         }
-        if (property_exists($data, 'facets') && $data->{'facets'} !== null) {
-            $values_1 = [];
-            foreach ($data->{'facets'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\CntFacet', 'json', $context);
-            }
-            $object->setFacets($values_1);
-        }
         if (property_exists($data, 'pagination') && $data->{'pagination'} !== null) {
-            $object->setPagination($this->denormalizer->denormalize($data->{'pagination'}, 'Afosto\\Sdk\\Model\\CntPagination', 'json', $context));
+            $object->setPagination($this->denormalizer->denormalize($data->{'pagination'}, 'Afosto\\Sdk\\Model\\ContentPagination', 'json', $context));
         }
 
         return $object;
@@ -68,13 +61,6 @@ class CntSeachResponseNormalizer implements DenormalizerInterface, NormalizerInt
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'hits'} = $values;
-        }
-        if (null !== $object->getFacets()) {
-            $values_1 = [];
-            foreach ($object->getFacets() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-            }
-            $data->{'facets'} = $values_1;
         }
         if (null !== $object->getPagination()) {
             $data->{'pagination'} = $this->normalizer->normalize($object->getPagination(), 'json', $context);

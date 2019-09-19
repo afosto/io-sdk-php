@@ -15,9 +15,9 @@ class UpsertDefinition extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
     /**
      * Either create a new, or update an existing definition.
      *
-     * @param \Afosto\Sdk\Model\CntDefinitionModel $body Query object
+     * @param \Afosto\Sdk\Model\ContentDefinitionModel $body Query object
      */
-    public function __construct(\Afosto\Sdk\Model\CntDefinitionModel $body)
+    public function __construct(\Afosto\Sdk\Model\ContentDefinitionModel $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class UpsertDefinition extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     public function getUri(): string
     {
-        return '/cnt/definitions';
+        return '/Content/definitions';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -50,12 +50,12 @@ class UpsertDefinition extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      * @throws \Afosto\Sdk\Exception\UpsertDefinitionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpsertDefinitionNotFoundException
      *
-     * @return \Afosto\Sdk\Model\CntDefinition|null
+     * @return \Afosto\Sdk\Model\ContentDefinition|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\CntDefinition', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\ContentDefinition', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpsertDefinitionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
