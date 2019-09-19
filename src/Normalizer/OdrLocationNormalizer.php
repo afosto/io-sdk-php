@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrLocationNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrItem';
+        return $type === 'Afosto\\Sdk\\Model\\OdrLocation';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrItem';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrLocation';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,33 +37,24 @@ class OdrItemNormalizer implements DenormalizerInterface, NormalizerInterface, D
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrItem();
+        $object = new \Afosto\Sdk\Model\OdrLocation();
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
-            $object->setSku($data->{'sku'});
+        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+            $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'position') && $data->{'position'} !== null) {
-            $object->setPosition($data->{'position'});
+        if (property_exists($data, 'country_iso') && $data->{'country_iso'} !== null) {
+            $object->setCountryIso($data->{'country_iso'});
         }
-        if (property_exists($data, 'is_available') && $data->{'is_available'} !== null) {
-            $object->setIsAvailable($data->{'is_available'});
+        if (property_exists($data, 'is_customer') && $data->{'is_customer'} !== null) {
+            $object->setIsCustomer($data->{'is_customer'});
         }
-        if (property_exists($data, 'is_in_transit') && $data->{'is_in_transit'} !== null) {
-            $object->setIsInTransit($data->{'is_in_transit'});
-        }
-        if (property_exists($data, 'is_reserved') && $data->{'is_reserved'} !== null) {
-            $object->setIsReserved($data->{'is_reserved'});
-        }
-        if (property_exists($data, 'reservation_expires_at') && $data->{'reservation_expires_at'} !== null) {
-            $object->setReservationExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'reservation_expires_at'}));
+        if (property_exists($data, 'is_tracking_inventory') && $data->{'is_tracking_inventory'} !== null) {
+            $object->setIsTrackingInventory($data->{'is_tracking_inventory'});
         }
         if (property_exists($data, 'warehouse_id') && $data->{'warehouse_id'} !== null) {
             $object->setWarehouseId($data->{'warehouse_id'});
-        }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
-            $object->setMetadata($data->{'metadata'});
         }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -81,29 +72,20 @@ class OdrItemNormalizer implements DenormalizerInterface, NormalizerInterface, D
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getSku()) {
-            $data->{'sku'} = $object->getSku();
+        if (null !== $object->getName()) {
+            $data->{'name'} = $object->getName();
         }
-        if (null !== $object->getPosition()) {
-            $data->{'position'} = $object->getPosition();
+        if (null !== $object->getCountryIso()) {
+            $data->{'country_iso'} = $object->getCountryIso();
         }
-        if (null !== $object->getIsAvailable()) {
-            $data->{'is_available'} = $object->getIsAvailable();
+        if (null !== $object->getIsCustomer()) {
+            $data->{'is_customer'} = $object->getIsCustomer();
         }
-        if (null !== $object->getIsInTransit()) {
-            $data->{'is_in_transit'} = $object->getIsInTransit();
-        }
-        if (null !== $object->getIsReserved()) {
-            $data->{'is_reserved'} = $object->getIsReserved();
-        }
-        if (null !== $object->getReservationExpiresAt()) {
-            $data->{'reservation_expires_at'} = $object->getReservationExpiresAt()->format("Y-m-d\TH:i:sP");
+        if (null !== $object->getIsTrackingInventory()) {
+            $data->{'is_tracking_inventory'} = $object->getIsTrackingInventory();
         }
         if (null !== $object->getWarehouseId()) {
             $data->{'warehouse_id'} = $object->getWarehouseId();
-        }
-        if (null !== $object->getMetadata()) {
-            $data->{'metadata'} = $object->getMetadata();
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

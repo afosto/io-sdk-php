@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrStackReferenceNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrTransferReportNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrStackReference';
+        return $type === 'Afosto\\Sdk\\Model\\OdrTransferReport';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrStackReference';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrTransferReport';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,16 @@ class OdrStackReferenceNormalizer implements DenormalizerInterface, NormalizerIn
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrStackReference();
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
-            $object->setReference($data->{'reference'});
+        $object = new \Afosto\Sdk\Model\OdrTransferReport();
+        if (property_exists($data, 'location_id') && $data->{'location_id'} !== null) {
+            $object->setLocationId($data->{'location_id'});
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
-            $object->setType($data->{'type'});
+        if (property_exists($data, 'claim_item_ids') && $data->{'claim_item_ids'} !== null) {
+            $values = [];
+            foreach ($data->{'claim_item_ids'} as $value) {
+                $values[] = $value;
+            }
+            $object->setClaimItemIds($values);
         }
 
         return $object;
@@ -51,11 +55,15 @@ class OdrStackReferenceNormalizer implements DenormalizerInterface, NormalizerIn
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getReference()) {
-            $data->{'reference'} = $object->getReference();
+        if (null !== $object->getLocationId()) {
+            $data->{'location_id'} = $object->getLocationId();
         }
-        if (null !== $object->getType()) {
-            $data->{'type'} = $object->getType();
+        if (null !== $object->getClaimItemIds()) {
+            $values = [];
+            foreach ($object->getClaimItemIds() as $value) {
+                $values[] = $value;
+            }
+            $data->{'claim_item_ids'} = $values;
         }
 
         return $data;

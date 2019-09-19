@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrStackReferenceNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrHopUpdateModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrStackReference';
+        return $type === 'Afosto\\Sdk\\Model\\OdrHopUpdateModel';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrStackReference';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrHopUpdateModel';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,16 @@ class OdrStackReferenceNormalizer implements DenormalizerInterface, NormalizerIn
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrStackReference();
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
-            $object->setReference($data->{'reference'});
+        $object = new \Afosto\Sdk\Model\OdrHopUpdateModel();
+        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+            $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
-            $object->setType($data->{'type'});
+        if (property_exists($data, 'schedule') && $data->{'schedule'} !== null) {
+            $values = [];
+            foreach ($data->{'schedule'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrSchedule', 'json', $context);
+            }
+            $object->setSchedule($values);
         }
 
         return $object;
@@ -51,11 +55,15 @@ class OdrStackReferenceNormalizer implements DenormalizerInterface, NormalizerIn
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getReference()) {
-            $data->{'reference'} = $object->getReference();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getType()) {
-            $data->{'type'} = $object->getType();
+        if (null !== $object->getSchedule()) {
+            $values = [];
+            foreach ($object->getSchedule() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $data->{'schedule'} = $values;
         }
 
         return $data;

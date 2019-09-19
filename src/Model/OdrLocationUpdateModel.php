@@ -10,33 +10,33 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrStackReference
+class OdrLocationUpdateModel
 {
     /**
      * @var string
      */
-    protected $reference;
+    protected $id;
     /**
      * @var string
      */
-    protected $type;
+    protected $name = '';
 
     /**
      * @return string|null
      */
-    public function getReference(): ?string
+    public function getId(): ?string
     {
-        return $this->reference;
+        return $this->id;
     }
 
     /**
-     * @param string|null $reference
+     * @param string|null $id
      *
      * @return self
      */
-    public function setReference(?string $reference): self
+    public function setId(?string $id): self
     {
-        $this->reference = $reference;
+        $this->id = $id;
 
         return $this;
     }
@@ -44,19 +44,19 @@ class OdrStackReference
     /**
      * @return string|null
      */
-    public function getType(): ?string
+    public function getName(): ?string
     {
-        return $this->type;
+        return $this->name;
     }
 
     /**
-     * @param string|null $type
+     * @param string|null $name
      *
      * @return self
      */
-    public function setType(?string $type): self
+    public function setName(?string $name): self
     {
-        $this->type = $type;
+        $this->name = $name;
 
         return $this;
     }

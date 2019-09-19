@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrItem
+class OdrLocation
 {
     /**
      * @var string
@@ -19,35 +19,23 @@ class OdrItem
     /**
      * @var string
      */
-    protected $sku;
+    protected $name;
     /**
      * @var string
      */
-    protected $position;
+    protected $countryIso;
     /**
      * @var bool
      */
-    protected $isAvailable;
+    protected $isCustomer;
     /**
      * @var bool
      */
-    protected $isInTransit;
-    /**
-     * @var bool
-     */
-    protected $isReserved;
-    /**
-     * @var \DateTime
-     */
-    protected $reservationExpiresAt;
+    protected $isTrackingInventory;
     /**
      * @var string
      */
     protected $warehouseId;
-    /**
-     * @var mixed
-     */
-    protected $metadata;
     /**
      * @var \DateTime
      */
@@ -80,19 +68,19 @@ class OdrItem
     /**
      * @return string|null
      */
-    public function getSku(): ?string
+    public function getName(): ?string
     {
-        return $this->sku;
+        return $this->name;
     }
 
     /**
-     * @param string|null $sku
+     * @param string|null $name
      *
      * @return self
      */
-    public function setSku(?string $sku): self
+    public function setName(?string $name): self
     {
-        $this->sku = $sku;
+        $this->name = $name;
 
         return $this;
     }
@@ -100,19 +88,19 @@ class OdrItem
     /**
      * @return string|null
      */
-    public function getPosition(): ?string
+    public function getCountryIso(): ?string
     {
-        return $this->position;
+        return $this->countryIso;
     }
 
     /**
-     * @param string|null $position
+     * @param string|null $countryIso
      *
      * @return self
      */
-    public function setPosition(?string $position): self
+    public function setCountryIso(?string $countryIso): self
     {
-        $this->position = $position;
+        $this->countryIso = $countryIso;
 
         return $this;
     }
@@ -120,19 +108,19 @@ class OdrItem
     /**
      * @return bool|null
      */
-    public function getIsAvailable(): ?bool
+    public function getIsCustomer(): ?bool
     {
-        return $this->isAvailable;
+        return $this->isCustomer;
     }
 
     /**
-     * @param bool|null $isAvailable
+     * @param bool|null $isCustomer
      *
      * @return self
      */
-    public function setIsAvailable(?bool $isAvailable): self
+    public function setIsCustomer(?bool $isCustomer): self
     {
-        $this->isAvailable = $isAvailable;
+        $this->isCustomer = $isCustomer;
 
         return $this;
     }
@@ -140,59 +128,19 @@ class OdrItem
     /**
      * @return bool|null
      */
-    public function getIsInTransit(): ?bool
+    public function getIsTrackingInventory(): ?bool
     {
-        return $this->isInTransit;
+        return $this->isTrackingInventory;
     }
 
     /**
-     * @param bool|null $isInTransit
+     * @param bool|null $isTrackingInventory
      *
      * @return self
      */
-    public function setIsInTransit(?bool $isInTransit): self
+    public function setIsTrackingInventory(?bool $isTrackingInventory): self
     {
-        $this->isInTransit = $isInTransit;
-
-        return $this;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsReserved(): ?bool
-    {
-        return $this->isReserved;
-    }
-
-    /**
-     * @param bool|null $isReserved
-     *
-     * @return self
-     */
-    public function setIsReserved(?bool $isReserved): self
-    {
-        $this->isReserved = $isReserved;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getReservationExpiresAt(): ?\DateTime
-    {
-        return $this->reservationExpiresAt;
-    }
-
-    /**
-     * @param \DateTime|null $reservationExpiresAt
-     *
-     * @return self
-     */
-    public function setReservationExpiresAt(?\DateTime $reservationExpiresAt): self
-    {
-        $this->reservationExpiresAt = $reservationExpiresAt;
+        $this->isTrackingInventory = $isTrackingInventory;
 
         return $this;
     }
@@ -213,26 +161,6 @@ class OdrItem
     public function setWarehouseId(?string $warehouseId): self
     {
         $this->warehouseId = $warehouseId;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMetadata()
-    {
-        return $this->metadata;
-    }
-
-    /**
-     * @param mixed $metadata
-     *
-     * @return self
-     */
-    public function setMetadata($metadata): self
-    {
-        $this->metadata = $metadata;
 
         return $this;
     }

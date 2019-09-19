@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrStackReferenceNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrClaimsIdExtendPutBodyNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrStackReference';
+        return $type === 'Afosto\\Sdk\\Model\\OdrClaimsIdExtendPutBody';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrStackReference';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrClaimsIdExtendPutBody';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,9 @@ class OdrStackReferenceNormalizer implements DenormalizerInterface, NormalizerIn
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrStackReference();
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
-            $object->setReference($data->{'reference'});
-        }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
-            $object->setType($data->{'type'});
+        $object = new \Afosto\Sdk\Model\OdrClaimsIdExtendPutBody();
+        if (property_exists($data, 'expires_at') && $data->{'expires_at'} !== null) {
+            $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
 
         return $object;
@@ -51,11 +48,8 @@ class OdrStackReferenceNormalizer implements DenormalizerInterface, NormalizerIn
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getReference()) {
-            $data->{'reference'} = $object->getReference();
-        }
-        if (null !== $object->getType()) {
-            $data->{'type'} = $object->getType();
+        if (null !== $object->getExpiresAt()) {
+            $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;
