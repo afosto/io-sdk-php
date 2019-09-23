@@ -10,24 +10,20 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class ContentSimpleQuery
+class CntSearchQuery
 {
-    /**
-     * @var string[]
-     */
-    protected $codes;
-    /**
-     * @var string[]
-     */
-    protected $models;
-    /**
-     * @var string[]
-     */
-    protected $namespaces;
     /**
      * @var string
      */
     protected $q;
+    /**
+     * @var CntFilter[]
+     */
+    protected $filter;
+    /**
+     * @var string[]
+     */
+    protected $facets;
     /**
      * @var int
      */
@@ -40,66 +36,10 @@ class ContentSimpleQuery
      * @var string
      */
     protected $pageCursor;
-
     /**
-     * @return string[]|null
+     * @var CntSort[]
      */
-    public function getCodes(): ?array
-    {
-        return $this->codes;
-    }
-
-    /**
-     * @param string[]|null $codes
-     *
-     * @return self
-     */
-    public function setCodes(?array $codes): self
-    {
-        $this->codes = $codes;
-
-        return $this;
-    }
-
-    /**
-     * @return string[]|null
-     */
-    public function getModels(): ?array
-    {
-        return $this->models;
-    }
-
-    /**
-     * @param string[]|null $models
-     *
-     * @return self
-     */
-    public function setModels(?array $models): self
-    {
-        $this->models = $models;
-
-        return $this;
-    }
-
-    /**
-     * @return string[]|null
-     */
-    public function getNamespaces(): ?array
-    {
-        return $this->namespaces;
-    }
-
-    /**
-     * @param string[]|null $namespaces
-     *
-     * @return self
-     */
-    public function setNamespaces(?array $namespaces): self
-    {
-        $this->namespaces = $namespaces;
-
-        return $this;
-    }
+    protected $sort;
 
     /**
      * @return string|null
@@ -117,6 +57,46 @@ class ContentSimpleQuery
     public function setQ(?string $q): self
     {
         $this->q = $q;
+
+        return $this;
+    }
+
+    /**
+     * @return CntFilter[]|null
+     */
+    public function getFilter(): ?array
+    {
+        return $this->filter;
+    }
+
+    /**
+     * @param CntFilter[]|null $filter
+     *
+     * @return self
+     */
+    public function setFilter(?array $filter): self
+    {
+        $this->filter = $filter;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getFacets(): ?array
+    {
+        return $this->facets;
+    }
+
+    /**
+     * @param string[]|null $facets
+     *
+     * @return self
+     */
+    public function setFacets(?array $facets): self
+    {
+        $this->facets = $facets;
 
         return $this;
     }
@@ -177,6 +157,26 @@ class ContentSimpleQuery
     public function setPageCursor(?string $pageCursor): self
     {
         $this->pageCursor = $pageCursor;
+
+        return $this;
+    }
+
+    /**
+     * @return CntSort[]|null
+     */
+    public function getSort(): ?array
+    {
+        return $this->sort;
+    }
+
+    /**
+     * @param CntSort[]|null $sort
+     *
+     * @return self
+     */
+    public function setSort(?array $sort): self
+    {
+        $this->sort = $sort;
 
         return $this;
     }

@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class ContentFieldNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class CntSortNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\ContentField';
+        return $type === 'Afosto\\Sdk\\Model\\CntSort';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\ContentField';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\CntSort';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,12 @@ class ContentFieldNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\ContentField();
-        if (property_exists($data, 'key') && $data->{'key'} !== null) {
-            $object->setKey($data->{'key'});
+        $object = new \Afosto\Sdk\Model\CntSort();
+        if (property_exists($data, 'filter_key') && $data->{'filter_key'} !== null) {
+            $object->setFilterKey($data->{'filter_key'});
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
-            $object->setType($data->{'type'});
+        if (property_exists($data, 'order') && $data->{'order'} !== null) {
+            $object->setOrder($data->{'order'});
         }
 
         return $object;
@@ -51,11 +51,11 @@ class ContentFieldNormalizer implements DenormalizerInterface, NormalizerInterfa
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getKey()) {
-            $data->{'key'} = $object->getKey();
+        if (null !== $object->getFilterKey()) {
+            $data->{'filter_key'} = $object->getFilterKey();
         }
-        if (null !== $object->getType()) {
-            $data->{'type'} = $object->getType();
+        if (null !== $object->getOrder()) {
+            $data->{'order'} = $object->getOrder();
         }
 
         return $data;

@@ -19,17 +19,17 @@ class SearchModel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * Run a complex search.
      *
-     * @param string                               $namespace        the namespace
-     * @param string                               $code
-     * @param string                               $model
-     * @param \Afosto\Sdk\Model\ContentSearchQuery $body             Query object
-     * @param array                                $headerParameters {
+     * @param string                           $namespace        the namespace
+     * @param string                           $code
+     * @param string                           $model
+     * @param \Afosto\Sdk\Model\CntSearchQuery $body             Query object
+     * @param array                            $headerParameters {
      *
      *     @var string $x-page
      *     @var int $x-page-size
      * }
      */
-    public function __construct(string $namespace = 'default', string $code, string $model, \Afosto\Sdk\Model\ContentSearchQuery $body, array $headerParameters = [])
+    public function __construct(string $namespace = 'default', string $code, string $model, \Afosto\Sdk\Model\CntSearchQuery $body, array $headerParameters = [])
     {
         $this->namespace = $namespace;
         $this->code = $code;
@@ -47,7 +47,7 @@ class SearchModel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return str_replace(['{namespace}', '{code}', '{model}'], [$this->namespace, $this->code, $this->model], '/Content/search/{namespace}/{code}/{model}');
+        return str_replace(['{namespace}', '{code}', '{model}'], [$this->namespace, $this->code, $this->model], '/cnt/search/{namespace}/{code}/{model}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -78,12 +78,12 @@ class SearchModel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\SearchModelUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchModelNotFoundException
      *
-     * @return \Afosto\Sdk\Model\ContentSeachResponse|null
+     * @return \Afosto\Sdk\Model\CntSeachResponse|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\ContentSeachResponse', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\CntSeachResponse', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\SearchModelUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

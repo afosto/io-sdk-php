@@ -496,11 +496,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Run a complex search.
      *
-     * @param string                               $namespace        the namespace
-     * @param string                               $code
-     * @param string                               $model
-     * @param \Afosto\Sdk\Model\ContentSearchQuery $body             Query object
-     * @param array                                $headerParameters {
+     * @param string                           $namespace        the namespace
+     * @param string                           $code
+     * @param string                           $model
+     * @param \Afosto\Sdk\Model\CntSearchQuery $body             Query object
+     * @param array                            $headerParameters {
      *
      *     @var string $x-page
      *     @var int $x-page-size
@@ -511,9 +511,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\SearchModelUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchModelNotFoundException
      *
-     * @return \Afosto\Sdk\Model\ContentSeachResponse|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\CntSeachResponse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function searchModel(string $namespace = 'default', string $code, string $model, \Afosto\Sdk\Model\ContentSearchQuery $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function searchModel(string $namespace = 'default', string $code, string $model, \Afosto\Sdk\Model\CntSearchQuery $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchModel($namespace, $code, $model, $body, $headerParameters), $fetch);
     }
@@ -535,7 +535,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\SuggestUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SuggestNotFoundException
      *
-     * @return \Afosto\Sdk\Model\ContentSuggestResponse|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\CntSuggestResponse|\Psr\Http\Message\ResponseInterface|null
      */
     public function suggest(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -557,7 +557,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListDefinitionsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListDefinitionsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\ContentDefinition[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\CntDefinition[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listDefinitions(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -567,15 +567,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Either create a new, or update an existing definition.
      *
-     * @param \Afosto\Sdk\Model\ContentDefinitionModel $body  Query object
-     * @param string                                   $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\CntDefinitionModel $body  Query object
+     * @param string                               $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpsertDefinitionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpsertDefinitionNotFoundException
      *
-     * @return \Afosto\Sdk\Model\ContentDefinition|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\CntDefinition|\Psr\Http\Message\ResponseInterface|null
      */
-    public function upsertDefinition(\Afosto\Sdk\Model\ContentDefinitionModel $body, string $fetch = self::FETCH_OBJECT)
+    public function upsertDefinition(\Afosto\Sdk\Model\CntDefinitionModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpsertDefinition($body), $fetch);
     }

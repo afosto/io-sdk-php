@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class ContentFacetNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class CntFieldNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\ContentFacet';
+        return $type === 'Afosto\\Sdk\\Model\\CntField';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\ContentFacet';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\CntField';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,16 +37,12 @@ class ContentFacetNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\ContentFacet();
+        $object = new \Afosto\Sdk\Model\CntField();
         if (property_exists($data, 'key') && $data->{'key'} !== null) {
             $object->setKey($data->{'key'});
         }
-        if (property_exists($data, 'buckets') && $data->{'buckets'} !== null) {
-            $values = [];
-            foreach ($data->{'buckets'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\ContentBucket', 'json', $context);
-            }
-            $object->setBuckets($values);
+        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+            $object->setType($data->{'type'});
         }
 
         return $object;
@@ -58,12 +54,8 @@ class ContentFacetNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (null !== $object->getKey()) {
             $data->{'key'} = $object->getKey();
         }
-        if (null !== $object->getBuckets()) {
-            $values = [];
-            foreach ($object->getBuckets() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data->{'buckets'} = $values;
+        if (null !== $object->getType()) {
+            $data->{'type'} = $object->getType();
         }
 
         return $data;

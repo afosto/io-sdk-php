@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class ContentField
+class CntFilter
 {
     /**
      * @var string
@@ -19,7 +19,11 @@ class ContentField
     /**
      * @var string
      */
-    protected $type;
+    protected $operator;
+    /**
+     * @var string[]
+     */
+    protected $values;
 
     /**
      * @return string|null
@@ -44,19 +48,39 @@ class ContentField
     /**
      * @return string|null
      */
-    public function getType(): ?string
+    public function getOperator(): ?string
     {
-        return $this->type;
+        return $this->operator;
     }
 
     /**
-     * @param string|null $type
+     * @param string|null $operator
      *
      * @return self
      */
-    public function setType(?string $type): self
+    public function setOperator(?string $operator): self
     {
-        $this->type = $type;
+        $this->operator = $operator;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getValues(): ?array
+    {
+        return $this->values;
+    }
+
+    /**
+     * @param string[]|null $values
+     *
+     * @return self
+     */
+    public function setValues(?array $values): self
+    {
+        $this->values = $values;
 
         return $this;
     }

@@ -10,16 +10,16 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class ContentFacet
+class CntField
 {
     /**
      * @var string
      */
     protected $key;
     /**
-     * @var ContentBucket[]
+     * @var string
      */
-    protected $buckets;
+    protected $type;
 
     /**
      * @return string|null
@@ -42,21 +42,21 @@ class ContentFacet
     }
 
     /**
-     * @return ContentBucket[]|null
+     * @return string|null
      */
-    public function getBuckets(): ?array
+    public function getType(): ?string
     {
-        return $this->buckets;
+        return $this->type;
     }
 
     /**
-     * @param ContentBucket[]|null $buckets
+     * @param string|null $type
      *
      * @return self
      */
-    public function setBuckets(?array $buckets): self
+    public function setType(?string $type): self
     {
-        $this->buckets = $buckets;
+        $this->type = $type;
 
         return $this;
     }

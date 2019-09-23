@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class ContentDocumentResponse
+class CntSimpleDocumentResponse
 {
     /**
      * @var string
@@ -23,6 +23,18 @@ class ContentDocumentResponse
     /**
      * @var string
      */
+    protected $code;
+    /**
+     * @var string
+     */
+    protected $model;
+    /**
+     * @var string
+     */
+    protected $namespace;
+    /**
+     * @var string
+     */
     protected $description;
     /**
      * @var string
@@ -32,10 +44,6 @@ class ContentDocumentResponse
      * @var mixed
      */
     protected $metadata;
-    /**
-     * @var mixed[]
-     */
-    protected $filters;
 
     /**
      * @return string|null
@@ -73,6 +81,66 @@ class ContentDocumentResponse
     public function setTitle(?string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string|null $code
+     *
+     * @return self
+     */
+    public function setCode(?string $code): self
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getModel(): ?string
+    {
+        return $this->model;
+    }
+
+    /**
+     * @param string|null $model
+     *
+     * @return self
+     */
+    public function setModel(?string $model): self
+    {
+        $this->model = $model;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getNamespace(): ?string
+    {
+        return $this->namespace;
+    }
+
+    /**
+     * @param string|null $namespace
+     *
+     * @return self
+     */
+    public function setNamespace(?string $namespace): self
+    {
+        $this->namespace = $namespace;
 
         return $this;
     }
@@ -133,26 +201,6 @@ class ContentDocumentResponse
     public function setMetadata($metadata): self
     {
         $this->metadata = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed[]|null
-     */
-    public function getFilters(): ?array
-    {
-        return $this->filters;
-    }
-
-    /**
-     * @param mixed[]|null $filters
-     *
-     * @return self
-     */
-    public function setFilters(?array $filters): self
-    {
-        $this->filters = $filters;
 
         return $this;
     }

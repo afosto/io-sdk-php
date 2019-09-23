@@ -10,23 +10,23 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class ContentSeachResponse
+class CntSeachResponse
 {
     /**
-     * @var ContentDocumentResponse[]
+     * @var CntDocumentResponse[]
      */
     protected $hits;
     /**
-     * @var ContentFacet[]
+     * @var CntFacet[]
      */
     protected $facets;
     /**
-     * @var ContentPagination
+     * @var CntPagination
      */
     protected $pagination;
 
     /**
-     * @return ContentDocumentResponse[]|null
+     * @return CntDocumentResponse[]|null
      */
     public function getHits(): ?array
     {
@@ -34,7 +34,7 @@ class ContentSeachResponse
     }
 
     /**
-     * @param ContentDocumentResponse[]|null $hits
+     * @param CntDocumentResponse[]|null $hits
      *
      * @return self
      */
@@ -46,7 +46,7 @@ class ContentSeachResponse
     }
 
     /**
-     * @return ContentFacet[]|null
+     * @return CntFacet[]|null
      */
     public function getFacets(): ?array
     {
@@ -54,7 +54,7 @@ class ContentSeachResponse
     }
 
     /**
-     * @param ContentFacet[]|null $facets
+     * @param CntFacet[]|null $facets
      *
      * @return self
      */
@@ -66,19 +66,19 @@ class ContentSeachResponse
     }
 
     /**
-     * @return ContentPagination|null
+     * @return CntPagination|null
      */
-    public function getPagination(): ?ContentPagination
+    public function getPagination(): ?CntPagination
     {
         return $this->pagination;
     }
 
     /**
-     * @param ContentPagination|null $pagination
+     * @param CntPagination|null $pagination
      *
      * @return self
      */
-    public function setPagination(?ContentPagination $pagination): self
+    public function setPagination(?CntPagination $pagination): self
     {
         $this->pagination = $pagination;
 

@@ -38,7 +38,7 @@ class Suggest extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\
 
     public function getUri(): string
     {
-        return '/Content/suggest';
+        return '/cnt/suggest';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -72,12 +72,12 @@ class Suggest extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\
      * @throws \Afosto\Sdk\Exception\SuggestUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SuggestNotFoundException
      *
-     * @return \Afosto\Sdk\Model\ContentSuggestResponse|null
+     * @return \Afosto\Sdk\Model\CntSuggestResponse|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\ContentSuggestResponse', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\CntSuggestResponse', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\SuggestUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

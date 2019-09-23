@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class ContentSimpleQueryNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class CntSearchQueryNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\ContentSimpleQuery';
+        return $type === 'Afosto\\Sdk\\Model\\CntSearchQuery';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\ContentSimpleQuery';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\CntSearchQuery';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,30 +37,23 @@ class ContentSimpleQueryNormalizer implements DenormalizerInterface, NormalizerI
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\ContentSimpleQuery();
-        if (property_exists($data, 'codes') && $data->{'codes'} !== null) {
-            $values = [];
-            foreach ($data->{'codes'} as $value) {
-                $values[] = $value;
-            }
-            $object->setCodes($values);
-        }
-        if (property_exists($data, 'models') && $data->{'models'} !== null) {
-            $values_1 = [];
-            foreach ($data->{'models'} as $value_1) {
-                $values_1[] = $value_1;
-            }
-            $object->setModels($values_1);
-        }
-        if (property_exists($data, 'namespaces') && $data->{'namespaces'} !== null) {
-            $values_2 = [];
-            foreach ($data->{'namespaces'} as $value_2) {
-                $values_2[] = $value_2;
-            }
-            $object->setNamespaces($values_2);
-        }
+        $object = new \Afosto\Sdk\Model\CntSearchQuery();
         if (property_exists($data, 'q') && $data->{'q'} !== null) {
             $object->setQ($data->{'q'});
+        }
+        if (property_exists($data, 'filter') && $data->{'filter'} !== null) {
+            $values = [];
+            foreach ($data->{'filter'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CntFilter', 'json', $context);
+            }
+            $object->setFilter($values);
+        }
+        if (property_exists($data, 'facets') && $data->{'facets'} !== null) {
+            $values_1 = [];
+            foreach ($data->{'facets'} as $value_1) {
+                $values_1[] = $value_1;
+            }
+            $object->setFacets($values_1);
         }
         if (property_exists($data, 'limit') && $data->{'limit'} !== null) {
             $object->setLimit($data->{'limit'});
@@ -71,6 +64,13 @@ class ContentSimpleQueryNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'page_cursor') && $data->{'page_cursor'} !== null) {
             $object->setPageCursor($data->{'page_cursor'});
         }
+        if (property_exists($data, 'sort') && $data->{'sort'} !== null) {
+            $values_2 = [];
+            foreach ($data->{'sort'} as $value_2) {
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\CntSort', 'json', $context);
+            }
+            $object->setSort($values_2);
+        }
 
         return $object;
     }
@@ -78,29 +78,22 @@ class ContentSimpleQueryNormalizer implements DenormalizerInterface, NormalizerI
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getCodes()) {
-            $values = [];
-            foreach ($object->getCodes() as $value) {
-                $values[] = $value;
-            }
-            $data->{'codes'} = $values;
-        }
-        if (null !== $object->getModels()) {
-            $values_1 = [];
-            foreach ($object->getModels() as $value_1) {
-                $values_1[] = $value_1;
-            }
-            $data->{'models'} = $values_1;
-        }
-        if (null !== $object->getNamespaces()) {
-            $values_2 = [];
-            foreach ($object->getNamespaces() as $value_2) {
-                $values_2[] = $value_2;
-            }
-            $data->{'namespaces'} = $values_2;
-        }
         if (null !== $object->getQ()) {
             $data->{'q'} = $object->getQ();
+        }
+        if (null !== $object->getFilter()) {
+            $values = [];
+            foreach ($object->getFilter() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $data->{'filter'} = $values;
+        }
+        if (null !== $object->getFacets()) {
+            $values_1 = [];
+            foreach ($object->getFacets() as $value_1) {
+                $values_1[] = $value_1;
+            }
+            $data->{'facets'} = $values_1;
         }
         if (null !== $object->getLimit()) {
             $data->{'limit'} = $object->getLimit();
@@ -110,6 +103,13 @@ class ContentSimpleQueryNormalizer implements DenormalizerInterface, NormalizerI
         }
         if (null !== $object->getPageCursor()) {
             $data->{'page_cursor'} = $object->getPageCursor();
+        }
+        if (null !== $object->getSort()) {
+            $values_2 = [];
+            foreach ($object->getSort() as $value_2) {
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
+            }
+            $data->{'sort'} = $values_2;
         }
 
         return $data;
