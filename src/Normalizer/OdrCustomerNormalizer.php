@@ -68,19 +68,12 @@ class OdrCustomerNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'email') && $data->{'email'} !== null) {
             $object->setEmail($data->{'email'});
         }
-        if (property_exists($data, 'billing') && $data->{'billing'} !== null) {
+        if (property_exists($data, 'addresses') && $data->{'addresses'} !== null) {
             $values = [];
-            foreach ($data->{'billing'} as $value) {
+            foreach ($data->{'addresses'} as $value) {
                 $values[] = $value;
             }
-            $object->setBilling($values);
-        }
-        if (property_exists($data, 'shipping') && $data->{'shipping'} !== null) {
-            $values_1 = [];
-            foreach ($data->{'shipping'} as $value_1) {
-                $values_1[] = $value_1;
-            }
-            $object->setShipping($values_1);
+            $object->setAddresses($values);
         }
         if (property_exists($data, 'group_id') && $data->{'group_id'} !== null) {
             $object->setGroupId($data->{'group_id'});
@@ -128,19 +121,12 @@ class OdrCustomerNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (null !== $object->getEmail()) {
             $data->{'email'} = $object->getEmail();
         }
-        if (null !== $object->getBilling()) {
+        if (null !== $object->getAddresses()) {
             $values = [];
-            foreach ($object->getBilling() as $value) {
+            foreach ($object->getAddresses() as $value) {
                 $values[] = $value;
             }
-            $data->{'billing'} = $values;
-        }
-        if (null !== $object->getShipping()) {
-            $values_1 = [];
-            foreach ($object->getShipping() as $value_1) {
-                $values_1[] = $value_1;
-            }
-            $data->{'shipping'} = $values_1;
+            $data->{'addresses'} = $values;
         }
         if (null !== $object->getGroupId()) {
             $data->{'group_id'} = $object->getGroupId();

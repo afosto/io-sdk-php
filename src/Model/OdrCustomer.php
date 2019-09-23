@@ -55,11 +55,7 @@ class OdrCustomer
     /**
      * @var string[]
      */
-    protected $billing;
-    /**
-     * @var string[]
-     */
-    protected $shipping;
+    protected $addresses;
     /**
      * @var string
      */
@@ -276,39 +272,19 @@ class OdrCustomer
     /**
      * @return string[]|null
      */
-    public function getBilling(): ?array
+    public function getAddresses(): ?array
     {
-        return $this->billing;
+        return $this->addresses;
     }
 
     /**
-     * @param string[]|null $billing
+     * @param string[]|null $addresses
      *
      * @return self
      */
-    public function setBilling(?array $billing): self
+    public function setAddresses(?array $addresses): self
     {
-        $this->billing = $billing;
-
-        return $this;
-    }
-
-    /**
-     * @return string[]|null
-     */
-    public function getShipping(): ?array
-    {
-        return $this->shipping;
-    }
-
-    /**
-     * @param string[]|null $shipping
-     *
-     * @return self
-     */
-    public function setShipping(?array $shipping): self
-    {
-        $this->shipping = $shipping;
+        $this->addresses = $addresses;
 
         return $this;
     }
