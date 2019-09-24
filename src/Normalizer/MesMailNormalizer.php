@@ -93,6 +93,9 @@ class MesMailNormalizer implements DenormalizerInterface, NormalizerInterface, D
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
             $object->setMetadata($data->{'metadata'});
         }
+        if (property_exists($data, 'delivered_at') && $data->{'delivered_at'} !== null) {
+            $object->setDeliveredAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'delivered_at'}));
+        }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
@@ -160,6 +163,9 @@ class MesMailNormalizer implements DenormalizerInterface, NormalizerInterface, D
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();
+        }
+        if (null !== $object->getDeliveredAt()) {
+            $data->{'delivered_at'} = $object->getDeliveredAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

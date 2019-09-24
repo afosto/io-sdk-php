@@ -67,6 +67,10 @@ class MesMail
     /**
      * @var \DateTime
      */
+    protected $deliveredAt;
+    /**
+     * @var \DateTime
+     */
     protected $createdAt;
     /**
      * @var \DateTime
@@ -329,6 +333,26 @@ class MesMail
     public function setMetadata($metadata): self
     {
         $this->metadata = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getDeliveredAt(): ?\DateTime
+    {
+        return $this->deliveredAt;
+    }
+
+    /**
+     * @param \DateTime|null $deliveredAt
+     *
+     * @return self
+     */
+    public function setDeliveredAt(?\DateTime $deliveredAt): self
+    {
+        $this->deliveredAt = $deliveredAt;
 
         return $this;
     }
