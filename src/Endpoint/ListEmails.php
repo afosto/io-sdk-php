@@ -21,10 +21,17 @@ class ListEmails extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *     @var string $folder
      *     @var string $addressee
      * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
      */
-    public function __construct(array $queryParameters = [])
+    public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
         $this->queryParameters = $queryParameters;
+        $this->headerParameters = $headerParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
@@ -58,6 +65,18 @@ class ListEmails extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         $optionsResolver->setAllowedTypes('inbox', ['string']);
         $optionsResolver->setAllowedTypes('folder', ['string']);
         $optionsResolver->setAllowedTypes('addressee', ['string']);
+
+        return $optionsResolver;
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['x-page', 'x-page-size']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('x-page', ['string']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
 
         return $optionsResolver;
     }
