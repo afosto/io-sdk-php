@@ -18,6 +18,7 @@ class ListClients extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @param array $queryParameters {
      *
      *     @var int $is_deleted
+     *     @var string $scope
      * }
      */
     public function __construct(array $queryParameters = [])
@@ -50,10 +51,11 @@ class ListClients extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['is_deleted']);
+        $optionsResolver->setDefined(['is_deleted', 'scope']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults(['is_deleted' => 0]);
         $optionsResolver->setAllowedTypes('is_deleted', ['int']);
+        $optionsResolver->setAllowedTypes('scope', ['string']);
 
         return $optionsResolver;
     }

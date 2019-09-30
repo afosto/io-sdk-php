@@ -2413,6 +2413,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param array $queryParameters {
      *
      *     @var int $is_deleted
+     *     @var string $scope
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
