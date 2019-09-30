@@ -44,6 +44,16 @@ class NormalizerFactory
         $normalizers[] = new OdrOrderModelNormalizer();
         $normalizers[] = new OdrOrderUpdateModelNormalizer();
         $normalizers[] = new OdrStateNormalizer();
+        $normalizers[] = new OdrProviderNormalizer();
+        $normalizers[] = new OdrProviderMethodNormalizer();
+        $normalizers[] = new OdrMethodNormalizer();
+        $normalizers[] = new OdrIssuerNormalizer();
+        $normalizers[] = new OdrPaymentIntentNormalizer();
+        $normalizers[] = new OdrPaymentNormalizer();
+        $normalizers[] = new OdrProcessNormalizer();
+        $normalizers[] = new OdrAttemptNormalizer();
+        $normalizers[] = new OdrTransactionNormalizer();
+        $normalizers[] = new OdrTransactionModelNormalizer();
         $normalizers[] = new CntSimpleQueryNormalizer();
         $normalizers[] = new CntFilterNormalizer();
         $normalizers[] = new CntSearchQueryNormalizer();

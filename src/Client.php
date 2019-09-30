@@ -478,6 +478,100 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListProvidersBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListProvidersUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrProvider[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listProviders(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListProviders(), $fetch);
+    }
+
+    /**
+     * Returns a new signed upload url.
+     *
+     * @param \Afosto\Sdk\Model\OdrTransactionModel $body
+     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateTransactionBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateTransactionUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrTransaction|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createTransaction(\Afosto\Sdk\Model\OdrTransactionModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateTransaction($body), $fetch);
+    }
+
+    /**
+     * Returns the details of a transaction.
+     *
+     * @param string $secret
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetTransactionBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTransactionUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrTransaction|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getTransaction(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTransaction($secret), $fetch);
+    }
+
+    /**
+     * Start a payment for a transaction.
+     *
+     * @param string                             $secret
+     * @param \Afosto\Sdk\Model\OdrPaymentIntent $body
+     * @param string                             $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreatePaymentBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreatePaymentUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrPayment|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createPayment(string $secret, \Afosto\Sdk\Model\OdrPaymentIntent $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreatePayment($secret, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of payment methods available for the transaction.
+     *
+     * @param string $secret
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrMethod[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listMethodsForTransaction(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListMethodsForTransaction($secret), $fetch);
+    }
+
+    /**
+     * Returns the live details of a payment.
+     *
+     * @param string $reference
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetPaymentBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetPaymentUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrProcess|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getPayment(string $reference, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPayment($reference), $fetch);
+    }
+
+    /**
      * Run a complex search to find conversations.
      *
      * @param \Afosto\Sdk\Model\MesSearch $body  Search query object

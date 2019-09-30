@@ -15,111 +15,15 @@ class OdrOrder
     /**
      * @var string
      */
-    protected $id;
-    /**
-     * @var string
-     */
-    protected $number;
-    /**
-     * @var string
-     */
-    protected $clientId;
-    /**
-     * @var string
-     */
     protected $customerId;
-    /**
-     * @var OdrState
-     */
-    protected $state;
-    /**
-     * @var OdrStackReference[]
-     */
-    protected $stacks;
     /**
      * @var string
      */
     protected $addressSetId;
     /**
-     * @var mixed
+     * @var OdrItem[]
      */
-    protected $metadata;
-    /**
-     * @var \DateTime
-     */
-    protected $dueAt;
-    /**
-     * @var \DateTime
-     */
-    protected $deletedAt;
-    /**
-     * @var \DateTime
-     */
-    protected $createdAt;
-    /**
-     * @var \DateTime
-     */
-    protected $updatedAt;
-
-    /**
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
-    public function setId(?string $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getNumber(): ?string
-    {
-        return $this->number;
-    }
-
-    /**
-     * @param string|null $number
-     *
-     * @return self
-     */
-    public function setNumber(?string $number): self
-    {
-        $this->number = $number;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getClientId(): ?string
-    {
-        return $this->clientId;
-    }
-
-    /**
-     * @param string|null $clientId
-     *
-     * @return self
-     */
-    public function setClientId(?string $clientId): self
-    {
-        $this->clientId = $clientId;
-
-        return $this;
-    }
+    protected $items;
 
     /**
      * @return string|null
@@ -137,46 +41,6 @@ class OdrOrder
     public function setCustomerId(?string $customerId): self
     {
         $this->customerId = $customerId;
-
-        return $this;
-    }
-
-    /**
-     * @return OdrState|null
-     */
-    public function getState(): ?OdrState
-    {
-        return $this->state;
-    }
-
-    /**
-     * @param OdrState|null $state
-     *
-     * @return self
-     */
-    public function setState(?OdrState $state): self
-    {
-        $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * @return OdrStackReference[]|null
-     */
-    public function getStacks(): ?array
-    {
-        return $this->stacks;
-    }
-
-    /**
-     * @param OdrStackReference[]|null $stacks
-     *
-     * @return self
-     */
-    public function setStacks(?array $stacks): self
-    {
-        $this->stacks = $stacks;
 
         return $this;
     }
@@ -202,101 +66,21 @@ class OdrOrder
     }
 
     /**
-     * @return mixed
+     * @return OdrItem[]|null
      */
-    public function getMetadata()
+    public function getItems(): ?array
     {
-        return $this->metadata;
+        return $this->items;
     }
 
     /**
-     * @param mixed $metadata
+     * @param OdrItem[]|null $items
      *
      * @return self
      */
-    public function setMetadata($metadata): self
+    public function setItems(?array $items): self
     {
-        $this->metadata = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getDueAt(): ?\DateTime
-    {
-        return $this->dueAt;
-    }
-
-    /**
-     * @param \DateTime|null $dueAt
-     *
-     * @return self
-     */
-    public function setDueAt(?\DateTime $dueAt): self
-    {
-        $this->dueAt = $dueAt;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getDeletedAt(): ?\DateTime
-    {
-        return $this->deletedAt;
-    }
-
-    /**
-     * @param \DateTime|null $deletedAt
-     *
-     * @return self
-     */
-    public function setDeletedAt(?\DateTime $deletedAt): self
-    {
-        $this->deletedAt = $deletedAt;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getCreatedAt(): ?\DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
-    public function setCreatedAt(?\DateTime $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt(): ?\DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
-    public function setUpdatedAt(?\DateTime $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
+        $this->items = $items;
 
         return $this;
     }

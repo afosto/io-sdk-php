@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrProcessNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrOrder';
+        return $type === 'Afosto\\Sdk\\Model\\OdrProcess';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrOrder';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrProcess';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,19 +37,19 @@ class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrOrder();
-        if (property_exists($data, 'customer_id') && $data->{'customer_id'} !== null) {
-            $object->setCustomerId($data->{'customer_id'});
+        $object = new \Afosto\Sdk\Model\OdrProcess();
+        if (property_exists($data, 'action') && $data->{'action'} !== null) {
+            $object->setAction($data->{'action'});
         }
-        if (property_exists($data, 'address_set_id') && $data->{'address_set_id'} !== null) {
-            $object->setAddressSetId($data->{'address_set_id'});
+        if (property_exists($data, 'url') && $data->{'url'} !== null) {
+            $object->setUrl($data->{'url'});
         }
-        if (property_exists($data, 'items') && $data->{'items'} !== null) {
+        if (property_exists($data, 'attempts') && $data->{'attempts'} !== null) {
             $values = [];
-            foreach ($data->{'items'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrItem', 'json', $context);
+            foreach ($data->{'attempts'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrAttempt', 'json', $context);
             }
-            $object->setItems($values);
+            $object->setAttempts($values);
         }
 
         return $object;
@@ -58,18 +58,18 @@ class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, 
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getCustomerId()) {
-            $data->{'customer_id'} = $object->getCustomerId();
+        if (null !== $object->getAction()) {
+            $data->{'action'} = $object->getAction();
         }
-        if (null !== $object->getAddressSetId()) {
-            $data->{'address_set_id'} = $object->getAddressSetId();
+        if (null !== $object->getUrl()) {
+            $data->{'url'} = $object->getUrl();
         }
-        if (null !== $object->getItems()) {
+        if (null !== $object->getAttempts()) {
             $values = [];
-            foreach ($object->getItems() as $value) {
+            foreach ($object->getAttempts() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
-            $data->{'items'} = $values;
+            $data->{'attempts'} = $values;
         }
 
         return $data;
