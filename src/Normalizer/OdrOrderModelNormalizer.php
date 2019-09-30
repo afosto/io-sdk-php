@@ -38,8 +38,8 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrOrderModel();
-        if (property_exists($data, 'channel_id') && $data->{'channel_id'} !== null) {
-            $object->setChannelId($data->{'channel_id'});
+        if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
+            $object->setClientId($data->{'client_id'});
         }
         if (property_exists($data, 'customer_id') && $data->{'customer_id'} !== null) {
             $object->setCustomerId($data->{'customer_id'});
@@ -66,8 +66,8 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getChannelId()) {
-            $data->{'channel_id'} = $object->getChannelId();
+        if (null !== $object->getClientId()) {
+            $data->{'client_id'} = $object->getClientId();
         }
         if (null !== $object->getCustomerId()) {
             $data->{'customer_id'} = $object->getCustomerId();
