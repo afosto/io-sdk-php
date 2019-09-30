@@ -3227,6 +3227,28 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * returns all customers.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListCustomersBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListCustomersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListCustomersNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrCustomer[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listCustomers(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCustomers($headerParameters), $fetch);
+    }
+
+    /**
      * Add a new customer to the list.
      *
      * @param \Afosto\Sdk\Model\OdrCustomerModel $body
