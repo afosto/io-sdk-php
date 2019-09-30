@@ -10,12 +10,8 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrWarehouseModel
+class OdrCreateWarehouseRequest
 {
-    /**
-     * @var string
-     */
-    protected $id;
     /**
      * @var string
      */
@@ -28,26 +24,6 @@ class OdrWarehouseModel
      * @var mixed
      */
     protected $metadata;
-
-    /**
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
-    public function setId(?string $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 
     /**
      * @return string|null

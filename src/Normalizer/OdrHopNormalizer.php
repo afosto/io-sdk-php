@@ -47,18 +47,11 @@ class OdrHopNormalizer implements DenormalizerInterface, NormalizerInterface, De
         if (property_exists($data, 'to') && $data->{'to'} !== null) {
             $object->setTo($data->{'to'});
         }
-        if (property_exists($data, 'schedule') && $data->{'schedule'} !== null) {
-            $values = [];
-            foreach ($data->{'schedule'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrSchedule', 'json', $context);
-            }
-            $object->setSchedule($values);
-        }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
-            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
+        if (property_exists($data, 'deleted_at') && $data->{'deleted_at'} !== null) {
+            $object->setDeletedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'deleted_at'}));
         }
 
         return $object;
@@ -76,18 +69,11 @@ class OdrHopNormalizer implements DenormalizerInterface, NormalizerInterface, De
         if (null !== $object->getTo()) {
             $data->{'to'} = $object->getTo();
         }
-        if (null !== $object->getSchedule()) {
-            $values = [];
-            foreach ($object->getSchedule() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data->{'schedule'} = $values;
-        }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
         }
-        if (null !== $object->getUpdatedAt()) {
-            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
+        if (null !== $object->getDeletedAt()) {
+            $data->{'deleted_at'} = $object->getDeletedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class UpdateHopNotFoundException extends \RuntimeException implements ClientException
+class ListSchedulesNotFoundException extends \RuntimeException implements ClientException
 {
     private $error;
 

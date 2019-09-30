@@ -10,14 +10,14 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class UpdateLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class CreateSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * Update a location.
+     * Add a schedule.
      *
-     * @param \Afosto\Sdk\Model\OdrUpdateLocationRequest $body
+     * @param \Afosto\Sdk\Model\OdrCreateScheduleRequest $body Hop model
      */
-    public function __construct(\Afosto\Sdk\Model\OdrUpdateLocationRequest $body)
+    public function __construct(\Afosto\Sdk\Model\OdrCreateScheduleRequest $body)
     {
         $this->body = $body;
     }
@@ -26,12 +26,12 @@ class UpdateLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 
     public function getMethod(): string
     {
-        return 'PUT';
+        return 'POST';
     }
 
     public function getUri(): string
     {
-        return '/odr/locations';
+        return '/odr/schedules';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -47,21 +47,21 @@ class UpdateLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\UpdateLocationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateScheduleUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateScheduleNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrLocation|null
+     * @return \Afosto\Sdk\Model\OdrSchedule|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrLocation', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrSchedule', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\CreateScheduleUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateLocationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\CreateScheduleNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

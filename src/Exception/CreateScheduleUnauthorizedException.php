@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class UpdateHopUnauthorizedException extends \RuntimeException implements ClientException
+class CreateScheduleUnauthorizedException extends \RuntimeException implements ClientException
 {
     private $error;
 

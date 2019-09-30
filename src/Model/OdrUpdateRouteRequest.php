@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrRouteUpdateModel
+class OdrUpdateRouteRequest
 {
     /**
      * @var string
@@ -20,10 +20,6 @@ class OdrRouteUpdateModel
      * @var string
      */
     protected $name;
-    /**
-     * @var string[]
-     */
-    protected $hops;
 
     /**
      * @return string|null
@@ -61,26 +57,6 @@ class OdrRouteUpdateModel
     public function setName(?string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return string[]|null
-     */
-    public function getHops(): ?array
-    {
-        return $this->hops;
-    }
-
-    /**
-     * @param string[]|null $hops
-     *
-     * @return self
-     */
-    public function setHops(?array $hops): self
-    {
-        $this->hops = $hops;
 
         return $this;
     }

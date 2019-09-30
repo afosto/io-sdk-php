@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrWarehouseModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrUpdateRouteRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrWarehouseModel';
+        return $type === 'Afosto\\Sdk\\Model\\OdrUpdateRouteRequest';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrWarehouseModel';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrUpdateRouteRequest';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,18 +37,12 @@ class OdrWarehouseModelNormalizer implements DenormalizerInterface, NormalizerIn
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrWarehouseModel();
+        $object = new \Afosto\Sdk\Model\OdrUpdateRouteRequest();
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
         if (property_exists($data, 'name') && $data->{'name'} !== null) {
             $object->setName($data->{'name'});
-        }
-        if (property_exists($data, 'is_active') && $data->{'is_active'} !== null) {
-            $object->setIsActive($data->{'is_active'});
-        }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
-            $object->setMetadata($data->{'metadata'});
         }
 
         return $object;
@@ -62,12 +56,6 @@ class OdrWarehouseModelNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
-        }
-        if (null !== $object->getIsActive()) {
-            $data->{'is_active'} = $object->getIsActive();
-        }
-        if (null !== $object->getMetadata()) {
-            $data->{'metadata'} = $object->getMetadata();
         }
 
         return $data;

@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrScheduleNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrUpdateScheduleRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrSchedule';
+        return $type === 'Afosto\\Sdk\\Model\\OdrUpdateScheduleRequest';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrSchedule';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrUpdateScheduleRequest';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,9 @@ class OdrScheduleNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrSchedule();
+        $object = new \Afosto\Sdk\Model\OdrUpdateScheduleRequest();
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
-        }
-        if (property_exists($data, 'hop_id') && $data->{'hop_id'} !== null) {
-            $object->setHopId($data->{'hop_id'});
         }
         if (property_exists($data, 'last_call') && $data->{'last_call'} !== null) {
             $object->setLastCall($data->{'last_call'});
@@ -76,9 +73,6 @@ class OdrScheduleNormalizer implements DenormalizerInterface, NormalizerInterfac
         $data = new \stdClass();
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
-        }
-        if (null !== $object->getHopId()) {
-            $data->{'hop_id'} = $object->getHopId();
         }
         if (null !== $object->getLastCall()) {
             $data->{'last_call'} = $object->getLastCall();

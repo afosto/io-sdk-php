@@ -10,14 +10,14 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class UpdateHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class UpdateSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * Update a hop.
+     * update a schedule.
      *
-     * @param \Afosto\Sdk\Model\OdrHopUpdateModel $body
+     * @param \Afosto\Sdk\Model\OdrUpdateScheduleRequest $body Hop model
      */
-    public function __construct(\Afosto\Sdk\Model\OdrHopUpdateModel $body)
+    public function __construct(\Afosto\Sdk\Model\OdrUpdateScheduleRequest $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class UpdateHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     public function getUri(): string
     {
-        return '/odr/hops';
+        return '/odr/schedules';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -47,21 +47,21 @@ class UpdateHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\UpdateHopUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateHopNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateScheduleUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateScheduleNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrHop|null
+     * @return \Afosto\Sdk\Model\OdrSchedule|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrHop', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrSchedule', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateHopUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\UpdateScheduleUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateHopNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\UpdateScheduleNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

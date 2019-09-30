@@ -10,16 +10,12 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrSchedule
+class OdrUpdateScheduleRequest
 {
     /**
      * @var string
      */
     protected $id;
-    /**
-     * @var string
-     */
-    protected $hopId;
     /**
      * UTC timestamp.
      *
@@ -63,26 +59,6 @@ class OdrSchedule
     public function setId(?string $id): self
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getHopId(): ?string
-    {
-        return $this->hopId;
-    }
-
-    /**
-     * @param string|null $hopId
-     *
-     * @return self
-     */
-    public function setHopId(?string $hopId): self
-    {
-        $this->hopId = $hopId;
 
         return $this;
     }

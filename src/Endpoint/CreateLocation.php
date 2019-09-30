@@ -15,9 +15,9 @@ class CreateLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * A location is a reference to a warehouse.
      *
-     * @param \Afosto\Sdk\Model\OdrLocationModel $body Location model
+     * @param \Afosto\Sdk\Model\OdrCreateLocationRequest $body Location model
      */
-    public function __construct(\Afosto\Sdk\Model\OdrLocationModel $body)
+    public function __construct(\Afosto\Sdk\Model\OdrCreateLocationRequest $body)
     {
         $this->body = $body;
     }

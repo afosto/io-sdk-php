@@ -10,16 +10,16 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrHopUpdateModel
+class OdrUpdateLocationRequest
 {
     /**
      * @var string
      */
     protected $id;
     /**
-     * @var OdrSchedule[]
+     * @var string
      */
-    protected $schedule;
+    protected $name = '';
 
     /**
      * @return string|null
@@ -42,21 +42,21 @@ class OdrHopUpdateModel
     }
 
     /**
-     * @return OdrSchedule[]|null
+     * @return string|null
      */
-    public function getSchedule(): ?array
+    public function getName(): ?string
     {
-        return $this->schedule;
+        return $this->name;
     }
 
     /**
-     * @param OdrSchedule[]|null $schedule
+     * @param string|null $name
      *
      * @return self
      */
-    public function setSchedule(?array $schedule): self
+    public function setName(?string $name): self
     {
-        $this->schedule = $schedule;
+        $this->name = $name;
 
         return $this;
     }

@@ -10,33 +10,35 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class CreateHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class DeleteSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
+    protected $id;
+
     /**
-     * Add an hop.
+     * Mark a schedule as deleted.
      *
-     * @param \Afosto\Sdk\Model\OdrCreateHopRequest $body Hop model
+     * @param string $id
      */
-    public function __construct(\Afosto\Sdk\Model\OdrCreateHopRequest $body)
+    public function __construct(string $id)
     {
-        $this->body = $body;
+        $this->id = $id;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
     {
-        return 'POST';
+        return 'DELETE';
     }
 
     public function getUri(): string
     {
-        return '/odr/hops';
+        return str_replace(['{id}'], [$this->id], '/odr/schedules/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
     {
-        return $this->getSerializedBody($serializer);
+        return [[], null];
     }
 
     public function getExtraHeaders(): array
@@ -47,8 +49,8 @@ class CreateHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\CreateHopUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateHopNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteScheduleUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteScheduleNotFoundException
      *
      * @return \Afosto\Sdk\Model\OdrHop|null
      */
@@ -58,10 +60,10 @@ class CreateHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrHop', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\CreateHopUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\DeleteScheduleUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\CreateHopNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\DeleteScheduleNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrLocationUpdateModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrCreateWarehouseRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrLocationUpdateModel';
+        return $type === 'Afosto\\Sdk\\Model\\OdrCreateWarehouseRequest';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrLocationUpdateModel';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrCreateWarehouseRequest';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,15 @@ class OdrLocationUpdateModelNormalizer implements DenormalizerInterface, Normali
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrLocationUpdateModel();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
-            $object->setId($data->{'id'});
-        }
+        $object = new \Afosto\Sdk\Model\OdrCreateWarehouseRequest();
         if (property_exists($data, 'name') && $data->{'name'} !== null) {
             $object->setName($data->{'name'});
+        }
+        if (property_exists($data, 'is_active') && $data->{'is_active'} !== null) {
+            $object->setIsActive($data->{'is_active'});
+        }
+        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+            $object->setMetadata($data->{'metadata'});
         }
 
         return $object;
@@ -51,11 +54,14 @@ class OdrLocationUpdateModelNormalizer implements DenormalizerInterface, Normali
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
-        }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
+        }
+        if (null !== $object->getIsActive()) {
+            $data->{'is_active'} = $object->getIsActive();
+        }
+        if (null !== $object->getMetadata()) {
+            $data->{'metadata'} = $object->getMetadata();
         }
 
         return $data;

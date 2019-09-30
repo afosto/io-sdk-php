@@ -29,17 +29,13 @@ class OdrHop
      */
     protected $to;
     /**
-     * @var OdrSchedule[]
-     */
-    protected $schedule;
-    /**
      * @var \DateTime
      */
     protected $createdAt;
     /**
      * @var \DateTime
      */
-    protected $updatedAt;
+    protected $deletedAt;
 
     /**
      * @return string|null
@@ -110,26 +106,6 @@ class OdrHop
     }
 
     /**
-     * @return OdrSchedule[]|null
-     */
-    public function getSchedule(): ?array
-    {
-        return $this->schedule;
-    }
-
-    /**
-     * @param OdrSchedule[]|null $schedule
-     *
-     * @return self
-     */
-    public function setSchedule(?array $schedule): self
-    {
-        $this->schedule = $schedule;
-
-        return $this;
-    }
-
-    /**
      * @return \DateTime|null
      */
     public function getCreatedAt(): ?\DateTime
@@ -152,19 +128,19 @@ class OdrHop
     /**
      * @return \DateTime|null
      */
-    public function getUpdatedAt(): ?\DateTime
+    public function getDeletedAt(): ?\DateTime
     {
-        return $this->updatedAt;
+        return $this->deletedAt;
     }
 
     /**
-     * @param \DateTime|null $updatedAt
+     * @param \DateTime|null $deletedAt
      *
      * @return self
      */
-    public function setUpdatedAt(?\DateTime $updatedAt): self
+    public function setDeletedAt(?\DateTime $deletedAt): self
     {
-        $this->updatedAt = $updatedAt;
+        $this->deletedAt = $deletedAt;
 
         return $this;
     }

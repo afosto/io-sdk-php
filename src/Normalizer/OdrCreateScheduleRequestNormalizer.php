@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrScheduleNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrCreateScheduleRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrSchedule';
+        return $type === 'Afosto\\Sdk\\Model\\OdrCreateScheduleRequest';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrSchedule';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrCreateScheduleRequest';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,10 +37,7 @@ class OdrScheduleNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrSchedule();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
-            $object->setId($data->{'id'});
-        }
+        $object = new \Afosto\Sdk\Model\OdrCreateScheduleRequest();
         if (property_exists($data, 'hop_id') && $data->{'hop_id'} !== null) {
             $object->setHopId($data->{'hop_id'});
         }
@@ -74,9 +71,6 @@ class OdrScheduleNormalizer implements DenormalizerInterface, NormalizerInterfac
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
-        }
         if (null !== $object->getHopId()) {
             $data->{'hop_id'} = $object->getHopId();
         }

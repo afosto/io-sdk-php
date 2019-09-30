@@ -10,12 +10,8 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrRouteModel
+class OdrCreateHopRequest
 {
-    /**
-     * @var string
-     */
-    protected $name;
     /**
      * Location id.
      *
@@ -28,30 +24,6 @@ class OdrRouteModel
      * @var string
      */
     protected $to;
-    /**
-     * @var string[]
-     */
-    protected $hops;
-
-    /**
-     * @return string|null
-     */
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
-    public function setName(?string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
 
     /**
      * Location id.
@@ -97,26 +69,6 @@ class OdrRouteModel
     public function setTo(?string $to): self
     {
         $this->to = $to;
-
-        return $this;
-    }
-
-    /**
-     * @return string[]|null
-     */
-    public function getHops(): ?array
-    {
-        return $this->hops;
-    }
-
-    /**
-     * @param string[]|null $hops
-     *
-     * @return self
-     */
-    public function setHops(?array $hops): self
-    {
-        $this->hops = $hops;
 
         return $this;
     }

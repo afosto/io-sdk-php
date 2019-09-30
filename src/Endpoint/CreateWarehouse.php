@@ -15,9 +15,9 @@ class CreateWarehouse extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     /**
      * Add a warehouse.
      *
-     * @param \Afosto\Sdk\Model\OdrWarehouseModel $body The new warehouse
+     * @param \Afosto\Sdk\Model\OdrCreateWarehouseRequest $body The new warehouse
      */
-    public function __construct(\Afosto\Sdk\Model\OdrWarehouseModel $body)
+    public function __construct(\Afosto\Sdk\Model\OdrCreateWarehouseRequest $body)
     {
         $this->body = $body;
     }

@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrLocationModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrUpdateWarehouseRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrLocationModel';
+        return $type === 'Afosto\\Sdk\\Model\\OdrUpdateWarehouseRequest';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrLocationModel';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrUpdateWarehouseRequest';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,24 +37,18 @@ class OdrLocationModelNormalizer implements DenormalizerInterface, NormalizerInt
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrLocationModel();
+        $object = new \Afosto\Sdk\Model\OdrUpdateWarehouseRequest();
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
         if (property_exists($data, 'name') && $data->{'name'} !== null) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'country_iso') && $data->{'country_iso'} !== null) {
-            $object->setCountryIso($data->{'country_iso'});
+        if (property_exists($data, 'is_active') && $data->{'is_active'} !== null) {
+            $object->setIsActive($data->{'is_active'});
         }
-        if (property_exists($data, 'is_customer') && $data->{'is_customer'} !== null) {
-            $object->setIsCustomer($data->{'is_customer'});
-        }
-        if (property_exists($data, 'is_tracking_inventory') && $data->{'is_tracking_inventory'} !== null) {
-            $object->setIsTrackingInventory($data->{'is_tracking_inventory'});
-        }
-        if (property_exists($data, 'warehouse_id') && $data->{'warehouse_id'} !== null) {
-            $object->setWarehouseId($data->{'warehouse_id'});
+        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+            $object->setMetadata($data->{'metadata'});
         }
 
         return $object;
@@ -69,17 +63,11 @@ class OdrLocationModelNormalizer implements DenormalizerInterface, NormalizerInt
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
         }
-        if (null !== $object->getCountryIso()) {
-            $data->{'country_iso'} = $object->getCountryIso();
+        if (null !== $object->getIsActive()) {
+            $data->{'is_active'} = $object->getIsActive();
         }
-        if (null !== $object->getIsCustomer()) {
-            $data->{'is_customer'} = $object->getIsCustomer();
-        }
-        if (null !== $object->getIsTrackingInventory()) {
-            $data->{'is_tracking_inventory'} = $object->getIsTrackingInventory();
-        }
-        if (null !== $object->getWarehouseId()) {
-            $data->{'warehouse_id'} = $object->getWarehouseId();
+        if (null !== $object->getMetadata()) {
+            $data->{'metadata'} = $object->getMetadata();
         }
 
         return $data;

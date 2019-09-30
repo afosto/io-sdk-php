@@ -15,9 +15,9 @@ class CreateRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * Add a new route.
      *
-     * @param \Afosto\Sdk\Model\OdrRouteModel $body
+     * @param \Afosto\Sdk\Model\OdrCreateRouteRequest $body
      */
-    public function __construct(\Afosto\Sdk\Model\OdrRouteModel $body)
+    public function __construct(\Afosto\Sdk\Model\OdrCreateRouteRequest $body)
     {
         $this->body = $body;
     }
