@@ -3003,6 +3003,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * List all routes.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetRoutesUnauthorizedException
@@ -3010,9 +3018,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrRoute[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getRoutes(string $fetch = self::FETCH_OBJECT)
+    public function getRoutes(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetRoutes(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetRoutes($headerParameters), $fetch);
     }
 
     /**
@@ -3080,6 +3088,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * List existing locations.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $X-Page-Size
+     *     @var int $X-Page
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListLocationsUnauthorizedException
@@ -3087,9 +3103,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrLocation[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listLocations(string $fetch = self::FETCH_OBJECT)
+    public function listLocations(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListLocations(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListLocations($headerParameters), $fetch);
     }
 
     /**
@@ -3159,10 +3175,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * List all hops.
      *
-     * @param array $queryParameters {
+     * @param array $headerParameters {
      *
-     *     @var int $page_size
-     *     @var int $page
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -3172,9 +3188,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrHop[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listHops(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listHops(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListHops($queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListHops($headerParameters), $fetch);
     }
 
     /**
@@ -3230,9 +3246,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param array $queryParameters {
      *
-     *     @var int $page_size
-     *     @var int $page
      *     @var string $hop_id
+     * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $X-Page-Size
+     *     @var int $X-Page
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -3242,9 +3262,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrSchedule[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listSchedules(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listSchedules(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListSchedules($queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListSchedules($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -3314,10 +3334,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * List all warehouses.
      *
-     * @param array $queryParameters {
+     * @param array $headerParameters {
      *
-     *     @var int $page_size
-     *     @var int $page
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -3327,9 +3347,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrWarehouse[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getWarehouses(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function getWarehouses(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWarehouses($queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWarehouses($headerParameters), $fetch);
     }
 
     /**

@@ -17,14 +17,19 @@ class ListSchedules extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @param array $queryParameters {
      *
-     *     @var int $page_size
-     *     @var int $page
      *     @var string $hop_id
      * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $X-Page-Size
+     *     @var int $X-Page
+     * }
      */
-    public function __construct(array $queryParameters = [])
+    public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
         $this->queryParameters = $queryParameters;
+        $this->headerParameters = $headerParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
@@ -52,12 +57,22 @@ class ListSchedules extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['page_size', 'page', 'hop_id']);
+        $optionsResolver->setDefined(['hop_id']);
         $optionsResolver->setRequired([]);
-        $optionsResolver->setDefaults(['page_size' => 25, 'page' => 1]);
-        $optionsResolver->setAllowedTypes('page_size', ['int']);
-        $optionsResolver->setAllowedTypes('page', ['int']);
+        $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('hop_id', ['string']);
+
+        return $optionsResolver;
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['X-Page-Size', 'X-Page']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['X-Page-Size' => 25, 'X-Page' => 1]);
+        $optionsResolver->setAllowedTypes('X-Page-Size', ['int']);
+        $optionsResolver->setAllowedTypes('X-Page', ['int']);
 
         return $optionsResolver;
     }
