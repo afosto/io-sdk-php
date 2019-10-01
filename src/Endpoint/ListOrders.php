@@ -12,6 +12,20 @@ namespace Afosto\Sdk\Endpoint;
 
 class ListOrders extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
+    /**
+     * Get a list of orders.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $X-Page-Size
+     *     @var int $X-Page
+     * }
+     */
+    public function __construct(array $headerParameters = [])
+    {
+        $this->headerParameters = $headerParameters;
+    }
+
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
@@ -32,6 +46,18 @@ class ListOrders extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['X-Page-Size', 'X-Page']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['X-Page-Size' => 25, 'X-Page' => 1]);
+        $optionsResolver->setAllowedTypes('X-Page-Size', ['int']);
+        $optionsResolver->setAllowedTypes('X-Page', ['int']);
+
+        return $optionsResolver;
     }
 
     /**

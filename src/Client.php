@@ -366,6 +366,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Get a list of orders.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $X-Page-Size
+     *     @var int $X-Page
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListOrdersUnauthorizedException
@@ -373,9 +381,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrOrder[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listOrders(string $fetch = self::FETCH_OBJECT)
+    public function listOrders(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListOrders(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListOrders($headerParameters), $fetch);
     }
 
     /**
