@@ -17,10 +17,6 @@ class OdrSchedule
      */
     protected $id;
     /**
-     * @var string
-     */
-    protected $hopId;
-    /**
      * UTC timestamp.
      *
      * @var string
@@ -63,26 +59,6 @@ class OdrSchedule
     public function setId(?string $id): self
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getHopId(): ?string
-    {
-        return $this->hopId;
-    }
-
-    /**
-     * @param string|null $hopId
-     *
-     * @return self
-     */
-    public function setHopId(?string $hopId): self
-    {
-        $this->hopId = $hopId;
 
         return $this;
     }

@@ -13,10 +13,6 @@ namespace Afosto\Sdk\Model;
 class OdrCreateScheduleRequest
 {
     /**
-     * @var string
-     */
-    protected $hopId;
-    /**
      * UTC timestamp.
      *
      * @var string
@@ -42,26 +38,6 @@ class OdrCreateScheduleRequest
      * @var \DateTime[]
      */
     protected $onlyApliedOn;
-
-    /**
-     * @return string|null
-     */
-    public function getHopId(): ?string
-    {
-        return $this->hopId;
-    }
-
-    /**
-     * @param string|null $hopId
-     *
-     * @return self
-     */
-    public function setHopId(?string $hopId): self
-    {
-        $this->hopId = $hopId;
-
-        return $this;
-    }
 
     /**
      * UTC timestamp.

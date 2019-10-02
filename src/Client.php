@@ -3250,6 +3250,23 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * View an hop.
+     *
+     * @param string $id
+     * @param array  $body  Hop model
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrHop|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateHopSchedules(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateHopSchedules($id, $body), $fetch);
+    }
+
+    /**
      * List all schedules.
      *
      * @param array $queryParameters {

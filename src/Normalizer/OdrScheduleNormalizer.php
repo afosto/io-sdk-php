@@ -41,9 +41,6 @@ class OdrScheduleNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'hop_id') && $data->{'hop_id'} !== null) {
-            $object->setHopId($data->{'hop_id'});
-        }
         if (property_exists($data, 'last_call') && $data->{'last_call'} !== null) {
             $object->setLastCall($data->{'last_call'});
         }
@@ -76,9 +73,6 @@ class OdrScheduleNormalizer implements DenormalizerInterface, NormalizerInterfac
         $data = new \stdClass();
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
-        }
-        if (null !== $object->getHopId()) {
-            $data->{'hop_id'} = $object->getHopId();
         }
         if (null !== $object->getLastCall()) {
             $data->{'last_call'} = $object->getLastCall();
