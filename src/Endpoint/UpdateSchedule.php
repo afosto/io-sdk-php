@@ -50,12 +50,12 @@ class UpdateSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      * @throws \Afosto\Sdk\Exception\UpdateScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateScheduleNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrSchedule|null
+     * @return \Afosto\Sdk\Model\OdrHop|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrSchedule', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrHop', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateScheduleUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

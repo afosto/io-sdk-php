@@ -12,17 +12,13 @@ namespace Afosto\Sdk\Endpoint;
 
 class UpdateHopSchedules extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
-    protected $id;
-
     /**
-     * View an hop.
+     * update the applied schedules.
      *
-     * @param string $id
-     * @param array  $body Hop model
+     * @param \Afosto\Sdk\Model\OdrCreateHopScheduleRequest $body Hop model
      */
-    public function __construct(string $id, array $body)
+    public function __construct(\Afosto\Sdk\Model\OdrCreateHopScheduleRequest $body)
     {
-        $this->id = $id;
         $this->body = $body;
     }
 
@@ -35,12 +31,12 @@ class UpdateHopSchedules extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/hops/{id}/schedules');
+        return '/odr/hops';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
     {
-        return [[], $this->body];
+        return $this->getSerializedBody($serializer);
     }
 
     public function getExtraHeaders(): array

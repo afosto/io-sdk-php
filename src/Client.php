@@ -3087,6 +3087,22 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * update the applied schedules.
+     *
+     * @param \Afosto\Sdk\Model\OdrCreateHopScheduleRequest $body  Hop model
+     * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrHop|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateHopSchedules(\Afosto\Sdk\Model\OdrCreateHopScheduleRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateHopSchedules($body), $fetch);
+    }
+
+    /**
      * Mark a hop as deleted.
      *
      * @param string $id
@@ -3116,23 +3132,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function getHop(string $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetHop($id), $fetch);
-    }
-
-    /**
-     * View an hop.
-     *
-     * @param string $id
-     * @param array  $body  Hop model
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrHop|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateHopSchedules(string $id, array $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateHopSchedules($id, $body), $fetch);
     }
 
     /**
@@ -3186,7 +3185,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateScheduleNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrSchedule|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrHop|\Psr\Http\Message\ResponseInterface|null
      */
     public function updateSchedule(\Afosto\Sdk\Model\OdrUpdateScheduleRequest $body, string $fetch = self::FETCH_OBJECT)
     {
@@ -3202,7 +3201,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\DeleteScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteScheduleNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrHop|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrSchedule|\Psr\Http\Message\ResponseInterface|null
      */
     public function deleteSchedule(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -3218,7 +3217,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetScheduleNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrHop|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrSchedule|\Psr\Http\Message\ResponseInterface|null
      */
     public function getSchedule(string $id, string $fetch = self::FETCH_OBJECT)
     {

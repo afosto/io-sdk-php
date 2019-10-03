@@ -186,6 +186,7 @@ class NormalizerFactory
         $normalizers[] = new OdrRouteNormalizer();
         $normalizers[] = new OdrHopNormalizer();
         $normalizers[] = new OdrCreateHopRequestNormalizer();
+        $normalizers[] = new OdrCreateHopScheduleRequestNormalizer();
         $normalizers[] = new OdrLocationNormalizer();
         $normalizers[] = new OdrCreateLocationRequestNormalizer();
         $normalizers[] = new OdrUpdateLocationRequestNormalizer();

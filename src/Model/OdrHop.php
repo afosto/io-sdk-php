@@ -29,6 +29,12 @@ class OdrHop
      */
     protected $to;
     /**
+     * a list of applied schedules.
+     *
+     * @var string[]
+     */
+    protected $schedules;
+    /**
      * @var \DateTime
      */
     protected $createdAt;
@@ -101,6 +107,30 @@ class OdrHop
     public function setTo(?string $to): self
     {
         $this->to = $to;
+
+        return $this;
+    }
+
+    /**
+     * a list of applied schedules.
+     *
+     * @return string[]|null
+     */
+    public function getSchedules(): ?array
+    {
+        return $this->schedules;
+    }
+
+    /**
+     * a list of applied schedules.
+     *
+     * @param string[]|null $schedules
+     *
+     * @return self
+     */
+    public function setSchedules(?array $schedules): self
+    {
+        $this->schedules = $schedules;
 
         return $this;
     }

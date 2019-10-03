@@ -13,6 +13,10 @@ namespace Afosto\Sdk\Model;
 class OdrCreateScheduleRequest
 {
     /**
+     * @var string
+     */
+    protected $name;
+    /**
      * UTC timestamp.
      *
      * @var string
@@ -38,6 +42,26 @@ class OdrCreateScheduleRequest
      * @var \DateTime[]
      */
     protected $onlyApliedOn;
+
+    /**
+     * @return string|null
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string|null $name
+     *
+     * @return self
+     */
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
 
     /**
      * UTC timestamp.

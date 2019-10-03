@@ -24,6 +24,10 @@ class OdrCreateHopRequest
      * @var string
      */
     protected $to;
+    /**
+     * @var string[]
+     */
+    protected $schedules;
 
     /**
      * Location id.
@@ -69,6 +73,26 @@ class OdrCreateHopRequest
     public function setTo(?string $to): self
     {
         $this->to = $to;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getSchedules(): ?array
+    {
+        return $this->schedules;
+    }
+
+    /**
+     * @param string[]|null $schedules
+     *
+     * @return self
+     */
+    public function setSchedules(?array $schedules): self
+    {
+        $this->schedules = $schedules;
 
         return $this;
     }

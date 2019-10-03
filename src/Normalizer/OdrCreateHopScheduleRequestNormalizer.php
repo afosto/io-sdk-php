@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrCreateHopRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrCreateHopScheduleRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrCreateHopRequest';
+        return $type === 'Afosto\\Sdk\\Model\\OdrCreateHopScheduleRequest';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrCreateHopRequest';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrCreateHopScheduleRequest';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,9 @@ class OdrCreateHopRequestNormalizer implements DenormalizerInterface, Normalizer
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrCreateHopRequest();
-        if (property_exists($data, 'from') && $data->{'from'} !== null) {
-            $object->setFrom($data->{'from'});
-        }
-        if (property_exists($data, 'to') && $data->{'to'} !== null) {
-            $object->setTo($data->{'to'});
+        $object = new \Afosto\Sdk\Model\OdrCreateHopScheduleRequest();
+        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+            $object->setId($data->{'id'});
         }
         if (property_exists($data, 'schedules') && $data->{'schedules'} !== null) {
             $values = [];
@@ -58,11 +55,8 @@ class OdrCreateHopRequestNormalizer implements DenormalizerInterface, Normalizer
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getFrom()) {
-            $data->{'from'} = $object->getFrom();
-        }
-        if (null !== $object->getTo()) {
-            $data->{'to'} = $object->getTo();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
         }
         if (null !== $object->getSchedules()) {
             $values = [];

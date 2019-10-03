@@ -38,6 +38,9 @@ class OdrCreateScheduleRequestNormalizer implements DenormalizerInterface, Norma
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrCreateScheduleRequest();
+        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+            $object->setName($data->{'name'});
+        }
         if (property_exists($data, 'last_call') && $data->{'last_call'} !== null) {
             $object->setLastCall($data->{'last_call'});
         }
@@ -68,6 +71,9 @@ class OdrCreateScheduleRequestNormalizer implements DenormalizerInterface, Norma
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getName()) {
+            $data->{'name'} = $object->getName();
+        }
         if (null !== $object->getLastCall()) {
             $data->{'last_call'} = $object->getLastCall();
         }

@@ -41,6 +41,9 @@ class OdrUpdateScheduleRequestNormalizer implements DenormalizerInterface, Norma
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
+        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+            $object->setName($data->{'name'});
+        }
         if (property_exists($data, 'last_call') && $data->{'last_call'} !== null) {
             $object->setLastCall($data->{'last_call'});
         }
@@ -73,6 +76,9 @@ class OdrUpdateScheduleRequestNormalizer implements DenormalizerInterface, Norma
         $data = new \stdClass();
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
+        }
+        if (null !== $object->getName()) {
+            $data->{'name'} = $object->getName();
         }
         if (null !== $object->getLastCall()) {
             $data->{'last_call'} = $object->getLastCall();

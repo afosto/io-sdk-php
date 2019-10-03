@@ -39,7 +39,7 @@ class OdrSchedule
      */
     protected $availableWeekdays;
     /**
-     * @var \DateTime[]
+     * @var string[]
      */
     protected $onlyApliedOn;
 
@@ -156,7 +156,7 @@ class OdrSchedule
     }
 
     /**
-     * @return \DateTime[]|null
+     * @return string[]|null
      */
     public function getOnlyApliedOn(): ?array
     {
@@ -164,7 +164,7 @@ class OdrSchedule
     }
 
     /**
-     * @param \DateTime[]|null $onlyApliedOn
+     * @param string[]|null $onlyApliedOn
      *
      * @return self
      */

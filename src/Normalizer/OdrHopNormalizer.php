@@ -47,6 +47,13 @@ class OdrHopNormalizer implements DenormalizerInterface, NormalizerInterface, De
         if (property_exists($data, 'to') && $data->{'to'} !== null) {
             $object->setTo($data->{'to'});
         }
+        if (property_exists($data, 'schedules') && $data->{'schedules'} !== null) {
+            $values = [];
+            foreach ($data->{'schedules'} as $value) {
+                $values[] = $value;
+            }
+            $object->setSchedules($values);
+        }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
@@ -68,6 +75,13 @@ class OdrHopNormalizer implements DenormalizerInterface, NormalizerInterface, De
         }
         if (null !== $object->getTo()) {
             $data->{'to'} = $object->getTo();
+        }
+        if (null !== $object->getSchedules()) {
+            $values = [];
+            foreach ($object->getSchedules() as $value) {
+                $values[] = $value;
+            }
+            $data->{'schedules'} = $values;
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
