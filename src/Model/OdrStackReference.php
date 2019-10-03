@@ -15,31 +15,11 @@ class OdrStackReference
     /**
      * @var string
      */
-    protected $id;
+    protected $type;
     /**
      * @var string
      */
-    protected $type;
-
-    /**
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
-    public function setId(?string $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
+    protected $id;
 
     /**
      * @return string|null
@@ -57,6 +37,26 @@ class OdrStackReference
     public function setType(?string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string|null $id
+     *
+     * @return self
+     */
+    public function setId(?string $id): self
+    {
+        $this->id = $id;
 
         return $this;
     }

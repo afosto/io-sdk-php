@@ -2749,6 +2749,141 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getBillingInformation(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBillingInformation(), $fetch);
+    }
+
+    /**
+     * Update customer information regarding billing data.
+     *
+     * @param \Afosto\Sdk\Model\IamCompany $body  Email object
+     * @param string                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateBillingInformation(\Afosto\Sdk\Model\IamCompany $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateBillingInformation($body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listCards(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCards(), $fetch);
+    }
+
+    /**
+     * Add a card's source.
+     *
+     * @param \Afosto\Sdk\Model\IamCardsPostBody $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function addCard(\Afosto\Sdk\Model\IamCardsPostBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddCard($body), $fetch);
+    }
+
+    /**
+     * Remove an active card.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function removeCard(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RemoveCard($id), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamProduct[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listProducts(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListProducts(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamSubscription[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listSubscriptions(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListSubscriptions(), $fetch);
+    }
+
+    /**
+     * Add a product to the subscription.
+     *
+     * @param \Afosto\Sdk\Model\IamSubscribe $body
+     * @param string                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function addSubscription(\Afosto\Sdk\Model\IamSubscribe $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddSubscription($body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamInvoice[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listInvoices(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInvoices(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamInvoice|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getUpcoming(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUpcoming(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamTrial|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getTrial(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTrial(), $fetch);
+    }
+
+    /**
+     * List of subscribed products.
+     *
+     * @param \Afosto\Sdk\Model\IamUsageRequest $body
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getUsages(\Afosto\Sdk\Model\IamUsageRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUsages($body), $fetch);
+    }
+
+    /**
      * List all routes.
      *
      * @param array $headerParameters {
@@ -3160,141 +3295,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function getWarehouse(string $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWarehouse($id), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getBillingInformation(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBillingInformation(), $fetch);
-    }
-
-    /**
-     * Update customer information regarding billing data.
-     *
-     * @param \Afosto\Sdk\Model\IamCompany $body  Email object
-     * @param string                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateBillingInformation(\Afosto\Sdk\Model\IamCompany $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateBillingInformation($body), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listCards(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCards(), $fetch);
-    }
-
-    /**
-     * Add a card's source.
-     *
-     * @param \Afosto\Sdk\Model\IamCardsPostBody $body
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function addCard(\Afosto\Sdk\Model\IamCardsPostBody $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddCard($body), $fetch);
-    }
-
-    /**
-     * Remove an active card.
-     *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function removeCard(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RemoveCard($id), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamProduct[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listProducts(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListProducts(), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamSubscription[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listSubscriptions(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListSubscriptions(), $fetch);
-    }
-
-    /**
-     * Add a product to the subscription.
-     *
-     * @param \Afosto\Sdk\Model\IamSubscribe $body
-     * @param string                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function addSubscription(\Afosto\Sdk\Model\IamSubscribe $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddSubscription($body), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamInvoice[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listInvoices(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInvoices(), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamInvoice|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getUpcoming(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUpcoming(), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamTrial|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getTrial(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTrial(), $fetch);
-    }
-
-    /**
-     * List of subscribed products.
-     *
-     * @param \Afosto\Sdk\Model\IamUsageRequest $body
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getUsages(\Afosto\Sdk\Model\IamUsageRequest $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUsages($body), $fetch);
     }
 
     /**
