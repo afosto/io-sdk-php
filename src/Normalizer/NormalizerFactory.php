@@ -172,15 +172,6 @@ class NormalizerFactory
         $normalizers[] = new IamUserTokenRequestNormalizer();
         $normalizers[] = new IamUserTokenResponseNormalizer();
         $normalizers[] = new IamSignupNormalizer();
-        $normalizers[] = new OdrStockQueryNormalizer();
-        $normalizers[] = new OdrWarehouseItemNormalizer();
-        $normalizers[] = new OdrTransferReportNormalizer();
-        $normalizers[] = new OdrClaimCreateNormalizer();
-        $normalizers[] = new OdrClaimNormalizer();
-        $normalizers[] = new OdrClaimItemNormalizer();
-        $normalizers[] = new OdrTransferCreateNormalizer();
-        $normalizers[] = new OdrTransferNormalizer();
-        $normalizers[] = new OdrTransferRouteNormalizer();
         $normalizers[] = new OdrCreateRouteRequestNormalizer();
         $normalizers[] = new OdrUpdateRouteRequestNormalizer();
         $normalizers[] = new OdrRouteNormalizer();
@@ -207,6 +198,21 @@ class NormalizerFactory
         $normalizers[] = new IamPlanNormalizer();
         $normalizers[] = new IamTierNormalizer();
         $normalizers[] = new IamUsageRecordNormalizer();
+        $normalizers[] = new WmsCreateRouteRequestNormalizer();
+        $normalizers[] = new WmsUpdateRouteRequestNormalizer();
+        $normalizers[] = new WmsRouteNormalizer();
+        $normalizers[] = new WmsHopNormalizer();
+        $normalizers[] = new WmsCreateHopRequestNormalizer();
+        $normalizers[] = new WmsCreateHopScheduleRequestNormalizer();
+        $normalizers[] = new WmsLocationNormalizer();
+        $normalizers[] = new WmsCreateLocationRequestNormalizer();
+        $normalizers[] = new WmsUpdateLocationRequestNormalizer();
+        $normalizers[] = new WmsScheduleNormalizer();
+        $normalizers[] = new WmsCreateScheduleRequestNormalizer();
+        $normalizers[] = new WmsUpdateScheduleRequestNormalizer();
+        $normalizers[] = new WmsCreateWarehouseRequestNormalizer();
+        $normalizers[] = new WmsUpdateWarehouseRequestNormalizer();
+        $normalizers[] = new WmsWarehouseNormalizer();
         $normalizers[] = new OdrCustomerModelNormalizer();
         $normalizers[] = new OdrCustomerNormalizer();
         $normalizers[] = new OdrCustomerGroupNormalizer();
@@ -227,7 +233,6 @@ class NormalizerFactory
         $normalizers[] = new IamSubtenantsAuthorizationsRequestsIdPutBodyNormalizer();
         $normalizers[] = new IamSubtenantsAuthorizationsInvitesPostBodyNormalizer();
         $normalizers[] = new IamOauthForwardReferenceGetResponse200Normalizer();
-        $normalizers[] = new OdrClaimsIdExtendPutBodyNormalizer();
         $normalizers[] = new IamCardsPostBodyNormalizer();
         $normalizers[] = new IamLogsFiltersGetResponse200Normalizer();
 

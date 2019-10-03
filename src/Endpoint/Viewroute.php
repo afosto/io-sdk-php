@@ -33,7 +33,7 @@ class Viewroute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/routes/{id}');
+        return str_replace(['{id}'], [$this->id], '/wms/routes/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -52,12 +52,12 @@ class Viewroute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      * @throws \Afosto\Sdk\Exception\ViewrouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ViewrouteNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrRoute|null
+     * @return \Afosto\Sdk\Model\WmsRoute|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrRoute', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsRoute', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ViewrouteUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

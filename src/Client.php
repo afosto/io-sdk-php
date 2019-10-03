@@ -2749,137 +2749,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Create an optimized set of claims.
-     *
-     * @param \Afosto\Sdk\Model\OdrClaimCreate $body
-     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateClaimsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateClaimsNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrClaim[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createClaims(\Afosto\Sdk\Model\OdrClaimCreate $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateClaims($body), $fetch);
-    }
-
-    /**
-     * Release the claim to make inventory available again.
-     *
-     * @param string                           $id
-     * @param \Afosto\Sdk\Model\OdrClaimCreate $body
-     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ReleaseClaimUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ReleaseClaimNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrClaim|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function releaseClaim(string $id, \Afosto\Sdk\Model\OdrClaimCreate $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ReleaseClaim($id, $body), $fetch);
-    }
-
-    /**
-     * View a claim and it's status.
-     *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ViewClaimUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ViewClaimNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrClaim|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function viewClaim(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewClaim($id), $fetch);
-    }
-
-    /**
-     * Create an optimized set of claims.
-     *
-     * @param string                                     $id
-     * @param \Afosto\Sdk\Model\OdrClaimsIdExtendPutBody $body
-     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ExtendReservationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ExtendReservationNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrClaim|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function extendReservation(string $id, \Afosto\Sdk\Model\OdrClaimsIdExtendPutBody $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ExtendReservation($id, $body), $fetch);
-    }
-
-    /**
-     * Confirm a reservation.
-     *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ConfirmReservationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ConfirmReservationNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrClaim|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function confirmReservation(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ConfirmReservation($id), $fetch);
-    }
-
-    /**
-     * Create an optimized set of claims.
-     *
-     * @param \Afosto\Sdk\Model\OdrTransferCreate $body
-     * @param string                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateTransferUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateTransferNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrTransfer|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createTransfer(\Afosto\Sdk\Model\OdrTransferCreate $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateTransfer($body), $fetch);
-    }
-
-    /**
-     * Create an optimized set of claims.
-     *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ViewTransferUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ViewTransferNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrTransfer|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function viewTransfer(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewTransfer($id), $fetch);
-    }
-
-    /**
-     * Update transfer items' last known location.
-     *
-     * @param string                              $id    Transfer id
-     * @param \Afosto\Sdk\Model\OdrTransferReport $body  Transfer request object
-     * @param string                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\AnnouceItemsForLocationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AnnouceItemsForLocationNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrTransfer|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function annouceItemsForLocation(string $id, \Afosto\Sdk\Model\OdrTransferReport $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AnnouceItemsForLocation($id, $body), $fetch);
-    }
-
-    /**
      * List all routes.
      *
      * @param array $headerParameters {
@@ -2893,7 +2762,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetRoutesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetRoutesNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrRoute[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsRoute[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function getRoutes(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -2903,15 +2772,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add a new route.
      *
-     * @param \Afosto\Sdk\Model\OdrCreateRouteRequest $body
+     * @param \Afosto\Sdk\Model\WmsCreateRouteRequest $body
      * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateRouteNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrRoute[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsRoute[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createRoute(\Afosto\Sdk\Model\OdrCreateRouteRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function createRoute(\Afosto\Sdk\Model\WmsCreateRouteRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateRoute($body), $fetch);
     }
@@ -2919,15 +2788,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update a route.
      *
-     * @param \Afosto\Sdk\Model\OdrUpdateRouteRequest $body
+     * @param \Afosto\Sdk\Model\WmsUpdateRouteRequest $body
      * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateRouteNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrRoute|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsRoute|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateRoute(\Afosto\Sdk\Model\OdrUpdateRouteRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function updateRoute(\Afosto\Sdk\Model\WmsUpdateRouteRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateRoute($body), $fetch);
     }
@@ -2941,7 +2810,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\DeleteRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteRouteNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrRoute|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsRoute|\Psr\Http\Message\ResponseInterface|null
      */
     public function deleteRoute(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -2957,7 +2826,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ViewrouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ViewrouteNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrRoute|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsRoute|\Psr\Http\Message\ResponseInterface|null
      */
     public function viewroute(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -2978,7 +2847,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListLocationsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListLocationsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrLocation[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsLocation[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listLocations(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -2988,15 +2857,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * A location is a reference to a warehouse.
      *
-     * @param \Afosto\Sdk\Model\OdrCreateLocationRequest $body  Location model
+     * @param \Afosto\Sdk\Model\WmsCreateLocationRequest $body  Location model
      * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateLocationNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrLocation|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsLocation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createLocation(\Afosto\Sdk\Model\OdrCreateLocationRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function createLocation(\Afosto\Sdk\Model\WmsCreateLocationRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateLocation($body), $fetch);
     }
@@ -3004,15 +2873,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update a location.
      *
-     * @param \Afosto\Sdk\Model\OdrUpdateLocationRequest $body
+     * @param \Afosto\Sdk\Model\WmsUpdateLocationRequest $body
      * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateLocationNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrLocation|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsLocation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateLocation(\Afosto\Sdk\Model\OdrUpdateLocationRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function updateLocation(\Afosto\Sdk\Model\WmsUpdateLocationRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateLocation($body), $fetch);
     }
@@ -3026,7 +2895,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\DeleteLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteLocationNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrLocation|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsLocation|\Psr\Http\Message\ResponseInterface|null
      */
     public function deleteLocation(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -3042,7 +2911,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ViewLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ViewLocationNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrLocation|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsLocation|\Psr\Http\Message\ResponseInterface|null
      */
     public function viewLocation(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -3063,7 +2932,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListHopsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListHopsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrHop[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsHop[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listHops(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -3073,15 +2942,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add an hop.
      *
-     * @param \Afosto\Sdk\Model\OdrCreateHopRequest $body  Hop model
+     * @param \Afosto\Sdk\Model\WmsCreateHopRequest $body  Hop model
      * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateHopNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrHop|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsHop|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createHop(\Afosto\Sdk\Model\OdrCreateHopRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function createHop(\Afosto\Sdk\Model\WmsCreateHopRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateHop($body), $fetch);
     }
@@ -3089,15 +2958,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * update the applied schedules.
      *
-     * @param \Afosto\Sdk\Model\OdrCreateHopScheduleRequest $body  Hop model
+     * @param \Afosto\Sdk\Model\WmsCreateHopScheduleRequest $body  Hop model
      * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrHop|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsHop|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateHopSchedules(\Afosto\Sdk\Model\OdrCreateHopScheduleRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function updateHopSchedules(\Afosto\Sdk\Model\WmsCreateHopScheduleRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateHopSchedules($body), $fetch);
     }
@@ -3111,7 +2980,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\DeleteHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteHopNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrHop|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsHop|\Psr\Http\Message\ResponseInterface|null
      */
     public function deleteHop(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -3127,7 +2996,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetHopNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrHop|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsHop|\Psr\Http\Message\ResponseInterface|null
      */
     public function getHop(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -3153,7 +3022,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListSchedulesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListSchedulesNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrSchedule[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsSchedule[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listSchedules(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -3163,15 +3032,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add a schedule.
      *
-     * @param \Afosto\Sdk\Model\OdrCreateScheduleRequest $body  Hop model
+     * @param \Afosto\Sdk\Model\WmsCreateScheduleRequest $body  Hop model
      * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateScheduleNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrSchedule|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsSchedule|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createSchedule(\Afosto\Sdk\Model\OdrCreateScheduleRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function createSchedule(\Afosto\Sdk\Model\WmsCreateScheduleRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateSchedule($body), $fetch);
     }
@@ -3179,15 +3048,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * update a schedule.
      *
-     * @param \Afosto\Sdk\Model\OdrUpdateScheduleRequest $body  Hop model
+     * @param \Afosto\Sdk\Model\WmsUpdateScheduleRequest $body  Hop model
      * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateScheduleNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrHop|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsHop|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateSchedule(\Afosto\Sdk\Model\OdrUpdateScheduleRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function updateSchedule(\Afosto\Sdk\Model\WmsUpdateScheduleRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateSchedule($body), $fetch);
     }
@@ -3201,7 +3070,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\DeleteScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteScheduleNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrSchedule|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsSchedule|\Psr\Http\Message\ResponseInterface|null
      */
     public function deleteSchedule(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -3217,7 +3086,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetScheduleNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrSchedule|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsSchedule|\Psr\Http\Message\ResponseInterface|null
      */
     public function getSchedule(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -3238,7 +3107,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetWarehousesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetWarehousesNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrWarehouse[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsWarehouse[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function getWarehouses(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -3248,15 +3117,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add a warehouse.
      *
-     * @param \Afosto\Sdk\Model\OdrCreateWarehouseRequest $body  The new warehouse
+     * @param \Afosto\Sdk\Model\WmsCreateWarehouseRequest $body  The new warehouse
      * @param string                                      $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateWarehouseUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateWarehouseNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrWarehouse|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsWarehouse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createWarehouse(\Afosto\Sdk\Model\OdrCreateWarehouseRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function createWarehouse(\Afosto\Sdk\Model\WmsCreateWarehouseRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateWarehouse($body), $fetch);
     }
@@ -3264,15 +3133,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add a warehouse.
      *
-     * @param \Afosto\Sdk\Model\OdrUpdateWarehouseRequest $body  The new warehouse
+     * @param \Afosto\Sdk\Model\WmsUpdateWarehouseRequest $body  The new warehouse
      * @param string                                      $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateWarehouseUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateWarehouseNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrWarehouse|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsWarehouse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateWarehouse(\Afosto\Sdk\Model\OdrUpdateWarehouseRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function updateWarehouse(\Afosto\Sdk\Model\WmsUpdateWarehouseRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateWarehouse($body), $fetch);
     }
@@ -3286,27 +3155,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetWarehouseUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetWarehouseNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrWarehouse|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsWarehouse|\Psr\Http\Message\ResponseInterface|null
      */
     public function getWarehouse(string $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWarehouse($id), $fetch);
-    }
-
-    /**
-     * Do a search query for stock.
-     *
-     * @param \Afosto\Sdk\Model\OdrStockQuery $body  The search query
-     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\SearchStockUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\SearchStockNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrWarehouseItem[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function searchStock(\Afosto\Sdk\Model\OdrStockQuery $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchStock($body), $fetch);
     }
 
     /**

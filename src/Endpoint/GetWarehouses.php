@@ -35,7 +35,7 @@ class GetWarehouses extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getUri(): string
     {
-        return '/odr/warehouses';
+        return '/wms/warehouses';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -66,12 +66,12 @@ class GetWarehouses extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      * @throws \Afosto\Sdk\Exception\GetWarehousesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetWarehousesNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrWarehouse[]|null
+     * @return \Afosto\Sdk\Model\WmsWarehouse[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrWarehouse[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsWarehouse[]', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetWarehousesUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

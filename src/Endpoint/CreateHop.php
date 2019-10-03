@@ -15,9 +15,9 @@ class CreateHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     /**
      * Add an hop.
      *
-     * @param \Afosto\Sdk\Model\OdrCreateHopRequest $body Hop model
+     * @param \Afosto\Sdk\Model\WmsCreateHopRequest $body Hop model
      */
-    public function __construct(\Afosto\Sdk\Model\OdrCreateHopRequest $body)
+    public function __construct(\Afosto\Sdk\Model\WmsCreateHopRequest $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class CreateHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     public function getUri(): string
     {
-        return '/odr/hops';
+        return '/wms/hops';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -50,12 +50,12 @@ class CreateHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      * @throws \Afosto\Sdk\Exception\CreateHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateHopNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrHop|null
+     * @return \Afosto\Sdk\Model\WmsHop|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrHop', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsHop', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateHopUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

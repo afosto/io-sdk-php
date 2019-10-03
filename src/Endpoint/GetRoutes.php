@@ -35,7 +35,7 @@ class GetRoutes extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     public function getUri(): string
     {
-        return '/odr/routes';
+        return '/wms/routes';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -66,12 +66,12 @@ class GetRoutes extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      * @throws \Afosto\Sdk\Exception\GetRoutesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetRoutesNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrRoute[]|null
+     * @return \Afosto\Sdk\Model\WmsRoute[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrRoute[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsRoute[]', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetRoutesUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

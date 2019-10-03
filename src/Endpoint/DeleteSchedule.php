@@ -33,7 +33,7 @@ class DeleteSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/schedules/{id}');
+        return str_replace(['{id}'], [$this->id], '/wms/schedules/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -52,12 +52,12 @@ class DeleteSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      * @throws \Afosto\Sdk\Exception\DeleteScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteScheduleNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrSchedule|null
+     * @return \Afosto\Sdk\Model\WmsSchedule|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrSchedule', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsSchedule', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteScheduleUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

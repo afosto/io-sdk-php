@@ -15,9 +15,9 @@ class CreateLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * A location is a reference to a warehouse.
      *
-     * @param \Afosto\Sdk\Model\OdrCreateLocationRequest $body Location model
+     * @param \Afosto\Sdk\Model\WmsCreateLocationRequest $body Location model
      */
-    public function __construct(\Afosto\Sdk\Model\OdrCreateLocationRequest $body)
+    public function __construct(\Afosto\Sdk\Model\WmsCreateLocationRequest $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class CreateLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 
     public function getUri(): string
     {
-        return '/odr/locations';
+        return '/wms/locations';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -50,12 +50,12 @@ class CreateLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      * @throws \Afosto\Sdk\Exception\CreateLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateLocationNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrLocation|null
+     * @return \Afosto\Sdk\Model\WmsLocation|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrLocation', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsLocation', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

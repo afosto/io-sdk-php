@@ -33,7 +33,7 @@ class GetHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\O
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/hops/{id}');
+        return str_replace(['{id}'], [$this->id], '/wms/hops/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -52,12 +52,12 @@ class GetHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\O
      * @throws \Afosto\Sdk\Exception\GetHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetHopNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrHop|null
+     * @return \Afosto\Sdk\Model\WmsHop|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrHop', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsHop', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetHopUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

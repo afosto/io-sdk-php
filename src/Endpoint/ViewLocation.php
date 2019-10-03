@@ -33,7 +33,7 @@ class ViewLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/locations/{id}');
+        return str_replace(['{id}'], [$this->id], '/wms/locations/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -52,12 +52,12 @@ class ViewLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * @throws \Afosto\Sdk\Exception\ViewLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ViewLocationNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrLocation|null
+     * @return \Afosto\Sdk\Model\WmsLocation|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrLocation', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsLocation', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ViewLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

@@ -33,7 +33,7 @@ class DeleteHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/hops/{id}');
+        return str_replace(['{id}'], [$this->id], '/wms/hops/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -52,12 +52,12 @@ class DeleteHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      * @throws \Afosto\Sdk\Exception\DeleteHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteHopNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrHop|null
+     * @return \Afosto\Sdk\Model\WmsHop|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrHop', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsHop', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteHopUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

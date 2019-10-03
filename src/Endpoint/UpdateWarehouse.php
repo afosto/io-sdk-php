@@ -15,9 +15,9 @@ class UpdateWarehouse extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     /**
      * Add a warehouse.
      *
-     * @param \Afosto\Sdk\Model\OdrUpdateWarehouseRequest $body The new warehouse
+     * @param \Afosto\Sdk\Model\WmsUpdateWarehouseRequest $body The new warehouse
      */
-    public function __construct(\Afosto\Sdk\Model\OdrUpdateWarehouseRequest $body)
+    public function __construct(\Afosto\Sdk\Model\WmsUpdateWarehouseRequest $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class UpdateWarehouse extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 
     public function getUri(): string
     {
-        return '/odr/warehouses';
+        return '/wms/warehouses';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -50,12 +50,12 @@ class UpdateWarehouse extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      * @throws \Afosto\Sdk\Exception\UpdateWarehouseUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateWarehouseNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrWarehouse|null
+     * @return \Afosto\Sdk\Model\WmsWarehouse|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrWarehouse', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsWarehouse', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateWarehouseUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

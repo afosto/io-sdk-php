@@ -15,9 +15,9 @@ class CreateRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * Add a new route.
      *
-     * @param \Afosto\Sdk\Model\OdrCreateRouteRequest $body
+     * @param \Afosto\Sdk\Model\WmsCreateRouteRequest $body
      */
-    public function __construct(\Afosto\Sdk\Model\OdrCreateRouteRequest $body)
+    public function __construct(\Afosto\Sdk\Model\WmsCreateRouteRequest $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class CreateRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return '/odr/routes';
+        return '/wms/routes';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -50,12 +50,12 @@ class CreateRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\CreateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateRouteNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrRoute[]|null
+     * @return \Afosto\Sdk\Model\WmsRoute[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrRoute[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsRoute[]', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateRouteUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

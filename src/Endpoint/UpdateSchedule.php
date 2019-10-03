@@ -15,9 +15,9 @@ class UpdateSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * update a schedule.
      *
-     * @param \Afosto\Sdk\Model\OdrUpdateScheduleRequest $body Hop model
+     * @param \Afosto\Sdk\Model\WmsUpdateScheduleRequest $body Hop model
      */
-    public function __construct(\Afosto\Sdk\Model\OdrUpdateScheduleRequest $body)
+    public function __construct(\Afosto\Sdk\Model\WmsUpdateScheduleRequest $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class UpdateSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 
     public function getUri(): string
     {
-        return '/odr/schedules';
+        return '/wms/schedules';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -50,12 +50,12 @@ class UpdateSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      * @throws \Afosto\Sdk\Exception\UpdateScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateScheduleNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrHop|null
+     * @return \Afosto\Sdk\Model\WmsHop|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrHop', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsHop', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateScheduleUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

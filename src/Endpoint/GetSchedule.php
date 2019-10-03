@@ -33,7 +33,7 @@ class GetSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/schedules/{id}');
+        return str_replace(['{id}'], [$this->id], '/wms/schedules/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -52,12 +52,12 @@ class GetSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\GetScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetScheduleNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrSchedule|null
+     * @return \Afosto\Sdk\Model\WmsSchedule|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrSchedule', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsSchedule', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetScheduleUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
