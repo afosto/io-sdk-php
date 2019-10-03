@@ -44,32 +44,15 @@ class OdrItemNormalizer implements DenormalizerInterface, NormalizerInterface, D
         if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
             $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'position') && $data->{'position'} !== null) {
-            $object->setPosition($data->{'position'});
+        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+            $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'is_available') && $data->{'is_available'} !== null) {
-            $object->setIsAvailable($data->{'is_available'});
-        }
-        if (property_exists($data, 'is_in_transit') && $data->{'is_in_transit'} !== null) {
-            $object->setIsInTransit($data->{'is_in_transit'});
-        }
-        if (property_exists($data, 'is_reserved') && $data->{'is_reserved'} !== null) {
-            $object->setIsReserved($data->{'is_reserved'});
-        }
-        if (property_exists($data, 'reservation_expires_at') && $data->{'reservation_expires_at'} !== null) {
-            $object->setReservationExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'reservation_expires_at'}));
-        }
-        if (property_exists($data, 'warehouse_id') && $data->{'warehouse_id'} !== null) {
-            $object->setWarehouseId($data->{'warehouse_id'});
-        }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
-            $object->setMetadata($data->{'metadata'});
-        }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
-            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
-        }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
-            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
+        if (property_exists($data, 'stacks') && $data->{'stacks'} !== null) {
+            $values = [];
+            foreach ($data->{'stacks'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context);
+            }
+            $object->setStacks($values);
         }
 
         return $object;
@@ -84,32 +67,15 @@ class OdrItemNormalizer implements DenormalizerInterface, NormalizerInterface, D
         if (null !== $object->getSku()) {
             $data->{'sku'} = $object->getSku();
         }
-        if (null !== $object->getPosition()) {
-            $data->{'position'} = $object->getPosition();
+        if (null !== $object->getDescription()) {
+            $data->{'description'} = $object->getDescription();
         }
-        if (null !== $object->getIsAvailable()) {
-            $data->{'is_available'} = $object->getIsAvailable();
-        }
-        if (null !== $object->getIsInTransit()) {
-            $data->{'is_in_transit'} = $object->getIsInTransit();
-        }
-        if (null !== $object->getIsReserved()) {
-            $data->{'is_reserved'} = $object->getIsReserved();
-        }
-        if (null !== $object->getReservationExpiresAt()) {
-            $data->{'reservation_expires_at'} = $object->getReservationExpiresAt()->format("Y-m-d\TH:i:sP");
-        }
-        if (null !== $object->getWarehouseId()) {
-            $data->{'warehouse_id'} = $object->getWarehouseId();
-        }
-        if (null !== $object->getMetadata()) {
-            $data->{'metadata'} = $object->getMetadata();
-        }
-        if (null !== $object->getCreatedAt()) {
-            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
-        }
-        if (null !== $object->getUpdatedAt()) {
-            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
+        if (null !== $object->getStacks()) {
+            $values = [];
+            foreach ($object->getStacks() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $data->{'stacks'} = $values;
         }
 
         return $data;

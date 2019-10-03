@@ -41,12 +41,12 @@ class ListGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      * @throws \Afosto\Sdk\Exception\ListGroupsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListGroupsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrGroup[]|null
+     * @return \Afosto\Sdk\Model\OdrCustomerGroup[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrGroup[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrCustomerGroup[]', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ListGroupsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

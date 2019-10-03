@@ -17,15 +17,20 @@ class ListStacks extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @param array $queryParameters {
      *
-     *     @var int $page_size
-     *     @var int $page
      *     @var string $type
      *     @var string $sort
      * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
      */
-    public function __construct(array $queryParameters = [])
+    public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
         $this->queryParameters = $queryParameters;
+        $this->headerParameters = $headerParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
@@ -53,13 +58,23 @@ class ListStacks extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['page_size', 'page', 'type', 'sort']);
+        $optionsResolver->setDefined(['type', 'sort']);
         $optionsResolver->setRequired([]);
-        $optionsResolver->setDefaults(['page_size' => 25, 'page' => 1, 'sort' => 'created_at_desc']);
-        $optionsResolver->setAllowedTypes('page_size', ['int']);
-        $optionsResolver->setAllowedTypes('page', ['int']);
+        $optionsResolver->setDefaults(['sort' => 'created_at_desc']);
         $optionsResolver->setAllowedTypes('type', ['string']);
         $optionsResolver->setAllowedTypes('sort', ['string']);
+
+        return $optionsResolver;
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['x-page', 'x-page-size']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['x-page' => '1', 'x-page-size' => '25']);
+        $optionsResolver->setAllowedTypes('x-page', ['string']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
 
         return $optionsResolver;
     }

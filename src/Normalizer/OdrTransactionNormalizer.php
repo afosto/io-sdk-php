@@ -63,8 +63,8 @@ class OdrTransactionNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'order') && $data->{'order'} !== null) {
-            $object->setOrder($this->denormalizer->denormalize($data->{'order'}, 'Afosto\\Sdk\\Model\\OdrOrder', 'json', $context));
+        if (property_exists($data, 'purchase') && $data->{'purchase'} !== null) {
+            $object->setPurchase($this->denormalizer->denormalize($data->{'purchase'}, 'Afosto\\Sdk\\Model\\OdrPurchase', 'json', $context));
         }
         if (property_exists($data, 'return_url') && $data->{'return_url'} !== null) {
             $object->setReturnUrl($data->{'return_url'});
@@ -116,8 +116,8 @@ class OdrTransactionNormalizer implements DenormalizerInterface, NormalizerInter
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();
         }
-        if (null !== $object->getOrder()) {
-            $data->{'order'} = $this->normalizer->normalize($object->getOrder(), 'json', $context);
+        if (null !== $object->getPurchase()) {
+            $data->{'purchase'} = $this->normalizer->normalize($object->getPurchase(), 'json', $context);
         }
         if (null !== $object->getReturnUrl()) {
             $data->{'return_url'} = $object->getReturnUrl();

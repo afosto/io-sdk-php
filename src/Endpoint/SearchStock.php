@@ -50,12 +50,12 @@ class SearchStock extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\SearchStockUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchStockNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrItem[]|null
+     * @return \Afosto\Sdk\Model\OdrWarehouseItem[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrItem[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrWarehouseItem[]', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\SearchStockUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

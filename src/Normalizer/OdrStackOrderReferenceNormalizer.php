@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrGroupModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrStackOrderReferenceNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrGroupModel';
+        return $type === 'Afosto\\Sdk\\Model\\OdrStackOrderReference';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrGroupModel';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrStackOrderReference';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,12 @@ class OdrGroupModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrGroupModel();
-        if (property_exists($data, 'is_default') && $data->{'is_default'} !== null) {
-            $object->setIsDefault($data->{'is_default'});
+        $object = new \Afosto\Sdk\Model\OdrStackOrderReference();
+        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+            $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
-            $object->setName($data->{'name'});
+        if (property_exists($data, 'is_latest') && $data->{'is_latest'} !== null) {
+            $object->setIsLatest($data->{'is_latest'});
         }
 
         return $object;
@@ -51,11 +51,11 @@ class OdrGroupModelNormalizer implements DenormalizerInterface, NormalizerInterf
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getIsDefault()) {
-            $data->{'is_default'} = $object->getIsDefault();
+        if (null !== $object->getReference()) {
+            $data->{'reference'} = $object->getReference();
         }
-        if (null !== $object->getName()) {
-            $data->{'name'} = $object->getName();
+        if (null !== $object->getIsLatest()) {
+            $data->{'is_latest'} = $object->getIsLatest();
         }
 
         return $data;

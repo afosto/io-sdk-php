@@ -79,10 +79,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param array $queryParameters {
      *
-     *     @var int $page_size
-     *     @var int $page
      *     @var string $type
      *     @var string $sort
+     * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -92,9 +96,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrStack[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listStacks(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listStacks(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListStacks($queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListStacks($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -197,10 +201,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $type
      * @param string $reference
-     * @param array  $queryParameters {
+     * @param array  $headerParameters {
      *
-     *     @var int $page_size
-     *     @var int $page
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -210,9 +214,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrGroup[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listItemsAsGroup(string $type, string $reference, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listItemsAsGroup(string $type, string $reference, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListItemsAsGroup($type, $reference, $queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListItemsAsGroup($type, $reference, $headerParameters), $fetch);
     }
 
     /**
@@ -238,10 +242,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $type
      * @param string $reference
-     * @param array  $queryParameters {
+     * @param array  $headerParameters {
      *
-     *     @var int $page_size
-     *     @var int $page
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -251,19 +255,19 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listItems(string $type, string $reference, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listItems(string $type, string $reference, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListItems($type, $reference, $queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListItems($type, $reference, $headerParameters), $fetch);
     }
 
     /**
      * Returns a list of groups.
      *
      * @param \Afosto\Sdk\Model\OdrSearch[] $body
-     * @param array                         $queryParameters {
+     * @param array                         $headerParameters {
      *
-     *     @var int $page_size
-     *     @var int $page
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -273,19 +277,19 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrGroup[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function searchGroups(array $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function searchGroups(array $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchGroups($body, $queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchGroups($body, $headerParameters), $fetch);
     }
 
     /**
      * Returns a list of items.
      *
      * @param \Afosto\Sdk\Model\OdrSearch $body
-     * @param array                       $queryParameters {
+     * @param array                       $headerParameters {
      *
-     *     @var int $page_size
-     *     @var int $page
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -295,9 +299,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function searchItems(\Afosto\Sdk\Model\OdrSearch $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function searchItems(\Afosto\Sdk\Model\OdrSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchItems($body, $queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchItems($body, $headerParameters), $fetch);
     }
 
     /**
@@ -2745,141 +2749,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getBillingInformation(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBillingInformation(), $fetch);
-    }
-
-    /**
-     * Update customer information regarding billing data.
-     *
-     * @param \Afosto\Sdk\Model\IamCompany $body  Email object
-     * @param string                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateBillingInformation(\Afosto\Sdk\Model\IamCompany $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateBillingInformation($body), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listCards(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCards(), $fetch);
-    }
-
-    /**
-     * Add a card's source.
-     *
-     * @param \Afosto\Sdk\Model\IamCardsPostBody $body
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function addCard(\Afosto\Sdk\Model\IamCardsPostBody $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddCard($body), $fetch);
-    }
-
-    /**
-     * Remove an active card.
-     *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function removeCard(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RemoveCard($id), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamProduct[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listProducts(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListProducts(), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamSubscription[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listSubscriptions(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListSubscriptions(), $fetch);
-    }
-
-    /**
-     * Add a product to the subscription.
-     *
-     * @param \Afosto\Sdk\Model\IamSubscribe $body
-     * @param string                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function addSubscription(\Afosto\Sdk\Model\IamSubscribe $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddSubscription($body), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamInvoice[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listInvoices(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInvoices(), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamInvoice|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getUpcoming(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUpcoming(), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamTrial|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getTrial(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTrial(), $fetch);
-    }
-
-    /**
-     * List of subscribed products.
-     *
-     * @param \Afosto\Sdk\Model\IamUsageRequest $body
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getUsages(\Afosto\Sdk\Model\IamUsageRequest $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUsages($body), $fetch);
-    }
-
-    /**
      * Create an optimized set of claims.
      *
      * @param \Afosto\Sdk\Model\OdrClaimCreate $body
@@ -3434,11 +3303,146 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\SearchStockUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchStockNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrWarehouseItem[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function searchStock(\Afosto\Sdk\Model\OdrStockQuery $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchStock($body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getBillingInformation(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBillingInformation(), $fetch);
+    }
+
+    /**
+     * Update customer information regarding billing data.
+     *
+     * @param \Afosto\Sdk\Model\IamCompany $body  Email object
+     * @param string                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateBillingInformation(\Afosto\Sdk\Model\IamCompany $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateBillingInformation($body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listCards(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCards(), $fetch);
+    }
+
+    /**
+     * Add a card's source.
+     *
+     * @param \Afosto\Sdk\Model\IamCardsPostBody $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function addCard(\Afosto\Sdk\Model\IamCardsPostBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddCard($body), $fetch);
+    }
+
+    /**
+     * Remove an active card.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function removeCard(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RemoveCard($id), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamProduct[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listProducts(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListProducts(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamSubscription[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listSubscriptions(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListSubscriptions(), $fetch);
+    }
+
+    /**
+     * Add a product to the subscription.
+     *
+     * @param \Afosto\Sdk\Model\IamSubscribe $body
+     * @param string                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function addSubscription(\Afosto\Sdk\Model\IamSubscribe $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddSubscription($body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamInvoice[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listInvoices(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInvoices(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamInvoice|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getUpcoming(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUpcoming(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamTrial|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getTrial(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTrial(), $fetch);
+    }
+
+    /**
+     * List of subscribed products.
+     *
+     * @param \Afosto\Sdk\Model\IamUsageRequest $body
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getUsages(\Afosto\Sdk\Model\IamUsageRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUsages($body), $fetch);
     }
 
     /**
@@ -3522,7 +3526,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListGroupsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListGroupsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrGroup[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrCustomerGroup[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listGroups(string $fetch = self::FETCH_OBJECT)
     {
@@ -3530,15 +3534,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * @param \Afosto\Sdk\Model\OdrGroupModel $body
-     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\OdrCustomerGroupModel $body
+     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateGroupBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateGroupUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrGroup[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrCustomerGroup[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createGroup(\Afosto\Sdk\Model\OdrGroupModel $body, string $fetch = self::FETCH_OBJECT)
+    public function createGroup(\Afosto\Sdk\Model\OdrCustomerGroupModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateGroup($body), $fetch);
     }

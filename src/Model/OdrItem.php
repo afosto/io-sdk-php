@@ -23,39 +23,11 @@ class OdrItem
     /**
      * @var string
      */
-    protected $position;
+    protected $description;
     /**
-     * @var bool
+     * @var OdrStackReference[]
      */
-    protected $isAvailable;
-    /**
-     * @var bool
-     */
-    protected $isInTransit;
-    /**
-     * @var bool
-     */
-    protected $isReserved;
-    /**
-     * @var \DateTime
-     */
-    protected $reservationExpiresAt;
-    /**
-     * @var string
-     */
-    protected $warehouseId;
-    /**
-     * @var mixed
-     */
-    protected $metadata;
-    /**
-     * @var \DateTime
-     */
-    protected $createdAt;
-    /**
-     * @var \DateTime
-     */
-    protected $updatedAt;
+    protected $stacks;
 
     /**
      * @return string|null
@@ -100,179 +72,39 @@ class OdrItem
     /**
      * @return string|null
      */
-    public function getPosition(): ?string
+    public function getDescription(): ?string
     {
-        return $this->position;
+        return $this->description;
     }
 
     /**
-     * @param string|null $position
+     * @param string|null $description
      *
      * @return self
      */
-    public function setPosition(?string $position): self
+    public function setDescription(?string $description): self
     {
-        $this->position = $position;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * @return bool|null
+     * @return OdrStackReference[]|null
      */
-    public function getIsAvailable(): ?bool
+    public function getStacks(): ?array
     {
-        return $this->isAvailable;
+        return $this->stacks;
     }
 
     /**
-     * @param bool|null $isAvailable
+     * @param OdrStackReference[]|null $stacks
      *
      * @return self
      */
-    public function setIsAvailable(?bool $isAvailable): self
+    public function setStacks(?array $stacks): self
     {
-        $this->isAvailable = $isAvailable;
-
-        return $this;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsInTransit(): ?bool
-    {
-        return $this->isInTransit;
-    }
-
-    /**
-     * @param bool|null $isInTransit
-     *
-     * @return self
-     */
-    public function setIsInTransit(?bool $isInTransit): self
-    {
-        $this->isInTransit = $isInTransit;
-
-        return $this;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsReserved(): ?bool
-    {
-        return $this->isReserved;
-    }
-
-    /**
-     * @param bool|null $isReserved
-     *
-     * @return self
-     */
-    public function setIsReserved(?bool $isReserved): self
-    {
-        $this->isReserved = $isReserved;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getReservationExpiresAt(): ?\DateTime
-    {
-        return $this->reservationExpiresAt;
-    }
-
-    /**
-     * @param \DateTime|null $reservationExpiresAt
-     *
-     * @return self
-     */
-    public function setReservationExpiresAt(?\DateTime $reservationExpiresAt): self
-    {
-        $this->reservationExpiresAt = $reservationExpiresAt;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getWarehouseId(): ?string
-    {
-        return $this->warehouseId;
-    }
-
-    /**
-     * @param string|null $warehouseId
-     *
-     * @return self
-     */
-    public function setWarehouseId(?string $warehouseId): self
-    {
-        $this->warehouseId = $warehouseId;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMetadata()
-    {
-        return $this->metadata;
-    }
-
-    /**
-     * @param mixed $metadata
-     *
-     * @return self
-     */
-    public function setMetadata($metadata): self
-    {
-        $this->metadata = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getCreatedAt(): ?\DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
-    public function setCreatedAt(?\DateTime $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt(): ?\DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
-    public function setUpdatedAt(?\DateTime $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
+        $this->stacks = $stacks;
 
         return $this;
     }

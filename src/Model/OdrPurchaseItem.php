@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrGroup
+class OdrPurchaseItem
 {
     /**
      * @var string
@@ -21,13 +21,21 @@ class OdrGroup
      */
     protected $description;
     /**
+     * @var string
+     */
+    protected $type;
+    /**
+     * @var int
+     */
+    protected $amount;
+    /**
      * @var int
      */
     protected $quantity;
     /**
-     * @var OdrStackReference[]
+     * @var int
      */
-    protected $stacks;
+    protected $vatRate;
 
     /**
      * @return string|null
@@ -70,6 +78,46 @@ class OdrGroup
     }
 
     /**
+     * @return string|null
+     */
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string|null $type
+     *
+     * @return self
+     */
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getAmount(): ?int
+    {
+        return $this->amount;
+    }
+
+    /**
+     * @param int|null $amount
+     *
+     * @return self
+     */
+    public function setAmount(?int $amount): self
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
      * @return int|null
      */
     public function getQuantity(): ?int
@@ -90,21 +138,21 @@ class OdrGroup
     }
 
     /**
-     * @return OdrStackReference[]|null
+     * @return int|null
      */
-    public function getStacks(): ?array
+    public function getVatRate(): ?int
     {
-        return $this->stacks;
+        return $this->vatRate;
     }
 
     /**
-     * @param OdrStackReference[]|null $stacks
+     * @param int|null $vatRate
      *
      * @return self
      */
-    public function setStacks(?array $stacks): self
+    public function setVatRate(?int $vatRate): self
     {
-        $this->stacks = $stacks;
+        $this->vatRate = $vatRate;
 
         return $this;
     }

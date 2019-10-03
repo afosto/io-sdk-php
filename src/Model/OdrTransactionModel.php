@@ -33,9 +33,9 @@ class OdrTransactionModel
      */
     protected $metadata;
     /**
-     * @var OdrOrder
+     * @var OdrPurchase
      */
-    protected $order;
+    protected $purchase;
     /**
      * @var string
      */
@@ -150,21 +150,21 @@ class OdrTransactionModel
     }
 
     /**
-     * @return OdrOrder|null
+     * @return OdrPurchase|null
      */
-    public function getOrder(): ?OdrOrder
+    public function getPurchase(): ?OdrPurchase
     {
-        return $this->order;
+        return $this->purchase;
     }
 
     /**
-     * @param OdrOrder|null $order
+     * @param OdrPurchase|null $purchase
      *
      * @return self
      */
-    public function setOrder(?OdrOrder $order): self
+    public function setPurchase(?OdrPurchase $purchase): self
     {
-        $this->order = $order;
+        $this->purchase = $purchase;
 
         return $this;
     }

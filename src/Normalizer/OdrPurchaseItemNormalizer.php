@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrPurchaseItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrGroup';
+        return $type === 'Afosto\\Sdk\\Model\\OdrPurchaseItem';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrGroup';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrPurchaseItem';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,22 +37,24 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrGroup();
+        $object = new \Afosto\Sdk\Model\OdrPurchaseItem();
         if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
             $object->setSku($data->{'sku'});
         }
         if (property_exists($data, 'description') && $data->{'description'} !== null) {
             $object->setDescription($data->{'description'});
         }
+        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+            $object->setType($data->{'type'});
+        }
+        if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
+            $object->setAmount($data->{'amount'});
+        }
         if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
             $object->setQuantity($data->{'quantity'});
         }
-        if (property_exists($data, 'stacks') && $data->{'stacks'} !== null) {
-            $values = [];
-            foreach ($data->{'stacks'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context);
-            }
-            $object->setStacks($values);
+        if (property_exists($data, 'vat_rate') && $data->{'vat_rate'} !== null) {
+            $object->setVatRate($data->{'vat_rate'});
         }
 
         return $object;
@@ -67,15 +69,17 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (null !== $object->getDescription()) {
             $data->{'description'} = $object->getDescription();
         }
+        if (null !== $object->getType()) {
+            $data->{'type'} = $object->getType();
+        }
+        if (null !== $object->getAmount()) {
+            $data->{'amount'} = $object->getAmount();
+        }
         if (null !== $object->getQuantity()) {
             $data->{'quantity'} = $object->getQuantity();
         }
-        if (null !== $object->getStacks()) {
-            $values = [];
-            foreach ($object->getStacks() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data->{'stacks'} = $values;
+        if (null !== $object->getVatRate()) {
+            $data->{'vat_rate'} = $object->getVatRate();
         }
 
         return $data;

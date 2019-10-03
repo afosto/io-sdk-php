@@ -13,9 +13,9 @@ namespace Afosto\Sdk\Endpoint;
 class CreateGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * @param \Afosto\Sdk\Model\OdrGroupModel $body
+     * @param \Afosto\Sdk\Model\OdrCustomerGroupModel $body
      */
-    public function __construct(\Afosto\Sdk\Model\OdrGroupModel $body)
+    public function __construct(\Afosto\Sdk\Model\OdrCustomerGroupModel $body)
     {
         $this->body = $body;
     }
@@ -48,12 +48,12 @@ class CreateGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\CreateGroupBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateGroupUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrGroup[]|null
+     * @return \Afosto\Sdk\Model\OdrCustomerGroup[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrGroup[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrCustomerGroup[]', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\CreateGroupBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
