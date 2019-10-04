@@ -45,7 +45,7 @@ class WmsUpdateScheduleRequest
     /**
      * @var \DateTime[]
      */
-    protected $onlyApliedOn;
+    protected $activeAt;
 
     /**
      * @return string|null
@@ -182,19 +182,19 @@ class WmsUpdateScheduleRequest
     /**
      * @return \DateTime[]|null
      */
-    public function getOnlyApliedOn(): ?array
+    public function getActiveAt(): ?array
     {
-        return $this->onlyApliedOn;
+        return $this->activeAt;
     }
 
     /**
-     * @param \DateTime[]|null $onlyApliedOn
+     * @param \DateTime[]|null $activeAt
      *
      * @return self
      */
-    public function setOnlyApliedOn(?array $onlyApliedOn): self
+    public function setActiveAt(?array $activeAt): self
     {
-        $this->onlyApliedOn = $onlyApliedOn;
+        $this->activeAt = $activeAt;
 
         return $this;
     }

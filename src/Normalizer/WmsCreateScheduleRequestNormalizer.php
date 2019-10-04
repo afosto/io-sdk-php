@@ -57,12 +57,12 @@ class WmsCreateScheduleRequestNormalizer implements DenormalizerInterface, Norma
             }
             $object->setAvailableWeekdays($values);
         }
-        if (property_exists($data, 'only_aplied_on') && $data->{'only_aplied_on'} !== null) {
+        if (property_exists($data, 'active_at') && $data->{'active_at'} !== null) {
             $values_1 = [];
-            foreach ($data->{'only_aplied_on'} as $value_1) {
+            foreach ($data->{'active_at'} as $value_1) {
                 $values_1[] = \DateTime::createFromFormat("Y-m-d\TH:i:sP", $value_1);
             }
-            $object->setOnlyApliedOn($values_1);
+            $object->setActiveAt($values_1);
         }
 
         return $object;
@@ -90,12 +90,12 @@ class WmsCreateScheduleRequestNormalizer implements DenormalizerInterface, Norma
             }
             $data->{'available_weekdays'} = $values;
         }
-        if (null !== $object->getOnlyApliedOn()) {
+        if (null !== $object->getActiveAt()) {
             $values_1 = [];
-            foreach ($object->getOnlyApliedOn() as $value_1) {
+            foreach ($object->getActiveAt() as $value_1) {
                 $values_1[] = $value_1->format("Y-m-d\TH:i:sP");
             }
-            $data->{'only_aplied_on'} = $values_1;
+            $data->{'active_at'} = $values_1;
         }
 
         return $data;

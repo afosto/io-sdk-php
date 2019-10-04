@@ -41,7 +41,7 @@ class WmsSchedule
     /**
      * @var string[]
      */
-    protected $onlyApliedOn;
+    protected $activeAt;
 
     /**
      * @return string|null
@@ -158,19 +158,19 @@ class WmsSchedule
     /**
      * @return string[]|null
      */
-    public function getOnlyApliedOn(): ?array
+    public function getActiveAt(): ?array
     {
-        return $this->onlyApliedOn;
+        return $this->activeAt;
     }
 
     /**
-     * @param string[]|null $onlyApliedOn
+     * @param string[]|null $activeAt
      *
      * @return self
      */
-    public function setOnlyApliedOn(?array $onlyApliedOn): self
+    public function setActiveAt(?array $activeAt): self
     {
-        $this->onlyApliedOn = $onlyApliedOn;
+        $this->activeAt = $activeAt;
 
         return $this;
     }
