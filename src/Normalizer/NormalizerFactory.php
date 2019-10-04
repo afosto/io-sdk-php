@@ -195,9 +195,25 @@ class NormalizerFactory
         $normalizers[] = new WmsScheduleNormalizer();
         $normalizers[] = new WmsCreateScheduleRequestNormalizer();
         $normalizers[] = new WmsUpdateScheduleRequestNormalizer();
+        $normalizers[] = new WmsStackReferenceNormalizer();
         $normalizers[] = new WmsCreateWarehouseRequestNormalizer();
         $normalizers[] = new WmsUpdateWarehouseRequestNormalizer();
         $normalizers[] = new WmsWarehouseNormalizer();
+        $normalizers[] = new WmsTransferReportNormalizer();
+        $normalizers[] = new WmsCreateProjectionRequestNormalizer();
+        $normalizers[] = new WmsProjectionNormalizer();
+        $normalizers[] = new WmsAvailableProjectionItemNormalizer();
+        $normalizers[] = new WmsUnavailableProjectionItemNormalizer();
+        $normalizers[] = new WmsAvailableRouteNormalizer();
+        $normalizers[] = new WmsConstraintNormalizer();
+        $normalizers[] = new WmsSortNormalizer();
+        $normalizers[] = new WmsCreateClaimRequestNormalizer();
+        $normalizers[] = new WmsBackorderNormalizer();
+        $normalizers[] = new WmsClaimNormalizer();
+        $normalizers[] = new WmsClaimItemNormalizer();
+        $normalizers[] = new WmsCreateTransferRequestNormalizer();
+        $normalizers[] = new WmsTransferNormalizer();
+        $normalizers[] = new WmsTransferRouteNormalizer();
         $normalizers[] = new OdrCustomerModelNormalizer();
         $normalizers[] = new OdrCustomerNormalizer();
         $normalizers[] = new OdrCustomerGroupNormalizer();
@@ -219,6 +235,8 @@ class NormalizerFactory
         $normalizers[] = new IamSubtenantsAuthorizationsInvitesPostBodyNormalizer();
         $normalizers[] = new IamOauthForwardReferenceGetResponse200Normalizer();
         $normalizers[] = new IamCardsPostBodyNormalizer();
+        $normalizers[] = new WmsClaimsPostResponse200Normalizer();
+        $normalizers[] = new WmsClaimsIdExtendPutBodyNormalizer();
         $normalizers[] = new IamLogsFiltersGetResponse200Normalizer();
 
         return $normalizers;
