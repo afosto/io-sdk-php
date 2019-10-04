@@ -44,8 +44,8 @@ class OdrStackNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'type') && $data->{'type'} !== null) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'item_count') && $data->{'item_count'} !== null) {
-            $object->setItemCount($data->{'item_count'});
+        if (property_exists($data, 'count') && $data->{'count'} !== null) {
+            $object->setCount($data->{'count'});
         }
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
             $object->setMetadata($data->{'metadata'});
@@ -69,8 +69,8 @@ class OdrStackNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (null !== $object->getType()) {
             $data->{'type'} = $object->getType();
         }
-        if (null !== $object->getItemCount()) {
-            $data->{'item_count'} = $object->getItemCount();
+        if (null !== $object->getCount()) {
+            $data->{'count'} = $object->getCount();
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();

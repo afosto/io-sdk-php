@@ -23,7 +23,7 @@ class OdrStack
     /**
      * @var int
      */
-    protected $itemCount;
+    protected $count;
     /**
      * @var mixed
      */
@@ -80,19 +80,19 @@ class OdrStack
     /**
      * @return int|null
      */
-    public function getItemCount(): ?int
+    public function getCount(): ?int
     {
-        return $this->itemCount;
+        return $this->count;
     }
 
     /**
-     * @param int|null $itemCount
+     * @param int|null $count
      *
      * @return self
      */
-    public function setItemCount(?int $itemCount): self
+    public function setCount(?int $count): self
     {
-        $this->itemCount = $itemCount;
+        $this->count = $count;
 
         return $this;
     }
