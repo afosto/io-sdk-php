@@ -41,6 +41,9 @@ class WmsClaimNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
+        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+            $object->setType($data->{'type'});
+        }
         if (property_exists($data, 'stack_reference') && $data->{'stack_reference'} !== null) {
             $object->setStackReference($data->{'stack_reference'});
         }
@@ -53,9 +56,6 @@ class WmsClaimNormalizer implements DenormalizerInterface, NormalizerInterface, 
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsClaimItem', 'json', $context);
             }
             $object->setItems($values);
-        }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
-            $object->setType($data->{'type'});
         }
         if (property_exists($data, 'expires_at') && $data->{'expires_at'} !== null) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
@@ -76,6 +76,9 @@ class WmsClaimNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
+        if (null !== $object->getType()) {
+            $data->{'type'} = $object->getType();
+        }
         if (null !== $object->getStackReference()) {
             $data->{'stack_reference'} = $object->getStackReference();
         }
@@ -88,9 +91,6 @@ class WmsClaimNormalizer implements DenormalizerInterface, NormalizerInterface, 
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'items'} = $values;
-        }
-        if (null !== $object->getType()) {
-            $data->{'type'} = $object->getType();
         }
         if (null !== $object->getExpiresAt()) {
             $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");
