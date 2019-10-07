@@ -19,10 +19,6 @@ class WmsClaim
     /**
      * @var string
      */
-    protected $type;
-    /**
-     * @var string
-     */
     protected $stackReference;
     /**
      * @var string
@@ -32,6 +28,10 @@ class WmsClaim
      * @var WmsClaimItem[]
      */
     protected $items;
+    /**
+     * @var string
+     */
+    protected $type;
     /**
      * @var \DateTime
      */
@@ -61,26 +61,6 @@ class WmsClaim
     public function setId(?string $id): self
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
 
         return $this;
     }
@@ -141,6 +121,26 @@ class WmsClaim
     public function setItems(?array $items): self
     {
         $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string|null $type
+     *
+     * @return self
+     */
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }
