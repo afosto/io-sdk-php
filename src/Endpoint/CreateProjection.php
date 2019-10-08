@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Endpoint;
 class CreateProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * Create an optimized set of claims.
+     * create a projection of suggested allocation.
      *
      * @param \Afosto\Sdk\Model\WmsCreateProjectionRequest $body
      */

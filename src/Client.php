@@ -3469,7 +3469,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Create an optimized set of claims.
+     * create a projection of suggested allocation.
      *
      * @param \Afosto\Sdk\Model\WmsCreateProjectionRequest $body
      * @param string                                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
