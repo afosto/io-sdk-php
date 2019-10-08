@@ -75,6 +75,177 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetPricingGroupsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetPricingGroupsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CatGroup[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getPricingGroups(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPricingGroups(), $fetch);
+    }
+
+    /**
+     * Add a new pricing group to the list.
+     *
+     * @param \Afosto\Sdk\Model\CatGroupCreate $body
+     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreatePricingGroupUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreatePricingGroupNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CatGroup|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createPricingGroup(\Afosto\Sdk\Model\CatGroupCreate $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreatePricingGroup($body), $fetch);
+    }
+
+    /**
+     * Disabling a pricing group makes sure it cannot me added to new settings.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DisableGroupUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DisableGroupNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CatGroup|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function disableGroup(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DisableGroup($id), $fetch);
+    }
+
+    /**
+     * View the pricing group by id.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewGroupUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewGroupNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CatGroup|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewGroup(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewGroup($id), $fetch);
+    }
+
+    /**
+     * Update metadata or the name of the pricing group.
+     *
+     * @param string                           $id
+     * @param \Afosto\Sdk\Model\CatGroupUpdate $body
+     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateGroupUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateGroupNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CatGroup|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateGroup(string $id, \Afosto\Sdk\Model\CatGroupUpdate $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateGroup($id, $body), $fetch);
+    }
+
+    /**
+     * Get a listing of prices that are stored in the group.
+     *
+     * @param string $id
+     * @param array  $queryParameters {
+     *
+     *     @var string $country US - use to filter tax rate results
+     *     @var string $administrative_area Florida - use to filter tax rate results
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetPricingUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetPricingNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CatPrice[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getPricing(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPricing($id, $queryParameters), $fetch);
+    }
+
+    /**
+     * Query for a set of prices.
+     *
+     * @param string                           $id
+     * @param \Afosto\Sdk\Model\CatPriceSearch $body
+     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchPricesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchPricesNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CatPrice[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchPrices(string $id, \Afosto\Sdk\Model\CatPriceSearch $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchPrices($id, $body), $fetch);
+    }
+
+    /**
+     * Create or update prices.
+     *
+     * @param string                          $id
+     * @param \Afosto\Sdk\Model\CatNewPrice[] $body
+     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpsertPricesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpsertPricesNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CatGroupsIdPricesPutResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function upsertPrices(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpsertPrices($id, $body), $fetch);
+    }
+
+    /**
+     * Get a listing of vat rates per country.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $country US
+     *     @var string $administrative_area Florida
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetVatListUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetVatListNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CatVatRate[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getVatList(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetVatList($queryParameters), $fetch);
+    }
+
+    /**
+     * Create or update the vat group per country for given skus.
+     *
+     * @param \Afosto\Sdk\Model\CatProductVatModel[] $body
+     * @param string                                 $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AttachVatRateUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AttachVatRateNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CatVatProductsPutResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function attachVatRate(array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachVatRate($body), $fetch);
+    }
+
+    /**
      * Returns a list of stacks.
      *
      * @param array $queryParameters {

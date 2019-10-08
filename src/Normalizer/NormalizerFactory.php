@@ -21,6 +21,17 @@ class NormalizerFactory
         $normalizers[] = new CntProxyModelNormalizer();
         $normalizers[] = new CntProxyUpdateModelNormalizer();
         $normalizers[] = new CntConfigNormalizer();
+        $normalizers[] = new CatGroupNormalizer();
+        $normalizers[] = new CatGroupCreateNormalizer();
+        $normalizers[] = new CatGroupUpdateNormalizer();
+        $normalizers[] = new CatNewPriceNormalizer();
+        $normalizers[] = new CatPriceNormalizer();
+        $normalizers[] = new CatPriceSearchNormalizer();
+        $normalizers[] = new CatPriceConstraintNormalizer();
+        $normalizers[] = new CatProductVatModelNormalizer();
+        $normalizers[] = new CatVatModelNormalizer();
+        $normalizers[] = new CatVatNormalizer();
+        $normalizers[] = new CatVatRateNormalizer();
         $normalizers[] = new OdrStackNormalizer();
         $normalizers[] = new OdrStackModelNormalizer();
         $normalizers[] = new OdrStackAddModelNormalizer();
@@ -224,6 +235,8 @@ class NormalizerFactory
         $normalizers[] = new OdrSignOnNormalizer();
         $normalizers[] = new OdrTokenResponseNormalizer();
         $normalizers[] = new IamLogNormalizer();
+        $normalizers[] = new CatGroupsIdPricesPutResponse200Normalizer();
+        $normalizers[] = new CatVatProductsPutResponse200Normalizer();
         $normalizers[] = new OdrAddressesIdPostBodyNormalizer();
         $normalizers[] = new OdrOrdersIdStackPostBodyNormalizer();
         $normalizers[] = new CntDirectoriesGetResponse200Normalizer();
