@@ -54,7 +54,7 @@ class OdrCustomerModelNormalizer implements DenormalizerInterface, NormalizerInt
             $object->setIsFemale($data->{'is_female'});
         }
         if (property_exists($data, 'born_at') && $data->{'born_at'} !== null) {
-            $object->setBornAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'born_at'}));
+            $object->setBornAt($data->{'born_at'});
         }
         if (property_exists($data, 'phone_number') && $data->{'phone_number'} !== null) {
             $object->setPhoneNumber($data->{'phone_number'});
@@ -95,7 +95,7 @@ class OdrCustomerModelNormalizer implements DenormalizerInterface, NormalizerInt
             $data->{'is_female'} = $object->getIsFemale();
         }
         if (null !== $object->getBornAt()) {
-            $data->{'born_at'} = $object->getBornAt()->format("Y-m-d\TH:i:sP");
+            $data->{'born_at'} = $object->getBornAt();
         }
         if (null !== $object->getPhoneNumber()) {
             $data->{'phone_number'} = $object->getPhoneNumber();

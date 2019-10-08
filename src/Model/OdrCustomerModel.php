@@ -33,7 +33,7 @@ class OdrCustomerModel
      */
     protected $isFemale;
     /**
-     * @var \DateTime
+     * @var string
      */
     protected $bornAt;
     /**
@@ -154,19 +154,19 @@ class OdrCustomerModel
     }
 
     /**
-     * @return \DateTime|null
+     * @return string|null
      */
-    public function getBornAt(): ?\DateTime
+    public function getBornAt(): ?string
     {
         return $this->bornAt;
     }
 
     /**
-     * @param \DateTime|null $bornAt
+     * @param string|null $bornAt
      *
      * @return self
      */
-    public function setBornAt(?\DateTime $bornAt): self
+    public function setBornAt(?string $bornAt): self
     {
         $this->bornAt = $bornAt;
 
