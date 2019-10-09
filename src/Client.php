@@ -757,17 +757,23 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Run a complex search to find conversations.
      *
-     * @param \Afosto\Sdk\Model\MesSearch $body  Search query object
-     * @param string                      $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\MesSearch $body             Search query object
+     * @param array                       $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\SearchUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchNotFoundException
      *
      * @return \Afosto\Sdk\Model\MesConversation[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function search(\Afosto\Sdk\Model\MesSearch $body, string $fetch = self::FETCH_OBJECT)
+    public function search(\Afosto\Sdk\Model\MesSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Search($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Search($body, $headerParameters), $fetch);
     }
 
     /**
@@ -1041,10 +1047,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a list of conversations.
      *
-     * @param array $queryParameters {
+     * @param array $headerParameters {
      *
-     *     @var int $page_size
-     *     @var int $page
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -1054,9 +1060,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\MesConversation[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listConversations(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listConversations(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListConversations($queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListConversations($headerParameters), $fetch);
     }
 
     /**
