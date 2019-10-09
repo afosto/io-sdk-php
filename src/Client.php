@@ -15,63 +15,377 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ListProxiesBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListProxiesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListHubsUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\CntProxy[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\SplHub[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listProxies(string $fetch = self::FETCH_OBJECT)
+    public function listHubs(string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListProxies(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListHubs(), $fetch);
     }
 
     /**
-     * Add a new proxy configuration.
+     * Creates a new hub.
      *
-     * @param \Afosto\Sdk\Model\CntProxyModel $body
-     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\SplHubModel $body  The new hub
+     * @param string                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\CreateProxyBadRequestException
-     * @throws \Afosto\Sdk\Exception\CreateProxyUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateHubBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateHubUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\CntProxy|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\SplHub|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createProxy(\Afosto\Sdk\Model\CntProxyModel $body, string $fetch = self::FETCH_OBJECT)
+    public function createHub(\Afosto\Sdk\Model\SplHubModel $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateProxy($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateHub($body), $fetch);
     }
 
     /**
-     * Returns the proxy configuration.
-     *
-     * @param string $key
+     * @param string $id    ID of hub to delete
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetProxyBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetProxyUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteHubUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteHubNotFoundException
      *
-     * @return \Afosto\Sdk\Model\CntProxy|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\SplHub|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getProxy(string $key, string $fetch = self::FETCH_OBJECT)
+    public function deleteHub(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetProxy($key), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteHub($id), $fetch);
     }
 
     /**
-     * Updates the proxy.
+     * Returns the hub.
      *
-     * @param string                                $key
-     * @param \Afosto\Sdk\Model\CntProxyUpdateModel $body
+     * @param string $id    ID of hub to return
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetHubUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetHubNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\SplHub|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getHub(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetHub($id), $fetch);
+    }
+
+    /**
+     * Update the hub to new hub settings.
+     *
+     * @param string                        $id    ID of hub to update
+     * @param \Afosto\Sdk\Model\SplHubModel $body  The updated hub data
+     * @param string                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateHubBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateHubUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateHubNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\SplHub|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateHub(string $id, \Afosto\Sdk\Model\SplHubModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateHub($id, $body), $fetch);
+    }
+
+    /**
+     * Returns the hub information.
+     *
+     * @param string $id    ID of hub to look for
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetHubStatusUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetHubStatusNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\SplHubStatus|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getHubStatus(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetHubStatus($id), $fetch);
+    }
+
+    /**
+     * Returns the hub network list.
+     *
+     * @param int    $id    ID of hub to add a token for
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListHubNetworkUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\SplNetworkDevice[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listHubNetwork(int $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListHubNetwork($id), $fetch);
+    }
+
+    /**
+     * Updates the hub network.
+     *
+     * @param int                                        $id    ID of hub to update network information for
+     * @param \Afosto\Sdk\Model\SplCreateNetworkDevice[] $body  The new hub
+     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateHubNetworkUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\SplNetworkDevice[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateHubNetwork(int $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateHubNetwork($id, $body), $fetch);
+    }
+
+    /**
+     * Returns the hub log list.
+     *
+     * @param int    $id    ID of hub to add a token for
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListHubLogsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\SplHubError[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listHubLogs(int $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListHubLogs($id), $fetch);
+    }
+
+    /**
+     * Adds a new logged error for the hub.
+     *
+     * @param string                             $id    Id of hub to add a log for
+     * @param \Afosto\Sdk\Model\SplHubErrorModel $body  The new hub
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AddHubLogBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddHubLogUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\SplHubError|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function addHubLog(string $id, \Afosto\Sdk\Model\SplHubErrorModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddHubLog($id, $body), $fetch);
+    }
+
+    /**
+     * Returns the hub.
+     *
+     * @param string $id    The UUID of the hub to return
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetHubByUuidUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetHubByUuidNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\SplHub|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getHubByUuid(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetHubByUuid($id), $fetch);
+    }
+
+    /**
+     * Run a search with the option to run an aggregation.
+     *
+     * @param \Afosto\Sdk\Model\CntSimpleQuery $body             Query object
+     * @param array                            $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var int $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CntSimpleSeachResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function search(\Afosto\Sdk\Model\CntSimpleQuery $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Search($body, $headerParameters), $fetch);
+    }
+
+    /**
+     * Run a complex search.
+     *
+     * @param string                           $namespace        the namespace
+     * @param string                           $code
+     * @param string                           $model
+     * @param \Afosto\Sdk\Model\CntSearchQuery $body             Query object
+     * @param array                            $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var int $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchModelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchModelNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CntSeachResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchModel(string $namespace = 'default', string $code, string $model, \Afosto\Sdk\Model\CntSearchQuery $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchModel($namespace, $code, $model, $body, $headerParameters), $fetch);
+    }
+
+    /**
+     * Run a simple, fast suggest search.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $q The query
+     *     @var int $limit The query
+     *     @var array $codes The query
+     *     @var array $models The models we want to query
+     *     @var array $namespaces The namesapce we want to query
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SuggestUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SuggestNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CntSuggestResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function suggest(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Suggest($queryParameters), $fetch);
+    }
+
+    /**
+     * List the set of definitions.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $code
+     *     @var string $model
+     *     @var string $namespace
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListDefinitionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListDefinitionsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CntDefinition[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listDefinitions(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListDefinitions($queryParameters), $fetch);
+    }
+
+    /**
+     * Either create a new, or update an existing definition.
+     *
+     * @param \Afosto\Sdk\Model\CntDefinitionModel $body  Query object
+     * @param string                               $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpsertDefinitionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpsertDefinitionNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CntDefinition|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function upsertDefinition(\Afosto\Sdk\Model\CntDefinitionModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpsertDefinition($body), $fetch);
+    }
+
+    /**
+     * Create a new phonenumber.
+     *
+     * @param \Afosto\Sdk\Model\OdrPhonenumberModel $body
      * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\UpdateProxyBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdateProxyUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreatePhonenumberUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreatePhonenumberNotFoundException
      *
-     * @return \Afosto\Sdk\Model\CntProxy|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrPhonenumber|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateProxy(string $key, \Afosto\Sdk\Model\CntProxyUpdateModel $body, string $fetch = self::FETCH_OBJECT)
+    public function createPhonenumber(\Afosto\Sdk\Model\OdrPhonenumberModel $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateProxy($key, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreatePhonenumber($body), $fetch);
+    }
+
+    /**
+     * View a phonenumber.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetPhonenumberUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetPhonenumberNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrPhonenumber|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getPhonenumber(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPhonenumber($id), $fetch);
+    }
+
+    /**
+     * a tailored endpoint to receive shippings.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $q The search query.
+     * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $X-Page the page we want to request
+     *     @var string $X-Page-Size thepage size we request
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListShipmentsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListShipmentsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListShipmentsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListShipmentsInternalServerErrorException
+     *
+     * @return \Afosto\Sdk\Model\PkrShipment[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listShipments(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListShipments($queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
+     * Download all posted shipments.
+     *
+     * @param \Afosto\Sdk\Model\PkrShipmentDocument[] $body  The shipment documents
+     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DownloadShipmentsBadRequestException
+     * @throws \Afosto\Sdk\Exception\DownloadShipmentsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DownloadShipmentsNotFoundException
+     * @throws \Afosto\Sdk\Exception\DownloadShipmentsInternalServerErrorException
+     *
+     * @return \Afosto\Sdk\Model\PkrTask|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function downloadShipments(array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DownloadShipments($body), $fetch);
+    }
+
+    /**
+     * a tailored endpoint to receive a shipment by id.
+     *
+     * @param int    $id    The id of the shipment
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetShipmentBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetShipmentUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetShipmentNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetShipmentInternalServerErrorException
+     *
+     * @return \Afosto\Sdk\Model\PkrShipment|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getShipment(int $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetShipment($id), $fetch);
     }
 
     /**
@@ -243,1919 +557,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function attachVatRate(array $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachVatRate($body), $fetch);
-    }
-
-    /**
-     * Returns a list of stacks.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var string $type
-     *     @var string $sort
-     * }
-     *
-     * @param array $headerParameters {
-     *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListStacksUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListStacksNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrStack[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listStacks(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListStacks($queryParameters, $headerParameters), $fetch);
-    }
-
-    /**
-     * Creates and returns the new stack.
-     *
-     * @param \Afosto\Sdk\Model\OdrStackModel $body
-     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateStackUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateStackNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createStack(\Afosto\Sdk\Model\OdrStackModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateStack($body), $fetch);
-    }
-
-    /**
-     * Adds items to the stack that was previously created.
-     *
-     * @param \Afosto\Sdk\Model\OdrStackAddModel $body
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\AddToStackUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AddToStackNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function addToStack(\Afosto\Sdk\Model\OdrStackAddModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddToStack($body), $fetch);
-    }
-
-    /**
-     * Creates and returns the new stack.
-     *
-     * @param \Afosto\Sdk\Model\OdrTransitionModel $body
-     * @param string                               $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\TransitionStackUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\TransitionStackNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function transitionStack(\Afosto\Sdk\Model\OdrTransitionModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\TransitionStack($body), $fetch);
-    }
-
-    /**
-     * Removes a stack.
-     *
-     * @param string $type
-     * @param string $reference
-     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DeleteStackUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteStackNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function deleteStack(string $type, string $reference, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteStack($type, $reference), $fetch);
-    }
-
-    /**
-     * Returns a stack.
-     *
-     * @param string $type
-     * @param string $reference
-     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetStackUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetStackNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getStack(string $type, string $reference, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetStack($type, $reference), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListStackTypesUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListStackTypesNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrType[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listStackTypes(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListStackTypes(), $fetch);
-    }
-
-    /**
-     * Returns a list of items grouped by sku, description and references.
-     *
-     * @param string $type
-     * @param string $reference
-     * @param array  $headerParameters {
-     *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListItemsAsGroupUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListItemsAsGroupNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrGroup[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listItemsAsGroup(string $type, string $reference, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListItemsAsGroup($type, $reference, $headerParameters), $fetch);
-    }
-
-    /**
-     * Delete items from the given reference.
-     *
-     * @param string $type
-     * @param string $reference
-     * @param array  $body
-     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DeleteItemsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteItemsNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function deleteItems(string $type, string $reference, array $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteItems($type, $reference, $body), $fetch);
-    }
-
-    /**
-     * Returns a list of items.
-     *
-     * @param string $type
-     * @param string $reference
-     * @param array  $headerParameters {
-     *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListItemsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListItemsNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listItems(string $type, string $reference, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListItems($type, $reference, $headerParameters), $fetch);
-    }
-
-    /**
-     * Returns a list of groups.
-     *
-     * @param \Afosto\Sdk\Model\OdrSearch[] $body
-     * @param array                         $headerParameters {
-     *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\SearchGroupsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\SearchGroupsNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrGroup[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function searchGroups(array $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchGroups($body, $headerParameters), $fetch);
-    }
-
-    /**
-     * Returns a list of items.
-     *
-     * @param \Afosto\Sdk\Model\OdrSearch $body
-     * @param array                       $headerParameters {
-     *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\SearchItemsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\SearchItemsNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function searchItems(\Afosto\Sdk\Model\OdrSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchItems($body, $headerParameters), $fetch);
-    }
-
-    /**
-     * Provide the service with a set of valid skus.
-     *
-     * @param \Afosto\Sdk\Model\OdrSku[] $body
-     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\AnnounceSkusUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AnnounceSkusNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrSkuResult|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function announceSkus(array $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AnnounceSkus($body), $fetch);
-    }
-
-    /**
-     * Create a address set.
-     *
-     * @param \Afosto\Sdk\Model\OdrAddressSetModel $body
-     * @param string                               $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateAddressSetUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateAddressSetNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrAddressSet|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createAddressSet(\Afosto\Sdk\Model\OdrAddressSetModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateAddressSet($body), $fetch);
-    }
-
-    /**
-     * View an address set.
-     *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetAddressSetUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetAddressSetNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrAddressSet|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getAddressSet(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetAddressSet($id), $fetch);
-    }
-
-    /**
-     * Get a formatted address for a given address set.
-     *
-     * @param string                                   $id
-     * @param \Afosto\Sdk\Model\OdrAddressesIdPostBody $body
-     * @param string                                   $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetFormattedAddressesUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetFormattedAddressesNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrFormattedAddressSet|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getFormattedAddresses(string $id, \Afosto\Sdk\Model\OdrAddressesIdPostBody $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFormattedAddresses($id, $body), $fetch);
-    }
-
-    /**
-     * Get a list of orders.
-     *
-     * @param array $headerParameters {
-     *
-     *     @var int $X-Page-Size
-     *     @var int $X-Page
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListOrdersUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListOrdersNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrOrder[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listOrders(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListOrders($headerParameters), $fetch);
-    }
-
-    /**
-     * Create a new order.
-     *
-     * @param \Afosto\Sdk\Model\OdrOrderModel $body
-     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateOrderUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateOrderNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createOrder(\Afosto\Sdk\Model\OdrOrderModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateOrder($body), $fetch);
-    }
-
-    /**
-     * Delete an existing order.
-     *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DeleteOrderUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteOrderNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function deleteOrder(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteOrder($id), $fetch);
-    }
-
-    /**
-     * View a single order.
-     *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ViewOrderUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ViewOrderNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function viewOrder(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewOrder($id), $fetch);
-    }
-
-    /**
-     * Update the customer parameters for the order.
-     *
-     * @param string                                $id
-     * @param \Afosto\Sdk\Model\OdrOrderUpdateModel $body
-     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateOrderUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateOrderNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateOrder(string $id, \Afosto\Sdk\Model\OdrOrderUpdateModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateOrder($id, $body), $fetch);
-    }
-
-    /**
-     * Update the order state.
-     *
-     * @param string                     $id
-     * @param \Afosto\Sdk\Model\OdrState $body
-     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateOrderStateUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateOrderStateNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateOrderState(string $id, \Afosto\Sdk\Model\OdrState $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateOrderState($id, $body), $fetch);
-    }
-
-    /**
-     * Attach new stack.
-     *
-     * @param string                                     $id
-     * @param \Afosto\Sdk\Model\OdrOrdersIdStackPostBody $body
-     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\AttachStackUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AttachStackNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function attachStack(string $id, \Afosto\Sdk\Model\OdrOrdersIdStackPostBody $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachStack($id, $body), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListProvidersBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListProvidersUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\OdrProvider[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listProviders(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListProviders(), $fetch);
-    }
-
-    /**
-     * Returns a new signed upload url.
-     *
-     * @param \Afosto\Sdk\Model\OdrTransactionModel $body
-     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateTransactionBadRequestException
-     * @throws \Afosto\Sdk\Exception\CreateTransactionUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\OdrTransaction|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createTransaction(\Afosto\Sdk\Model\OdrTransactionModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateTransaction($body), $fetch);
-    }
-
-    /**
-     * Returns the details of a transaction.
-     *
-     * @param string $secret
-     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetTransactionBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetTransactionUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\OdrTransaction|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getTransaction(string $secret, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTransaction($secret), $fetch);
-    }
-
-    /**
-     * Start a payment for a transaction.
-     *
-     * @param string                             $secret
-     * @param \Afosto\Sdk\Model\OdrPaymentIntent $body
-     * @param string                             $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreatePaymentBadRequestException
-     * @throws \Afosto\Sdk\Exception\CreatePaymentUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\OdrPayment|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createPayment(string $secret, \Afosto\Sdk\Model\OdrPaymentIntent $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreatePayment($secret, $body), $fetch);
-    }
-
-    /**
-     * Returns a list of payment methods available for the transaction.
-     *
-     * @param string $secret
-     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\OdrMethod[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listMethodsForTransaction(string $secret, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListMethodsForTransaction($secret), $fetch);
-    }
-
-    /**
-     * Returns the live details of a payment.
-     *
-     * @param string $reference
-     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetPaymentBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetPaymentUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\OdrProcess|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getPayment(string $reference, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPayment($reference), $fetch);
-    }
-
-    /**
-     * Run a complex search to find conversations.
-     *
-     * @param \Afosto\Sdk\Model\MesSearch $body             Search query object
-     * @param array                       $headerParameters {
-     *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\SearchUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\SearchNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesConversation[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function search(\Afosto\Sdk\Model\MesSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Search($body, $headerParameters), $fetch);
-    }
-
-    /**
-     * Run a complex search.
-     *
-     * @param string                           $namespace        the namespace
-     * @param string                           $code
-     * @param string                           $model
-     * @param \Afosto\Sdk\Model\CntSearchQuery $body             Query object
-     * @param array                            $headerParameters {
-     *
-     *     @var string $x-page
-     *     @var int $x-page-size
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\SearchModelUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\SearchModelNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\CntSeachResponse|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function searchModel(string $namespace = 'default', string $code, string $model, \Afosto\Sdk\Model\CntSearchQuery $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchModel($namespace, $code, $model, $body, $headerParameters), $fetch);
-    }
-
-    /**
-     * Run a simple, fast suggest search.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var string $q The query
-     *     @var int $limit The query
-     *     @var array $codes The query
-     *     @var array $models The models we want to query
-     *     @var array $namespaces The namesapce we want to query
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\SuggestUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\SuggestNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\CntSuggestResponse|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function suggest(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Suggest($queryParameters), $fetch);
-    }
-
-    /**
-     * List the set of definitions.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var string $code
-     *     @var string $model
-     *     @var string $namespace
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListDefinitionsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListDefinitionsNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\CntDefinition[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listDefinitions(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListDefinitions($queryParameters), $fetch);
-    }
-
-    /**
-     * Either create a new, or update an existing definition.
-     *
-     * @param \Afosto\Sdk\Model\CntDefinitionModel $body  Query object
-     * @param string                               $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpsertDefinitionUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpsertDefinitionNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\CntDefinition|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function upsertDefinition(\Afosto\Sdk\Model\CntDefinitionModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpsertDefinition($body), $fetch);
-    }
-
-    /**
-     * Delete the secret and disable 2FA.
-     *
-     * @param string $type  Type that needs to be deleted
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DeleteSecretBadRequestException
-     * @throws \Afosto\Sdk\Exception\DeleteSecretUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteSecretNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\IamSecretRead|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function deleteSecret(string $type, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteSecret($type), $fetch);
-    }
-
-    /**
-     * Get the secret for the type for the current user.
-     *
-     * @param string $type  Type that we look for
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetSecretUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetSecretNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\IamSecretRead|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getSecret(string $type, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSecret($type), $fetch);
-    }
-
-    /**
-     * Create a new secret for 2FA.
-     *
-     * @param string                             $type  Type that we look for
-     * @param \Afosto\Sdk\Model\IamSecretRequest $body  Secret request
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateSecretBadRequestException
-     * @throws \Afosto\Sdk\Exception\CreateSecretUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateSecretNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\IamSecret|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createSecret(string $type, \Afosto\Sdk\Model\IamSecretRequest $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateSecret($type, $body), $fetch);
-    }
-
-    /**
-     * Update an existing secret for 2FA.
-     *
-     * @param string                            $type  Type that we look for
-     * @param \Afosto\Sdk\Model\IamSecretUpdate $body  Secret request
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateSecretBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdateSecretUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateSecretNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\IamSecretRead|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateSecret(string $type, \Afosto\Sdk\Model\IamSecretUpdate $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateSecret($type, $body), $fetch);
-    }
-
-    /**
-     * Verify if one time password was created with known secret.
-     *
-     * @param string                                 $type  Type that we look for
-     * @param \Afosto\Sdk\Model\IamValidationRequest $body  Validation request object
-     * @param string                                 $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\VerifyTokenBadRequestException
-     * @throws \Afosto\Sdk\Exception\VerifyTokenUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\VerifyTokenNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\IamValidationResponse|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function verifyToken(string $type, \Afosto\Sdk\Model\IamValidationRequest $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\VerifyToken($type, $body), $fetch);
-    }
-
-    /**
-     * Request a otp over the given channel.
-     *
-     * @param string $type    Type that we look for
-     * @param string $channel Channel of choice
-     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\RequestBackupBadRequestException
-     * @throws \Afosto\Sdk\Exception\RequestBackupUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\RequestBackupNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\IamBackupResponse|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function requestBackup(string $type, string $channel, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RequestBackup($type, $channel), $fetch);
-    }
-
-    /**
-     * Filter with a single value (multiple is not supported).
-     *
-     * @param array $queryParameters {
-     *
-     *     @var string $status Status values that need to be considered for filter
-     *     @var string $printer_id The printer id that we want to filter
-     *     @var string $tag The tag id that we want to filter for
-     * }
-     *
-     * @param array $headerParameters {
-     *
-     *     @var string $x-page The page token
-     *     @var string $x-page-size The amount of results for the page
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListJobsBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListJobsUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\SplJob[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listJobs(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListJobs($queryParameters, $headerParameters), $fetch);
-    }
-
-    /**
-     * @param \Afosto\Sdk\Model\SplJobModel $body  The new print job
-     * @param string                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\AddJobNotFoundException
-     * @throws \Afosto\Sdk\Exception\AddJobUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AddJobBadRequestException
-     *
-     * @return \Afosto\Sdk\Model\SplJob|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function addJob(\Afosto\Sdk\Model\SplJobModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddJob($body), $fetch);
-    }
-
-    /**
-     * Retrieve printjob status.
-     *
-     * @param string $reference The id of the job that we look for, returned when job is pushed to queue
-     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetJobStatusNotFoundException
-     * @throws \Afosto\Sdk\Exception\GetJobStatusUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetJobStatusBadRequestException
-     *
-     * @return \Afosto\Sdk\Model\SplJob|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getJobStatus(string $reference, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetJobStatus($reference), $fetch);
-    }
-
-    /**
-     * @param string                      $reference The id of the job that we look for, returned when job is pushed to queue
-     * @param \Afosto\Sdk\Model\SplStatus $body      The new print job
-     * @param string                      $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateStatusNotFoundException
-     * @throws \Afosto\Sdk\Exception\UpdateStatusUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateStatusBadRequestException
-     *
-     * @return \Afosto\Sdk\Model\SplJobResult|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateStatus(string $reference, \Afosto\Sdk\Model\SplStatus $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateStatus($reference, $body), $fetch);
-    }
-
-    /**
-     * Returns a list of conversations.
-     *
-     * @param array $headerParameters {
-     *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListConversationsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListConversationsNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesConversation[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listConversations(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListConversations($headerParameters), $fetch);
-    }
-
-    /**
-     * Instantiate a conversation.
-     *
-     * @param \Afosto\Sdk\Model\MesConversationCreate $body  Conversation object
-     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\StartConversationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\StartConversationNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function startConversation(\Afosto\Sdk\Model\MesConversationCreate $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\StartConversation($body), $fetch);
-    }
-
-    /**
-     * Retrieve a single conversation.
-     *
-     * @param int    $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetConversationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetConversationNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getConversation(int $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetConversation($id), $fetch);
-    }
-
-    /**
-     * Append a message to the conversation.
-     *
-     * @param int                             $id
-     * @param \Afosto\Sdk\Model\MesMessageAdd $body  The new message
-     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\AddMessageUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AddMessageNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function addMessage(int $id, \Afosto\Sdk\Model\MesMessageAdd $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddMessage($id, $body), $fetch);
-    }
-
-    /**
-     * Register a new participant in the conversation.
-     *
-     * @param int                                    $id
-     * @param \Afosto\Sdk\Model\MesParticipantCreate $body  The new message
-     * @param string                                 $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\AddRegistrationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AddRegistrationNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function addRegistration(int $id, \Afosto\Sdk\Model\MesParticipantCreate $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddRegistration($id, $body), $fetch);
-    }
-
-    /**
-     * Add a subscription to recieve updates on this conversation.
-     *
-     * @param int                               $id
-     * @param \Afosto\Sdk\Model\MesSubscription $body  The subscription data
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\SubscribeUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\SubscribeNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function subscribe(int $id, \Afosto\Sdk\Model\MesSubscription $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Subscribe($id, $body), $fetch);
-    }
-
-    /**
-     * Remove a subscription to recieve updates on this conversation.
-     *
-     * @param int                         $id
-     * @param \Afosto\Sdk\Model\MesCancel $body  The subscription data
-     * @param string                      $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UnsubscribeUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UnsubscribeNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function unsubscribe(int $id, \Afosto\Sdk\Model\MesCancel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Unsubscribe($id, $body), $fetch);
-    }
-
-    /**
-     * a tailored endpoint to receive shippings.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var string $q The search query.
-     * }
-     *
-     * @param array $headerParameters {
-     *
-     *     @var string $X-Page the page we want to request
-     *     @var string $X-Page-Size thepage size we request
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListShipmentsBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListShipmentsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListShipmentsNotFoundException
-     * @throws \Afosto\Sdk\Exception\ListShipmentsInternalServerErrorException
-     *
-     * @return \Afosto\Sdk\Model\PkrShipment[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listShipments(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListShipments($queryParameters, $headerParameters), $fetch);
-    }
-
-    /**
-     * Download all posted shipments.
-     *
-     * @param \Afosto\Sdk\Model\PkrShipmentDocument[] $body  The shipment documents
-     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DownloadShipmentsBadRequestException
-     * @throws \Afosto\Sdk\Exception\DownloadShipmentsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DownloadShipmentsNotFoundException
-     * @throws \Afosto\Sdk\Exception\DownloadShipmentsInternalServerErrorException
-     *
-     * @return \Afosto\Sdk\Model\PkrTask|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function downloadShipments(array $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DownloadShipments($body), $fetch);
-    }
-
-    /**
-     * a tailored endpoint to receive a shipment by id.
-     *
-     * @param int    $id    The id of the shipment
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetShipmentBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetShipmentUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetShipmentNotFoundException
-     * @throws \Afosto\Sdk\Exception\GetShipmentInternalServerErrorException
-     *
-     * @return \Afosto\Sdk\Model\PkrShipment|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getShipment(int $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetShipment($id), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListChannelsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListChannelsNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrChannel[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listChannels(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListChannels(), $fetch);
-    }
-
-    /**
-     * Create a new channel.
-     *
-     * @param \Afosto\Sdk\Model\OdrChannelModel $body
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateChannelUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateChannelNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrChannel|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createChannel(\Afosto\Sdk\Model\OdrChannelModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateChannel($body), $fetch);
-    }
-
-    /**
-     * Delete an existing channel.
-     *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DeleteChannelUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteChannelNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrChannel|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function deleteChannel(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteChannel($id), $fetch);
-    }
-
-    /**
-     * View a single channel.
-     *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ViewChannelUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ViewChannelNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrChannel|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function viewChannel(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewChannel($id), $fetch);
-    }
-
-    /**
-     * Update the channel parameters.
-     *
-     * @param string                            $id
-     * @param \Afosto\Sdk\Model\OdrChannelModel $body
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateChannelUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateChannelNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrChannel|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateChannel(string $id, \Afosto\Sdk\Model\OdrChannelModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateChannel($id, $body), $fetch);
-    }
-
-    /**
-     * Create a new phonenumber.
-     *
-     * @param \Afosto\Sdk\Model\OdrPhonenumberModel $body
-     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreatePhonenumberUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreatePhonenumberNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrPhonenumber|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createPhonenumber(\Afosto\Sdk\Model\OdrPhonenumberModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreatePhonenumber($body), $fetch);
-    }
-
-    /**
-     * View a phonenumber.
-     *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetPhonenumberUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetPhonenumberNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrPhonenumber|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getPhonenumber(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPhonenumber($id), $fetch);
-    }
-
-    /**
-     * Returns a list of domains.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var int $is_verified
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListDomainsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListDomainsNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesDomain[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listDomains(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListDomains($queryParameters), $fetch);
-    }
-
-    /**
-     * Adds a domain to the list.
-     *
-     * @param \Afosto\Sdk\Model\MesDomainModel $body  Domain object
-     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateDomainUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateDomainNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesDomain|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createDomain(\Afosto\Sdk\Model\MesDomainModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateDomain($body), $fetch);
-    }
-
-    /**
-     * Deletes a domain.
-     *
-     * @param string $id    Id that belongs to the domain
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DeleteDomainUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteDomainNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesDomain|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function deleteDomain(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteDomain($id), $fetch);
-    }
-
-    /**
-     * Returns a single domain.
-     *
-     * @param string $id    Id that belongs to the domain
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetDomainUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetDomainNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesDomain|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getDomain(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetDomain($id), $fetch);
-    }
-
-    /**
-     * Returns a list of inboxes.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var string $fqdn
-     *     @var string $public
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListInboxesUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListInboxesNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesInbox[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listInboxes(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInboxes($queryParameters), $fetch);
-    }
-
-    /**
-     * Adds a inbox to the list.
-     *
-     * @param \Afosto\Sdk\Model\MesInboxModel $body  Inbox object
-     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateInboxUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateInboxNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesInbox|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createInbox(\Afosto\Sdk\Model\MesInboxModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateInbox($body), $fetch);
-    }
-
-    /**
-     * Deletes an inbox.
-     *
-     * @param string $id    Id that belongs to the inbox
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DeleteInboxUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteInboxNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesInbox|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function deleteInbox(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteInbox($id), $fetch);
-    }
-
-    /**
-     * Returns a single inbox.
-     *
-     * @param string $id    Id that belongs to the inbox
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetInboxUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetInboxNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesInbox|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getInbox(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInbox($id), $fetch);
-    }
-
-    /**
-     * Update an existing inbox.
-     *
-     * @param string                                $id    Id that belongs to the inbox
-     * @param \Afosto\Sdk\Model\MesInboxUpdateModel $body  Inbox object
-     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateInboxUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateInboxNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesInbox|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateInbox(string $id, \Afosto\Sdk\Model\MesInboxUpdateModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInbox($id, $body), $fetch);
-    }
-
-    /**
-     * Returns a list of emails.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var string $inbox
-     *     @var string $folder
-     *     @var string $addressee
-     * }
-     *
-     * @param array $headerParameters {
-     *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListEmailsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListEmailsNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesMail[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listEmails(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListEmails($queryParameters, $headerParameters), $fetch);
-    }
-
-    /**
-     * Adds a email.
-     *
-     * @param \Afosto\Sdk\Model\MesMailModel $body  Mail object
-     * @param string                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateMailUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateMailNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesMail|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createMail(\Afosto\Sdk\Model\MesMailModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateMail($body), $fetch);
-    }
-
-    /**
-     * Update an existing email.
-     *
-     * @param string $id    Id that belongs to the email
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DeleteMailUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteMailNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesMail|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function deleteMail(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteMail($id), $fetch);
-    }
-
-    /**
-     * Mark as read and return email.
-     *
-     * @param string $id              Id that belongs to the email
-     * @param array  $queryParameters {
-     *
-     *     @var string $mark_as Mark the email
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\MarkAsReadUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\MarkAsReadNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesMail|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function markAsRead(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\MarkAsRead($id, $queryParameters), $fetch);
-    }
-
-    /**
-     * Update an existing email.
-     *
-     * @param string                         $id    Id that belongs to the email
-     * @param \Afosto\Sdk\Model\MesMailModel $body  Mail object
-     * @param string                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateEmailUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateEmailNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesMail|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateEmail(string $id, \Afosto\Sdk\Model\MesMailModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateEmail($id, $body), $fetch);
-    }
-
-    /**
-     * Returns a list of contacts.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var string $q
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListContactsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListContactsNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesContact[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listContacts(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListContacts($queryParameters), $fetch);
-    }
-
-    /**
-     * Remove a contact from the list.
-     *
-     * @param string $id    Id that belongs to the contact
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DeleteContactUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteContactNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesContact|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function deleteContact(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteContact($id), $fetch);
-    }
-
-    /**
-     * Read a contact.
-     *
-     * @param string $id    Id that belongs to the contact
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetContactUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetContactNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesContact|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getContact(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetContact($id), $fetch);
-    }
-
-    /**
-     * Update an existing contact.
-     *
-     * @param string                            $id    Id that belongs to the contact
-     * @param \Afosto\Sdk\Model\MesContactModel $body  Contact object
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateContactUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateContactNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesContact|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateContact(string $id, \Afosto\Sdk\Model\MesContactModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateContact($id, $body), $fetch);
-    }
-
-    /**
-     * Returns a list of directories.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var string $path
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListDirectoriesBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListDirectoriesUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\CntDirectoriesGetResponse200|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listDirectories(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListDirectories($queryParameters), $fetch);
-    }
-
-    /**
-     * Returns a list of files.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var string $dir
-     *     @var string $is_public
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListFilesBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListFilesUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\CntFile[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listFiles(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListFiles($queryParameters), $fetch);
-    }
-
-    /**
-     * Returns a file.
-     *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetFileBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetFileUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\CntFile[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getFile(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFile($id), $fetch);
-    }
-
-    /**
-     * Returns a new upload signature.
-     *
-     * @param \Afosto\Sdk\Model\CntUploadRequest $body
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateSignedUrlBadRequestException
-     * @throws \Afosto\Sdk\Exception\CreateSignedUrlUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\CntUploadResponse|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createSignedUrl(\Afosto\Sdk\Model\CntUploadRequest $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateSignedUrl($body), $fetch);
-    }
-
-    /**
-     * Upload a new file.
-     *
-     * @param string $signature
-     * @param array  $formParameters {
-     *
-     *     @var string|resource|\Psr\Http\Message\StreamInterface $file
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UploadFileBadRequestException
-     * @throws \Afosto\Sdk\Exception\UploadFileUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\CntFile[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function uploadFile(string $signature, array $formParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UploadFile($signature, $formParameters), $fetch);
-    }
-
-    /**
-     * Returns a list of active printers.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var string $hub_id ID of hub to filter for
-     *     @var string $inbox_id ID of inbox to filter for
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListPrintersUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\SplPrinter[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listPrinters(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListPrinters($queryParameters), $fetch);
-    }
-
-    /**
-     * Add a new printer.
-     *
-     * @param \Afosto\Sdk\Model\SplPrinterModel $body  The new printer
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreatePrinterUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreatePrinterBadRequestException
-     * @throws \Afosto\Sdk\Exception\CreatePrinterNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\SplPrinter|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createPrinter(\Afosto\Sdk\Model\SplPrinterModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreatePrinter($body), $fetch);
-    }
-
-    /**
-     * Disables a printer.
-     *
-     * @param string $id    ID of printer to delete
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DeletePrinterBadRequestException
-     * @throws \Afosto\Sdk\Exception\DeletePrinterUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeletePrinterNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\SplPrinter|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function deletePrinter(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeletePrinter($id), $fetch);
-    }
-
-    /**
-     * Returns a single printer.
-     *
-     * @param string $id    ID of printer to return
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetPrinterUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetPrinterNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\SplPrinter|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getPrinter(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPrinter($id), $fetch);
-    }
-
-    /**
-     * Update a printer to a new configuration.
-     *
-     * @param string                            $id    ID of printer to update
-     * @param \Afosto\Sdk\Model\SplPrinterModel $body  The new printer configuration
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdatePrinterBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdatePrinterUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdatePrinterNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\SplPrinter|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updatePrinter(string $id, \Afosto\Sdk\Model\SplPrinterModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdatePrinter($id, $body), $fetch);
-    }
-
-    /**
-     * Update a printer to a new configuration.
-     *
-     * @param string                     $id    ID of printer to attach the inbox to
-     * @param \Afosto\Sdk\Model\SplInbox $body  The new printer configuration
-     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\AttachInboxBadRequestException
-     * @throws \Afosto\Sdk\Exception\AttachInboxUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AttachInboxNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\SplPrinter|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function attachInbox(string $id, \Afosto\Sdk\Model\SplInbox $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachInbox($id, $body), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListHubsUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\SplHub[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listHubs(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListHubs(), $fetch);
-    }
-
-    /**
-     * Creates a new hub.
-     *
-     * @param \Afosto\Sdk\Model\SplHubModel $body  The new hub
-     * @param string                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateHubBadRequestException
-     * @throws \Afosto\Sdk\Exception\CreateHubUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\SplHub|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createHub(\Afosto\Sdk\Model\SplHubModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateHub($body), $fetch);
-    }
-
-    /**
-     * @param string $id    ID of hub to delete
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DeleteHubUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteHubNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\SplHub|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function deleteHub(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteHub($id), $fetch);
-    }
-
-    /**
-     * Returns the hub.
-     *
-     * @param string $id    ID of hub to return
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetHubUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetHubNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\SplHub|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getHub(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetHub($id), $fetch);
-    }
-
-    /**
-     * Update the hub to new hub settings.
-     *
-     * @param string                        $id    ID of hub to update
-     * @param \Afosto\Sdk\Model\SplHubModel $body  The updated hub data
-     * @param string                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateHubBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdateHubUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateHubNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\SplHub|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateHub(string $id, \Afosto\Sdk\Model\SplHubModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateHub($id, $body), $fetch);
-    }
-
-    /**
-     * Returns the hub information.
-     *
-     * @param string $id    ID of hub to look for
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetHubStatusUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetHubStatusNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\SplHubStatus|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getHubStatus(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetHubStatus($id), $fetch);
-    }
-
-    /**
-     * Returns the hub network list.
-     *
-     * @param int    $id    ID of hub to add a token for
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListHubNetworkUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\SplNetworkDevice[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listHubNetwork(int $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListHubNetwork($id), $fetch);
-    }
-
-    /**
-     * Updates the hub network.
-     *
-     * @param int                                        $id    ID of hub to update network information for
-     * @param \Afosto\Sdk\Model\SplCreateNetworkDevice[] $body  The new hub
-     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateHubNetworkUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\SplNetworkDevice[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateHubNetwork(int $id, array $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateHubNetwork($id, $body), $fetch);
-    }
-
-    /**
-     * Returns the hub log list.
-     *
-     * @param int    $id    ID of hub to add a token for
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListHubLogsUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\SplHubError[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listHubLogs(int $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListHubLogs($id), $fetch);
-    }
-
-    /**
-     * Adds a new logged error for the hub.
-     *
-     * @param string                             $id    Id of hub to add a log for
-     * @param \Afosto\Sdk\Model\SplHubErrorModel $body  The new hub
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\AddHubLogBadRequestException
-     * @throws \Afosto\Sdk\Exception\AddHubLogUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\SplHubError|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function addHubLog(string $id, \Afosto\Sdk\Model\SplHubErrorModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddHubLog($id, $body), $fetch);
-    }
-
-    /**
-     * Returns the hub.
-     *
-     * @param string $id    The UUID of the hub to return
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetHubByUuidUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetHubByUuidNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\SplHub|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getHubByUuid(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetHubByUuid($id), $fetch);
-    }
-
-    /**
-     * Announce an new profile.
-     *
-     * @param string    $path  the key we want to register
-     * @param \stdClass $body  Announce a profile definition for a given path
-     * @param string    $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\AnnounceProfileBadRequestException
-     * @throws \Afosto\Sdk\Exception\AnnounceProfileUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AnnounceProfileForbiddenException
-     * @throws \Afosto\Sdk\Exception\AnnounceProfileConflictException
-     *
-     * @return \Psr\Http\Message\ResponseInterface|null
-     */
-    public function announceProfile(string $path, \stdClass $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AnnounceProfile($path, $body), $fetch);
-    }
-
-    /**
-     * Announce new profiles.
-     *
-     * @param string $path  the key we want to register
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsNotFoundException
-     *
-     * @return \Psr\Http\Message\ResponseInterface|null
-     */
-    public function getProfileDefinitions(string $path, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetProfileDefinitions($path), $fetch);
-    }
-
-    /**
-     * Get the profiles by its key.
-     *
-     * @param string $path  The correlationID of a configuration where we are updating the configuration off
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetProfileForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetProfileNotFoundException
-     *
-     * @return \Psr\Http\Message\ResponseInterface|null
-     */
-    public function getProfile(string $path, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetProfile($path), $fetch);
-    }
-
-    /**
-     * Update the profile content.
-     *
-     * @param string    $path  The correlationID of a configuration where we are updating the configuration off
-     * @param \stdClass $body  update a profile
-     * @param string    $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateProfileBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdateProfileUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateProfileForbiddenException
-     * @throws \Afosto\Sdk\Exception\UpdateProfileConflictException
-     *
-     * @return \Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateProfile(string $path, \stdClass $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateProfile($path, $body), $fetch);
-    }
-
-    /**
-     * Returns a list of records.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var int $page_size
-     *     @var int $page
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListRecordsBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListRecordsUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\MesUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listRecords(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListRecords($queryParameters), $fetch);
-    }
-
-    /**
-     * Returns a set of usage records for given query.
-     *
-     * @param \Afosto\Sdk\Model\MesReportRequest $body            Report request object
-     * @param array                              $queryParameters {
-     *
-     *     @var int $page_size
-     *     @var int $page
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\QueryUsageUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\QueryUsageNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesReport[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function queryUsage(\Afosto\Sdk\Model\MesReportRequest $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\QueryUsage($body, $queryParameters), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListTypesBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListTypesUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\MesType[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listTypes(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListTypes(), $fetch);
     }
 
     /**
@@ -2926,138 +1327,1090 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Delete the secret and disable 2FA.
+     *
+     * @param string $type  Type that needs to be deleted
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
+     * @throws \Afosto\Sdk\Exception\DeleteSecretBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteSecretUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteSecretNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamSecretRead|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getBillingInformation(string $fetch = self::FETCH_OBJECT)
+    public function deleteSecret(string $type, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBillingInformation(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteSecret($type), $fetch);
     }
 
     /**
-     * Update customer information regarding billing data.
+     * Get the secret for the type for the current user.
      *
-     * @param \Afosto\Sdk\Model\IamCompany $body  Email object
-     * @param string                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateBillingInformation(\Afosto\Sdk\Model\IamCompany $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateBillingInformation($body), $fetch);
-    }
-
-    /**
+     * @param string $type  Type that we look for
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
+     * @throws \Afosto\Sdk\Exception\GetSecretUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSecretNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamSecretRead|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listCards(string $fetch = self::FETCH_OBJECT)
+    public function getSecret(string $type, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCards(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSecret($type), $fetch);
     }
 
     /**
-     * Add a card's source.
+     * Create a new secret for 2FA.
      *
-     * @param \Afosto\Sdk\Model\IamCardsPostBody $body
+     * @param string                             $type  Type that we look for
+     * @param \Afosto\Sdk\Model\IamSecretRequest $body  Secret request
      * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
+     * @throws \Afosto\Sdk\Exception\CreateSecretBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateSecretUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateSecretNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamSecret|\Psr\Http\Message\ResponseInterface|null
      */
-    public function addCard(\Afosto\Sdk\Model\IamCardsPostBody $body, string $fetch = self::FETCH_OBJECT)
+    public function createSecret(string $type, \Afosto\Sdk\Model\IamSecretRequest $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddCard($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateSecret($type, $body), $fetch);
     }
 
     /**
-     * Remove an active card.
+     * Update an existing secret for 2FA.
+     *
+     * @param string                            $type  Type that we look for
+     * @param \Afosto\Sdk\Model\IamSecretUpdate $body  Secret request
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateSecretBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateSecretUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateSecretNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamSecretRead|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateSecret(string $type, \Afosto\Sdk\Model\IamSecretUpdate $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateSecret($type, $body), $fetch);
+    }
+
+    /**
+     * Verify if one time password was created with known secret.
+     *
+     * @param string                                 $type  Type that we look for
+     * @param \Afosto\Sdk\Model\IamValidationRequest $body  Validation request object
+     * @param string                                 $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\VerifyTokenBadRequestException
+     * @throws \Afosto\Sdk\Exception\VerifyTokenUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\VerifyTokenNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamValidationResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function verifyToken(string $type, \Afosto\Sdk\Model\IamValidationRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\VerifyToken($type, $body), $fetch);
+    }
+
+    /**
+     * Request a otp over the given channel.
+     *
+     * @param string $type    Type that we look for
+     * @param string $channel Channel of choice
+     * @param string $fetch   Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\RequestBackupBadRequestException
+     * @throws \Afosto\Sdk\Exception\RequestBackupUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RequestBackupNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\IamBackupResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function requestBackup(string $type, string $channel, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RequestBackup($type, $channel), $fetch);
+    }
+
+    /**
+     * Returns a list of active printers.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $hub_id ID of hub to filter for
+     *     @var string $inbox_id ID of inbox to filter for
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListPrintersUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\SplPrinter[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listPrinters(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListPrinters($queryParameters), $fetch);
+    }
+
+    /**
+     * Add a new printer.
+     *
+     * @param \Afosto\Sdk\Model\SplPrinterModel $body  The new printer
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreatePrinterUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreatePrinterBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreatePrinterNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\SplPrinter|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createPrinter(\Afosto\Sdk\Model\SplPrinterModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreatePrinter($body), $fetch);
+    }
+
+    /**
+     * Disables a printer.
+     *
+     * @param string $id    ID of printer to delete
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeletePrinterBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeletePrinterUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeletePrinterNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\SplPrinter|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deletePrinter(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeletePrinter($id), $fetch);
+    }
+
+    /**
+     * Returns a single printer.
+     *
+     * @param string $id    ID of printer to return
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetPrinterUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetPrinterNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\SplPrinter|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getPrinter(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPrinter($id), $fetch);
+    }
+
+    /**
+     * Update a printer to a new configuration.
+     *
+     * @param string                            $id    ID of printer to update
+     * @param \Afosto\Sdk\Model\SplPrinterModel $body  The new printer configuration
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdatePrinterBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdatePrinterUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdatePrinterNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\SplPrinter|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updatePrinter(string $id, \Afosto\Sdk\Model\SplPrinterModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdatePrinter($id, $body), $fetch);
+    }
+
+    /**
+     * Update a printer to a new configuration.
+     *
+     * @param string                     $id    ID of printer to attach the inbox to
+     * @param \Afosto\Sdk\Model\SplInbox $body  The new printer configuration
+     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AttachInboxBadRequestException
+     * @throws \Afosto\Sdk\Exception\AttachInboxUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AttachInboxNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\SplPrinter|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function attachInbox(string $id, \Afosto\Sdk\Model\SplInbox $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachInbox($id, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of directories.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $path
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListDirectoriesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListDirectoriesUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\CntDirectoriesGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listDirectories(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListDirectories($queryParameters), $fetch);
+    }
+
+    /**
+     * Returns a list of files.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $dir
+     *     @var string $is_public
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListFilesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListFilesUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\CntFile[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listFiles(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListFiles($queryParameters), $fetch);
+    }
+
+    /**
+     * Returns a file.
      *
      * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
+     * @throws \Afosto\Sdk\Exception\GetFileBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetFileUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\CntFile[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function removeCard(string $id, string $fetch = self::FETCH_OBJECT)
+    public function getFile(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RemoveCard($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFile($id), $fetch);
     }
 
     /**
+     * Returns a new upload signature.
+     *
+     * @param \Afosto\Sdk\Model\CntUploadRequest $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateSignedUrlBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateSignedUrlUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\CntUploadResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createSignedUrl(\Afosto\Sdk\Model\CntUploadRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateSignedUrl($body), $fetch);
+    }
+
+    /**
+     * Upload a new file.
+     *
+     * @param string $signature
+     * @param array  $formParameters {
+     *
+     *     @var string|resource|\Psr\Http\Message\StreamInterface $file
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamProduct[]|\Psr\Http\Message\ResponseInterface|null
+     * @throws \Afosto\Sdk\Exception\UploadFileBadRequestException
+     * @throws \Afosto\Sdk\Exception\UploadFileUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\CntFile[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listProducts(string $fetch = self::FETCH_OBJECT)
+    public function uploadFile(string $signature, array $formParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListProducts(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UploadFile($signature, $formParameters), $fetch);
     }
 
     /**
+     * Returns a list of conversations.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamSubscription[]|\Psr\Http\Message\ResponseInterface|null
+     * @throws \Afosto\Sdk\Exception\ListConversationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListConversationsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesConversation[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listSubscriptions(string $fetch = self::FETCH_OBJECT)
+    public function listConversations(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListSubscriptions(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListConversations($headerParameters), $fetch);
     }
 
     /**
-     * Add a product to the subscription.
+     * Instantiate a conversation.
      *
-     * @param \Afosto\Sdk\Model\IamSubscribe $body
-     * @param string                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\MesConversationCreate $body  Conversation object
+     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
+     * @throws \Afosto\Sdk\Exception\StartConversationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\StartConversationNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function addSubscription(\Afosto\Sdk\Model\IamSubscribe $body, string $fetch = self::FETCH_OBJECT)
+    public function startConversation(\Afosto\Sdk\Model\MesConversationCreate $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddSubscription($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\StartConversation($body), $fetch);
     }
 
     /**
+     * Run a complex search to find conversations.
+     *
+     * @param \Afosto\Sdk\Model\MesSearch $body             Search query object
+     * @param array                       $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamInvoice[]|\Psr\Http\Message\ResponseInterface|null
+     * @throws \Afosto\Sdk\Exception\SearchConversationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchConversationsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesConversation[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listInvoices(string $fetch = self::FETCH_OBJECT)
+    public function searchConversations(\Afosto\Sdk\Model\MesSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInvoices(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchConversations($body, $headerParameters), $fetch);
     }
 
     /**
+     * Retrieve a single conversation.
+     *
+     * @param int    $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamInvoice|\Psr\Http\Message\ResponseInterface|null
+     * @throws \Afosto\Sdk\Exception\GetConversationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetConversationNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getUpcoming(string $fetch = self::FETCH_OBJECT)
+    public function getConversation(int $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUpcoming(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetConversation($id), $fetch);
     }
 
     /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * Append a message to the conversation.
      *
-     * @return \Afosto\Sdk\Model\IamTrial|\Psr\Http\Message\ResponseInterface|null
+     * @param int                             $id
+     * @param \Afosto\Sdk\Model\MesMessageAdd $body  The new message
+     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AddMessageUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AddMessageNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getTrial(string $fetch = self::FETCH_OBJECT)
+    public function addMessage(int $id, \Afosto\Sdk\Model\MesMessageAdd $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTrial(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddMessage($id, $body), $fetch);
     }
 
     /**
-     * List of subscribed products.
+     * Register a new participant in the conversation.
      *
-     * @param \Afosto\Sdk\Model\IamUsageRequest $body
+     * @param int                                    $id
+     * @param \Afosto\Sdk\Model\MesParticipantCreate $body  The new message
+     * @param string                                 $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AddRegistrationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AddRegistrationNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function addRegistration(int $id, \Afosto\Sdk\Model\MesParticipantCreate $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddRegistration($id, $body), $fetch);
+    }
+
+    /**
+     * Add a subscription to recieve updates on this conversation.
+     *
+     * @param int                               $id
+     * @param \Afosto\Sdk\Model\MesSubscription $body  The subscription data
      * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
+     * @throws \Afosto\Sdk\Exception\SubscribeUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SubscribeNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getUsages(\Afosto\Sdk\Model\IamUsageRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function subscribe(int $id, \Afosto\Sdk\Model\MesSubscription $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUsages($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Subscribe($id, $body), $fetch);
+    }
+
+    /**
+     * Remove a subscription to recieve updates on this conversation.
+     *
+     * @param int                         $id
+     * @param \Afosto\Sdk\Model\MesCancel $body  The subscription data
+     * @param string                      $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UnsubscribeUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UnsubscribeNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function unsubscribe(int $id, \Afosto\Sdk\Model\MesCancel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Unsubscribe($id, $body), $fetch);
+    }
+
+    /**
+     * Create a address set.
+     *
+     * @param \Afosto\Sdk\Model\OdrAddressSetModel $body
+     * @param string                               $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateAddressSetUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateAddressSetNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrAddressSet|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createAddressSet(\Afosto\Sdk\Model\OdrAddressSetModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateAddressSet($body), $fetch);
+    }
+
+    /**
+     * View an address set.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetAddressSetUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetAddressSetNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrAddressSet|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getAddressSet(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetAddressSet($id), $fetch);
+    }
+
+    /**
+     * Get a formatted address for a given address set.
+     *
+     * @param string                                   $id
+     * @param \Afosto\Sdk\Model\OdrAddressesIdPostBody $body
+     * @param string                                   $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetFormattedAddressesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetFormattedAddressesNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrFormattedAddressSet|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getFormattedAddresses(string $id, \Afosto\Sdk\Model\OdrAddressesIdPostBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFormattedAddresses($id, $body), $fetch);
+    }
+
+    /**
+     * returns all customers.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListCustomersBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListCustomersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListCustomersNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrCustomer[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listCustomers(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCustomers($headerParameters), $fetch);
+    }
+
+    /**
+     * Add a new customer to the list.
+     *
+     * @param \Afosto\Sdk\Model\OdrCustomerModel $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateCustomerBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateCustomerUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateCustomerNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrCustomer|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createCustomer(\Afosto\Sdk\Model\OdrCustomerModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateCustomer($body), $fetch);
+    }
+
+    /**
+     * returns a customer by ID.
+     *
+     * @param string $id    Id that belongs to the tenant
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetCustomerBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetCustomerUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetCustomerNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrCustomer[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getCustomer(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetCustomer($id), $fetch);
+    }
+
+    /**
+     * update a customer.
+     *
+     * @param string                             $id    Id that belongs to the tenant
+     * @param \Afosto\Sdk\Model\OdrCustomerModel $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateCustomerBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateCustomerUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateCustomerNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrCustomer|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateCustomer(string $id, \Afosto\Sdk\Model\OdrCustomerModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateCustomer($id, $body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListGroupsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListGroupsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListGroupsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrCustomerGroup[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listGroups(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListGroups(), $fetch);
+    }
+
+    /**
+     * @param \Afosto\Sdk\Model\OdrCustomerGroupModel $body
+     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateGroupBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateGroupUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrCustomerGroup[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createGroup(\Afosto\Sdk\Model\OdrCustomerGroupModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateGroup($body), $fetch);
+    }
+
+    /**
+     * Returns a  signed id token.
+     *
+     * @param \Afosto\Sdk\Model\OdrSignOn $body
+     * @param string                      $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateIdTokenBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateIdTokenUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createIdToken(\Afosto\Sdk\Model\OdrSignOn $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateIdToken($body), $fetch);
+    }
+
+    /**
+     * Returns a new token to confirm identity or reset a password.
+     *
+     * @param \Afosto\Sdk\Model\OdrTokenRequest $body
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetTokenBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTokenUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getToken(\Afosto\Sdk\Model\OdrTokenRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetToken($body), $fetch);
+    }
+
+    /**
+     * Mark the identity as verified.
+     *
+     * @param \Afosto\Sdk\Model\OdrVerifyRequest $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\VerifyIdentityBadRequestException
+     * @throws \Afosto\Sdk\Exception\VerifyIdentityUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function verifyIdentity(\Afosto\Sdk\Model\OdrVerifyRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\VerifyIdentity($body), $fetch);
+    }
+
+    /**
+     * Returns a list of stacks.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $type
+     *     @var string $sort
+     * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListStacksUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListStacksNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrStack[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listStacks(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListStacks($queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
+     * Creates and returns the new stack.
+     *
+     * @param \Afosto\Sdk\Model\OdrStackModel $body
+     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateStackUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateStackNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createStack(\Afosto\Sdk\Model\OdrStackModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateStack($body), $fetch);
+    }
+
+    /**
+     * Adds items to the stack that was previously created.
+     *
+     * @param \Afosto\Sdk\Model\OdrStackAddModel $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AddToStackUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AddToStackNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function addToStack(\Afosto\Sdk\Model\OdrStackAddModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddToStack($body), $fetch);
+    }
+
+    /**
+     * Creates and returns the new stack.
+     *
+     * @param \Afosto\Sdk\Model\OdrTransitionModel $body
+     * @param string                               $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\TransitionStackUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\TransitionStackNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function transitionStack(\Afosto\Sdk\Model\OdrTransitionModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\TransitionStack($body), $fetch);
+    }
+
+    /**
+     * Removes a stack.
+     *
+     * @param string $type
+     * @param string $reference
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteStackUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteStackNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteStack(string $type, string $reference, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteStack($type, $reference), $fetch);
+    }
+
+    /**
+     * Returns a stack.
+     *
+     * @param string $type
+     * @param string $reference
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetStackUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetStackNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getStack(string $type, string $reference, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetStack($type, $reference), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListStackTypesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListStackTypesNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrType[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listStackTypes(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListStackTypes(), $fetch);
+    }
+
+    /**
+     * Returns a list of items grouped by sku, description and references.
+     *
+     * @param string $type
+     * @param string $reference
+     * @param array  $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListItemsAsGroupUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListItemsAsGroupNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrGroup[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listItemsAsGroup(string $type, string $reference, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListItemsAsGroup($type, $reference, $headerParameters), $fetch);
+    }
+
+    /**
+     * Delete items from the given reference.
+     *
+     * @param string $type
+     * @param string $reference
+     * @param array  $body
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteItemsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteItems(string $type, string $reference, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteItems($type, $reference, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of items.
+     *
+     * @param string $type
+     * @param string $reference
+     * @param array  $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListItemsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listItems(string $type, string $reference, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListItems($type, $reference, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns a list of groups.
+     *
+     * @param \Afosto\Sdk\Model\OdrSearch[] $body
+     * @param array                         $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchGroupsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchGroupsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrGroup[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchGroups(array $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchGroups($body, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns a list of items.
+     *
+     * @param \Afosto\Sdk\Model\OdrSearch $body
+     * @param array                       $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchItemsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchItems(\Afosto\Sdk\Model\OdrSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchItems($body, $headerParameters), $fetch);
+    }
+
+    /**
+     * Provide the service with a set of valid skus.
+     *
+     * @param \Afosto\Sdk\Model\OdrSku[] $body
+     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AnnounceSkusUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AnnounceSkusNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrSkuResult|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function announceSkus(array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AnnounceSkus($body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListProxiesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListProxiesUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\CntProxy[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listProxies(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListProxies(), $fetch);
+    }
+
+    /**
+     * Add a new proxy configuration.
+     *
+     * @param \Afosto\Sdk\Model\CntProxyModel $body
+     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateProxyBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateProxyUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\CntProxy|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createProxy(\Afosto\Sdk\Model\CntProxyModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateProxy($body), $fetch);
+    }
+
+    /**
+     * Returns the proxy configuration.
+     *
+     * @param string $key
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetProxyBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetProxyUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\CntProxy|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getProxy(string $key, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetProxy($key), $fetch);
+    }
+
+    /**
+     * Updates the proxy.
+     *
+     * @param string                                $key
+     * @param \Afosto\Sdk\Model\CntProxyUpdateModel $body
+     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateProxyBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateProxyUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\CntProxy|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateProxy(string $key, \Afosto\Sdk\Model\CntProxyUpdateModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateProxy($key, $body), $fetch);
+    }
+
+    /**
+     * Filter with a single value (multiple is not supported).
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $status Status values that need to be considered for filter
+     *     @var string $printer_id The printer id that we want to filter
+     *     @var string $tag The tag id that we want to filter for
+     * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page The page token
+     *     @var string $x-page-size The amount of results for the page
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListJobsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListJobsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\SplJob[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listJobs(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListJobs($queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
+     * @param \Afosto\Sdk\Model\SplJobModel $body  The new print job
+     * @param string                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AddJobNotFoundException
+     * @throws \Afosto\Sdk\Exception\AddJobUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AddJobBadRequestException
+     *
+     * @return \Afosto\Sdk\Model\SplJob|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function addJob(\Afosto\Sdk\Model\SplJobModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddJob($body), $fetch);
+    }
+
+    /**
+     * Retrieve printjob status.
+     *
+     * @param string $reference The id of the job that we look for, returned when job is pushed to queue
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetJobStatusNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetJobStatusUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetJobStatusBadRequestException
+     *
+     * @return \Afosto\Sdk\Model\SplJob|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getJobStatus(string $reference, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetJobStatus($reference), $fetch);
+    }
+
+    /**
+     * @param string                      $reference The id of the job that we look for, returned when job is pushed to queue
+     * @param \Afosto\Sdk\Model\SplStatus $body      The new print job
+     * @param string                      $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateStatusNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateStatusUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateStatusBadRequestException
+     *
+     * @return \Afosto\Sdk\Model\SplJobResult|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateStatus(string $reference, \Afosto\Sdk\Model\SplStatus $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateStatus($reference, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of records.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var int $page_size
+     *     @var int $page
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListRecordsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListRecordsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\MesUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listRecords(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListRecords($queryParameters), $fetch);
+    }
+
+    /**
+     * Returns a set of usage records for given query.
+     *
+     * @param \Afosto\Sdk\Model\MesReportRequest $body            Report request object
+     * @param array                              $queryParameters {
+     *
+     *     @var int $page_size
+     *     @var int $page
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\QueryUsageUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\QueryUsageNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesReport[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function queryUsage(\Afosto\Sdk\Model\MesReportRequest $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\QueryUsage($body, $queryParameters), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListTypesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListTypesUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\MesType[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listTypes(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListTypes(), $fetch);
     }
 
     /**
@@ -3622,7 +2975,359 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * returns all customers.
+     * Announce an new profile.
+     *
+     * @param string    $path  the key we want to register
+     * @param \stdClass $body  Announce a profile definition for a given path
+     * @param string    $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AnnounceProfileBadRequestException
+     * @throws \Afosto\Sdk\Exception\AnnounceProfileUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AnnounceProfileForbiddenException
+     * @throws \Afosto\Sdk\Exception\AnnounceProfileConflictException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function announceProfile(string $path, \stdClass $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AnnounceProfile($path, $body), $fetch);
+    }
+
+    /**
+     * Announce new profiles.
+     *
+     * @param string $path  the key we want to register
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsNotFoundException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function getProfileDefinitions(string $path, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetProfileDefinitions($path), $fetch);
+    }
+
+    /**
+     * Get the profiles by its key.
+     *
+     * @param string $path  The correlationID of a configuration where we are updating the configuration off
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetProfileForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetProfileNotFoundException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function getProfile(string $path, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetProfile($path), $fetch);
+    }
+
+    /**
+     * Update the profile content.
+     *
+     * @param string    $path  The correlationID of a configuration where we are updating the configuration off
+     * @param \stdClass $body  update a profile
+     * @param string    $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateProfileBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileConflictException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateProfile(string $path, \stdClass $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateProfile($path, $body), $fetch);
+    }
+
+    /**
+     * Get a list of orders.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $X-Page-Size
+     *     @var int $X-Page
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListOrdersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListOrdersNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listOrders(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListOrders($headerParameters), $fetch);
+    }
+
+    /**
+     * Create a new order.
+     *
+     * @param \Afosto\Sdk\Model\OdrOrderModel $body
+     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateOrderUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateOrderNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createOrder(\Afosto\Sdk\Model\OdrOrderModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateOrder($body), $fetch);
+    }
+
+    /**
+     * Delete an existing order.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteOrderUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteOrderNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteOrder(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteOrder($id), $fetch);
+    }
+
+    /**
+     * View a single order.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewOrderUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewOrderNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewOrder(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewOrder($id), $fetch);
+    }
+
+    /**
+     * Update the customer parameters for the order.
+     *
+     * @param string                                $id
+     * @param \Afosto\Sdk\Model\OdrOrderUpdateModel $body
+     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateOrderUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateOrder(string $id, \Afosto\Sdk\Model\OdrOrderUpdateModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateOrder($id, $body), $fetch);
+    }
+
+    /**
+     * Update the order state.
+     *
+     * @param string                     $id
+     * @param \Afosto\Sdk\Model\OdrState $body
+     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateOrderStateUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderStateNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateOrderState(string $id, \Afosto\Sdk\Model\OdrState $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateOrderState($id, $body), $fetch);
+    }
+
+    /**
+     * Attach new stack.
+     *
+     * @param string                                     $id
+     * @param \Afosto\Sdk\Model\OdrOrdersIdStackPostBody $body
+     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AttachStackUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AttachStackNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function attachStack(string $id, \Afosto\Sdk\Model\OdrOrdersIdStackPostBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachStack($id, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of domains.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var int $is_verified
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListDomainsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListDomainsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesDomain[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listDomains(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListDomains($queryParameters), $fetch);
+    }
+
+    /**
+     * Adds a domain to the list.
+     *
+     * @param \Afosto\Sdk\Model\MesDomainModel $body  Domain object
+     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateDomainUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateDomainNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesDomain|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createDomain(\Afosto\Sdk\Model\MesDomainModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateDomain($body), $fetch);
+    }
+
+    /**
+     * Deletes a domain.
+     *
+     * @param string $id    Id that belongs to the domain
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteDomainUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteDomainNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesDomain|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteDomain(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteDomain($id), $fetch);
+    }
+
+    /**
+     * Returns a single domain.
+     *
+     * @param string $id    Id that belongs to the domain
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetDomainUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetDomainNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesDomain|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getDomain(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetDomain($id), $fetch);
+    }
+
+    /**
+     * Returns a list of inboxes.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $fqdn
+     *     @var string $public
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListInboxesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListInboxesNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesInbox[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listInboxes(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInboxes($queryParameters), $fetch);
+    }
+
+    /**
+     * Adds a inbox to the list.
+     *
+     * @param \Afosto\Sdk\Model\MesInboxModel $body  Inbox object
+     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateInboxUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateInboxNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesInbox|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createInbox(\Afosto\Sdk\Model\MesInboxModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateInbox($body), $fetch);
+    }
+
+    /**
+     * Deletes an inbox.
+     *
+     * @param string $id    Id that belongs to the inbox
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteInboxUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteInboxNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesInbox|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteInbox(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteInbox($id), $fetch);
+    }
+
+    /**
+     * Returns a single inbox.
+     *
+     * @param string $id    Id that belongs to the inbox
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetInboxUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetInboxNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesInbox|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getInbox(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInbox($id), $fetch);
+    }
+
+    /**
+     * Update an existing inbox.
+     *
+     * @param string                                $id    Id that belongs to the inbox
+     * @param \Afosto\Sdk\Model\MesInboxUpdateModel $body  Inbox object
+     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateInboxUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateInboxNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesInbox|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateInbox(string $id, \Afosto\Sdk\Model\MesInboxUpdateModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInbox($id, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of emails.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $inbox
+     *     @var string $folder
+     *     @var string $addressee
+     * }
      *
      * @param array $headerParameters {
      *
@@ -3632,143 +3337,153 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ListCustomersBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListCustomersUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListCustomersNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListEmailsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListEmailsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrCustomer[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\MesMail[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listCustomers(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listEmails(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCustomers($headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListEmails($queryParameters, $headerParameters), $fetch);
     }
 
     /**
-     * Add a new customer to the list.
+     * Adds a email.
      *
-     * @param \Afosto\Sdk\Model\OdrCustomerModel $body
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\MesMailModel $body  Mail object
+     * @param string                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\CreateCustomerBadRequestException
-     * @throws \Afosto\Sdk\Exception\CreateCustomerUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateCustomerNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateMailUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateMailNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrCustomer|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\MesMail|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createCustomer(\Afosto\Sdk\Model\OdrCustomerModel $body, string $fetch = self::FETCH_OBJECT)
+    public function createMail(\Afosto\Sdk\Model\MesMailModel $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateCustomer($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateMail($body), $fetch);
     }
 
     /**
-     * returns a customer by ID.
+     * Update an existing email.
      *
-     * @param string $id    Id that belongs to the tenant
+     * @param string $id    Id that belongs to the email
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetCustomerBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetCustomerUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetCustomerNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteMailUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteMailNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrCustomer[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\MesMail|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getCustomer(string $id, string $fetch = self::FETCH_OBJECT)
+    public function deleteMail(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetCustomer($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteMail($id), $fetch);
     }
 
     /**
-     * update a customer.
+     * Mark as read and return email.
      *
-     * @param string                             $id    Id that belongs to the tenant
-     * @param \Afosto\Sdk\Model\OdrCustomerModel $body
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $id              Id that belongs to the email
+     * @param array  $queryParameters {
      *
-     * @throws \Afosto\Sdk\Exception\UpdateCustomerBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdateCustomerUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateCustomerNotFoundException
+     *     @var string $mark_as Mark the email
+     * }
      *
-     * @return \Afosto\Sdk\Model\OdrCustomer|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateCustomer(string $id, \Afosto\Sdk\Model\OdrCustomerModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateCustomer($id, $body), $fetch);
-    }
-
-    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ListGroupsBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListGroupsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListGroupsNotFoundException
+     * @throws \Afosto\Sdk\Exception\MarkAsReadUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\MarkAsReadNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrCustomerGroup[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\MesMail|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listGroups(string $fetch = self::FETCH_OBJECT)
+    public function markAsRead(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListGroups(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\MarkAsRead($id, $queryParameters), $fetch);
     }
 
     /**
-     * @param \Afosto\Sdk\Model\OdrCustomerGroupModel $body
-     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * Update an existing email.
      *
-     * @throws \Afosto\Sdk\Exception\CreateGroupBadRequestException
-     * @throws \Afosto\Sdk\Exception\CreateGroupUnauthorizedException
+     * @param string                         $id    Id that belongs to the email
+     * @param \Afosto\Sdk\Model\MesMailModel $body  Mail object
+     * @param string                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\OdrCustomerGroup[]|\Psr\Http\Message\ResponseInterface|null
+     * @throws \Afosto\Sdk\Exception\UpdateEmailUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateEmailNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesMail|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createGroup(\Afosto\Sdk\Model\OdrCustomerGroupModel $body, string $fetch = self::FETCH_OBJECT)
+    public function updateEmail(string $id, \Afosto\Sdk\Model\MesMailModel $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateGroup($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateEmail($id, $body), $fetch);
     }
 
     /**
-     * Returns a  signed id token.
+     * Returns a list of contacts.
      *
-     * @param \Afosto\Sdk\Model\OdrSignOn $body
-     * @param string                      $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param array $queryParameters {
      *
-     * @throws \Afosto\Sdk\Exception\CreateIdTokenBadRequestException
-     * @throws \Afosto\Sdk\Exception\CreateIdTokenUnauthorizedException
+     *     @var string $q
+     * }
      *
-     * @return \Afosto\Sdk\Model\OdrTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListContactsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListContactsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesContact[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createIdToken(\Afosto\Sdk\Model\OdrSignOn $body, string $fetch = self::FETCH_OBJECT)
+    public function listContacts(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateIdToken($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListContacts($queryParameters), $fetch);
     }
 
     /**
-     * Returns a new token to confirm identity or reset a password.
+     * Remove a contact from the list.
      *
-     * @param \Afosto\Sdk\Model\OdrTokenRequest $body
+     * @param string $id    Id that belongs to the contact
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteContactNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesContact|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteContact(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteContact($id), $fetch);
+    }
+
+    /**
+     * Read a contact.
+     *
+     * @param string $id    Id that belongs to the contact
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetContactNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\MesContact|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getContact(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetContact($id), $fetch);
+    }
+
+    /**
+     * Update an existing contact.
+     *
+     * @param string                            $id    Id that belongs to the contact
+     * @param \Afosto\Sdk\Model\MesContactModel $body  Contact object
      * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetTokenBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetTokenUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateContactNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\MesContact|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getToken(\Afosto\Sdk\Model\OdrTokenRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function updateContact(string $id, \Afosto\Sdk\Model\MesContactModel $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetToken($body), $fetch);
-    }
-
-    /**
-     * Mark the identity as verified.
-     *
-     * @param \Afosto\Sdk\Model\OdrVerifyRequest $body
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\VerifyIdentityBadRequestException
-     * @throws \Afosto\Sdk\Exception\VerifyIdentityUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\OdrTokenResponse|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function verifyIdentity(\Afosto\Sdk\Model\OdrVerifyRequest $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\VerifyIdentity($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateContact($id, $body), $fetch);
     }
 
     /**
@@ -3811,6 +3526,313 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function listAuditLogFilters(string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListAuditLogFilters(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListProvidersBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListProvidersUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrProvider[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listProviders(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListProviders(), $fetch);
+    }
+
+    /**
+     * Returns a new signed upload url.
+     *
+     * @param \Afosto\Sdk\Model\OdrTransactionModel $body
+     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateTransactionBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateTransactionUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrTransaction|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createTransaction(\Afosto\Sdk\Model\OdrTransactionModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateTransaction($body), $fetch);
+    }
+
+    /**
+     * Returns the details of a transaction.
+     *
+     * @param string $secret
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetTransactionBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTransactionUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrTransaction|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getTransaction(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTransaction($secret), $fetch);
+    }
+
+    /**
+     * Start a payment for a transaction.
+     *
+     * @param string                             $secret
+     * @param \Afosto\Sdk\Model\OdrPaymentIntent $body
+     * @param string                             $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreatePaymentBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreatePaymentUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrPayment|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createPayment(string $secret, \Afosto\Sdk\Model\OdrPaymentIntent $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreatePayment($secret, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of payment methods available for the transaction.
+     *
+     * @param string $secret
+     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrMethod[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listMethodsForTransaction(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListMethodsForTransaction($secret), $fetch);
+    }
+
+    /**
+     * Returns the live details of a payment.
+     *
+     * @param string $reference
+     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetPaymentBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetPaymentUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrProcess|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getPayment(string $reference, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPayment($reference), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListChannelsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListChannelsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrChannel[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listChannels(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListChannels(), $fetch);
+    }
+
+    /**
+     * Create a new channel.
+     *
+     * @param \Afosto\Sdk\Model\OdrChannelModel $body
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateChannelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateChannelNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrChannel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createChannel(\Afosto\Sdk\Model\OdrChannelModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateChannel($body), $fetch);
+    }
+
+    /**
+     * Delete an existing channel.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteChannelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteChannelNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrChannel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteChannel(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteChannel($id), $fetch);
+    }
+
+    /**
+     * View a single channel.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewChannelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewChannelNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrChannel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewChannel(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewChannel($id), $fetch);
+    }
+
+    /**
+     * Update the channel parameters.
+     *
+     * @param string                            $id
+     * @param \Afosto\Sdk\Model\OdrChannelModel $body
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateChannelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateChannelNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrChannel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateChannel(string $id, \Afosto\Sdk\Model\OdrChannelModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateChannel($id, $body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getBillingInformation(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBillingInformation(), $fetch);
+    }
+
+    /**
+     * Update customer information regarding billing data.
+     *
+     * @param \Afosto\Sdk\Model\IamCompany $body  Email object
+     * @param string                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateBillingInformation(\Afosto\Sdk\Model\IamCompany $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateBillingInformation($body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listCards(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCards(), $fetch);
+    }
+
+    /**
+     * Add a card's source.
+     *
+     * @param \Afosto\Sdk\Model\IamCardsPostBody $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function addCard(\Afosto\Sdk\Model\IamCardsPostBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddCard($body), $fetch);
+    }
+
+    /**
+     * Remove an active card.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function removeCard(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RemoveCard($id), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamProduct[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listProducts(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListProducts(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamSubscription[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listSubscriptions(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListSubscriptions(), $fetch);
+    }
+
+    /**
+     * Add a product to the subscription.
+     *
+     * @param \Afosto\Sdk\Model\IamSubscribe $body
+     * @param string                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function addSubscription(\Afosto\Sdk\Model\IamSubscribe $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddSubscription($body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamInvoice[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listInvoices(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInvoices(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamInvoice|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getUpcoming(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUpcoming(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamTrial|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getTrial(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTrial(), $fetch);
+    }
+
+    /**
+     * List of subscribed products.
+     *
+     * @param \Afosto\Sdk\Model\IamUsageRequest $body
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getUsages(\Afosto\Sdk\Model\IamUsageRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUsages($body), $fetch);
     }
 
     public static function create($httpClient = null)

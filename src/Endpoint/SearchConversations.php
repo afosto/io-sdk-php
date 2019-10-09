@@ -10,19 +10,19 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class Search extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class SearchConversations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * Run a search with the option to run an aggregation.
+     * Run a complex search to find conversations.
      *
-     * @param \Afosto\Sdk\Model\CntSimpleQuery $body             Query object
-     * @param array                            $headerParameters {
+     * @param \Afosto\Sdk\Model\MesSearch $body             Search query object
+     * @param array                       $headerParameters {
      *
-     *     @var string $x-page
-     *     @var int $x-page-size
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
      * }
      */
-    public function __construct(\Afosto\Sdk\Model\CntSimpleQuery $body, array $headerParameters = [])
+    public function __construct(\Afosto\Sdk\Model\MesSearch $body, array $headerParameters = [])
     {
         $this->body = $body;
         $this->headerParameters = $headerParameters;
@@ -37,7 +37,7 @@ class Search extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\O
 
     public function getUri(): string
     {
-        return '/cnt/search';
+        return '/mes/conversations/search';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -55,9 +55,9 @@ class Search extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\O
         $optionsResolver = parent::getHeadersOptionsResolver();
         $optionsResolver->setDefined(['x-page', 'x-page-size']);
         $optionsResolver->setRequired([]);
-        $optionsResolver->setDefaults(['x-page-size' => 25]);
+        $optionsResolver->setDefaults(['x-page' => '1', 'x-page-size' => '25']);
         $optionsResolver->setAllowedTypes('x-page', ['string']);
-        $optionsResolver->setAllowedTypes('x-page-size', ['int']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
 
         return $optionsResolver;
     }
@@ -65,21 +65,21 @@ class Search extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\O
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\SearchUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\SearchNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchConversationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchConversationsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\CntSimpleSeachResponse|null
+     * @return \Afosto\Sdk\Model\MesConversation[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\CntSimpleSeachResponse', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\MesConversation[]', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\SearchUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchConversationsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\SearchNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchConversationsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

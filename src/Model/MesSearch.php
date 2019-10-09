@@ -13,146 +13,26 @@ namespace Afosto\Sdk\Model;
 class MesSearch
 {
     /**
-     * @var string[]
+     * @var MesSearchConstraint[]
      */
-    protected $ids;
-    /**
-     * @var string
-     */
-    protected $event;
-    /**
-     * @var string
-     */
-    protected $entityType;
-    /**
-     * @var string[]
-     */
-    protected $entityIds;
-    /**
-     * @var string
-     */
-    protected $medium;
-    /**
-     * @var string
-     */
-    protected $participantReference;
+    protected $contraints;
 
     /**
-     * @return string[]|null
+     * @return MesSearchConstraint[]|null
      */
-    public function getIds(): ?array
+    public function getContraints(): ?array
     {
-        return $this->ids;
+        return $this->contraints;
     }
 
     /**
-     * @param string[]|null $ids
+     * @param MesSearchConstraint[]|null $contraints
      *
      * @return self
      */
-    public function setIds(?array $ids): self
+    public function setContraints(?array $contraints): self
     {
-        $this->ids = $ids;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getEvent(): ?string
-    {
-        return $this->event;
-    }
-
-    /**
-     * @param string|null $event
-     *
-     * @return self
-     */
-    public function setEvent(?string $event): self
-    {
-        $this->event = $event;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getEntityType(): ?string
-    {
-        return $this->entityType;
-    }
-
-    /**
-     * @param string|null $entityType
-     *
-     * @return self
-     */
-    public function setEntityType(?string $entityType): self
-    {
-        $this->entityType = $entityType;
-
-        return $this;
-    }
-
-    /**
-     * @return string[]|null
-     */
-    public function getEntityIds(): ?array
-    {
-        return $this->entityIds;
-    }
-
-    /**
-     * @param string[]|null $entityIds
-     *
-     * @return self
-     */
-    public function setEntityIds(?array $entityIds): self
-    {
-        $this->entityIds = $entityIds;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getMedium(): ?string
-    {
-        return $this->medium;
-    }
-
-    /**
-     * @param string|null $medium
-     *
-     * @return self
-     */
-    public function setMedium(?string $medium): self
-    {
-        $this->medium = $medium;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getParticipantReference(): ?string
-    {
-        return $this->participantReference;
-    }
-
-    /**
-     * @param string|null $participantReference
-     *
-     * @return self
-     */
-    public function setParticipantReference(?string $participantReference): self
-    {
-        $this->participantReference = $participantReference;
+        $this->contraints = $contraints;
 
         return $this;
     }
