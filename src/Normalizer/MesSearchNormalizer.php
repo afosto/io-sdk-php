@@ -38,12 +38,12 @@ class MesSearchNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesSearch();
-        if (property_exists($data, 'contraints') && $data->{'contraints'} !== null) {
+        if (property_exists($data, 'constraints') && $data->{'constraints'} !== null) {
             $values = [];
-            foreach ($data->{'contraints'} as $value) {
+            foreach ($data->{'constraints'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\MesSearchConstraint', 'json', $context);
             }
-            $object->setContraints($values);
+            $object->setConstraints($values);
         }
 
         return $object;
@@ -52,12 +52,12 @@ class MesSearchNormalizer implements DenormalizerInterface, NormalizerInterface,
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getContraints()) {
+        if (null !== $object->getConstraints()) {
             $values = [];
-            foreach ($object->getContraints() as $value) {
+            foreach ($object->getConstraints() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
-            $data->{'contraints'} = $values;
+            $data->{'constraints'} = $values;
         }
 
         return $data;

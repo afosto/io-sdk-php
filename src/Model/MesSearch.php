@@ -15,24 +15,24 @@ class MesSearch
     /**
      * @var MesSearchConstraint[]
      */
-    protected $contraints;
+    protected $constraints;
 
     /**
      * @return MesSearchConstraint[]|null
      */
-    public function getContraints(): ?array
+    public function getConstraints(): ?array
     {
-        return $this->contraints;
+        return $this->constraints;
     }
 
     /**
-     * @param MesSearchConstraint[]|null $contraints
+     * @param MesSearchConstraint[]|null $constraints
      *
      * @return self
      */
-    public function setContraints(?array $contraints): self
+    public function setConstraints(?array $constraints): self
     {
-        $this->contraints = $contraints;
+        $this->constraints = $constraints;
 
         return $this;
     }
