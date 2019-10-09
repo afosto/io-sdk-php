@@ -2360,10 +2360,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a list of records.
      *
-     * @param array $queryParameters {
+     * @param array $headerParameters {
      *
-     *     @var int $page_size
-     *     @var int $page
+     *     @var string $x-page
+     *     @var string $x-page-size
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -2373,9 +2373,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\MesUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listRecords(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listRecords(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListRecords($queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListRecords($headerParameters), $fetch);
     }
 
     /**

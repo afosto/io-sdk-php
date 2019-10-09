@@ -44,12 +44,12 @@ class OdrSearchNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'operator') && $data->{'operator'} !== null) {
             $object->setOperator($data->{'operator'});
         }
-        if (property_exists($data, 'values') && $data->{'values'} !== null) {
+        if (property_exists($data, 'value') && $data->{'value'} !== null) {
             $values = [];
-            foreach ($data->{'values'} as $value) {
+            foreach ($data->{'value'} as $value) {
                 $values[] = $value;
             }
-            $object->setValues($values);
+            $object->setValue($values);
         }
 
         return $object;
@@ -64,12 +64,12 @@ class OdrSearchNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (null !== $object->getOperator()) {
             $data->{'operator'} = $object->getOperator();
         }
-        if (null !== $object->getValues()) {
+        if (null !== $object->getValue()) {
             $values = [];
-            foreach ($object->getValues() as $value) {
+            foreach ($object->getValue() as $value) {
                 $values[] = $value;
             }
-            $data->{'values'} = $values;
+            $data->{'value'} = $values;
         }
 
         return $data;

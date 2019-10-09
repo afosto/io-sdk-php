@@ -23,7 +23,7 @@ class OdrSearch
     /**
      * @var string[]
      */
-    protected $values;
+    protected $value;
 
     /**
      * @return string|null
@@ -68,19 +68,19 @@ class OdrSearch
     /**
      * @return string[]|null
      */
-    public function getValues(): ?array
+    public function getValue(): ?array
     {
-        return $this->values;
+        return $this->value;
     }
 
     /**
-     * @param string[]|null $values
+     * @param string[]|null $value
      *
      * @return self
      */
-    public function setValues(?array $values): self
+    public function setValue(?array $value): self
     {
-        $this->values = $values;
+        $this->value = $value;
 
         return $this;
     }

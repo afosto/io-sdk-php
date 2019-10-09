@@ -15,15 +15,15 @@ class ListRecords extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * Returns a list of records.
      *
-     * @param array $queryParameters {
+     * @param array $headerParameters {
      *
-     *     @var int $page_size
-     *     @var int $page
+     *     @var string $x-page
+     *     @var string $x-page-size
      * }
      */
-    public function __construct(array $queryParameters = [])
+    public function __construct(array $headerParameters = [])
     {
-        $this->queryParameters = $queryParameters;
+        $this->headerParameters = $headerParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
@@ -48,14 +48,14 @@ class ListRecords extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         return ['Accept' => ['application/json']];
     }
 
-    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
-        $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['page_size', 'page']);
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['x-page', 'x-page-size']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
-        $optionsResolver->setAllowedTypes('page_size', ['int']);
-        $optionsResolver->setAllowedTypes('page', ['int']);
+        $optionsResolver->setAllowedTypes('x-page', ['string']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
 
         return $optionsResolver;
     }
