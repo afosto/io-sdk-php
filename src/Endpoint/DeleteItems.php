@@ -13,19 +13,19 @@ namespace Afosto\Sdk\Endpoint;
 class DeleteItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     protected $type;
-    protected $reference;
+    protected $id;
 
     /**
      * Delete items from the given reference.
      *
      * @param string $type
-     * @param string $reference
+     * @param string $id
      * @param array  $body
      */
-    public function __construct(string $type, string $reference, array $body)
+    public function __construct(string $type, string $id, array $body)
     {
         $this->type = $type;
-        $this->reference = $reference;
+        $this->id = $id;
         $this->body = $body;
     }
 
@@ -38,7 +38,7 @@ class DeleteItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return str_replace(['{type}', '{reference}'], [$this->type, $this->reference], '/odr/items/{type}/{reference}');
+        return str_replace(['{type}', '{id}'], [$this->type, $this->id], '/odr/items/{type}/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array

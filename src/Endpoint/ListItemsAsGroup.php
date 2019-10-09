@@ -13,23 +13,23 @@ namespace Afosto\Sdk\Endpoint;
 class ListItemsAsGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     protected $type;
-    protected $reference;
+    protected $id;
 
     /**
      * Returns a list of items grouped by sku, description and references.
      *
      * @param string $type
-     * @param string $reference
+     * @param string $id
      * @param array  $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
      * }
      */
-    public function __construct(string $type, string $reference, array $headerParameters = [])
+    public function __construct(string $type, string $id, array $headerParameters = [])
     {
         $this->type = $type;
-        $this->reference = $reference;
+        $this->id = $id;
         $this->headerParameters = $headerParameters;
     }
 
@@ -42,7 +42,7 @@ class ListItemsAsGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     public function getUri(): string
     {
-        return str_replace(['{type}', '{reference}'], [$this->type, $this->reference], '/odr/groups/{type}/{reference}');
+        return str_replace(['{type}', '{id}'], [$this->type, $this->id], '/odr/groups/{type}/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array

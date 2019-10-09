@@ -13,18 +13,18 @@ namespace Afosto\Sdk\Endpoint;
 class DeleteStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     protected $type;
-    protected $reference;
+    protected $id;
 
     /**
      * Removes a stack.
      *
      * @param string $type
-     * @param string $reference
+     * @param string $id
      */
-    public function __construct(string $type, string $reference)
+    public function __construct(string $type, string $id)
     {
         $this->type = $type;
-        $this->reference = $reference;
+        $this->id = $id;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
@@ -36,7 +36,7 @@ class DeleteStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return str_replace(['{type}', '{reference}'], [$this->type, $this->reference], '/odr/stacks/{type}/{reference}');
+        return str_replace(['{type}', '{id}'], [$this->type, $this->id], '/odr/stacks/{type}/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
