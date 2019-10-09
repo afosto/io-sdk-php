@@ -325,6 +325,105 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamInvoice[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listInvoices(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInvoices(), $fetch);
+    }
+
+    /**
+     * Create a new invoice.
+     *
+     * @param \Afosto\Sdk\Model\OdrInvoiceModel $body
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createInvoice(\Afosto\Sdk\Model\OdrInvoiceModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateInvoice($body), $fetch);
+    }
+
+    /**
+     * Returns a single invoice by id.
+     *
+     * @param string $id
+     * @param array  $queryParameters {
+     *
+     *     @var string $is_paid
+     *     @var string $is_concept
+     *     @var string $customer_id
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewInvoiceBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewInvoiceUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrInvoice[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewInvoice(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewInvoice($id, $queryParameters), $fetch);
+    }
+
+    /**
+     * Update an concept / proforma invoice.
+     *
+     * @param string                            $id
+     * @param \Afosto\Sdk\Model\OdrInvoiceModel $body
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateInvoice(string $id, \Afosto\Sdk\Model\OdrInvoiceModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInvoice($id, $body), $fetch);
+    }
+
+    /**
+     * Update an invoice.
+     *
+     * @param string                            $id
+     * @param \Afosto\Sdk\Model\OdrInvoiceState $body
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrInvoiceListItem|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateInvoiceState(string $id, \Afosto\Sdk\Model\OdrInvoiceState $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInvoiceState($id, $body), $fetch);
+    }
+
+    /**
+     * create a projection of suggested allocation.
+     *
+     * @param \Afosto\Sdk\Model\WmsCreateProjectionRequest $body
+     * @param string                                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateProjectionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateProjectionNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\WmsProjection|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createProjection(\Afosto\Sdk\Model\WmsCreateProjectionRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateProjection($body), $fetch);
+    }
+
+    /**
      * a tailored endpoint to receive shippings.
      *
      * @param array $queryParameters {
@@ -2828,22 +2927,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * create a projection of suggested allocation.
-     *
-     * @param \Afosto\Sdk\Model\WmsCreateProjectionRequest $body
-     * @param string                                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateProjectionUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateProjectionNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\WmsProjection|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createProjection(\Afosto\Sdk\Model\WmsCreateProjectionRequest $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateProjection($body), $fetch);
-    }
-
-    /**
      * Create an optimized set of claims.
      *
      * @param \Afosto\Sdk\Model\WmsCreateClaimRequest $body
@@ -3790,16 +3873,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function addSubscription(\Afosto\Sdk\Model\IamSubscribe $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddSubscription($body), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\IamInvoice[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listInvoices(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInvoices(), $fetch);
     }
 
     /**

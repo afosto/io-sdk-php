@@ -48,6 +48,18 @@ class NormalizerFactory
         $normalizers[] = new CntPaginationNormalizer();
         $normalizers[] = new OdrPhonenumberModelNormalizer();
         $normalizers[] = new OdrPhonenumberNormalizer();
+        $normalizers[] = new OdrInvoiceStateNormalizer();
+        $normalizers[] = new OdrInvoiceNormalizer();
+        $normalizers[] = new OdrInvoiceListItemNormalizer();
+        $normalizers[] = new OdrInvoiceModelNormalizer();
+        $normalizers[] = new OdrProjectionModelNormalizer();
+        $normalizers[] = new OdrProjectionNormalizer();
+        $normalizers[] = new OdrProjectionItemNormalizer();
+        $normalizers[] = new OdrInvoiceItemNormalizer();
+        $normalizers[] = new OdrInvoiceItemModelNormalizer();
+        $normalizers[] = new OdrStackReferenceNormalizer();
+        $normalizers[] = new OdrVatResultNormalizer();
+        $normalizers[] = new OdrAdjustmentNormalizer();
         $normalizers[] = new PkrShipmentNormalizer();
         $normalizers[] = new PkrShipmentAddressNormalizer();
         $normalizers[] = new PkrShipmentAddressCountryNormalizer();
@@ -146,7 +158,6 @@ class NormalizerFactory
         $normalizers[] = new OdrItemModelNormalizer();
         $normalizers[] = new OdrTypeNormalizer();
         $normalizers[] = new OdrGroupNormalizer();
-        $normalizers[] = new OdrStackReferenceNormalizer();
         $normalizers[] = new OdrSearchNormalizer();
         $normalizers[] = new OdrSkuNormalizer();
         $normalizers[] = new OdrSkuResultNormalizer();
