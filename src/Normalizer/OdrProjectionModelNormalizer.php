@@ -38,17 +38,14 @@ class OdrProjectionModelNormalizer implements DenormalizerInterface, NormalizerI
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrProjectionModel();
-        if (property_exists($data, 'customer_id') && $data->{'customer_id'} !== null) {
-            $object->setCustomerId($data->{'customer_id'});
-        }
-        if (property_exists($data, 'country') && $data->{'country'} !== null) {
-            $object->setCountry($data->{'country'});
+        if (property_exists($data, 'stack_reference') && $data->{'stack_reference'} !== null) {
+            $object->setStackReference($this->denormalizer->denormalize($data->{'stack_reference'}, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context));
         }
         if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
             $object->setClientId($data->{'client_id'});
         }
-        if (property_exists($data, 'stack_reference') && $data->{'stack_reference'} !== null) {
-            $object->setStackReference($this->denormalizer->denormalize($data->{'stack_reference'}, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context));
+        if (property_exists($data, 'customer_group_id') && $data->{'customer_group_id'} !== null) {
+            $object->setCustomerGroupId($data->{'customer_group_id'});
         }
         if (property_exists($data, 'payment_method_id') && $data->{'payment_method_id'} !== null) {
             $object->setPaymentMethodId($data->{'payment_method_id'});
@@ -74,17 +71,14 @@ class OdrProjectionModelNormalizer implements DenormalizerInterface, NormalizerI
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getCustomerId()) {
-            $data->{'customer_id'} = $object->getCustomerId();
-        }
-        if (null !== $object->getCountry()) {
-            $data->{'country'} = $object->getCountry();
+        if (null !== $object->getStackReference()) {
+            $data->{'stack_reference'} = $this->normalizer->normalize($object->getStackReference(), 'json', $context);
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
         }
-        if (null !== $object->getStackReference()) {
-            $data->{'stack_reference'} = $this->normalizer->normalize($object->getStackReference(), 'json', $context);
+        if (null !== $object->getCustomerGroupId()) {
+            $data->{'customer_group_id'} = $object->getCustomerGroupId();
         }
         if (null !== $object->getPaymentMethodId()) {
             $data->{'payment_method_id'} = $object->getPaymentMethodId();

@@ -13,21 +13,17 @@ namespace Afosto\Sdk\Model;
 class OdrProjectionModel
 {
     /**
-     * @var string
+     * @var OdrStackReference
      */
-    protected $customerId;
-    /**
-     * @var string
-     */
-    protected $country;
+    protected $stackReference;
     /**
      * @var string
      */
     protected $clientId;
     /**
-     * @var OdrStackReference
+     * @var string
      */
-    protected $stackReference;
+    protected $customerGroupId;
     /**
      * @var string
      */
@@ -42,41 +38,21 @@ class OdrProjectionModel
     protected $coupons;
 
     /**
-     * @return string|null
+     * @return OdrStackReference|null
      */
-    public function getCustomerId(): ?string
+    public function getStackReference(): ?OdrStackReference
     {
-        return $this->customerId;
+        return $this->stackReference;
     }
 
     /**
-     * @param string|null $customerId
+     * @param OdrStackReference|null $stackReference
      *
      * @return self
      */
-    public function setCustomerId(?string $customerId): self
+    public function setStackReference(?OdrStackReference $stackReference): self
     {
-        $this->customerId = $customerId;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCountry(): ?string
-    {
-        return $this->country;
-    }
-
-    /**
-     * @param string|null $country
-     *
-     * @return self
-     */
-    public function setCountry(?string $country): self
-    {
-        $this->country = $country;
+        $this->stackReference = $stackReference;
 
         return $this;
     }
@@ -102,21 +78,21 @@ class OdrProjectionModel
     }
 
     /**
-     * @return OdrStackReference|null
+     * @return string|null
      */
-    public function getStackReference(): ?OdrStackReference
+    public function getCustomerGroupId(): ?string
     {
-        return $this->stackReference;
+        return $this->customerGroupId;
     }
 
     /**
-     * @param OdrStackReference|null $stackReference
+     * @param string|null $customerGroupId
      *
      * @return self
      */
-    public function setStackReference(?OdrStackReference $stackReference): self
+    public function setCustomerGroupId(?string $customerGroupId): self
     {
-        $this->stackReference = $stackReference;
+        $this->customerGroupId = $customerGroupId;
 
         return $this;
     }

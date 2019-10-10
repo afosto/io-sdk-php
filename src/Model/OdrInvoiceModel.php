@@ -13,9 +13,13 @@ namespace Afosto\Sdk\Model;
 class OdrInvoiceModel
 {
     /**
+     * @var OdrStackReference
+     */
+    protected $stackReference;
+    /**
      * @var string
      */
-    protected $country;
+    protected $clientId;
     /**
      * @var OdrInvoiceItemModel[]
      */
@@ -24,14 +28,6 @@ class OdrInvoiceModel
      * @var OdrAdjustment[]
      */
     protected $adjustments;
-    /**
-     * @var string
-     */
-    protected $clientId;
-    /**
-     * @var OdrStackReference
-     */
-    protected $stackReference;
     /**
      * @var string
      */
@@ -58,21 +54,41 @@ class OdrInvoiceModel
     protected $metadata;
 
     /**
-     * @return string|null
+     * @return OdrStackReference|null
      */
-    public function getCountry(): ?string
+    public function getStackReference(): ?OdrStackReference
     {
-        return $this->country;
+        return $this->stackReference;
     }
 
     /**
-     * @param string|null $country
+     * @param OdrStackReference|null $stackReference
      *
      * @return self
      */
-    public function setCountry(?string $country): self
+    public function setStackReference(?OdrStackReference $stackReference): self
     {
-        $this->country = $country;
+        $this->stackReference = $stackReference;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getClientId(): ?string
+    {
+        return $this->clientId;
+    }
+
+    /**
+     * @param string|null $clientId
+     *
+     * @return self
+     */
+    public function setClientId(?string $clientId): self
+    {
+        $this->clientId = $clientId;
 
         return $this;
     }
@@ -113,46 +129,6 @@ class OdrInvoiceModel
     public function setAdjustments(?array $adjustments): self
     {
         $this->adjustments = $adjustments;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getClientId(): ?string
-    {
-        return $this->clientId;
-    }
-
-    /**
-     * @param string|null $clientId
-     *
-     * @return self
-     */
-    public function setClientId(?string $clientId): self
-    {
-        $this->clientId = $clientId;
-
-        return $this;
-    }
-
-    /**
-     * @return OdrStackReference|null
-     */
-    public function getStackReference(): ?OdrStackReference
-    {
-        return $this->stackReference;
-    }
-
-    /**
-     * @param OdrStackReference|null $stackReference
-     *
-     * @return self
-     */
-    public function setStackReference(?OdrStackReference $stackReference): self
-    {
-        $this->stackReference = $stackReference;
 
         return $this;
     }

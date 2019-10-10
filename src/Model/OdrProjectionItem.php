@@ -33,6 +33,10 @@ class OdrProjectionItem
      */
     protected $quantity;
     /**
+     * @var int
+     */
+    protected $subtotal;
+    /**
      * @var OdrAdjustment[]
      */
     protected $adjustments;
@@ -43,7 +47,7 @@ class OdrProjectionItem
     /**
      * @var int
      */
-    protected $subtotal;
+    protected $total;
 
     /**
      * @return string|null
@@ -146,6 +150,26 @@ class OdrProjectionItem
     }
 
     /**
+     * @return int|null
+     */
+    public function getSubtotal(): ?int
+    {
+        return $this->subtotal;
+    }
+
+    /**
+     * @param int|null $subtotal
+     *
+     * @return self
+     */
+    public function setSubtotal(?int $subtotal): self
+    {
+        $this->subtotal = $subtotal;
+
+        return $this;
+    }
+
+    /**
      * @return OdrAdjustment[]|null
      */
     public function getAdjustments(): ?array
@@ -188,19 +212,19 @@ class OdrProjectionItem
     /**
      * @return int|null
      */
-    public function getSubtotal(): ?int
+    public function getTotal(): ?int
     {
-        return $this->subtotal;
+        return $this->total;
     }
 
     /**
-     * @param int|null $subtotal
+     * @param int|null $total
      *
      * @return self
      */
-    public function setSubtotal(?int $subtotal): self
+    public function setTotal(?int $total): self
     {
-        $this->subtotal = $subtotal;
+        $this->total = $total;
 
         return $this;
     }

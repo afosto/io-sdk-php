@@ -53,6 +53,9 @@ class OdrProjectionItemNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
             $object->setQuantity($data->{'quantity'});
         }
+        if (property_exists($data, 'subtotal') && $data->{'subtotal'} !== null) {
+            $object->setSubtotal($data->{'subtotal'});
+        }
         if (property_exists($data, 'adjustments') && $data->{'adjustments'} !== null) {
             $values = [];
             foreach ($data->{'adjustments'} as $value) {
@@ -63,8 +66,8 @@ class OdrProjectionItemNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'vat_percentage') && $data->{'vat_percentage'} !== null) {
             $object->setVatPercentage($data->{'vat_percentage'});
         }
-        if (property_exists($data, 'subtotal') && $data->{'subtotal'} !== null) {
-            $object->setSubtotal($data->{'subtotal'});
+        if (property_exists($data, 'total') && $data->{'total'} !== null) {
+            $object->setTotal($data->{'total'});
         }
 
         return $object;
@@ -88,6 +91,9 @@ class OdrProjectionItemNormalizer implements DenormalizerInterface, NormalizerIn
         if (null !== $object->getQuantity()) {
             $data->{'quantity'} = $object->getQuantity();
         }
+        if (null !== $object->getSubtotal()) {
+            $data->{'subtotal'} = $object->getSubtotal();
+        }
         if (null !== $object->getAdjustments()) {
             $values = [];
             foreach ($object->getAdjustments() as $value) {
@@ -98,8 +104,8 @@ class OdrProjectionItemNormalizer implements DenormalizerInterface, NormalizerIn
         if (null !== $object->getVatPercentage()) {
             $data->{'vat_percentage'} = $object->getVatPercentage();
         }
-        if (null !== $object->getSubtotal()) {
-            $data->{'subtotal'} = $object->getSubtotal();
+        if (null !== $object->getTotal()) {
+            $data->{'total'} = $object->getTotal();
         }
 
         return $data;

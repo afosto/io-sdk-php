@@ -327,7 +327,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamInvoice[]|\Psr\Http\Message\ResponseInterface|null
+     * @throws \Afosto\Sdk\Exception\ListInvoicesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListInvoicesUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrInvoiceListItem[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listInvoices(string $fetch = self::FETCH_OBJECT)
     {
@@ -3873,6 +3876,16 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function addSubscription(\Afosto\Sdk\Model\IamSubscribe $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddSubscription($body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\IamInvoice[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listSubscriptionInvoices(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListSubscriptionInvoices(), $fetch);
     }
 
     /**
