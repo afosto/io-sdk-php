@@ -47,15 +47,6 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'line_count') && $data->{'line_count'} !== null) {
             $object->setLineCount($data->{'line_count'});
         }
-        if (property_exists($data, 'customer_id') && $data->{'customer_id'} !== null) {
-            $object->setCustomerId($data->{'customer_id'});
-        }
-        if (property_exists($data, 'address_set_id') && $data->{'address_set_id'} !== null) {
-            $object->setAddressSetId($data->{'address_set_id'});
-        }
-        if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
-            $object->setCurrency($data->{'currency'});
-        }
         if (property_exists($data, 'subtotal') && $data->{'subtotal'} !== null) {
             $object->setSubtotal($data->{'subtotal'});
         }
@@ -76,6 +67,15 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
             }
             $object->setVat($values_1);
         }
+        if (property_exists($data, 'contact') && $data->{'contact'} !== null) {
+            $object->setContact($this->denormalizer->denormalize($data->{'contact'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
+        }
+        if (property_exists($data, 'vendor') && $data->{'vendor'} !== null) {
+            $object->setVendor($this->denormalizer->denormalize($data->{'vendor'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
+        }
+        if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
+            $object->setCurrency($data->{'currency'});
+        }
         if (property_exists($data, 'is_concept') && $data->{'is_concept'} !== null) {
             $object->setIsConcept($data->{'is_concept'});
         }
@@ -84,6 +84,9 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
         }
         if (property_exists($data, 'is_including_vat') && $data->{'is_including_vat'} !== null) {
             $object->setIsIncludingVat($data->{'is_including_vat'});
+        }
+        if (property_exists($data, 'is_vat_shifted') && $data->{'is_vat_shifted'} !== null) {
+            $object->setIsVatShifted($data->{'is_vat_shifted'});
         }
         if (property_exists($data, 'stack_id') && $data->{'stack_id'} !== null) {
             $object->setStackId($data->{'stack_id'});
@@ -122,15 +125,6 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
         if (null !== $object->getLineCount()) {
             $data->{'line_count'} = $object->getLineCount();
         }
-        if (null !== $object->getCustomerId()) {
-            $data->{'customer_id'} = $object->getCustomerId();
-        }
-        if (null !== $object->getAddressSetId()) {
-            $data->{'address_set_id'} = $object->getAddressSetId();
-        }
-        if (null !== $object->getCurrency()) {
-            $data->{'currency'} = $object->getCurrency();
-        }
         if (null !== $object->getSubtotal()) {
             $data->{'subtotal'} = $object->getSubtotal();
         }
@@ -151,6 +145,15 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
             }
             $data->{'vat'} = $values_1;
         }
+        if (null !== $object->getContact()) {
+            $data->{'contact'} = $this->normalizer->normalize($object->getContact(), 'json', $context);
+        }
+        if (null !== $object->getVendor()) {
+            $data->{'vendor'} = $this->normalizer->normalize($object->getVendor(), 'json', $context);
+        }
+        if (null !== $object->getCurrency()) {
+            $data->{'currency'} = $object->getCurrency();
+        }
         if (null !== $object->getIsConcept()) {
             $data->{'is_concept'} = $object->getIsConcept();
         }
@@ -159,6 +162,9 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
         }
         if (null !== $object->getIsIncludingVat()) {
             $data->{'is_including_vat'} = $object->getIsIncludingVat();
+        }
+        if (null !== $object->getIsVatShifted()) {
+            $data->{'is_vat_shifted'} = $object->getIsVatShifted();
         }
         if (null !== $object->getStackId()) {
             $data->{'stack_id'} = $object->getStackId();

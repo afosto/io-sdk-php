@@ -25,18 +25,6 @@ class OdrInvoiceListItem
      */
     protected $lineCount;
     /**
-     * @var string
-     */
-    protected $customerId;
-    /**
-     * @var string
-     */
-    protected $addressSetId;
-    /**
-     * @var string
-     */
-    protected $currency;
-    /**
      * @var int
      */
     protected $subtotal;
@@ -53,6 +41,18 @@ class OdrInvoiceListItem
      */
     protected $vat;
     /**
+     * @var OdrContact
+     */
+    protected $contact;
+    /**
+     * @var OdrContact
+     */
+    protected $vendor;
+    /**
+     * @var string
+     */
+    protected $currency;
+    /**
      * @var bool
      */
     protected $isConcept;
@@ -64,6 +64,10 @@ class OdrInvoiceListItem
      * @var bool
      */
     protected $isIncludingVat;
+    /**
+     * @var bool
+     */
+    protected $isVatShifted;
     /**
      * @var string
      */
@@ -154,66 +158,6 @@ class OdrInvoiceListItem
     }
 
     /**
-     * @return string|null
-     */
-    public function getCustomerId(): ?string
-    {
-        return $this->customerId;
-    }
-
-    /**
-     * @param string|null $customerId
-     *
-     * @return self
-     */
-    public function setCustomerId(?string $customerId): self
-    {
-        $this->customerId = $customerId;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getAddressSetId(): ?string
-    {
-        return $this->addressSetId;
-    }
-
-    /**
-     * @param string|null $addressSetId
-     *
-     * @return self
-     */
-    public function setAddressSetId(?string $addressSetId): self
-    {
-        $this->addressSetId = $addressSetId;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCurrency(): ?string
-    {
-        return $this->currency;
-    }
-
-    /**
-     * @param string|null $currency
-     *
-     * @return self
-     */
-    public function setCurrency(?string $currency): self
-    {
-        $this->currency = $currency;
-
-        return $this;
-    }
-
-    /**
      * @return int|null
      */
     public function getSubtotal(): ?int
@@ -294,6 +238,66 @@ class OdrInvoiceListItem
     }
 
     /**
+     * @return OdrContact|null
+     */
+    public function getContact(): ?OdrContact
+    {
+        return $this->contact;
+    }
+
+    /**
+     * @param OdrContact|null $contact
+     *
+     * @return self
+     */
+    public function setContact(?OdrContact $contact): self
+    {
+        $this->contact = $contact;
+
+        return $this;
+    }
+
+    /**
+     * @return OdrContact|null
+     */
+    public function getVendor(): ?OdrContact
+    {
+        return $this->vendor;
+    }
+
+    /**
+     * @param OdrContact|null $vendor
+     *
+     * @return self
+     */
+    public function setVendor(?OdrContact $vendor): self
+    {
+        $this->vendor = $vendor;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param string|null $currency
+     *
+     * @return self
+     */
+    public function setCurrency(?string $currency): self
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    /**
      * @return bool|null
      */
     public function getIsConcept(): ?bool
@@ -349,6 +353,26 @@ class OdrInvoiceListItem
     public function setIsIncludingVat(?bool $isIncludingVat): self
     {
         $this->isIncludingVat = $isIncludingVat;
+
+        return $this;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsVatShifted(): ?bool
+    {
+        return $this->isVatShifted;
+    }
+
+    /**
+     * @param bool|null $isVatShifted
+     *
+     * @return self
+     */
+    public function setIsVatShifted(?bool $isVatShifted): self
+    {
+        $this->isVatShifted = $isVatShifted;
 
         return $this;
     }

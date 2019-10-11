@@ -59,6 +59,8 @@ class NormalizerFactory
         $normalizers[] = new OdrInvoiceItemModelNormalizer();
         $normalizers[] = new OdrStackReferenceNormalizer();
         $normalizers[] = new OdrVatResultNormalizer();
+        $normalizers[] = new OdrContactNormalizer();
+        $normalizers[] = new OdrAddressNormalizer();
         $normalizers[] = new OdrAdjustmentNormalizer();
         $normalizers[] = new PkrShipmentNormalizer();
         $normalizers[] = new PkrShipmentAddressNormalizer();
@@ -138,7 +140,6 @@ class NormalizerFactory
         $normalizers[] = new OdrAddressSetItemNormalizer();
         $normalizers[] = new OdrAddressSetItemModelNormalizer();
         $normalizers[] = new OdrAddressSetModelNormalizer();
-        $normalizers[] = new OdrAddressNormalizer();
         $normalizers[] = new OdrFormattedAddressSetNormalizer();
         $normalizers[] = new OdrFormattedAddressSetAddressesItemNormalizer();
         $normalizers[] = new OdrCustomerModelNormalizer();

@@ -357,13 +357,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * Returns a single invoice by id.
      *
      * @param string $id
-     * @param array  $queryParameters {
-     *
-     *     @var string $is_paid
-     *     @var string $is_concept
-     *     @var string $customer_id
-     * }
-     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ViewInvoiceBadRequestException
@@ -371,9 +364,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrInvoice[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function viewInvoice(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function viewInvoice(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewInvoice($id, $queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewInvoice($id), $fetch);
     }
 
     /**

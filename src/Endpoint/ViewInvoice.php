@@ -18,17 +18,10 @@ class ViewInvoice extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * Returns a single invoice by id.
      *
      * @param string $id
-     * @param array  $queryParameters {
-     *
-     *     @var string $is_paid
-     *     @var string $is_concept
-     *     @var string $customer_id
-     * }
      */
-    public function __construct(string $id, array $queryParameters = [])
+    public function __construct(string $id)
     {
         $this->id = $id;
-        $this->queryParameters = $queryParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
@@ -51,19 +44,6 @@ class ViewInvoice extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
-    }
-
-    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
-    {
-        $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['is_paid', 'is_concept', 'customer_id']);
-        $optionsResolver->setRequired([]);
-        $optionsResolver->setDefaults([]);
-        $optionsResolver->setAllowedTypes('is_paid', ['string']);
-        $optionsResolver->setAllowedTypes('is_concept', ['string']);
-        $optionsResolver->setAllowedTypes('customer_id', ['string']);
-
-        return $optionsResolver;
     }
 
     /**
