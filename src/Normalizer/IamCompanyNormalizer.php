@@ -44,9 +44,6 @@ class IamCompanyNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'vat_number') && $data->{'vat_number'} !== null) {
             $object->setVatNumber($data->{'vat_number'});
         }
-        if (property_exists($data, 'billing_email') && $data->{'billing_email'} !== null) {
-            $object->setBillingEmail($data->{'billing_email'});
-        }
         if (property_exists($data, 'phone_number') && $data->{'phone_number'} !== null) {
             $object->setPhoneNumber($data->{'phone_number'});
         }
@@ -65,9 +62,6 @@ class IamCompanyNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (null !== $object->getVatNumber()) {
             $data->{'vat_number'} = $object->getVatNumber();
-        }
-        if (null !== $object->getBillingEmail()) {
-            $data->{'billing_email'} = $object->getBillingEmail();
         }
         if (null !== $object->getPhoneNumber()) {
             $data->{'phone_number'} = $object->getPhoneNumber();

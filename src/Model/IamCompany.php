@@ -23,10 +23,6 @@ class IamCompany
     /**
      * @var string
      */
-    protected $billingEmail;
-    /**
-     * @var string
-     */
     protected $phoneNumber;
     /**
      * @var IamAddress
@@ -69,26 +65,6 @@ class IamCompany
     public function setVatNumber(?string $vatNumber): self
     {
         $this->vatNumber = $vatNumber;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getBillingEmail(): ?string
-    {
-        return $this->billingEmail;
-    }
-
-    /**
-     * @param string|null $billingEmail
-     *
-     * @return self
-     */
-    public function setBillingEmail(?string $billingEmail): self
-    {
-        $this->billingEmail = $billingEmail;
 
         return $this;
     }
