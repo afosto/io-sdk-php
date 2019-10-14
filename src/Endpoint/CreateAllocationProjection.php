@@ -10,14 +10,14 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class ResetPassword extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class CreateAllocationProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * So the user can login.
+     * create a projection of suggested allocation.
      *
-     * @param \Afosto\Sdk\Model\IamPasswordReset $body Reset object
+     * @param \Afosto\Sdk\Model\WmsCreateProjectionRequest $body
      */
-    public function __construct(\Afosto\Sdk\Model\IamPasswordReset $body)
+    public function __construct(\Afosto\Sdk\Model\WmsCreateProjectionRequest $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class ResetPassword extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getUri(): string
     {
-        return '/iam/users/password';
+        return '/wms/projections';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -47,21 +47,21 @@ class ResetPassword extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ResetPasswordUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ResetPasswordNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateAllocationProjectionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateAllocationProjectionNotFoundException
      *
-     * @return \Afosto\Sdk\Model\IamUser|null
+     * @return \Afosto\Sdk\Model\WmsProjection|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamUser', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsProjection', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ResetPasswordUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\CreateAllocationProjectionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\ResetPasswordNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\CreateAllocationProjectionNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

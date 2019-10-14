@@ -676,17 +676,17 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * create a projection of suggested allocation.
+     * Returns a cost projection for a given stack and additional data.
      *
-     * @param \Afosto\Sdk\Model\WmsCreateProjectionRequest $body
-     * @param string                                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\OdrProjectionModel $body
+     * @param string                               $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
+     * @throws \Afosto\Sdk\Exception\CreateProjectionBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateProjectionUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateProjectionNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsProjection|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrProjection|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createProjection(\Afosto\Sdk\Model\WmsCreateProjectionRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function createProjection(\Afosto\Sdk\Model\OdrProjectionModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateProjection($body), $fetch);
     }
@@ -1878,17 +1878,17 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Pass a token to reset the password.
+     * So the user can login.
      *
-     * @param \Afosto\Sdk\Model\OdrPasswordReset $body
+     * @param \Afosto\Sdk\Model\IamPasswordReset $body  Reset object
      * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ResetPasswordBadRequestException
      * @throws \Afosto\Sdk\Exception\ResetPasswordUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ResetPasswordNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamUser|\Psr\Http\Message\ResponseInterface|null
      */
-    public function resetPassword(\Afosto\Sdk\Model\OdrPasswordReset $body, string $fetch = self::FETCH_OBJECT)
+    public function resetPassword(\Afosto\Sdk\Model\IamPasswordReset $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ResetPassword($body), $fetch);
     }
@@ -2857,6 +2857,22 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * create a projection of suggested allocation.
+     *
+     * @param \Afosto\Sdk\Model\WmsCreateProjectionRequest $body
+     * @param string                                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateAllocationProjectionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateAllocationProjectionNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\WmsProjection|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createAllocationProjection(\Afosto\Sdk\Model\WmsCreateProjectionRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateAllocationProjection($body), $fetch);
+    }
+
+    /**
      * Create an optimized set of claims.
      *
      * @param \Afosto\Sdk\Model\WmsCreateClaimRequest $body
@@ -3439,14 +3455,30 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\OdrTokenRequest $body
      * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetTokenBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetTokenUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetCustomerTokenBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetCustomerTokenUnauthorizedException
      *
      * @return \Afosto\Sdk\Model\OdrTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getToken(\Afosto\Sdk\Model\OdrTokenRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function getCustomerToken(\Afosto\Sdk\Model\OdrTokenRequest $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetToken($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetCustomerToken($body), $fetch);
+    }
+
+    /**
+     * Pass a token to reset the password.
+     *
+     * @param \Afosto\Sdk\Model\OdrPasswordReset $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ResetCustomerPasswordBadRequestException
+     * @throws \Afosto\Sdk\Exception\ResetCustomerPasswordUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function resetCustomerPassword(\Afosto\Sdk\Model\OdrPasswordReset $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ResetCustomerPassword($body), $fetch);
     }
 
     /**

@@ -10,14 +10,14 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class CreateProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class GetCustomerToken extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * Returns a cost projection for a given stack and additional data.
+     * Returns a new token to confirm identity or reset a password.
      *
-     * @param \Afosto\Sdk\Model\OdrProjectionModel $body
+     * @param \Afosto\Sdk\Model\OdrTokenRequest $body
      */
-    public function __construct(\Afosto\Sdk\Model\OdrProjectionModel $body)
+    public function __construct(\Afosto\Sdk\Model\OdrTokenRequest $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class CreateProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     public function getUri(): string
     {
-        return '/odr/projection';
+        return '/odr/identities/tokens';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -47,21 +47,21 @@ class CreateProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\CreateProjectionBadRequestException
-     * @throws \Afosto\Sdk\Exception\CreateProjectionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetCustomerTokenBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetCustomerTokenUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrProjection|null
+     * @return \Afosto\Sdk\Model\OdrTokenResponse|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrProjection', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrTokenResponse', 'json');
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\CreateProjectionBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetCustomerTokenBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\CreateProjectionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetCustomerTokenUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

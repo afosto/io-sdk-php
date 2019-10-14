@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class ResetPasswordBadRequestException extends \RuntimeException implements ClientException
+class GetCustomerTokenBadRequestException extends \RuntimeException implements ClientException
 {
     private $error;
 
