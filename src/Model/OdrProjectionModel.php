@@ -13,10 +13,6 @@ namespace Afosto\Sdk\Model;
 class OdrProjectionModel
 {
     /**
-     * @var OdrStackReference
-     */
-    protected $stackReference;
-    /**
      * @var string
      */
     protected $clientId;
@@ -44,26 +40,6 @@ class OdrProjectionModel
      * @var string[]
      */
     protected $coupons;
-
-    /**
-     * @return OdrStackReference|null
-     */
-    public function getStackReference(): ?OdrStackReference
-    {
-        return $this->stackReference;
-    }
-
-    /**
-     * @param OdrStackReference|null $stackReference
-     *
-     * @return self
-     */
-    public function setStackReference(?OdrStackReference $stackReference): self
-    {
-        $this->stackReference = $stackReference;
-
-        return $this;
-    }
 
     /**
      * @return string|null
