@@ -31,7 +31,7 @@ class OdrInvoiceModel
     /**
      * @var string
      */
-    protected $customerId;
+    protected $contactId;
     /**
      * @var string
      */
@@ -136,19 +136,19 @@ class OdrInvoiceModel
     /**
      * @return string|null
      */
-    public function getCustomerId(): ?string
+    public function getContactId(): ?string
     {
-        return $this->customerId;
+        return $this->contactId;
     }
 
     /**
-     * @param string|null $customerId
+     * @param string|null $contactId
      *
      * @return self
      */
-    public function setCustomerId(?string $customerId): self
+    public function setContactId(?string $contactId): self
     {
-        $this->customerId = $customerId;
+        $this->contactId = $contactId;
 
         return $this;
     }

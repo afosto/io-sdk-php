@@ -21,9 +21,17 @@ class OdrProjectionModel
      */
     protected $clientId;
     /**
+     * @var OdrInvoiceItemModel[]
+     */
+    protected $items;
+    /**
+     * @var OdrAdjustment[]
+     */
+    protected $adjustments;
+    /**
      * @var string
      */
-    protected $customerGroupId;
+    protected $contactId;
     /**
      * @var string
      */
@@ -31,7 +39,7 @@ class OdrProjectionModel
     /**
      * @var string[]
      */
-    protected $routeIds;
+    protected $routes;
     /**
      * @var string[]
      */
@@ -78,21 +86,61 @@ class OdrProjectionModel
     }
 
     /**
-     * @return string|null
+     * @return OdrInvoiceItemModel[]|null
      */
-    public function getCustomerGroupId(): ?string
+    public function getItems(): ?array
     {
-        return $this->customerGroupId;
+        return $this->items;
     }
 
     /**
-     * @param string|null $customerGroupId
+     * @param OdrInvoiceItemModel[]|null $items
      *
      * @return self
      */
-    public function setCustomerGroupId(?string $customerGroupId): self
+    public function setItems(?array $items): self
     {
-        $this->customerGroupId = $customerGroupId;
+        $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * @return OdrAdjustment[]|null
+     */
+    public function getAdjustments(): ?array
+    {
+        return $this->adjustments;
+    }
+
+    /**
+     * @param OdrAdjustment[]|null $adjustments
+     *
+     * @return self
+     */
+    public function setAdjustments(?array $adjustments): self
+    {
+        $this->adjustments = $adjustments;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getContactId(): ?string
+    {
+        return $this->contactId;
+    }
+
+    /**
+     * @param string|null $contactId
+     *
+     * @return self
+     */
+    public function setContactId(?string $contactId): self
+    {
+        $this->contactId = $contactId;
 
         return $this;
     }
@@ -120,19 +168,19 @@ class OdrProjectionModel
     /**
      * @return string[]|null
      */
-    public function getRouteIds(): ?array
+    public function getRoutes(): ?array
     {
-        return $this->routeIds;
+        return $this->routes;
     }
 
     /**
-     * @param string[]|null $routeIds
+     * @param string[]|null $routes
      *
      * @return self
      */
-    public function setRouteIds(?array $routeIds): self
+    public function setRoutes(?array $routes): self
     {
-        $this->routeIds = $routeIds;
+        $this->routes = $routes;
 
         return $this;
     }

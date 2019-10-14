@@ -65,8 +65,20 @@ class OdrProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
             }
             $object->setVat($values_2);
         }
+        if (property_exists($data, 'vendor') && $data->{'vendor'} !== null) {
+            $object->setVendor($this->denormalizer->denormalize($data->{'vendor'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
+        }
+        if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
+            $object->setCurrency($data->{'currency'});
+        }
         if (property_exists($data, 'is_including_vat') && $data->{'is_including_vat'} !== null) {
             $object->setIsIncludingVat($data->{'is_including_vat'});
+        }
+        if (property_exists($data, 'is_vat_shifted') && $data->{'is_vat_shifted'} !== null) {
+            $object->setIsVatShifted($data->{'is_vat_shifted'});
+        }
+        if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
+            $object->setClientId($data->{'client_id'});
         }
 
         return $object;
@@ -102,8 +114,20 @@ class OdrProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
             }
             $data->{'vat'} = $values_2;
         }
+        if (null !== $object->getVendor()) {
+            $data->{'vendor'} = $this->normalizer->normalize($object->getVendor(), 'json', $context);
+        }
+        if (null !== $object->getCurrency()) {
+            $data->{'currency'} = $object->getCurrency();
+        }
         if (null !== $object->getIsIncludingVat()) {
             $data->{'is_including_vat'} = $object->getIsIncludingVat();
+        }
+        if (null !== $object->getIsVatShifted()) {
+            $data->{'is_vat_shifted'} = $object->getIsVatShifted();
+        }
+        if (null !== $object->getClientId()) {
+            $data->{'client_id'} = $object->getClientId();
         }
 
         return $data;

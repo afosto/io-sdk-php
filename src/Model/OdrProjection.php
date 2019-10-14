@@ -33,9 +33,25 @@ class OdrProjection
      */
     protected $vat;
     /**
+     * @var OdrContact
+     */
+    protected $vendor;
+    /**
+     * @var string
+     */
+    protected $currency;
+    /**
      * @var bool
      */
     protected $isIncludingVat;
+    /**
+     * @var bool
+     */
+    protected $isVatShifted;
+    /**
+     * @var string
+     */
+    protected $clientId;
 
     /**
      * @return OdrProjectionItem[]|null
@@ -138,6 +154,46 @@ class OdrProjection
     }
 
     /**
+     * @return OdrContact|null
+     */
+    public function getVendor(): ?OdrContact
+    {
+        return $this->vendor;
+    }
+
+    /**
+     * @param OdrContact|null $vendor
+     *
+     * @return self
+     */
+    public function setVendor(?OdrContact $vendor): self
+    {
+        $this->vendor = $vendor;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param string|null $currency
+     *
+     * @return self
+     */
+    public function setCurrency(?string $currency): self
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    /**
      * @return bool|null
      */
     public function getIsIncludingVat(): ?bool
@@ -153,6 +209,46 @@ class OdrProjection
     public function setIsIncludingVat(?bool $isIncludingVat): self
     {
         $this->isIncludingVat = $isIncludingVat;
+
+        return $this;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsVatShifted(): ?bool
+    {
+        return $this->isVatShifted;
+    }
+
+    /**
+     * @param bool|null $isVatShifted
+     *
+     * @return self
+     */
+    public function setIsVatShifted(?bool $isVatShifted): self
+    {
+        $this->isVatShifted = $isVatShifted;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getClientId(): ?string
+    {
+        return $this->clientId;
+    }
+
+    /**
+     * @param string|null $clientId
+     *
+     * @return self
+     */
+    public function setClientId(?string $clientId): self
+    {
+        $this->clientId = $clientId;
 
         return $this;
     }

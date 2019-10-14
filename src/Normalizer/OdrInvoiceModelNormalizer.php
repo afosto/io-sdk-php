@@ -58,8 +58,8 @@ class OdrInvoiceModelNormalizer implements DenormalizerInterface, NormalizerInte
             }
             $object->setAdjustments($values_1);
         }
-        if (property_exists($data, 'customer_id') && $data->{'customer_id'} !== null) {
-            $object->setCustomerId($data->{'customer_id'});
+        if (property_exists($data, 'contact_id') && $data->{'contact_id'} !== null) {
+            $object->setContactId($data->{'contact_id'});
         }
         if (property_exists($data, 'address_set_id') && $data->{'address_set_id'} !== null) {
             $object->setAddressSetId($data->{'address_set_id'});
@@ -111,8 +111,8 @@ class OdrInvoiceModelNormalizer implements DenormalizerInterface, NormalizerInte
             }
             $data->{'adjustments'} = $values_1;
         }
-        if (null !== $object->getCustomerId()) {
-            $data->{'customer_id'} = $object->getCustomerId();
+        if (null !== $object->getContactId()) {
+            $data->{'contact_id'} = $object->getContactId();
         }
         if (null !== $object->getAddressSetId()) {
             $data->{'address_set_id'} = $object->getAddressSetId();

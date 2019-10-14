@@ -52,12 +52,12 @@ class ViewInvoice extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\ViewInvoiceBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewInvoiceUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrInvoice[]|null
+     * @return \Afosto\Sdk\Model\OdrInvoice|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrInvoice[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrInvoice', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ViewInvoiceBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

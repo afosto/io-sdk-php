@@ -634,7 +634,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ViewInvoiceBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewInvoiceUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrInvoice[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
      */
     public function viewInvoice(string $id, string $fetch = self::FETCH_OBJECT)
     {

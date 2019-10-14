@@ -44,25 +44,39 @@ class OdrProjectionModelNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
             $object->setClientId($data->{'client_id'});
         }
-        if (property_exists($data, 'customer_group_id') && $data->{'customer_group_id'} !== null) {
-            $object->setCustomerGroupId($data->{'customer_group_id'});
+        if (property_exists($data, 'items') && $data->{'items'} !== null) {
+            $values = [];
+            foreach ($data->{'items'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrInvoiceItemModel', 'json', $context);
+            }
+            $object->setItems($values);
+        }
+        if (property_exists($data, 'adjustments') && $data->{'adjustments'} !== null) {
+            $values_1 = [];
+            foreach ($data->{'adjustments'} as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrAdjustment', 'json', $context);
+            }
+            $object->setAdjustments($values_1);
+        }
+        if (property_exists($data, 'contact_id') && $data->{'contact_id'} !== null) {
+            $object->setContactId($data->{'contact_id'});
         }
         if (property_exists($data, 'payment_method_id') && $data->{'payment_method_id'} !== null) {
             $object->setPaymentMethodId($data->{'payment_method_id'});
         }
-        if (property_exists($data, 'route_ids') && $data->{'route_ids'} !== null) {
-            $values = [];
-            foreach ($data->{'route_ids'} as $value) {
-                $values[] = $value;
+        if (property_exists($data, 'routes') && $data->{'routes'} !== null) {
+            $values_2 = [];
+            foreach ($data->{'routes'} as $value_2) {
+                $values_2[] = $value_2;
             }
-            $object->setRouteIds($values);
+            $object->setRoutes($values_2);
         }
         if (property_exists($data, 'coupons') && $data->{'coupons'} !== null) {
-            $values_1 = [];
-            foreach ($data->{'coupons'} as $value_1) {
-                $values_1[] = $value_1;
+            $values_3 = [];
+            foreach ($data->{'coupons'} as $value_3) {
+                $values_3[] = $value_3;
             }
-            $object->setCoupons($values_1);
+            $object->setCoupons($values_3);
         }
 
         return $object;
@@ -77,25 +91,39 @@ class OdrProjectionModelNormalizer implements DenormalizerInterface, NormalizerI
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
         }
-        if (null !== $object->getCustomerGroupId()) {
-            $data->{'customer_group_id'} = $object->getCustomerGroupId();
+        if (null !== $object->getItems()) {
+            $values = [];
+            foreach ($object->getItems() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $data->{'items'} = $values;
+        }
+        if (null !== $object->getAdjustments()) {
+            $values_1 = [];
+            foreach ($object->getAdjustments() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            }
+            $data->{'adjustments'} = $values_1;
+        }
+        if (null !== $object->getContactId()) {
+            $data->{'contact_id'} = $object->getContactId();
         }
         if (null !== $object->getPaymentMethodId()) {
             $data->{'payment_method_id'} = $object->getPaymentMethodId();
         }
-        if (null !== $object->getRouteIds()) {
-            $values = [];
-            foreach ($object->getRouteIds() as $value) {
-                $values[] = $value;
+        if (null !== $object->getRoutes()) {
+            $values_2 = [];
+            foreach ($object->getRoutes() as $value_2) {
+                $values_2[] = $value_2;
             }
-            $data->{'route_ids'} = $values;
+            $data->{'routes'} = $values_2;
         }
         if (null !== $object->getCoupons()) {
-            $values_1 = [];
-            foreach ($object->getCoupons() as $value_1) {
-                $values_1[] = $value_1;
+            $values_3 = [];
+            foreach ($object->getCoupons() as $value_3) {
+                $values_3[] = $value_3;
             }
-            $data->{'coupons'} = $values_1;
+            $data->{'coupons'} = $values_3;
         }
 
         return $data;
