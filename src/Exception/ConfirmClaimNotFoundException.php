@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class ConfirmReservationNotFoundException extends \RuntimeException implements ClientException
+class ConfirmClaimNotFoundException extends \RuntimeException implements ClientException
 {
     private $error;
 

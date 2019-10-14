@@ -2857,7 +2857,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * create a projection of suggested allocation.
+     * Create a Projection to generate the available allocation options.
      *
      * @param \Afosto\Sdk\Model\WmsCreateProjectionRequest $body
      * @param string                                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -2922,36 +2922,36 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Create an optimized set of claims.
+     * Extend the time the inventory is claimed.
      *
      * @param string                                     $id
      * @param \Afosto\Sdk\Model\WmsClaimsIdExtendPutBody $body
      * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ExtendReservationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ExtendReservationNotFoundException
+     * @throws \Afosto\Sdk\Exception\ExtendClaimUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ExtendClaimNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsClaim|\Psr\Http\Message\ResponseInterface|null
      */
-    public function extendReservation(string $id, \Afosto\Sdk\Model\WmsClaimsIdExtendPutBody $body, string $fetch = self::FETCH_OBJECT)
+    public function extendClaim(string $id, \Afosto\Sdk\Model\WmsClaimsIdExtendPutBody $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ExtendReservation($id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ExtendClaim($id, $body), $fetch);
     }
 
     /**
-     * Confirm a reservation.
+     * Confirm a reservation claim and make it an actual claim.
      *
      * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ConfirmReservationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ConfirmReservationNotFoundException
+     * @throws \Afosto\Sdk\Exception\ConfirmClaimUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ConfirmClaimNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsClaim|\Psr\Http\Message\ResponseInterface|null
      */
-    public function confirmReservation(string $id, string $fetch = self::FETCH_OBJECT)
+    public function confirmClaim(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ConfirmReservation($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ConfirmClaim($id), $fetch);
     }
 
     /**

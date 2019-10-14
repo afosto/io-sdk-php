@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Endpoint;
 class CreateAllocationProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * create a projection of suggested allocation.
+     * Create a Projection to generate the available allocation options.
      *
      * @param \Afosto\Sdk\Model\WmsCreateProjectionRequest $body
      */

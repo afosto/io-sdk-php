@@ -10,12 +10,12 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class ExtendReservation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class ExtendClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     protected $id;
 
     /**
-     * Create an optimized set of claims.
+     * Extend the time the inventory is claimed.
      *
      * @param string                                     $id
      * @param \Afosto\Sdk\Model\WmsClaimsIdExtendPutBody $body
@@ -51,8 +51,8 @@ class ExtendReservation extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ExtendReservationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ExtendReservationNotFoundException
+     * @throws \Afosto\Sdk\Exception\ExtendClaimUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ExtendClaimNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsClaim|null
      */
@@ -62,10 +62,10 @@ class ExtendReservation extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsClaim', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ExtendReservationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ExtendClaimUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\ExtendReservationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ExtendClaimNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

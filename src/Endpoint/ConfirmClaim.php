@@ -10,12 +10,12 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class ConfirmReservation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class ConfirmClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     protected $id;
 
     /**
-     * Confirm a reservation.
+     * Confirm a reservation claim and make it an actual claim.
      *
      * @param string $id
      */
@@ -49,8 +49,8 @@ class ConfirmReservation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ConfirmReservationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ConfirmReservationNotFoundException
+     * @throws \Afosto\Sdk\Exception\ConfirmClaimUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ConfirmClaimNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsClaim|null
      */
@@ -60,10 +60,10 @@ class ConfirmReservation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsClaim', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ConfirmReservationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ConfirmClaimUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\ConfirmReservationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ConfirmClaimNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

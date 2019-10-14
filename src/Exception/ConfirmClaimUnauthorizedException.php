@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class ConfirmReservationUnauthorizedException extends \RuntimeException implements ClientException
+class ConfirmClaimUnauthorizedException extends \RuntimeException implements ClientException
 {
     private $error;
 
