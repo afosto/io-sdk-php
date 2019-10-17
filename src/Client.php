@@ -692,6 +692,92 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Get a listing of available pricing rules.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $x-page
+     *     @var int $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetPricingRulesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetPricingRulesNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrPricingRule[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getPricingRules(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPricingRules($headerParameters), $fetch);
+    }
+
+    /**
+     * Add a new pricing rule to the set.
+     *
+     * @param \Afosto\Sdk\Model\OdrPricingRuleModel $body
+     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreatePricingRuleBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreatePricingRuleUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrPricingRule|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createPricingRule(\Afosto\Sdk\Model\OdrPricingRuleModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreatePricingRule($body), $fetch);
+    }
+
+    /**
+     * Get a listing of available pricing rules.
+     *
+     * @param int    $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetPricingRuleUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetPricingRuleNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrPricingRule|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getPricingRule(int $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPricingRule($id), $fetch);
+    }
+
+    /**
+     * Update an existing pricing rule.
+     *
+     * @param int                                   $id
+     * @param \Afosto\Sdk\Model\OdrPricingRuleModel $body
+     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdatePricingRuleBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdatePricingRuleUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrPricingRule|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updatePricingRule(int $id, \Afosto\Sdk\Model\OdrPricingRuleModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdatePricingRule($id, $body), $fetch);
+    }
+
+    /**
+     * Test to see if rules would be applied.
+     *
+     * @param \Afosto\Sdk\Model\OdrPriceRuleEvaluation $body
+     * @param string                                   $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\EvaluateRulesBadRequestException
+     * @throws \Afosto\Sdk\Exception\EvaluateRulesUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrPricingRule[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function evaluateRules(\Afosto\Sdk\Model\OdrPriceRuleEvaluation $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\EvaluateRules($body), $fetch);
+    }
+
+    /**
      * Delete the secret and disable 2FA.
      *
      * @param string $type  Type that needs to be deleted

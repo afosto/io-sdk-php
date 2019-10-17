@@ -15,6 +15,10 @@ class OdrInvoiceItemModel
     /**
      * @var string
      */
+    protected $reference;
+    /**
+     * @var string
+     */
     protected $sku;
     /**
      * @var string
@@ -36,6 +40,26 @@ class OdrInvoiceItemModel
      * @var int
      */
     protected $vatPercentage;
+
+    /**
+     * @return string|null
+     */
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    /**
+     * @param string|null $reference
+     *
+     * @return self
+     */
+    public function setReference(?string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
 
     /**
      * @return string|null

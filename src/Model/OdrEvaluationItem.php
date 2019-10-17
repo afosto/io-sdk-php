@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrAdjustment
+class OdrEvaluationItem
 {
     /**
      * @var string
@@ -19,19 +19,19 @@ class OdrAdjustment
     /**
      * @var string
      */
-    protected $description;
+    protected $sku;
+    /**
+     * @var mixed
+     */
+    protected $filters;
     /**
      * @var int
      */
-    protected $amount = 0;
+    protected $quantity;
     /**
      * @var bool
      */
-    protected $isPercentage;
-    /**
-     * @var bool
-     */
-    protected $isDiscount;
+    protected $isDiscounted;
 
     /**
      * @return string|null
@@ -56,19 +56,39 @@ class OdrAdjustment
     /**
      * @return string|null
      */
-    public function getDescription(): ?string
+    public function getSku(): ?string
     {
-        return $this->description;
+        return $this->sku;
     }
 
     /**
-     * @param string|null $description
+     * @param string|null $sku
      *
      * @return self
      */
-    public function setDescription(?string $description): self
+    public function setSku(?string $sku): self
     {
-        $this->description = $description;
+        $this->sku = $sku;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFilters()
+    {
+        return $this->filters;
+    }
+
+    /**
+     * @param mixed $filters
+     *
+     * @return self
+     */
+    public function setFilters($filters): self
+    {
+        $this->filters = $filters;
 
         return $this;
     }
@@ -76,19 +96,19 @@ class OdrAdjustment
     /**
      * @return int|null
      */
-    public function getAmount(): ?int
+    public function getQuantity(): ?int
     {
-        return $this->amount;
+        return $this->quantity;
     }
 
     /**
-     * @param int|null $amount
+     * @param int|null $quantity
      *
      * @return self
      */
-    public function setAmount(?int $amount): self
+    public function setQuantity(?int $quantity): self
     {
-        $this->amount = $amount;
+        $this->quantity = $quantity;
 
         return $this;
     }
@@ -96,39 +116,19 @@ class OdrAdjustment
     /**
      * @return bool|null
      */
-    public function getIsPercentage(): ?bool
+    public function getIsDiscounted(): ?bool
     {
-        return $this->isPercentage;
+        return $this->isDiscounted;
     }
 
     /**
-     * @param bool|null $isPercentage
+     * @param bool|null $isDiscounted
      *
      * @return self
      */
-    public function setIsPercentage(?bool $isPercentage): self
+    public function setIsDiscounted(?bool $isDiscounted): self
     {
-        $this->isPercentage = $isPercentage;
-
-        return $this;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsDiscount(): ?bool
-    {
-        return $this->isDiscount;
-    }
-
-    /**
-     * @param bool|null $isDiscount
-     *
-     * @return self
-     */
-    public function setIsDiscount(?bool $isDiscount): self
-    {
-        $this->isDiscount = $isDiscount;
+        $this->isDiscounted = $isDiscounted;
 
         return $this;
     }

@@ -15,6 +15,10 @@ class OdrContact
     /**
      * @var string
      */
+    protected $id;
+    /**
+     * @var string
+     */
     protected $organization;
     /**
      * @var string
@@ -25,9 +29,9 @@ class OdrContact
      */
     protected $cocNumber;
     /**
-     * @var OdrAddress
+     * @var string
      */
-    protected $address;
+    protected $addressId;
     /**
      * @var string
      */
@@ -35,11 +39,27 @@ class OdrContact
     /**
      * @var string
      */
-    protected $phoneNumber;
+    protected $phoneNumberId;
+
     /**
-     * @var string
+     * @return string|null
      */
-    protected $contactId;
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string|null $id
+     *
+     * @return self
+     */
+    public function setId(?string $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     /**
      * @return string|null
@@ -102,21 +122,21 @@ class OdrContact
     }
 
     /**
-     * @return OdrAddress|null
+     * @return string|null
      */
-    public function getAddress(): ?OdrAddress
+    public function getAddressId(): ?string
     {
-        return $this->address;
+        return $this->addressId;
     }
 
     /**
-     * @param OdrAddress|null $address
+     * @param string|null $addressId
      *
      * @return self
      */
-    public function setAddress(?OdrAddress $address): self
+    public function setAddressId(?string $addressId): self
     {
-        $this->address = $address;
+        $this->addressId = $addressId;
 
         return $this;
     }
@@ -144,39 +164,19 @@ class OdrContact
     /**
      * @return string|null
      */
-    public function getPhoneNumber(): ?string
+    public function getPhoneNumberId(): ?string
     {
-        return $this->phoneNumber;
+        return $this->phoneNumberId;
     }
 
     /**
-     * @param string|null $phoneNumber
+     * @param string|null $phoneNumberId
      *
      * @return self
      */
-    public function setPhoneNumber(?string $phoneNumber): self
+    public function setPhoneNumberId(?string $phoneNumberId): self
     {
-        $this->phoneNumber = $phoneNumber;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getContactId(): ?string
-    {
-        return $this->contactId;
-    }
-
-    /**
-     * @param string|null $contactId
-     *
-     * @return self
-     */
-    public function setContactId(?string $contactId): self
-    {
-        $this->contactId = $contactId;
+        $this->phoneNumberId = $phoneNumberId;
 
         return $this;
     }

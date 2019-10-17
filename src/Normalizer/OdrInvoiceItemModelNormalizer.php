@@ -38,6 +38,9 @@ class OdrInvoiceItemModelNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrInvoiceItemModel();
+        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+            $object->setReference($data->{'reference'});
+        }
         if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
             $object->setSku($data->{'sku'});
         }
@@ -67,6 +70,9 @@ class OdrInvoiceItemModelNormalizer implements DenormalizerInterface, Normalizer
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getReference()) {
+            $data->{'reference'} = $object->getReference();
+        }
         if (null !== $object->getSku()) {
             $data->{'sku'} = $object->getSku();
         }

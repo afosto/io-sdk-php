@@ -15,6 +15,10 @@ class OdrProjectionItem
     /**
      * @var string
      */
+    protected $reference;
+    /**
+     * @var string
+     */
     protected $sku;
     /**
      * @var string
@@ -37,7 +41,7 @@ class OdrProjectionItem
      */
     protected $subtotal;
     /**
-     * @var OdrAdjustment[]
+     * @var OdrAdjustmentResponse[]
      */
     protected $adjustments;
     /**
@@ -48,6 +52,26 @@ class OdrProjectionItem
      * @var int
      */
     protected $total;
+
+    /**
+     * @return string|null
+     */
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    /**
+     * @param string|null $reference
+     *
+     * @return self
+     */
+    public function setReference(?string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
 
     /**
      * @return string|null
@@ -170,7 +194,7 @@ class OdrProjectionItem
     }
 
     /**
-     * @return OdrAdjustment[]|null
+     * @return OdrAdjustmentResponse[]|null
      */
     public function getAdjustments(): ?array
     {
@@ -178,7 +202,7 @@ class OdrProjectionItem
     }
 
     /**
-     * @param OdrAdjustment[]|null $adjustments
+     * @param OdrAdjustmentResponse[]|null $adjustments
      *
      * @return self
      */

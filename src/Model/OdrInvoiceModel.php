@@ -35,19 +35,15 @@ class OdrInvoiceModel
     /**
      * @var string
      */
-    protected $addressSetId;
-    /**
-     * @var string
-     */
     protected $paymentMethodId;
     /**
      * @var string[]
      */
-    protected $coupons;
+    protected $routes;
     /**
      * @var string[]
      */
-    protected $routes;
+    protected $coupons;
     /**
      * @var mixed
      */
@@ -156,26 +152,6 @@ class OdrInvoiceModel
     /**
      * @return string|null
      */
-    public function getAddressSetId(): ?string
-    {
-        return $this->addressSetId;
-    }
-
-    /**
-     * @param string|null $addressSetId
-     *
-     * @return self
-     */
-    public function setAddressSetId(?string $addressSetId): self
-    {
-        $this->addressSetId = $addressSetId;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
     public function getPaymentMethodId(): ?string
     {
         return $this->paymentMethodId;
@@ -196,26 +172,6 @@ class OdrInvoiceModel
     /**
      * @return string[]|null
      */
-    public function getCoupons(): ?array
-    {
-        return $this->coupons;
-    }
-
-    /**
-     * @param string[]|null $coupons
-     *
-     * @return self
-     */
-    public function setCoupons(?array $coupons): self
-    {
-        $this->coupons = $coupons;
-
-        return $this;
-    }
-
-    /**
-     * @return string[]|null
-     */
     public function getRoutes(): ?array
     {
         return $this->routes;
@@ -229,6 +185,26 @@ class OdrInvoiceModel
     public function setRoutes(?array $routes): self
     {
         $this->routes = $routes;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getCoupons(): ?array
+    {
+        return $this->coupons;
+    }
+
+    /**
+     * @param string[]|null $coupons
+     *
+     * @return self
+     */
+    public function setCoupons(?array $coupons): self
+    {
+        $this->coupons = $coupons;
 
         return $this;
     }

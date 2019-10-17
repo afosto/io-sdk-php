@@ -53,7 +53,7 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'adjustments') && $data->{'adjustments'} !== null) {
             $values = [];
             foreach ($data->{'adjustments'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrAdjustment', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrAdjustmentResponse', 'json', $context);
             }
             $object->setAdjustments($values);
         }

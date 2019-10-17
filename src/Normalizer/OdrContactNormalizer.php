@@ -38,6 +38,9 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrContact();
+        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+            $object->setId($data->{'id'});
+        }
         if (property_exists($data, 'organization') && $data->{'organization'} !== null) {
             $object->setOrganization($data->{'organization'});
         }
@@ -47,17 +50,14 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'coc_number') && $data->{'coc_number'} !== null) {
             $object->setCocNumber($data->{'coc_number'});
         }
-        if (property_exists($data, 'address') && $data->{'address'} !== null) {
-            $object->setAddress($this->denormalizer->denormalize($data->{'address'}, 'Afosto\\Sdk\\Model\\OdrAddress', 'json', $context));
+        if (property_exists($data, 'address_id') && $data->{'address_id'} !== null) {
+            $object->setAddressId($data->{'address_id'});
         }
         if (property_exists($data, 'email') && $data->{'email'} !== null) {
             $object->setEmail($data->{'email'});
         }
-        if (property_exists($data, 'phone_number') && $data->{'phone_number'} !== null) {
-            $object->setPhoneNumber($data->{'phone_number'});
-        }
-        if (property_exists($data, 'contact_id') && $data->{'contact_id'} !== null) {
-            $object->setContactId($data->{'contact_id'});
+        if (property_exists($data, 'phone_number_id') && $data->{'phone_number_id'} !== null) {
+            $object->setPhoneNumberId($data->{'phone_number_id'});
         }
 
         return $object;
@@ -66,6 +66,9 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
+        }
         if (null !== $object->getOrganization()) {
             $data->{'organization'} = $object->getOrganization();
         }
@@ -75,17 +78,14 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
         if (null !== $object->getCocNumber()) {
             $data->{'coc_number'} = $object->getCocNumber();
         }
-        if (null !== $object->getAddress()) {
-            $data->{'address'} = $this->normalizer->normalize($object->getAddress(), 'json', $context);
+        if (null !== $object->getAddressId()) {
+            $data->{'address_id'} = $object->getAddressId();
         }
         if (null !== $object->getEmail()) {
             $data->{'email'} = $object->getEmail();
         }
-        if (null !== $object->getPhoneNumber()) {
-            $data->{'phone_number'} = $object->getPhoneNumber();
-        }
-        if (null !== $object->getContactId()) {
-            $data->{'contact_id'} = $object->getContactId();
+        if (null !== $object->getPhoneNumberId()) {
+            $data->{'phone_number_id'} = $object->getPhoneNumberId();
         }
 
         return $data;

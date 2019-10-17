@@ -15,7 +15,7 @@ class OdrInvoiceItem
     /**
      * @var string
      */
-    protected $id;
+    protected $reference;
     /**
      * @var string
      */
@@ -41,7 +41,7 @@ class OdrInvoiceItem
      */
     protected $quantity;
     /**
-     * @var OdrAdjustment[]
+     * @var OdrAdjustmentResponse[]
      */
     protected $adjustments;
     /**
@@ -56,19 +56,19 @@ class OdrInvoiceItem
     /**
      * @return string|null
      */
-    public function getId(): ?string
+    public function getReference(): ?string
     {
-        return $this->id;
+        return $this->reference;
     }
 
     /**
-     * @param string|null $id
+     * @param string|null $reference
      *
      * @return self
      */
-    public function setId(?string $id): self
+    public function setReference(?string $reference): self
     {
-        $this->id = $id;
+        $this->reference = $reference;
 
         return $this;
     }
@@ -194,7 +194,7 @@ class OdrInvoiceItem
     }
 
     /**
-     * @return OdrAdjustment[]|null
+     * @return OdrAdjustmentResponse[]|null
      */
     public function getAdjustments(): ?array
     {
@@ -202,7 +202,7 @@ class OdrInvoiceItem
     }
 
     /**
-     * @param OdrAdjustment[]|null $adjustments
+     * @param OdrAdjustmentResponse[]|null $adjustments
      *
      * @return self
      */

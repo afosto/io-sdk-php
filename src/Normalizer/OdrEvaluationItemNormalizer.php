@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrAdjustmentNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrEvaluationItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrAdjustment';
+        return $type === 'Afosto\\Sdk\\Model\\OdrEvaluationItem';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrAdjustment';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrEvaluationItem';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,21 +37,21 @@ class OdrAdjustmentNormalizer implements DenormalizerInterface, NormalizerInterf
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrAdjustment();
+        $object = new \Afosto\Sdk\Model\OdrEvaluationItem();
         if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
-            $object->setDescription($data->{'description'});
+        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
+            $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
-            $object->setAmount($data->{'amount'});
+        if (property_exists($data, 'filters') && $data->{'filters'} !== null) {
+            $object->setFilters($data->{'filters'});
         }
-        if (property_exists($data, 'is_percentage') && $data->{'is_percentage'} !== null) {
-            $object->setIsPercentage($data->{'is_percentage'});
+        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
+            $object->setQuantity($data->{'quantity'});
         }
-        if (property_exists($data, 'is_discount') && $data->{'is_discount'} !== null) {
-            $object->setIsDiscount($data->{'is_discount'});
+        if (property_exists($data, 'is_discounted') && $data->{'is_discounted'} !== null) {
+            $object->setIsDiscounted($data->{'is_discounted'});
         }
 
         return $object;
@@ -63,17 +63,17 @@ class OdrAdjustmentNormalizer implements DenormalizerInterface, NormalizerInterf
         if (null !== $object->getReference()) {
             $data->{'reference'} = $object->getReference();
         }
-        if (null !== $object->getDescription()) {
-            $data->{'description'} = $object->getDescription();
+        if (null !== $object->getSku()) {
+            $data->{'sku'} = $object->getSku();
         }
-        if (null !== $object->getAmount()) {
-            $data->{'amount'} = $object->getAmount();
+        if (null !== $object->getFilters()) {
+            $data->{'filters'} = $object->getFilters();
         }
-        if (null !== $object->getIsPercentage()) {
-            $data->{'is_percentage'} = $object->getIsPercentage();
+        if (null !== $object->getQuantity()) {
+            $data->{'quantity'} = $object->getQuantity();
         }
-        if (null !== $object->getIsDiscount()) {
-            $data->{'is_discount'} = $object->getIsDiscount();
+        if (null !== $object->getIsDiscounted()) {
+            $data->{'is_discounted'} = $object->getIsDiscounted();
         }
 
         return $data;

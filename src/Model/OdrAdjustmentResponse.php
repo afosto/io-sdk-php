@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrAdjustment
+class OdrAdjustmentResponse
 {
     /**
      * @var string
@@ -32,6 +32,10 @@ class OdrAdjustment
      * @var bool
      */
     protected $isDiscount;
+    /**
+     * @var OdrAdjustmentResponseMetadata
+     */
+    protected $metadata;
 
     /**
      * @return string|null
@@ -129,6 +133,26 @@ class OdrAdjustment
     public function setIsDiscount(?bool $isDiscount): self
     {
         $this->isDiscount = $isDiscount;
+
+        return $this;
+    }
+
+    /**
+     * @return OdrAdjustmentResponseMetadata|null
+     */
+    public function getMetadata(): ?OdrAdjustmentResponseMetadata
+    {
+        return $this->metadata;
+    }
+
+    /**
+     * @param OdrAdjustmentResponseMetadata|null $metadata
+     *
+     * @return self
+     */
+    public function setMetadata(?OdrAdjustmentResponseMetadata $metadata): self
+    {
+        $this->metadata = $metadata;
 
         return $this;
     }

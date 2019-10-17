@@ -29,7 +29,7 @@ class OdrInvoiceListItem
      */
     protected $subtotal;
     /**
-     * @var OdrAdjustment[]
+     * @var OdrAdjustmentResponse[]
      */
     protected $adjustments;
     /**
@@ -178,7 +178,7 @@ class OdrInvoiceListItem
     }
 
     /**
-     * @return OdrAdjustment[]|null
+     * @return OdrAdjustmentResponse[]|null
      */
     public function getAdjustments(): ?array
     {
@@ -186,7 +186,7 @@ class OdrInvoiceListItem
     }
 
     /**
-     * @param OdrAdjustment[]|null $adjustments
+     * @param OdrAdjustmentResponse[]|null $adjustments
      *
      * @return self
      */

@@ -38,8 +38,8 @@ class OdrInvoiceItemNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrInvoiceItem();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
-            $object->setId($data->{'id'});
+        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+            $object->setReference($data->{'reference'});
         }
         if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
             $object->setSku($data->{'sku'});
@@ -62,7 +62,7 @@ class OdrInvoiceItemNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'adjustments') && $data->{'adjustments'} !== null) {
             $values = [];
             foreach ($data->{'adjustments'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrAdjustment', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrAdjustmentResponse', 'json', $context);
             }
             $object->setAdjustments($values);
         }
@@ -79,8 +79,8 @@ class OdrInvoiceItemNormalizer implements DenormalizerInterface, NormalizerInter
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
+        if (null !== $object->getReference()) {
+            $data->{'reference'} = $object->getReference();
         }
         if (null !== $object->getSku()) {
             $data->{'sku'} = $object->getSku();

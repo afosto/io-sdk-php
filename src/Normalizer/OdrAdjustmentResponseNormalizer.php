@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrAdjustmentNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrAdjustmentResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrAdjustment';
+        return $type === 'Afosto\\Sdk\\Model\\OdrAdjustmentResponse';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrAdjustment';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrAdjustmentResponse';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class OdrAdjustmentNormalizer implements DenormalizerInterface, NormalizerInterf
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrAdjustment();
+        $object = new \Afosto\Sdk\Model\OdrAdjustmentResponse();
         if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
             $object->setReference($data->{'reference'});
         }
@@ -52,6 +52,9 @@ class OdrAdjustmentNormalizer implements DenormalizerInterface, NormalizerInterf
         }
         if (property_exists($data, 'is_discount') && $data->{'is_discount'} !== null) {
             $object->setIsDiscount($data->{'is_discount'});
+        }
+        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+            $object->setMetadata($this->denormalizer->denormalize($data->{'metadata'}, 'Afosto\\Sdk\\Model\\OdrAdjustmentResponseMetadata', 'json', $context));
         }
 
         return $object;
@@ -74,6 +77,9 @@ class OdrAdjustmentNormalizer implements DenormalizerInterface, NormalizerInterf
         }
         if (null !== $object->getIsDiscount()) {
             $data->{'is_discount'} = $object->getIsDiscount();
+        }
+        if (null !== $object->getMetadata()) {
+            $data->{'metadata'} = $this->normalizer->normalize($object->getMetadata(), 'json', $context);
         }
 
         return $data;
