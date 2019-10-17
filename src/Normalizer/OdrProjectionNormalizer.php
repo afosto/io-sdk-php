@@ -80,6 +80,9 @@ class OdrProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
         if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
             $object->setClientId($data->{'client_id'});
         }
+        if (property_exists($data, 'pricing_at') && $data->{'pricing_at'} !== null) {
+            $object->setPricingAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'pricing_at'}));
+        }
 
         return $object;
     }
@@ -128,6 +131,9 @@ class OdrProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
+        }
+        if (null !== $object->getPricingAt()) {
+            $data->{'pricing_at'} = $object->getPricingAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

@@ -37,9 +37,17 @@ class OdrInvoiceItem
      */
     protected $revenueAmount;
     /**
+     * @var bool
+     */
+    protected $isDiscounted;
+    /**
      * @var int
      */
     protected $quantity;
+    /**
+     * @var int
+     */
+    protected $subtotal;
     /**
      * @var OdrAdjustmentResponse[]
      */
@@ -51,7 +59,7 @@ class OdrInvoiceItem
     /**
      * @var int
      */
-    protected $subtotal;
+    protected $total;
 
     /**
      * @return string|null
@@ -174,6 +182,26 @@ class OdrInvoiceItem
     }
 
     /**
+     * @return bool|null
+     */
+    public function getIsDiscounted(): ?bool
+    {
+        return $this->isDiscounted;
+    }
+
+    /**
+     * @param bool|null $isDiscounted
+     *
+     * @return self
+     */
+    public function setIsDiscounted(?bool $isDiscounted): self
+    {
+        $this->isDiscounted = $isDiscounted;
+
+        return $this;
+    }
+
+    /**
      * @return int|null
      */
     public function getQuantity(): ?int
@@ -189,6 +217,26 @@ class OdrInvoiceItem
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getSubtotal(): ?int
+    {
+        return $this->subtotal;
+    }
+
+    /**
+     * @param int|null $subtotal
+     *
+     * @return self
+     */
+    public function setSubtotal(?int $subtotal): self
+    {
+        $this->subtotal = $subtotal;
 
         return $this;
     }
@@ -236,19 +284,19 @@ class OdrInvoiceItem
     /**
      * @return int|null
      */
-    public function getSubtotal(): ?int
+    public function getTotal(): ?int
     {
-        return $this->subtotal;
+        return $this->total;
     }
 
     /**
-     * @param int|null $subtotal
+     * @param int|null $total
      *
      * @return self
      */
-    public function setSubtotal(?int $subtotal): self
+    public function setTotal(?int $total): self
     {
-        $this->subtotal = $subtotal;
+        $this->total = $total;
 
         return $this;
     }

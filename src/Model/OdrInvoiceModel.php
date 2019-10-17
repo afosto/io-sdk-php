@@ -37,6 +37,10 @@ class OdrInvoiceModel
      */
     protected $paymentMethodId;
     /**
+     * @var \DateTime
+     */
+    protected $pricingAt;
+    /**
      * @var string[]
      */
     protected $routes;
@@ -165,6 +169,26 @@ class OdrInvoiceModel
     public function setPaymentMethodId(?string $paymentMethodId): self
     {
         $this->paymentMethodId = $paymentMethodId;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getPricingAt(): ?\DateTime
+    {
+        return $this->pricingAt;
+    }
+
+    /**
+     * @param \DateTime|null $pricingAt
+     *
+     * @return self
+     */
+    public function setPricingAt(?\DateTime $pricingAt): self
+    {
+        $this->pricingAt = $pricingAt;
 
         return $this;
     }

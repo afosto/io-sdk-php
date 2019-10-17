@@ -29,6 +29,10 @@ class OdrInvoiceItemModel
      */
     protected $amount;
     /**
+     * @var bool
+     */
+    protected $isDiscounted;
+    /**
      * @var int
      */
     protected $quantity;
@@ -117,6 +121,26 @@ class OdrInvoiceItemModel
     public function setAmount(?int $amount): self
     {
         $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsDiscounted(): ?bool
+    {
+        return $this->isDiscounted;
+    }
+
+    /**
+     * @param bool|null $isDiscounted
+     *
+     * @return self
+     */
+    public function setIsDiscounted(?bool $isDiscounted): self
+    {
+        $this->isDiscounted = $isDiscounted;
 
         return $this;
     }

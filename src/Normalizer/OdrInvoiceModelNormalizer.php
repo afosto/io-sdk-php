@@ -64,6 +64,9 @@ class OdrInvoiceModelNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'payment_method_id') && $data->{'payment_method_id'} !== null) {
             $object->setPaymentMethodId($data->{'payment_method_id'});
         }
+        if (property_exists($data, 'pricing_at') && $data->{'pricing_at'} !== null) {
+            $object->setPricingAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'pricing_at'}));
+        }
         if (property_exists($data, 'routes') && $data->{'routes'} !== null) {
             $values_2 = [];
             foreach ($data->{'routes'} as $value_2) {
@@ -113,6 +116,9 @@ class OdrInvoiceModelNormalizer implements DenormalizerInterface, NormalizerInte
         }
         if (null !== $object->getPaymentMethodId()) {
             $data->{'payment_method_id'} = $object->getPaymentMethodId();
+        }
+        if (null !== $object->getPricingAt()) {
+            $data->{'pricing_at'} = $object->getPricingAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getRoutes()) {
             $values_2 = [];

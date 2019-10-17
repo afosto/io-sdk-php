@@ -71,14 +71,14 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
             }
             $object->setVat($values_2);
         }
+        if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
+            $object->setCurrency($data->{'currency'});
+        }
         if (property_exists($data, 'contact') && $data->{'contact'} !== null) {
             $object->setContact($this->denormalizer->denormalize($data->{'contact'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
         }
         if (property_exists($data, 'vendor') && $data->{'vendor'} !== null) {
             $object->setVendor($this->denormalizer->denormalize($data->{'vendor'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
-        }
-        if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
-            $object->setCurrency($data->{'currency'});
         }
         if (property_exists($data, 'is_concept') && $data->{'is_concept'} !== null) {
             $object->setIsConcept($data->{'is_concept'});
@@ -100,6 +100,9 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
             $object->setMetadata($data->{'metadata'});
+        }
+        if (property_exists($data, 'pricing_at') && $data->{'pricing_at'} !== null) {
+            $object->setPricingAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'pricing_at'}));
         }
         if (property_exists($data, 'billed_at') && $data->{'billed_at'} !== null) {
             $object->setBilledAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'billed_at'}));
@@ -153,14 +156,14 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
             }
             $data->{'vat'} = $values_2;
         }
+        if (null !== $object->getCurrency()) {
+            $data->{'currency'} = $object->getCurrency();
+        }
         if (null !== $object->getContact()) {
             $data->{'contact'} = $this->normalizer->normalize($object->getContact(), 'json', $context);
         }
         if (null !== $object->getVendor()) {
             $data->{'vendor'} = $this->normalizer->normalize($object->getVendor(), 'json', $context);
-        }
-        if (null !== $object->getCurrency()) {
-            $data->{'currency'} = $object->getCurrency();
         }
         if (null !== $object->getIsConcept()) {
             $data->{'is_concept'} = $object->getIsConcept();
@@ -182,6 +185,9 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();
+        }
+        if (null !== $object->getPricingAt()) {
+            $data->{'pricing_at'} = $object->getPricingAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getBilledAt()) {
             $data->{'billed_at'} = $object->getBilledAt()->format("Y-m-d\TH:i:sP");

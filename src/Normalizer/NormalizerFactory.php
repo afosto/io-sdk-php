@@ -257,6 +257,7 @@ class NormalizerFactory
         $normalizers[] = new CatVatNormalizer();
         $normalizers[] = new CatVatRateNormalizer();
         $normalizers[] = new OdrOrdersIdStackPostBodyNormalizer();
+        $normalizers[] = new OdrRulesOptionsConstraintsGetResponse200Normalizer();
         $normalizers[] = new IamCardsPostBodyNormalizer();
         $normalizers[] = new IamLogsFiltersGetResponse200Normalizer();
         $normalizers[] = new IamTenantsPostResponse200Normalizer();

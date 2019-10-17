@@ -50,6 +50,9 @@ class OdrInvoiceItemModelNormalizer implements DenormalizerInterface, Normalizer
         if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
             $object->setAmount($data->{'amount'});
         }
+        if (property_exists($data, 'is_discounted') && $data->{'is_discounted'} !== null) {
+            $object->setIsDiscounted($data->{'is_discounted'});
+        }
         if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
             $object->setQuantity($data->{'quantity'});
         }
@@ -81,6 +84,9 @@ class OdrInvoiceItemModelNormalizer implements DenormalizerInterface, Normalizer
         }
         if (null !== $object->getAmount()) {
             $data->{'amount'} = $object->getAmount();
+        }
+        if (null !== $object->getIsDiscounted()) {
+            $data->{'is_discounted'} = $object->getIsDiscounted();
         }
         if (null !== $object->getQuantity()) {
             $data->{'quantity'} = $object->getQuantity();

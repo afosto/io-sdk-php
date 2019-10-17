@@ -56,8 +56,14 @@ class OdrInvoiceItemNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'revenue_amount') && $data->{'revenue_amount'} !== null) {
             $object->setRevenueAmount($data->{'revenue_amount'});
         }
+        if (property_exists($data, 'is_discounted') && $data->{'is_discounted'} !== null) {
+            $object->setIsDiscounted($data->{'is_discounted'});
+        }
         if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
             $object->setQuantity($data->{'quantity'});
+        }
+        if (property_exists($data, 'subtotal') && $data->{'subtotal'} !== null) {
+            $object->setSubtotal($data->{'subtotal'});
         }
         if (property_exists($data, 'adjustments') && $data->{'adjustments'} !== null) {
             $values = [];
@@ -69,8 +75,8 @@ class OdrInvoiceItemNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'vat_percentage') && $data->{'vat_percentage'} !== null) {
             $object->setVatPercentage($data->{'vat_percentage'});
         }
-        if (property_exists($data, 'subtotal') && $data->{'subtotal'} !== null) {
-            $object->setSubtotal($data->{'subtotal'});
+        if (property_exists($data, 'total') && $data->{'total'} !== null) {
+            $object->setTotal($data->{'total'});
         }
 
         return $object;
@@ -97,8 +103,14 @@ class OdrInvoiceItemNormalizer implements DenormalizerInterface, NormalizerInter
         if (null !== $object->getRevenueAmount()) {
             $data->{'revenue_amount'} = $object->getRevenueAmount();
         }
+        if (null !== $object->getIsDiscounted()) {
+            $data->{'is_discounted'} = $object->getIsDiscounted();
+        }
         if (null !== $object->getQuantity()) {
             $data->{'quantity'} = $object->getQuantity();
+        }
+        if (null !== $object->getSubtotal()) {
+            $data->{'subtotal'} = $object->getSubtotal();
         }
         if (null !== $object->getAdjustments()) {
             $values = [];
@@ -110,8 +122,8 @@ class OdrInvoiceItemNormalizer implements DenormalizerInterface, NormalizerInter
         if (null !== $object->getVatPercentage()) {
             $data->{'vat_percentage'} = $object->getVatPercentage();
         }
-        if (null !== $object->getSubtotal()) {
-            $data->{'subtotal'} = $object->getSubtotal();
+        if (null !== $object->getTotal()) {
+            $data->{'total'} = $object->getTotal();
         }
 
         return $data;

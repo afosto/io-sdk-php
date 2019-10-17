@@ -41,6 +41,10 @@ class OdrInvoice
      */
     protected $vat;
     /**
+     * @var string
+     */
+    protected $currency;
+    /**
      * @var OdrContact
      */
     protected $contact;
@@ -48,10 +52,6 @@ class OdrInvoice
      * @var OdrContact
      */
     protected $vendor;
-    /**
-     * @var string
-     */
-    protected $currency;
     /**
      * @var bool
      */
@@ -80,6 +80,10 @@ class OdrInvoice
      * @var mixed
      */
     protected $metadata;
+    /**
+     * @var \DateTime
+     */
+    protected $pricingAt;
     /**
      * @var \DateTime
      */
@@ -238,6 +242,26 @@ class OdrInvoice
     }
 
     /**
+     * @return string|null
+     */
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param string|null $currency
+     *
+     * @return self
+     */
+    public function setCurrency(?string $currency): self
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    /**
      * @return OdrContact|null
      */
     public function getContact(): ?OdrContact
@@ -273,26 +297,6 @@ class OdrInvoice
     public function setVendor(?OdrContact $vendor): self
     {
         $this->vendor = $vendor;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCurrency(): ?string
-    {
-        return $this->currency;
-    }
-
-    /**
-     * @param string|null $currency
-     *
-     * @return self
-     */
-    public function setCurrency(?string $currency): self
-    {
-        $this->currency = $currency;
 
         return $this;
     }
@@ -433,6 +437,26 @@ class OdrInvoice
     public function setMetadata($metadata): self
     {
         $this->metadata = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getPricingAt(): ?\DateTime
+    {
+        return $this->pricingAt;
+    }
+
+    /**
+     * @param \DateTime|null $pricingAt
+     *
+     * @return self
+     */
+    public function setPricingAt(?\DateTime $pricingAt): self
+    {
+        $this->pricingAt = $pricingAt;
 
         return $this;
     }

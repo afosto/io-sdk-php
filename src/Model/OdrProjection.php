@@ -52,6 +52,10 @@ class OdrProjection
      * @var string
      */
     protected $clientId;
+    /**
+     * @var \DateTime
+     */
+    protected $pricingAt;
 
     /**
      * @return OdrProjectionItem[]|null
@@ -249,6 +253,26 @@ class OdrProjection
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getPricingAt(): ?\DateTime
+    {
+        return $this->pricingAt;
+    }
+
+    /**
+     * @param \DateTime|null $pricingAt
+     *
+     * @return self
+     */
+    public function setPricingAt(?\DateTime $pricingAt): self
+    {
+        $this->pricingAt = $pricingAt;
 
         return $this;
     }
