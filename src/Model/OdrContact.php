@@ -19,57 +19,27 @@ class OdrContact
     /**
      * @var string
      */
-    protected $version;
+    protected $organization;
+    /**
+     * @var string
+     */
+    protected $vatNumber;
+    /**
+     * @var string
+     */
+    protected $cocNumber;
+    /**
+     * @var string
+     */
+    protected $addressId;
     /**
      * @var string
      */
     protected $email;
     /**
-     * @var string[]
-     */
-    protected $tags;
-    /**
-     * First name.
-     *
      * @var string
      */
-    protected $givenName;
-    /**
-     * Patronymic.
-     *
-     * @var string
-     */
-    protected $additionalName;
-    /**
-     * Last name.
-     *
-     * @var string
-     */
-    protected $familyName;
-    /**
-     * @var OdrOrganisationList
-     */
-    protected $organisations;
-    /**
-     * @var OdrAddressList
-     */
-    protected $billing;
-    /**
-     * @var OdrAddressList
-     */
-    protected $shipping;
-    /**
-     * @var OdrPhoneNumberList
-     */
-    protected $phoneNumbers;
-    /**
-     * @var \DateTime
-     */
-    protected $createdAt;
-    /**
-     * @var \DateTime
-     */
-    protected $updatedAt;
+    protected $phoneNumberId;
 
     /**
      * @return string|null
@@ -94,19 +64,79 @@ class OdrContact
     /**
      * @return string|null
      */
-    public function getVersion(): ?string
+    public function getOrganization(): ?string
     {
-        return $this->version;
+        return $this->organization;
     }
 
     /**
-     * @param string|null $version
+     * @param string|null $organization
      *
      * @return self
      */
-    public function setVersion(?string $version): self
+    public function setOrganization(?string $organization): self
     {
-        $this->version = $version;
+        $this->organization = $organization;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getVatNumber(): ?string
+    {
+        return $this->vatNumber;
+    }
+
+    /**
+     * @param string|null $vatNumber
+     *
+     * @return self
+     */
+    public function setVatNumber(?string $vatNumber): self
+    {
+        $this->vatNumber = $vatNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCocNumber(): ?string
+    {
+        return $this->cocNumber;
+    }
+
+    /**
+     * @param string|null $cocNumber
+     *
+     * @return self
+     */
+    public function setCocNumber(?string $cocNumber): self
+    {
+        $this->cocNumber = $cocNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAddressId(): ?string
+    {
+        return $this->addressId;
+    }
+
+    /**
+     * @param string|null $addressId
+     *
+     * @return self
+     */
+    public function setAddressId(?string $addressId): self
+    {
+        $this->addressId = $addressId;
 
         return $this;
     }
@@ -132,213 +162,21 @@ class OdrContact
     }
 
     /**
-     * @return string[]|null
-     */
-    public function getTags(): ?array
-    {
-        return $this->tags;
-    }
-
-    /**
-     * @param string[]|null $tags
-     *
-     * @return self
-     */
-    public function setTags(?array $tags): self
-    {
-        $this->tags = $tags;
-
-        return $this;
-    }
-
-    /**
-     * First name.
-     *
      * @return string|null
      */
-    public function getGivenName(): ?string
+    public function getPhoneNumberId(): ?string
     {
-        return $this->givenName;
+        return $this->phoneNumberId;
     }
 
     /**
-     * First name.
-     *
-     * @param string|null $givenName
+     * @param string|null $phoneNumberId
      *
      * @return self
      */
-    public function setGivenName(?string $givenName): self
+    public function setPhoneNumberId(?string $phoneNumberId): self
     {
-        $this->givenName = $givenName;
-
-        return $this;
-    }
-
-    /**
-     * Patronymic.
-     *
-     * @return string|null
-     */
-    public function getAdditionalName(): ?string
-    {
-        return $this->additionalName;
-    }
-
-    /**
-     * Patronymic.
-     *
-     * @param string|null $additionalName
-     *
-     * @return self
-     */
-    public function setAdditionalName(?string $additionalName): self
-    {
-        $this->additionalName = $additionalName;
-
-        return $this;
-    }
-
-    /**
-     * Last name.
-     *
-     * @return string|null
-     */
-    public function getFamilyName(): ?string
-    {
-        return $this->familyName;
-    }
-
-    /**
-     * Last name.
-     *
-     * @param string|null $familyName
-     *
-     * @return self
-     */
-    public function setFamilyName(?string $familyName): self
-    {
-        $this->familyName = $familyName;
-
-        return $this;
-    }
-
-    /**
-     * @return OdrOrganisationList|null
-     */
-    public function getOrganisations(): ?OdrOrganisationList
-    {
-        return $this->organisations;
-    }
-
-    /**
-     * @param OdrOrganisationList|null $organisations
-     *
-     * @return self
-     */
-    public function setOrganisations(?OdrOrganisationList $organisations): self
-    {
-        $this->organisations = $organisations;
-
-        return $this;
-    }
-
-    /**
-     * @return OdrAddressList|null
-     */
-    public function getBilling(): ?OdrAddressList
-    {
-        return $this->billing;
-    }
-
-    /**
-     * @param OdrAddressList|null $billing
-     *
-     * @return self
-     */
-    public function setBilling(?OdrAddressList $billing): self
-    {
-        $this->billing = $billing;
-
-        return $this;
-    }
-
-    /**
-     * @return OdrAddressList|null
-     */
-    public function getShipping(): ?OdrAddressList
-    {
-        return $this->shipping;
-    }
-
-    /**
-     * @param OdrAddressList|null $shipping
-     *
-     * @return self
-     */
-    public function setShipping(?OdrAddressList $shipping): self
-    {
-        $this->shipping = $shipping;
-
-        return $this;
-    }
-
-    /**
-     * @return OdrPhoneNumberList|null
-     */
-    public function getPhoneNumbers(): ?OdrPhoneNumberList
-    {
-        return $this->phoneNumbers;
-    }
-
-    /**
-     * @param OdrPhoneNumberList|null $phoneNumbers
-     *
-     * @return self
-     */
-    public function setPhoneNumbers(?OdrPhoneNumberList $phoneNumbers): self
-    {
-        $this->phoneNumbers = $phoneNumbers;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getCreatedAt(): ?\DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
-    public function setCreatedAt(?\DateTime $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt(): ?\DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
-    public function setUpdatedAt(?\DateTime $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
+        $this->phoneNumberId = $phoneNumberId;
 
         return $this;
     }

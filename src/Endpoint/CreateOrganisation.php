@@ -15,9 +15,9 @@ class CreateOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
     /**
      * Create an organisation.
      *
-     * @param \Afosto\Sdk\Model\OdrOrganisationModel $body
+     * @param \Afosto\Sdk\Model\RelOrganisationModel $body
      */
-    public function __construct(\Afosto\Sdk\Model\OdrOrganisationModel $body)
+    public function __construct(\Afosto\Sdk\Model\RelOrganisationModel $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class CreateOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 
     public function getUri(): string
     {
-        return '/odr/organisations';
+        return '/rel/organisations';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -50,12 +50,12 @@ class CreateOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
      * @throws \Afosto\Sdk\Exception\CreateOrganisationBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateOrganisationUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrOrganisation|null
+     * @return \Afosto\Sdk\Model\RelOrganisation|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrOrganisation', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelOrganisation', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\CreateOrganisationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

@@ -34,7 +34,7 @@ class GetRequiredAddressFields extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
 
     public function getUri(): string
     {
-        return '/odr/addresses/fields';
+        return '/rel/addresses/options/fields';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -64,12 +64,12 @@ class GetRequiredAddressFields extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
      * @throws \Afosto\Sdk\Exception\GetRequiredAddressFieldsBadRequestException
      * @throws \Afosto\Sdk\Exception\GetRequiredAddressFieldsUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrFieldList|null
+     * @return \Afosto\Sdk\Model\RelFieldList|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrFieldList', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelFieldList', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\GetRequiredAddressFieldsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

@@ -15,9 +15,9 @@ class SearchContacts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * Search contacts based on their id's or email addresses.
      *
-     * @param \Afosto\Sdk\Model\OdrSearch $body
+     * @param \Afosto\Sdk\Model\RelSearch $body
      */
-    public function __construct(\Afosto\Sdk\Model\OdrSearch $body)
+    public function __construct(\Afosto\Sdk\Model\RelSearch $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class SearchContacts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 
     public function getUri(): string
     {
-        return '/odr/contacts';
+        return '/rel/contacts';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -50,12 +50,12 @@ class SearchContacts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      * @throws \Afosto\Sdk\Exception\SearchContactsBadRequestException
      * @throws \Afosto\Sdk\Exception\SearchContactsUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrContact[]|null
+     * @return \Afosto\Sdk\Model\RelContact[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrContact[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelContact[]', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\SearchContactsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

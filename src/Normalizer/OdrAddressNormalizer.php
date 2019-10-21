@@ -38,9 +38,6 @@ class OdrAddressNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrAddress();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
-            $object->setId($data->{'id'});
-        }
         if (property_exists($data, 'country_code') && $data->{'country_code'} !== null) {
             $object->setCountryCode($data->{'country_code'});
         }
@@ -74,8 +71,8 @@ class OdrAddressNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'premise_number_suffix') && $data->{'premise_number_suffix'} !== null) {
             $object->setPremiseNumberSuffix($data->{'premise_number_suffix'});
         }
-        if (property_exists($data, 'organisation') && $data->{'organisation'} !== null) {
-            $object->setOrganisation($data->{'organisation'});
+        if (property_exists($data, 'organization') && $data->{'organization'} !== null) {
+            $object->setOrganization($data->{'organization'});
         }
         if (property_exists($data, 'given_name') && $data->{'given_name'} !== null) {
             $object->setGivenName($data->{'given_name'});
@@ -93,9 +90,6 @@ class OdrAddressNormalizer implements DenormalizerInterface, NormalizerInterface
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
-        }
         if (null !== $object->getCountryCode()) {
             $data->{'country_code'} = $object->getCountryCode();
         }
@@ -129,8 +123,8 @@ class OdrAddressNormalizer implements DenormalizerInterface, NormalizerInterface
         if (null !== $object->getPremiseNumberSuffix()) {
             $data->{'premise_number_suffix'} = $object->getPremiseNumberSuffix();
         }
-        if (null !== $object->getOrganisation()) {
-            $data->{'organisation'} = $object->getOrganisation();
+        if (null !== $object->getOrganization()) {
+            $data->{'organization'} = $object->getOrganization();
         }
         if (null !== $object->getGivenName()) {
             $data->{'given_name'} = $object->getGivenName();

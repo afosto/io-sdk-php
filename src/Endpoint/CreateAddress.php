@@ -15,9 +15,9 @@ class CreateAddress extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * Create an address.
      *
-     * @param \Afosto\Sdk\Model\OdrAddressModel $body
+     * @param \Afosto\Sdk\Model\RelAddressModel $body
      */
-    public function __construct(\Afosto\Sdk\Model\OdrAddressModel $body)
+    public function __construct(\Afosto\Sdk\Model\RelAddressModel $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class CreateAddress extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getUri(): string
     {
-        return '/odr/addresses';
+        return '/rel/addresses';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -50,12 +50,12 @@ class CreateAddress extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      * @throws \Afosto\Sdk\Exception\CreateAddressBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateAddressUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrAddress|null
+     * @return \Afosto\Sdk\Model\RelAddress|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrAddress', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelAddress', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\CreateAddressBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

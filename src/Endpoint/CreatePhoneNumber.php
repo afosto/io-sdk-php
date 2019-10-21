@@ -15,9 +15,9 @@ class CreatePhoneNumber extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
     /**
      * Create a phone number.
      *
-     * @param \Afosto\Sdk\Model\OdrPhoneNumberModel $body
+     * @param \Afosto\Sdk\Model\RelPhoneNumberModel $body
      */
-    public function __construct(\Afosto\Sdk\Model\OdrPhoneNumberModel $body)
+    public function __construct(\Afosto\Sdk\Model\RelPhoneNumberModel $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class CreatePhoneNumber extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 
     public function getUri(): string
     {
-        return '/odr/phonenumbers';
+        return '/rel/phonenumbers';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -50,12 +50,12 @@ class CreatePhoneNumber extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      * @throws \Afosto\Sdk\Exception\CreatePhoneNumberBadRequestException
      * @throws \Afosto\Sdk\Exception\CreatePhoneNumberUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrPhoneNumber|null
+     * @return \Afosto\Sdk\Model\RelPhoneNumber|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrPhoneNumber', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelPhoneNumber', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\CreatePhoneNumberBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

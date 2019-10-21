@@ -33,7 +33,7 @@ class ViewAddress extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/addresses/{id}');
+        return str_replace(['{id}'], [$this->id], '/rel/addresses/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -52,12 +52,12 @@ class ViewAddress extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\ViewAddressBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewAddressUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrAddress|null
+     * @return \Afosto\Sdk\Model\RelAddress|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrAddress', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelAddress', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ViewAddressBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

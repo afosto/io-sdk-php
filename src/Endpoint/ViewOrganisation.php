@@ -33,7 +33,7 @@ class ViewOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/organisations/{id}');
+        return str_replace(['{id}'], [$this->id], '/rel/organisations/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -52,12 +52,12 @@ class ViewOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      * @throws \Afosto\Sdk\Exception\ViewOrganisationBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewOrganisationUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrOrganisation|null
+     * @return \Afosto\Sdk\Model\RelOrganisation|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrOrganisation', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelOrganisation', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ViewOrganisationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

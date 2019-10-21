@@ -41,45 +41,23 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'version') && $data->{'version'} !== null) {
-            $object->setVersion($data->{'version'});
+        if (property_exists($data, 'organization') && $data->{'organization'} !== null) {
+            $object->setOrganization($data->{'organization'});
+        }
+        if (property_exists($data, 'vat_number') && $data->{'vat_number'} !== null) {
+            $object->setVatNumber($data->{'vat_number'});
+        }
+        if (property_exists($data, 'coc_number') && $data->{'coc_number'} !== null) {
+            $object->setCocNumber($data->{'coc_number'});
+        }
+        if (property_exists($data, 'address_id') && $data->{'address_id'} !== null) {
+            $object->setAddressId($data->{'address_id'});
         }
         if (property_exists($data, 'email') && $data->{'email'} !== null) {
             $object->setEmail($data->{'email'});
         }
-        if (property_exists($data, 'tags') && $data->{'tags'} !== null) {
-            $values = [];
-            foreach ($data->{'tags'} as $value) {
-                $values[] = $value;
-            }
-            $object->setTags($values);
-        }
-        if (property_exists($data, 'given_name') && $data->{'given_name'} !== null) {
-            $object->setGivenName($data->{'given_name'});
-        }
-        if (property_exists($data, 'additional_name') && $data->{'additional_name'} !== null) {
-            $object->setAdditionalName($data->{'additional_name'});
-        }
-        if (property_exists($data, 'family_name') && $data->{'family_name'} !== null) {
-            $object->setFamilyName($data->{'family_name'});
-        }
-        if (property_exists($data, 'organisations') && $data->{'organisations'} !== null) {
-            $object->setOrganisations($this->denormalizer->denormalize($data->{'organisations'}, 'Afosto\\Sdk\\Model\\OdrOrganisationList', 'json', $context));
-        }
-        if (property_exists($data, 'billing') && $data->{'billing'} !== null) {
-            $object->setBilling($this->denormalizer->denormalize($data->{'billing'}, 'Afosto\\Sdk\\Model\\OdrAddressList', 'json', $context));
-        }
-        if (property_exists($data, 'shipping') && $data->{'shipping'} !== null) {
-            $object->setShipping($this->denormalizer->denormalize($data->{'shipping'}, 'Afosto\\Sdk\\Model\\OdrAddressList', 'json', $context));
-        }
-        if (property_exists($data, 'phone_numbers') && $data->{'phone_numbers'} !== null) {
-            $object->setPhoneNumbers($this->denormalizer->denormalize($data->{'phone_numbers'}, 'Afosto\\Sdk\\Model\\OdrPhoneNumberList', 'json', $context));
-        }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
-            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
-        }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
-            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
+        if (property_exists($data, 'phone_number_id') && $data->{'phone_number_id'} !== null) {
+            $object->setPhoneNumberId($data->{'phone_number_id'});
         }
 
         return $object;
@@ -91,45 +69,23 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getVersion()) {
-            $data->{'version'} = $object->getVersion();
+        if (null !== $object->getOrganization()) {
+            $data->{'organization'} = $object->getOrganization();
+        }
+        if (null !== $object->getVatNumber()) {
+            $data->{'vat_number'} = $object->getVatNumber();
+        }
+        if (null !== $object->getCocNumber()) {
+            $data->{'coc_number'} = $object->getCocNumber();
+        }
+        if (null !== $object->getAddressId()) {
+            $data->{'address_id'} = $object->getAddressId();
         }
         if (null !== $object->getEmail()) {
             $data->{'email'} = $object->getEmail();
         }
-        if (null !== $object->getTags()) {
-            $values = [];
-            foreach ($object->getTags() as $value) {
-                $values[] = $value;
-            }
-            $data->{'tags'} = $values;
-        }
-        if (null !== $object->getGivenName()) {
-            $data->{'given_name'} = $object->getGivenName();
-        }
-        if (null !== $object->getAdditionalName()) {
-            $data->{'additional_name'} = $object->getAdditionalName();
-        }
-        if (null !== $object->getFamilyName()) {
-            $data->{'family_name'} = $object->getFamilyName();
-        }
-        if (null !== $object->getOrganisations()) {
-            $data->{'organisations'} = $this->normalizer->normalize($object->getOrganisations(), 'json', $context);
-        }
-        if (null !== $object->getBilling()) {
-            $data->{'billing'} = $this->normalizer->normalize($object->getBilling(), 'json', $context);
-        }
-        if (null !== $object->getShipping()) {
-            $data->{'shipping'} = $this->normalizer->normalize($object->getShipping(), 'json', $context);
-        }
-        if (null !== $object->getPhoneNumbers()) {
-            $data->{'phone_numbers'} = $this->normalizer->normalize($object->getPhoneNumbers(), 'json', $context);
-        }
-        if (null !== $object->getCreatedAt()) {
-            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
-        }
-        if (null !== $object->getUpdatedAt()) {
-            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
+        if (null !== $object->getPhoneNumberId()) {
+            $data->{'phone_number_id'} = $object->getPhoneNumberId();
         }
 
         return $data;

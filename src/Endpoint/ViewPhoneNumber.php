@@ -33,7 +33,7 @@ class ViewPhoneNumber extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/phonenumbers/{id}');
+        return str_replace(['{id}'], [$this->id], '/rel/phonenumbers/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -52,12 +52,12 @@ class ViewPhoneNumber extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      * @throws \Afosto\Sdk\Exception\ViewPhoneNumberBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewPhoneNumberUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrPhoneNumber|null
+     * @return \Afosto\Sdk\Model\RelPhoneNumber|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrPhoneNumber', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelPhoneNumber', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ViewPhoneNumberBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

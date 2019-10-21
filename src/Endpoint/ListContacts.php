@@ -21,7 +21,7 @@ class ListContacts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getUri(): string
     {
-        return '/odr/contacts';
+        return '/rel/contacts';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -40,12 +40,12 @@ class ListContacts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * @throws \Afosto\Sdk\Exception\ListContactsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListContactsUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrContactList[]|null
+     * @return \Afosto\Sdk\Model\RelContactList[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrContactList[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelContactList[]', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ListContactsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

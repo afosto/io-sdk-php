@@ -38,7 +38,7 @@ class ViewContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/contacts/{id}');
+        return str_replace(['{id}'], [$this->id], '/rel/contacts/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -68,12 +68,12 @@ class ViewContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\ViewContactBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewContactUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrContact|null
+     * @return \Afosto\Sdk\Model\RelContact|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrContact', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelContact', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ViewContactBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

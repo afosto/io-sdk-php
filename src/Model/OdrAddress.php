@@ -13,10 +13,6 @@ namespace Afosto\Sdk\Model;
 class OdrAddress
 {
     /**
-     * @var string
-     */
-    protected $id;
-    /**
      * Two letter country code.
      *
      * @var string
@@ -81,7 +77,7 @@ class OdrAddress
      *
      * @var string
      */
-    protected $organisation;
+    protected $organization;
     /**
      * First name.
      *
@@ -100,26 +96,6 @@ class OdrAddress
      * @var string
      */
     protected $familyName;
-
-    /**
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
-    public function setId(?string $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 
     /**
      * Two letter country code.
@@ -378,21 +354,21 @@ class OdrAddress
      *
      * @return string|null
      */
-    public function getOrganisation(): ?string
+    public function getOrganization(): ?string
     {
-        return $this->organisation;
+        return $this->organization;
     }
 
     /**
      * The name of the recipient, firm, or company at this address (optional).
      *
-     * @param string|null $organisation
+     * @param string|null $organization
      *
      * @return self
      */
-    public function setOrganisation(?string $organisation): self
+    public function setOrganization(?string $organization): self
     {
-        $this->organisation = $organisation;
+        $this->organization = $organization;
 
         return $this;
     }
