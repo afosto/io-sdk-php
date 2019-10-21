@@ -44,6 +44,9 @@ class MesConversationCreateNormalizer implements DenormalizerInterface, Normaliz
         if (property_exists($data, 'entity_type') && $data->{'entity_type'} !== null) {
             $object->setEntityType($data->{'entity_type'});
         }
+        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+            $object->setName($data->{'name'});
+        }
         if (property_exists($data, 'entity_id') && $data->{'entity_id'} !== null) {
             $object->setEntityId($data->{'entity_id'});
         }
@@ -71,6 +74,9 @@ class MesConversationCreateNormalizer implements DenormalizerInterface, Normaliz
         }
         if (null !== $object->getEntityType()) {
             $data->{'entity_type'} = $object->getEntityType();
+        }
+        if (null !== $object->getName()) {
+            $data->{'name'} = $object->getName();
         }
         if (null !== $object->getEntityId()) {
             $data->{'entity_id'} = $object->getEntityId();

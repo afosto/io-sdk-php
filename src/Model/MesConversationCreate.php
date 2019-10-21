@@ -23,6 +23,10 @@ class MesConversationCreate
     /**
      * @var string
      */
+    protected $name;
+    /**
+     * @var string
+     */
     protected $entityId;
     /**
      * @var MesMessageCreate
@@ -77,6 +81,26 @@ class MesConversationCreate
     public function setEntityType(?string $entityType): self
     {
         $this->entityType = $entityType;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string|null $name
+     *
+     * @return self
+     */
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
