@@ -10,18 +10,14 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrAddress
+class OdrAddressModel
 {
-    /**
-     * @var string
-     */
-    protected $id;
     /**
      * Two letter country code.
      *
      * @var string
      */
-    protected $countryCode;
+    protected $country;
     /**
      * The state or province name or abbreviation (optional).
      *
@@ -102,45 +98,25 @@ class OdrAddress
     protected $familyName;
 
     /**
+     * Two letter country code.
+     *
      * @return string|null
      */
-    public function getId(): ?string
+    public function getCountry(): ?string
     {
-        return $this->id;
-    }
-
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
-    public function setId(?string $id): self
-    {
-        $this->id = $id;
-
-        return $this;
+        return $this->country;
     }
 
     /**
      * Two letter country code.
      *
-     * @return string|null
-     */
-    public function getCountryCode(): ?string
-    {
-        return $this->countryCode;
-    }
-
-    /**
-     * Two letter country code.
-     *
-     * @param string|null $countryCode
+     * @param string|null $country
      *
      * @return self
      */
-    public function setCountryCode(?string $countryCode): self
+    public function setCountry(?string $country): self
     {
-        $this->countryCode = $countryCode;
+        $this->country = $country;
 
         return $this;
     }

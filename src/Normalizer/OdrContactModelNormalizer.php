@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrContactModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrContact';
+        return $type === 'Afosto\\Sdk\\Model\\OdrContactModel';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrContact';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrContactModel';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,13 +37,7 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrContact();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
-            $object->setId($data->{'id'});
-        }
-        if (property_exists($data, 'version') && $data->{'version'} !== null) {
-            $object->setVersion($data->{'version'});
-        }
+        $object = new \Afosto\Sdk\Model\OdrContactModel();
         if (property_exists($data, 'email') && $data->{'email'} !== null) {
             $object->setEmail($data->{'email'});
         }
@@ -63,23 +57,17 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'family_name') && $data->{'family_name'} !== null) {
             $object->setFamilyName($data->{'family_name'});
         }
-        if (property_exists($data, 'organisations') && $data->{'organisations'} !== null) {
-            $object->setOrganisations($this->denormalizer->denormalize($data->{'organisations'}, 'Afosto\\Sdk\\Model\\OdrOrganisationList', 'json', $context));
+        if (property_exists($data, 'organisation') && $data->{'organisation'} !== null) {
+            $object->setOrganisation($this->denormalizer->denormalize($data->{'organisation'}, 'Afosto\\Sdk\\Model\\OdrContactModelOrganisation', 'json', $context));
         }
         if (property_exists($data, 'billing') && $data->{'billing'} !== null) {
-            $object->setBilling($this->denormalizer->denormalize($data->{'billing'}, 'Afosto\\Sdk\\Model\\OdrAddressList', 'json', $context));
+            $object->setBilling($this->denormalizer->denormalize($data->{'billing'}, 'Afosto\\Sdk\\Model\\OdrContactModelBilling', 'json', $context));
         }
         if (property_exists($data, 'shipping') && $data->{'shipping'} !== null) {
-            $object->setShipping($this->denormalizer->denormalize($data->{'shipping'}, 'Afosto\\Sdk\\Model\\OdrAddressList', 'json', $context));
+            $object->setShipping($this->denormalizer->denormalize($data->{'shipping'}, 'Afosto\\Sdk\\Model\\OdrContactModelShipping', 'json', $context));
         }
-        if (property_exists($data, 'phone_numbers') && $data->{'phone_numbers'} !== null) {
-            $object->setPhoneNumbers($this->denormalizer->denormalize($data->{'phone_numbers'}, 'Afosto\\Sdk\\Model\\OdrPhoneNumberList', 'json', $context));
-        }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
-            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
-        }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
-            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
+        if (property_exists($data, 'phone_number') && $data->{'phone_number'} !== null) {
+            $object->setPhoneNumber($this->denormalizer->denormalize($data->{'phone_number'}, 'Afosto\\Sdk\\Model\\OdrContactModelPhoneNumber', 'json', $context));
         }
 
         return $object;
@@ -88,12 +76,6 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
-        }
-        if (null !== $object->getVersion()) {
-            $data->{'version'} = $object->getVersion();
-        }
         if (null !== $object->getEmail()) {
             $data->{'email'} = $object->getEmail();
         }
@@ -113,8 +95,8 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
         if (null !== $object->getFamilyName()) {
             $data->{'family_name'} = $object->getFamilyName();
         }
-        if (null !== $object->getOrganisations()) {
-            $data->{'organisations'} = $this->normalizer->normalize($object->getOrganisations(), 'json', $context);
+        if (null !== $object->getOrganisation()) {
+            $data->{'organisation'} = $this->normalizer->normalize($object->getOrganisation(), 'json', $context);
         }
         if (null !== $object->getBilling()) {
             $data->{'billing'} = $this->normalizer->normalize($object->getBilling(), 'json', $context);
@@ -122,14 +104,8 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
         if (null !== $object->getShipping()) {
             $data->{'shipping'} = $this->normalizer->normalize($object->getShipping(), 'json', $context);
         }
-        if (null !== $object->getPhoneNumbers()) {
-            $data->{'phone_numbers'} = $this->normalizer->normalize($object->getPhoneNumbers(), 'json', $context);
-        }
-        if (null !== $object->getCreatedAt()) {
-            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
-        }
-        if (null !== $object->getUpdatedAt()) {
-            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
+        if (null !== $object->getPhoneNumber()) {
+            $data->{'phone_number'} = $this->normalizer->normalize($object->getPhoneNumber(), 'json', $context);
         }
 
         return $data;

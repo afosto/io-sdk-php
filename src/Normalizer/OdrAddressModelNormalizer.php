@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrAddressNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrAddressModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrAddress';
+        return $type === 'Afosto\\Sdk\\Model\\OdrAddressModel';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrAddress';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrAddressModel';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,9 @@ class OdrAddressNormalizer implements DenormalizerInterface, NormalizerInterface
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrAddress();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
-            $object->setId($data->{'id'});
-        }
-        if (property_exists($data, 'country_code') && $data->{'country_code'} !== null) {
-            $object->setCountryCode($data->{'country_code'});
+        $object = new \Afosto\Sdk\Model\OdrAddressModel();
+        if (property_exists($data, 'country') && $data->{'country'} !== null) {
+            $object->setCountry($data->{'country'});
         }
         if (property_exists($data, 'administrative_area') && $data->{'administrative_area'} !== null) {
             $object->setAdministrativeArea($data->{'administrative_area'});
@@ -93,11 +90,8 @@ class OdrAddressNormalizer implements DenormalizerInterface, NormalizerInterface
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
-        }
-        if (null !== $object->getCountryCode()) {
-            $data->{'country_code'} = $object->getCountryCode();
+        if (null !== $object->getCountry()) {
+            $data->{'country'} = $object->getCountry();
         }
         if (null !== $object->getAdministrativeArea()) {
             $data->{'administrative_area'} = $object->getAdministrativeArea();

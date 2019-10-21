@@ -13,74 +13,26 @@ namespace Afosto\Sdk\Model;
 class OdrSearch
 {
     /**
-     * @var string
+     * @var OdrConstraint[]
      */
-    protected $key;
-    /**
-     * @var string
-     */
-    protected $operator;
-    /**
-     * @var string[]
-     */
-    protected $value;
+    protected $constraints;
 
     /**
-     * @return string|null
+     * @return OdrConstraint[]|null
      */
-    public function getKey(): ?string
+    public function getConstraints(): ?array
     {
-        return $this->key;
+        return $this->constraints;
     }
 
     /**
-     * @param string|null $key
+     * @param OdrConstraint[]|null $constraints
      *
      * @return self
      */
-    public function setKey(?string $key): self
+    public function setConstraints(?array $constraints): self
     {
-        $this->key = $key;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getOperator(): ?string
-    {
-        return $this->operator;
-    }
-
-    /**
-     * @param string|null $operator
-     *
-     * @return self
-     */
-    public function setOperator(?string $operator): self
-    {
-        $this->operator = $operator;
-
-        return $this;
-    }
-
-    /**
-     * @return string[]|null
-     */
-    public function getValue(): ?array
-    {
-        return $this->value;
-    }
-
-    /**
-     * @param string[]|null $value
-     *
-     * @return self
-     */
-    public function setValue(?array $value): self
-    {
-        $this->value = $value;
+        $this->constraints = $constraints;
 
         return $this;
     }

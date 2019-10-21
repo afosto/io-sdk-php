@@ -12,19 +12,6 @@ namespace Afosto\Sdk\Endpoint;
 
 class ListContacts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
-    /**
-     * Returns a list of contacts.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var string $q
-     * }
-     */
-    public function __construct(array $queryParameters = [])
-    {
-        $this->queryParameters = $queryParameters;
-    }
-
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
@@ -34,7 +21,7 @@ class ListContacts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getUri(): string
     {
-        return '/mes/contacts';
+        return '/odr/contacts';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -47,35 +34,24 @@ class ListContacts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         return ['Accept' => ['application/json']];
     }
 
-    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
-    {
-        $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['q']);
-        $optionsResolver->setRequired([]);
-        $optionsResolver->setDefaults([]);
-        $optionsResolver->setAllowedTypes('q', ['string']);
-
-        return $optionsResolver;
-    }
-
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\ListContactsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListContactsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListContactsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\MesContact[]|null
+     * @return \Afosto\Sdk\Model\OdrContactList[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\MesContact[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrContactList[]', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListContactsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListContactsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
-        if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\ListContactsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

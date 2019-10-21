@@ -10,16 +10,8 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrContact
+class OdrContactModel
 {
-    /**
-     * @var string
-     */
-    protected $id;
-    /**
-     * @var string
-     */
-    protected $version;
     /**
      * @var string
      */
@@ -47,69 +39,21 @@ class OdrContact
      */
     protected $familyName;
     /**
-     * @var OdrOrganisationList
+     * @var OdrContactModelOrganisation
      */
-    protected $organisations;
+    protected $organisation;
     /**
-     * @var OdrAddressList
+     * @var OdrContactModelBilling
      */
     protected $billing;
     /**
-     * @var OdrAddressList
+     * @var OdrContactModelShipping
      */
     protected $shipping;
     /**
-     * @var OdrPhoneNumberList
+     * @var OdrContactModelPhoneNumber
      */
-    protected $phoneNumbers;
-    /**
-     * @var \DateTime
-     */
-    protected $createdAt;
-    /**
-     * @var \DateTime
-     */
-    protected $updatedAt;
-
-    /**
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
-    public function setId(?string $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getVersion(): ?string
-    {
-        return $this->version;
-    }
-
-    /**
-     * @param string|null $version
-     *
-     * @return self
-     */
-    public function setVersion(?string $version): self
-    {
-        $this->version = $version;
-
-        return $this;
-    }
+    protected $phoneNumber;
 
     /**
      * @return string|null
@@ -224,39 +168,39 @@ class OdrContact
     }
 
     /**
-     * @return OdrOrganisationList|null
+     * @return OdrContactModelOrganisation|null
      */
-    public function getOrganisations(): ?OdrOrganisationList
+    public function getOrganisation(): ?OdrContactModelOrganisation
     {
-        return $this->organisations;
+        return $this->organisation;
     }
 
     /**
-     * @param OdrOrganisationList|null $organisations
+     * @param OdrContactModelOrganisation|null $organisation
      *
      * @return self
      */
-    public function setOrganisations(?OdrOrganisationList $organisations): self
+    public function setOrganisation(?OdrContactModelOrganisation $organisation): self
     {
-        $this->organisations = $organisations;
+        $this->organisation = $organisation;
 
         return $this;
     }
 
     /**
-     * @return OdrAddressList|null
+     * @return OdrContactModelBilling|null
      */
-    public function getBilling(): ?OdrAddressList
+    public function getBilling(): ?OdrContactModelBilling
     {
         return $this->billing;
     }
 
     /**
-     * @param OdrAddressList|null $billing
+     * @param OdrContactModelBilling|null $billing
      *
      * @return self
      */
-    public function setBilling(?OdrAddressList $billing): self
+    public function setBilling(?OdrContactModelBilling $billing): self
     {
         $this->billing = $billing;
 
@@ -264,19 +208,19 @@ class OdrContact
     }
 
     /**
-     * @return OdrAddressList|null
+     * @return OdrContactModelShipping|null
      */
-    public function getShipping(): ?OdrAddressList
+    public function getShipping(): ?OdrContactModelShipping
     {
         return $this->shipping;
     }
 
     /**
-     * @param OdrAddressList|null $shipping
+     * @param OdrContactModelShipping|null $shipping
      *
      * @return self
      */
-    public function setShipping(?OdrAddressList $shipping): self
+    public function setShipping(?OdrContactModelShipping $shipping): self
     {
         $this->shipping = $shipping;
 
@@ -284,61 +228,21 @@ class OdrContact
     }
 
     /**
-     * @return OdrPhoneNumberList|null
+     * @return OdrContactModelPhoneNumber|null
      */
-    public function getPhoneNumbers(): ?OdrPhoneNumberList
+    public function getPhoneNumber(): ?OdrContactModelPhoneNumber
     {
-        return $this->phoneNumbers;
+        return $this->phoneNumber;
     }
 
     /**
-     * @param OdrPhoneNumberList|null $phoneNumbers
+     * @param OdrContactModelPhoneNumber|null $phoneNumber
      *
      * @return self
      */
-    public function setPhoneNumbers(?OdrPhoneNumberList $phoneNumbers): self
+    public function setPhoneNumber(?OdrContactModelPhoneNumber $phoneNumber): self
     {
-        $this->phoneNumbers = $phoneNumbers;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getCreatedAt(): ?\DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
-    public function setCreatedAt(?\DateTime $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt(): ?\DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
-    public function setUpdatedAt(?\DateTime $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
+        $this->phoneNumber = $phoneNumber;
 
         return $this;
     }

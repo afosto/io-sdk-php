@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrSearchNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrVatRegistrationModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrSearch';
+        return $type === 'Afosto\\Sdk\\Model\\OdrVatRegistrationModel';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrSearch';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrVatRegistrationModel';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,13 +37,12 @@ class OdrSearchNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrSearch();
-        if (property_exists($data, 'constraints') && $data->{'constraints'} !== null) {
-            $values = [];
-            foreach ($data->{'constraints'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrConstraint', 'json', $context);
-            }
-            $object->setConstraints($values);
+        $object = new \Afosto\Sdk\Model\OdrVatRegistrationModel();
+        if (property_exists($data, 'country_code') && $data->{'country_code'} !== null) {
+            $object->setCountryCode($data->{'country_code'});
+        }
+        if (property_exists($data, 'number') && $data->{'number'} !== null) {
+            $object->setNumber($data->{'number'});
         }
 
         return $object;
@@ -52,12 +51,11 @@ class OdrSearchNormalizer implements DenormalizerInterface, NormalizerInterface,
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getConstraints()) {
-            $values = [];
-            foreach ($object->getConstraints() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data->{'constraints'} = $values;
+        if (null !== $object->getCountryCode()) {
+            $data->{'country_code'} = $object->getCountryCode();
+        }
+        if (null !== $object->getNumber()) {
+            $data->{'number'} = $object->getNumber();
         }
 
         return $data;

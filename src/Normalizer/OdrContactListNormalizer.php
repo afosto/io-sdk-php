@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrContactListNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrContact';
+        return $type === 'Afosto\\Sdk\\Model\\OdrContactList';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrContact';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrContactList';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrContact();
+        $object = new \Afosto\Sdk\Model\OdrContactList();
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
@@ -46,13 +46,6 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (property_exists($data, 'email') && $data->{'email'} !== null) {
             $object->setEmail($data->{'email'});
-        }
-        if (property_exists($data, 'tags') && $data->{'tags'} !== null) {
-            $values = [];
-            foreach ($data->{'tags'} as $value) {
-                $values[] = $value;
-            }
-            $object->setTags($values);
         }
         if (property_exists($data, 'given_name') && $data->{'given_name'} !== null) {
             $object->setGivenName($data->{'given_name'});
@@ -64,16 +57,16 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
             $object->setFamilyName($data->{'family_name'});
         }
         if (property_exists($data, 'organisations') && $data->{'organisations'} !== null) {
-            $object->setOrganisations($this->denormalizer->denormalize($data->{'organisations'}, 'Afosto\\Sdk\\Model\\OdrOrganisationList', 'json', $context));
+            $object->setOrganisations($this->denormalizer->denormalize($data->{'organisations'}, 'Afosto\\Sdk\\Model\\OdrIdListItem', 'json', $context));
         }
         if (property_exists($data, 'billing') && $data->{'billing'} !== null) {
-            $object->setBilling($this->denormalizer->denormalize($data->{'billing'}, 'Afosto\\Sdk\\Model\\OdrAddressList', 'json', $context));
+            $object->setBilling($this->denormalizer->denormalize($data->{'billing'}, 'Afosto\\Sdk\\Model\\OdrIdListItem', 'json', $context));
         }
         if (property_exists($data, 'shipping') && $data->{'shipping'} !== null) {
-            $object->setShipping($this->denormalizer->denormalize($data->{'shipping'}, 'Afosto\\Sdk\\Model\\OdrAddressList', 'json', $context));
+            $object->setShipping($this->denormalizer->denormalize($data->{'shipping'}, 'Afosto\\Sdk\\Model\\OdrIdListItem', 'json', $context));
         }
         if (property_exists($data, 'phone_numbers') && $data->{'phone_numbers'} !== null) {
-            $object->setPhoneNumbers($this->denormalizer->denormalize($data->{'phone_numbers'}, 'Afosto\\Sdk\\Model\\OdrPhoneNumberList', 'json', $context));
+            $object->setPhoneNumbers($this->denormalizer->denormalize($data->{'phone_numbers'}, 'Afosto\\Sdk\\Model\\OdrIdListItem', 'json', $context));
         }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -96,13 +89,6 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (null !== $object->getEmail()) {
             $data->{'email'} = $object->getEmail();
-        }
-        if (null !== $object->getTags()) {
-            $values = [];
-            foreach ($object->getTags() as $value) {
-                $values[] = $value;
-            }
-            $data->{'tags'} = $values;
         }
         if (null !== $object->getGivenName()) {
             $data->{'given_name'} = $object->getGivenName();

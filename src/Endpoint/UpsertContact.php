@@ -10,19 +10,15 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class UpdateContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class UpsertContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
-    protected $id;
-
     /**
-     * Update the full model to the given data.
+     * Create a new or update an existing contact, based on it's email address. Will only update the primary parts of lists. Doing so it will move the old primary to a secondary (on changes).
      *
-     * @param string                             $id
-     * @param \Afosto\Sdk\Model\OdrContactUpdate $body
+     * @param \Afosto\Sdk\Model\OdrContactModel $body
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\OdrContactUpdate $body)
+    public function __construct(\Afosto\Sdk\Model\OdrContactModel $body)
     {
-        $this->id = $id;
         $this->body = $body;
     }
 
@@ -35,7 +31,7 @@ class UpdateContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/contacts/{id}');
+        return '/odr/contacts';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -51,8 +47,8 @@ class UpdateContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\UpdateContactBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdateContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpsertContactBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpsertContactUnauthorizedException
      *
      * @return \Afosto\Sdk\Model\OdrContact|null
      */
@@ -62,10 +58,10 @@ class UpdateContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrContact', 'json');
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateContactBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\UpsertContactBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateContactUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\UpsertContactUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }
