@@ -163,6 +163,10 @@ class NormalizerFactory
         $normalizers[] = new OdrPurchaseNormalizer();
         $normalizers[] = new OdrTransactionModelNormalizer();
         $normalizers[] = new OdrPurchaseItemNormalizer();
+        $normalizers[] = new WmsUpdateItemRequestNormalizer();
+        $normalizers[] = new WmsInventoryConstraintNormalizer();
+        $normalizers[] = new WmsCreateInventoryRequestNormalizer();
+        $normalizers[] = new WmsInventoryNormalizer();
         $normalizers[] = new WmsCreateRouteRequestNormalizer();
         $normalizers[] = new WmsUpdateRouteRequestNormalizer();
         $normalizers[] = new WmsRouteNormalizer();
@@ -175,6 +179,8 @@ class NormalizerFactory
         $normalizers[] = new WmsScheduleNormalizer();
         $normalizers[] = new WmsCreateScheduleRequestNormalizer();
         $normalizers[] = new WmsUpdateScheduleRequestNormalizer();
+        $normalizers[] = new WmsCreateDurationRequestNormalizer();
+        $normalizers[] = new WmsDurationNormalizer();
         $normalizers[] = new WmsStackReferenceNormalizer();
         $normalizers[] = new WmsCreateWarehouseRequestNormalizer();
         $normalizers[] = new WmsUpdateWarehouseRequestNormalizer();

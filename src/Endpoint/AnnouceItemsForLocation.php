@@ -15,7 +15,7 @@ class AnnouceItemsForLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint i
     protected $id;
 
     /**
-     * Update transfer items' last known location.
+     * Update items' last known location.
      *
      * @param string                              $id   Transfer id
      * @param \Afosto\Sdk\Model\WmsTransferReport $body Transfer request object
@@ -54,12 +54,12 @@ class AnnouceItemsForLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint i
      * @throws \Afosto\Sdk\Exception\AnnouceItemsForLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AnnouceItemsForLocationNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsTransfer|null
+     * @return \Afosto\Sdk\Model\WmsClaim|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsTransfer', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsClaim', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\AnnouceItemsForLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
