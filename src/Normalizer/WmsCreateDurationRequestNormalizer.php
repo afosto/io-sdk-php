@@ -44,8 +44,8 @@ class WmsCreateDurationRequestNormalizer implements DenormalizerInterface, Norma
         if (property_exists($data, 'location_id') && $data->{'location_id'} !== null) {
             $object->setLocationId($data->{'location_id'});
         }
-        if (property_exists($data, 'caluclate_at') && $data->{'caluclate_at'} !== null) {
-            $object->setCaluclateAt($data->{'caluclate_at'});
+        if (property_exists($data, 'calculate_at') && $data->{'calculate_at'} !== null) {
+            $object->setCalculateAt($data->{'calculate_at'});
         }
 
         return $object;
@@ -60,8 +60,8 @@ class WmsCreateDurationRequestNormalizer implements DenormalizerInterface, Norma
         if (null !== $object->getLocationId()) {
             $data->{'location_id'} = $object->getLocationId();
         }
-        if (null !== $object->getCaluclateAt()) {
-            $data->{'caluclate_at'} = $object->getCaluclateAt();
+        if (null !== $object->getCalculateAt()) {
+            $data->{'calculate_at'} = $object->getCalculateAt();
         }
 
         return $data;

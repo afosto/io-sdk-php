@@ -23,7 +23,7 @@ class WmsCreateDurationRequest
     /**
      * @var string
      */
-    protected $caluclateAt;
+    protected $calculateAt;
 
     /**
      * @return string|null
@@ -68,19 +68,19 @@ class WmsCreateDurationRequest
     /**
      * @return string|null
      */
-    public function getCaluclateAt(): ?string
+    public function getCalculateAt(): ?string
     {
-        return $this->caluclateAt;
+        return $this->calculateAt;
     }
 
     /**
-     * @param string|null $caluclateAt
+     * @param string|null $calculateAt
      *
      * @return self
      */
-    public function setCaluclateAt(?string $caluclateAt): self
+    public function setCalculateAt(?string $calculateAt): self
     {
-        $this->caluclateAt = $caluclateAt;
+        $this->calculateAt = $calculateAt;
 
         return $this;
     }

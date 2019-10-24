@@ -51,15 +51,6 @@ class WmsCreateTransferRequestNormalizer implements DenormalizerInterface, Norma
             }
             $object->setClaims($values);
         }
-        if (property_exists($data, 'expected_at') && $data->{'expected_at'} !== null) {
-            $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
-        }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
-            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
-        }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
-            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
-        }
 
         return $object;
     }
@@ -79,15 +70,6 @@ class WmsCreateTransferRequestNormalizer implements DenormalizerInterface, Norma
                 $values[] = $value;
             }
             $data->{'claims'} = $values;
-        }
-        if (null !== $object->getExpectedAt()) {
-            $data->{'expected_at'} = $object->getExpectedAt()->format("Y-m-d\TH:i:sP");
-        }
-        if (null !== $object->getCreatedAt()) {
-            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
-        }
-        if (null !== $object->getUpdatedAt()) {
-            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

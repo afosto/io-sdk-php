@@ -28,20 +28,6 @@ class WmsCreateTransferRequest
      * @var string[]
      */
     protected $claims;
-    /**
-     * Estimated / expected time of arrival.
-     *
-     * @var \DateTime
-     */
-    protected $expectedAt;
-    /**
-     * @var \DateTime
-     */
-    protected $createdAt;
-    /**
-     * @var \DateTime
-     */
-    protected $updatedAt;
 
     /**
      * Target location.
@@ -107,70 +93,6 @@ class WmsCreateTransferRequest
     public function setClaims(?array $claims): self
     {
         $this->claims = $claims;
-
-        return $this;
-    }
-
-    /**
-     * Estimated / expected time of arrival.
-     *
-     * @return \DateTime|null
-     */
-    public function getExpectedAt(): ?\DateTime
-    {
-        return $this->expectedAt;
-    }
-
-    /**
-     * Estimated / expected time of arrival.
-     *
-     * @param \DateTime|null $expectedAt
-     *
-     * @return self
-     */
-    public function setExpectedAt(?\DateTime $expectedAt): self
-    {
-        $this->expectedAt = $expectedAt;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getCreatedAt(): ?\DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
-    public function setCreatedAt(?\DateTime $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt(): ?\DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
-    public function setUpdatedAt(?\DateTime $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
 
         return $this;
     }
