@@ -34,7 +34,7 @@ class GetRequiredAddressFields extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
 
     public function getUri(): string
     {
-        return '/rel/addresses/options/fields';
+        return '/rel/options/addresses';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array

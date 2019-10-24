@@ -10,17 +10,17 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class SearchRegistrations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class UpdateOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     protected $id;
 
     /**
-     * Create an organisation.
+     * Updates an existing organisation.
      *
-     * @param string                      $id
-     * @param \Afosto\Sdk\Model\RelSearch $body
+     * @param string                                       $id
+     * @param \Afosto\Sdk\Model\RelOrganisationUpdateModel $body
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\RelSearch $body)
+    public function __construct(string $id, \Afosto\Sdk\Model\RelOrganisationUpdateModel $body)
     {
         $this->id = $id;
         $this->body = $body;
@@ -30,12 +30,12 @@ class SearchRegistrations extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
 
     public function getMethod(): string
     {
-        return 'POST';
+        return 'PUT';
     }
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/rel/organisations/{id}/registrations');
+        return str_replace(['{id}'], [$this->id], '/rel/organisations/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -51,8 +51,8 @@ class SearchRegistrations extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\SearchRegistrationsBadRequestException
-     * @throws \Afosto\Sdk\Exception\SearchRegistrationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateOrganisationBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateOrganisationUnauthorizedException
      *
      * @return \Afosto\Sdk\Model\RelOrganisation|null
      */
@@ -62,10 +62,10 @@ class SearchRegistrations extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelOrganisation', 'json');
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\SearchRegistrationsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\UpdateOrganisationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\SearchRegistrationsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\UpdateOrganisationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Endpoint;
 class UpsertContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * Create a new or update an existing contact, based on it's email address. Will only update the primary parts of lists. Doing so it will move the old primary to a secondary (on changes).
+     * Create a new or update an existing contact, based on it's emailaddress. Will only update the primary parts of lists. Doing so it will move the old primary to a secondary (on changes).
      *
      * @param \Afosto\Sdk\Model\RelContactUpdate $body
      */

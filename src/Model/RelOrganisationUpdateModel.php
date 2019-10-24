@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class RelOrganisationModel
+class RelOrganisationUpdateModel
 {
     /**
      * The name of the recipient, firm, or company at this address (optional).
@@ -19,17 +19,21 @@ class RelOrganisationModel
      */
     protected $name;
     /**
+     * @var string
+     */
+    protected $cocNumber;
+    /**
      * @var RelVatRegistrationModel[]
      */
     protected $registrations;
     /**
-     * @var RelAddressModel
+     * @var RelOrganisationUpdateModelAddresses
      */
-    protected $address;
+    protected $addresses;
     /**
-     * @var string
+     * @var RelOrganisationUpdateModelPhoneNumbers
      */
-    protected $cocNumber;
+    protected $phoneNumbers;
 
     /**
      * The name of the recipient, firm, or company at this address (optional).
@@ -56,6 +60,26 @@ class RelOrganisationModel
     }
 
     /**
+     * @return string|null
+     */
+    public function getCocNumber(): ?string
+    {
+        return $this->cocNumber;
+    }
+
+    /**
+     * @param string|null $cocNumber
+     *
+     * @return self
+     */
+    public function setCocNumber(?string $cocNumber): self
+    {
+        $this->cocNumber = $cocNumber;
+
+        return $this;
+    }
+
+    /**
      * @return RelVatRegistrationModel[]|null
      */
     public function getRegistrations(): ?array
@@ -76,41 +100,41 @@ class RelOrganisationModel
     }
 
     /**
-     * @return RelAddressModel|null
+     * @return RelOrganisationUpdateModelAddresses|null
      */
-    public function getAddress(): ?RelAddressModel
+    public function getAddresses(): ?RelOrganisationUpdateModelAddresses
     {
-        return $this->address;
+        return $this->addresses;
     }
 
     /**
-     * @param RelAddressModel|null $address
+     * @param RelOrganisationUpdateModelAddresses|null $addresses
      *
      * @return self
      */
-    public function setAddress(?RelAddressModel $address): self
+    public function setAddresses(?RelOrganisationUpdateModelAddresses $addresses): self
     {
-        $this->address = $address;
+        $this->addresses = $addresses;
 
         return $this;
     }
 
     /**
-     * @return string|null
+     * @return RelOrganisationUpdateModelPhoneNumbers|null
      */
-    public function getCocNumber(): ?string
+    public function getPhoneNumbers(): ?RelOrganisationUpdateModelPhoneNumbers
     {
-        return $this->cocNumber;
+        return $this->phoneNumbers;
     }
 
     /**
-     * @param string|null $cocNumber
+     * @param RelOrganisationUpdateModelPhoneNumbers|null $phoneNumbers
      *
      * @return self
      */
-    public function setCocNumber(?string $cocNumber): self
+    public function setPhoneNumbers(?RelOrganisationUpdateModelPhoneNumbers $phoneNumbers): self
     {
-        $this->cocNumber = $cocNumber;
+        $this->phoneNumbers = $phoneNumbers;
 
         return $this;
     }

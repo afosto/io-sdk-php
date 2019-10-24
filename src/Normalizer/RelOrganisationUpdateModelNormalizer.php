@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class RelOrganisationModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class RelOrganisationUpdateModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelOrganisationModel';
+        return $type === 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModel';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelOrganisationModel';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModel';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,9 +37,12 @@ class RelOrganisationModelNormalizer implements DenormalizerInterface, Normalize
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\RelOrganisationModel();
+        $object = new \Afosto\Sdk\Model\RelOrganisationUpdateModel();
         if (property_exists($data, 'name') && $data->{'name'} !== null) {
             $object->setName($data->{'name'});
+        }
+        if (property_exists($data, 'coc_number') && $data->{'coc_number'} !== null) {
+            $object->setCocNumber($data->{'coc_number'});
         }
         if (property_exists($data, 'registrations') && $data->{'registrations'} !== null) {
             $values = [];
@@ -48,11 +51,11 @@ class RelOrganisationModelNormalizer implements DenormalizerInterface, Normalize
             }
             $object->setRegistrations($values);
         }
-        if (property_exists($data, 'address') && $data->{'address'} !== null) {
-            $object->setAddress($this->denormalizer->denormalize($data->{'address'}, 'Afosto\\Sdk\\Model\\RelAddressModel', 'json', $context));
+        if (property_exists($data, 'addresses') && $data->{'addresses'} !== null) {
+            $object->setAddresses($this->denormalizer->denormalize($data->{'addresses'}, 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelAddresses', 'json', $context));
         }
-        if (property_exists($data, 'coc_number') && $data->{'coc_number'} !== null) {
-            $object->setCocNumber($data->{'coc_number'});
+        if (property_exists($data, 'phone_numbers') && $data->{'phone_numbers'} !== null) {
+            $object->setPhoneNumbers($this->denormalizer->denormalize($data->{'phone_numbers'}, 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelPhoneNumbers', 'json', $context));
         }
 
         return $object;
@@ -64,6 +67,9 @@ class RelOrganisationModelNormalizer implements DenormalizerInterface, Normalize
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
         }
+        if (null !== $object->getCocNumber()) {
+            $data->{'coc_number'} = $object->getCocNumber();
+        }
         if (null !== $object->getRegistrations()) {
             $values = [];
             foreach ($object->getRegistrations() as $value) {
@@ -71,11 +77,11 @@ class RelOrganisationModelNormalizer implements DenormalizerInterface, Normalize
             }
             $data->{'registrations'} = $values;
         }
-        if (null !== $object->getAddress()) {
-            $data->{'address'} = $this->normalizer->normalize($object->getAddress(), 'json', $context);
+        if (null !== $object->getAddresses()) {
+            $data->{'addresses'} = $this->normalizer->normalize($object->getAddresses(), 'json', $context);
         }
-        if (null !== $object->getCocNumber()) {
-            $data->{'coc_number'} = $object->getCocNumber();
+        if (null !== $object->getPhoneNumbers()) {
+            $data->{'phone_numbers'} = $this->normalizer->normalize($object->getPhoneNumbers(), 'json', $context);
         }
 
         return $data;

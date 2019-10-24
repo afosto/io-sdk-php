@@ -12,6 +12,20 @@ namespace Afosto\Sdk\Endpoint;
 
 class ListContacts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
+    /**
+     * Returns a list of contact information.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     */
+    public function __construct(array $headerParameters = [])
+    {
+        $this->headerParameters = $headerParameters;
+    }
+
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
 
     public function getMethod(): string
@@ -34,18 +48,30 @@ class ListContacts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         return ['Accept' => ['application/json']];
     }
 
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['x-page', 'x-page-size']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('x-page', ['string']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
+
+        return $optionsResolver;
+    }
+
     /**
      * {@inheritdoc}
      *
      * @throws \Afosto\Sdk\Exception\ListContactsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListContactsUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\RelContactList[]|null
+     * @return \Afosto\Sdk\Model\RelContact[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelContactList[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelContact[]', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ListContactsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class CreatePhonenumberNotFoundException extends \RuntimeException implements ClientException
+class CreateAPhonenumberNotFoundException extends \RuntimeException implements ClientException
 {
     private $error;
 

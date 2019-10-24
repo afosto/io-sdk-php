@@ -13,11 +13,11 @@ namespace Afosto\Sdk\Endpoint;
 class CreatePhonenumber extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * Create a new phonenumber.
+     * Create a phonenumber.
      *
-     * @param \Afosto\Sdk\Model\OdrPhonenumberModel $body
+     * @param \Afosto\Sdk\Model\RelPhoneNumberModel $body
      */
-    public function __construct(\Afosto\Sdk\Model\OdrPhonenumberModel $body)
+    public function __construct(\Afosto\Sdk\Model\RelPhoneNumberModel $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class CreatePhonenumber extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 
     public function getUri(): string
     {
-        return '/odr/phonenumbers';
+        return '/rel/phonenumbers';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -47,21 +47,21 @@ class CreatePhonenumber extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\CreatePhonenumberBadRequestException
      * @throws \Afosto\Sdk\Exception\CreatePhonenumberUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreatePhonenumberNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrPhonenumber|null
+     * @return \Afosto\Sdk\Model\RelPhoneNumber|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrPhonenumber', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelPhoneNumber', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePhonenumberBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreatePhonenumberUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
-        if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\CreatePhonenumberNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

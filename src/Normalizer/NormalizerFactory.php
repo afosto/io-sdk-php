@@ -265,7 +265,6 @@ class NormalizerFactory
         $normalizers[] = new RelConstraintNormalizer();
         $normalizers[] = new RelSearchNormalizer();
         $normalizers[] = new RelFieldListNormalizer();
-        $normalizers[] = new RelContactListNormalizer();
         $normalizers[] = new RelContactNormalizer();
         $normalizers[] = new RelContactUpdateNormalizer();
         $normalizers[] = new RelContactUpdateOrganisationsNormalizer();
@@ -276,7 +275,9 @@ class NormalizerFactory
         $normalizers[] = new RelContactUpdatePhoneNumbersNormalizer();
         $normalizers[] = new RelOrganisationListNormalizer();
         $normalizers[] = new RelOrganisationNormalizer();
-        $normalizers[] = new RelOrganisationModelNormalizer();
+        $normalizers[] = new RelOrganisationUpdateModelNormalizer();
+        $normalizers[] = new RelOrganisationUpdateModelAddressesNormalizer();
+        $normalizers[] = new RelOrganisationUpdateModelPhoneNumbersNormalizer();
         $normalizers[] = new RelVatRegistrationModelNormalizer();
         $normalizers[] = new RelVatRegistrationNormalizer();
         $normalizers[] = new RelVatRegistrationVerificationNormalizer();
@@ -287,6 +288,7 @@ class NormalizerFactory
         $normalizers[] = new RelAddressListNormalizer();
         $normalizers[] = new RelAddressModelNormalizer();
         $normalizers[] = new RelAddressNormalizer();
+        $normalizers[] = new RelVersionNormalizer();
         $normalizers[] = new OdrOrdersIdStackPostBodyNormalizer();
         $normalizers[] = new IamCardsPostBodyNormalizer();
         $normalizers[] = new IamLogsFiltersGetResponse200Normalizer();

@@ -18,10 +18,15 @@ class ViewOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      * Returns a single organisation by id.
      *
      * @param string $id
+     * @param array  $queryParameters {
+     *
+     *     @var string $version
+     * }
      */
-    public function __construct(string $id)
+    public function __construct(string $id, array $queryParameters = [])
     {
         $this->id = $id;
+        $this->queryParameters = $queryParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
@@ -44,6 +49,17 @@ class ViewOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['version']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('version', ['string']);
+
+        return $optionsResolver;
     }
 
     /**

@@ -3895,14 +3895,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\OdrPhonenumberModel $body
      * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\CreatePhonenumberUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreatePhonenumberNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateAPhonenumberUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateAPhonenumberNotFoundException
      *
      * @return \Afosto\Sdk\Model\OdrPhonenumber|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createPhonenumber(\Afosto\Sdk\Model\OdrPhonenumberModel $body, string $fetch = self::FETCH_OBJECT)
+    public function createAPhonenumber(\Afosto\Sdk\Model\OdrPhonenumberModel $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreatePhonenumber($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateAPhonenumber($body), $fetch);
     }
 
     /**
@@ -4093,16 +4093,24 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a list of contact information.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListContactsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListContactsUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\RelContactList[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\RelContact[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listContacts(string $fetch = self::FETCH_OBJECT)
+    public function listContacts(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListContacts(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListContacts($headerParameters), $fetch);
     }
 
     /**
@@ -4122,7 +4130,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Create a new or update an existing contact, based on it's email address. Will only update the primary parts of lists. Doing so it will move the old primary to a secondary (on changes).
+     * Create a new or update an existing contact, based on it's emailaddress. Will only update the primary parts of lists. Doing so it will move the old primary to a secondary (on changes).
      *
      * @param \Afosto\Sdk\Model\RelContactUpdate $body
      * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -4156,6 +4164,22 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function viewContact(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewContact($id, $queryParameters), $fetch);
+    }
+
+    /**
+     * Returns a version list for the contact.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewContactVersionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewContactVersionsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\RelVersion[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewContactVersions(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewContactVersions($id), $fetch);
     }
 
     /**
@@ -4211,19 +4235,19 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Create a phone number.
+     * Create a phonenumber.
      *
      * @param \Afosto\Sdk\Model\RelPhoneNumberModel $body
      * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\CreatePhoneNumberBadRequestException
-     * @throws \Afosto\Sdk\Exception\CreatePhoneNumberUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreatePhonenumberBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreatePhonenumberUnauthorizedException
      *
      * @return \Afosto\Sdk\Model\RelPhoneNumber|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createPhoneNumber(\Afosto\Sdk\Model\RelPhoneNumberModel $body, string $fetch = self::FETCH_OBJECT)
+    public function createPhonenumber(\Afosto\Sdk\Model\RelPhoneNumberModel $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreatePhoneNumber($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreatePhonenumber($body), $fetch);
     }
 
     /**
@@ -4245,15 +4269,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create an organisation.
      *
-     * @param \Afosto\Sdk\Model\RelOrganisationModel $body
-     * @param string                                 $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\RelOrganisationUpdateModel $body
+     * @param string                                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateOrganisationBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateOrganisationUnauthorizedException
      *
      * @return \Afosto\Sdk\Model\RelOrganisation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createOrganisation(\Afosto\Sdk\Model\RelOrganisationModel $body, string $fetch = self::FETCH_OBJECT)
+    public function createOrganisation(\Afosto\Sdk\Model\RelOrganisationUpdateModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateOrganisation($body), $fetch);
     }
@@ -4262,6 +4286,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * Returns a single organisation by id.
      *
      * @param string $id
+     * @param array  $queryParameters {
+     *
+     *     @var string $version
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ViewOrganisationBadRequestException
@@ -4269,26 +4298,42 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\RelOrganisation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function viewOrganisation(string $id, string $fetch = self::FETCH_OBJECT)
+    public function viewOrganisation(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewOrganisation($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewOrganisation($id, $queryParameters), $fetch);
     }
 
     /**
-     * Create an organisation.
+     * Updates an existing organisation.
      *
-     * @param string                      $id
-     * @param \Afosto\Sdk\Model\RelSearch $body
-     * @param string                      $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string                                       $id
+     * @param \Afosto\Sdk\Model\RelOrganisationUpdateModel $body
+     * @param string                                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\SearchRegistrationsBadRequestException
-     * @throws \Afosto\Sdk\Exception\SearchRegistrationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateOrganisationBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateOrganisationUnauthorizedException
      *
      * @return \Afosto\Sdk\Model\RelOrganisation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function searchRegistrations(string $id, \Afosto\Sdk\Model\RelSearch $body, string $fetch = self::FETCH_OBJECT)
+    public function updateOrganisation(string $id, \Afosto\Sdk\Model\RelOrganisationUpdateModel $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchRegistrations($id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateOrganisation($id, $body), $fetch);
+    }
+
+    /**
+     * Returns a version list for the organisation.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationVersionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationVersionsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\RelVersion[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewOrganisationVersions(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewOrganisationVersions($id), $fetch);
     }
 
     public static function create($httpClient = null)

@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class CreatePhoneNumberBadRequestException extends \RuntimeException implements ClientException
+class ViewOrganisationVersionsBadRequestException extends \RuntimeException implements ClientException
 {
     private $error;
 
