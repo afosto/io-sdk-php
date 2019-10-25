@@ -38,8 +38,8 @@ class WmsCreateTransferRequestNormalizer implements DenormalizerInterface, Norma
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsCreateTransferRequest();
-        if (property_exists($data, 'to') && $data->{'to'} !== null) {
-            $object->setTo($data->{'to'});
+        if (property_exists($data, 'target') && $data->{'target'} !== null) {
+            $object->setTarget($data->{'target'});
         }
         if (property_exists($data, 'collect_at') && $data->{'collect_at'} !== null) {
             $object->setCollectAt($data->{'collect_at'});
@@ -58,8 +58,8 @@ class WmsCreateTransferRequestNormalizer implements DenormalizerInterface, Norma
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getTo()) {
-            $data->{'to'} = $object->getTo();
+        if (null !== $object->getTarget()) {
+            $data->{'target'} = $object->getTarget();
         }
         if (null !== $object->getCollectAt()) {
             $data->{'collect_at'} = $object->getCollectAt();

@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class Viewroute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class ViewRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     protected $id;
 
@@ -49,8 +49,8 @@ class Viewroute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ViewrouteUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ViewrouteNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewRouteUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewRouteNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsRoute|null
      */
@@ -60,10 +60,10 @@ class Viewroute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsRoute', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ViewrouteUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ViewRouteUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\ViewrouteNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ViewRouteNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

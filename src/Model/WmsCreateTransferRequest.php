@@ -17,9 +17,9 @@ class WmsCreateTransferRequest
      *
      * @var string
      */
-    protected $to;
+    protected $target;
     /**
-     * Optional value: use when order should be colleted in single location.
+     * Optional value: use when order should be collected in single location.
      *
      * @var string
      */
@@ -34,27 +34,27 @@ class WmsCreateTransferRequest
      *
      * @return string|null
      */
-    public function getTo(): ?string
+    public function getTarget(): ?string
     {
-        return $this->to;
+        return $this->target;
     }
 
     /**
      * Target location.
      *
-     * @param string|null $to
+     * @param string|null $target
      *
      * @return self
      */
-    public function setTo(?string $to): self
+    public function setTarget(?string $target): self
     {
-        $this->to = $to;
+        $this->target = $target;
 
         return $this;
     }
 
     /**
-     * Optional value: use when order should be colleted in single location.
+     * Optional value: use when order should be collected in single location.
      *
      * @return string|null
      */
@@ -64,7 +64,7 @@ class WmsCreateTransferRequest
     }
 
     /**
-     * Optional value: use when order should be colleted in single location.
+     * Optional value: use when order should be collected in single location.
      *
      * @param string|null $collectAt
      *

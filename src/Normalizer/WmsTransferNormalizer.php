@@ -41,11 +41,14 @@ class WmsTransferNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'to') && $data->{'to'} !== null) {
-            $object->setTo($data->{'to'});
+        if (property_exists($data, 'target') && $data->{'target'} !== null) {
+            $object->setTarget($data->{'target'});
         }
         if (property_exists($data, 'status') && $data->{'status'} !== null) {
             $object->setStatus($data->{'status'});
+        }
+        if (property_exists($data, 'collect_at') && $data->{'collect_at'} !== null) {
+            $object->setCollectAt($data->{'collect_at'});
         }
         if (property_exists($data, 'collections') && $data->{'collections'} !== null) {
             $values = [];
@@ -83,11 +86,14 @@ class WmsTransferNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getTo()) {
-            $data->{'to'} = $object->getTo();
+        if (null !== $object->getTarget()) {
+            $data->{'target'} = $object->getTarget();
         }
         if (null !== $object->getStatus()) {
             $data->{'status'} = $object->getStatus();
+        }
+        if (null !== $object->getCollectAt()) {
+            $data->{'collect_at'} = $object->getCollectAt();
         }
         if (null !== $object->getCollections()) {
             $values = [];

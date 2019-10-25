@@ -21,11 +21,15 @@ class WmsTransfer
      *
      * @var string
      */
-    protected $to;
+    protected $target;
     /**
      * @var string
      */
     protected $status;
+    /**
+     * @var string
+     */
+    protected $collectAt;
     /**
      * Optional: used when order should be packed in a single box for the target.
      *
@@ -78,21 +82,21 @@ class WmsTransfer
      *
      * @return string|null
      */
-    public function getTo(): ?string
+    public function getTarget(): ?string
     {
-        return $this->to;
+        return $this->target;
     }
 
     /**
      * Target location.
      *
-     * @param string|null $to
+     * @param string|null $target
      *
      * @return self
      */
-    public function setTo(?string $to): self
+    public function setTarget(?string $target): self
     {
-        $this->to = $to;
+        $this->target = $target;
 
         return $this;
     }
@@ -113,6 +117,26 @@ class WmsTransfer
     public function setStatus(?string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCollectAt(): ?string
+    {
+        return $this->collectAt;
+    }
+
+    /**
+     * @param string|null $collectAt
+     *
+     * @return self
+     */
+    public function setCollectAt(?string $collectAt): self
+    {
+        $this->collectAt = $collectAt;
 
         return $this;
     }

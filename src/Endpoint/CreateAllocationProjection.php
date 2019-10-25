@@ -31,7 +31,7 @@ class CreateAllocationProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoin
 
     public function getUri(): string
     {
-        return '/wms/projections';
+        return '/wms/claims/projections';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array

@@ -2603,14 +2603,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ViewrouteUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ViewrouteNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewRouteUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewRouteNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsRoute|\Psr\Http\Message\ResponseInterface|null
      */
-    public function viewroute(string $id, string $fetch = self::FETCH_OBJECT)
+    public function viewRoute(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Viewroute($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewRoute($id), $fetch);
     }
 
     /**
@@ -3063,14 +3063,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\WmsTransferReport $body  Transfer request object
      * @param string                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\AnnouceItemsForLocationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AnnouceItemsForLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\AnnounceItemsForLocationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AnnounceItemsForLocationNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsClaim|\Psr\Http\Message\ResponseInterface|null
      */
-    public function annouceItemsForLocation(string $id, \Afosto\Sdk\Model\WmsTransferReport $body, string $fetch = self::FETCH_OBJECT)
+    public function announceItemsForLocation(string $id, \Afosto\Sdk\Model\WmsTransferReport $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AnnouceItemsForLocation($id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AnnounceItemsForLocation($id, $body), $fetch);
     }
 
     /**

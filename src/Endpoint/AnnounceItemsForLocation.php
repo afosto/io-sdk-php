@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class AnnouceItemsForLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class AnnounceItemsForLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     protected $id;
 
@@ -35,7 +35,7 @@ class AnnouceItemsForLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint i
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/wms/claims/{id}/report');
+        return str_replace(['{id}'], [$this->id], '/wms/transfer/{id}/report');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -51,8 +51,8 @@ class AnnouceItemsForLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint i
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\AnnouceItemsForLocationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AnnouceItemsForLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\AnnounceItemsForLocationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AnnounceItemsForLocationNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsClaim|null
      */
@@ -62,10 +62,10 @@ class AnnouceItemsForLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint i
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsClaim', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\AnnouceItemsForLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\AnnounceItemsForLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\AnnouceItemsForLocationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\AnnounceItemsForLocationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }
