@@ -10,14 +10,14 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class CreateAllocationProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class CreateTransferProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * Create a Projection to generate the available allocation options.
+     * Create an optimized set of claims.
      *
-     * @param \Afosto\Sdk\Model\WmsCreateProjectionRequest $body
+     * @param \Afosto\Sdk\Model\WmsCreateTransferRequest $body
      */
-    public function __construct(\Afosto\Sdk\Model\WmsCreateProjectionRequest $body)
+    public function __construct(\Afosto\Sdk\Model\WmsCreateTransferRequest $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class CreateAllocationProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoin
 
     public function getUri(): string
     {
-        return '/wms/claims/projections';
+        return '/wms/transfers/projection';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -47,21 +47,21 @@ class CreateAllocationProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoin
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\CreateAllocationProjectionUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateAllocationProjectionNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateTransferProjectionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateTransferProjectionNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsProjection|null
+     * @return \Afosto\Sdk\Model\WmsTransfer|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsProjection', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsTransfer', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\CreateAllocationProjectionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\CreateTransferProjectionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\CreateAllocationProjectionNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\CreateTransferProjectionNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

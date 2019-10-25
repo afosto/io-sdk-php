@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class CreateAllocationProjectionNotFoundException extends \RuntimeException implements ClientException
+class GetClaimNotFoundException extends \RuntimeException implements ClientException
 {
     private $error;
 

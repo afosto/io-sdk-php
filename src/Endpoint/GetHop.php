@@ -15,7 +15,7 @@ class GetHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\O
     protected $id;
 
     /**
-     * View an hop.
+     * Get a hop.
      *
      * @param string $id
      */

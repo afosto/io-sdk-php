@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Endpoint;
 class CreateTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * Create an optimized set of claims.
+     * Create a new transfer.
      *
      * @param \Afosto\Sdk\Model\WmsCreateTransferRequest $body
      */
@@ -31,7 +31,7 @@ class CreateTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 
     public function getUri(): string
     {
-        return '/wms/transfer';
+        return '/wms/transfers';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array

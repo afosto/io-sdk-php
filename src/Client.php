@@ -2582,7 +2582,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Delete a route.
+     * Marks a route as deleted.
      *
      * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -2683,19 +2683,19 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * View a location.
+     * Get a location.
      *
      * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ViewLocationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ViewLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetLocationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetLocationNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsLocation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function viewLocation(string $id, string $fetch = self::FETCH_OBJECT)
+    public function getLocation(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewLocation($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetLocation($id), $fetch);
     }
 
     /**
@@ -2768,7 +2768,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * View an hop.
+     * Get a hop.
      *
      * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -2858,7 +2858,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * View a schedule.
+     * Get a schedule.
      *
      * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -2874,7 +2874,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * returns the duration for a route.
+     * returns a real time calculation for the route.
      *
      * @param \Afosto\Sdk\Model\WmsCreateDurationRequest $body  Hop model
      * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -2890,7 +2890,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * List all warehouses.
+     * Get a list of warehouses.
      *
      * @param array $headerParameters {
      *
@@ -2943,7 +2943,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Show the details of a warehouse.
+     * Get a warehouse.
      *
      * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -2964,14 +2964,35 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\WmsCreateProjectionRequest $body
      * @param string                                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\CreateAllocationProjectionUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateAllocationProjectionNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateClaimProjectionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateClaimProjectionNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsProjection|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createAllocationProjection(\Afosto\Sdk\Model\WmsCreateProjectionRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function createClaimProjection(\Afosto\Sdk\Model\WmsCreateProjectionRequest $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateAllocationProjection($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateClaimProjection($body), $fetch);
+    }
+
+    /**
+     * Get a claim and it's status.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $X-Page-Size
+     *     @var int $X-Page
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetClaimUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetClaimNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\WmsClaim[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getClaim(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetClaim($headerParameters), $fetch);
     }
 
     /**
@@ -2991,36 +3012,19 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Release the claim to make inventory available again.
-     *
-     * @param string                                  $id
-     * @param \Afosto\Sdk\Model\WmsCreateClaimRequest $body
-     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ReleaseClaimUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ReleaseClaimNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\WmsClaim|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function releaseClaim(string $id, \Afosto\Sdk\Model\WmsCreateClaimRequest $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ReleaseClaim($id, $body), $fetch);
-    }
-
-    /**
-     * View a claim and it's status.
+     * Get a claim and it's status.
      *
      * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ViewClaimUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ViewClaimNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetClaimsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetClaimsNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsClaim|\Psr\Http\Message\ResponseInterface|null
      */
-    public function viewClaim(string $id, string $fetch = self::FETCH_OBJECT)
+    public function getClaims(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewClaim($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetClaims($id), $fetch);
     }
 
     /**
@@ -3057,6 +3061,91 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Create an optimized set of claims.
+     *
+     * @param \Afosto\Sdk\Model\WmsCreateTransferRequest $body
+     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateTransferProjectionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateTransferProjectionNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\WmsTransfer|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createTransferProjection(\Afosto\Sdk\Model\WmsCreateTransferRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateTransferProjection($body), $fetch);
+    }
+
+    /**
+     * Create an optimized set of claims.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetTransfersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetTransfersNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\WmsTransfer[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getTransfers(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTransfers($headerParameters), $fetch);
+    }
+
+    /**
+     * Create a new transfer.
+     *
+     * @param \Afosto\Sdk\Model\WmsCreateTransferRequest $body
+     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateTransferUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateTransferNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\WmsTransfer|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createTransfer(\Afosto\Sdk\Model\WmsCreateTransferRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateTransfer($body), $fetch);
+    }
+
+    /**
+     * Update items' last known location.
+     *
+     * @param \Afosto\Sdk\Model\WmsUpdateTransferRequest $body  Transfer request object
+     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateTransferUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateTransferNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\WmsTransfer|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateTransfer(\Afosto\Sdk\Model\WmsUpdateTransferRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateTransfer($body), $fetch);
+    }
+
+    /**
+     * Create an optimized set of claims.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetTransferUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetTransferNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\WmsTransfer|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getTransfer(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTransfer($id), $fetch);
+    }
+
+    /**
      * Update items' last known location.
      *
      * @param string                              $id    Transfer id
@@ -3074,19 +3163,24 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Create an optimized set of claims.
+     * Get a list of warehouse items.
      *
-     * @param \Afosto\Sdk\Model\WmsCreateTransferRequest $body
-     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param array $headerParameters {
      *
-     * @throws \Afosto\Sdk\Exception\CreateTransferUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateTransferNotFoundException
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
      *
-     * @return \Afosto\Sdk\Model\WmsTransfer|\Psr\Http\Message\ResponseInterface|null
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\WmsWarehouseItem[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createTransfer(\Afosto\Sdk\Model\WmsCreateTransferRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function getWarehouseItems(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateTransfer($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWarehouseItems($headerParameters), $fetch);
     }
 
     /**
@@ -3095,43 +3189,22 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ViewTransferUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ViewTransferNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsTransfer|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsWarehouseItem|\Psr\Http\Message\ResponseInterface|null
      */
-    public function viewTransfer(string $id, string $fetch = self::FETCH_OBJECT)
+    public function getWarehouseItem(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewTransfer($id), $fetch);
-    }
-
-    /**
-     * Create an optimized set of claims.
-     *
-     * @param \Afosto\Sdk\Model\WmsCreateInventoryRequest $body
-     * @param array                                       $headerParameters {
-     *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetInventoryUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetInventoryNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\WmsInventory|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getInventory(\Afosto\Sdk\Model\WmsCreateInventoryRequest $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInventory($body, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWarehouseItem($id), $fetch);
     }
 
     /**
      * Update the warehouse item.
      *
-     * @param \Afosto\Sdk\Model\WmsUpdateItemRequest $body
-     * @param array                                  $headerParameters {
+     * @param string                                          $id
+     * @param \Afosto\Sdk\Model\WmsUpdateWarehouseItemRequest $body
+     * @param array                                           $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
@@ -3142,11 +3215,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateItemNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsInventory|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsWarehouseItem|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateItem(\Afosto\Sdk\Model\WmsUpdateItemRequest $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function updateItem(string $id, \Afosto\Sdk\Model\WmsUpdateWarehouseItemRequest $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateItem($body, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateItem($id, $body, $headerParameters), $fetch);
     }
 
     /**

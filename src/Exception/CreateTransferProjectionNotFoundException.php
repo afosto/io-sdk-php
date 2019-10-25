@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class ViewClaimNotFoundException extends \RuntimeException implements ClientException
+class CreateTransferProjectionNotFoundException extends \RuntimeException implements ClientException
 {
     private $error;
 

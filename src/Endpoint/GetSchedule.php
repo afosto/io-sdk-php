@@ -15,7 +15,7 @@ class GetSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     protected $id;
 
     /**
-     * View a schedule.
+     * Get a schedule.
      *
      * @param string $id
      */

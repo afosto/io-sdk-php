@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class GetInventoryNotFoundException extends \RuntimeException implements ClientException
+class GetLocationNotFoundException extends \RuntimeException implements ClientException
 {
     private $error;
 

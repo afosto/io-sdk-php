@@ -10,10 +10,10 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class GetWarehouses extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class GetTransfers extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * Get a list of warehouses.
+     * Create an optimized set of claims.
      *
      * @param array $headerParameters {
      *
@@ -35,7 +35,7 @@ class GetWarehouses extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getUri(): string
     {
-        return '/wms/warehouses';
+        return '/wms/transfers';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -63,21 +63,21 @@ class GetWarehouses extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\GetWarehousesUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetWarehousesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetTransfersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetTransfersNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsWarehouse[]|null
+     * @return \Afosto\Sdk\Model\WmsTransfer[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsWarehouse[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsTransfer[]', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\GetWarehousesUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetTransfersUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\GetWarehousesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetTransfersNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

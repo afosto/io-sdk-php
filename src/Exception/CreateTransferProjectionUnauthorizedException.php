@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class GetInventoryUnauthorizedException extends \RuntimeException implements ClientException
+class CreateTransferProjectionUnauthorizedException extends \RuntimeException implements ClientException
 {
     private $error;
 

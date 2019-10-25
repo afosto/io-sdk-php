@@ -10,12 +10,12 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class ViewTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class GetClaims extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     protected $id;
 
     /**
-     * Create an optimized set of claims.
+     * Get a claim and it's status.
      *
      * @param string $id
      */
@@ -33,7 +33,7 @@ class ViewTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/wms/transfer/{id}');
+        return str_replace(['{id}'], [$this->id], '/wms/claims/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -49,21 +49,21 @@ class ViewTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ViewTransferUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ViewTransferNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetClaimsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetClaimsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsTransfer|null
+     * @return \Afosto\Sdk\Model\WmsClaim|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsTransfer', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsClaim', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ViewTransferUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetClaimsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\ViewTransferNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetClaimsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class ViewClaimUnauthorizedException extends \RuntimeException implements ClientException
+class GetClaimUnauthorizedException extends \RuntimeException implements ClientException
 {
     private $error;
 

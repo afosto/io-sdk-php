@@ -10,12 +10,12 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class ViewClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class GetLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     protected $id;
 
     /**
-     * View a claim and it's status.
+     * Get a location.
      *
      * @param string $id
      */
@@ -33,7 +33,7 @@ class ViewClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/wms/claims/{id}');
+        return str_replace(['{id}'], [$this->id], '/wms/locations/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -49,21 +49,21 @@ class ViewClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ViewClaimUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ViewClaimNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetLocationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetLocationNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsClaim|null
+     * @return \Afosto\Sdk\Model\WmsLocation|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsClaim', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsLocation', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ViewClaimUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\ViewClaimNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetLocationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

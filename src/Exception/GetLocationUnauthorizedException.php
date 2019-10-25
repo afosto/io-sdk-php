@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class ViewLocationUnauthorizedException extends \RuntimeException implements ClientException
+class GetLocationUnauthorizedException extends \RuntimeException implements ClientException
 {
     private $error;
 

@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class WmsCreateInventoryRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class WmsUpdateTransferRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsCreateInventoryRequest';
+        return $type === 'Afosto\\Sdk\\Model\\WmsUpdateTransferRequest';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsCreateInventoryRequest';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsUpdateTransferRequest';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,13 +37,12 @@ class WmsCreateInventoryRequestNormalizer implements DenormalizerInterface, Norm
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\WmsCreateInventoryRequest();
-        if (property_exists($data, 'constraints') && $data->{'constraints'} !== null) {
-            $values = [];
-            foreach ($data->{'constraints'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsInventoryConstraint', 'json', $context);
-            }
-            $object->setConstraints($values);
+        $object = new \Afosto\Sdk\Model\WmsUpdateTransferRequest();
+        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+            $object->setId($data->{'id'});
+        }
+        if (property_exists($data, 'route_id') && $data->{'route_id'} !== null) {
+            $object->setRouteId($data->{'route_id'});
         }
 
         return $object;
@@ -52,12 +51,11 @@ class WmsCreateInventoryRequestNormalizer implements DenormalizerInterface, Norm
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getConstraints()) {
-            $values = [];
-            foreach ($object->getConstraints() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data->{'constraints'} = $values;
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
+        }
+        if (null !== $object->getRouteId()) {
+            $data->{'route_id'} = $object->getRouteId();
         }
 
         return $data;

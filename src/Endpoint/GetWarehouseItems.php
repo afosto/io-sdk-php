@@ -10,21 +10,19 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class GetInventory extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class GetWarehouseItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * Create an optimized set of claims.
+     * Get a list of warehouse items.
      *
-     * @param \Afosto\Sdk\Model\WmsCreateInventoryRequest $body
-     * @param array                                       $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
      * }
      */
-    public function __construct(\Afosto\Sdk\Model\WmsCreateInventoryRequest $body, array $headerParameters = [])
+    public function __construct(array $headerParameters = [])
     {
-        $this->body = $body;
         $this->headerParameters = $headerParameters;
     }
 
@@ -32,7 +30,7 @@ class GetInventory extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getMethod(): string
     {
-        return 'POST';
+        return 'GET';
     }
 
     public function getUri(): string
@@ -42,7 +40,7 @@ class GetInventory extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
     {
-        return $this->getSerializedBody($serializer);
+        return [[], null];
     }
 
     public function getExtraHeaders(): array
@@ -65,21 +63,21 @@ class GetInventory extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\GetInventoryUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetInventoryNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsInventory|null
+     * @return \Afosto\Sdk\Model\WmsWarehouseItem[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsInventory', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsWarehouseItem[]', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\GetInventoryUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetWarehouseItemsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\GetInventoryNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetWarehouseItemsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

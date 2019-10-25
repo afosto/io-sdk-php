@@ -15,7 +15,7 @@ class DeleteRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     protected $id;
 
     /**
-     * Delete a route.
+     * Marks a route as deleted.
      *
      * @param string $id
      */

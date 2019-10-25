@@ -12,18 +12,22 @@ namespace Afosto\Sdk\Endpoint;
 
 class UpdateItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
+    protected $id;
+
     /**
      * Update the warehouse item.
      *
-     * @param \Afosto\Sdk\Model\WmsUpdateItemRequest $body
-     * @param array                                  $headerParameters {
+     * @param string                                          $id
+     * @param \Afosto\Sdk\Model\WmsUpdateWarehouseItemRequest $body
+     * @param array                                           $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
      * }
      */
-    public function __construct(\Afosto\Sdk\Model\WmsUpdateItemRequest $body, array $headerParameters = [])
+    public function __construct(string $id, \Afosto\Sdk\Model\WmsUpdateWarehouseItemRequest $body, array $headerParameters = [])
     {
+        $this->id = $id;
         $this->body = $body;
         $this->headerParameters = $headerParameters;
     }
@@ -37,7 +41,7 @@ class UpdateItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     public function getUri(): string
     {
-        return '/wms/inventory';
+        return str_replace(['{id}'], [$this->id], '/wms/inventory/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -68,12 +72,12 @@ class UpdateItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      * @throws \Afosto\Sdk\Exception\UpdateItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateItemNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsInventory|null
+     * @return \Afosto\Sdk\Model\WmsWarehouseItem|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsInventory', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsWarehouseItem', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateItemUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

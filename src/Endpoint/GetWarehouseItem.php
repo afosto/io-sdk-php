@@ -10,12 +10,12 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class ViewLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class GetWarehouseItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     protected $id;
 
     /**
-     * View a location.
+     * Create an optimized set of claims.
      *
      * @param string $id
      */
@@ -33,7 +33,7 @@ class ViewLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/wms/locations/{id}');
+        return str_replace(['{id}'], [$this->id], '/wms/inventory/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -49,21 +49,21 @@ class ViewLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ViewLocationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ViewLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsLocation|null
+     * @return \Afosto\Sdk\Model\WmsWarehouseItem|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsLocation', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsWarehouseItem', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ViewLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetWarehouseItemUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\ViewLocationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetWarehouseItemNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

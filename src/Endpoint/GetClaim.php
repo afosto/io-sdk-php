@@ -10,15 +10,15 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class GetWarehouses extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class GetClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * Get a list of warehouses.
+     * Get a claim and it's status.
      *
      * @param array $headerParameters {
      *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
+     *     @var int $X-Page-Size
+     *     @var int $X-Page
      * }
      */
     public function __construct(array $headerParameters = [])
@@ -35,7 +35,7 @@ class GetWarehouses extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getUri(): string
     {
-        return '/wms/warehouses';
+        return '/wms/claims';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -51,11 +51,11 @@ class GetWarehouses extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getHeadersOptionsResolver();
-        $optionsResolver->setDefined(['x-page', 'x-page-size']);
+        $optionsResolver->setDefined(['X-Page-Size', 'X-Page']);
         $optionsResolver->setRequired([]);
-        $optionsResolver->setDefaults([]);
-        $optionsResolver->setAllowedTypes('x-page', ['string']);
-        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
+        $optionsResolver->setDefaults(['X-Page-Size' => 25, 'X-Page' => 1]);
+        $optionsResolver->setAllowedTypes('X-Page-Size', ['int']);
+        $optionsResolver->setAllowedTypes('X-Page', ['int']);
 
         return $optionsResolver;
     }
@@ -63,21 +63,21 @@ class GetWarehouses extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\GetWarehousesUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetWarehousesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetClaimUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetClaimNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsWarehouse[]|null
+     * @return \Afosto\Sdk\Model\WmsClaim[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsWarehouse[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsClaim[]', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\GetWarehousesUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetClaimUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\GetWarehousesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetClaimNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

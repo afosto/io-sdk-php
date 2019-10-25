@@ -10,14 +10,14 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class GetDurationForRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class CreateClaimProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
 {
     /**
-     * returns a real time calculation for the route.
+     * Create a Projection to generate the available allocation options.
      *
-     * @param \Afosto\Sdk\Model\WmsCreateDurationRequest $body Hop model
+     * @param \Afosto\Sdk\Model\WmsCreateProjectionRequest $body
      */
-    public function __construct(\Afosto\Sdk\Model\WmsCreateDurationRequest $body)
+    public function __construct(\Afosto\Sdk\Model\WmsCreateProjectionRequest $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class GetDurationForRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
 
     public function getUri(): string
     {
-        return '/wms/duration';
+        return '/wms/claims/projections';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
@@ -47,21 +47,21 @@ class GetDurationForRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\GetDurationForRouteUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetDurationForRouteNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateClaimProjectionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateClaimProjectionNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsDuration|null
+     * @return \Afosto\Sdk\Model\WmsProjection|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsDuration', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsProjection', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\GetDurationForRouteUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\CreateClaimProjectionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\GetDurationForRouteNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\CreateClaimProjectionNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -35,7 +35,7 @@ class AnnounceItemsForLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/wms/transfer/{id}/report');
+        return str_replace(['{id}'], [$this->id], '/wms/transfers/{id}/report');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array

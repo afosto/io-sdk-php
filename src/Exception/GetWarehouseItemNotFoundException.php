@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class ReleaseClaimNotFoundException extends \RuntimeException implements ClientException
+class GetWarehouseItemNotFoundException extends \RuntimeException implements ClientException
 {
     private $error;
 
