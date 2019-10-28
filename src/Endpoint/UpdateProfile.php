@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class UpdateProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class UpdateProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     protected $path;
 
@@ -26,7 +26,7 @@ class UpdateProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         $this->body = $body;
     }
 
-    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
 
     public function getMethod(): string
     {
@@ -38,7 +38,7 @@ class UpdateProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         return str_replace(['{path}'], [$this->path], '/iam/profiles/{path}');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return [[], $this->body];
     }
@@ -56,7 +56,7 @@ class UpdateProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      * @throws \Afosto\Sdk\Exception\UpdateProfileForbiddenException
      * @throws \Afosto\Sdk\Exception\UpdateProfileConflictException
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateProfileBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error[]', 'json'));

@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class GetProfileDefinitions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class GetProfileDefinitions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     protected $path;
 
@@ -24,7 +24,7 @@ class GetProfileDefinitions extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
         $this->path = $path;
     }
 
-    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
 
     public function getMethod(): string
     {
@@ -36,7 +36,7 @@ class GetProfileDefinitions extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
         return str_replace(['{path}'], [$this->path], '/iam/profiles/{path}/definition');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return [[], null];
     }
@@ -53,7 +53,7 @@ class GetProfileDefinitions extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
      * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsForbiddenException
      * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsNotFoundException
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return json_decode($body);

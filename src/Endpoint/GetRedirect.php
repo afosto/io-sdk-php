@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class GetRedirect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class GetRedirect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
      * Returns a new authorization response.
@@ -35,7 +35,7 @@ class GetRedirect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         $this->headerParameters = $headerParameters;
     }
 
-    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
 
     public function getMethod(): string
     {
@@ -47,7 +47,7 @@ class GetRedirect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         return '/iam/oauth/authorize';
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return [[], null];
     }
@@ -92,7 +92,7 @@ class GetRedirect extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @return \Afosto\Sdk\Model\IamAuthorizationResponse|null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamAuthorizationResponse', 'json');

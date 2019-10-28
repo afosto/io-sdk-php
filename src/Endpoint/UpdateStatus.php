@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class UpdateStatus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7HttplugEndpoint
+class UpdateStatus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     protected $reference;
 
@@ -24,7 +24,7 @@ class UpdateStatus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         $this->body = $body;
     }
 
-    use \Jane\OpenApiRuntime\Client\Psr7HttplugEndpointTrait;
+    use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
 
     public function getMethod(): string
     {
@@ -36,7 +36,7 @@ class UpdateStatus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         return str_replace(['{reference}'], [$this->reference], '/spl/queue/{reference}');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, \Http\Message\StreamFactory $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         return $this->getSerializedBody($serializer);
     }
@@ -55,7 +55,7 @@ class UpdateStatus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @return \Afosto\Sdk\Model\SplJobResult|null
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (201 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\SplJobResult', 'json');
