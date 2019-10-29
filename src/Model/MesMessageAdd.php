@@ -21,7 +21,9 @@ class MesMessageAdd
      */
     protected $isPrivate;
     /**
-     * @var mixed
+     * additional metadata that applies to the item.
+     *
+     * @var string[]
      */
     protected $metadata;
     /**
@@ -70,19 +72,23 @@ class MesMessageAdd
     }
 
     /**
-     * @return mixed
+     * additional metadata that applies to the item.
+     *
+     * @return string[]|null
      */
-    public function getMetadata()
+    public function getMetadata(): ?\ArrayObject
     {
         return $this->metadata;
     }
 
     /**
-     * @param mixed $metadata
+     * additional metadata that applies to the item.
+     *
+     * @param string[]|null $metadata
      *
      * @return self
      */
-    public function setMetadata($metadata): self
+    public function setMetadata(?\ArrayObject $metadata): self
     {
         $this->metadata = $metadata;
 

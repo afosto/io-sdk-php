@@ -65,7 +65,11 @@ class MesConversationNormalizer implements DenormalizerInterface, NormalizerInte
             $object->setParticipants($values_1);
         }
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
-            $object->setMetadata($data->{'metadata'});
+            $values_2 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data->{'metadata'} as $key => $value_2) {
+                $values_2[$key] = $value_2;
+            }
+            $object->setMetadata($values_2);
         }
         if (property_exists($data, 'started_at') && $data->{'started_at'} !== null) {
             $object->setStartedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'started_at'}));
@@ -113,7 +117,11 @@ class MesConversationNormalizer implements DenormalizerInterface, NormalizerInte
             $data->{'participants'} = $values_1;
         }
         if (null !== $object->getMetadata()) {
-            $data->{'metadata'} = $object->getMetadata();
+            $values_2 = new \stdClass();
+            foreach ($object->getMetadata() as $key => $value_2) {
+                $values_2->{$key} = $value_2;
+            }
+            $data->{'metadata'} = $values_2;
         }
         if (null !== $object->getStartedAt()) {
             $data->{'started_at'} = $object->getStartedAt()->format("Y-m-d\TH:i:sP");

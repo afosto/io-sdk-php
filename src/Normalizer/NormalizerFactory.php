@@ -24,7 +24,6 @@ class NormalizerFactory
         $normalizers[] = new MesSearchConstraintNormalizer();
         $normalizers[] = new MesSearchNormalizer();
         $normalizers[] = new MesConversationCreateNormalizer();
-        $normalizers[] = new MesMessageCreateNormalizer();
         $normalizers[] = new MesMessageAddNormalizer();
         $normalizers[] = new MesParticipantCreateNormalizer();
         $normalizers[] = new MesSubscriptionNormalizer();

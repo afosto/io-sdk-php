@@ -45,7 +45,11 @@ class MesMessageAddNormalizer implements DenormalizerInterface, NormalizerInterf
             $object->setIsPrivate($data->{'is_private'});
         }
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
-            $object->setMetadata($data->{'metadata'});
+            $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data->{'metadata'} as $key => $value) {
+                $values[$key] = $value;
+            }
+            $object->setMetadata($values);
         }
         if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
             $object->setReference($data->{'reference'});
@@ -64,7 +68,11 @@ class MesMessageAddNormalizer implements DenormalizerInterface, NormalizerInterf
             $data->{'is_private'} = $object->getIsPrivate();
         }
         if (null !== $object->getMetadata()) {
-            $data->{'metadata'} = $object->getMetadata();
+            $values = new \stdClass();
+            foreach ($object->getMetadata() as $key => $value) {
+                $values->{$key} = $value;
+            }
+            $data->{'metadata'} = $values;
         }
         if (null !== $object->getReference()) {
             $data->{'reference'} = $object->getReference();

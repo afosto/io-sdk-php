@@ -50,14 +50,15 @@ class MesConversationCreateNormalizer implements DenormalizerInterface, Normaliz
         if (property_exists($data, 'entity_id') && $data->{'entity_id'} !== null) {
             $object->setEntityId($data->{'entity_id'});
         }
-        if (property_exists($data, 'messages') && $data->{'messages'} !== null) {
-            $object->setMessages($this->denormalizer->denormalize($data->{'messages'}, 'Afosto\\Sdk\\Model\\MesMessageCreate', 'json', $context));
-        }
         if (property_exists($data, 'participant') && $data->{'participant'} !== null) {
             $object->setParticipant($this->denormalizer->denormalize($data->{'participant'}, 'Afosto\\Sdk\\Model\\MesParticipantCreate', 'json', $context));
         }
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
-            $object->setMetadata($data->{'metadata'});
+            $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data->{'metadata'} as $key => $value) {
+                $values[$key] = $value;
+            }
+            $object->setMetadata($values);
         }
         if (property_exists($data, 'expires_at') && $data->{'expires_at'} !== null) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
@@ -81,14 +82,15 @@ class MesConversationCreateNormalizer implements DenormalizerInterface, Normaliz
         if (null !== $object->getEntityId()) {
             $data->{'entity_id'} = $object->getEntityId();
         }
-        if (null !== $object->getMessages()) {
-            $data->{'messages'} = $this->normalizer->normalize($object->getMessages(), 'json', $context);
-        }
         if (null !== $object->getParticipant()) {
             $data->{'participant'} = $this->normalizer->normalize($object->getParticipant(), 'json', $context);
         }
         if (null !== $object->getMetadata()) {
-            $data->{'metadata'} = $object->getMetadata();
+            $values = new \stdClass();
+            foreach ($object->getMetadata() as $key => $value) {
+                $values->{$key} = $value;
+            }
+            $data->{'metadata'} = $values;
         }
         if (null !== $object->getExpiresAt()) {
             $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");
