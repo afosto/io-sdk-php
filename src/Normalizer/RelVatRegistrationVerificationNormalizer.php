@@ -44,8 +44,8 @@ class RelVatRegistrationVerificationNormalizer implements DenormalizerInterface,
         if (property_exists($data, 'is_valid') && $data->{'is_valid'} !== null) {
             $object->setIsValid($data->{'is_valid'});
         }
-        if (property_exists($data, 'country') && $data->{'country'} !== null) {
-            $object->setCountry($data->{'country'});
+        if (property_exists($data, 'country_code') && $data->{'country_code'} !== null) {
+            $object->setCountryCode($data->{'country_code'});
         }
         if (property_exists($data, 'name') && $data->{'name'} !== null) {
             $object->setName($data->{'name'});
@@ -72,8 +72,8 @@ class RelVatRegistrationVerificationNormalizer implements DenormalizerInterface,
         if (null !== $object->getIsValid()) {
             $data->{'is_valid'} = $object->getIsValid();
         }
-        if (null !== $object->getCountry()) {
-            $data->{'country'} = $object->getCountry();
+        if (null !== $object->getCountryCode()) {
+            $data->{'country_code'} = $object->getCountryCode();
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();

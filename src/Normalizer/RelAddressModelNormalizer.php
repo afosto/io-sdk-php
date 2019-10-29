@@ -38,8 +38,8 @@ class RelAddressModelNormalizer implements DenormalizerInterface, NormalizerInte
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelAddressModel();
-        if (property_exists($data, 'country') && $data->{'country'} !== null) {
-            $object->setCountry($data->{'country'});
+        if (property_exists($data, 'country_code') && $data->{'country_code'} !== null) {
+            $object->setCountryCode($data->{'country_code'});
         }
         if (property_exists($data, 'administrative_area') && $data->{'administrative_area'} !== null) {
             $object->setAdministrativeArea($data->{'administrative_area'});
@@ -90,8 +90,8 @@ class RelAddressModelNormalizer implements DenormalizerInterface, NormalizerInte
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getCountry()) {
-            $data->{'country'} = $object->getCountry();
+        if (null !== $object->getCountryCode()) {
+            $data->{'country_code'} = $object->getCountryCode();
         }
         if (null !== $object->getAdministrativeArea()) {
             $data->{'administrative_area'} = $object->getAdministrativeArea();

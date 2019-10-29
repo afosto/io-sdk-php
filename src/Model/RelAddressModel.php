@@ -17,7 +17,7 @@ class RelAddressModel
      *
      * @var string
      */
-    protected $country;
+    protected $countryCode;
     /**
      * The state or province name or abbreviation (optional).
      *
@@ -102,21 +102,21 @@ class RelAddressModel
      *
      * @return string|null
      */
-    public function getCountry(): ?string
+    public function getCountryCode(): ?string
     {
-        return $this->country;
+        return $this->countryCode;
     }
 
     /**
      * Two letter country code.
      *
-     * @param string|null $country
+     * @param string|null $countryCode
      *
      * @return self
      */
-    public function setCountry(?string $country): self
+    public function setCountryCode(?string $countryCode): self
     {
-        $this->country = $country;
+        $this->countryCode = $countryCode;
 
         return $this;
     }
