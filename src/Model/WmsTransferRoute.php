@@ -23,31 +23,17 @@ class WmsTransferRoute
      */
     protected $from;
     /**
-     * Location id.
-     *
      * @var string
      */
-    protected $to;
+    protected $status;
     /**
      * @var string
      */
     protected $stackReference;
     /**
-     * @var string[]
-     */
-    protected $hops;
-    /**
-     * @var string[]
-     */
-    protected $claims;
-    /**
      * @var \DateTime
      */
     protected $expectedAt;
-    /**
-     * @var \DateTime
-     */
-    protected $updatedAt;
 
     /**
      * @return string|null
@@ -94,25 +80,21 @@ class WmsTransferRoute
     }
 
     /**
-     * Location id.
-     *
      * @return string|null
      */
-    public function getTo(): ?string
+    public function getStatus(): ?string
     {
-        return $this->to;
+        return $this->status;
     }
 
     /**
-     * Location id.
-     *
-     * @param string|null $to
+     * @param string|null $status
      *
      * @return self
      */
-    public function setTo(?string $to): self
+    public function setStatus(?string $status): self
     {
-        $this->to = $to;
+        $this->status = $status;
 
         return $this;
     }
@@ -138,46 +120,6 @@ class WmsTransferRoute
     }
 
     /**
-     * @return string[]|null
-     */
-    public function getHops(): ?array
-    {
-        return $this->hops;
-    }
-
-    /**
-     * @param string[]|null $hops
-     *
-     * @return self
-     */
-    public function setHops(?array $hops): self
-    {
-        $this->hops = $hops;
-
-        return $this;
-    }
-
-    /**
-     * @return string[]|null
-     */
-    public function getClaims(): ?array
-    {
-        return $this->claims;
-    }
-
-    /**
-     * @param string[]|null $claims
-     *
-     * @return self
-     */
-    public function setClaims(?array $claims): self
-    {
-        $this->claims = $claims;
-
-        return $this;
-    }
-
-    /**
      * @return \DateTime|null
      */
     public function getExpectedAt(): ?\DateTime
@@ -193,26 +135,6 @@ class WmsTransferRoute
     public function setExpectedAt(?\DateTime $expectedAt): self
     {
         $this->expectedAt = $expectedAt;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt(): ?\DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
-    public function setUpdatedAt(?\DateTime $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
 
         return $this;
     }

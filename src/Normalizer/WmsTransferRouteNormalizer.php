@@ -44,31 +44,14 @@ class WmsTransferRouteNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'from') && $data->{'from'} !== null) {
             $object->setFrom($data->{'from'});
         }
-        if (property_exists($data, 'to') && $data->{'to'} !== null) {
-            $object->setTo($data->{'to'});
+        if (property_exists($data, 'status') && $data->{'status'} !== null) {
+            $object->setStatus($data->{'status'});
         }
         if (property_exists($data, 'stack_reference') && $data->{'stack_reference'} !== null) {
             $object->setStackReference($data->{'stack_reference'});
         }
-        if (property_exists($data, 'hops') && $data->{'hops'} !== null) {
-            $values = [];
-            foreach ($data->{'hops'} as $value) {
-                $values[] = $value;
-            }
-            $object->setHops($values);
-        }
-        if (property_exists($data, 'claims') && $data->{'claims'} !== null) {
-            $values_1 = [];
-            foreach ($data->{'claims'} as $value_1) {
-                $values_1[] = $value_1;
-            }
-            $object->setClaims($values_1);
-        }
         if (property_exists($data, 'expected_at') && $data->{'expected_at'} !== null) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
-        }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
-            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 
         return $object;
@@ -83,31 +66,14 @@ class WmsTransferRouteNormalizer implements DenormalizerInterface, NormalizerInt
         if (null !== $object->getFrom()) {
             $data->{'from'} = $object->getFrom();
         }
-        if (null !== $object->getTo()) {
-            $data->{'to'} = $object->getTo();
+        if (null !== $object->getStatus()) {
+            $data->{'status'} = $object->getStatus();
         }
         if (null !== $object->getStackReference()) {
             $data->{'stack_reference'} = $object->getStackReference();
         }
-        if (null !== $object->getHops()) {
-            $values = [];
-            foreach ($object->getHops() as $value) {
-                $values[] = $value;
-            }
-            $data->{'hops'} = $values;
-        }
-        if (null !== $object->getClaims()) {
-            $values_1 = [];
-            foreach ($object->getClaims() as $value_1) {
-                $values_1[] = $value_1;
-            }
-            $data->{'claims'} = $values_1;
-        }
         if (null !== $object->getExpectedAt()) {
             $data->{'expected_at'} = $object->getExpectedAt()->format("Y-m-d\TH:i:sP");
-        }
-        if (null !== $object->getUpdatedAt()) {
-            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

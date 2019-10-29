@@ -3148,18 +3148,17 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update items' last known location.
      *
-     * @param string                              $id    Transfer id
      * @param \Afosto\Sdk\Model\WmsTransferReport $body  Transfer request object
      * @param string                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\AnnounceItemsForLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AnnounceItemsForLocationNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsClaim|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsWarehouseItem[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function announceItemsForLocation(string $id, \Afosto\Sdk\Model\WmsTransferReport $body, string $fetch = self::FETCH_OBJECT)
+    public function announceItemsForLocation(\Afosto\Sdk\Model\WmsTransferReport $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AnnounceItemsForLocation($id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AnnounceItemsForLocation($body), $fetch);
     }
 
     /**
