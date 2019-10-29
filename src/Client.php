@@ -3955,6 +3955,22 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Transform HTML into a PDF.
+     *
+     * @param \Afosto\Sdk\Model\CntHtmlToPdfRequest $body
+     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GeneratePDFBadRequestException
+     * @throws \Afosto\Sdk\Exception\GeneratePDFUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\CntFile|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function generatePDF(\Afosto\Sdk\Model\CntHtmlToPdfRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GeneratePDF($body), $fetch);
+    }
+
+    /**
      * Create a new phonenumber.
      *
      * @param \Afosto\Sdk\Model\OdrPhonenumberModel $body

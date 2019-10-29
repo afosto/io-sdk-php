@@ -247,6 +247,8 @@ class NormalizerFactory
         $normalizers[] = new OdrSearchNormalizer();
         $normalizers[] = new OdrSkuNormalizer();
         $normalizers[] = new OdrSkuResultNormalizer();
+        $normalizers[] = new CntHtmlToPdfRequestNormalizer();
+        $normalizers[] = new CntHtmlToPdfRequestMarginNormalizer();
         $normalizers[] = new OdrPhonenumberModelNormalizer();
         $normalizers[] = new OdrPhonenumberNormalizer();
         $normalizers[] = new CatGroupNormalizer();
