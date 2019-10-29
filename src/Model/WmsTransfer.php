@@ -47,7 +47,7 @@ class WmsTransfer
     /**
      * @var string
      */
-    protected $stackReference;
+    protected $stackId;
     /**
      * @var \DateTime
      */
@@ -208,19 +208,19 @@ class WmsTransfer
     /**
      * @return string|null
      */
-    public function getStackReference(): ?string
+    public function getStackId(): ?string
     {
-        return $this->stackReference;
+        return $this->stackId;
     }
 
     /**
-     * @param string|null $stackReference
+     * @param string|null $stackId
      *
      * @return self
      */
-    public function setStackReference(?string $stackReference): self
+    public function setStackId(?string $stackId): self
     {
-        $this->stackReference = $stackReference;
+        $this->stackId = $stackId;
 
         return $this;
     }

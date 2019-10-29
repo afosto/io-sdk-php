@@ -67,8 +67,8 @@ class WmsTransferNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'is_collection_pending') && $data->{'is_collection_pending'} !== null) {
             $object->setIsCollectionPending($data->{'is_collection_pending'});
         }
-        if (property_exists($data, 'stack_reference') && $data->{'stack_reference'} !== null) {
-            $object->setStackReference($data->{'stack_reference'});
+        if (property_exists($data, 'stack_id') && $data->{'stack_id'} !== null) {
+            $object->setStackId($data->{'stack_id'});
         }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -112,8 +112,8 @@ class WmsTransferNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (null !== $object->getIsCollectionPending()) {
             $data->{'is_collection_pending'} = $object->getIsCollectionPending();
         }
-        if (null !== $object->getStackReference()) {
-            $data->{'stack_reference'} = $object->getStackReference();
+        if (null !== $object->getStackId()) {
+            $data->{'stack_id'} = $object->getStackId();
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

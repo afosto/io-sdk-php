@@ -47,8 +47,8 @@ class WmsTransferRouteNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'status') && $data->{'status'} !== null) {
             $object->setStatus($data->{'status'});
         }
-        if (property_exists($data, 'stack_reference') && $data->{'stack_reference'} !== null) {
-            $object->setStackReference($data->{'stack_reference'});
+        if (property_exists($data, 'stack_id') && $data->{'stack_id'} !== null) {
+            $object->setStackId($data->{'stack_id'});
         }
         if (property_exists($data, 'expected_at') && $data->{'expected_at'} !== null) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
@@ -69,8 +69,8 @@ class WmsTransferRouteNormalizer implements DenormalizerInterface, NormalizerInt
         if (null !== $object->getStatus()) {
             $data->{'status'} = $object->getStatus();
         }
-        if (null !== $object->getStackReference()) {
-            $data->{'stack_reference'} = $object->getStackReference();
+        if (null !== $object->getStackId()) {
+            $data->{'stack_id'} = $object->getStackId();
         }
         if (null !== $object->getExpectedAt()) {
             $data->{'expected_at'} = $object->getExpectedAt()->format("Y-m-d\TH:i:sP");

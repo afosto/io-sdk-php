@@ -44,8 +44,8 @@ class WmsClaimNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'type') && $data->{'type'} !== null) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'stack_reference') && $data->{'stack_reference'} !== null) {
-            $object->setStackReference($data->{'stack_reference'});
+        if (property_exists($data, 'stack_id') && $data->{'stack_id'} !== null) {
+            $object->setStackId($data->{'stack_id'});
         }
         if (property_exists($data, 'route_id') && $data->{'route_id'} !== null) {
             $object->setRouteId($data->{'route_id'});
@@ -79,8 +79,8 @@ class WmsClaimNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (null !== $object->getType()) {
             $data->{'type'} = $object->getType();
         }
-        if (null !== $object->getStackReference()) {
-            $data->{'stack_reference'} = $object->getStackReference();
+        if (null !== $object->getStackId()) {
+            $data->{'stack_id'} = $object->getStackId();
         }
         if (null !== $object->getRouteId()) {
             $data->{'route_id'} = $object->getRouteId();
