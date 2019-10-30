@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class WmsTransferRouteNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class WmsSubTransferSummaryNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsTransferRoute';
+        return $type === 'Afosto\\Sdk\\Model\\WmsSubTransferSummary';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsTransferRoute';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsSubTransferSummary';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class WmsTransferRouteNormalizer implements DenormalizerInterface, NormalizerInt
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\WmsTransferRoute();
+        $object = new \Afosto\Sdk\Model\WmsSubTransferSummary();
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
@@ -50,8 +50,17 @@ class WmsTransferRouteNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'stack_id') && $data->{'stack_id'} !== null) {
             $object->setStackId($data->{'stack_id'});
         }
+        if (property_exists($data, 'route_id') && $data->{'route_id'} !== null) {
+            $object->setRouteId($data->{'route_id'});
+        }
         if (property_exists($data, 'expected_at') && $data->{'expected_at'} !== null) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
+        }
+        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
+        }
+        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 
         return $object;
@@ -72,8 +81,17 @@ class WmsTransferRouteNormalizer implements DenormalizerInterface, NormalizerInt
         if (null !== $object->getStackId()) {
             $data->{'stack_id'} = $object->getStackId();
         }
+        if (null !== $object->getRouteId()) {
+            $data->{'route_id'} = $object->getRouteId();
+        }
         if (null !== $object->getExpectedAt()) {
             $data->{'expected_at'} = $object->getExpectedAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getCreatedAt()) {
+            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getUpdatedAt()) {
+            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

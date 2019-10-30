@@ -3114,22 +3114,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Update items' last known location.
-     *
-     * @param \Afosto\Sdk\Model\WmsUpdateTransferRequest $body  Transfer request object
-     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateTransferUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateTransferNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\WmsTransfer|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateTransfer(\Afosto\Sdk\Model\WmsUpdateTransferRequest $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateTransfer($body), $fetch);
-    }
-
-    /**
      * Create an optimized set of claims.
      *
      * @param string $id
@@ -3146,19 +3130,72 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Create an optimized set of claims.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSubTransfersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSubTransfersNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\WmsSubTransfer[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSubTransfers(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSubTransfers($headerParameters), $fetch);
+    }
+
+    /**
      * Update items' last known location.
+     *
+     * @param \Afosto\Sdk\Model\WmsUpdateTransferRequest $body  Transfer request object
+     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateSubTransferUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateSubTransferNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\WmsSubTransfer|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateSubTransfer(\Afosto\Sdk\Model\WmsUpdateTransferRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateSubTransfer($body), $fetch);
+    }
+
+    /**
+     * Returns a sub transfer.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSubTransferUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSubTransferNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\WmsTransfer|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSubTransfer(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSubTransfer($id), $fetch);
+    }
+
+    /**
+     * reports claim items at a certain location.
      *
      * @param \Afosto\Sdk\Model\WmsTransferReport $body  Transfer request object
      * @param string                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\AnnounceItemsForLocationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AnnounceItemsForLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\ReportClaimItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ReportClaimItemsNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsWarehouseItem[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function announceItemsForLocation(\Afosto\Sdk\Model\WmsTransferReport $body, string $fetch = self::FETCH_OBJECT)
+    public function reportClaimItems(\Afosto\Sdk\Model\WmsTransferReport $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AnnounceItemsForLocation($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ReportClaimItems($body), $fetch);
     }
 
     /**

@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class AnnounceItemsForLocationNotFoundException extends \RuntimeException implements ClientException
+class GetSubTransferNotFoundException extends \RuntimeException implements ClientException
 {
     private $error;
 

@@ -10,10 +10,10 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class AnnounceItemsForLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class ReportClaimItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
-     * Update items' last known location.
+     * reports claim items at a certain location.
      *
      * @param \Afosto\Sdk\Model\WmsTransferReport $body Transfer request object
      */
@@ -47,8 +47,8 @@ class AnnounceItemsForLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\AnnounceItemsForLocationUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AnnounceItemsForLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\ReportClaimItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ReportClaimItemsNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsWarehouseItem[]|null
      */
@@ -58,10 +58,10 @@ class AnnounceItemsForLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsWarehouseItem[]', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\AnnounceItemsForLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ReportClaimItemsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\AnnounceItemsForLocationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ReportClaimItemsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

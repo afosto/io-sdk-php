@@ -10,18 +10,18 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class WmsTransfer
+class WmsSubTransfer
 {
     /**
      * @var string
      */
     protected $id;
     /**
-     * Target location.
+     * Location id.
      *
      * @var string
      */
-    protected $target;
+    protected $from;
     /**
      * @var string
      */
@@ -29,25 +29,19 @@ class WmsTransfer
     /**
      * @var string
      */
-    protected $collectAt;
-    /**
-     * Optional: used when order should be packed in a single box for the target.
-     *
-     * @var WmsSubTransferSummary[]
-     */
-    protected $collections;
-    /**
-     * @var WmsSubTransferSummary[]
-     */
-    protected $deliveries;
-    /**
-     * @var bool
-     */
-    protected $isCollectionPending;
+    protected $stackId;
     /**
      * @var string
      */
-    protected $stackId;
+    protected $routeId;
+    /**
+     * @var WmsSubTransferItem[]
+     */
+    protected $items;
+    /**
+     * @var \DateTime
+     */
+    protected $expectedAt;
     /**
      * @var \DateTime
      */
@@ -78,25 +72,25 @@ class WmsTransfer
     }
 
     /**
-     * Target location.
+     * Location id.
      *
      * @return string|null
      */
-    public function getTarget(): ?string
+    public function getFrom(): ?string
     {
-        return $this->target;
+        return $this->from;
     }
 
     /**
-     * Target location.
+     * Location id.
      *
-     * @param string|null $target
+     * @param string|null $from
      *
      * @return self
      */
-    public function setTarget(?string $target): self
+    public function setFrom(?string $from): self
     {
-        $this->target = $target;
+        $this->from = $from;
 
         return $this;
     }
@@ -124,90 +118,6 @@ class WmsTransfer
     /**
      * @return string|null
      */
-    public function getCollectAt(): ?string
-    {
-        return $this->collectAt;
-    }
-
-    /**
-     * @param string|null $collectAt
-     *
-     * @return self
-     */
-    public function setCollectAt(?string $collectAt): self
-    {
-        $this->collectAt = $collectAt;
-
-        return $this;
-    }
-
-    /**
-     * Optional: used when order should be packed in a single box for the target.
-     *
-     * @return WmsSubTransferSummary[]|null
-     */
-    public function getCollections(): ?array
-    {
-        return $this->collections;
-    }
-
-    /**
-     * Optional: used when order should be packed in a single box for the target.
-     *
-     * @param WmsSubTransferSummary[]|null $collections
-     *
-     * @return self
-     */
-    public function setCollections(?array $collections): self
-    {
-        $this->collections = $collections;
-
-        return $this;
-    }
-
-    /**
-     * @return WmsSubTransferSummary[]|null
-     */
-    public function getDeliveries(): ?array
-    {
-        return $this->deliveries;
-    }
-
-    /**
-     * @param WmsSubTransferSummary[]|null $deliveries
-     *
-     * @return self
-     */
-    public function setDeliveries(?array $deliveries): self
-    {
-        $this->deliveries = $deliveries;
-
-        return $this;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsCollectionPending(): ?bool
-    {
-        return $this->isCollectionPending;
-    }
-
-    /**
-     * @param bool|null $isCollectionPending
-     *
-     * @return self
-     */
-    public function setIsCollectionPending(?bool $isCollectionPending): self
-    {
-        $this->isCollectionPending = $isCollectionPending;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
     public function getStackId(): ?string
     {
         return $this->stackId;
@@ -221,6 +131,66 @@ class WmsTransfer
     public function setStackId(?string $stackId): self
     {
         $this->stackId = $stackId;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getRouteId(): ?string
+    {
+        return $this->routeId;
+    }
+
+    /**
+     * @param string|null $routeId
+     *
+     * @return self
+     */
+    public function setRouteId(?string $routeId): self
+    {
+        $this->routeId = $routeId;
+
+        return $this;
+    }
+
+    /**
+     * @return WmsSubTransferItem[]|null
+     */
+    public function getItems(): ?array
+    {
+        return $this->items;
+    }
+
+    /**
+     * @param WmsSubTransferItem[]|null $items
+     *
+     * @return self
+     */
+    public function setItems(?array $items): self
+    {
+        $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getExpectedAt(): ?\DateTime
+    {
+        return $this->expectedAt;
+    }
+
+    /**
+     * @param \DateTime|null $expectedAt
+     *
+     * @return self
+     */
+    public function setExpectedAt(?\DateTime $expectedAt): self
+    {
+        $this->expectedAt = $expectedAt;
 
         return $this;
     }

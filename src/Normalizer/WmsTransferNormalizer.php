@@ -53,14 +53,14 @@ class WmsTransferNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'collections') && $data->{'collections'} !== null) {
             $values = [];
             foreach ($data->{'collections'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsTransferRoute', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsSubTransferSummary', 'json', $context);
             }
             $object->setCollections($values);
         }
         if (property_exists($data, 'deliveries') && $data->{'deliveries'} !== null) {
             $values_1 = [];
             foreach ($data->{'deliveries'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\WmsTransferRoute', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\WmsSubTransferSummary', 'json', $context);
             }
             $object->setDeliveries($values_1);
         }

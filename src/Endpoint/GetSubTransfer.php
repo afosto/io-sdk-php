@@ -10,33 +10,35 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class UpdateTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class GetSubTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
+    protected $id;
+
     /**
-     * Update items' last known location.
+     * Returns a sub transfer.
      *
-     * @param \Afosto\Sdk\Model\WmsUpdateTransferRequest $body Transfer request object
+     * @param string $id
      */
-    public function __construct(\Afosto\Sdk\Model\WmsUpdateTransferRequest $body)
+    public function __construct(string $id)
     {
-        $this->body = $body;
+        $this->id = $id;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
 
     public function getMethod(): string
     {
-        return 'PUT';
+        return 'GET';
     }
 
     public function getUri(): string
     {
-        return '/wms/transfers';
+        return str_replace(['{id}'], [$this->id], '/wms/subtransfers/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return $this->getSerializedBody($serializer);
+        return [[], null];
     }
 
     public function getExtraHeaders(): array
@@ -47,8 +49,8 @@ class UpdateTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\UpdateTransferUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateTransferNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSubTransferUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSubTransferNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsTransfer|null
      */
@@ -58,10 +60,10 @@ class UpdateTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsTransfer', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateTransferUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetSubTransferUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateTransferNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetSubTransferNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

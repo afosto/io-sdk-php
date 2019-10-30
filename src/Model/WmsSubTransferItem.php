@@ -10,30 +10,32 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class WmsTransferRoute
+class WmsSubTransferItem
 {
     /**
      * @var string
      */
     protected $id;
     /**
-     * Location id.
-     *
      * @var string
      */
-    protected $from;
+    protected $claimItemId;
+    /**
+     * @var string
+     */
+    protected $warehouseItemId;
     /**
      * @var string
      */
     protected $status;
     /**
-     * @var string
+     * @var \DateTime
      */
-    protected $stackId;
+    protected $createdAt;
     /**
      * @var \DateTime
      */
-    protected $expectedAt;
+    protected $updatedAt;
 
     /**
      * @return string|null
@@ -56,25 +58,41 @@ class WmsTransferRoute
     }
 
     /**
-     * Location id.
-     *
      * @return string|null
      */
-    public function getFrom(): ?string
+    public function getClaimItemId(): ?string
     {
-        return $this->from;
+        return $this->claimItemId;
     }
 
     /**
-     * Location id.
-     *
-     * @param string|null $from
+     * @param string|null $claimItemId
      *
      * @return self
      */
-    public function setFrom(?string $from): self
+    public function setClaimItemId(?string $claimItemId): self
     {
-        $this->from = $from;
+        $this->claimItemId = $claimItemId;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getWarehouseItemId(): ?string
+    {
+        return $this->warehouseItemId;
+    }
+
+    /**
+     * @param string|null $warehouseItemId
+     *
+     * @return self
+     */
+    public function setWarehouseItemId(?string $warehouseItemId): self
+    {
+        $this->warehouseItemId = $warehouseItemId;
 
         return $this;
     }
@@ -100,21 +118,21 @@ class WmsTransferRoute
     }
 
     /**
-     * @return string|null
+     * @return \DateTime|null
      */
-    public function getStackId(): ?string
+    public function getCreatedAt(): ?\DateTime
     {
-        return $this->stackId;
+        return $this->createdAt;
     }
 
     /**
-     * @param string|null $stackId
+     * @param \DateTime|null $createdAt
      *
      * @return self
      */
-    public function setStackId(?string $stackId): self
+    public function setCreatedAt(?\DateTime $createdAt): self
     {
-        $this->stackId = $stackId;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -122,19 +140,19 @@ class WmsTransferRoute
     /**
      * @return \DateTime|null
      */
-    public function getExpectedAt(): ?\DateTime
+    public function getUpdatedAt(): ?\DateTime
     {
-        return $this->expectedAt;
+        return $this->updatedAt;
     }
 
     /**
-     * @param \DateTime|null $expectedAt
+     * @param \DateTime|null $updatedAt
      *
      * @return self
      */
-    public function setExpectedAt(?\DateTime $expectedAt): self
+    public function setUpdatedAt(?\DateTime $updatedAt): self
     {
-        $this->expectedAt = $expectedAt;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
