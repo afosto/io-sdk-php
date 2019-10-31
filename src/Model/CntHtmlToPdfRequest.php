@@ -21,13 +21,9 @@ class CntHtmlToPdfRequest
      */
     protected $filename;
     /**
-     * @var int
+     * @var CntHtmlToPdfRequestSize
      */
-    protected $width = 210;
-    /**
-     * @var int
-     */
-    protected $height = 297;
+    protected $size;
     /**
      * @var CntHtmlToPdfRequestMargin
      */
@@ -86,41 +82,21 @@ class CntHtmlToPdfRequest
     }
 
     /**
-     * @return int|null
+     * @return CntHtmlToPdfRequestSize|null
      */
-    public function getWidth(): ?int
+    public function getSize(): ?CntHtmlToPdfRequestSize
     {
-        return $this->width;
+        return $this->size;
     }
 
     /**
-     * @param int|null $width
+     * @param CntHtmlToPdfRequestSize|null $size
      *
      * @return self
      */
-    public function setWidth(?int $width): self
+    public function setSize(?CntHtmlToPdfRequestSize $size): self
     {
-        $this->width = $width;
-
-        return $this;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getHeight(): ?int
-    {
-        return $this->height;
-    }
-
-    /**
-     * @param int|null $height
-     *
-     * @return self
-     */
-    public function setHeight(?int $height): self
-    {
-        $this->height = $height;
+        $this->size = $size;
 
         return $this;
     }

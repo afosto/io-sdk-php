@@ -3956,8 +3956,8 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a list of items.
      *
-     * @param \Afosto\Sdk\Model\OdrSearch $body
-     * @param array                       $headerParameters {
+     * @param \Afosto\Sdk\Model\OdrSearch[] $body
+     * @param array                         $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
@@ -3970,7 +3970,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function searchItems(\Afosto\Sdk\Model\OdrSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function searchItems(array $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchItems($body, $headerParameters), $fetch);
     }

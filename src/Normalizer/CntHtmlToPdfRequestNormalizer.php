@@ -44,11 +44,8 @@ class CntHtmlToPdfRequestNormalizer implements DenormalizerInterface, Normalizer
         if (property_exists($data, 'filename') && $data->{'filename'} !== null) {
             $object->setFilename($data->{'filename'});
         }
-        if (property_exists($data, 'width') && $data->{'width'} !== null) {
-            $object->setWidth($data->{'width'});
-        }
-        if (property_exists($data, 'height') && $data->{'height'} !== null) {
-            $object->setHeight($data->{'height'});
+        if (property_exists($data, 'size') && $data->{'size'} !== null) {
+            $object->setSize($this->denormalizer->denormalize($data->{'size'}, 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequestSize', 'json', $context));
         }
         if (property_exists($data, 'margin') && $data->{'margin'} !== null) {
             $object->setMargin($this->denormalizer->denormalize($data->{'margin'}, 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequestMargin', 'json', $context));
@@ -75,11 +72,8 @@ class CntHtmlToPdfRequestNormalizer implements DenormalizerInterface, Normalizer
         if (null !== $object->getFilename()) {
             $data->{'filename'} = $object->getFilename();
         }
-        if (null !== $object->getWidth()) {
-            $data->{'width'} = $object->getWidth();
-        }
-        if (null !== $object->getHeight()) {
-            $data->{'height'} = $object->getHeight();
+        if (null !== $object->getSize()) {
+            $data->{'size'} = $this->normalizer->normalize($object->getSize(), 'json', $context);
         }
         if (null !== $object->getMargin()) {
             $data->{'margin'} = $this->normalizer->normalize($object->getMargin(), 'json', $context);
