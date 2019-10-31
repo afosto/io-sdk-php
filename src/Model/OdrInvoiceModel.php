@@ -15,7 +15,7 @@ class OdrInvoiceModel
     /**
      * @var OdrStackReference
      */
-    protected $stackReference;
+    protected $stack;
     /**
      * @var string
      */
@@ -48,19 +48,19 @@ class OdrInvoiceModel
     /**
      * @return OdrStackReference|null
      */
-    public function getStackReference(): ?OdrStackReference
+    public function getStack(): ?OdrStackReference
     {
-        return $this->stackReference;
+        return $this->stack;
     }
 
     /**
-     * @param OdrStackReference|null $stackReference
+     * @param OdrStackReference|null $stack
      *
      * @return self
      */
-    public function setStackReference(?OdrStackReference $stackReference): self
+    public function setStack(?OdrStackReference $stack): self
     {
-        $this->stackReference = $stackReference;
+        $this->stack = $stack;
 
         return $this;
     }

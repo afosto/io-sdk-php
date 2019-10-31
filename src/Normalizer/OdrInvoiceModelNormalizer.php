@@ -38,8 +38,8 @@ class OdrInvoiceModelNormalizer implements DenormalizerInterface, NormalizerInte
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrInvoiceModel();
-        if (property_exists($data, 'stack_reference') && $data->{'stack_reference'} !== null) {
-            $object->setStackReference($this->denormalizer->denormalize($data->{'stack_reference'}, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context));
+        if (property_exists($data, 'stack') && $data->{'stack'} !== null) {
+            $object->setStack($this->denormalizer->denormalize($data->{'stack'}, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context));
         }
         if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
             $object->setClientId($data->{'client_id'});
@@ -81,8 +81,8 @@ class OdrInvoiceModelNormalizer implements DenormalizerInterface, NormalizerInte
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getStackReference()) {
-            $data->{'stack_reference'} = $this->normalizer->normalize($object->getStackReference(), 'json', $context);
+        if (null !== $object->getStack()) {
+            $data->{'stack'} = $this->normalizer->normalize($object->getStack(), 'json', $context);
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
