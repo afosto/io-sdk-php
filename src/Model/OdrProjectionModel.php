@@ -29,14 +29,6 @@ class OdrProjectionModel
      */
     protected $contactId;
     /**
-     * @var string
-     */
-    protected $paymentMethodId;
-    /**
-     * @var string[]
-     */
-    protected $routes;
-    /**
      * @var string[]
      */
     protected $coupons;
@@ -117,46 +109,6 @@ class OdrProjectionModel
     public function setContactId(?string $contactId): self
     {
         $this->contactId = $contactId;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getPaymentMethodId(): ?string
-    {
-        return $this->paymentMethodId;
-    }
-
-    /**
-     * @param string|null $paymentMethodId
-     *
-     * @return self
-     */
-    public function setPaymentMethodId(?string $paymentMethodId): self
-    {
-        $this->paymentMethodId = $paymentMethodId;
-
-        return $this;
-    }
-
-    /**
-     * @return string[]|null
-     */
-    public function getRoutes(): ?array
-    {
-        return $this->routes;
-    }
-
-    /**
-     * @param string[]|null $routes
-     *
-     * @return self
-     */
-    public function setRoutes(?array $routes): self
-    {
-        $this->routes = $routes;
 
         return $this;
     }

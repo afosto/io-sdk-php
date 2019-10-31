@@ -43,7 +43,7 @@ class OdrInvoiceListItem
     /**
      * @var OdrContact
      */
-    protected $contact;
+    protected $customer;
     /**
      * @var OdrContact
      */
@@ -64,10 +64,6 @@ class OdrInvoiceListItem
      * @var bool
      */
     protected $isIncludingVat;
-    /**
-     * @var bool
-     */
-    protected $isVatShifted;
     /**
      * @var string
      */
@@ -240,19 +236,19 @@ class OdrInvoiceListItem
     /**
      * @return OdrContact|null
      */
-    public function getContact(): ?OdrContact
+    public function getCustomer(): ?OdrContact
     {
-        return $this->contact;
+        return $this->customer;
     }
 
     /**
-     * @param OdrContact|null $contact
+     * @param OdrContact|null $customer
      *
      * @return self
      */
-    public function setContact(?OdrContact $contact): self
+    public function setCustomer(?OdrContact $customer): self
     {
-        $this->contact = $contact;
+        $this->customer = $customer;
 
         return $this;
     }
@@ -353,26 +349,6 @@ class OdrInvoiceListItem
     public function setIsIncludingVat(?bool $isIncludingVat): self
     {
         $this->isIncludingVat = $isIncludingVat;
-
-        return $this;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsVatShifted(): ?bool
-    {
-        return $this->isVatShifted;
-    }
-
-    /**
-     * @param bool|null $isVatShifted
-     *
-     * @return self
-     */
-    public function setIsVatShifted(?bool $isVatShifted): self
-    {
-        $this->isVatShifted = $isVatShifted;
 
         return $this;
     }

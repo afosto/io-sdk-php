@@ -61,25 +61,15 @@ class OdrInvoiceModelNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'contact_id') && $data->{'contact_id'} !== null) {
             $object->setContactId($data->{'contact_id'});
         }
-        if (property_exists($data, 'payment_method_id') && $data->{'payment_method_id'} !== null) {
-            $object->setPaymentMethodId($data->{'payment_method_id'});
-        }
         if (property_exists($data, 'pricing_at') && $data->{'pricing_at'} !== null) {
             $object->setPricingAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'pricing_at'}));
         }
-        if (property_exists($data, 'routes') && $data->{'routes'} !== null) {
+        if (property_exists($data, 'coupons') && $data->{'coupons'} !== null) {
             $values_2 = [];
-            foreach ($data->{'routes'} as $value_2) {
+            foreach ($data->{'coupons'} as $value_2) {
                 $values_2[] = $value_2;
             }
-            $object->setRoutes($values_2);
-        }
-        if (property_exists($data, 'coupons') && $data->{'coupons'} !== null) {
-            $values_3 = [];
-            foreach ($data->{'coupons'} as $value_3) {
-                $values_3[] = $value_3;
-            }
-            $object->setCoupons($values_3);
+            $object->setCoupons($values_2);
         }
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
             $object->setMetadata($data->{'metadata'});
@@ -114,25 +104,15 @@ class OdrInvoiceModelNormalizer implements DenormalizerInterface, NormalizerInte
         if (null !== $object->getContactId()) {
             $data->{'contact_id'} = $object->getContactId();
         }
-        if (null !== $object->getPaymentMethodId()) {
-            $data->{'payment_method_id'} = $object->getPaymentMethodId();
-        }
         if (null !== $object->getPricingAt()) {
             $data->{'pricing_at'} = $object->getPricingAt()->format("Y-m-d\TH:i:sP");
         }
-        if (null !== $object->getRoutes()) {
+        if (null !== $object->getCoupons()) {
             $values_2 = [];
-            foreach ($object->getRoutes() as $value_2) {
+            foreach ($object->getCoupons() as $value_2) {
                 $values_2[] = $value_2;
             }
-            $data->{'routes'} = $values_2;
-        }
-        if (null !== $object->getCoupons()) {
-            $values_3 = [];
-            foreach ($object->getCoupons() as $value_3) {
-                $values_3[] = $value_3;
-            }
-            $data->{'coupons'} = $values_3;
+            $data->{'coupons'} = $values_2;
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();

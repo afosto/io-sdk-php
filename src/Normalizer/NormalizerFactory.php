@@ -55,6 +55,7 @@ class NormalizerFactory
         $normalizers[] = new OdrStackReferenceNormalizer();
         $normalizers[] = new OdrVatResultNormalizer();
         $normalizers[] = new OdrContactNormalizer();
+        $normalizers[] = new OdrContactContactNormalizer();
         $normalizers[] = new OdrAdjustmentNormalizer();
         $normalizers[] = new OdrAdjustmentResponseNormalizer();
         $normalizers[] = new OdrAdjustmentResponseMetadataNormalizer();

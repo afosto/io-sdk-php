@@ -74,9 +74,6 @@ class OdrProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
         if (property_exists($data, 'is_including_vat') && $data->{'is_including_vat'} !== null) {
             $object->setIsIncludingVat($data->{'is_including_vat'});
         }
-        if (property_exists($data, 'is_vat_shifted') && $data->{'is_vat_shifted'} !== null) {
-            $object->setIsVatShifted($data->{'is_vat_shifted'});
-        }
         if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
             $object->setClientId($data->{'client_id'});
         }
@@ -125,9 +122,6 @@ class OdrProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
         }
         if (null !== $object->getIsIncludingVat()) {
             $data->{'is_including_vat'} = $object->getIsIncludingVat();
-        }
-        if (null !== $object->getIsVatShifted()) {
-            $data->{'is_vat_shifted'} = $object->getIsVatShifted();
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();

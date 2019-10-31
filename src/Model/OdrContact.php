@@ -15,168 +15,48 @@ class OdrContact
     /**
      * @var string
      */
-    protected $id;
+    protected $vatCountryCode = 'NL';
     /**
-     * @var string
+     * @var OdrContactContact
      */
-    protected $organization;
-    /**
-     * @var string
-     */
-    protected $vatNumber;
-    /**
-     * @var string
-     */
-    protected $cocNumber;
-    /**
-     * @var string
-     */
-    protected $addressId;
-    /**
-     * @var string
-     */
-    protected $email;
-    /**
-     * @var string
-     */
-    protected $phoneNumberId;
+    protected $contact;
 
     /**
      * @return string|null
      */
-    public function getId(): ?string
+    public function getVatCountryCode(): ?string
     {
-        return $this->id;
+        return $this->vatCountryCode;
     }
 
     /**
-     * @param string|null $id
+     * @param string|null $vatCountryCode
      *
      * @return self
      */
-    public function setId(?string $id): self
+    public function setVatCountryCode(?string $vatCountryCode): self
     {
-        $this->id = $id;
+        $this->vatCountryCode = $vatCountryCode;
 
         return $this;
     }
 
     /**
-     * @return string|null
+     * @return OdrContactContact|null
      */
-    public function getOrganization(): ?string
+    public function getContact(): ?OdrContactContact
     {
-        return $this->organization;
+        return $this->contact;
     }
 
     /**
-     * @param string|null $organization
+     * @param OdrContactContact|null $contact
      *
      * @return self
      */
-    public function setOrganization(?string $organization): self
+    public function setContact(?OdrContactContact $contact): self
     {
-        $this->organization = $organization;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getVatNumber(): ?string
-    {
-        return $this->vatNumber;
-    }
-
-    /**
-     * @param string|null $vatNumber
-     *
-     * @return self
-     */
-    public function setVatNumber(?string $vatNumber): self
-    {
-        $this->vatNumber = $vatNumber;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCocNumber(): ?string
-    {
-        return $this->cocNumber;
-    }
-
-    /**
-     * @param string|null $cocNumber
-     *
-     * @return self
-     */
-    public function setCocNumber(?string $cocNumber): self
-    {
-        $this->cocNumber = $cocNumber;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getAddressId(): ?string
-    {
-        return $this->addressId;
-    }
-
-    /**
-     * @param string|null $addressId
-     *
-     * @return self
-     */
-    public function setAddressId(?string $addressId): self
-    {
-        $this->addressId = $addressId;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param string|null $email
-     *
-     * @return self
-     */
-    public function setEmail(?string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getPhoneNumberId(): ?string
-    {
-        return $this->phoneNumberId;
-    }
-
-    /**
-     * @param string|null $phoneNumberId
-     *
-     * @return self
-     */
-    public function setPhoneNumberId(?string $phoneNumberId): self
-    {
-        $this->phoneNumberId = $phoneNumberId;
+        $this->contact = $contact;
 
         return $this;
     }

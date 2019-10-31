@@ -38,26 +38,11 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrContact();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
-            $object->setId($data->{'id'});
+        if (property_exists($data, 'vat_country_code') && $data->{'vat_country_code'} !== null) {
+            $object->setVatCountryCode($data->{'vat_country_code'});
         }
-        if (property_exists($data, 'organization') && $data->{'organization'} !== null) {
-            $object->setOrganization($data->{'organization'});
-        }
-        if (property_exists($data, 'vat_number') && $data->{'vat_number'} !== null) {
-            $object->setVatNumber($data->{'vat_number'});
-        }
-        if (property_exists($data, 'coc_number') && $data->{'coc_number'} !== null) {
-            $object->setCocNumber($data->{'coc_number'});
-        }
-        if (property_exists($data, 'address_id') && $data->{'address_id'} !== null) {
-            $object->setAddressId($data->{'address_id'});
-        }
-        if (property_exists($data, 'email') && $data->{'email'} !== null) {
-            $object->setEmail($data->{'email'});
-        }
-        if (property_exists($data, 'phone_number_id') && $data->{'phone_number_id'} !== null) {
-            $object->setPhoneNumberId($data->{'phone_number_id'});
+        if (property_exists($data, 'contact') && $data->{'contact'} !== null) {
+            $object->setContact($this->denormalizer->denormalize($data->{'contact'}, 'Afosto\\Sdk\\Model\\OdrContactContact', 'json', $context));
         }
 
         return $object;
@@ -66,26 +51,11 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
+        if (null !== $object->getVatCountryCode()) {
+            $data->{'vat_country_code'} = $object->getVatCountryCode();
         }
-        if (null !== $object->getOrganization()) {
-            $data->{'organization'} = $object->getOrganization();
-        }
-        if (null !== $object->getVatNumber()) {
-            $data->{'vat_number'} = $object->getVatNumber();
-        }
-        if (null !== $object->getCocNumber()) {
-            $data->{'coc_number'} = $object->getCocNumber();
-        }
-        if (null !== $object->getAddressId()) {
-            $data->{'address_id'} = $object->getAddressId();
-        }
-        if (null !== $object->getEmail()) {
-            $data->{'email'} = $object->getEmail();
-        }
-        if (null !== $object->getPhoneNumberId()) {
-            $data->{'phone_number_id'} = $object->getPhoneNumberId();
+        if (null !== $object->getContact()) {
+            $data->{'contact'} = $this->normalizer->normalize($object->getContact(), 'json', $context);
         }
 
         return $data;

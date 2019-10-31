@@ -74,8 +74,8 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
             $object->setCurrency($data->{'currency'});
         }
-        if (property_exists($data, 'contact') && $data->{'contact'} !== null) {
-            $object->setContact($this->denormalizer->denormalize($data->{'contact'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
+        if (property_exists($data, 'customer') && $data->{'customer'} !== null) {
+            $object->setCustomer($this->denormalizer->denormalize($data->{'customer'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
         }
         if (property_exists($data, 'vendor') && $data->{'vendor'} !== null) {
             $object->setVendor($this->denormalizer->denormalize($data->{'vendor'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
@@ -159,8 +159,8 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         if (null !== $object->getCurrency()) {
             $data->{'currency'} = $object->getCurrency();
         }
-        if (null !== $object->getContact()) {
-            $data->{'contact'} = $this->normalizer->normalize($object->getContact(), 'json', $context);
+        if (null !== $object->getCustomer()) {
+            $data->{'customer'} = $this->normalizer->normalize($object->getCustomer(), 'json', $context);
         }
         if (null !== $object->getVendor()) {
             $data->{'vendor'} = $this->normalizer->normalize($object->getVendor(), 'json', $context);

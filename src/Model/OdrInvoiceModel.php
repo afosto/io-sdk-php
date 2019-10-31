@@ -33,17 +33,9 @@ class OdrInvoiceModel
      */
     protected $contactId;
     /**
-     * @var string
-     */
-    protected $paymentMethodId;
-    /**
      * @var \DateTime
      */
     protected $pricingAt;
-    /**
-     * @var string[]
-     */
-    protected $routes;
     /**
      * @var string[]
      */
@@ -154,26 +146,6 @@ class OdrInvoiceModel
     }
 
     /**
-     * @return string|null
-     */
-    public function getPaymentMethodId(): ?string
-    {
-        return $this->paymentMethodId;
-    }
-
-    /**
-     * @param string|null $paymentMethodId
-     *
-     * @return self
-     */
-    public function setPaymentMethodId(?string $paymentMethodId): self
-    {
-        $this->paymentMethodId = $paymentMethodId;
-
-        return $this;
-    }
-
-    /**
      * @return \DateTime|null
      */
     public function getPricingAt(): ?\DateTime
@@ -189,26 +161,6 @@ class OdrInvoiceModel
     public function setPricingAt(?\DateTime $pricingAt): self
     {
         $this->pricingAt = $pricingAt;
-
-        return $this;
-    }
-
-    /**
-     * @return string[]|null
-     */
-    public function getRoutes(): ?array
-    {
-        return $this->routes;
-    }
-
-    /**
-     * @param string[]|null $routes
-     *
-     * @return self
-     */
-    public function setRoutes(?array $routes): self
-    {
-        $this->routes = $routes;
 
         return $this;
     }
