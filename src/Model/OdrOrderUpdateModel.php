@@ -15,7 +15,7 @@ class OdrOrderUpdateModel
     /**
      * @var string
      */
-    protected $addressSetId;
+    protected $addressId;
     /**
      * @var mixed
      */
@@ -28,19 +28,19 @@ class OdrOrderUpdateModel
     /**
      * @return string|null
      */
-    public function getAddressSetId(): ?string
+    public function getAddressId(): ?string
     {
-        return $this->addressSetId;
+        return $this->addressId;
     }
 
     /**
-     * @param string|null $addressSetId
+     * @param string|null $addressId
      *
      * @return self
      */
-    public function setAddressSetId(?string $addressSetId): self
+    public function setAddressId(?string $addressId): self
     {
-        $this->addressSetId = $addressSetId;
+        $this->addressId = $addressId;
 
         return $this;
     }

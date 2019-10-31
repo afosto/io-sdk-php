@@ -38,8 +38,8 @@ class OdrOrderUpdateModelNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrOrderUpdateModel();
-        if (property_exists($data, 'address_set_id') && $data->{'address_set_id'} !== null) {
-            $object->setAddressSetId($data->{'address_set_id'});
+        if (property_exists($data, 'address_id') && $data->{'address_id'} !== null) {
+            $object->setAddressId($data->{'address_id'});
         }
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
             $object->setMetadata($data->{'metadata'});
@@ -54,8 +54,8 @@ class OdrOrderUpdateModelNormalizer implements DenormalizerInterface, Normalizer
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getAddressSetId()) {
-            $data->{'address_set_id'} = $object->getAddressSetId();
+        if (null !== $object->getAddressId()) {
+            $data->{'address_id'} = $object->getAddressId();
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();

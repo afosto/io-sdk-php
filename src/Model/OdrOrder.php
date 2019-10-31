@@ -27,7 +27,7 @@ class OdrOrder
     /**
      * @var string
      */
-    protected $customerId;
+    protected $contactId;
     /**
      * @var OdrState
      */
@@ -39,7 +39,7 @@ class OdrOrder
     /**
      * @var string
      */
-    protected $addressSetId;
+    protected $addressId;
     /**
      * @var mixed
      */
@@ -124,19 +124,19 @@ class OdrOrder
     /**
      * @return string|null
      */
-    public function getCustomerId(): ?string
+    public function getContactId(): ?string
     {
-        return $this->customerId;
+        return $this->contactId;
     }
 
     /**
-     * @param string|null $customerId
+     * @param string|null $contactId
      *
      * @return self
      */
-    public function setCustomerId(?string $customerId): self
+    public function setContactId(?string $contactId): self
     {
-        $this->customerId = $customerId;
+        $this->contactId = $contactId;
 
         return $this;
     }
@@ -184,19 +184,19 @@ class OdrOrder
     /**
      * @return string|null
      */
-    public function getAddressSetId(): ?string
+    public function getAddressId(): ?string
     {
-        return $this->addressSetId;
+        return $this->addressId;
     }
 
     /**
-     * @param string|null $addressSetId
+     * @param string|null $addressId
      *
      * @return self
      */
-    public function setAddressSetId(?string $addressSetId): self
+    public function setAddressId(?string $addressId): self
     {
-        $this->addressSetId = $addressSetId;
+        $this->addressId = $addressId;
 
         return $this;
     }

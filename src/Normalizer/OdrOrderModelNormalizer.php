@@ -41,8 +41,8 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
             $object->setClientId($data->{'client_id'});
         }
-        if (property_exists($data, 'customer_id') && $data->{'customer_id'} !== null) {
-            $object->setCustomerId($data->{'customer_id'});
+        if (property_exists($data, 'contact_id') && $data->{'contact_id'} !== null) {
+            $object->setContactId($data->{'contact_id'});
         }
         if (property_exists($data, 'is_confirmed') && $data->{'is_confirmed'} !== null) {
             $object->setIsConfirmed($data->{'is_confirmed'});
@@ -50,8 +50,8 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (property_exists($data, 'stack_reference') && $data->{'stack_reference'} !== null) {
             $object->setStackReference($data->{'stack_reference'});
         }
-        if (property_exists($data, 'address_set_id') && $data->{'address_set_id'} !== null) {
-            $object->setAddressSetId($data->{'address_set_id'});
+        if (property_exists($data, 'address_id') && $data->{'address_id'} !== null) {
+            $object->setAddressId($data->{'address_id'});
         }
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
             $object->setMetadata($data->{'metadata'});
@@ -69,8 +69,8 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
         }
-        if (null !== $object->getCustomerId()) {
-            $data->{'customer_id'} = $object->getCustomerId();
+        if (null !== $object->getContactId()) {
+            $data->{'contact_id'} = $object->getContactId();
         }
         if (null !== $object->getIsConfirmed()) {
             $data->{'is_confirmed'} = $object->getIsConfirmed();
@@ -78,8 +78,8 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (null !== $object->getStackReference()) {
             $data->{'stack_reference'} = $object->getStackReference();
         }
-        if (null !== $object->getAddressSetId()) {
-            $data->{'address_set_id'} = $object->getAddressSetId();
+        if (null !== $object->getAddressId()) {
+            $data->{'address_id'} = $object->getAddressId();
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();
