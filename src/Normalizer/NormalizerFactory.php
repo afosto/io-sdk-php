@@ -307,6 +307,7 @@ class NormalizerFactory
         $normalizers[] = new WmsClaimsIdExtendPutBodyNormalizer();
         $normalizers[] = new CntDirectoriesGetResponse200Normalizer();
         $normalizers[] = new OdrAddressesIdPostBodyNormalizer();
+        $normalizers[] = new OdrItemsTypeIdDeleteBodyNormalizer();
         $normalizers[] = new CatGroupsIdPricesPutResponse200Normalizer();
         $normalizers[] = new CatVatProductsPutResponse200Normalizer();
 
