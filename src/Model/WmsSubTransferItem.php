@@ -27,6 +27,10 @@ class WmsSubTransferItem
     /**
      * @var string
      */
+    protected $stackItemId;
+    /**
+     * @var string
+     */
     protected $status;
     /**
      * @var \DateTime
@@ -93,6 +97,26 @@ class WmsSubTransferItem
     public function setWarehouseItemId(?string $warehouseItemId): self
     {
         $this->warehouseItemId = $warehouseItemId;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getStackItemId(): ?string
+    {
+        return $this->stackItemId;
+    }
+
+    /**
+     * @param string|null $stackItemId
+     *
+     * @return self
+     */
+    public function setStackItemId(?string $stackItemId): self
+    {
+        $this->stackItemId = $stackItemId;
 
         return $this;
     }

@@ -3175,7 +3175,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetSubTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSubTransferNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsTransfer|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsSubTransfer|\Psr\Http\Message\ResponseInterface|null
      */
     public function getSubTransfer(string $id, string $fetch = self::FETCH_OBJECT)
     {

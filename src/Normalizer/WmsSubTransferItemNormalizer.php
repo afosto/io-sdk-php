@@ -47,6 +47,9 @@ class WmsSubTransferItemNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'warehouse_item_id') && $data->{'warehouse_item_id'} !== null) {
             $object->setWarehouseItemId($data->{'warehouse_item_id'});
         }
+        if (property_exists($data, 'stack_item_id') && $data->{'stack_item_id'} !== null) {
+            $object->setStackItemId($data->{'stack_item_id'});
+        }
         if (property_exists($data, 'status') && $data->{'status'} !== null) {
             $object->setStatus($data->{'status'});
         }
@@ -71,6 +74,9 @@ class WmsSubTransferItemNormalizer implements DenormalizerInterface, NormalizerI
         }
         if (null !== $object->getWarehouseItemId()) {
             $data->{'warehouse_item_id'} = $object->getWarehouseItemId();
+        }
+        if (null !== $object->getStackItemId()) {
+            $data->{'stack_item_id'} = $object->getStackItemId();
         }
         if (null !== $object->getStatus()) {
             $data->{'status'} = $object->getStatus();
