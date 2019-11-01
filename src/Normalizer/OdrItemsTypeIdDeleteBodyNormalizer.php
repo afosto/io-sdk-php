@@ -38,12 +38,12 @@ class OdrItemsTypeIdDeleteBodyNormalizer implements DenormalizerInterface, Norma
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrItemsTypeIdDeleteBody();
-        if (property_exists($data, 'stack_item_id') && $data->{'stack_item_id'} !== null) {
+        if (property_exists($data, 'stack_item_ids') && $data->{'stack_item_ids'} !== null) {
             $values = [];
-            foreach ($data->{'stack_item_id'} as $value) {
+            foreach ($data->{'stack_item_ids'} as $value) {
                 $values[] = $value;
             }
-            $object->setStackItemId($values);
+            $object->setStackItemIds($values);
         }
 
         return $object;
@@ -52,12 +52,12 @@ class OdrItemsTypeIdDeleteBodyNormalizer implements DenormalizerInterface, Norma
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getStackItemId()) {
+        if (null !== $object->getStackItemIds()) {
             $values = [];
-            foreach ($object->getStackItemId() as $value) {
+            foreach ($object->getStackItemIds() as $value) {
                 $values[] = $value;
             }
-            $data->{'stack_item_id'} = $values;
+            $data->{'stack_item_ids'} = $values;
         }
 
         return $data;

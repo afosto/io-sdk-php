@@ -15,24 +15,24 @@ class OdrItemsTypeIdDeleteBody
     /**
      * @var string[]
      */
-    protected $stackItemId;
+    protected $stackItemIds;
 
     /**
      * @return string[]|null
      */
-    public function getStackItemId(): ?array
+    public function getStackItemIds(): ?array
     {
-        return $this->stackItemId;
+        return $this->stackItemIds;
     }
 
     /**
-     * @param string[]|null $stackItemId
+     * @param string[]|null $stackItemIds
      *
      * @return self
      */
-    public function setStackItemId(?array $stackItemId): self
+    public function setStackItemIds(?array $stackItemIds): self
     {
-        $this->stackItemId = $stackItemId;
+        $this->stackItemIds = $stackItemIds;
 
         return $this;
     }
