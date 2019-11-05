@@ -17,9 +17,9 @@ class GetPricingRule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * Get a listing of available pricing rules.
      *
-     * @param int $id
+     * @param string $id
      */
-    public function __construct(int $id)
+    public function __construct(string $id)
     {
         $this->id = $id;
     }

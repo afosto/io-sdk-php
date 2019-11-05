@@ -33,6 +33,10 @@ class OdrInvoiceModel
      */
     protected $contactId;
     /**
+     * @var string
+     */
+    protected $addressId;
+    /**
      * @var \DateTime
      */
     protected $pricingAt;
@@ -141,6 +145,26 @@ class OdrInvoiceModel
     public function setContactId(?string $contactId): self
     {
         $this->contactId = $contactId;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAddressId(): ?string
+    {
+        return $this->addressId;
+    }
+
+    /**
+     * @param string|null $addressId
+     *
+     * @return self
+     */
+    public function setAddressId(?string $addressId): self
+    {
+        $this->addressId = $addressId;
 
         return $this;
     }

@@ -27,7 +27,7 @@ class OdrOrderModel
     /**
      * @var string
      */
-    protected $stackReference;
+    protected $stack;
     /**
      * @var string
      */
@@ -104,19 +104,19 @@ class OdrOrderModel
     /**
      * @return string|null
      */
-    public function getStackReference(): ?string
+    public function getStack(): ?string
     {
-        return $this->stackReference;
+        return $this->stack;
     }
 
     /**
-     * @param string|null $stackReference
+     * @param string|null $stack
      *
      * @return self
      */
-    public function setStackReference(?string $stackReference): self
+    public function setStack(?string $stack): self
     {
-        $this->stackReference = $stackReference;
+        $this->stack = $stack;
 
         return $this;
     }

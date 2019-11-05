@@ -57,12 +57,12 @@ class DeleteItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\DeleteItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteItemsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrItem[]|null
+     * @return \Afosto\Sdk\Model\OdrStack|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrItem[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrStack', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteItemsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

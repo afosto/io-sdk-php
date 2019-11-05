@@ -629,6 +629,12 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * Returns a single invoice by id.
      *
      * @param string $id
+     * @param array  $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ViewInvoiceBadRequestException
@@ -636,9 +642,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
      */
-    public function viewInvoice(string $id, string $fetch = self::FETCH_OBJECT)
+    public function viewInvoice(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewInvoice($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewInvoice($id, $headerParameters), $fetch);
     }
 
     /**
@@ -731,7 +737,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Get a listing of available pricing rules.
      *
-     * @param int    $id
+     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetPricingRuleUnauthorizedException
@@ -739,7 +745,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrPricingRule|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getPricingRule(int $id, string $fetch = self::FETCH_OBJECT)
+    public function getPricingRule(string $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPricingRule($id), $fetch);
     }
@@ -747,7 +753,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update an existing pricing rule.
      *
-     * @param int                                   $id
+     * @param string                                $id
      * @param \Afosto\Sdk\Model\OdrPricingRuleModel $body
      * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -756,7 +762,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrPricingRule|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updatePricingRule(int $id, \Afosto\Sdk\Model\OdrPricingRuleModel $body, string $fetch = self::FETCH_OBJECT)
+    public function updatePricingRule(string $id, \Afosto\Sdk\Model\OdrPricingRuleModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdatePricingRule($id, $body), $fetch);
     }
@@ -3901,7 +3907,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\DeleteItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteItemsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
      */
     public function deleteItems(string $type, string $id, \Afosto\Sdk\Model\OdrItemsTypeIdDeleteBody $body, string $fetch = self::FETCH_OBJECT)
     {
@@ -4040,6 +4046,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Get a listing of available pricing groups.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetPricingGroupsUnauthorizedException
@@ -4047,9 +4061,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CatGroup[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getPricingGroups(string $fetch = self::FETCH_OBJECT)
+    public function getPricingGroups(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPricingGroups(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPricingGroups($headerParameters), $fetch);
     }
 
     /**
@@ -4127,6 +4141,12 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *     @var string $administrative_area Florida - use to filter tax rate results
      * }
      *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetPricingUnauthorizedException
@@ -4134,9 +4154,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CatPrice[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getPricing(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function getPricing(string $id, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPricing($id, $queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPricing($id, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -4182,6 +4202,12 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *     @var string $administrative_area Florida
      * }
      *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetVatListUnauthorizedException
@@ -4189,9 +4215,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CatVatRate[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getVatList(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function getVatList(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetVatList($queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetVatList($queryParameters, $headerParameters), $fetch);
     }
 
     /**

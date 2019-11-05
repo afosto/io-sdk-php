@@ -15,7 +15,7 @@ class OdrStackOrderReference
     /**
      * @var string
      */
-    protected $reference;
+    protected $id;
     /**
      * @var bool
      */
@@ -24,19 +24,19 @@ class OdrStackOrderReference
     /**
      * @return string|null
      */
-    public function getReference(): ?string
+    public function getId(): ?string
     {
-        return $this->reference;
+        return $this->id;
     }
 
     /**
-     * @param string|null $reference
+     * @param string|null $id
      *
      * @return self
      */
-    public function setReference(?string $reference): self
+    public function setId(?string $id): self
     {
-        $this->reference = $reference;
+        $this->id = $id;
 
         return $this;
     }

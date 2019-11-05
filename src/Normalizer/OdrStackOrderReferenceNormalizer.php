@@ -38,8 +38,8 @@ class OdrStackOrderReferenceNormalizer implements DenormalizerInterface, Normali
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrStackOrderReference();
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
-            $object->setReference($data->{'reference'});
+        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+            $object->setId($data->{'id'});
         }
         if (property_exists($data, 'is_latest') && $data->{'is_latest'} !== null) {
             $object->setIsLatest($data->{'is_latest'});
@@ -51,8 +51,8 @@ class OdrStackOrderReferenceNormalizer implements DenormalizerInterface, Normali
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getReference()) {
-            $data->{'reference'} = $object->getReference();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
         }
         if (null !== $object->getIsLatest()) {
             $data->{'is_latest'} = $object->getIsLatest();

@@ -47,8 +47,8 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (property_exists($data, 'is_confirmed') && $data->{'is_confirmed'} !== null) {
             $object->setIsConfirmed($data->{'is_confirmed'});
         }
-        if (property_exists($data, 'stack_reference') && $data->{'stack_reference'} !== null) {
-            $object->setStackReference($data->{'stack_reference'});
+        if (property_exists($data, 'stack') && $data->{'stack'} !== null) {
+            $object->setStack($data->{'stack'});
         }
         if (property_exists($data, 'address_id') && $data->{'address_id'} !== null) {
             $object->setAddressId($data->{'address_id'});
@@ -75,8 +75,8 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (null !== $object->getIsConfirmed()) {
             $data->{'is_confirmed'} = $object->getIsConfirmed();
         }
-        if (null !== $object->getStackReference()) {
-            $data->{'stack_reference'} = $object->getStackReference();
+        if (null !== $object->getStack()) {
+            $data->{'stack'} = $object->getStack();
         }
         if (null !== $object->getAddressId()) {
             $data->{'address_id'} = $object->getAddressId();

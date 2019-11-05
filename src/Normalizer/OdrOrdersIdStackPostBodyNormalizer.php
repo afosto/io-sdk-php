@@ -38,8 +38,8 @@ class OdrOrdersIdStackPostBodyNormalizer implements DenormalizerInterface, Norma
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrOrdersIdStackPostBody();
-        if (property_exists($data, 'stack_reference') && $data->{'stack_reference'} !== null) {
-            $object->setStackReference($data->{'stack_reference'});
+        if (property_exists($data, 'stack') && $data->{'stack'} !== null) {
+            $object->setStack($data->{'stack'});
         }
 
         return $object;
@@ -48,8 +48,8 @@ class OdrOrdersIdStackPostBodyNormalizer implements DenormalizerInterface, Norma
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getStackReference()) {
-            $data->{'stack_reference'} = $object->getStackReference();
+        if (null !== $object->getStack()) {
+            $data->{'stack'} = $object->getStack();
         }
 
         return $data;

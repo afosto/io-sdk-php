@@ -23,11 +23,18 @@ class GetPricing extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *     @var string $country US - use to filter tax rate results
      *     @var string $administrative_area Florida - use to filter tax rate results
      * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
      */
-    public function __construct(string $id, array $queryParameters = [])
+    public function __construct(string $id, array $queryParameters = [], array $headerParameters = [])
     {
         $this->id = $id;
         $this->queryParameters = $queryParameters;
+        $this->headerParameters = $headerParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -60,6 +67,18 @@ class GetPricing extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('country', ['string']);
         $optionsResolver->setAllowedTypes('administrative_area', ['string']);
+
+        return $optionsResolver;
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['x-page', 'x-page-size']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['x-page' => '1', 'x-page-size' => '25']);
+        $optionsResolver->setAllowedTypes('x-page', ['string']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
 
         return $optionsResolver;
     }

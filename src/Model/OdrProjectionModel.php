@@ -33,6 +33,10 @@ class OdrProjectionModel
      */
     protected $contactId;
     /**
+     * @var \DateTime
+     */
+    protected $pricingAt;
+    /**
      * @var string[]
      */
     protected $coupons;
@@ -133,6 +137,26 @@ class OdrProjectionModel
     public function setContactId(?string $contactId): self
     {
         $this->contactId = $contactId;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getPricingAt(): ?\DateTime
+    {
+        return $this->pricingAt;
+    }
+
+    /**
+     * @param \DateTime|null $pricingAt
+     *
+     * @return self
+     */
+    public function setPricingAt(?\DateTime $pricingAt): self
+    {
+        $this->pricingAt = $pricingAt;
 
         return $this;
     }

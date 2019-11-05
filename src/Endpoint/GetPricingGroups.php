@@ -12,6 +12,20 @@ namespace Afosto\Sdk\Endpoint;
 
 class GetPricingGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
+    /**
+     * Get a listing of available pricing groups.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     */
+    public function __construct(array $headerParameters = [])
+    {
+        $this->headerParameters = $headerParameters;
+    }
+
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
 
     public function getMethod(): string
@@ -32,6 +46,18 @@ class GetPricingGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['x-page', 'x-page-size']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['x-page' => '1', 'x-page-size' => '25']);
+        $optionsResolver->setAllowedTypes('x-page', ['string']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
+
+        return $optionsResolver;
     }
 
     /**
