@@ -15,7 +15,7 @@ class GetPricingRule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     protected $id;
 
     /**
-     * Get a listing of available pricing rules.
+     * Get a pricing rule.
      *
      * @param string $id
      */

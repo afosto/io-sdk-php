@@ -17,10 +17,6 @@ class OdrProjectionModel
      */
     protected $clientId;
     /**
-     * @var OdrStackReference
-     */
-    protected $stack;
-    /**
      * @var OdrInvoiceItemModel[]
      */
     protected $items;
@@ -57,26 +53,6 @@ class OdrProjectionModel
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
-
-        return $this;
-    }
-
-    /**
-     * @return OdrStackReference|null
-     */
-    public function getStack(): ?OdrStackReference
-    {
-        return $this->stack;
-    }
-
-    /**
-     * @param OdrStackReference|null $stack
-     *
-     * @return self
-     */
-    public function setStack(?OdrStackReference $stack): self
-    {
-        $this->stack = $stack;
 
         return $this;
     }

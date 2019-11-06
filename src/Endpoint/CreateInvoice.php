@@ -15,9 +15,9 @@ class CreateInvoice extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * Create a new invoice.
      *
-     * @param \Afosto\Sdk\Model\OdrInvoiceModel $body
+     * @param \Afosto\Sdk\Model\OdrInvoiceRequest $body
      */
-    public function __construct(\Afosto\Sdk\Model\OdrInvoiceModel $body)
+    public function __construct(\Afosto\Sdk\Model\OdrInvoiceRequest $body)
     {
         $this->body = $body;
     }

@@ -612,15 +612,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create a new invoice.
      *
-     * @param \Afosto\Sdk\Model\OdrInvoiceModel $body
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\OdrInvoiceRequest $body
+     * @param string                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateInvoiceBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateInvoiceUnauthorizedException
      *
      * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createInvoice(\Afosto\Sdk\Model\OdrInvoiceModel $body, string $fetch = self::FETCH_OBJECT)
+    public function createInvoice(\Afosto\Sdk\Model\OdrInvoiceRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateInvoice($body), $fetch);
     }
@@ -650,16 +650,16 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update an concept / proforma invoice.
      *
-     * @param string                            $id
-     * @param \Afosto\Sdk\Model\OdrInvoiceModel $body
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string                              $id
+     * @param \Afosto\Sdk\Model\OdrInvoiceRequest $body
+     * @param string                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateInvoiceBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateInvoiceUnauthorizedException
      *
      * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateInvoice(string $id, \Afosto\Sdk\Model\OdrInvoiceModel $body, string $fetch = self::FETCH_OBJECT)
+    public function updateInvoice(string $id, \Afosto\Sdk\Model\OdrInvoiceRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInvoice($id, $body), $fetch);
     }
@@ -735,7 +735,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Get a listing of available pricing rules.
+     * Get a pricing rule.
      *
      * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

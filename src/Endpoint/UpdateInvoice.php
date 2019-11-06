@@ -17,10 +17,10 @@ class UpdateInvoice extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * Update an concept / proforma invoice.
      *
-     * @param string                            $id
-     * @param \Afosto\Sdk\Model\OdrInvoiceModel $body
+     * @param string                              $id
+     * @param \Afosto\Sdk\Model\OdrInvoiceRequest $body
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\OdrInvoiceModel $body)
+    public function __construct(string $id, \Afosto\Sdk\Model\OdrInvoiceRequest $body)
     {
         $this->id = $id;
         $this->body = $body;

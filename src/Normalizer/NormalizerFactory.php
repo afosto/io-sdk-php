@@ -46,7 +46,7 @@ class NormalizerFactory
         $normalizers[] = new OdrInvoiceStateNormalizer();
         $normalizers[] = new OdrInvoiceNormalizer();
         $normalizers[] = new OdrInvoiceListItemNormalizer();
-        $normalizers[] = new OdrInvoiceModelNormalizer();
+        $normalizers[] = new OdrInvoiceRequestNormalizer();
         $normalizers[] = new OdrInvoiceItemNormalizer();
         $normalizers[] = new OdrInvoiceItemModelNormalizer();
         $normalizers[] = new OdrProjectionModelNormalizer();

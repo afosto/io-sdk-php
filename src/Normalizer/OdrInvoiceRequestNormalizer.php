@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrInvoiceModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrInvoiceRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrInvoiceModel';
+        return $type === 'Afosto\\Sdk\\Model\\OdrInvoiceRequest';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrInvoiceModel';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrInvoiceRequest';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class OdrInvoiceModelNormalizer implements DenormalizerInterface, NormalizerInte
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrInvoiceModel();
+        $object = new \Afosto\Sdk\Model\OdrInvoiceRequest();
         if (property_exists($data, 'stack') && $data->{'stack'} !== null) {
             $object->setStack($this->denormalizer->denormalize($data->{'stack'}, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context));
         }

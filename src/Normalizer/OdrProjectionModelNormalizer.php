@@ -41,9 +41,6 @@ class OdrProjectionModelNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
             $object->setClientId($data->{'client_id'});
         }
-        if (property_exists($data, 'stack') && $data->{'stack'} !== null) {
-            $object->setStack($this->denormalizer->denormalize($data->{'stack'}, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context));
-        }
         if (property_exists($data, 'items') && $data->{'items'} !== null) {
             $values = [];
             foreach ($data->{'items'} as $value) {
@@ -80,9 +77,6 @@ class OdrProjectionModelNormalizer implements DenormalizerInterface, NormalizerI
         $data = new \stdClass();
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
-        }
-        if (null !== $object->getStack()) {
-            $data->{'stack'} = $this->normalizer->normalize($object->getStack(), 'json', $context);
         }
         if (null !== $object->getItems()) {
             $values = [];
