@@ -4522,6 +4522,27 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a list of organisation information.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListOrganisationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListOrganisationsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\RelOrganisation[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listOrganisations(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListOrganisations($headerParameters), $fetch);
+    }
+
+    /**
      * Create an organisation.
      *
      * @param \Afosto\Sdk\Model\RelOrganisationUpdateModel $body
