@@ -41,6 +41,9 @@ class LcsHandlingListNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
+        if (property_exists($data, 'number') && $data->{'number'} !== null) {
+            $object->setNumber($data->{'number'});
+        }
         if (property_exists($data, 'sub') && $data->{'sub'} !== null) {
             $object->setSub($data->{'sub'});
         }
@@ -100,6 +103,9 @@ class LcsHandlingListNormalizer implements DenormalizerInterface, NormalizerInte
         $data = new \stdClass();
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
+        }
+        if (null !== $object->getNumber()) {
+            $data->{'number'} = $object->getNumber();
         }
         if (null !== $object->getSub()) {
             $data->{'sub'} = $object->getSub();

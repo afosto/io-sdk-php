@@ -236,12 +236,6 @@ class NormalizerFactory
         $normalizers[] = new LcsShipmentAddressingNormalizer();
         $normalizers[] = new LcsShipmentAddressingCarrierNormalizer();
         $normalizers[] = new LcsBackorderItemNormalizer();
-        $normalizers[] = new LcsShipmentDetailsNormalizer();
-        $normalizers[] = new LcsShipmentDetailsAddressingNormalizer();
-        $normalizers[] = new LcsShipmentDetailsAddressingToNormalizer();
-        $normalizers[] = new LcsShipmentDetailsAddressingToCarrierNormalizer();
-        $normalizers[] = new LcsShipmentDetailsAddressingFromNormalizer();
-        $normalizers[] = new LcsShipmentDetailsAddressingFromCarrierNormalizer();
         $normalizers[] = new LcsShipmentItemModelNormalizer();
         $normalizers[] = new LcsShipmentItemModelPositionsNormalizer();
         $normalizers[] = new LcsShipmentItemNormalizer();
@@ -260,7 +254,6 @@ class NormalizerFactory
         $normalizers[] = new LcsShipmentModelNormalizer();
         $normalizers[] = new LcsShipmentModelAddressingNormalizer();
         $normalizers[] = new LcsShipmentModelStackNormalizer();
-        $normalizers[] = new LcsAddressNormalizer();
         $normalizers[] = new SplJobNormalizer();
         $normalizers[] = new SplJobModelNormalizer();
         $normalizers[] = new SplJobResultNormalizer();

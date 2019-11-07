@@ -52,12 +52,12 @@ class ViewShipment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * @throws \Afosto\Sdk\Exception\ViewShipmentBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewShipmentUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\LcsShipmentDetails|null
+     * @return \Afosto\Sdk\Model\LcsShipment|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsShipmentDetails', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsShipment', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ViewShipmentBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

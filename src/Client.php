@@ -3575,7 +3575,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ViewShipmentBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewShipmentUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\LcsShipmentDetails|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsShipment|\Psr\Http\Message\ResponseInterface|null
      */
     public function viewShipment(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -3592,7 +3592,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateShipmentBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateShipmentUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\LcsShipmentDetails|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsShipment|\Psr\Http\Message\ResponseInterface|null
      */
     public function updateShipment(string $id, \Afosto\Sdk\Model\LcsShipmentUpdateModel $body, string $fetch = self::FETCH_OBJECT)
     {
