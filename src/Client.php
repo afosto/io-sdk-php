@@ -2314,16 +2314,16 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ListShipmentsBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListShipmentsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListShipmentsNotFoundException
-     * @throws \Afosto\Sdk\Exception\ListShipmentsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPickerShipmentsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPickerShipmentsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListPickerShipmentsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListPickerShipmentsInternalServerErrorException
      *
      * @return \Afosto\Sdk\Model\PkrShipment[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listShipments(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listPickerShipments(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListShipments($queryParameters, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListPickerShipments($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -3380,6 +3380,442 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function upsertDefinition(\Afosto\Sdk\Model\CntDefinitionModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpsertDefinition($body), $fetch);
+    }
+
+    /**
+     * Returns a list of handling lists.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListHandlingListsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListHandlingListsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsHandlingList[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listHandlingLists(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListHandlingLists($headerParameters), $fetch);
+    }
+
+    /**
+     * Add a new handling list.
+     *
+     * @param \Afosto\Sdk\Model\LcsHandlingModel $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateHandlingListBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateHandlingListUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsHandlingListResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createHandlingList(\Afosto\Sdk\Model\LcsHandlingModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateHandlingList($body), $fetch);
+    }
+
+    /**
+     * Search for a set of lists.
+     *
+     * @param \Afosto\Sdk\Model\LcsListSearch $body
+     * @param array                           $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchListsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchListsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsHandlingList[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchLists(\Afosto\Sdk\Model\LcsListSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchLists($body, $headerParameters), $fetch);
+    }
+
+    /**
+     * Delete a handling list.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteHandlingListBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteHandlingListUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsHandlingList|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteHandlingList(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteHandlingList($id), $fetch);
+    }
+
+    /**
+     * Returns a handling list.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewHandlingListBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewHandlingListUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsHandlingList|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewHandlingList(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewHandlingList($id), $fetch);
+    }
+
+    /**
+     * Update items' state on a handling list.
+     *
+     * @param string                                        $id
+     * @param \Afosto\Sdk\Model\LcsHandlingListItemUpdate[] $body
+     * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsListsIdItemsPutResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateHandlingListItem(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateHandlingListItem($id, $body), $fetch);
+    }
+
+    /**
+     * Update state of an handling list.
+     *
+     * @param string                                  $id
+     * @param \Afosto\Sdk\Model\LcsHandlingListUpdate $body
+     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateListStateBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateListStateUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsListsIdStatePutResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateListState(string $id, \Afosto\Sdk\Model\LcsHandlingListUpdate $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateListState($id, $body), $fetch);
+    }
+
+    /**
+     * Get a list of shipments.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListShipmentsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListShipmentsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsShipment[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listShipments(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListShipments($headerParameters), $fetch);
+    }
+
+    /**
+     * Add a new shipment to the list.
+     *
+     * @param \Afosto\Sdk\Model\LcsShipmentModel $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateShipmentBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateShipmentUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsShipment[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createShipment(\Afosto\Sdk\Model\LcsShipmentModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateShipment($body), $fetch);
+    }
+
+    /**
+     * Search for a set of shipments.
+     *
+     * @param \Afosto\Sdk\Model\LcsShipmentSearch $body
+     * @param array                               $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchShipmentsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchShipmentsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsShipment[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchShipments(\Afosto\Sdk\Model\LcsShipmentSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchShipments($body, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns a single shipment.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewShipmentBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewShipmentUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsShipmentDetails|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewShipment(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewShipment($id), $fetch);
+    }
+
+    /**
+     * Update the shipment method or addressing.
+     *
+     * @param string                                   $id
+     * @param \Afosto\Sdk\Model\LcsShipmentUpdateModel $body
+     * @param string                                   $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsShipmentDetails|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateShipment(string $id, \Afosto\Sdk\Model\LcsShipmentUpdateModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateShipment($id, $body), $fetch);
+    }
+
+    /**
+     * Add a new parcel to the list.
+     *
+     * @param \Afosto\Sdk\Model\LcsParcelCreateModel $body
+     * @param string                                 $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateParcelBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateParcelUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createParcel(\Afosto\Sdk\Model\LcsParcelCreateModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateParcel($body), $fetch);
+    }
+
+    /**
+     * Remove a parcel.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\RemoveParcelBadRequestException
+     * @throws \Afosto\Sdk\Exception\RemoveParcelUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function removeParcel(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RemoveParcel($id), $fetch);
+    }
+
+    /**
+     * Update the parcel parameters.
+     *
+     * @param string                           $id
+     * @param \Afosto\Sdk\Model\LcsParcelModel $body
+     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateParcelBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateParcelUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateParcel(string $id, \Afosto\Sdk\Model\LcsParcelModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateParcel($id, $body), $fetch);
+    }
+
+    /**
+     * Remove items from parcel.
+     *
+     * @param string                     $id
+     * @param \Afosto\Sdk\Model\LcsPlace $body
+     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\RemoveFromParcelBadRequestException
+     * @throws \Afosto\Sdk\Exception\RemoveFromParcelUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function removeFromParcel(string $id, \Afosto\Sdk\Model\LcsPlace $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RemoveFromParcel($id, $body), $fetch);
+    }
+
+    /**
+     * Add items to a parcel.
+     *
+     * @param string                     $id
+     * @param \Afosto\Sdk\Model\LcsPlace $body
+     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AddToParcelBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddToParcelUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function addToParcel(string $id, \Afosto\Sdk\Model\LcsPlace $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddToParcel($id, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of fulfilment locations.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListFulfilmentLocationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListFulfilmentLocationsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsFulfilmentLocation[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listFulfilmentLocations(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListFulfilmentLocations($headerParameters), $fetch);
+    }
+
+    /**
+     * Returns a list of fulfilment locations.
+     *
+     * @param \Afosto\Sdk\Model\LcsFulfilmentLocationCreate $body
+     * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateFulfilmentLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateFulfilmentLocationUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsFulfilmentLocation[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createFulfilmentLocation(\Afosto\Sdk\Model\LcsFulfilmentLocationCreate $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateFulfilmentLocation($body), $fetch);
+    }
+
+    /**
+     * Returns a list of fulfilment locations.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewLocationUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsFulfilmentLocation|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewLocation(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewLocation($id), $fetch);
+    }
+
+    /**
+     * Returns a list of fulfilment locations.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListPositionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPositionsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsLocationPosition[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listPositions(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListPositions($id), $fetch);
+    }
+
+    /**
+     * Updates the position order for a location.
+     *
+     * @param string $id
+     * @param array  $body
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdatePositionOrderBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdatePositionOrderUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsLocationsIdPositionsPutResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updatePositionOrder(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdatePositionOrder($id, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of fulfilment locations.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListLocationSkusBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListLocationSkusUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsLocationSku[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listLocationSkus(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListLocationSkus($id), $fetch);
+    }
+
+    /**
+     * Updates the position order for a location.
+     *
+     * @param string                             $id
+     * @param \Afosto\Sdk\Model\LcsLocationSku[] $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpsertLocationSkusBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpsertLocationSkusUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsLocationsIdSkusPutResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function upsertLocationSkus(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpsertLocationSkus($id, $body), $fetch);
+    }
+
+    /**
+     * Returns a file reference to a label.
+     *
+     * @param string                            $id
+     * @param \Afosto\Sdk\Model\LcsLabelRequest $body
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetLabelBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetLabelUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsFile|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getLabel(string $id, \Afosto\Sdk\Model\LcsLabelRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetLabel($id, $body), $fetch);
     }
 
     /**

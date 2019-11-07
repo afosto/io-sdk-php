@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class ListShipmentsBadRequestException extends \RuntimeException implements ClientException
+class UpdateHandlingListItemUnauthorizedException extends \RuntimeException implements ClientException
 {
     private $error;
 
     public function __construct(\Afosto\Sdk\Model\Error $error)
     {
-        parent::__construct('Bad request', 400);
+        parent::__construct('Unauthorized', 401);
         $this->error = $error;
     }
 

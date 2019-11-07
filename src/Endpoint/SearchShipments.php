@@ -10,19 +10,21 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class ListShipments extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class SearchShipments extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
-     * Get a list of shipments.
+     * Search for a set of shipments.
      *
-     * @param array $headerParameters {
+     * @param \Afosto\Sdk\Model\LcsShipmentSearch $body
+     * @param array                               $headerParameters {
      *
      *     @var string $x-page
      *     @var string $x-page-size
      * }
      */
-    public function __construct(array $headerParameters = [])
+    public function __construct(\Afosto\Sdk\Model\LcsShipmentSearch $body, array $headerParameters = [])
     {
+        $this->body = $body;
         $this->headerParameters = $headerParameters;
     }
 
@@ -30,17 +32,17 @@ class ListShipments extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getMethod(): string
     {
-        return 'GET';
+        return 'POST';
     }
 
     public function getUri(): string
     {
-        return '/lcs/shipments';
+        return '/lcs/shipments/search';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return [[], null];
+        return $this->getSerializedBody($serializer);
     }
 
     public function getExtraHeaders(): array
@@ -63,8 +65,8 @@ class ListShipments extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ListShipmentsBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListShipmentsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchShipmentsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchShipmentsUnauthorizedException
      *
      * @return \Afosto\Sdk\Model\LcsShipment[]|null
      */
@@ -74,10 +76,10 @@ class ListShipments extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsShipment[]', 'json');
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\ListShipmentsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchShipmentsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ListShipmentsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchShipmentsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

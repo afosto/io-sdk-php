@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class ListShipmentsBadRequestException extends \RuntimeException implements ClientException
+class ListLocationSkusBadRequestException extends \RuntimeException implements ClientException
 {
     private $error;
 

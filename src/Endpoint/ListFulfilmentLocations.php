@@ -10,10 +10,10 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class ListShipments extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class ListFulfilmentLocations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
-     * Get a list of shipments.
+     * Returns a list of fulfilment locations.
      *
      * @param array $headerParameters {
      *
@@ -35,7 +35,7 @@ class ListShipments extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getUri(): string
     {
-        return '/lcs/shipments';
+        return '/lcs/locations';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -63,21 +63,21 @@ class ListShipments extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ListShipmentsBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListShipmentsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListFulfilmentLocationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListFulfilmentLocationsUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\LcsShipment[]|null
+     * @return \Afosto\Sdk\Model\LcsFulfilmentLocation[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsShipment[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsFulfilmentLocation[]', 'json');
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\ListShipmentsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ListFulfilmentLocationsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ListShipmentsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ListFulfilmentLocationsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

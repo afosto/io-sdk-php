@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class ListShipmentsInternalServerErrorException extends \RuntimeException implements ServerException
+class ListFulfilmentLocationsBadRequestException extends \RuntimeException implements ClientException
 {
     private $error;
 
     public function __construct(\Afosto\Sdk\Model\Error $error)
     {
-        parent::__construct('Unauthorized', 500);
+        parent::__construct('Bad request', 400);
         $this->error = $error;
     }
 
