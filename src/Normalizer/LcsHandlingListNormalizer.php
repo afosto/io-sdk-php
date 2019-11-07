@@ -60,8 +60,8 @@ class LcsHandlingListNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'is_in_progress') && $data->{'is_in_progress'} !== null) {
             $object->setIsInProgress($data->{'is_in_progress'});
         }
-        if (property_exists($data, 'is_on_hol') && $data->{'is_on_hol'} !== null) {
-            $object->setIsOnHol($data->{'is_on_hol'});
+        if (property_exists($data, 'is_on_hold') && $data->{'is_on_hold'} !== null) {
+            $object->setIsOnHold($data->{'is_on_hold'});
         }
         if (property_exists($data, 'is_cancelled') && $data->{'is_cancelled'} !== null) {
             $object->setIsCancelled($data->{'is_cancelled'});
@@ -120,8 +120,8 @@ class LcsHandlingListNormalizer implements DenormalizerInterface, NormalizerInte
         if (null !== $object->getIsInProgress()) {
             $data->{'is_in_progress'} = $object->getIsInProgress();
         }
-        if (null !== $object->getIsOnHol()) {
-            $data->{'is_on_hol'} = $object->getIsOnHol();
+        if (null !== $object->getIsOnHold()) {
+            $data->{'is_on_hold'} = $object->getIsOnHold();
         }
         if (null !== $object->getIsCancelled()) {
             $data->{'is_cancelled'} = $object->getIsCancelled();

@@ -39,7 +39,7 @@ class LcsHandlingList
     /**
      * @var bool
      */
-    protected $isOnHol;
+    protected $isOnHold;
     /**
      * @var bool
      */
@@ -196,19 +196,19 @@ class LcsHandlingList
     /**
      * @return bool|null
      */
-    public function getIsOnHol(): ?bool
+    public function getIsOnHold(): ?bool
     {
-        return $this->isOnHol;
+        return $this->isOnHold;
     }
 
     /**
-     * @param bool|null $isOnHol
+     * @param bool|null $isOnHold
      *
      * @return self
      */
-    public function setIsOnHol(?bool $isOnHol): self
+    public function setIsOnHold(?bool $isOnHold): self
     {
-        $this->isOnHol = $isOnHol;
+        $this->isOnHold = $isOnHold;
 
         return $this;
     }
