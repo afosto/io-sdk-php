@@ -17,7 +17,7 @@ class RelAddress
      */
     protected $id;
     /**
-     * Two letter country code.
+     * Two letter counpremise_numbertry code.
      *
      * @var string
      */
@@ -69,7 +69,7 @@ class RelAddress
      */
     protected $thoroughfare;
     /**
-     * @var string
+     * @var int
      */
     protected $premiseNumber;
     /**
@@ -122,7 +122,7 @@ class RelAddress
     }
 
     /**
-     * Two letter country code.
+     * Two letter counpremise_numbertry code.
      *
      * @return string|null
      */
@@ -132,7 +132,7 @@ class RelAddress
     }
 
     /**
-     * Two letter country code.
+     * Two letter counpremise_numbertry code.
      *
      * @param string|null $countryCode
      *
@@ -334,19 +334,19 @@ class RelAddress
     }
 
     /**
-     * @return string|null
+     * @return int|null
      */
-    public function getPremiseNumber(): ?string
+    public function getPremiseNumber(): ?int
     {
         return $this->premiseNumber;
     }
 
     /**
-     * @param string|null $premiseNumber
+     * @param int|null $premiseNumber
      *
      * @return self
      */
-    public function setPremiseNumber(?string $premiseNumber): self
+    public function setPremiseNumber(?int $premiseNumber): self
     {
         $this->premiseNumber = $premiseNumber;
 

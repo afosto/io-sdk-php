@@ -65,7 +65,7 @@ class RelAddressModel
      */
     protected $thoroughfare;
     /**
-     * @var string
+     * @var int
      */
     protected $premiseNumber;
     /**
@@ -310,19 +310,19 @@ class RelAddressModel
     }
 
     /**
-     * @return string|null
+     * @return int|null
      */
-    public function getPremiseNumber(): ?string
+    public function getPremiseNumber(): ?int
     {
         return $this->premiseNumber;
     }
 
     /**
-     * @param string|null $premiseNumber
+     * @param int|null $premiseNumber
      *
      * @return self
      */
-    public function setPremiseNumber(?string $premiseNumber): self
+    public function setPremiseNumber(?int $premiseNumber): self
     {
         $this->premiseNumber = $premiseNumber;
 

@@ -288,7 +288,6 @@ class NormalizerFactory
         $normalizers[] = new RelPhoneNumberNormalizer();
         $normalizers[] = new RelPhoneNumberListNormalizer();
         $normalizers[] = new RelPhoneNumberModelNormalizer();
-        $normalizers[] = new RelIdListItemNormalizer();
         $normalizers[] = new RelAddressListNormalizer();
         $normalizers[] = new RelAddressModelNormalizer();
         $normalizers[] = new RelAddressNormalizer();
