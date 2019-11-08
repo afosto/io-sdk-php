@@ -15,7 +15,11 @@ class OdrContactContact
     /**
      * @var string
      */
-    protected $email;
+    protected $id;
+    /**
+     * @var string
+     */
+    protected $organization;
     /**
      * @var string
      */
@@ -27,48 +31,52 @@ class OdrContactContact
     /**
      * @var string
      */
-    protected $organisationId;
-    /**
-     * @var string
-     */
-    protected $organisationVersion;
-    /**
-     * @var string
-     */
     protected $addressId;
     /**
      * @var string
      */
-    protected $shipmentAddressId;
+    protected $email;
     /**
      * @var string
      */
     protected $phoneNumberId;
-    /**
-     * @var string
-     */
-    protected $contactId;
-    /**
-     * @var string
-     */
-    protected $contactVersion;
 
     /**
      * @return string|null
      */
-    public function getEmail(): ?string
+    public function getId(): ?string
     {
-        return $this->email;
+        return $this->id;
     }
 
     /**
-     * @param string|null $email
+     * @param string|null $id
      *
      * @return self
      */
-    public function setEmail(?string $email): self
+    public function setId(?string $id): self
     {
-        $this->email = $email;
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getOrganization(): ?string
+    {
+        return $this->organization;
+    }
+
+    /**
+     * @param string|null $organization
+     *
+     * @return self
+     */
+    public function setOrganization(?string $organization): self
+    {
+        $this->organization = $organization;
 
         return $this;
     }
@@ -116,46 +124,6 @@ class OdrContactContact
     /**
      * @return string|null
      */
-    public function getOrganisationId(): ?string
-    {
-        return $this->organisationId;
-    }
-
-    /**
-     * @param string|null $organisationId
-     *
-     * @return self
-     */
-    public function setOrganisationId(?string $organisationId): self
-    {
-        $this->organisationId = $organisationId;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getOrganisationVersion(): ?string
-    {
-        return $this->organisationVersion;
-    }
-
-    /**
-     * @param string|null $organisationVersion
-     *
-     * @return self
-     */
-    public function setOrganisationVersion(?string $organisationVersion): self
-    {
-        $this->organisationVersion = $organisationVersion;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
     public function getAddressId(): ?string
     {
         return $this->addressId;
@@ -176,19 +144,19 @@ class OdrContactContact
     /**
      * @return string|null
      */
-    public function getShipmentAddressId(): ?string
+    public function getEmail(): ?string
     {
-        return $this->shipmentAddressId;
+        return $this->email;
     }
 
     /**
-     * @param string|null $shipmentAddressId
+     * @param string|null $email
      *
      * @return self
      */
-    public function setShipmentAddressId(?string $shipmentAddressId): self
+    public function setEmail(?string $email): self
     {
-        $this->shipmentAddressId = $shipmentAddressId;
+        $this->email = $email;
 
         return $this;
     }
@@ -209,46 +177,6 @@ class OdrContactContact
     public function setPhoneNumberId(?string $phoneNumberId): self
     {
         $this->phoneNumberId = $phoneNumberId;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getContactId(): ?string
-    {
-        return $this->contactId;
-    }
-
-    /**
-     * @param string|null $contactId
-     *
-     * @return self
-     */
-    public function setContactId(?string $contactId): self
-    {
-        $this->contactId = $contactId;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getContactVersion(): ?string
-    {
-        return $this->contactVersion;
-    }
-
-    /**
-     * @param string|null $contactVersion
-     *
-     * @return self
-     */
-    public function setContactVersion(?string $contactVersion): self
-    {
-        $this->contactVersion = $contactVersion;
 
         return $this;
     }

@@ -38,8 +38,11 @@ class OdrContactContactNormalizer implements DenormalizerInterface, NormalizerIn
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrContactContact();
-        if (property_exists($data, 'email') && $data->{'email'} !== null) {
-            $object->setEmail($data->{'email'});
+        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+            $object->setId($data->{'id'});
+        }
+        if (property_exists($data, 'organization') && $data->{'organization'} !== null) {
+            $object->setOrganization($data->{'organization'});
         }
         if (property_exists($data, 'vat_number') && $data->{'vat_number'} !== null) {
             $object->setVatNumber($data->{'vat_number'});
@@ -47,26 +50,14 @@ class OdrContactContactNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'coc_number') && $data->{'coc_number'} !== null) {
             $object->setCocNumber($data->{'coc_number'});
         }
-        if (property_exists($data, 'organisation_id') && $data->{'organisation_id'} !== null) {
-            $object->setOrganisationId($data->{'organisation_id'});
-        }
-        if (property_exists($data, 'organisation_version') && $data->{'organisation_version'} !== null) {
-            $object->setOrganisationVersion($data->{'organisation_version'});
-        }
         if (property_exists($data, 'address_id') && $data->{'address_id'} !== null) {
             $object->setAddressId($data->{'address_id'});
         }
-        if (property_exists($data, 'shipment_address_id') && $data->{'shipment_address_id'} !== null) {
-            $object->setShipmentAddressId($data->{'shipment_address_id'});
+        if (property_exists($data, 'email') && $data->{'email'} !== null) {
+            $object->setEmail($data->{'email'});
         }
         if (property_exists($data, 'phone_number_id') && $data->{'phone_number_id'} !== null) {
             $object->setPhoneNumberId($data->{'phone_number_id'});
-        }
-        if (property_exists($data, 'contact_id') && $data->{'contact_id'} !== null) {
-            $object->setContactId($data->{'contact_id'});
-        }
-        if (property_exists($data, 'contact_version') && $data->{'contact_version'} !== null) {
-            $object->setContactVersion($data->{'contact_version'});
         }
 
         return $object;
@@ -75,8 +66,11 @@ class OdrContactContactNormalizer implements DenormalizerInterface, NormalizerIn
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getEmail()) {
-            $data->{'email'} = $object->getEmail();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
+        }
+        if (null !== $object->getOrganization()) {
+            $data->{'organization'} = $object->getOrganization();
         }
         if (null !== $object->getVatNumber()) {
             $data->{'vat_number'} = $object->getVatNumber();
@@ -84,26 +78,14 @@ class OdrContactContactNormalizer implements DenormalizerInterface, NormalizerIn
         if (null !== $object->getCocNumber()) {
             $data->{'coc_number'} = $object->getCocNumber();
         }
-        if (null !== $object->getOrganisationId()) {
-            $data->{'organisation_id'} = $object->getOrganisationId();
-        }
-        if (null !== $object->getOrganisationVersion()) {
-            $data->{'organisation_version'} = $object->getOrganisationVersion();
-        }
         if (null !== $object->getAddressId()) {
             $data->{'address_id'} = $object->getAddressId();
         }
-        if (null !== $object->getShipmentAddressId()) {
-            $data->{'shipment_address_id'} = $object->getShipmentAddressId();
+        if (null !== $object->getEmail()) {
+            $data->{'email'} = $object->getEmail();
         }
         if (null !== $object->getPhoneNumberId()) {
             $data->{'phone_number_id'} = $object->getPhoneNumberId();
-        }
-        if (null !== $object->getContactId()) {
-            $data->{'contact_id'} = $object->getContactId();
-        }
-        if (null !== $object->getContactVersion()) {
-            $data->{'contact_version'} = $object->getContactVersion();
         }
 
         return $data;

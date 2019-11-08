@@ -29,10 +29,6 @@ class OdrProjectionModel
      */
     protected $contactId;
     /**
-     * @var string
-     */
-    protected $organisationId;
-    /**
      * @var \DateTime
      */
     protected $pricingAt;
@@ -117,26 +113,6 @@ class OdrProjectionModel
     public function setContactId(?string $contactId): self
     {
         $this->contactId = $contactId;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getOrganisationId(): ?string
-    {
-        return $this->organisationId;
-    }
-
-    /**
-     * @param string|null $organisationId
-     *
-     * @return self
-     */
-    public function setOrganisationId(?string $organisationId): self
-    {
-        $this->organisationId = $organisationId;
 
         return $this;
     }
