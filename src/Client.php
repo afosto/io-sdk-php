@@ -259,6 +259,22 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * View a single order.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewOrderByStackUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewOrderByStackNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewOrderByStack(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewOrderByStack($id), $fetch);
+    }
+
+    /**
      * Attach new stack.
      *
      * @param string                                     $id
@@ -273,22 +289,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function attachStack(string $id, \Afosto\Sdk\Model\OdrOrdersIdStackPostBody $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachStack($id, $body), $fetch);
-    }
-
-    /**
-     * View a single order.
-     *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ViewOrderByStackUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ViewOrderByStackNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function viewOrderByStack(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewOrderByStack($id), $fetch);
     }
 
     /**
