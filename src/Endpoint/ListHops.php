@@ -17,8 +17,8 @@ class ListHops extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
      *
      * @param array $headerParameters {
      *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
+     *     @var int $x-page the requested page id
+     *     @var int $x-page-size the requested page size
      * }
      */
     public function __construct(array $headerParameters = [])
@@ -54,8 +54,8 @@ class ListHops extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
         $optionsResolver->setDefined(['x-page', 'x-page-size']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
-        $optionsResolver->setAllowedTypes('x-page', ['string']);
-        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
+        $optionsResolver->setAllowedTypes('x-page', ['int']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['int']);
 
         return $optionsResolver;
     }

@@ -50,12 +50,12 @@ class CreateRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\CreateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateRouteNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsRoute[]|null
+     * @return \Afosto\Sdk\Model\WmsRoute|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsRoute[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsRoute', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateRouteUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

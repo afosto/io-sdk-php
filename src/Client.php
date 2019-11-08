@@ -2486,7 +2486,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\CreateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateRouteNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsRoute[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsRoute|\Psr\Http\Message\ResponseInterface|null
      */
     public function createRoute(\Afosto\Sdk\Model\WmsCreateRouteRequest $body, string $fetch = self::FETCH_OBJECT)
     {
@@ -2631,8 +2631,8 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param array $headerParameters {
      *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
+     *     @var int $x-page the requested page id
+     *     @var int $x-page-size the requested page size
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -3148,6 +3148,28 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Get a list of inventory summaries.
+     *
+     * @param \Afosto\Sdk\Model\WmsInventoryPostBody $body
+     * @param array                                  $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchInventoryUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchInventoryNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\WmsStock[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchInventory(\Afosto\Sdk\Model\WmsInventoryPostBody $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchInventory($body, $headerParameters), $fetch);
+    }
+
+    /**
      * Create an optimized set of claims.
      *
      * @param string $id
@@ -3168,22 +3190,16 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string                                          $id
      * @param \Afosto\Sdk\Model\WmsUpdateWarehouseItemRequest $body
-     * @param array                                           $headerParameters {
-     *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string                                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateItemNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsWarehouseItem|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateItem(string $id, \Afosto\Sdk\Model\WmsUpdateWarehouseItemRequest $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function updateItem(string $id, \Afosto\Sdk\Model\WmsUpdateWarehouseItemRequest $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateItem($id, $body, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateItem($id, $body), $fetch);
     }
 
     /**

@@ -160,6 +160,8 @@ class NormalizerFactory
         $normalizers[] = new OdrPurchaseNormalizer();
         $normalizers[] = new OdrTransactionModelNormalizer();
         $normalizers[] = new OdrPurchaseItemNormalizer();
+        $normalizers[] = new WmsStockNormalizer();
+        $normalizers[] = new WmsInventoryConstraintNormalizer();
         $normalizers[] = new WmsUpdateWarehouseItemRequestNormalizer();
         $normalizers[] = new WmsUpdateTransferRequestNormalizer();
         $normalizers[] = new WmsCreateRouteRequestNormalizer();
@@ -321,6 +323,7 @@ class NormalizerFactory
         $normalizers[] = new IamOauthForwardReferenceGetResponse200Normalizer();
         $normalizers[] = new WmsClaimsPostResponse200Normalizer();
         $normalizers[] = new WmsClaimsIdExtendPutBodyNormalizer();
+        $normalizers[] = new WmsInventoryPostBodyNormalizer();
         $normalizers[] = new CntDirectoriesGetResponse200Normalizer();
         $normalizers[] = new LcsListsIdItemsPutResponse200Normalizer();
         $normalizers[] = new LcsListsIdStatePutResponse200Normalizer();
