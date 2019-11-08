@@ -2929,14 +2929,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetClaimUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetClaimNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetClaimsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetClaimsNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsClaim[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getClaim(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function getClaims(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetClaim($headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetClaims($headerParameters), $fetch);
     }
 
     /**
@@ -2961,14 +2961,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetClaimsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetClaimsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetClaimUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetClaimNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsClaim|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getClaims(string $id, string $fetch = self::FETCH_OBJECT)
+    public function getClaim(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetClaims($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetClaim($id), $fetch);
     }
 
     /**

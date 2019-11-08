@@ -12,18 +12,16 @@ namespace Afosto\Sdk\Endpoint;
 
 class GetClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
+    protected $id;
+
     /**
      * Get a claim and it's status.
      *
-     * @param array $headerParameters {
-     *
-     *     @var int $X-Page-Size
-     *     @var int $X-Page
-     * }
+     * @param string $id
      */
-    public function __construct(array $headerParameters = [])
+    public function __construct(string $id)
     {
-        $this->headerParameters = $headerParameters;
+        $this->id = $id;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -35,7 +33,7 @@ class GetClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
 
     public function getUri(): string
     {
-        return '/wms/claims';
+        return str_replace(['{id}'], [$this->id], '/wms/claims/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -48,30 +46,18 @@ class GetClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
         return ['Accept' => ['application/json']];
     }
 
-    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
-    {
-        $optionsResolver = parent::getHeadersOptionsResolver();
-        $optionsResolver->setDefined(['X-Page-Size', 'X-Page']);
-        $optionsResolver->setRequired([]);
-        $optionsResolver->setDefaults(['X-Page-Size' => 25, 'X-Page' => 1]);
-        $optionsResolver->setAllowedTypes('X-Page-Size', ['int']);
-        $optionsResolver->setAllowedTypes('X-Page', ['int']);
-
-        return $optionsResolver;
-    }
-
     /**
      * {@inheritdoc}
      *
      * @throws \Afosto\Sdk\Exception\GetClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetClaimNotFoundException
      *
-     * @return \Afosto\Sdk\Model\WmsClaim[]|null
+     * @return \Afosto\Sdk\Model\WmsClaim|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsClaim[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsClaim', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetClaimUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
