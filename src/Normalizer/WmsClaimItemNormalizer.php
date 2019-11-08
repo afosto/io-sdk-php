@@ -47,9 +47,6 @@ class WmsClaimItemNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (property_exists($data, 'stack_item_id') && $data->{'stack_item_id'} !== null) {
             $object->setStackItemId($data->{'stack_item_id'});
         }
-        if (property_exists($data, 'last_location_id') && $data->{'last_location_id'} !== null) {
-            $object->setLastLocationId($data->{'last_location_id'});
-        }
         if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
@@ -68,9 +65,6 @@ class WmsClaimItemNormalizer implements DenormalizerInterface, NormalizerInterfa
         }
         if (null !== $object->getStackItemId()) {
             $data->{'stack_item_id'} = $object->getStackItemId();
-        }
-        if (null !== $object->getLastLocationId()) {
-            $data->{'last_location_id'} = $object->getLastLocationId();
         }
         if (null !== $object->getUpdatedAt()) {
             $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");

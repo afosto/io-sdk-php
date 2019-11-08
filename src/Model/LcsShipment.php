@@ -81,6 +81,10 @@ class LcsShipment
      */
     protected $secret;
     /**
+     * @var string
+     */
+    protected $listId;
+    /**
      * @var \DateTime
      */
     protected $createdAt;
@@ -425,6 +429,26 @@ class LcsShipment
     public function setSecret(?string $secret): self
     {
         $this->secret = $secret;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getListId(): ?string
+    {
+        return $this->listId;
+    }
+
+    /**
+     * @param string|null $listId
+     *
+     * @return self
+     */
+    public function setListId(?string $listId): self
+    {
+        $this->listId = $listId;
 
         return $this;
     }

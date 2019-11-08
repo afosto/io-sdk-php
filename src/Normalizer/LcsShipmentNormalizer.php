@@ -101,6 +101,9 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'secret') && $data->{'secret'} !== null) {
             $object->setSecret($data->{'secret'});
         }
+        if (property_exists($data, 'list_id') && $data->{'list_id'} !== null) {
+            $object->setListId($data->{'list_id'});
+        }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
@@ -176,6 +179,9 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
         }
         if (null !== $object->getSecret()) {
             $data->{'secret'} = $object->getSecret();
+        }
+        if (null !== $object->getListId()) {
+            $data->{'list_id'} = $object->getListId();
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

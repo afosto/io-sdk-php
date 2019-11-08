@@ -27,7 +27,7 @@ class WmsClaim
     /**
      * @var string
      */
-    protected $routeId;
+    protected $locationId;
     /**
      * @var WmsClaimItem[]
      */
@@ -108,19 +108,19 @@ class WmsClaim
     /**
      * @return string|null
      */
-    public function getRouteId(): ?string
+    public function getLocationId(): ?string
     {
-        return $this->routeId;
+        return $this->locationId;
     }
 
     /**
-     * @param string|null $routeId
+     * @param string|null $locationId
      *
      * @return self
      */
-    public function setRouteId(?string $routeId): self
+    public function setLocationId(?string $locationId): self
     {
-        $this->routeId = $routeId;
+        $this->locationId = $locationId;
 
         return $this;
     }

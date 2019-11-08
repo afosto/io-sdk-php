@@ -25,10 +25,6 @@ class WmsClaimItem
      */
     protected $stackItemId;
     /**
-     * @var string
-     */
-    protected $lastLocationId;
-    /**
      * @var \DateTime
      */
     protected $updatedAt;
@@ -89,26 +85,6 @@ class WmsClaimItem
     public function setStackItemId(?string $stackItemId): self
     {
         $this->stackItemId = $stackItemId;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getLastLocationId(): ?string
-    {
-        return $this->lastLocationId;
-    }
-
-    /**
-     * @param string|null $lastLocationId
-     *
-     * @return self
-     */
-    public function setLastLocationId(?string $lastLocationId): self
-    {
-        $this->lastLocationId = $lastLocationId;
 
         return $this;
     }
