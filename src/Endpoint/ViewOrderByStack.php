@@ -33,7 +33,7 @@ class ViewOrderByStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/stacks/{id}');
+        return str_replace(['{id}'], [$this->id], '/odr/orders/stacks/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
