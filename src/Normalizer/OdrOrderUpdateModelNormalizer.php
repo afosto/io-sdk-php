@@ -41,6 +41,12 @@ class OdrOrderUpdateModelNormalizer implements DenormalizerInterface, Normalizer
         if (property_exists($data, 'address_id') && $data->{'address_id'} !== null) {
             $object->setAddressId($data->{'address_id'});
         }
+        if (property_exists($data, 'shipment_address_id') && $data->{'shipment_address_id'} !== null) {
+            $object->setShipmentAddressId($data->{'shipment_address_id'});
+        }
+        if (property_exists($data, 'organisation_id') && $data->{'organisation_id'} !== null) {
+            $object->setOrganisationId($data->{'organisation_id'});
+        }
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
             $object->setMetadata($data->{'metadata'});
         }
@@ -56,6 +62,12 @@ class OdrOrderUpdateModelNormalizer implements DenormalizerInterface, Normalizer
         $data = new \stdClass();
         if (null !== $object->getAddressId()) {
             $data->{'address_id'} = $object->getAddressId();
+        }
+        if (null !== $object->getShipmentAddressId()) {
+            $data->{'shipment_address_id'} = $object->getShipmentAddressId();
+        }
+        if (null !== $object->getOrganisationId()) {
+            $data->{'organisation_id'} = $object->getOrganisationId();
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();

@@ -44,6 +44,9 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (property_exists($data, 'contact_id') && $data->{'contact_id'} !== null) {
             $object->setContactId($data->{'contact_id'});
         }
+        if (property_exists($data, 'organisation_id') && $data->{'organisation_id'} !== null) {
+            $object->setOrganisationId($data->{'organisation_id'});
+        }
         if (property_exists($data, 'is_confirmed') && $data->{'is_confirmed'} !== null) {
             $object->setIsConfirmed($data->{'is_confirmed'});
         }
@@ -52,6 +55,9 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
         }
         if (property_exists($data, 'address_id') && $data->{'address_id'} !== null) {
             $object->setAddressId($data->{'address_id'});
+        }
+        if (property_exists($data, 'shipment_address_id') && $data->{'shipment_address_id'} !== null) {
+            $object->setShipmentAddressId($data->{'shipment_address_id'});
         }
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
             $object->setMetadata($data->{'metadata'});
@@ -72,6 +78,9 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (null !== $object->getContactId()) {
             $data->{'contact_id'} = $object->getContactId();
         }
+        if (null !== $object->getOrganisationId()) {
+            $data->{'organisation_id'} = $object->getOrganisationId();
+        }
         if (null !== $object->getIsConfirmed()) {
             $data->{'is_confirmed'} = $object->getIsConfirmed();
         }
@@ -80,6 +89,9 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
         }
         if (null !== $object->getAddressId()) {
             $data->{'address_id'} = $object->getAddressId();
+        }
+        if (null !== $object->getShipmentAddressId()) {
+            $data->{'shipment_address_id'} = $object->getShipmentAddressId();
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();

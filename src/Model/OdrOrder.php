@@ -29,6 +29,10 @@ class OdrOrder
      */
     protected $contactId;
     /**
+     * @var string
+     */
+    protected $organisationId;
+    /**
      * @var OdrState
      */
     protected $state;
@@ -40,6 +44,10 @@ class OdrOrder
      * @var string
      */
     protected $addressId;
+    /**
+     * @var string
+     */
+    protected $shipmentAddressId;
     /**
      * @var mixed
      */
@@ -142,6 +150,26 @@ class OdrOrder
     }
 
     /**
+     * @return string|null
+     */
+    public function getOrganisationId(): ?string
+    {
+        return $this->organisationId;
+    }
+
+    /**
+     * @param string|null $organisationId
+     *
+     * @return self
+     */
+    public function setOrganisationId(?string $organisationId): self
+    {
+        $this->organisationId = $organisationId;
+
+        return $this;
+    }
+
+    /**
      * @return OdrState|null
      */
     public function getState(): ?OdrState
@@ -197,6 +225,26 @@ class OdrOrder
     public function setAddressId(?string $addressId): self
     {
         $this->addressId = $addressId;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getShipmentAddressId(): ?string
+    {
+        return $this->shipmentAddressId;
+    }
+
+    /**
+     * @param string|null $shipmentAddressId
+     *
+     * @return self
+     */
+    public function setShipmentAddressId(?string $shipmentAddressId): self
+    {
+        $this->shipmentAddressId = $shipmentAddressId;
 
         return $this;
     }

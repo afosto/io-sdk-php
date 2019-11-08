@@ -50,6 +50,9 @@ class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'contact_id') && $data->{'contact_id'} !== null) {
             $object->setContactId($data->{'contact_id'});
         }
+        if (property_exists($data, 'organisation_id') && $data->{'organisation_id'} !== null) {
+            $object->setOrganisationId($data->{'organisation_id'});
+        }
         if (property_exists($data, 'state') && $data->{'state'} !== null) {
             $object->setState($this->denormalizer->denormalize($data->{'state'}, 'Afosto\\Sdk\\Model\\OdrState', 'json', $context));
         }
@@ -62,6 +65,9 @@ class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, 
         }
         if (property_exists($data, 'address_id') && $data->{'address_id'} !== null) {
             $object->setAddressId($data->{'address_id'});
+        }
+        if (property_exists($data, 'shipment_address_id') && $data->{'shipment_address_id'} !== null) {
+            $object->setShipmentAddressId($data->{'shipment_address_id'});
         }
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
             $object->setMetadata($data->{'metadata'});
@@ -97,6 +103,9 @@ class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (null !== $object->getContactId()) {
             $data->{'contact_id'} = $object->getContactId();
         }
+        if (null !== $object->getOrganisationId()) {
+            $data->{'organisation_id'} = $object->getOrganisationId();
+        }
         if (null !== $object->getState()) {
             $data->{'state'} = $this->normalizer->normalize($object->getState(), 'json', $context);
         }
@@ -109,6 +118,9 @@ class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, 
         }
         if (null !== $object->getAddressId()) {
             $data->{'address_id'} = $object->getAddressId();
+        }
+        if (null !== $object->getShipmentAddressId()) {
+            $data->{'shipment_address_id'} = $object->getShipmentAddressId();
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();
