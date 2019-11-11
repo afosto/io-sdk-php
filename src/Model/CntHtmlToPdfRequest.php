@@ -31,6 +31,10 @@ class CntHtmlToPdfRequest
     /**
      * @var string
      */
+    protected $method;
+    /**
+     * @var string
+     */
     protected $content;
     /**
      * @var int
@@ -117,6 +121,26 @@ class CntHtmlToPdfRequest
     public function setMargin(?CntHtmlToPdfRequestMargin $margin): self
     {
         $this->margin = $margin;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getMethod(): ?string
+    {
+        return $this->method;
+    }
+
+    /**
+     * @param string|null $method
+     *
+     * @return self
+     */
+    public function setMethod(?string $method): self
+    {
+        $this->method = $method;
 
         return $this;
     }

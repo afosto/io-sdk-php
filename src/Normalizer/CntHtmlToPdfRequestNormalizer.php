@@ -50,6 +50,9 @@ class CntHtmlToPdfRequestNormalizer implements DenormalizerInterface, Normalizer
         if (property_exists($data, 'margin') && $data->{'margin'} !== null) {
             $object->setMargin($this->denormalizer->denormalize($data->{'margin'}, 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequestMargin', 'json', $context));
         }
+        if (property_exists($data, 'method') && $data->{'method'} !== null) {
+            $object->setMethod($data->{'method'});
+        }
         if (property_exists($data, 'content') && $data->{'content'} !== null) {
             $object->setContent($data->{'content'});
         }
@@ -77,6 +80,9 @@ class CntHtmlToPdfRequestNormalizer implements DenormalizerInterface, Normalizer
         }
         if (null !== $object->getMargin()) {
             $data->{'margin'} = $this->normalizer->normalize($object->getMargin(), 'json', $context);
+        }
+        if (null !== $object->getMethod()) {
+            $data->{'method'} = $object->getMethod();
         }
         if (null !== $object->getContent()) {
             $data->{'content'} = $object->getContent();
