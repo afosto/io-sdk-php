@@ -2991,17 +2991,18 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Confirm a reservation claim and make it an actual claim.
      *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string    $id
+     * @param \stdClass $body
+     * @param string    $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ConfirmClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ConfirmClaimNotFoundException
      *
      * @return \Afosto\Sdk\Model\WmsClaim|\Psr\Http\Message\ResponseInterface|null
      */
-    public function confirmClaim(string $id, string $fetch = self::FETCH_OBJECT)
+    public function confirmClaim(string $id, \stdClass $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ConfirmClaim($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ConfirmClaim($id, $body), $fetch);
     }
 
     /**

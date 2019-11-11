@@ -17,11 +17,13 @@ class ConfirmClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * Confirm a reservation claim and make it an actual claim.
      *
-     * @param string $id
+     * @param string    $id
+     * @param \stdClass $body
      */
-    public function __construct(string $id)
+    public function __construct(string $id, \stdClass $body)
     {
         $this->id = $id;
+        $this->body = $body;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -38,7 +40,7 @@ class ConfirmClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return [[], null];
+        return [[], $this->body];
     }
 
     public function getExtraHeaders(): array

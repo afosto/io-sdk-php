@@ -15,7 +15,7 @@ class WmsTransferReport
     /**
      * @var string
      */
-    protected $locationId;
+    protected $target;
     /**
      * @var string[]
      */
@@ -24,19 +24,19 @@ class WmsTransferReport
     /**
      * @return string|null
      */
-    public function getLocationId(): ?string
+    public function getTarget(): ?string
     {
-        return $this->locationId;
+        return $this->target;
     }
 
     /**
-     * @param string|null $locationId
+     * @param string|null $target
      *
      * @return self
      */
-    public function setLocationId(?string $locationId): self
+    public function setTarget(?string $target): self
     {
-        $this->locationId = $locationId;
+        $this->target = $target;
 
         return $this;
     }

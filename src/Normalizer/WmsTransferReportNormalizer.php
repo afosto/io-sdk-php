@@ -38,8 +38,8 @@ class WmsTransferReportNormalizer implements DenormalizerInterface, NormalizerIn
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsTransferReport();
-        if (property_exists($data, 'location_id') && $data->{'location_id'} !== null) {
-            $object->setLocationId($data->{'location_id'});
+        if (property_exists($data, 'target') && $data->{'target'} !== null) {
+            $object->setTarget($data->{'target'});
         }
         if (property_exists($data, 'claim_item_ids') && $data->{'claim_item_ids'} !== null) {
             $values = [];
@@ -55,8 +55,8 @@ class WmsTransferReportNormalizer implements DenormalizerInterface, NormalizerIn
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getLocationId()) {
-            $data->{'location_id'} = $object->getLocationId();
+        if (null !== $object->getTarget()) {
+            $data->{'target'} = $object->getTarget();
         }
         if (null !== $object->getClaimItemIds()) {
             $values = [];
