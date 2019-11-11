@@ -77,10 +77,6 @@ class OdrInvoice
      */
     protected $clientId;
     /**
-     * @var string
-     */
-    protected $fileId;
-    /**
      * @var mixed
      */
     protected $metadata;
@@ -421,26 +417,6 @@ class OdrInvoice
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getFileId(): ?string
-    {
-        return $this->fileId;
-    }
-
-    /**
-     * @param string|null $fileId
-     *
-     * @return self
-     */
-    public function setFileId(?string $fileId): self
-    {
-        $this->fileId = $fileId;
 
         return $this;
     }
