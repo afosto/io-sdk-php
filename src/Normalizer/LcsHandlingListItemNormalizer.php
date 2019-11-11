@@ -38,8 +38,12 @@ class LcsHandlingListItemNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsHandlingListItem();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
-            $object->setId($data->{'id'});
+        if (property_exists($data, 'ids') && $data->{'ids'} !== null) {
+            $values = [];
+            foreach ($data->{'ids'} as $value) {
+                $values[] = $value;
+            }
+            $object->setIds($values);
         }
         if (property_exists($data, 'shipment_id') && $data->{'shipment_id'} !== null) {
             $object->setShipmentId($data->{'shipment_id'});
@@ -50,8 +54,11 @@ class LcsHandlingListItemNormalizer implements DenormalizerInterface, Normalizer
         if (property_exists($data, 'description') && $data->{'description'} !== null) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'postition') && $data->{'postition'} !== null) {
-            $object->setPostition($data->{'postition'});
+        if (property_exists($data, 'position') && $data->{'position'} !== null) {
+            $object->setPosition($data->{'position'});
+        }
+        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
+            $object->setQuantity($data->{'quantity'});
         }
         if (property_exists($data, 'is_handled') && $data->{'is_handled'} !== null) {
             $object->setIsHandled($data->{'is_handled'});
@@ -60,11 +67,11 @@ class LcsHandlingListItemNormalizer implements DenormalizerInterface, Normalizer
             $object->setIsServiced($data->{'is_serviced'});
         }
         if (property_exists($data, 'service') && $data->{'service'} !== null) {
-            $values = [];
-            foreach ($data->{'service'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsServiceOption', 'json', $context);
+            $values_1 = [];
+            foreach ($data->{'service'} as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\LcsServiceOption', 'json', $context);
             }
-            $object->setService($values);
+            $object->setService($values_1);
         }
 
         return $object;
@@ -73,8 +80,12 @@ class LcsHandlingListItemNormalizer implements DenormalizerInterface, Normalizer
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
+        if (null !== $object->getIds()) {
+            $values = [];
+            foreach ($object->getIds() as $value) {
+                $values[] = $value;
+            }
+            $data->{'ids'} = $values;
         }
         if (null !== $object->getShipmentId()) {
             $data->{'shipment_id'} = $object->getShipmentId();
@@ -85,8 +96,11 @@ class LcsHandlingListItemNormalizer implements DenormalizerInterface, Normalizer
         if (null !== $object->getDescription()) {
             $data->{'description'} = $object->getDescription();
         }
-        if (null !== $object->getPostition()) {
-            $data->{'postition'} = $object->getPostition();
+        if (null !== $object->getPosition()) {
+            $data->{'position'} = $object->getPosition();
+        }
+        if (null !== $object->getQuantity()) {
+            $data->{'quantity'} = $object->getQuantity();
         }
         if (null !== $object->getIsHandled()) {
             $data->{'is_handled'} = $object->getIsHandled();
@@ -95,11 +109,11 @@ class LcsHandlingListItemNormalizer implements DenormalizerInterface, Normalizer
             $data->{'is_serviced'} = $object->getIsServiced();
         }
         if (null !== $object->getService()) {
-            $values = [];
-            foreach ($object->getService() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            $values_1 = [];
+            foreach ($object->getService() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
-            $data->{'service'} = $values;
+            $data->{'service'} = $values_1;
         }
 
         return $data;

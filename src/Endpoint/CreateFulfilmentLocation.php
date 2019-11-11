@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Endpoint;
 class CreateFulfilmentLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
-     * Returns a list of fulfilment locations.
+     * Create a new fulfilment location.
      *
      * @param \Afosto\Sdk\Model\LcsFulfilmentLocationCreate $body
      */
@@ -50,12 +50,12 @@ class CreateFulfilmentLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
      * @throws \Afosto\Sdk\Exception\CreateFulfilmentLocationBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateFulfilmentLocationUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\LcsFulfilmentLocation[]|null
+     * @return \Afosto\Sdk\Model\LcsFulfilmentLocation|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsFulfilmentLocation[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsFulfilmentLocation', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\CreateFulfilmentLocationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

@@ -13,9 +13,9 @@ namespace Afosto\Sdk\Model;
 class LcsHandlingListItem
 {
     /**
-     * @var string
+     * @var string[]
      */
-    protected $id;
+    protected $ids;
     /**
      * @var string
      */
@@ -31,7 +31,11 @@ class LcsHandlingListItem
     /**
      * @var string
      */
-    protected $postition;
+    protected $position;
+    /**
+     * @var int
+     */
+    protected $quantity;
     /**
      * @var bool
      */
@@ -46,21 +50,21 @@ class LcsHandlingListItem
     protected $service;
 
     /**
-     * @return string|null
+     * @return string[]|null
      */
-    public function getId(): ?string
+    public function getIds(): ?array
     {
-        return $this->id;
+        return $this->ids;
     }
 
     /**
-     * @param string|null $id
+     * @param string[]|null $ids
      *
      * @return self
      */
-    public function setId(?string $id): self
+    public function setIds(?array $ids): self
     {
-        $this->id = $id;
+        $this->ids = $ids;
 
         return $this;
     }
@@ -128,19 +132,39 @@ class LcsHandlingListItem
     /**
      * @return string|null
      */
-    public function getPostition(): ?string
+    public function getPosition(): ?string
     {
-        return $this->postition;
+        return $this->position;
     }
 
     /**
-     * @param string|null $postition
+     * @param string|null $position
      *
      * @return self
      */
-    public function setPostition(?string $postition): self
+    public function setPosition(?string $position): self
     {
-        $this->postition = $postition;
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param int|null $quantity
+     *
+     * @return self
+     */
+    public function setQuantity(?int $quantity): self
+    {
+        $this->quantity = $quantity;
 
         return $this;
     }

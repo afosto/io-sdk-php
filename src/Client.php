@@ -3737,7 +3737,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Returns a list of fulfilment locations.
+     * Create a new fulfilment location.
      *
      * @param \Afosto\Sdk\Model\LcsFulfilmentLocationCreate $body
      * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -3745,7 +3745,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\CreateFulfilmentLocationBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateFulfilmentLocationUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\LcsFulfilmentLocation[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsFulfilmentLocation|\Psr\Http\Message\ResponseInterface|null
      */
     public function createFulfilmentLocation(\Afosto\Sdk\Model\LcsFulfilmentLocationCreate $body, string $fetch = self::FETCH_OBJECT)
     {
@@ -3753,19 +3753,19 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Returns a list of fulfilment locations.
+     * Returns a fulfilment location.
      *
      * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ViewLocationBadRequestException
-     * @throws \Afosto\Sdk\Exception\ViewLocationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationUnauthorizedException
      *
      * @return \Afosto\Sdk\Model\LcsFulfilmentLocation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function viewLocation(string $id, string $fetch = self::FETCH_OBJECT)
+    public function getFulfilmentLocation(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewLocation($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFulfilmentLocation($id), $fetch);
     }
 
     /**

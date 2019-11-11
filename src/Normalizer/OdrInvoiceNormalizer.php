@@ -98,6 +98,9 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
             $object->setClientId($data->{'client_id'});
         }
+        if (property_exists($data, 'file_id') && $data->{'file_id'} !== null) {
+            $object->setFileId($data->{'file_id'});
+        }
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
             $object->setMetadata($data->{'metadata'});
         }
@@ -182,6 +185,9 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
+        }
+        if (null !== $object->getFileId()) {
+            $data->{'file_id'} = $object->getFileId();
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();

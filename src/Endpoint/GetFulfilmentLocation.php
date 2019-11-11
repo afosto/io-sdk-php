@@ -10,12 +10,12 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class ViewLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class GetFulfilmentLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     protected $id;
 
     /**
-     * Returns a list of fulfilment locations.
+     * Returns a fulfilment location.
      *
      * @param string $id
      */
@@ -49,8 +49,8 @@ class ViewLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ViewLocationBadRequestException
-     * @throws \Afosto\Sdk\Exception\ViewLocationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationUnauthorizedException
      *
      * @return \Afosto\Sdk\Model\LcsFulfilmentLocation|null
      */
@@ -60,10 +60,10 @@ class ViewLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsFulfilmentLocation', 'json');
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\ViewLocationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetFulfilmentLocationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ViewLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\GetFulfilmentLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }
