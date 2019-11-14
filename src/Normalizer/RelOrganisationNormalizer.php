@@ -54,6 +54,9 @@ class RelOrganisationNormalizer implements DenormalizerInterface, NormalizerInte
             }
             $object->setRegistrations($values);
         }
+        if (property_exists($data, 'payment') && $data->{'payment'} !== null) {
+            $object->setPayment($this->denormalizer->denormalize($data->{'payment'}, 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettings', 'json', $context));
+        }
         if (property_exists($data, 'phone_numbers') && $data->{'phone_numbers'} !== null) {
             $object->setPhoneNumbers($this->denormalizer->denormalize($data->{'phone_numbers'}, 'Afosto\\Sdk\\Model\\RelPhoneNumberList', 'json', $context));
         }
@@ -85,6 +88,9 @@ class RelOrganisationNormalizer implements DenormalizerInterface, NormalizerInte
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'registrations'} = $values;
+        }
+        if (null !== $object->getPayment()) {
+            $data->{'payment'} = $this->normalizer->normalize($object->getPayment(), 'json', $context);
         }
         if (null !== $object->getPhoneNumbers()) {
             $data->{'phone_numbers'} = $this->normalizer->normalize($object->getPhoneNumbers(), 'json', $context);

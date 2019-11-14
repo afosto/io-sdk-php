@@ -27,6 +27,10 @@ class RelOrganisationUpdateModel
      */
     protected $registrations;
     /**
+     * @var RelOrganisationPaymentSettings
+     */
+    protected $payment;
+    /**
      * @var RelOrganisationUpdateModelAddresses
      */
     protected $addresses;
@@ -95,6 +99,26 @@ class RelOrganisationUpdateModel
     public function setRegistrations(?array $registrations): self
     {
         $this->registrations = $registrations;
+
+        return $this;
+    }
+
+    /**
+     * @return RelOrganisationPaymentSettings|null
+     */
+    public function getPayment(): ?RelOrganisationPaymentSettings
+    {
+        return $this->payment;
+    }
+
+    /**
+     * @param RelOrganisationPaymentSettings|null $payment
+     *
+     * @return self
+     */
+    public function setPayment(?RelOrganisationPaymentSettings $payment): self
+    {
+        $this->payment = $payment;
 
         return $this;
     }

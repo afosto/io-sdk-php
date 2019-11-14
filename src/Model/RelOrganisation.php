@@ -31,6 +31,10 @@ class RelOrganisation
      */
     protected $registrations;
     /**
+     * @var RelOrganisationPaymentSettings
+     */
+    protected $payment;
+    /**
      * @var RelPhoneNumberList
      */
     protected $phoneNumbers;
@@ -123,6 +127,26 @@ class RelOrganisation
     public function setRegistrations(?array $registrations): self
     {
         $this->registrations = $registrations;
+
+        return $this;
+    }
+
+    /**
+     * @return RelOrganisationPaymentSettings|null
+     */
+    public function getPayment(): ?RelOrganisationPaymentSettings
+    {
+        return $this->payment;
+    }
+
+    /**
+     * @param RelOrganisationPaymentSettings|null $payment
+     *
+     * @return self
+     */
+    public function setPayment(?RelOrganisationPaymentSettings $payment): self
+    {
+        $this->payment = $payment;
 
         return $this;
     }

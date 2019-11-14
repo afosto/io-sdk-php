@@ -298,6 +298,9 @@ class NormalizerFactory
         $normalizers[] = new RelContactUpdatePhoneNumbersNormalizer();
         $normalizers[] = new RelOrganisationListNormalizer();
         $normalizers[] = new RelOrganisationNormalizer();
+        $normalizers[] = new RelOrganisationPaymentSettingsNormalizer();
+        $normalizers[] = new RelOrganisationPaymentSettingsPostPaymentNormalizer();
+        $normalizers[] = new RelOrganisationPaymentSettingsInvoiceNormalizer();
         $normalizers[] = new RelOrganisationUpdateModelNormalizer();
         $normalizers[] = new RelOrganisationUpdateModelAddressesNormalizer();
         $normalizers[] = new RelOrganisationUpdateModelPhoneNumbersNormalizer();
