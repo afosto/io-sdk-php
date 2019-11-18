@@ -4645,6 +4645,70 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewOrganisationVersions($id), $fetch);
     }
 
+    /**
+     * Returns a  signed id token.
+     *
+     * @param \Afosto\Sdk\Model\RelCreateIdentityRequest $body
+     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AuthenticateIdentityBadRequestException
+     * @throws \Afosto\Sdk\Exception\AuthenticateIdentityUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\RelTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function authenticateIdentity(\Afosto\Sdk\Model\RelCreateIdentityRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AuthenticateIdentity($body), $fetch);
+    }
+
+    /**
+     * Returns a new token to confirm identity or reset a password.
+     *
+     * @param \Afosto\Sdk\Model\RelCreateTokenRequest $body
+     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateTokenIdentityBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateTokenIdentityUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\RelTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createTokenIdentity(\Afosto\Sdk\Model\RelCreateTokenRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateTokenIdentity($body), $fetch);
+    }
+
+    /**
+     * Pass a token to reset the password.
+     *
+     * @param \Afosto\Sdk\Model\RelCreateResetRequest $body
+     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ResetIdentityBadRequestException
+     * @throws \Afosto\Sdk\Exception\ResetIdentityUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\RelTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function resetIdentity(\Afosto\Sdk\Model\RelCreateResetRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ResetIdentity($body), $fetch);
+    }
+
+    /**
+     * Mark the identity as verified.
+     *
+     * @param \Afosto\Sdk\Model\RelCreateConfirmRequest $body
+     * @param string                                    $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\VerifyIdentityBadRequestException
+     * @throws \Afosto\Sdk\Exception\VerifyIdentityUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\RelTokenResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function verifyIdentity(\Afosto\Sdk\Model\RelCreateConfirmRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\VerifyIdentity($body), $fetch);
+    }
+
     public static function create($httpClient = null)
     {
         if (null === $httpClient) {
