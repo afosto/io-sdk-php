@@ -41,6 +41,9 @@ class WmsSubTransferItemNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
+        if (property_exists($data, 'status') && $data->{'status'} !== null) {
+            $object->setStatus($data->{'status'});
+        }
         if (property_exists($data, 'claim_item_id') && $data->{'claim_item_id'} !== null) {
             $object->setClaimItemId($data->{'claim_item_id'});
         }
@@ -50,8 +53,8 @@ class WmsSubTransferItemNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'stack_item_id') && $data->{'stack_item_id'} !== null) {
             $object->setStackItemId($data->{'stack_item_id'});
         }
-        if (property_exists($data, 'status') && $data->{'status'} !== null) {
-            $object->setStatus($data->{'status'});
+        if (property_exists($data, 'location_id') && $data->{'location_id'} !== null) {
+            $object->setLocationId($data->{'location_id'});
         }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -69,6 +72,9 @@ class WmsSubTransferItemNormalizer implements DenormalizerInterface, NormalizerI
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
+        if (null !== $object->getStatus()) {
+            $data->{'status'} = $object->getStatus();
+        }
         if (null !== $object->getClaimItemId()) {
             $data->{'claim_item_id'} = $object->getClaimItemId();
         }
@@ -78,8 +84,8 @@ class WmsSubTransferItemNormalizer implements DenormalizerInterface, NormalizerI
         if (null !== $object->getStackItemId()) {
             $data->{'stack_item_id'} = $object->getStackItemId();
         }
-        if (null !== $object->getStatus()) {
-            $data->{'status'} = $object->getStatus();
+        if (null !== $object->getLocationId()) {
+            $data->{'location_id'} = $object->getLocationId();
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

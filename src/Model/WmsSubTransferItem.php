@@ -19,6 +19,10 @@ class WmsSubTransferItem
     /**
      * @var string
      */
+    protected $status;
+    /**
+     * @var string
+     */
     protected $claimItemId;
     /**
      * @var string
@@ -31,7 +35,7 @@ class WmsSubTransferItem
     /**
      * @var string
      */
-    protected $status;
+    protected $locationId;
     /**
      * @var \DateTime
      */
@@ -57,6 +61,26 @@ class WmsSubTransferItem
     public function setId(?string $id): self
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string|null $status
+     *
+     * @return self
+     */
+    public function setStatus(?string $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }
@@ -124,19 +148,19 @@ class WmsSubTransferItem
     /**
      * @return string|null
      */
-    public function getStatus(): ?string
+    public function getLocationId(): ?string
     {
-        return $this->status;
+        return $this->locationId;
     }
 
     /**
-     * @param string|null $status
+     * @param string|null $locationId
      *
      * @return self
      */
-    public function setStatus(?string $status): self
+    public function setLocationId(?string $locationId): self
     {
-        $this->status = $status;
+        $this->locationId = $locationId;
 
         return $this;
     }

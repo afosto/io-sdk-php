@@ -29,6 +29,10 @@ class WmsClaim
      */
     protected $locationId;
     /**
+     * @var string
+     */
+    protected $target;
+    /**
      * @var WmsClaimItem[]
      */
     protected $items;
@@ -121,6 +125,26 @@ class WmsClaim
     public function setLocationId(?string $locationId): self
     {
         $this->locationId = $locationId;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getTarget(): ?string
+    {
+        return $this->target;
+    }
+
+    /**
+     * @param string|null $target
+     *
+     * @return self
+     */
+    public function setTarget(?string $target): self
+    {
+        $this->target = $target;
 
         return $this;
     }
