@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class AuthenticateIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class AuthorizeIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
      * Returns a  signed id token.
@@ -31,7 +31,7 @@ class AuthenticateIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
 
     public function getUri(): string
     {
-        return '/rel/identity/authenticate';
+        return '/rel/identity/authorize';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -47,21 +47,25 @@ class AuthenticateIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\AuthenticateIdentityBadRequestException
-     * @throws \Afosto\Sdk\Exception\AuthenticateIdentityUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AuthorizeIdentityBadRequestException
+     * @throws \Afosto\Sdk\Exception\AuthorizeIdentityUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AuthorizeIdentityNotFoundException
      *
-     * @return \Afosto\Sdk\Model\RelTokenResponse|null
+     * @return \Afosto\Sdk\Model\RelSignedTokenResponse|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelTokenResponse', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelSignedTokenResponse', 'json');
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\AuthenticateIdentityBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\AuthorizeIdentityBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\AuthenticateIdentityUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\AuthorizeIdentityUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\AuthorizeIdentityNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

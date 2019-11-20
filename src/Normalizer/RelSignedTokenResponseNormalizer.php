@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class RelTokenResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class RelSignedTokenResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelTokenResponse';
+        return $type === 'Afosto\\Sdk\\Model\\RelSignedTokenResponse';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelTokenResponse';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\RelSignedTokenResponse';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,9 +37,12 @@ class RelTokenResponseNormalizer implements DenormalizerInterface, NormalizerInt
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\RelTokenResponse();
-        if (property_exists($data, 'status') && $data->{'status'} !== null) {
-            $object->setStatus($data->{'status'});
+        $object = new \Afosto\Sdk\Model\RelSignedTokenResponse();
+        if (property_exists($data, 'token') && $data->{'token'} !== null) {
+            $object->setToken($data->{'token'});
+        }
+        if (property_exists($data, 'expires_at') && $data->{'expires_at'} !== null) {
+            $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
 
         return $object;
@@ -48,8 +51,11 @@ class RelTokenResponseNormalizer implements DenormalizerInterface, NormalizerInt
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getStatus()) {
-            $data->{'status'} = $object->getStatus();
+        if (null !== $object->getToken()) {
+            $data->{'token'} = $object->getToken();
+        }
+        if (null !== $object->getExpiresAt()) {
+            $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

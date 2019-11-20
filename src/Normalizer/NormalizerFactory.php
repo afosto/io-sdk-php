@@ -290,6 +290,7 @@ class NormalizerFactory
         $normalizers[] = new RelCreateResetRequestNormalizer();
         $normalizers[] = new RelCreateConfirmRequestNormalizer();
         $normalizers[] = new RelTokenResponseNormalizer();
+        $normalizers[] = new RelSignedTokenResponseNormalizer();
         $normalizers[] = new RelConstraintNormalizer();
         $normalizers[] = new RelSearchNormalizer();
         $normalizers[] = new RelFieldListNormalizer();

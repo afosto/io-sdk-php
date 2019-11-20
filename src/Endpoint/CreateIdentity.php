@@ -10,14 +10,14 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class ResetIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class CreateIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
-     * Pass a token to reset the password.
+     * Returns a  signed id token.
      *
-     * @param \Afosto\Sdk\Model\RelCreateResetRequest $body
+     * @param \Afosto\Sdk\Model\RelCreateIdentityRequest $body
      */
-    public function __construct(\Afosto\Sdk\Model\RelCreateResetRequest $body)
+    public function __construct(\Afosto\Sdk\Model\RelCreateIdentityRequest $body)
     {
         $this->body = $body;
     }
@@ -31,7 +31,7 @@ class ResetIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getUri(): string
     {
-        return '/rel/identity/reset';
+        return '/rel/identity/create';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -47,8 +47,9 @@ class ResetIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ResetIdentityBadRequestException
-     * @throws \Afosto\Sdk\Exception\ResetIdentityUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateIdentityBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateIdentityUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateIdentityConflictException
      *
      * @return \Afosto\Sdk\Model\RelSignedTokenResponse|null
      */
@@ -58,10 +59,13 @@ class ResetIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelSignedTokenResponse', 'json');
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\ResetIdentityBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\CreateIdentityBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ResetIdentityUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\CreateIdentityUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (409 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateIdentityConflictException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

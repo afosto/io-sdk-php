@@ -49,6 +49,7 @@ class CreateTokenIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
      *
      * @throws \Afosto\Sdk\Exception\CreateTokenIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateTokenIdentityUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateTokenIdentityNotFoundException
      *
      * @return \Afosto\Sdk\Model\RelTokenResponse|null
      */
@@ -62,6 +63,9 @@ class CreateTokenIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateTokenIdentityUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateTokenIdentityNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -15,48 +15,24 @@ class RelTokenResponse
     /**
      * @var string
      */
-    protected $token;
-    /**
-     * @var \DateTime
-     */
-    protected $expiresAt;
+    protected $status;
 
     /**
      * @return string|null
      */
-    public function getToken(): ?string
+    public function getStatus(): ?string
     {
-        return $this->token;
+        return $this->status;
     }
 
     /**
-     * @param string|null $token
+     * @param string|null $status
      *
      * @return self
      */
-    public function setToken(?string $token): self
+    public function setStatus(?string $status): self
     {
-        $this->token = $token;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getExpiresAt(): ?\DateTime
-    {
-        return $this->expiresAt;
-    }
-
-    /**
-     * @param \DateTime|null $expiresAt
-     *
-     * @return self
-     */
-    public function setExpiresAt(?\DateTime $expiresAt): self
-    {
-        $this->expiresAt = $expiresAt;
+        $this->status = $status;
 
         return $this;
     }

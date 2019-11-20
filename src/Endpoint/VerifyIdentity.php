@@ -49,19 +49,23 @@ class VerifyIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      *
      * @throws \Afosto\Sdk\Exception\VerifyIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\VerifyIdentityUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\VerifyIdentityNotFoundException
      *
-     * @return \Afosto\Sdk\Model\RelTokenResponse|null
+     * @return \Afosto\Sdk\Model\RelSignedTokenResponse|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelTokenResponse', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelSignedTokenResponse', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\VerifyIdentityBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\VerifyIdentityUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\VerifyIdentityNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }
