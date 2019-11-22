@@ -75,6 +75,13 @@ class RelContactNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'phone_numbers') && $data->{'phone_numbers'} !== null) {
             $object->setPhoneNumbers($this->denormalizer->denormalize($data->{'phone_numbers'}, 'Afosto\\Sdk\\Model\\RelPhoneNumberList', 'json', $context));
         }
+        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+            $values_1 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data->{'metadata'} as $key => $value_1) {
+                $values_1[$key] = $value_1;
+            }
+            $object->setMetadata($values_1);
+        }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
@@ -124,6 +131,13 @@ class RelContactNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (null !== $object->getPhoneNumbers()) {
             $data->{'phone_numbers'} = $this->normalizer->normalize($object->getPhoneNumbers(), 'json', $context);
+        }
+        if (null !== $object->getMetadata()) {
+            $values_1 = new \stdClass();
+            foreach ($object->getMetadata() as $key => $value_1) {
+                $values_1->{$key} = $value_1;
+            }
+            $data->{'metadata'} = $values_1;
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

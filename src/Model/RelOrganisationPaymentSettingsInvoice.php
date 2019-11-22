@@ -23,7 +23,7 @@ class RelOrganisationPaymentSettingsInvoice
     /**
      * @var bool
      */
-    protected $isExcectedAtDelivery;
+    protected $isExpcectedAtDelivery;
 
     /**
      * @return bool|null
@@ -68,19 +68,19 @@ class RelOrganisationPaymentSettingsInvoice
     /**
      * @return bool|null
      */
-    public function getIsExcectedAtDelivery(): ?bool
+    public function getIsExpcectedAtDelivery(): ?bool
     {
-        return $this->isExcectedAtDelivery;
+        return $this->isExpcectedAtDelivery;
     }
 
     /**
-     * @param bool|null $isExcectedAtDelivery
+     * @param bool|null $isExpcectedAtDelivery
      *
      * @return self
      */
-    public function setIsExcectedAtDelivery(?bool $isExcectedAtDelivery): self
+    public function setIsExpcectedAtDelivery(?bool $isExpcectedAtDelivery): self
     {
-        $this->isExcectedAtDelivery = $isExcectedAtDelivery;
+        $this->isExpcectedAtDelivery = $isExpcectedAtDelivery;
 
         return $this;
     }

@@ -63,6 +63,12 @@ class RelContact
      */
     protected $phoneNumbers;
     /**
+     * additional metadata that applies to the item.
+     *
+     * @var string[]
+     */
+    protected $metadata;
+    /**
      * @var \DateTime
      */
     protected $createdAt;
@@ -299,6 +305,30 @@ class RelContact
     public function setPhoneNumbers(?RelPhoneNumberList $phoneNumbers): self
     {
         $this->phoneNumbers = $phoneNumbers;
+
+        return $this;
+    }
+
+    /**
+     * additional metadata that applies to the item.
+     *
+     * @return string[]|null
+     */
+    public function getMetadata(): ?\ArrayObject
+    {
+        return $this->metadata;
+    }
+
+    /**
+     * additional metadata that applies to the item.
+     *
+     * @param string[]|null $metadata
+     *
+     * @return self
+     */
+    public function setMetadata(?\ArrayObject $metadata): self
+    {
+        $this->metadata = $metadata;
 
         return $this;
     }

@@ -69,6 +69,13 @@ class RelContactUpdateNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'phone_numbers') && $data->{'phone_numbers'} !== null) {
             $object->setPhoneNumbers($this->denormalizer->denormalize($data->{'phone_numbers'}, 'Afosto\\Sdk\\Model\\RelContactUpdatePhoneNumbers', 'json', $context));
         }
+        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+            $values_1 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data->{'metadata'} as $key => $value_1) {
+                $values_1[$key] = $value_1;
+            }
+            $object->setMetadata($values_1);
+        }
 
         return $object;
     }
@@ -106,6 +113,13 @@ class RelContactUpdateNormalizer implements DenormalizerInterface, NormalizerInt
         }
         if (null !== $object->getPhoneNumbers()) {
             $data->{'phone_numbers'} = $this->normalizer->normalize($object->getPhoneNumbers(), 'json', $context);
+        }
+        if (null !== $object->getMetadata()) {
+            $values_1 = new \stdClass();
+            foreach ($object->getMetadata() as $key => $value_1) {
+                $values_1->{$key} = $value_1;
+            }
+            $data->{'metadata'} = $values_1;
         }
 
         return $data;

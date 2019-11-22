@@ -54,6 +54,12 @@ class RelContactUpdate
      * @var RelContactUpdatePhoneNumbers
      */
     protected $phoneNumbers;
+    /**
+     * additional metadata that applies to the item.
+     *
+     * @var string[]
+     */
+    protected $metadata;
 
     /**
      * @return string|null
@@ -243,6 +249,30 @@ class RelContactUpdate
     public function setPhoneNumbers(?RelContactUpdatePhoneNumbers $phoneNumbers): self
     {
         $this->phoneNumbers = $phoneNumbers;
+
+        return $this;
+    }
+
+    /**
+     * additional metadata that applies to the item.
+     *
+     * @return string[]|null
+     */
+    public function getMetadata(): ?\ArrayObject
+    {
+        return $this->metadata;
+    }
+
+    /**
+     * additional metadata that applies to the item.
+     *
+     * @param string[]|null $metadata
+     *
+     * @return self
+     */
+    public function setMetadata(?\ArrayObject $metadata): self
+    {
+        $this->metadata = $metadata;
 
         return $this;
     }
