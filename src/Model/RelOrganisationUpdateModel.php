@@ -23,6 +23,10 @@ class RelOrganisationUpdateModel
      */
     protected $cocNumber;
     /**
+     * @var string
+     */
+    protected $accountManager;
+    /**
      * @var RelVatRegistrationModel[]
      */
     protected $registrations;
@@ -79,6 +83,26 @@ class RelOrganisationUpdateModel
     public function setCocNumber(?string $cocNumber): self
     {
         $this->cocNumber = $cocNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAccountManager(): ?string
+    {
+        return $this->accountManager;
+    }
+
+    /**
+     * @param string|null $accountManager
+     *
+     * @return self
+     */
+    public function setAccountManager(?string $accountManager): self
+    {
+        $this->accountManager = $accountManager;
 
         return $this;
     }

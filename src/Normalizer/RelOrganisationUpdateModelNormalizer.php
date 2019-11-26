@@ -44,6 +44,9 @@ class RelOrganisationUpdateModelNormalizer implements DenormalizerInterface, Nor
         if (property_exists($data, 'coc_number') && $data->{'coc_number'} !== null) {
             $object->setCocNumber($data->{'coc_number'});
         }
+        if (property_exists($data, 'account_manager') && $data->{'account_manager'} !== null) {
+            $object->setAccountManager($data->{'account_manager'});
+        }
         if (property_exists($data, 'registrations') && $data->{'registrations'} !== null) {
             $values = [];
             foreach ($data->{'registrations'} as $value) {
@@ -72,6 +75,9 @@ class RelOrganisationUpdateModelNormalizer implements DenormalizerInterface, Nor
         }
         if (null !== $object->getCocNumber()) {
             $data->{'coc_number'} = $object->getCocNumber();
+        }
+        if (null !== $object->getAccountManager()) {
+            $data->{'account_manager'} = $object->getAccountManager();
         }
         if (null !== $object->getRegistrations()) {
             $values = [];

@@ -46,6 +46,10 @@ class RelOrganisation
      * @var string
      */
     protected $cocNumber;
+    /**
+     * @var string
+     */
+    protected $accountManager;
 
     /**
      * @return string|null
@@ -207,6 +211,26 @@ class RelOrganisation
     public function setCocNumber(?string $cocNumber): self
     {
         $this->cocNumber = $cocNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAccountManager(): ?string
+    {
+        return $this->accountManager;
+    }
+
+    /**
+     * @param string|null $accountManager
+     *
+     * @return self
+     */
+    public function setAccountManager(?string $accountManager): self
+    {
+        $this->accountManager = $accountManager;
 
         return $this;
     }

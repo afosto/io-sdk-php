@@ -66,6 +66,9 @@ class RelOrganisationNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'coc_number') && $data->{'coc_number'} !== null) {
             $object->setCocNumber($data->{'coc_number'});
         }
+        if (property_exists($data, 'account_manager') && $data->{'account_manager'} !== null) {
+            $object->setAccountManager($data->{'account_manager'});
+        }
 
         return $object;
     }
@@ -100,6 +103,9 @@ class RelOrganisationNormalizer implements DenormalizerInterface, NormalizerInte
         }
         if (null !== $object->getCocNumber()) {
             $data->{'coc_number'} = $object->getCocNumber();
+        }
+        if (null !== $object->getAccountManager()) {
+            $data->{'account_manager'} = $object->getAccountManager();
         }
 
         return $data;
