@@ -228,6 +228,7 @@ class NormalizerFactory
         $normalizers[] = new LcsHandlingModelNormalizer();
         $normalizers[] = new LcsHandlingListResponseNormalizer();
         $normalizers[] = new LcsHandlingListNormalizer();
+        $normalizers[] = new LcsListedHandlingListNormalizer();
         $normalizers[] = new LcsLocationPositionNormalizer();
         $normalizers[] = new LcsLabelRequestNormalizer();
         $normalizers[] = new LcsFileNormalizer();

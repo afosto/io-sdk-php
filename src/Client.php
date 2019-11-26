@@ -3396,7 +3396,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListHandlingListsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListHandlingListsUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\LcsHandlingList[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsListedHandlingList[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listHandlingLists(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
