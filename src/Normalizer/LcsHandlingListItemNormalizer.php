@@ -45,6 +45,13 @@ class LcsHandlingListItemNormalizer implements DenormalizerInterface, Normalizer
             }
             $object->setIds($values);
         }
+        if (property_exists($data, 'handled_ids') && $data->{'handled_ids'} !== null) {
+            $values_1 = [];
+            foreach ($data->{'handled_ids'} as $value_1) {
+                $values_1[] = $value_1;
+            }
+            $object->setHandledIds($values_1);
+        }
         if (property_exists($data, 'shipment_id') && $data->{'shipment_id'} !== null) {
             $object->setShipmentId($data->{'shipment_id'});
         }
@@ -60,19 +67,6 @@ class LcsHandlingListItemNormalizer implements DenormalizerInterface, Normalizer
         if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
             $object->setQuantity($data->{'quantity'});
         }
-        if (property_exists($data, 'is_handled') && $data->{'is_handled'} !== null) {
-            $object->setIsHandled($data->{'is_handled'});
-        }
-        if (property_exists($data, 'is_serviced') && $data->{'is_serviced'} !== null) {
-            $object->setIsServiced($data->{'is_serviced'});
-        }
-        if (property_exists($data, 'service') && $data->{'service'} !== null) {
-            $values_1 = [];
-            foreach ($data->{'service'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\LcsServiceOption', 'json', $context);
-            }
-            $object->setService($values_1);
-        }
 
         return $object;
     }
@@ -86,6 +80,13 @@ class LcsHandlingListItemNormalizer implements DenormalizerInterface, Normalizer
                 $values[] = $value;
             }
             $data->{'ids'} = $values;
+        }
+        if (null !== $object->getHandledIds()) {
+            $values_1 = [];
+            foreach ($object->getHandledIds() as $value_1) {
+                $values_1[] = $value_1;
+            }
+            $data->{'handled_ids'} = $values_1;
         }
         if (null !== $object->getShipmentId()) {
             $data->{'shipment_id'} = $object->getShipmentId();
@@ -101,19 +102,6 @@ class LcsHandlingListItemNormalizer implements DenormalizerInterface, Normalizer
         }
         if (null !== $object->getQuantity()) {
             $data->{'quantity'} = $object->getQuantity();
-        }
-        if (null !== $object->getIsHandled()) {
-            $data->{'is_handled'} = $object->getIsHandled();
-        }
-        if (null !== $object->getIsServiced()) {
-            $data->{'is_serviced'} = $object->getIsServiced();
-        }
-        if (null !== $object->getService()) {
-            $values_1 = [];
-            foreach ($object->getService() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-            }
-            $data->{'service'} = $values_1;
         }
 
         return $data;

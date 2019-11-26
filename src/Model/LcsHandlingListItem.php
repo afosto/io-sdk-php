@@ -17,6 +17,10 @@ class LcsHandlingListItem
      */
     protected $ids;
     /**
+     * @var string[]
+     */
+    protected $handledIds;
+    /**
      * @var string
      */
     protected $shipmentId;
@@ -36,18 +40,6 @@ class LcsHandlingListItem
      * @var int
      */
     protected $quantity;
-    /**
-     * @var bool
-     */
-    protected $isHandled;
-    /**
-     * @var bool
-     */
-    protected $isServiced;
-    /**
-     * @var LcsServiceOption[]
-     */
-    protected $service;
 
     /**
      * @return string[]|null
@@ -65,6 +57,26 @@ class LcsHandlingListItem
     public function setIds(?array $ids): self
     {
         $this->ids = $ids;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getHandledIds(): ?array
+    {
+        return $this->handledIds;
+    }
+
+    /**
+     * @param string[]|null $handledIds
+     *
+     * @return self
+     */
+    public function setHandledIds(?array $handledIds): self
+    {
+        $this->handledIds = $handledIds;
 
         return $this;
     }
@@ -165,66 +177,6 @@ class LcsHandlingListItem
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsHandled(): ?bool
-    {
-        return $this->isHandled;
-    }
-
-    /**
-     * @param bool|null $isHandled
-     *
-     * @return self
-     */
-    public function setIsHandled(?bool $isHandled): self
-    {
-        $this->isHandled = $isHandled;
-
-        return $this;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsServiced(): ?bool
-    {
-        return $this->isServiced;
-    }
-
-    /**
-     * @param bool|null $isServiced
-     *
-     * @return self
-     */
-    public function setIsServiced(?bool $isServiced): self
-    {
-        $this->isServiced = $isServiced;
-
-        return $this;
-    }
-
-    /**
-     * @return LcsServiceOption[]|null
-     */
-    public function getService(): ?array
-    {
-        return $this->service;
-    }
-
-    /**
-     * @param LcsServiceOption[]|null $service
-     *
-     * @return self
-     */
-    public function setService(?array $service): self
-    {
-        $this->service = $service;
 
         return $this;
     }

@@ -37,10 +37,6 @@ class OdrOrder
      */
     protected $state;
     /**
-     * @var OdrStackOrderReference[]
-     */
-    protected $stacks;
-    /**
      * @var string
      */
     protected $addressId;
@@ -185,26 +181,6 @@ class OdrOrder
     public function setState(?OdrState $state): self
     {
         $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * @return OdrStackOrderReference[]|null
-     */
-    public function getStacks(): ?array
-    {
-        return $this->stacks;
-    }
-
-    /**
-     * @param OdrStackOrderReference[]|null $stacks
-     *
-     * @return self
-     */
-    public function setStacks(?array $stacks): self
-    {
-        $this->stacks = $stacks;
 
         return $this;
     }
