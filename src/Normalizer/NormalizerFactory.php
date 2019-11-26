@@ -32,6 +32,7 @@ class NormalizerFactory
         $normalizers[] = new OdrOrderModelNormalizer();
         $normalizers[] = new OdrOrderUpdateModelNormalizer();
         $normalizers[] = new OdrStateNormalizer();
+        $normalizers[] = new OdrStackOrderReferenceNormalizer();
         $normalizers[] = new MesMailModelNormalizer();
         $normalizers[] = new MesContactModelNormalizer();
         $normalizers[] = new MesContactNormalizer();
@@ -228,7 +229,6 @@ class NormalizerFactory
         $normalizers[] = new LcsHandlingModelNormalizer();
         $normalizers[] = new LcsHandlingListResponseNormalizer();
         $normalizers[] = new LcsHandlingListNormalizer();
-        $normalizers[] = new LcsListedHandlingListNormalizer();
         $normalizers[] = new LcsLocationPositionNormalizer();
         $normalizers[] = new LcsLabelRequestNormalizer();
         $normalizers[] = new LcsFileNormalizer();
@@ -321,6 +321,7 @@ class NormalizerFactory
         $normalizers[] = new RelAddressModelNormalizer();
         $normalizers[] = new RelAddressNormalizer();
         $normalizers[] = new RelVersionNormalizer();
+        $normalizers[] = new OdrOrdersIdStackPostBodyNormalizer();
         $normalizers[] = new IamCardsPostBodyNormalizer();
         $normalizers[] = new IamLogsFiltersGetResponse200Normalizer();
         $normalizers[] = new IamTenantsPostResponse200Normalizer();
