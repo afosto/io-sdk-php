@@ -160,6 +160,7 @@ class NormalizerFactory
         $normalizers[] = new OdrTransactionModelNormalizer();
         $normalizers[] = new OdrPurchaseItemNormalizer();
         $normalizers[] = new WmsStockNormalizer();
+        $normalizers[] = new WmsStockUpRequestNormalizer();
         $normalizers[] = new WmsInventoryConstraintNormalizer();
         $normalizers[] = new WmsUpdateWarehouseItemRequestNormalizer();
         $normalizers[] = new WmsUpdateTransferRequestNormalizer();

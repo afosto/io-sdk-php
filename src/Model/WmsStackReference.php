@@ -16,10 +16,6 @@ class WmsStackReference
      * @var string
      */
     protected $id;
-    /**
-     * @var string
-     */
-    protected $type;
 
     /**
      * @return string|null
@@ -37,26 +33,6 @@ class WmsStackReference
     public function setId(?string $id): self
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
 
         return $this;
     }

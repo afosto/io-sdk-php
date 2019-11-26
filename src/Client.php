@@ -3154,6 +3154,22 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Get a list of inventory summaries.
+     *
+     * @param \Afosto\Sdk\Model\WmsStockUpRequest $body
+     * @param string                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SetInventoryUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SetInventoryNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\WmsStock[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function setInventory(\Afosto\Sdk\Model\WmsStockUpRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SetInventory($body), $fetch);
+    }
+
+    /**
      * Create an optimized set of claims.
      *
      * @param string $id

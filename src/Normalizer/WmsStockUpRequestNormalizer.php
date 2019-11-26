@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class WmsStackReferenceNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class WmsStockUpRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsStackReference';
+        return $type === 'Afosto\\Sdk\\Model\\WmsStockUpRequest';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsStackReference';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsStockUpRequest';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,9 +37,12 @@ class WmsStackReferenceNormalizer implements DenormalizerInterface, NormalizerIn
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\WmsStackReference();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
-            $object->setId($data->{'id'});
+        $object = new \Afosto\Sdk\Model\WmsStockUpRequest();
+        if (property_exists($data, 'location_id') && $data->{'location_id'} !== null) {
+            $object->setLocationId($data->{'location_id'});
+        }
+        if (property_exists($data, 'stack') && $data->{'stack'} !== null) {
+            $object->setStack($this->denormalizer->denormalize($data->{'stack'}, 'Afosto\\Sdk\\Model\\WmsStackReference', 'json', $context));
         }
 
         return $object;
@@ -48,8 +51,11 @@ class WmsStackReferenceNormalizer implements DenormalizerInterface, NormalizerIn
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
+        if (null !== $object->getLocationId()) {
+            $data->{'location_id'} = $object->getLocationId();
+        }
+        if (null !== $object->getStack()) {
+            $data->{'stack'} = $this->normalizer->normalize($object->getStack(), 'json', $context);
         }
 
         return $data;
