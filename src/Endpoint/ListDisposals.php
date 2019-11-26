@@ -10,21 +10,26 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class SearchGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class ListDisposals extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
-     * Returns a list of groups.
+     * Returns a list of disposals.
      *
-     * @param \Afosto\Sdk\Model\OdrSearch[] $body
-     * @param array                         $headerParameters {
+     * @param array $queryParameters {
+     *
+     *     @var string $type
+     *     @var string $sort
+     * }
+     *
+     * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
      * }
      */
-    public function __construct(array $body, array $headerParameters = [])
+    public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
-        $this->body = $body;
+        $this->queryParameters = $queryParameters;
         $this->headerParameters = $headerParameters;
     }
 
@@ -32,22 +37,34 @@ class SearchGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getMethod(): string
     {
-        return 'POST';
+        return 'GET';
     }
 
     public function getUri(): string
     {
-        return '/odr/stacks/groups';
+        return '/odr/disposals';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return $this->getSerializedBody($serializer);
+        return [[], null];
     }
 
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['type', 'sort']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['sort' => 'created_at_desc']);
+        $optionsResolver->setAllowedTypes('type', ['string']);
+        $optionsResolver->setAllowedTypes('sort', ['string']);
+
+        return $optionsResolver;
     }
 
     protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
@@ -65,21 +82,21 @@ class SearchGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\SearchGroupsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\SearchGroupsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListDisposalsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListDisposalsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrGroup[]|null
+     * @return \Afosto\Sdk\Model\OdrDisposal[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrGroup[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrDisposal[]', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\SearchGroupsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ListDisposalsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\SearchGroupsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ListDisposalsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

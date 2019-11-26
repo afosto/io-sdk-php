@@ -12,19 +12,16 @@ namespace Afosto\Sdk\Endpoint;
 
 class DeleteItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $type;
     protected $id;
 
     /**
      * Delete items from the given reference.
      *
-     * @param string                                     $type
-     * @param string                                     $id
-     * @param \Afosto\Sdk\Model\OdrItemsTypeIdDeleteBody $body
+     * @param string $id
+     * @param array  $body
      */
-    public function __construct(string $type, string $id, \Afosto\Sdk\Model\OdrItemsTypeIdDeleteBody $body)
+    public function __construct(string $id, array $body)
     {
-        $this->type = $type;
         $this->id = $id;
         $this->body = $body;
     }
@@ -38,12 +35,12 @@ class DeleteItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return str_replace(['{type}', '{id}'], [$this->type, $this->id], '/odr/items/{type}/{id}');
+        return str_replace(['{id}'], [$this->id], '/odr/stacks/{id}/items');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return $this->getSerializedBody($serializer);
+        return [[], $this->body];
     }
 
     public function getExtraHeaders(): array
@@ -57,12 +54,12 @@ class DeleteItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\DeleteItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteItemsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrStack|null
+     * @return \Afosto\Sdk\Model\OdrItem[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrStack', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrItem[]', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteItemsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

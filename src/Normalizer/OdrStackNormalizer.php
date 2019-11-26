@@ -47,6 +47,38 @@ class OdrStackNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'count') && $data->{'count'} !== null) {
             $object->setCount($data->{'count'});
         }
+        if (property_exists($data, 'is_locked') && $data->{'is_locked'} !== null) {
+            $object->setIsLocked($data->{'is_locked'});
+        }
+        if (property_exists($data, 'is_confirmed') && $data->{'is_confirmed'} !== null) {
+            $object->setIsConfirmed($data->{'is_confirmed'});
+        }
+        if (property_exists($data, 'is_accepted') && $data->{'is_accepted'} !== null) {
+            $object->setIsAccepted($data->{'is_accepted'});
+        }
+        if (property_exists($data, 'is_in_progress') && $data->{'is_in_progress'} !== null) {
+            $object->setIsInProgress($data->{'is_in_progress'});
+        }
+        if (property_exists($data, 'is_finished') && $data->{'is_finished'} !== null) {
+            $object->setIsFinished($data->{'is_finished'});
+        }
+        if (property_exists($data, 'disposals') && $data->{'disposals'} !== null) {
+            $values = [];
+            foreach ($data->{'disposals'} as $value) {
+                $values[] = $value;
+            }
+            $object->setDisposals($values);
+        }
+        if (property_exists($data, 'source') && $data->{'source'} !== null) {
+            $values_1 = [];
+            foreach ($data->{'source'} as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context);
+            }
+            $object->setSource($values_1);
+        }
+        if (property_exists($data, 'expected_at') && $data->{'expected_at'} !== null) {
+            $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
+        }
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
             $object->setMetadata($data->{'metadata'});
         }
@@ -71,6 +103,38 @@ class OdrStackNormalizer implements DenormalizerInterface, NormalizerInterface, 
         }
         if (null !== $object->getCount()) {
             $data->{'count'} = $object->getCount();
+        }
+        if (null !== $object->getIsLocked()) {
+            $data->{'is_locked'} = $object->getIsLocked();
+        }
+        if (null !== $object->getIsConfirmed()) {
+            $data->{'is_confirmed'} = $object->getIsConfirmed();
+        }
+        if (null !== $object->getIsAccepted()) {
+            $data->{'is_accepted'} = $object->getIsAccepted();
+        }
+        if (null !== $object->getIsInProgress()) {
+            $data->{'is_in_progress'} = $object->getIsInProgress();
+        }
+        if (null !== $object->getIsFinished()) {
+            $data->{'is_finished'} = $object->getIsFinished();
+        }
+        if (null !== $object->getDisposals()) {
+            $values = [];
+            foreach ($object->getDisposals() as $value) {
+                $values[] = $value;
+            }
+            $data->{'disposals'} = $values;
+        }
+        if (null !== $object->getSource()) {
+            $values_1 = [];
+            foreach ($object->getSource() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            }
+            $data->{'source'} = $values_1;
+        }
+        if (null !== $object->getExpectedAt()) {
+            $data->{'expected_at'} = $object->getExpectedAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();

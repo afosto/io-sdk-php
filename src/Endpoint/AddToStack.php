@@ -12,13 +12,17 @@ namespace Afosto\Sdk\Endpoint;
 
 class AddToStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
+    protected $id;
+
     /**
      * Adds items to the stack that was previously created.
      *
+     * @param string                             $id
      * @param \Afosto\Sdk\Model\OdrStackAddModel $body
      */
-    public function __construct(\Afosto\Sdk\Model\OdrStackAddModel $body)
+    public function __construct(string $id, \Afosto\Sdk\Model\OdrStackAddModel $body)
     {
+        $this->id = $id;
         $this->body = $body;
     }
 
@@ -26,12 +30,12 @@ class AddToStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     public function getMethod(): string
     {
-        return 'PUT';
+        return 'POST';
     }
 
     public function getUri(): string
     {
-        return '/odr/stacks';
+        return str_replace(['{id}'], [$this->id], '/odr/stacks/{id}/items');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

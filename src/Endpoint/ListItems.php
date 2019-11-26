@@ -12,13 +12,11 @@ namespace Afosto\Sdk\Endpoint;
 
 class ListItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $type;
     protected $id;
 
     /**
      * Returns a list of items.
      *
-     * @param string $type
      * @param string $id
      * @param array  $headerParameters {
      *
@@ -26,9 +24,8 @@ class ListItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *     @var string $x-page-size the requested page size
      * }
      */
-    public function __construct(string $type, string $id, array $headerParameters = [])
+    public function __construct(string $id, array $headerParameters = [])
     {
-        $this->type = $type;
         $this->id = $id;
         $this->headerParameters = $headerParameters;
     }
@@ -42,7 +39,7 @@ class ListItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     public function getUri(): string
     {
-        return str_replace(['{type}', '{id}'], [$this->type, $this->id], '/odr/items/{type}/{id}');
+        return str_replace(['{id}'], [$this->id], '/odr/stacks/{id}/items');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

@@ -25,6 +25,38 @@ class OdrStack
      */
     protected $count;
     /**
+     * @var bool
+     */
+    protected $isLocked;
+    /**
+     * @var bool
+     */
+    protected $isConfirmed;
+    /**
+     * @var bool
+     */
+    protected $isAccepted;
+    /**
+     * @var bool
+     */
+    protected $isInProgress;
+    /**
+     * @var bool
+     */
+    protected $isFinished;
+    /**
+     * @var string[]
+     */
+    protected $disposals;
+    /**
+     * @var OdrStackReference[]
+     */
+    protected $source;
+    /**
+     * @var \DateTime
+     */
+    protected $expectedAt;
+    /**
      * @var mixed
      */
     protected $metadata;
@@ -93,6 +125,166 @@ class OdrStack
     public function setCount(?int $count): self
     {
         $this->count = $count;
+
+        return $this;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsLocked(): ?bool
+    {
+        return $this->isLocked;
+    }
+
+    /**
+     * @param bool|null $isLocked
+     *
+     * @return self
+     */
+    public function setIsLocked(?bool $isLocked): self
+    {
+        $this->isLocked = $isLocked;
+
+        return $this;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsConfirmed(): ?bool
+    {
+        return $this->isConfirmed;
+    }
+
+    /**
+     * @param bool|null $isConfirmed
+     *
+     * @return self
+     */
+    public function setIsConfirmed(?bool $isConfirmed): self
+    {
+        $this->isConfirmed = $isConfirmed;
+
+        return $this;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsAccepted(): ?bool
+    {
+        return $this->isAccepted;
+    }
+
+    /**
+     * @param bool|null $isAccepted
+     *
+     * @return self
+     */
+    public function setIsAccepted(?bool $isAccepted): self
+    {
+        $this->isAccepted = $isAccepted;
+
+        return $this;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsInProgress(): ?bool
+    {
+        return $this->isInProgress;
+    }
+
+    /**
+     * @param bool|null $isInProgress
+     *
+     * @return self
+     */
+    public function setIsInProgress(?bool $isInProgress): self
+    {
+        $this->isInProgress = $isInProgress;
+
+        return $this;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsFinished(): ?bool
+    {
+        return $this->isFinished;
+    }
+
+    /**
+     * @param bool|null $isFinished
+     *
+     * @return self
+     */
+    public function setIsFinished(?bool $isFinished): self
+    {
+        $this->isFinished = $isFinished;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getDisposals(): ?array
+    {
+        return $this->disposals;
+    }
+
+    /**
+     * @param string[]|null $disposals
+     *
+     * @return self
+     */
+    public function setDisposals(?array $disposals): self
+    {
+        $this->disposals = $disposals;
+
+        return $this;
+    }
+
+    /**
+     * @return OdrStackReference[]|null
+     */
+    public function getSource(): ?array
+    {
+        return $this->source;
+    }
+
+    /**
+     * @param OdrStackReference[]|null $source
+     *
+     * @return self
+     */
+    public function setSource(?array $source): self
+    {
+        $this->source = $source;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getExpectedAt(): ?\DateTime
+    {
+        return $this->expectedAt;
+    }
+
+    /**
+     * @param \DateTime|null $expectedAt
+     *
+     * @return self
+     */
+    public function setExpectedAt(?\DateTime $expectedAt): self
+    {
+        $this->expectedAt = $expectedAt;
 
         return $this;
     }

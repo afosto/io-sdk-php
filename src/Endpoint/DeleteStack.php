@@ -12,18 +12,15 @@ namespace Afosto\Sdk\Endpoint;
 
 class DeleteStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $type;
     protected $id;
 
     /**
      * Removes a stack.
      *
-     * @param string $type
      * @param string $id
      */
-    public function __construct(string $type, string $id)
+    public function __construct(string $id)
     {
-        $this->type = $type;
         $this->id = $id;
     }
 
@@ -36,7 +33,7 @@ class DeleteStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return str_replace(['{type}', '{id}'], [$this->type, $this->id], '/odr/stacks/{type}/{id}');
+        return str_replace(['{id}'], [$this->id], '/odr/stacks/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

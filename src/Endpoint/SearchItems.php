@@ -15,14 +15,14 @@ class SearchItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * Returns a list of items.
      *
-     * @param \Afosto\Sdk\Model\OdrSearch[] $body
-     * @param array                         $headerParameters {
+     * @param \Afosto\Sdk\Model\OdrSearch $body
+     * @param array                       $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
      * }
      */
-    public function __construct(array $body, array $headerParameters = [])
+    public function __construct(\Afosto\Sdk\Model\OdrSearch $body, array $headerParameters = [])
     {
         $this->body = $body;
         $this->headerParameters = $headerParameters;
@@ -37,7 +37,7 @@ class SearchItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return '/odr/items/search';
+        return '/odr/stacks/items';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

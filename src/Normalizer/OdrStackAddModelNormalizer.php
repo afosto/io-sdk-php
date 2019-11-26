@@ -38,12 +38,6 @@ class OdrStackAddModelNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrStackAddModel();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
-            $object->setId($data->{'id'});
-        }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
-            $object->setType($data->{'type'});
-        }
         if (property_exists($data, 'items') && $data->{'items'} !== null) {
             $values = [];
             foreach ($data->{'items'} as $value) {
@@ -61,12 +55,6 @@ class OdrStackAddModelNormalizer implements DenormalizerInterface, NormalizerInt
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
-        }
-        if (null !== $object->getType()) {
-            $data->{'type'} = $object->getType();
-        }
         if (null !== $object->getItems()) {
             $values = [];
             foreach ($object->getItems() as $value) {

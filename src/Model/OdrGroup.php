@@ -28,10 +28,6 @@ class OdrGroup
      * @var OdrStackReference[]
      */
     protected $stacks;
-    /**
-     * @var string[]
-     */
-    protected $stackItemIds;
 
     /**
      * @return string|null
@@ -109,26 +105,6 @@ class OdrGroup
     public function setStacks(?array $stacks): self
     {
         $this->stacks = $stacks;
-
-        return $this;
-    }
-
-    /**
-     * @return string[]|null
-     */
-    public function getStackItemIds(): ?array
-    {
-        return $this->stackItemIds;
-    }
-
-    /**
-     * @param string[]|null $stackItemIds
-     *
-     * @return self
-     */
-    public function setStackItemIds(?array $stackItemIds): self
-    {
-        $this->stackItemIds = $stackItemIds;
 
         return $this;
     }

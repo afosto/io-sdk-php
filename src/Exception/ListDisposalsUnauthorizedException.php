@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class ListStackTypesUnauthorizedException extends \RuntimeException implements ClientException
+class ListDisposalsUnauthorizedException extends \RuntimeException implements ClientException
 {
     private $error;
 

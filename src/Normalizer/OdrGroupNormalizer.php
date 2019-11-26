@@ -54,13 +54,6 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
             }
             $object->setStacks($values);
         }
-        if (property_exists($data, 'stack_item_ids') && $data->{'stack_item_ids'} !== null) {
-            $values_1 = [];
-            foreach ($data->{'stack_item_ids'} as $value_1) {
-                $values_1[] = $value_1;
-            }
-            $object->setStackItemIds($values_1);
-        }
 
         return $object;
     }
@@ -83,13 +76,6 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'stacks'} = $values;
-        }
-        if (null !== $object->getStackItemIds()) {
-            $values_1 = [];
-            foreach ($object->getStackItemIds() as $value_1) {
-                $values_1[] = $value_1;
-            }
-            $data->{'stack_item_ids'} = $values_1;
         }
 
         return $data;
