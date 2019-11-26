@@ -259,39 +259,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * View a single order.
-     *
-     * @param string $id
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ViewOrderByStackUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ViewOrderByStackNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function viewOrderByStack(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewOrderByStack($id), $fetch);
-    }
-
-    /**
-     * Attach new stack.
-     *
-     * @param string                                     $id
-     * @param \Afosto\Sdk\Model\OdrOrdersIdStackPostBody $body
-     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\AttachStackUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AttachStackNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function attachStack(string $id, \Afosto\Sdk\Model\OdrOrdersIdStackPostBody $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachStack($id, $body), $fetch);
-    }
-
-    /**
      * Returns a list of domains.
      *
      * @param array $queryParameters {
@@ -4378,6 +4345,63 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function attachVatRate(array $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachVatRate($body), $fetch);
+    }
+
+    /**
+     * Get a listing filters per sku.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\CatFilterSet[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getFilterSets(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFilterSets($headerParameters), $fetch);
+    }
+
+    /**
+     * Create or update filters for products.
+     *
+     * @param \Afosto\Sdk\Model\CatFilterSet[] $body
+     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AttachFiltersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AttachFiltersNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\CatFiltersPutResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function attachFilters(array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachFilters($body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function getFilterKeys(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFilterKeys(), $fetch);
+    }
+
+    /**
+     * Returns distinct filter values.
+     *
+     * @param string $key
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function getFilterValues(string $key, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFilterValues($key), $fetch);
     }
 
     /**

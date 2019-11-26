@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class ViewOrderByStackUnauthorizedException extends \RuntimeException implements ClientException
+class AttachFiltersUnauthorizedException extends \RuntimeException implements ClientException
 {
     private $error;
 

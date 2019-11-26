@@ -54,6 +54,9 @@ class CatPriceNormalizer implements DenormalizerInterface, NormalizerInterface, 
             }
             $object->setVat($values);
         }
+        if (property_exists($data, 'filters') && $data->{'filters'} !== null) {
+            $object->setFilters($data->{'filters'});
+        }
         if (property_exists($data, 'active_at') && $data->{'active_at'} !== null) {
             $object->setActiveAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'active_at'}));
         }
@@ -82,6 +85,9 @@ class CatPriceNormalizer implements DenormalizerInterface, NormalizerInterface, 
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'vat'} = $values;
+        }
+        if (null !== $object->getFilters()) {
+            $data->{'filters'} = $object->getFilters();
         }
         if (null !== $object->getActiveAt()) {
             $data->{'active_at'} = $object->getActiveAt()->format("Y-m-d\TH:i:sP");

@@ -32,7 +32,6 @@ class NormalizerFactory
         $normalizers[] = new OdrOrderModelNormalizer();
         $normalizers[] = new OdrOrderUpdateModelNormalizer();
         $normalizers[] = new OdrStateNormalizer();
-        $normalizers[] = new OdrStackOrderReferenceNormalizer();
         $normalizers[] = new MesMailModelNormalizer();
         $normalizers[] = new MesContactModelNormalizer();
         $normalizers[] = new MesContactNormalizer();
@@ -274,6 +273,7 @@ class NormalizerFactory
         $normalizers[] = new CntHtmlToPdfRequestNormalizer();
         $normalizers[] = new CntHtmlToPdfRequestSizeNormalizer();
         $normalizers[] = new CntHtmlToPdfRequestMarginNormalizer();
+        $normalizers[] = new CatFilterSetNormalizer();
         $normalizers[] = new CatGroupNormalizer();
         $normalizers[] = new CatGroupCreateNormalizer();
         $normalizers[] = new CatGroupUpdateNormalizer();
@@ -320,7 +320,6 @@ class NormalizerFactory
         $normalizers[] = new RelAddressModelNormalizer();
         $normalizers[] = new RelAddressNormalizer();
         $normalizers[] = new RelVersionNormalizer();
-        $normalizers[] = new OdrOrdersIdStackPostBodyNormalizer();
         $normalizers[] = new IamCardsPostBodyNormalizer();
         $normalizers[] = new IamLogsFiltersGetResponse200Normalizer();
         $normalizers[] = new IamTenantsPostResponse200Normalizer();
@@ -341,6 +340,7 @@ class NormalizerFactory
         $normalizers[] = new OdrItemsTypeIdDeleteBodyNormalizer();
         $normalizers[] = new CatGroupsIdPricesPutResponse200Normalizer();
         $normalizers[] = new CatVatProductsPutResponse200Normalizer();
+        $normalizers[] = new CatFiltersPutResponse200Normalizer();
 
         return $normalizers;
     }

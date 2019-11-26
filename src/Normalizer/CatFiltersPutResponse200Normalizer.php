@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrOrdersIdStackPostBodyNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class CatFiltersPutResponse200Normalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrOrdersIdStackPostBody';
+        return $type === 'Afosto\\Sdk\\Model\\CatFiltersPutResponse200';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrOrdersIdStackPostBody';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\CatFiltersPutResponse200';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,9 +37,12 @@ class OdrOrdersIdStackPostBodyNormalizer implements DenormalizerInterface, Norma
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrOrdersIdStackPostBody();
-        if (property_exists($data, 'stack') && $data->{'stack'} !== null) {
-            $object->setStack($data->{'stack'});
+        $object = new \Afosto\Sdk\Model\CatFiltersPutResponse200();
+        if (property_exists($data, 'success') && $data->{'success'} !== null) {
+            $object->setSuccess($data->{'success'});
+        }
+        if (property_exists($data, 'failed') && $data->{'failed'} !== null) {
+            $object->setFailed($data->{'failed'});
         }
 
         return $object;
@@ -48,8 +51,11 @@ class OdrOrdersIdStackPostBodyNormalizer implements DenormalizerInterface, Norma
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getStack()) {
-            $data->{'stack'} = $object->getStack();
+        if (null !== $object->getSuccess()) {
+            $data->{'success'} = $object->getSuccess();
+        }
+        if (null !== $object->getFailed()) {
+            $data->{'failed'} = $object->getFailed();
         }
 
         return $data;

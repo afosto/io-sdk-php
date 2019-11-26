@@ -56,13 +56,6 @@ class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'state') && $data->{'state'} !== null) {
             $object->setState($this->denormalizer->denormalize($data->{'state'}, 'Afosto\\Sdk\\Model\\OdrState', 'json', $context));
         }
-        if (property_exists($data, 'stacks') && $data->{'stacks'} !== null) {
-            $values = [];
-            foreach ($data->{'stacks'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrStackOrderReference', 'json', $context);
-            }
-            $object->setStacks($values);
-        }
         if (property_exists($data, 'address_id') && $data->{'address_id'} !== null) {
             $object->setAddressId($data->{'address_id'});
         }
@@ -108,13 +101,6 @@ class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, 
         }
         if (null !== $object->getState()) {
             $data->{'state'} = $this->normalizer->normalize($object->getState(), 'json', $context);
-        }
-        if (null !== $object->getStacks()) {
-            $values = [];
-            foreach ($object->getStacks() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data->{'stacks'} = $values;
         }
         if (null !== $object->getAddressId()) {
             $data->{'address_id'} = $object->getAddressId();
