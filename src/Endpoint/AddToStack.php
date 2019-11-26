@@ -35,7 +35,7 @@ class AddToStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/stacks/{id}/items');
+        return str_replace(['{id}'], [$this->id], '/odr/stacks/items/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
