@@ -44,12 +44,12 @@ class CatPriceConstraintNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'operator') && $data->{'operator'} !== null) {
             $object->setOperator($data->{'operator'});
         }
-        if (property_exists($data, 'value') && $data->{'value'} !== null) {
+        if (property_exists($data, 'values') && $data->{'values'} !== null) {
             $values = [];
-            foreach ($data->{'value'} as $value) {
+            foreach ($data->{'values'} as $value) {
                 $values[] = $value;
             }
-            $object->setValue($values);
+            $object->setValues($values);
         }
 
         return $object;
@@ -64,12 +64,12 @@ class CatPriceConstraintNormalizer implements DenormalizerInterface, NormalizerI
         if (null !== $object->getOperator()) {
             $data->{'operator'} = $object->getOperator();
         }
-        if (null !== $object->getValue()) {
+        if (null !== $object->getValues()) {
             $values = [];
-            foreach ($object->getValue() as $value) {
+            foreach ($object->getValues() as $value) {
                 $values[] = $value;
             }
-            $data->{'value'} = $values;
+            $data->{'values'} = $values;
         }
 
         return $data;

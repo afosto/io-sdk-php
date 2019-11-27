@@ -23,7 +23,7 @@ class CatPriceConstraint
     /**
      * @var string[]
      */
-    protected $value;
+    protected $values;
 
     /**
      * @return string|null
@@ -68,19 +68,19 @@ class CatPriceConstraint
     /**
      * @return string[]|null
      */
-    public function getValue(): ?array
+    public function getValues(): ?array
     {
-        return $this->value;
+        return $this->values;
     }
 
     /**
-     * @param string[]|null $value
+     * @param string[]|null $values
      *
      * @return self
      */
-    public function setValue(?array $value): self
+    public function setValues(?array $values): self
     {
-        $this->value = $value;
+        $this->values = $values;
 
         return $this;
     }
