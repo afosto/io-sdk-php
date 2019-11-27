@@ -25,6 +25,10 @@ class OdrGroup
      */
     protected $quantity;
     /**
+     * @var string[]
+     */
+    protected $ids;
+    /**
      * @var OdrStackReference[]
      */
     protected $stacks;
@@ -85,6 +89,26 @@ class OdrGroup
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getIds(): ?array
+    {
+        return $this->ids;
+    }
+
+    /**
+     * @param string[]|null $ids
+     *
+     * @return self
+     */
+    public function setIds(?array $ids): self
+    {
+        $this->ids = $ids;
 
         return $this;
     }

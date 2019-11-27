@@ -47,12 +47,19 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
             $object->setQuantity($data->{'quantity'});
         }
-        if (property_exists($data, 'stacks') && $data->{'stacks'} !== null) {
+        if (property_exists($data, 'ids') && $data->{'ids'} !== null) {
             $values = [];
-            foreach ($data->{'stacks'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context);
+            foreach ($data->{'ids'} as $value) {
+                $values[] = $value;
             }
-            $object->setStacks($values);
+            $object->setIds($values);
+        }
+        if (property_exists($data, 'stacks') && $data->{'stacks'} !== null) {
+            $values_1 = [];
+            foreach ($data->{'stacks'} as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context);
+            }
+            $object->setStacks($values_1);
         }
 
         return $object;
@@ -70,12 +77,19 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (null !== $object->getQuantity()) {
             $data->{'quantity'} = $object->getQuantity();
         }
-        if (null !== $object->getStacks()) {
+        if (null !== $object->getIds()) {
             $values = [];
-            foreach ($object->getStacks() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            foreach ($object->getIds() as $value) {
+                $values[] = $value;
             }
-            $data->{'stacks'} = $values;
+            $data->{'ids'} = $values;
+        }
+        if (null !== $object->getStacks()) {
+            $values_1 = [];
+            foreach ($object->getStacks() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            }
+            $data->{'stacks'} = $values_1;
         }
 
         return $data;

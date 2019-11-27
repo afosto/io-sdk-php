@@ -271,6 +271,7 @@ class NormalizerFactory
         $normalizers[] = new OdrItemModelNormalizer();
         $normalizers[] = new OdrGroupNormalizer();
         $normalizers[] = new OdrSearchNormalizer();
+        $normalizers[] = new OdrSearchConstraintNormalizer();
         $normalizers[] = new OdrSkuNormalizer();
         $normalizers[] = new OdrSkuResultNormalizer();
         $normalizers[] = new CntHtmlToPdfRequestNormalizer();

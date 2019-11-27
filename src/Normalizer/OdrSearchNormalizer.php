@@ -38,18 +38,12 @@ class OdrSearchNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrSearch();
-        if (property_exists($data, 'key') && $data->{'key'} !== null) {
-            $object->setKey($data->{'key'});
-        }
-        if (property_exists($data, 'operator') && $data->{'operator'} !== null) {
-            $object->setOperator($data->{'operator'});
-        }
-        if (property_exists($data, 'value') && $data->{'value'} !== null) {
+        if (property_exists($data, 'constraints') && $data->{'constraints'} !== null) {
             $values = [];
-            foreach ($data->{'value'} as $value) {
-                $values[] = $value;
+            foreach ($data->{'constraints'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrSearchConstraint', 'json', $context);
             }
-            $object->setValue($values);
+            $object->setConstraints($values);
         }
 
         return $object;
@@ -58,18 +52,12 @@ class OdrSearchNormalizer implements DenormalizerInterface, NormalizerInterface,
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getKey()) {
-            $data->{'key'} = $object->getKey();
-        }
-        if (null !== $object->getOperator()) {
-            $data->{'operator'} = $object->getOperator();
-        }
-        if (null !== $object->getValue()) {
+        if (null !== $object->getConstraints()) {
             $values = [];
-            foreach ($object->getValue() as $value) {
-                $values[] = $value;
+            foreach ($object->getConstraints() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
-            $data->{'value'} = $values;
+            $data->{'constraints'} = $values;
         }
 
         return $data;
