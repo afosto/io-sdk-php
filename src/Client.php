@@ -511,75 +511,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Returns a list of contacts.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var string $q
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListMessagingContactsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListMessagingContactsNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesContact[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listMessagingContacts(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListMessagingContacts($queryParameters), $fetch);
-    }
-
-    /**
-     * Remove a contact from the list.
-     *
-     * @param string $id    Id that belongs to the contact
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DeleteContactUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteContactNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesContact|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function deleteContact(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteContact($id), $fetch);
-    }
-
-    /**
-     * Read a contact.
-     *
-     * @param string $id    Id that belongs to the contact
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetContactUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetContactNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesContact|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getContact(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetContact($id), $fetch);
-    }
-
-    /**
-     * Update an existing contact.
-     *
-     * @param string                            $id    Id that belongs to the contact
-     * @param \Afosto\Sdk\Model\MesContactModel $body  Contact object
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateMessagingContactUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateMessagingContactNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\MesContact|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateMessagingContact(string $id, \Afosto\Sdk\Model\MesContactModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateMessagingContact($id, $body), $fetch);
-    }
-
-    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListInvoicesBadRequestException
@@ -4510,14 +4441,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ViewContactBadRequestException
-     * @throws \Afosto\Sdk\Exception\ViewContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetContactBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetContactUnauthorizedException
      *
      * @return \Afosto\Sdk\Model\RelContact|\Psr\Http\Message\ResponseInterface|null
      */
-    public function viewContact(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function getContact(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewContact($id, $queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetContact($id, $queryParameters), $fetch);
     }
 
     /**

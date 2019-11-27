@@ -34,7 +34,6 @@ class NormalizerFactory
         $normalizers[] = new OdrStateNormalizer();
         $normalizers[] = new MesMailModelNormalizer();
         $normalizers[] = new MesContactModelNormalizer();
-        $normalizers[] = new MesContactNormalizer();
         $normalizers[] = new MesMailNormalizer();
         $normalizers[] = new MesInboxNormalizer();
         $normalizers[] = new MesInboxModelNormalizer();

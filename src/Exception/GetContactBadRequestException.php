@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class ViewContactBadRequestException extends \RuntimeException implements ClientException
+class GetContactBadRequestException extends \RuntimeException implements ClientException
 {
     private $error;
 

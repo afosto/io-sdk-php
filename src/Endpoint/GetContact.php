@@ -15,13 +15,18 @@ class GetContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     protected $id;
 
     /**
-     * Read a contact.
+     * Returns a single contact by id.
      *
-     * @param string $id Id that belongs to the contact
+     * @param string $id
+     * @param array  $queryParameters {
+     *
+     *     @var string $version
+     * }
      */
-    public function __construct(string $id)
+    public function __construct(string $id, array $queryParameters = [])
     {
         $this->id = $id;
+        $this->queryParameters = $queryParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -33,7 +38,7 @@ class GetContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/mes/contacts/{id}');
+        return str_replace(['{id}'], [$this->id], '/rel/contacts/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -46,24 +51,35 @@ class GetContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         return ['Accept' => ['application/json']];
     }
 
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['version']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('version', ['string']);
+
+        return $optionsResolver;
+    }
+
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\GetContactBadRequestException
      * @throws \Afosto\Sdk\Exception\GetContactUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetContactNotFoundException
      *
-     * @return \Afosto\Sdk\Model\MesContact|null
+     * @return \Afosto\Sdk\Model\RelContact|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\MesContact', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelContact', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetContactBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetContactUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
-        if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\GetContactNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }
