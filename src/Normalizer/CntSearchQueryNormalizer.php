@@ -41,6 +41,9 @@ class CntSearchQueryNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'q') && $data->{'q'} !== null) {
             $object->setQ($data->{'q'});
         }
+        if (property_exists($data, 'is_fuzzy') && $data->{'is_fuzzy'} !== null) {
+            $object->setIsFuzzy($data->{'is_fuzzy'});
+        }
         if (property_exists($data, 'filter') && $data->{'filter'} !== null) {
             $values = [];
             foreach ($data->{'filter'} as $value) {
@@ -80,6 +83,9 @@ class CntSearchQueryNormalizer implements DenormalizerInterface, NormalizerInter
         $data = new \stdClass();
         if (null !== $object->getQ()) {
             $data->{'q'} = $object->getQ();
+        }
+        if (null !== $object->getIsFuzzy()) {
+            $data->{'is_fuzzy'} = $object->getIsFuzzy();
         }
         if (null !== $object->getFilter()) {
             $values = [];

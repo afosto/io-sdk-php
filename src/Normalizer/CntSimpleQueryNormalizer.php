@@ -62,6 +62,9 @@ class CntSimpleQueryNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'q') && $data->{'q'} !== null) {
             $object->setQ($data->{'q'});
         }
+        if (property_exists($data, 'is_fuzzy') && $data->{'is_fuzzy'} !== null) {
+            $object->setIsFuzzy($data->{'is_fuzzy'});
+        }
         if (property_exists($data, 'limit') && $data->{'limit'} !== null) {
             $object->setLimit($data->{'limit'});
         }
@@ -101,6 +104,9 @@ class CntSimpleQueryNormalizer implements DenormalizerInterface, NormalizerInter
         }
         if (null !== $object->getQ()) {
             $data->{'q'} = $object->getQ();
+        }
+        if (null !== $object->getIsFuzzy()) {
+            $data->{'is_fuzzy'} = $object->getIsFuzzy();
         }
         if (null !== $object->getLimit()) {
             $data->{'limit'} = $object->getLimit();

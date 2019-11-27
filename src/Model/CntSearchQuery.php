@@ -17,6 +17,10 @@ class CntSearchQuery
      */
     protected $q;
     /**
+     * @var bool
+     */
+    protected $isFuzzy = true;
+    /**
      * @var CntFilter[]
      */
     protected $filter;
@@ -57,6 +61,26 @@ class CntSearchQuery
     public function setQ(?string $q): self
     {
         $this->q = $q;
+
+        return $this;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsFuzzy(): ?bool
+    {
+        return $this->isFuzzy;
+    }
+
+    /**
+     * @param bool|null $isFuzzy
+     *
+     * @return self
+     */
+    public function setIsFuzzy(?bool $isFuzzy): self
+    {
+        $this->isFuzzy = $isFuzzy;
 
         return $this;
     }
