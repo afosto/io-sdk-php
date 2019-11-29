@@ -4000,16 +4000,16 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Delete items from the given reference.
      *
-     * @param string $id
-     * @param array  $body
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string                                $id
+     * @param \Afosto\Sdk\Model\OdrStackDeleteModel $body
+     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\DeleteItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteItemsNotFoundException
      *
      * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function deleteItems(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    public function deleteItems(string $id, \Afosto\Sdk\Model\OdrStackDeleteModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteItems($id, $body), $fetch);
     }

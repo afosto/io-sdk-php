@@ -17,10 +17,10 @@ class DeleteItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * Delete items from the given reference.
      *
-     * @param string $id
-     * @param array  $body
+     * @param string                                $id
+     * @param \Afosto\Sdk\Model\OdrStackDeleteModel $body
      */
-    public function __construct(string $id, array $body)
+    public function __construct(string $id, \Afosto\Sdk\Model\OdrStackDeleteModel $body)
     {
         $this->id = $id;
         $this->body = $body;
@@ -40,7 +40,7 @@ class DeleteItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return [[], $this->body];
+        return $this->getSerializedBody($serializer);
     }
 
     public function getExtraHeaders(): array

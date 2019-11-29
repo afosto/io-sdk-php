@@ -265,6 +265,7 @@ class NormalizerFactory
         $normalizers[] = new OdrStackNormalizer();
         $normalizers[] = new OdrStackModelNormalizer();
         $normalizers[] = new OdrStackAddModelNormalizer();
+        $normalizers[] = new OdrStackDeleteModelNormalizer();
         $normalizers[] = new OdrTransitionModelNormalizer();
         $normalizers[] = new OdrItemNormalizer();
         $normalizers[] = new OdrItemModelNormalizer();
