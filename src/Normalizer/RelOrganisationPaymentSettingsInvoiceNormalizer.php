@@ -44,8 +44,8 @@ class RelOrganisationPaymentSettingsInvoiceNormalizer implements DenormalizerInt
         if (property_exists($data, 'is_expected_through_email') && $data->{'is_expected_through_email'} !== null) {
             $object->setIsExpectedThroughEmail($data->{'is_expected_through_email'});
         }
-        if (property_exists($data, 'is_expcected_at_delivery') && $data->{'is_expcected_at_delivery'} !== null) {
-            $object->setIsExpcectedAtDelivery($data->{'is_expcected_at_delivery'});
+        if (property_exists($data, 'is_expected_at_delivery') && $data->{'is_expected_at_delivery'} !== null) {
+            $object->setIsExpectedAtDelivery($data->{'is_expected_at_delivery'});
         }
 
         return $object;
@@ -60,8 +60,8 @@ class RelOrganisationPaymentSettingsInvoiceNormalizer implements DenormalizerInt
         if (null !== $object->getIsExpectedThroughEmail()) {
             $data->{'is_expected_through_email'} = $object->getIsExpectedThroughEmail();
         }
-        if (null !== $object->getIsExpcectedAtDelivery()) {
-            $data->{'is_expcected_at_delivery'} = $object->getIsExpcectedAtDelivery();
+        if (null !== $object->getIsExpectedAtDelivery()) {
+            $data->{'is_expected_at_delivery'} = $object->getIsExpectedAtDelivery();
         }
 
         return $data;

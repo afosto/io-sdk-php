@@ -54,8 +54,8 @@ class RelOrganisationUpdateModelNormalizer implements DenormalizerInterface, Nor
             }
             $object->setRegistrations($values);
         }
-        if (property_exists($data, 'payment') && $data->{'payment'} !== null) {
-            $object->setPayment($this->denormalizer->denormalize($data->{'payment'}, 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettings', 'json', $context));
+        if (property_exists($data, 'payment_settings') && $data->{'payment_settings'} !== null) {
+            $object->setPaymentSettings($this->denormalizer->denormalize($data->{'payment_settings'}, 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettings', 'json', $context));
         }
         if (property_exists($data, 'addresses') && $data->{'addresses'} !== null) {
             $object->setAddresses($this->denormalizer->denormalize($data->{'addresses'}, 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelAddresses', 'json', $context));
@@ -86,8 +86,8 @@ class RelOrganisationUpdateModelNormalizer implements DenormalizerInterface, Nor
             }
             $data->{'registrations'} = $values;
         }
-        if (null !== $object->getPayment()) {
-            $data->{'payment'} = $this->normalizer->normalize($object->getPayment(), 'json', $context);
+        if (null !== $object->getPaymentSettings()) {
+            $data->{'payment_settings'} = $this->normalizer->normalize($object->getPaymentSettings(), 'json', $context);
         }
         if (null !== $object->getAddresses()) {
             $data->{'addresses'} = $this->normalizer->normalize($object->getAddresses(), 'json', $context);

@@ -33,7 +33,7 @@ class RelOrganisationUpdateModel
     /**
      * @var RelOrganisationPaymentSettings
      */
-    protected $payment;
+    protected $paymentSettings;
     /**
      * @var RelOrganisationUpdateModelAddresses
      */
@@ -130,19 +130,19 @@ class RelOrganisationUpdateModel
     /**
      * @return RelOrganisationPaymentSettings|null
      */
-    public function getPayment(): ?RelOrganisationPaymentSettings
+    public function getPaymentSettings(): ?RelOrganisationPaymentSettings
     {
-        return $this->payment;
+        return $this->paymentSettings;
     }
 
     /**
-     * @param RelOrganisationPaymentSettings|null $payment
+     * @param RelOrganisationPaymentSettings|null $paymentSettings
      *
      * @return self
      */
-    public function setPayment(?RelOrganisationPaymentSettings $payment): self
+    public function setPaymentSettings(?RelOrganisationPaymentSettings $paymentSettings): self
     {
-        $this->payment = $payment;
+        $this->paymentSettings = $paymentSettings;
 
         return $this;
     }

@@ -23,7 +23,7 @@ class RelOrganisationPaymentSettingsInvoice
     /**
      * @var bool
      */
-    protected $isExpcectedAtDelivery;
+    protected $isExpectedAtDelivery;
 
     /**
      * @return bool|null
@@ -68,19 +68,19 @@ class RelOrganisationPaymentSettingsInvoice
     /**
      * @return bool|null
      */
-    public function getIsExpcectedAtDelivery(): ?bool
+    public function getIsExpectedAtDelivery(): ?bool
     {
-        return $this->isExpcectedAtDelivery;
+        return $this->isExpectedAtDelivery;
     }
 
     /**
-     * @param bool|null $isExpcectedAtDelivery
+     * @param bool|null $isExpectedAtDelivery
      *
      * @return self
      */
-    public function setIsExpcectedAtDelivery(?bool $isExpcectedAtDelivery): self
+    public function setIsExpectedAtDelivery(?bool $isExpectedAtDelivery): self
     {
-        $this->isExpcectedAtDelivery = $isExpcectedAtDelivery;
+        $this->isExpectedAtDelivery = $isExpectedAtDelivery;
 
         return $this;
     }

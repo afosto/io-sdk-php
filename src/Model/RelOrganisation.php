@@ -33,7 +33,7 @@ class RelOrganisation
     /**
      * @var RelOrganisationPaymentSettings
      */
-    protected $payment;
+    protected $paymentSettings;
     /**
      * @var RelPhoneNumberList
      */
@@ -138,19 +138,19 @@ class RelOrganisation
     /**
      * @return RelOrganisationPaymentSettings|null
      */
-    public function getPayment(): ?RelOrganisationPaymentSettings
+    public function getPaymentSettings(): ?RelOrganisationPaymentSettings
     {
-        return $this->payment;
+        return $this->paymentSettings;
     }
 
     /**
-     * @param RelOrganisationPaymentSettings|null $payment
+     * @param RelOrganisationPaymentSettings|null $paymentSettings
      *
      * @return self
      */
-    public function setPayment(?RelOrganisationPaymentSettings $payment): self
+    public function setPaymentSettings(?RelOrganisationPaymentSettings $paymentSettings): self
     {
-        $this->payment = $payment;
+        $this->paymentSettings = $paymentSettings;
 
         return $this;
     }
