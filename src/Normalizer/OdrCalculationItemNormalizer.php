@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrInvoiceItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrCalculationItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrInvoiceItem';
+        return $type === 'Afosto\\Sdk\\Model\\OdrCalculationItem';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrInvoiceItem';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrCalculationItem';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class OdrInvoiceItemNormalizer implements DenormalizerInterface, NormalizerInter
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrInvoiceItem();
+        $object = new \Afosto\Sdk\Model\OdrCalculationItem();
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
@@ -68,7 +68,7 @@ class OdrInvoiceItemNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'adjustments') && $data->{'adjustments'} !== null) {
             $values = [];
             foreach ($data->{'adjustments'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrInvoiceAdjustmentResponse', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrCalculationAdjustment', 'json', $context);
             }
             $object->setAdjustments($values);
         }

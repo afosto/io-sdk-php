@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrInvoiceRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrBillRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrInvoiceRequest';
+        return $type === 'Afosto\\Sdk\\Model\\OdrBillRequest';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrInvoiceRequest';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrBillRequest';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,15 @@ class OdrInvoiceRequestNormalizer implements DenormalizerInterface, NormalizerIn
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrInvoiceRequest();
-        if (property_exists($data, 'stack') && $data->{'stack'} !== null) {
-            $object->setStack($this->denormalizer->denormalize($data->{'stack'}, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context));
+        $object = new \Afosto\Sdk\Model\OdrBillRequest();
+        if (property_exists($data, 'stack_id') && $data->{'stack_id'} !== null) {
+            $object->setStackId($data->{'stack_id'});
         }
         if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
             $object->setClientId($data->{'client_id'});
+        }
+        if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
+            $object->setCurrency($data->{'currency'});
         }
         if (property_exists($data, 'items') && $data->{'items'} !== null) {
             $values = [];
@@ -90,11 +93,14 @@ class OdrInvoiceRequestNormalizer implements DenormalizerInterface, NormalizerIn
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getStack()) {
-            $data->{'stack'} = $this->normalizer->normalize($object->getStack(), 'json', $context);
+        if (null !== $object->getStackId()) {
+            $data->{'stack_id'} = $object->getStackId();
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
+        }
+        if (null !== $object->getCurrency()) {
+            $data->{'currency'} = $object->getCurrency();
         }
         if (null !== $object->getItems()) {
             $values = [];

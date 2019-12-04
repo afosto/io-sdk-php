@@ -41,6 +41,9 @@ class OdrProjectionModelNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
             $object->setClientId($data->{'client_id'});
         }
+        if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
+            $object->setCurrency($data->{'currency'});
+        }
         if (property_exists($data, 'items') && $data->{'items'} !== null) {
             $values = [];
             foreach ($data->{'items'} as $value) {
@@ -80,6 +83,9 @@ class OdrProjectionModelNormalizer implements DenormalizerInterface, NormalizerI
         $data = new \stdClass();
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
+        }
+        if (null !== $object->getCurrency()) {
+            $data->{'currency'} = $object->getCurrency();
         }
         if (null !== $object->getItems()) {
             $values = [];

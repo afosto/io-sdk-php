@@ -47,11 +47,11 @@ class OdrContactContact
     /**
      * @var string
      */
-    protected $contactId;
+    protected $id;
     /**
      * @var string
      */
-    protected $contactVersion;
+    protected $version;
 
     /**
      * @return string|null
@@ -216,19 +216,19 @@ class OdrContactContact
     /**
      * @return string|null
      */
-    public function getContactId(): ?string
+    public function getId(): ?string
     {
-        return $this->contactId;
+        return $this->id;
     }
 
     /**
-     * @param string|null $contactId
+     * @param string|null $id
      *
      * @return self
      */
-    public function setContactId(?string $contactId): self
+    public function setId(?string $id): self
     {
-        $this->contactId = $contactId;
+        $this->id = $id;
 
         return $this;
     }
@@ -236,19 +236,19 @@ class OdrContactContact
     /**
      * @return string|null
      */
-    public function getContactVersion(): ?string
+    public function getVersion(): ?string
     {
-        return $this->contactVersion;
+        return $this->version;
     }
 
     /**
-     * @param string|null $contactVersion
+     * @param string|null $version
      *
      * @return self
      */
-    public function setContactVersion(?string $contactVersion): self
+    public function setVersion(?string $version): self
     {
-        $this->contactVersion = $contactVersion;
+        $this->version = $version;
 
         return $this;
     }

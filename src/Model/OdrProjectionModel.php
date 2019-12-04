@@ -17,6 +17,10 @@ class OdrProjectionModel
      */
     protected $clientId;
     /**
+     * @var string
+     */
+    protected $currency;
+    /**
      * @var OdrInvoiceItemModel[]
      */
     protected $items;
@@ -57,6 +61,26 @@ class OdrProjectionModel
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param string|null $currency
+     *
+     * @return self
+     */
+    public function setCurrency(?string $currency): self
+    {
+        $this->currency = $currency;
 
         return $this;
     }

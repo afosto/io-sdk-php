@@ -62,11 +62,11 @@ class OdrContactContactNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'phone_number_id') && $data->{'phone_number_id'} !== null) {
             $object->setPhoneNumberId($data->{'phone_number_id'});
         }
-        if (property_exists($data, 'contact_id') && $data->{'contact_id'} !== null) {
-            $object->setContactId($data->{'contact_id'});
+        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+            $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'contact_version') && $data->{'contact_version'} !== null) {
-            $object->setContactVersion($data->{'contact_version'});
+        if (property_exists($data, 'version') && $data->{'version'} !== null) {
+            $object->setVersion($data->{'version'});
         }
 
         return $object;
@@ -99,11 +99,11 @@ class OdrContactContactNormalizer implements DenormalizerInterface, NormalizerIn
         if (null !== $object->getPhoneNumberId()) {
             $data->{'phone_number_id'} = $object->getPhoneNumberId();
         }
-        if (null !== $object->getContactId()) {
-            $data->{'contact_id'} = $object->getContactId();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getContactVersion()) {
-            $data->{'contact_version'} = $object->getContactVersion();
+        if (null !== $object->getVersion()) {
+            $data->{'version'} = $object->getVersion();
         }
 
         return $data;

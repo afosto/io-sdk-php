@@ -511,6 +511,118 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a cost projection for a given stack and additional data.
+     *
+     * @param \Afosto\Sdk\Model\OdrProjectionModel $body
+     * @param string                               $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateProjectionBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateProjectionUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrProjection|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createProjection(\Afosto\Sdk\Model\OdrProjectionModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateProjection($body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListCalculationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListCalculationsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrCalculationListItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listCalculations(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCalculations(), $fetch);
+    }
+
+    /**
+     * Create a new calculation.
+     *
+     * @param \Afosto\Sdk\Model\OdrBillRequest $body
+     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateCalculationBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateCalculationUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrCalculation|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createCalculation(\Afosto\Sdk\Model\OdrBillRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateCalculation($body), $fetch);
+    }
+
+    /**
+     * Returns a calculation.
+     *
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetCalculationBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetCalculationUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrCalculation[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getCalculation(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetCalculation($id), $fetch);
+    }
+
+    /**
+     * Update a concept calculation.
+     *
+     * @param string                           $id
+     * @param \Afosto\Sdk\Model\OdrBillRequest $body
+     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateCalculationBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateCalculationUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateCalculation(string $id, \Afosto\Sdk\Model\OdrBillRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateCalculation($id, $body), $fetch);
+    }
+
+    /**
+     * Update a calculation state.
+     *
+     * @param string                                $id
+     * @param \Afosto\Sdk\Model\OdrCalculationState $body
+     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateCalculationStateBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateCalculationStateUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrInvoiceListItem|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateCalculationState(string $id, \Afosto\Sdk\Model\OdrCalculationState $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateCalculationState($id, $body), $fetch);
+    }
+
+    /**
+     * Creates the invoice.
+     *
+     * @param string                                        $id
+     * @param \Afosto\Sdk\Model\OdrCalculatedInvoiceRequest $body
+     * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\OdrInvoice[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createInvoiceForCalculation(string $id, \Afosto\Sdk\Model\OdrCalculatedInvoiceRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateInvoiceForCalculation($id, $body), $fetch);
+    }
+
+    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListInvoicesBadRequestException
@@ -526,15 +638,15 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create a new invoice.
      *
-     * @param \Afosto\Sdk\Model\OdrInvoiceRequest $body
-     * @param string                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\OdrBillRequest $body
+     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateInvoiceBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateInvoiceUnauthorizedException
      *
      * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createInvoice(\Afosto\Sdk\Model\OdrInvoiceRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function createInvoice(\Afosto\Sdk\Model\OdrBillRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateInvoice($body), $fetch);
     }
@@ -564,16 +676,16 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update an concept / proforma invoice.
      *
-     * @param string                              $id
-     * @param \Afosto\Sdk\Model\OdrInvoiceRequest $body
-     * @param string                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string                           $id
+     * @param \Afosto\Sdk\Model\OdrBillRequest $body
+     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateInvoiceBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateInvoiceUnauthorizedException
      *
      * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateInvoice(string $id, \Afosto\Sdk\Model\OdrInvoiceRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function updateInvoice(string $id, \Afosto\Sdk\Model\OdrBillRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInvoice($id, $body), $fetch);
     }
@@ -593,22 +705,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function updateInvoiceState(string $id, \Afosto\Sdk\Model\OdrInvoiceState $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInvoiceState($id, $body), $fetch);
-    }
-
-    /**
-     * Returns a cost projection for a given stack and additional data.
-     *
-     * @param \Afosto\Sdk\Model\OdrProjectionModel $body
-     * @param string                               $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateProjectionBadRequestException
-     * @throws \Afosto\Sdk\Exception\CreateProjectionUnauthorizedException
-     *
-     * @return \Afosto\Sdk\Model\OdrProjection|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createProjection(\Afosto\Sdk\Model\OdrProjectionModel $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateProjection($body), $fetch);
     }
 
     /**
@@ -695,6 +791,19 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function evaluateRules(\Afosto\Sdk\Model\OdrPriceRuleEvaluation $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\EvaluateRules($body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetConstraintOptionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetConstraintOptionsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrOptionsRulesConstraintsGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getConstraintOptions(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetConstraintOptions(), $fetch);
     }
 
     /**

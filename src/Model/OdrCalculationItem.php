@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrInvoiceItem
+class OdrCalculationItem
 {
     /**
      * @var string
@@ -49,7 +49,7 @@ class OdrInvoiceItem
      */
     protected $subtotal;
     /**
-     * @var OdrInvoiceAdjustmentResponse[]
+     * @var OdrCalculationAdjustment[]
      */
     protected $adjustments;
     /**
@@ -250,7 +250,7 @@ class OdrInvoiceItem
     }
 
     /**
-     * @return OdrInvoiceAdjustmentResponse[]|null
+     * @return OdrCalculationAdjustment[]|null
      */
     public function getAdjustments(): ?array
     {
@@ -258,7 +258,7 @@ class OdrInvoiceItem
     }
 
     /**
-     * @param OdrInvoiceAdjustmentResponse[]|null $adjustments
+     * @param OdrCalculationAdjustment[]|null $adjustments
      *
      * @return self
      */

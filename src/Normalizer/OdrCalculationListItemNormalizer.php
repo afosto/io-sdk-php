@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrCalculationListItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrInvoiceListItem';
+        return $type === 'Afosto\\Sdk\\Model\\OdrCalculationListItem';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrInvoiceListItem';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrCalculationListItem';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrInvoiceListItem();
+        $object = new \Afosto\Sdk\Model\OdrCalculationListItem();
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
@@ -56,7 +56,7 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'adjustments') && $data->{'adjustments'} !== null) {
             $values = [];
             foreach ($data->{'adjustments'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrInvoiceAdjustmentResponse', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrCalculationAdjustment', 'json', $context);
             }
             $object->setAdjustments($values);
         }
@@ -70,14 +70,14 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
             }
             $object->setVat($values_1);
         }
-        if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
-            $object->setCurrency($data->{'currency'});
-        }
         if (property_exists($data, 'customer') && $data->{'customer'} !== null) {
             $object->setCustomer($this->denormalizer->denormalize($data->{'customer'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
         }
         if (property_exists($data, 'vendor') && $data->{'vendor'} !== null) {
             $object->setVendor($this->denormalizer->denormalize($data->{'vendor'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
+        }
+        if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
+            $object->setCurrency($data->{'currency'});
         }
         if (property_exists($data, 'is_including_vat') && $data->{'is_including_vat'} !== null) {
             $object->setIsIncludingVat($data->{'is_including_vat'});
@@ -85,11 +85,11 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'is_vat_shifted') && $data->{'is_vat_shifted'} !== null) {
             $object->setIsVatShifted($data->{'is_vat_shifted'});
         }
-        if (property_exists($data, 'is_concept') && $data->{'is_concept'} !== null) {
-            $object->setIsConcept($data->{'is_concept'});
+        if (property_exists($data, 'is_authorized') && $data->{'is_authorized'} !== null) {
+            $object->setIsAuthorized($data->{'is_authorized'});
         }
-        if (property_exists($data, 'is_paid') && $data->{'is_paid'} !== null) {
-            $object->setIsPaid($data->{'is_paid'});
+        if (property_exists($data, 'is_invoiced') && $data->{'is_invoiced'} !== null) {
+            $object->setIsInvoiced($data->{'is_invoiced'});
         }
         if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
             $object->setClientId($data->{'client_id'});
@@ -102,12 +102,6 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
         }
         if (property_exists($data, 'pricing_at') && $data->{'pricing_at'} !== null) {
             $object->setPricingAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'pricing_at'}));
-        }
-        if (property_exists($data, 'invoiced_at') && $data->{'invoiced_at'} !== null) {
-            $object->setInvoicedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'invoiced_at'}));
-        }
-        if (property_exists($data, 'paid_at') && $data->{'paid_at'} !== null) {
-            $object->setPaidAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'paid_at'}));
         }
         if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -154,14 +148,14 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
             }
             $data->{'vat'} = $values_1;
         }
-        if (null !== $object->getCurrency()) {
-            $data->{'currency'} = $object->getCurrency();
-        }
         if (null !== $object->getCustomer()) {
             $data->{'customer'} = $this->normalizer->normalize($object->getCustomer(), 'json', $context);
         }
         if (null !== $object->getVendor()) {
             $data->{'vendor'} = $this->normalizer->normalize($object->getVendor(), 'json', $context);
+        }
+        if (null !== $object->getCurrency()) {
+            $data->{'currency'} = $object->getCurrency();
         }
         if (null !== $object->getIsIncludingVat()) {
             $data->{'is_including_vat'} = $object->getIsIncludingVat();
@@ -169,11 +163,11 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
         if (null !== $object->getIsVatShifted()) {
             $data->{'is_vat_shifted'} = $object->getIsVatShifted();
         }
-        if (null !== $object->getIsConcept()) {
-            $data->{'is_concept'} = $object->getIsConcept();
+        if (null !== $object->getIsAuthorized()) {
+            $data->{'is_authorized'} = $object->getIsAuthorized();
         }
-        if (null !== $object->getIsPaid()) {
-            $data->{'is_paid'} = $object->getIsPaid();
+        if (null !== $object->getIsInvoiced()) {
+            $data->{'is_invoiced'} = $object->getIsInvoiced();
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
@@ -186,12 +180,6 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
         }
         if (null !== $object->getPricingAt()) {
             $data->{'pricing_at'} = $object->getPricingAt()->format("Y-m-d\TH:i:sP");
-        }
-        if (null !== $object->getInvoicedAt()) {
-            $data->{'invoiced_at'} = $object->getInvoicedAt()->format("Y-m-d\TH:i:sP");
-        }
-        if (null !== $object->getPaidAt()) {
-            $data->{'paid_at'} = $object->getPaidAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

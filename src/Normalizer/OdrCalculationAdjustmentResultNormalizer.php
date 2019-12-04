@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrAdjustmentResponseMetadataNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrCalculationAdjustmentResultNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrAdjustmentResponseMetadata';
+        return $type === 'Afosto\\Sdk\\Model\\OdrCalculationAdjustmentResult';
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrAdjustmentResponseMetadata';
+        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrCalculationAdjustmentResult';
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class OdrAdjustmentResponseMetadataNormalizer implements DenormalizerInterface, 
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrAdjustmentResponseMetadata();
+        $object = new \Afosto\Sdk\Model\OdrCalculationAdjustmentResult();
         if (property_exists($data, 'is_applied_rule') && $data->{'is_applied_rule'} !== null) {
             $object->setIsAppliedRule($data->{'is_applied_rule'});
         }

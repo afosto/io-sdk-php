@@ -10,16 +10,20 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrInvoiceRequest
+class OdrBillRequest
 {
     /**
-     * @var OdrStackReference
+     * @var string
      */
-    protected $stack;
+    protected $stackId;
     /**
      * @var string
      */
     protected $clientId;
+    /**
+     * @var string
+     */
+    protected $currency;
     /**
      * @var OdrInvoiceItemModel[]
      */
@@ -58,21 +62,21 @@ class OdrInvoiceRequest
     protected $metadata;
 
     /**
-     * @return OdrStackReference|null
+     * @return string|null
      */
-    public function getStack(): ?OdrStackReference
+    public function getStackId(): ?string
     {
-        return $this->stack;
+        return $this->stackId;
     }
 
     /**
-     * @param OdrStackReference|null $stack
+     * @param string|null $stackId
      *
      * @return self
      */
-    public function setStack(?OdrStackReference $stack): self
+    public function setStackId(?string $stackId): self
     {
-        $this->stack = $stack;
+        $this->stackId = $stackId;
 
         return $this;
     }
@@ -93,6 +97,26 @@ class OdrInvoiceRequest
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param string|null $currency
+     *
+     * @return self
+     */
+    public function setCurrency(?string $currency): self
+    {
+        $this->currency = $currency;
 
         return $this;
     }

@@ -19,17 +19,21 @@ class OdrInvoiceListItem
     /**
      * @var string
      */
+    protected $version;
+    /**
+     * @var string
+     */
     protected $number;
     /**
      * @var int
      */
-    protected $lineCount;
+    protected $count;
     /**
      * @var int
      */
     protected $subtotal;
     /**
-     * @var OdrAdjustmentResponse[]
+     * @var OdrInvoiceAdjustmentResponse[]
      */
     protected $adjustments;
     /**
@@ -41,6 +45,10 @@ class OdrInvoiceListItem
      */
     protected $vat;
     /**
+     * @var string
+     */
+    protected $currency;
+    /**
      * @var OdrContact
      */
     protected $customer;
@@ -49,9 +57,13 @@ class OdrInvoiceListItem
      */
     protected $vendor;
     /**
-     * @var string
+     * @var bool
      */
-    protected $currency;
+    protected $isIncludingVat;
+    /**
+     * @var bool
+     */
+    protected $isVatShifted;
     /**
      * @var bool
      */
@@ -60,14 +72,6 @@ class OdrInvoiceListItem
      * @var bool
      */
     protected $isPaid;
-    /**
-     * @var bool
-     */
-    protected $isIncludingVat;
-    /**
-     * @var string
-     */
-    protected $stackId;
     /**
      * @var string
      */
@@ -83,7 +87,11 @@ class OdrInvoiceListItem
     /**
      * @var \DateTime
      */
-    protected $billedAt;
+    protected $pricingAt;
+    /**
+     * @var \DateTime
+     */
+    protected $invoicedAt;
     /**
      * @var \DateTime
      */
@@ -120,6 +128,26 @@ class OdrInvoiceListItem
     /**
      * @return string|null
      */
+    public function getVersion(): ?string
+    {
+        return $this->version;
+    }
+
+    /**
+     * @param string|null $version
+     *
+     * @return self
+     */
+    public function setVersion(?string $version): self
+    {
+        $this->version = $version;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
     public function getNumber(): ?string
     {
         return $this->number;
@@ -140,19 +168,19 @@ class OdrInvoiceListItem
     /**
      * @return int|null
      */
-    public function getLineCount(): ?int
+    public function getCount(): ?int
     {
-        return $this->lineCount;
+        return $this->count;
     }
 
     /**
-     * @param int|null $lineCount
+     * @param int|null $count
      *
      * @return self
      */
-    public function setLineCount(?int $lineCount): self
+    public function setCount(?int $count): self
     {
-        $this->lineCount = $lineCount;
+        $this->count = $count;
 
         return $this;
     }
@@ -178,7 +206,7 @@ class OdrInvoiceListItem
     }
 
     /**
-     * @return OdrAdjustmentResponse[]|null
+     * @return OdrInvoiceAdjustmentResponse[]|null
      */
     public function getAdjustments(): ?array
     {
@@ -186,7 +214,7 @@ class OdrInvoiceListItem
     }
 
     /**
-     * @param OdrAdjustmentResponse[]|null $adjustments
+     * @param OdrInvoiceAdjustmentResponse[]|null $adjustments
      *
      * @return self
      */
@@ -238,6 +266,26 @@ class OdrInvoiceListItem
     }
 
     /**
+     * @return string|null
+     */
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param string|null $currency
+     *
+     * @return self
+     */
+    public function setCurrency(?string $currency): self
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    /**
      * @return OdrContact|null
      */
     public function getCustomer(): ?OdrContact
@@ -278,21 +326,41 @@ class OdrInvoiceListItem
     }
 
     /**
-     * @return string|null
+     * @return bool|null
      */
-    public function getCurrency(): ?string
+    public function getIsIncludingVat(): ?bool
     {
-        return $this->currency;
+        return $this->isIncludingVat;
     }
 
     /**
-     * @param string|null $currency
+     * @param bool|null $isIncludingVat
      *
      * @return self
      */
-    public function setCurrency(?string $currency): self
+    public function setIsIncludingVat(?bool $isIncludingVat): self
     {
-        $this->currency = $currency;
+        $this->isIncludingVat = $isIncludingVat;
+
+        return $this;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsVatShifted(): ?bool
+    {
+        return $this->isVatShifted;
+    }
+
+    /**
+     * @param bool|null $isVatShifted
+     *
+     * @return self
+     */
+    public function setIsVatShifted(?bool $isVatShifted): self
+    {
+        $this->isVatShifted = $isVatShifted;
 
         return $this;
     }
@@ -333,46 +401,6 @@ class OdrInvoiceListItem
     public function setIsPaid(?bool $isPaid): self
     {
         $this->isPaid = $isPaid;
-
-        return $this;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function getIsIncludingVat(): ?bool
-    {
-        return $this->isIncludingVat;
-    }
-
-    /**
-     * @param bool|null $isIncludingVat
-     *
-     * @return self
-     */
-    public function setIsIncludingVat(?bool $isIncludingVat): self
-    {
-        $this->isIncludingVat = $isIncludingVat;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getStackId(): ?string
-    {
-        return $this->stackId;
-    }
-
-    /**
-     * @param string|null $stackId
-     *
-     * @return self
-     */
-    public function setStackId(?string $stackId): self
-    {
-        $this->stackId = $stackId;
 
         return $this;
     }
@@ -440,19 +468,39 @@ class OdrInvoiceListItem
     /**
      * @return \DateTime|null
      */
-    public function getBilledAt(): ?\DateTime
+    public function getPricingAt(): ?\DateTime
     {
-        return $this->billedAt;
+        return $this->pricingAt;
     }
 
     /**
-     * @param \DateTime|null $billedAt
+     * @param \DateTime|null $pricingAt
      *
      * @return self
      */
-    public function setBilledAt(?\DateTime $billedAt): self
+    public function setPricingAt(?\DateTime $pricingAt): self
     {
-        $this->billedAt = $billedAt;
+        $this->pricingAt = $pricingAt;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getInvoicedAt(): ?\DateTime
+    {
+        return $this->invoicedAt;
+    }
+
+    /**
+     * @param \DateTime|null $invoicedAt
+     *
+     * @return self
+     */
+    public function setInvoicedAt(?\DateTime $invoicedAt): self
+    {
+        $this->invoicedAt = $invoicedAt;
 
         return $this;
     }

@@ -21,7 +21,7 @@ class OdrProjection
      */
     protected $subtotal;
     /**
-     * @var OdrAdjustmentResponse[]
+     * @var OdrCalculationAdjustment[]
      */
     protected $adjustments;
     /**
@@ -94,7 +94,7 @@ class OdrProjection
     }
 
     /**
-     * @return OdrAdjustmentResponse[]|null
+     * @return OdrCalculationAdjustment[]|null
      */
     public function getAdjustments(): ?array
     {
@@ -102,7 +102,7 @@ class OdrProjection
     }
 
     /**
-     * @param OdrAdjustmentResponse[]|null $adjustments
+     * @param OdrCalculationAdjustment[]|null $adjustments
      *
      * @return self
      */

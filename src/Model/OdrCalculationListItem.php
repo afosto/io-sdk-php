@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrInvoice
+class OdrCalculationListItem
 {
     /**
      * @var string
@@ -25,15 +25,15 @@ class OdrInvoice
      */
     protected $number;
     /**
-     * @var OdrInvoiceItem[]
+     * @var int
      */
-    protected $items;
+    protected $count;
     /**
      * @var int
      */
     protected $subtotal;
     /**
-     * @var OdrInvoiceAdjustmentResponse[]
+     * @var OdrCalculationAdjustment[]
      */
     protected $adjustments;
     /**
@@ -45,10 +45,6 @@ class OdrInvoice
      */
     protected $vat;
     /**
-     * @var string
-     */
-    protected $currency;
-    /**
      * @var OdrContact
      */
     protected $customer;
@@ -56,6 +52,10 @@ class OdrInvoice
      * @var OdrContact
      */
     protected $vendor;
+    /**
+     * @var string
+     */
+    protected $currency;
     /**
      * @var bool
      */
@@ -67,11 +67,11 @@ class OdrInvoice
     /**
      * @var bool
      */
-    protected $isConcept;
+    protected $isAuthorized;
     /**
      * @var bool
      */
-    protected $isPaid;
+    protected $isInvoiced;
     /**
      * @var string
      */
@@ -88,14 +88,6 @@ class OdrInvoice
      * @var \DateTime
      */
     protected $pricingAt;
-    /**
-     * @var \DateTime
-     */
-    protected $invoicedAt;
-    /**
-     * @var \DateTime
-     */
-    protected $paidAt;
     /**
      * @var \DateTime
      */
@@ -166,21 +158,21 @@ class OdrInvoice
     }
 
     /**
-     * @return OdrInvoiceItem[]|null
+     * @return int|null
      */
-    public function getItems(): ?array
+    public function getCount(): ?int
     {
-        return $this->items;
+        return $this->count;
     }
 
     /**
-     * @param OdrInvoiceItem[]|null $items
+     * @param int|null $count
      *
      * @return self
      */
-    public function setItems(?array $items): self
+    public function setCount(?int $count): self
     {
-        $this->items = $items;
+        $this->count = $count;
 
         return $this;
     }
@@ -206,7 +198,7 @@ class OdrInvoice
     }
 
     /**
-     * @return OdrInvoiceAdjustmentResponse[]|null
+     * @return OdrCalculationAdjustment[]|null
      */
     public function getAdjustments(): ?array
     {
@@ -214,7 +206,7 @@ class OdrInvoice
     }
 
     /**
-     * @param OdrInvoiceAdjustmentResponse[]|null $adjustments
+     * @param OdrCalculationAdjustment[]|null $adjustments
      *
      * @return self
      */
@@ -266,26 +258,6 @@ class OdrInvoice
     }
 
     /**
-     * @return string|null
-     */
-    public function getCurrency(): ?string
-    {
-        return $this->currency;
-    }
-
-    /**
-     * @param string|null $currency
-     *
-     * @return self
-     */
-    public function setCurrency(?string $currency): self
-    {
-        $this->currency = $currency;
-
-        return $this;
-    }
-
-    /**
      * @return OdrContact|null
      */
     public function getCustomer(): ?OdrContact
@@ -321,6 +293,26 @@ class OdrInvoice
     public function setVendor(?OdrContact $vendor): self
     {
         $this->vendor = $vendor;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param string|null $currency
+     *
+     * @return self
+     */
+    public function setCurrency(?string $currency): self
+    {
+        $this->currency = $currency;
 
         return $this;
     }
@@ -368,19 +360,19 @@ class OdrInvoice
     /**
      * @return bool|null
      */
-    public function getIsConcept(): ?bool
+    public function getIsAuthorized(): ?bool
     {
-        return $this->isConcept;
+        return $this->isAuthorized;
     }
 
     /**
-     * @param bool|null $isConcept
+     * @param bool|null $isAuthorized
      *
      * @return self
      */
-    public function setIsConcept(?bool $isConcept): self
+    public function setIsAuthorized(?bool $isAuthorized): self
     {
-        $this->isConcept = $isConcept;
+        $this->isAuthorized = $isAuthorized;
 
         return $this;
     }
@@ -388,19 +380,19 @@ class OdrInvoice
     /**
      * @return bool|null
      */
-    public function getIsPaid(): ?bool
+    public function getIsInvoiced(): ?bool
     {
-        return $this->isPaid;
+        return $this->isInvoiced;
     }
 
     /**
-     * @param bool|null $isPaid
+     * @param bool|null $isInvoiced
      *
      * @return self
      */
-    public function setIsPaid(?bool $isPaid): self
+    public function setIsInvoiced(?bool $isInvoiced): self
     {
-        $this->isPaid = $isPaid;
+        $this->isInvoiced = $isInvoiced;
 
         return $this;
     }
@@ -481,46 +473,6 @@ class OdrInvoice
     public function setPricingAt(?\DateTime $pricingAt): self
     {
         $this->pricingAt = $pricingAt;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getInvoicedAt(): ?\DateTime
-    {
-        return $this->invoicedAt;
-    }
-
-    /**
-     * @param \DateTime|null $invoicedAt
-     *
-     * @return self
-     */
-    public function setInvoicedAt(?\DateTime $invoicedAt): self
-    {
-        $this->invoicedAt = $invoicedAt;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime|null
-     */
-    public function getPaidAt(): ?\DateTime
-    {
-        return $this->paidAt;
-    }
-
-    /**
-     * @param \DateTime|null $paidAt
-     *
-     * @return self
-     */
-    public function setPaidAt(?\DateTime $paidAt): self
-    {
-        $this->paidAt = $paidAt;
 
         return $this;
     }

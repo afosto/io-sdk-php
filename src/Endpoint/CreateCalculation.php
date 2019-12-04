@@ -10,19 +10,15 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class UpdateInvoice extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class CreateCalculation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $id;
-
     /**
-     * Update an concept / proforma invoice.
+     * Create a new calculation.
      *
-     * @param string                           $id
      * @param \Afosto\Sdk\Model\OdrBillRequest $body
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\OdrBillRequest $body)
+    public function __construct(\Afosto\Sdk\Model\OdrBillRequest $body)
     {
-        $this->id = $id;
         $this->body = $body;
     }
 
@@ -30,12 +26,12 @@ class UpdateInvoice extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getMethod(): string
     {
-        return 'PUT';
+        return 'POST';
     }
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/invoices/{id}');
+        return '/odr/calculations';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -51,21 +47,21 @@ class UpdateInvoice extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\UpdateInvoiceBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdateInvoiceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateCalculationBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateCalculationUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrInvoice|null
+     * @return \Afosto\Sdk\Model\OdrCalculation|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrInvoice', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrCalculation', 'json');
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateInvoiceBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\CreateCalculationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateInvoiceUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\CreateCalculationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }
