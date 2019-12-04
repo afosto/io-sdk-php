@@ -41,6 +41,9 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
+        if (property_exists($data, 'number') && $data->{'number'} !== null) {
+            $object->setNumber($data->{'number'});
+        }
         if (property_exists($data, 'weight') && $data->{'weight'} !== null) {
             $object->setWeight($data->{'weight'});
         }
@@ -90,6 +93,9 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         $data = new \stdClass();
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
+        }
+        if (null !== $object->getNumber()) {
+            $data->{'number'} = $object->getNumber();
         }
         if (null !== $object->getWeight()) {
             $data->{'weight'} = $object->getWeight();

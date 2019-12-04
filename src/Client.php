@@ -3656,6 +3656,27 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * List all parcels.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $x-page
+     *     @var int $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListParcelsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListParcelsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listParcels(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListParcels($headerParameters), $fetch);
+    }
+
+    /**
      * Add a new parcel to the list.
      *
      * @param \Afosto\Sdk\Model\LcsParcelCreateModel $body

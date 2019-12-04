@@ -17,6 +17,10 @@ class LcsParcel
      */
     protected $id;
     /**
+     * @var string
+     */
+    protected $number;
+    /**
      * @var int
      */
     protected $weight;
@@ -81,6 +85,26 @@ class LcsParcel
     public function setId(?string $id): self
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getNumber(): ?string
+    {
+        return $this->number;
+    }
+
+    /**
+     * @param string|null $number
+     *
+     * @return self
+     */
+    public function setNumber(?string $number): self
+    {
+        $this->number = $number;
 
         return $this;
     }
