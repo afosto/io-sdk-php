@@ -41,6 +41,9 @@ class WmsSubTransferNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'id') && $data->{'id'} !== null) {
             $object->setId($data->{'id'});
         }
+        if (property_exists($data, 'transfer_id') && $data->{'transfer_id'} !== null) {
+            $object->setTransferId($data->{'transfer_id'});
+        }
         if (property_exists($data, 'from') && $data->{'from'} !== null) {
             $object->setFrom($data->{'from'});
         }
@@ -78,6 +81,9 @@ class WmsSubTransferNormalizer implements DenormalizerInterface, NormalizerInter
         $data = new \stdClass();
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
+        }
+        if (null !== $object->getTransferId()) {
+            $data->{'transfer_id'} = $object->getTransferId();
         }
         if (null !== $object->getFrom()) {
             $data->{'from'} = $object->getFrom();
