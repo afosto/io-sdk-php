@@ -3881,18 +3881,17 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a file reference to a label.
      *
-     * @param string                            $id
-     * @param \Afosto\Sdk\Model\LcsLabelRequest $body
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $id
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetLabelBadRequestException
      * @throws \Afosto\Sdk\Exception\GetLabelUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\LcsFile|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getLabel(string $id, \Afosto\Sdk\Model\LcsLabelRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function getLabel(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetLabel($id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetLabel($id), $fetch);
     }
 
     /**

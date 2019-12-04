@@ -17,20 +17,18 @@ class GetLabel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
     /**
      * Returns a file reference to a label.
      *
-     * @param string                            $id
-     * @param \Afosto\Sdk\Model\LcsLabelRequest $body
+     * @param string $id
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\LcsLabelRequest $body)
+    public function __construct(string $id)
     {
         $this->id = $id;
-        $this->body = $body;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
 
     public function getMethod(): string
     {
-        return 'POST';
+        return 'GET';
     }
 
     public function getUri(): string
@@ -40,7 +38,7 @@ class GetLabel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return $this->getSerializedBody($serializer);
+        return [[], null];
     }
 
     public function getExtraHeaders(): array
@@ -54,12 +52,12 @@ class GetLabel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
      * @throws \Afosto\Sdk\Exception\GetLabelBadRequestException
      * @throws \Afosto\Sdk\Exception\GetLabelUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\LcsFile|null
+     * @return \Afosto\Sdk\Model\LcsParcel|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsFile', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsParcel', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\GetLabelBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
