@@ -15,39 +15,15 @@ class OdrTransitionModel
     /**
      * @var string
      */
-    protected $id;
-    /**
-     * @var string
-     */
     protected $type;
     /**
      * @var mixed
      */
     protected $metadata;
     /**
-     * @var OdrSearch[]
+     * @var OdrSearchConstraint[]
      */
-    protected $search;
-
-    /**
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
-    public function setId(?string $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
+    protected $constraints;
 
     /**
      * @return string|null
@@ -90,21 +66,21 @@ class OdrTransitionModel
     }
 
     /**
-     * @return OdrSearch[]|null
+     * @return OdrSearchConstraint[]|null
      */
-    public function getSearch(): ?array
+    public function getConstraints(): ?array
     {
-        return $this->search;
+        return $this->constraints;
     }
 
     /**
-     * @param OdrSearch[]|null $search
+     * @param OdrSearchConstraint[]|null $constraints
      *
      * @return self
      */
-    public function setSearch(?array $search): self
+    public function setConstraints(?array $constraints): self
     {
-        $this->search = $search;
+        $this->constraints = $constraints;
 
         return $this;
     }

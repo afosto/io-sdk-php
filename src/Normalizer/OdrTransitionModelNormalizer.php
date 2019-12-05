@@ -38,21 +38,18 @@ class OdrTransitionModelNormalizer implements DenormalizerInterface, NormalizerI
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrTransitionModel();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
-            $object->setId($data->{'id'});
-        }
         if (property_exists($data, 'type') && $data->{'type'} !== null) {
             $object->setType($data->{'type'});
         }
         if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'search') && $data->{'search'} !== null) {
+        if (property_exists($data, 'constraints') && $data->{'constraints'} !== null) {
             $values = [];
-            foreach ($data->{'search'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrSearch', 'json', $context);
+            foreach ($data->{'constraints'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrSearchConstraint', 'json', $context);
             }
-            $object->setSearch($values);
+            $object->setConstraints($values);
         }
 
         return $object;
@@ -61,21 +58,18 @@ class OdrTransitionModelNormalizer implements DenormalizerInterface, NormalizerI
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
-        }
         if (null !== $object->getType()) {
             $data->{'type'} = $object->getType();
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();
         }
-        if (null !== $object->getSearch()) {
+        if (null !== $object->getConstraints()) {
             $values = [];
-            foreach ($object->getSearch() as $value) {
+            foreach ($object->getConstraints() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
-            $data->{'search'} = $values;
+            $data->{'constraints'} = $values;
         }
 
         return $data;
