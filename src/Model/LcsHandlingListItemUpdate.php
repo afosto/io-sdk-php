@@ -29,19 +29,11 @@ class LcsHandlingListItemUpdate
      */
     protected $position;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -49,19 +41,11 @@ class LcsHandlingListItemUpdate
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsHandled(): ?bool
     {
         return $this->isHandled;
     }
 
-    /**
-     * @param bool|null $isHandled
-     *
-     * @return self
-     */
     public function setIsHandled(?bool $isHandled): self
     {
         $this->isHandled = $isHandled;
@@ -69,19 +53,11 @@ class LcsHandlingListItemUpdate
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsServiced(): ?bool
     {
         return $this->isServiced;
     }
 
-    /**
-     * @param bool|null $isServiced
-     *
-     * @return self
-     */
     public function setIsServiced(?bool $isServiced): self
     {
         $this->isServiced = $isServiced;
@@ -89,19 +65,11 @@ class LcsHandlingListItemUpdate
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPosition(): ?string
     {
         return $this->position;
     }
 
-    /**
-     * @param string|null $position
-     *
-     * @return self
-     */
     public function setPosition(?string $position): self
     {
         $this->position = $position;

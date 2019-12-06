@@ -17,8 +17,7 @@ class ListItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     /**
      * Returns a list of items.
      *
-     * @param string $id
-     * @param array  $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size

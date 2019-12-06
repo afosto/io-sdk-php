@@ -24,12 +24,12 @@ class LcsShipmentItemModelNormalizer implements DenormalizerInterface, Normalize
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsShipmentItemModel';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentItemModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsShipmentItemModel';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentItemModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,22 +38,22 @@ class LcsShipmentItemModelNormalizer implements DenormalizerInterface, Normalize
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsShipmentItemModel();
-        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'positions') && $data->{'positions'} !== null) {
+        if (property_exists($data, 'positions') && null !== $data->{'positions'}) {
             $object->setPositions($this->denormalizer->denormalize($data->{'positions'}, 'Afosto\\Sdk\\Model\\LcsShipmentItemModelPositions', 'json', $context));
         }
-        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'hs_code') && $data->{'hs_code'} !== null) {
+        if (property_exists($data, 'hs_code') && null !== $data->{'hs_code'}) {
             $object->setHsCode($data->{'hs_code'});
         }
-        if (property_exists($data, 'service') && $data->{'service'} !== null) {
+        if (property_exists($data, 'service') && null !== $data->{'service'}) {
             $values = [];
             foreach ($data->{'service'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsServiceOption', 'json', $context);

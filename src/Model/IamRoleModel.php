@@ -21,19 +21,11 @@ class IamRoleModel
      */
     protected $scopes;
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -51,8 +43,6 @@ class IamRoleModel
 
     /**
      * @param string[]|null $scopes
-     *
-     * @return self
      */
     public function setScopes(?array $scopes): self
     {

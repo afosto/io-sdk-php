@@ -49,19 +49,11 @@ class SplPrinter
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -69,19 +61,11 @@ class SplPrinter
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -89,19 +73,11 @@ class SplPrinter
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getHubId(): ?string
     {
         return $this->hubId;
     }
 
-    /**
-     * @param string|null $hubId
-     *
-     * @return self
-     */
     public function setHubId(?string $hubId): self
     {
         $this->hubId = $hubId;
@@ -109,19 +85,11 @@ class SplPrinter
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDefaultEncoding(): ?string
     {
         return $this->defaultEncoding;
     }
 
-    /**
-     * @param string|null $defaultEncoding
-     *
-     * @return self
-     */
     public function setDefaultEncoding(?string $defaultEncoding): self
     {
         $this->defaultEncoding = $defaultEncoding;
@@ -129,19 +97,11 @@ class SplPrinter
         return $this;
     }
 
-    /**
-     * @return SplConnection|null
-     */
     public function getConnection(): ?SplConnection
     {
         return $this->connection;
     }
 
-    /**
-     * @param SplConnection|null $connection
-     *
-     * @return self
-     */
     public function setConnection(?SplConnection $connection): self
     {
         $this->connection = $connection;
@@ -149,19 +109,11 @@ class SplPrinter
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getInboxId(): ?string
     {
         return $this->inboxId;
     }
 
-    /**
-     * @param string|null $inboxId
-     *
-     * @return self
-     */
     public function setInboxId(?string $inboxId): self
     {
         $this->inboxId = $inboxId;
@@ -169,19 +121,11 @@ class SplPrinter
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getDisabledAt(): ?\DateTime
     {
         return $this->disabledAt;
     }
 
-    /**
-     * @param \DateTime|null $disabledAt
-     *
-     * @return self
-     */
     public function setDisabledAt(?\DateTime $disabledAt): self
     {
         $this->disabledAt = $disabledAt;
@@ -189,19 +133,11 @@ class SplPrinter
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -209,19 +145,11 @@ class SplPrinter
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

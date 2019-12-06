@@ -24,12 +24,12 @@ class MesDomainNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesDomain';
+        return 'Afosto\\Sdk\\Model\\MesDomain' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesDomain';
+        return 'Afosto\\Sdk\\Model\\MesDomain' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,26 +38,26 @@ class MesDomainNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesDomain();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'is_verified') && $data->{'is_verified'} !== null) {
+        if (property_exists($data, 'is_verified') && null !== $data->{'is_verified'}) {
             $object->setIsVerified($data->{'is_verified'});
         }
-        if (property_exists($data, 'dns') && $data->{'dns'} !== null) {
+        if (property_exists($data, 'dns') && null !== $data->{'dns'}) {
             $values = [];
             foreach ($data->{'dns'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\MesDnsRecord', 'json', $context);
             }
             $object->setDns($values);
         }
-        if (property_exists($data, 'tenant_id') && $data->{'tenant_id'} !== null) {
+        if (property_exists($data, 'tenant_id') && null !== $data->{'tenant_id'}) {
             $object->setTenantId($data->{'tenant_id'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

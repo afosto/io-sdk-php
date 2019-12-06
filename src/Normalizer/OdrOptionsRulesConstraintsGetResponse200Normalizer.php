@@ -24,12 +24,12 @@ class OdrOptionsRulesConstraintsGetResponse200Normalizer implements Denormalizer
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrOptionsRulesConstraintsGetResponse200';
+        return 'Afosto\\Sdk\\Model\\OdrOptionsRulesConstraintsGetResponse200' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrOptionsRulesConstraintsGetResponse200';
+        return 'Afosto\\Sdk\\Model\\OdrOptionsRulesConstraintsGetResponse200' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class OdrOptionsRulesConstraintsGetResponse200Normalizer implements Denormalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrOptionsRulesConstraintsGetResponse200();
-        if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
+        if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $values = [];
             foreach ($data->{'amount'} as $value) {
                 $values[] = $value;

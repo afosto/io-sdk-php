@@ -24,12 +24,12 @@ class OdrSkuResultNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrSkuResult';
+        return 'Afosto\\Sdk\\Model\\OdrSkuResult' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrSkuResult';
+        return 'Afosto\\Sdk\\Model\\OdrSkuResult' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class OdrSkuResultNormalizer implements DenormalizerInterface, NormalizerInterfa
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrSkuResult();
-        if (property_exists($data, 'status') && $data->{'status'} !== null) {
+        if (property_exists($data, 'status') && null !== $data->{'status'}) {
             $object->setStatus($data->{'status'});
         }
-        if (property_exists($data, 'count') && $data->{'count'} !== null) {
+        if (property_exists($data, 'count') && null !== $data->{'count'}) {
             $object->setCount($data->{'count'});
         }
 

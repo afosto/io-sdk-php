@@ -24,12 +24,12 @@ class LcsShipmentModelNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsShipmentModel';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsShipmentModel';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,33 +38,33 @@ class LcsShipmentModelNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsShipmentModel();
-        if (property_exists($data, 'addressing') && $data->{'addressing'} !== null) {
+        if (property_exists($data, 'addressing') && null !== $data->{'addressing'}) {
             $object->setAddressing($this->denormalizer->denormalize($data->{'addressing'}, 'Afosto\\Sdk\\Model\\LcsShipmentModelAddressing', 'json', $context));
         }
-        if (property_exists($data, 'items') && $data->{'items'} !== null) {
+        if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsShipmentItemModel', 'json', $context);
             }
             $object->setItems($values);
         }
-        if (property_exists($data, 'backorders') && $data->{'backorders'} !== null) {
+        if (property_exists($data, 'backorders') && null !== $data->{'backorders'}) {
             $values_1 = [];
             foreach ($data->{'backorders'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\LcsBackorderItem', 'json', $context);
             }
             $object->setBackorders($values_1);
         }
-        if (property_exists($data, 'expected_at') && $data->{'expected_at'} !== null) {
+        if (property_exists($data, 'expected_at') && null !== $data->{'expected_at'}) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
         }
-        if (property_exists($data, 'method_id') && $data->{'method_id'} !== null) {
+        if (property_exists($data, 'method_id') && null !== $data->{'method_id'}) {
             $object->setMethodId($data->{'method_id'});
         }
-        if (property_exists($data, 'contact_id') && $data->{'contact_id'} !== null) {
+        if (property_exists($data, 'contact_id') && null !== $data->{'contact_id'}) {
             $object->setContactId($data->{'contact_id'});
         }
-        if (property_exists($data, 'stack') && $data->{'stack'} !== null) {
+        if (property_exists($data, 'stack') && null !== $data->{'stack'}) {
             $object->setStack($this->denormalizer->denormalize($data->{'stack'}, 'Afosto\\Sdk\\Model\\LcsShipmentModelStack', 'json', $context));
         }
 

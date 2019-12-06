@@ -24,12 +24,12 @@ class CntSortNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntSort';
+        return 'Afosto\\Sdk\\Model\\CntSort' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntSort';
+        return 'Afosto\\Sdk\\Model\\CntSort' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class CntSortNormalizer implements DenormalizerInterface, NormalizerInterface, D
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntSort();
-        if (property_exists($data, 'filter_key') && $data->{'filter_key'} !== null) {
+        if (property_exists($data, 'filter_key') && null !== $data->{'filter_key'}) {
             $object->setFilterKey($data->{'filter_key'});
         }
-        if (property_exists($data, 'order') && $data->{'order'} !== null) {
+        if (property_exists($data, 'order') && null !== $data->{'order'}) {
             $object->setOrder($data->{'order'});
         }
 

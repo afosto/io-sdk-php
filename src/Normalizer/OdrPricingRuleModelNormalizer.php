@@ -24,12 +24,12 @@ class OdrPricingRuleModelNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrPricingRuleModel';
+        return 'Afosto\\Sdk\\Model\\OdrPricingRuleModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrPricingRuleModel';
+        return 'Afosto\\Sdk\\Model\\OdrPricingRuleModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,49 +38,49 @@ class OdrPricingRuleModelNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrPricingRuleModel();
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'constraints') && $data->{'constraints'} !== null) {
+        if (property_exists($data, 'constraints') && null !== $data->{'constraints'}) {
             $values = [];
             foreach ($data->{'constraints'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrPricingRuleConstraint', 'json', $context);
             }
             $object->setConstraints($values);
         }
-        if (property_exists($data, 'filters') && $data->{'filters'} !== null) {
+        if (property_exists($data, 'filters') && null !== $data->{'filters'}) {
             $values_1 = [];
             foreach ($data->{'filters'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrPricingRuleFilter', 'json', $context);
             }
             $object->setFilters($values_1);
         }
-        if (property_exists($data, 'adjustments') && $data->{'adjustments'} !== null) {
+        if (property_exists($data, 'adjustments') && null !== $data->{'adjustments'}) {
             $values_2 = [];
             foreach ($data->{'adjustments'} as $value_2) {
                 $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\OdrAdjustment', 'json', $context);
             }
             $object->setAdjustments($values_2);
         }
-        if (property_exists($data, 'apply_to') && $data->{'apply_to'} !== null) {
+        if (property_exists($data, 'apply_to') && null !== $data->{'apply_to'}) {
             $object->setApplyTo($data->{'apply_to'});
         }
-        if (property_exists($data, 'grant_limit') && $data->{'grant_limit'} !== null) {
+        if (property_exists($data, 'grant_limit') && null !== $data->{'grant_limit'}) {
             $object->setGrantLimit($data->{'grant_limit'});
         }
-        if (property_exists($data, 'priority') && $data->{'priority'} !== null) {
+        if (property_exists($data, 'priority') && null !== $data->{'priority'}) {
             $object->setPriority($data->{'priority'});
         }
-        if (property_exists($data, 'is_last_rule') && $data->{'is_last_rule'} !== null) {
+        if (property_exists($data, 'is_last_rule') && null !== $data->{'is_last_rule'}) {
             $object->setIsLastRule($data->{'is_last_rule'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'active_at') && $data->{'active_at'} !== null) {
+        if (property_exists($data, 'active_at') && null !== $data->{'active_at'}) {
             $object->setActiveAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'active_at'}));
         }
-        if (property_exists($data, 'expires_at') && $data->{'expires_at'} !== null) {
+        if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
 

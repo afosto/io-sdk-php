@@ -21,19 +21,11 @@ class PkrShipmentItemsItemImage
      */
     protected $thumbnails;
 
-    /**
-     * @return string|null
-     */
     public function getOriginal(): ?string
     {
         return $this->original;
     }
 
-    /**
-     * @param string|null $original
-     *
-     * @return self
-     */
     public function setOriginal(?string $original): self
     {
         $this->original = $original;
@@ -41,19 +33,11 @@ class PkrShipmentItemsItemImage
         return $this;
     }
 
-    /**
-     * @return PkrShipmentItemsItemImageThumbnails|null
-     */
     public function getThumbnails(): ?PkrShipmentItemsItemImageThumbnails
     {
         return $this->thumbnails;
     }
 
-    /**
-     * @param PkrShipmentItemsItemImageThumbnails|null $thumbnails
-     *
-     * @return self
-     */
     public function setThumbnails(?PkrShipmentItemsItemImageThumbnails $thumbnails): self
     {
         $this->thumbnails = $thumbnails;

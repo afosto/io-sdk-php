@@ -17,8 +17,7 @@ class ListItemsAsGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
     /**
      * Returns a list of items grouped by sku, description and references.
      *
-     * @param string $id
-     * @param array  $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size

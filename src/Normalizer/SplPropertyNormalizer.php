@@ -24,12 +24,12 @@ class SplPropertyNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplProperty';
+        return 'Afosto\\Sdk\\Model\\SplProperty' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplProperty';
+        return 'Afosto\\Sdk\\Model\\SplProperty' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class SplPropertyNormalizer implements DenormalizerInterface, NormalizerInterfac
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplProperty();
-        if (property_exists($data, 'key') && $data->{'key'} !== null) {
+        if (property_exists($data, 'key') && null !== $data->{'key'}) {
             $object->setKey($data->{'key'});
         }
-        if (property_exists($data, 'value') && $data->{'value'} !== null) {
+        if (property_exists($data, 'value') && null !== $data->{'value'}) {
             $object->setValue($data->{'value'});
         }
 

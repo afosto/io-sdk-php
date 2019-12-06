@@ -16,8 +16,6 @@ class DeleteRole extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     /**
      * Delete a RBAC role.
-     *
-     * @param int $id
      */
     public function __construct(int $id)
     {

@@ -24,12 +24,12 @@ class WmsCreateHopScheduleRequestNormalizer implements DenormalizerInterface, No
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsCreateHopScheduleRequest';
+        return 'Afosto\\Sdk\\Model\\WmsCreateHopScheduleRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsCreateHopScheduleRequest';
+        return 'Afosto\\Sdk\\Model\\WmsCreateHopScheduleRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class WmsCreateHopScheduleRequestNormalizer implements DenormalizerInterface, No
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsCreateHopScheduleRequest();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'schedules') && $data->{'schedules'} !== null) {
+        if (property_exists($data, 'schedules') && null !== $data->{'schedules'}) {
             $values = [];
             foreach ($data->{'schedules'} as $value) {
                 $values[] = $value;

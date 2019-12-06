@@ -14,8 +14,6 @@ class SetInventory extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 {
     /**
      * Get a list of inventory summaries.
-     *
-     * @param \Afosto\Sdk\Model\WmsStockUpRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\WmsStockUpRequest $body)
     {

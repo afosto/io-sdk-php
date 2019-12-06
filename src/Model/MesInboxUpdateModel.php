@@ -21,19 +21,11 @@ class MesInboxUpdateModel
      */
     protected $userId;
 
-    /**
-     * @return string|null
-     */
     public function getLabel(): ?string
     {
         return $this->label;
     }
 
-    /**
-     * @param string|null $label
-     *
-     * @return self
-     */
     public function setLabel(?string $label): self
     {
         $this->label = $label;
@@ -41,19 +33,11 @@ class MesInboxUpdateModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUserId(): ?string
     {
         return $this->userId;
     }
 
-    /**
-     * @param string|null $userId
-     *
-     * @return self
-     */
     public function setUserId(?string $userId): self
     {
         $this->userId = $userId;

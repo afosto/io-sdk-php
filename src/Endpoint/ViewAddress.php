@@ -16,8 +16,6 @@ class ViewAddress extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     /**
      * Returns a single address by id.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

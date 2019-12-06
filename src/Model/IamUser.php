@@ -61,19 +61,11 @@ class IamUser
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -81,19 +73,11 @@ class IamUser
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    /**
-     * @param string|null $email
-     *
-     * @return self
-     */
     public function setEmail(?string $email): self
     {
         $this->email = $email;
@@ -101,19 +85,11 @@ class IamUser
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getFirstName(): ?string
     {
         return $this->firstName;
     }
 
-    /**
-     * @param string|null $firstName
-     *
-     * @return self
-     */
     public function setFirstName(?string $firstName): self
     {
         $this->firstName = $firstName;
@@ -121,19 +97,11 @@ class IamUser
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLastName(): ?string
     {
         return $this->lastName;
     }
 
-    /**
-     * @param string|null $lastName
-     *
-     * @return self
-     */
     public function setLastName(?string $lastName): self
     {
         $this->lastName = $lastName;
@@ -141,19 +109,11 @@ class IamUser
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsVerified(): ?bool
     {
         return $this->isVerified;
     }
 
-    /**
-     * @param bool|null $isVerified
-     *
-     * @return self
-     */
     public function setIsVerified(?bool $isVerified): self
     {
         $this->isVerified = $isVerified;
@@ -161,19 +121,11 @@ class IamUser
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsPendingInvite(): ?bool
     {
         return $this->isPendingInvite;
     }
 
-    /**
-     * @param bool|null $isPendingInvite
-     *
-     * @return self
-     */
     public function setIsPendingInvite(?bool $isPendingInvite): self
     {
         $this->isPendingInvite = $isPendingInvite;
@@ -181,19 +133,11 @@ class IamUser
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsDeleted(): ?bool
     {
         return $this->isDeleted;
     }
 
-    /**
-     * @param bool|null $isDeleted
-     *
-     * @return self
-     */
     public function setIsDeleted(?bool $isDeleted): self
     {
         $this->isDeleted = $isDeleted;
@@ -201,19 +145,11 @@ class IamUser
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTenantId(): ?string
     {
         return $this->tenantId;
     }
 
-    /**
-     * @param string|null $tenantId
-     *
-     * @return self
-     */
     public function setTenantId(?string $tenantId): self
     {
         $this->tenantId = $tenantId;
@@ -231,8 +167,6 @@ class IamUser
 
     /**
      * @param string[]|null $roles
-     *
-     * @return self
      */
     public function setRoles(?array $roles): self
     {
@@ -241,19 +175,11 @@ class IamUser
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getDeletedAt(): ?\DateTime
     {
         return $this->deletedAt;
     }
 
-    /**
-     * @param \DateTime|null $deletedAt
-     *
-     * @return self
-     */
     public function setDeletedAt(?\DateTime $deletedAt): self
     {
         $this->deletedAt = $deletedAt;
@@ -261,19 +187,11 @@ class IamUser
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -281,19 +199,11 @@ class IamUser
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

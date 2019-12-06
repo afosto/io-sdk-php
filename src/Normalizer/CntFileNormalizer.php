@@ -24,12 +24,12 @@ class CntFileNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntFile';
+        return 'Afosto\\Sdk\\Model\\CntFile' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntFile';
+        return 'Afosto\\Sdk\\Model\\CntFile' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,40 +38,40 @@ class CntFileNormalizer implements DenormalizerInterface, NormalizerInterface, D
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntFile();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'filename') && $data->{'filename'} !== null) {
+        if (property_exists($data, 'filename') && null !== $data->{'filename'}) {
             $object->setFilename($data->{'filename'});
         }
-        if (property_exists($data, 'label') && $data->{'label'} !== null) {
+        if (property_exists($data, 'label') && null !== $data->{'label'}) {
             $object->setLabel($data->{'label'});
         }
-        if (property_exists($data, 'dir') && $data->{'dir'} !== null) {
+        if (property_exists($data, 'dir') && null !== $data->{'dir'}) {
             $object->setDir($data->{'dir'});
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'mime') && $data->{'mime'} !== null) {
+        if (property_exists($data, 'mime') && null !== $data->{'mime'}) {
             $object->setMime($data->{'mime'});
         }
-        if (property_exists($data, 'url') && $data->{'url'} !== null) {
+        if (property_exists($data, 'url') && null !== $data->{'url'}) {
             $object->setUrl($data->{'url'});
         }
-        if (property_exists($data, 'is_public') && $data->{'is_public'} !== null) {
+        if (property_exists($data, 'is_public') && null !== $data->{'is_public'}) {
             $object->setIsPublic($data->{'is_public'});
         }
-        if (property_exists($data, 'is_listed') && $data->{'is_listed'} !== null) {
+        if (property_exists($data, 'is_listed') && null !== $data->{'is_listed'}) {
             $object->setIsListed($data->{'is_listed'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

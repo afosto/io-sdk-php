@@ -24,12 +24,12 @@ class IamClientModelNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamClientModel';
+        return 'Afosto\\Sdk\\Model\\IamClientModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamClientModel';
+        return 'Afosto\\Sdk\\Model\\IamClientModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,20 +38,20 @@ class IamClientModelNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamClientModel();
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'redirect_uri') && $data->{'redirect_uri'} !== null) {
+        if (property_exists($data, 'redirect_uri') && null !== $data->{'redirect_uri'}) {
             $object->setRedirectUri($data->{'redirect_uri'});
         }
-        if (property_exists($data, 'grant_types') && $data->{'grant_types'} !== null) {
+        if (property_exists($data, 'grant_types') && null !== $data->{'grant_types'}) {
             $values = [];
             foreach ($data->{'grant_types'} as $value) {
                 $values[] = $value;
             }
             $object->setGrantTypes($values);
         }
-        if (property_exists($data, 'scope') && $data->{'scope'} !== null) {
+        if (property_exists($data, 'scope') && null !== $data->{'scope'}) {
             $values_1 = [];
             foreach ($data->{'scope'} as $value_1) {
                 $values_1[] = $value_1;

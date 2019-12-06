@@ -37,19 +37,11 @@ class IamCard
      */
     protected $expiresAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -57,19 +49,11 @@ class IamCard
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLast4(): ?string
     {
         return $this->last4;
     }
 
-    /**
-     * @param string|null $last4
-     *
-     * @return self
-     */
     public function setLast4(?string $last4): self
     {
         $this->last4 = $last4;
@@ -77,19 +61,11 @@ class IamCard
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -97,19 +73,11 @@ class IamCard
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsDefault(): ?bool
     {
         return $this->isDefault;
     }
 
-    /**
-     * @param bool|null $isDefault
-     *
-     * @return self
-     */
     public function setIsDefault(?bool $isDefault): self
     {
         $this->isDefault = $isDefault;
@@ -117,19 +85,11 @@ class IamCard
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getBrand(): ?string
     {
         return $this->brand;
     }
 
-    /**
-     * @param string|null $brand
-     *
-     * @return self
-     */
     public function setBrand(?string $brand): self
     {
         $this->brand = $brand;
@@ -137,19 +97,11 @@ class IamCard
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getExpiresAt(): ?\DateTime
     {
         return $this->expiresAt;
     }
 
-    /**
-     * @param \DateTime|null $expiresAt
-     *
-     * @return self
-     */
     public function setExpiresAt(?\DateTime $expiresAt): self
     {
         $this->expiresAt = $expiresAt;

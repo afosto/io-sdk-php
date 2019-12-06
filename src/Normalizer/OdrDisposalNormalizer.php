@@ -24,12 +24,12 @@ class OdrDisposalNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrDisposal';
+        return 'Afosto\\Sdk\\Model\\OdrDisposal' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrDisposal';
+        return 'Afosto\\Sdk\\Model\\OdrDisposal' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,30 +38,30 @@ class OdrDisposalNormalizer implements DenormalizerInterface, NormalizerInterfac
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrDisposal();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
+        if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
-        if (property_exists($data, 'events') && $data->{'events'} !== null) {
+        if (property_exists($data, 'events') && null !== $data->{'events'}) {
             $values = [];
             foreach ($data->{'events'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrLog', 'json', $context);
             }
             $object->setEvents($values);
         }
-        if (property_exists($data, 'stacks') && $data->{'stacks'} !== null) {
+        if (property_exists($data, 'stacks') && null !== $data->{'stacks'}) {
             $values_1 = [];
             foreach ($data->{'stacks'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrStack', 'json', $context);
             }
             $object->setStacks($values_1);
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

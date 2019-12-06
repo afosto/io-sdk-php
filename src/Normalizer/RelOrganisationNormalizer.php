@@ -24,12 +24,12 @@ class RelOrganisationNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelOrganisation';
+        return 'Afosto\\Sdk\\Model\\RelOrganisation' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelOrganisation';
+        return 'Afosto\\Sdk\\Model\\RelOrganisation' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,35 +38,35 @@ class RelOrganisationNormalizer implements DenormalizerInterface, NormalizerInte
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelOrganisation();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'version') && $data->{'version'} !== null) {
+        if (property_exists($data, 'version') && null !== $data->{'version'}) {
             $object->setVersion($data->{'version'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'registrations') && $data->{'registrations'} !== null) {
+        if (property_exists($data, 'registrations') && null !== $data->{'registrations'}) {
             $values = [];
             foreach ($data->{'registrations'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\RelVatRegistration', 'json', $context);
             }
             $object->setRegistrations($values);
         }
-        if (property_exists($data, 'payment_settings') && $data->{'payment_settings'} !== null) {
+        if (property_exists($data, 'payment_settings') && null !== $data->{'payment_settings'}) {
             $object->setPaymentSettings($this->denormalizer->denormalize($data->{'payment_settings'}, 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettings', 'json', $context));
         }
-        if (property_exists($data, 'phone_numbers') && $data->{'phone_numbers'} !== null) {
+        if (property_exists($data, 'phone_numbers') && null !== $data->{'phone_numbers'}) {
             $object->setPhoneNumbers($this->denormalizer->denormalize($data->{'phone_numbers'}, 'Afosto\\Sdk\\Model\\RelPhoneNumberList', 'json', $context));
         }
-        if (property_exists($data, 'addresses') && $data->{'addresses'} !== null) {
+        if (property_exists($data, 'addresses') && null !== $data->{'addresses'}) {
             $object->setAddresses($this->denormalizer->denormalize($data->{'addresses'}, 'Afosto\\Sdk\\Model\\RelAddressList', 'json', $context));
         }
-        if (property_exists($data, 'coc_number') && $data->{'coc_number'} !== null) {
+        if (property_exists($data, 'coc_number') && null !== $data->{'coc_number'}) {
             $object->setCocNumber($data->{'coc_number'});
         }
-        if (property_exists($data, 'account_manager') && $data->{'account_manager'} !== null) {
+        if (property_exists($data, 'account_manager') && null !== $data->{'account_manager'}) {
             $object->setAccountManager($data->{'account_manager'});
         }
 

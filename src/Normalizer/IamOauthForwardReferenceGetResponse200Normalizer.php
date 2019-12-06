@@ -24,12 +24,12 @@ class IamOauthForwardReferenceGetResponse200Normalizer implements DenormalizerIn
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamOauthForwardReferenceGetResponse200';
+        return 'Afosto\\Sdk\\Model\\IamOauthForwardReferenceGetResponse200' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamOauthForwardReferenceGetResponse200';
+        return 'Afosto\\Sdk\\Model\\IamOauthForwardReferenceGetResponse200' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class IamOauthForwardReferenceGetResponse200Normalizer implements DenormalizerIn
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamOauthForwardReferenceGetResponse200();
-        if (property_exists($data, 'token') && $data->{'token'} !== null) {
+        if (property_exists($data, 'token') && null !== $data->{'token'}) {
             $object->setToken($data->{'token'});
         }
-        if (property_exists($data, 'id_token') && $data->{'id_token'} !== null) {
+        if (property_exists($data, 'id_token') && null !== $data->{'id_token'}) {
             $object->setIdToken($data->{'id_token'});
         }
 

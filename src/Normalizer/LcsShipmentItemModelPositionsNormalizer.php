@@ -24,12 +24,12 @@ class LcsShipmentItemModelPositionsNormalizer implements DenormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsShipmentItemModelPositions';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentItemModelPositions' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsShipmentItemModelPositions';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentItemModelPositions' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class LcsShipmentItemModelPositionsNormalizer implements DenormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsShipmentItemModelPositions();
-        if (property_exists($data, 'source') && $data->{'source'} !== null) {
+        if (property_exists($data, 'source') && null !== $data->{'source'}) {
             $object->setSource($data->{'source'});
         }
-        if (property_exists($data, 'target') && $data->{'target'} !== null) {
+        if (property_exists($data, 'target') && null !== $data->{'target'}) {
             $object->setTarget($data->{'target'});
         }
 

@@ -16,9 +16,6 @@ class UpdateInvite extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     /**
      * Updates the invite state.
-     *
-     * @param string                                          $id
-     * @param \Afosto\Sdk\Model\IamSubtenantsInvitesIdPutBody $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\IamSubtenantsInvitesIdPutBody $body)
     {

@@ -41,19 +41,11 @@ class IamLog
      */
     protected $createdAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -61,19 +53,11 @@ class IamLog
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMethod(): ?string
     {
         return $this->method;
     }
 
-    /**
-     * @param string|null $method
-     *
-     * @return self
-     */
     public function setMethod(?string $method): self
     {
         $this->method = $method;
@@ -81,19 +65,11 @@ class IamLog
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getResource(): ?string
     {
         return $this->resource;
     }
 
-    /**
-     * @param string|null $resource
-     *
-     * @return self
-     */
     public function setResource(?string $resource): self
     {
         $this->resource = $resource;
@@ -101,19 +77,11 @@ class IamLog
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUser(): ?string
     {
         return $this->user;
     }
 
-    /**
-     * @param string|null $user
-     *
-     * @return self
-     */
     public function setUser(?string $user): self
     {
         $this->user = $user;
@@ -131,8 +99,6 @@ class IamLog
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -141,19 +107,11 @@ class IamLog
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getLoggedAt(): ?\DateTime
     {
         return $this->loggedAt;
     }
 
-    /**
-     * @param \DateTime|null $loggedAt
-     *
-     * @return self
-     */
     public function setLoggedAt(?\DateTime $loggedAt): self
     {
         $this->loggedAt = $loggedAt;
@@ -161,19 +119,11 @@ class IamLog
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;

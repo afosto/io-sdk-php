@@ -37,8 +37,6 @@ class RelFieldList
 
     /**
      * @param string[]|null $required
-     *
-     * @return self
      */
     public function setRequired(?array $required): self
     {
@@ -57,8 +55,6 @@ class RelFieldList
 
     /**
      * @param string[]|null $allowed
-     *
-     * @return self
      */
     public function setAllowed(?array $allowed): self
     {
@@ -69,8 +65,6 @@ class RelFieldList
 
     /**
      * Country code that was used for the query.
-     *
-     * @return string|null
      */
     public function getCountryCode(): ?string
     {
@@ -79,10 +73,6 @@ class RelFieldList
 
     /**
      * Country code that was used for the query.
-     *
-     * @param string|null $countryCode
-     *
-     * @return self
      */
     public function setCountryCode(?string $countryCode): self
     {

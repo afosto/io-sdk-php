@@ -24,12 +24,12 @@ class CntHtmlToPdfRequestNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequest';
+        return 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequest';
+        return 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,28 +38,28 @@ class CntHtmlToPdfRequestNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntHtmlToPdfRequest();
-        if (property_exists($data, 'path') && $data->{'path'} !== null) {
+        if (property_exists($data, 'path') && null !== $data->{'path'}) {
             $object->setPath($data->{'path'});
         }
-        if (property_exists($data, 'filename') && $data->{'filename'} !== null) {
+        if (property_exists($data, 'filename') && null !== $data->{'filename'}) {
             $object->setFilename($data->{'filename'});
         }
-        if (property_exists($data, 'size') && $data->{'size'} !== null) {
+        if (property_exists($data, 'size') && null !== $data->{'size'}) {
             $object->setSize($this->denormalizer->denormalize($data->{'size'}, 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequestSize', 'json', $context));
         }
-        if (property_exists($data, 'margin') && $data->{'margin'} !== null) {
+        if (property_exists($data, 'margin') && null !== $data->{'margin'}) {
             $object->setMargin($this->denormalizer->denormalize($data->{'margin'}, 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequestMargin', 'json', $context));
         }
-        if (property_exists($data, 'method') && $data->{'method'} !== null) {
+        if (property_exists($data, 'method') && null !== $data->{'method'}) {
             $object->setMethod($data->{'method'});
         }
-        if (property_exists($data, 'content') && $data->{'content'} !== null) {
+        if (property_exists($data, 'content') && null !== $data->{'content'}) {
             $object->setContent($data->{'content'});
         }
-        if (property_exists($data, 'wait_delay') && $data->{'wait_delay'} !== null) {
+        if (property_exists($data, 'wait_delay') && null !== $data->{'wait_delay'}) {
             $object->setWaitDelay($data->{'wait_delay'});
         }
-        if (property_exists($data, 'wait_timeout') && $data->{'wait_timeout'} !== null) {
+        if (property_exists($data, 'wait_timeout') && null !== $data->{'wait_timeout'}) {
             $object->setWaitTimeout($data->{'wait_timeout'});
         }
 

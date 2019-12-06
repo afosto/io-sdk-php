@@ -41,19 +41,11 @@ class IamAuthorizationResponse
      */
     protected $expiresIn;
 
-    /**
-     * @return string|null
-     */
     public function getForwardUri(): ?string
     {
         return $this->forwardUri;
     }
 
-    /**
-     * @param string|null $forwardUri
-     *
-     * @return self
-     */
     public function setForwardUri(?string $forwardUri): self
     {
         $this->forwardUri = $forwardUri;
@@ -61,19 +53,11 @@ class IamAuthorizationResponse
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getClientName(): ?string
     {
         return $this->clientName;
     }
 
-    /**
-     * @param string|null $clientName
-     *
-     * @return self
-     */
     public function setClientName(?string $clientName): self
     {
         $this->clientName = $clientName;
@@ -81,19 +65,11 @@ class IamAuthorizationResponse
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getClientRedirectUri(): ?string
     {
         return $this->clientRedirectUri;
     }
 
-    /**
-     * @param string|null $clientRedirectUri
-     *
-     * @return self
-     */
     public function setClientRedirectUri(?string $clientRedirectUri): self
     {
         $this->clientRedirectUri = $clientRedirectUri;
@@ -111,8 +87,6 @@ class IamAuthorizationResponse
 
     /**
      * @param IamScope[]|null $scope
-     *
-     * @return self
      */
     public function setScope(?array $scope): self
     {
@@ -121,19 +95,11 @@ class IamAuthorizationResponse
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsAuthorizationApproved(): ?bool
     {
         return $this->isAuthorizationApproved;
     }
 
-    /**
-     * @param bool|null $isAuthorizationApproved
-     *
-     * @return self
-     */
     public function setIsAuthorizationApproved(?bool $isAuthorizationApproved): self
     {
         $this->isAuthorizationApproved = $isAuthorizationApproved;
@@ -141,19 +107,11 @@ class IamAuthorizationResponse
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsIdTokenIssued(): ?bool
     {
         return $this->isIdTokenIssued;
     }
 
-    /**
-     * @param bool|null $isIdTokenIssued
-     *
-     * @return self
-     */
     public function setIsIdTokenIssued(?bool $isIdTokenIssued): self
     {
         $this->isIdTokenIssued = $isIdTokenIssued;
@@ -161,19 +119,11 @@ class IamAuthorizationResponse
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getExpiresIn(): ?int
     {
         return $this->expiresIn;
     }
 
-    /**
-     * @param int|null $expiresIn
-     *
-     * @return self
-     */
     public function setExpiresIn(?int $expiresIn): self
     {
         $this->expiresIn = $expiresIn;

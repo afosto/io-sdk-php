@@ -24,12 +24,12 @@ class OdrTransactionModelNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrTransactionModel';
+        return 'Afosto\\Sdk\\Model\\OdrTransactionModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrTransactionModel';
+        return 'Afosto\\Sdk\\Model\\OdrTransactionModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,31 +38,31 @@ class OdrTransactionModelNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrTransactionModel();
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
+        if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
         }
-        if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
+        if (property_exists($data, 'currency') && null !== $data->{'currency'}) {
             $object->setCurrency($data->{'currency'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'purchase') && $data->{'purchase'} !== null) {
+        if (property_exists($data, 'purchase') && null !== $data->{'purchase'}) {
             $object->setPurchase($this->denormalizer->denormalize($data->{'purchase'}, 'Afosto\\Sdk\\Model\\OdrPurchase', 'json', $context));
         }
-        if (property_exists($data, 'return_url') && $data->{'return_url'} !== null) {
+        if (property_exists($data, 'return_url') && null !== $data->{'return_url'}) {
             $object->setReturnUrl($data->{'return_url'});
         }
-        if (property_exists($data, 'webhook_url') && $data->{'webhook_url'} !== null) {
+        if (property_exists($data, 'webhook_url') && null !== $data->{'webhook_url'}) {
             $object->setWebhookUrl($data->{'webhook_url'});
         }
-        if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
+        if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
 

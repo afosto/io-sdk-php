@@ -24,12 +24,12 @@ class IamUserTokenResponseNormalizer implements DenormalizerInterface, Normalize
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamUserTokenResponse';
+        return 'Afosto\\Sdk\\Model\\IamUserTokenResponse' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamUserTokenResponse';
+        return 'Afosto\\Sdk\\Model\\IamUserTokenResponse' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class IamUserTokenResponseNormalizer implements DenormalizerInterface, Normalize
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamUserTokenResponse();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'expires_at') && $data->{'expires_at'} !== null) {
+        if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
 

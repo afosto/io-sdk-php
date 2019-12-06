@@ -24,12 +24,12 @@ class PkrShipmentItemsItemImageThumbnailsNormalizer implements DenormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\PkrShipmentItemsItemImageThumbnails';
+        return 'Afosto\\Sdk\\Model\\PkrShipmentItemsItemImageThumbnails' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\PkrShipmentItemsItemImageThumbnails';
+        return 'Afosto\\Sdk\\Model\\PkrShipmentItemsItemImageThumbnails' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class PkrShipmentItemsItemImageThumbnailsNormalizer implements DenormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\PkrShipmentItemsItemImageThumbnails();
-        if (property_exists($data, '50') && $data->{'50'} !== null) {
+        if (property_exists($data, '50') && null !== $data->{'50'}) {
             $object->set50($data->{'50'});
         }
-        if (property_exists($data, '100') && $data->{'100'} !== null) {
+        if (property_exists($data, '100') && null !== $data->{'100'}) {
             $object->set100($data->{'100'});
         }
-        if (property_exists($data, '200') && $data->{'200'} !== null) {
+        if (property_exists($data, '200') && null !== $data->{'200'}) {
             $object->set200($data->{'200'});
         }
-        if (property_exists($data, '400') && $data->{'400'} !== null) {
+        if (property_exists($data, '400') && null !== $data->{'400'}) {
             $object->set400($data->{'400'});
         }
 

@@ -33,19 +33,11 @@ class IamPlan
      */
     protected $tiers;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -53,19 +45,11 @@ class IamPlan
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getInterval(): ?string
     {
         return $this->interval;
     }
 
-    /**
-     * @param string|null $interval
-     *
-     * @return self
-     */
     public function setInterval(?string $interval): self
     {
         $this->interval = $interval;
@@ -73,19 +57,11 @@ class IamPlan
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;
@@ -93,19 +69,11 @@ class IamPlan
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getAmount(): ?int
     {
         return $this->amount;
     }
 
-    /**
-     * @param int|null $amount
-     *
-     * @return self
-     */
     public function setAmount(?int $amount): self
     {
         $this->amount = $amount;
@@ -123,8 +91,6 @@ class IamPlan
 
     /**
      * @param IamTier[]|null $tiers
-     *
-     * @return self
      */
     public function setTiers(?array $tiers): self
     {

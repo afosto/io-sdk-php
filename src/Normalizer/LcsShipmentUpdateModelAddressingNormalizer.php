@@ -24,12 +24,12 @@ class LcsShipmentUpdateModelAddressingNormalizer implements DenormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsShipmentUpdateModelAddressing';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentUpdateModelAddressing' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsShipmentUpdateModelAddressing';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentUpdateModelAddressing' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class LcsShipmentUpdateModelAddressingNormalizer implements DenormalizerInterfac
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsShipmentUpdateModelAddressing();
-        if (property_exists($data, 'to') && $data->{'to'} !== null) {
+        if (property_exists($data, 'to') && null !== $data->{'to'}) {
             $object->setTo($this->denormalizer->denormalize($data->{'to'}, 'Afosto\\Sdk\\Model\\LcsShipmentAddressing', 'json', $context));
         }
-        if (property_exists($data, 'from') && $data->{'from'} !== null) {
+        if (property_exists($data, 'from') && null !== $data->{'from'}) {
             $object->setFrom($this->denormalizer->denormalize($data->{'from'}, 'Afosto\\Sdk\\Model\\LcsShipmentAddressing', 'json', $context));
         }
 

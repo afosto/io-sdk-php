@@ -37,19 +37,11 @@ class WmsStock
      */
     protected $total;
 
-    /**
-     * @return string|null
-     */
     public function getWarehouseId(): ?string
     {
         return $this->warehouseId;
     }
 
-    /**
-     * @param string|null $warehouseId
-     *
-     * @return self
-     */
     public function setWarehouseId(?string $warehouseId): self
     {
         $this->warehouseId = $warehouseId;
@@ -57,19 +49,11 @@ class WmsStock
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSku(): ?string
     {
         return $this->sku;
     }
 
-    /**
-     * @param string|null $sku
-     *
-     * @return self
-     */
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
@@ -77,19 +61,11 @@ class WmsStock
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getAvailable(): ?int
     {
         return $this->available;
     }
 
-    /**
-     * @param int|null $available
-     *
-     * @return self
-     */
     public function setAvailable(?int $available): self
     {
         $this->available = $available;
@@ -97,19 +73,11 @@ class WmsStock
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getClaimed(): ?int
     {
         return $this->claimed;
     }
 
-    /**
-     * @param int|null $claimed
-     *
-     * @return self
-     */
     public function setClaimed(?int $claimed): self
     {
         $this->claimed = $claimed;
@@ -117,19 +85,11 @@ class WmsStock
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getTransit(): ?int
     {
         return $this->transit;
     }
 
-    /**
-     * @param int|null $transit
-     *
-     * @return self
-     */
     public function setTransit(?int $transit): self
     {
         $this->transit = $transit;
@@ -137,19 +97,11 @@ class WmsStock
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getTotal(): ?int
     {
         return $this->total;
     }
 
-    /**
-     * @param int|null $total
-     *
-     * @return self
-     */
     public function setTotal(?int $total): self
     {
         $this->total = $total;

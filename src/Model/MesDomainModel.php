@@ -17,19 +17,11 @@ class MesDomainModel
      */
     protected $fqdn;
 
-    /**
-     * @return string|null
-     */
     public function getFqdn(): ?string
     {
         return $this->fqdn;
     }
 
-    /**
-     * @param string|null $fqdn
-     *
-     * @return self
-     */
     public function setFqdn(?string $fqdn): self
     {
         $this->fqdn = $fqdn;

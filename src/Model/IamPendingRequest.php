@@ -33,19 +33,11 @@ class IamPendingRequest
      */
     protected $createdAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -53,19 +45,11 @@ class IamPendingRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getState(): ?string
     {
         return $this->state;
     }
 
-    /**
-     * @param string|null $state
-     *
-     * @return self
-     */
     public function setState(?string $state): self
     {
         $this->state = $state;
@@ -73,19 +57,11 @@ class IamPendingRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSignee(): ?string
     {
         return $this->signee;
     }
 
-    /**
-     * @param string|null $signee
-     *
-     * @return self
-     */
     public function setSignee(?string $signee): self
     {
         $this->signee = $signee;
@@ -103,8 +79,6 @@ class IamPendingRequest
 
     /**
      * @param string[]|null $roles
-     *
-     * @return self
      */
     public function setRoles(?array $roles): self
     {
@@ -113,19 +87,11 @@ class IamPendingRequest
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;

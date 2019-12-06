@@ -24,12 +24,12 @@ class LcsShipmentSearchNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsShipmentSearch';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentSearch' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsShipmentSearch';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentSearch' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class LcsShipmentSearchNormalizer implements DenormalizerInterface, NormalizerIn
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsShipmentSearch();
-        if (property_exists($data, 'constraints') && $data->{'constraints'} !== null) {
+        if (property_exists($data, 'constraints') && null !== $data->{'constraints'}) {
             $values = [];
             foreach ($data->{'constraints'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsShipmentSearchConstraint', 'json', $context);

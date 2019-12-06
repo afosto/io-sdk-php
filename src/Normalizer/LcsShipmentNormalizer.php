@@ -24,12 +24,12 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsShipment';
+        return 'Afosto\\Sdk\\Model\\LcsShipment' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsShipment';
+        return 'Afosto\\Sdk\\Model\\LcsShipment' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,76 +38,76 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsShipment();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'number') && $data->{'number'} !== null) {
+        if (property_exists($data, 'number') && null !== $data->{'number'}) {
             $object->setNumber($data->{'number'});
         }
-        if (property_exists($data, 'method') && $data->{'method'} !== null) {
+        if (property_exists($data, 'method') && null !== $data->{'method'}) {
             $object->setMethod($this->denormalizer->denormalize($data->{'method'}, 'Afosto\\Sdk\\Model\\LcsMethod', 'json', $context));
         }
-        if (property_exists($data, 'contact_id') && $data->{'contact_id'} !== null) {
+        if (property_exists($data, 'contact_id') && null !== $data->{'contact_id'}) {
             $object->setContactId($data->{'contact_id'});
         }
-        if (property_exists($data, 'addressing') && $data->{'addressing'} !== null) {
+        if (property_exists($data, 'addressing') && null !== $data->{'addressing'}) {
             $object->setAddressing($this->denormalizer->denormalize($data->{'addressing'}, 'Afosto\\Sdk\\Model\\LcsShipmentAddressing', 'json', $context));
         }
-        if (property_exists($data, 'expected_at') && $data->{'expected_at'} !== null) {
+        if (property_exists($data, 'expected_at') && null !== $data->{'expected_at'}) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
         }
-        if (property_exists($data, 'stack_id') && $data->{'stack_id'} !== null) {
+        if (property_exists($data, 'stack_id') && null !== $data->{'stack_id'}) {
             $object->setStackId($data->{'stack_id'});
         }
-        if (property_exists($data, 'is_editable') && $data->{'is_editable'} !== null) {
+        if (property_exists($data, 'is_editable') && null !== $data->{'is_editable'}) {
             $object->setIsEditable($data->{'is_editable'});
         }
-        if (property_exists($data, 'is_outbound') && $data->{'is_outbound'} !== null) {
+        if (property_exists($data, 'is_outbound') && null !== $data->{'is_outbound'}) {
             $object->setIsOutbound($data->{'is_outbound'});
         }
-        if (property_exists($data, 'is_listed') && $data->{'is_listed'} !== null) {
+        if (property_exists($data, 'is_listed') && null !== $data->{'is_listed'}) {
             $object->setIsListed($data->{'is_listed'});
         }
-        if (property_exists($data, 'is_finished') && $data->{'is_finished'} !== null) {
+        if (property_exists($data, 'is_finished') && null !== $data->{'is_finished'}) {
             $object->setIsFinished($data->{'is_finished'});
         }
-        if (property_exists($data, 'is_in_transit') && $data->{'is_in_transit'} !== null) {
+        if (property_exists($data, 'is_in_transit') && null !== $data->{'is_in_transit'}) {
             $object->setIsInTransit($data->{'is_in_transit'});
         }
-        if (property_exists($data, 'is_delivered') && $data->{'is_delivered'} !== null) {
+        if (property_exists($data, 'is_delivered') && null !== $data->{'is_delivered'}) {
             $object->setIsDelivered($data->{'is_delivered'});
         }
-        if (property_exists($data, 'items') && $data->{'items'} !== null) {
+        if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsShipmentItem', 'json', $context);
             }
             $object->setItems($values);
         }
-        if (property_exists($data, 'backorders') && $data->{'backorders'} !== null) {
+        if (property_exists($data, 'backorders') && null !== $data->{'backorders'}) {
             $values_1 = [];
             foreach ($data->{'backorders'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\LcsBackorderItem', 'json', $context);
             }
             $object->setBackorders($values_1);
         }
-        if (property_exists($data, 'parcels') && $data->{'parcels'} !== null) {
+        if (property_exists($data, 'parcels') && null !== $data->{'parcels'}) {
             $values_2 = [];
             foreach ($data->{'parcels'} as $value_2) {
                 $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\LcsParcel', 'json', $context);
             }
             $object->setParcels($values_2);
         }
-        if (property_exists($data, 'secret') && $data->{'secret'} !== null) {
+        if (property_exists($data, 'secret') && null !== $data->{'secret'}) {
             $object->setSecret($data->{'secret'});
         }
-        if (property_exists($data, 'list_id') && $data->{'list_id'} !== null) {
+        if (property_exists($data, 'list_id') && null !== $data->{'list_id'}) {
             $object->setListId($data->{'list_id'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

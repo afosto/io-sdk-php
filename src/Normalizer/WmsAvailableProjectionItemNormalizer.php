@@ -24,12 +24,12 @@ class WmsAvailableProjectionItemNormalizer implements DenormalizerInterface, Nor
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsAvailableProjectionItem';
+        return 'Afosto\\Sdk\\Model\\WmsAvailableProjectionItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsAvailableProjectionItem';
+        return 'Afosto\\Sdk\\Model\\WmsAvailableProjectionItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class WmsAvailableProjectionItemNormalizer implements DenormalizerInterface, Nor
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsAvailableProjectionItem();
-        if (property_exists($data, 'stack_item_id') && $data->{'stack_item_id'} !== null) {
+        if (property_exists($data, 'stack_item_id') && null !== $data->{'stack_item_id'}) {
             $object->setStackItemId($data->{'stack_item_id'});
         }
-        if (property_exists($data, 'routes') && $data->{'routes'} !== null) {
+        if (property_exists($data, 'routes') && null !== $data->{'routes'}) {
             $values = [];
             foreach ($data->{'routes'} as $value) {
                 $values[] = $value;

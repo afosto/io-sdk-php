@@ -45,19 +45,11 @@ class MesReport
      */
     protected $buckets;
 
-    /**
-     * @return string|null
-     */
     public function getInterval(): ?string
     {
         return $this->interval;
     }
 
-    /**
-     * @param string|null $interval
-     *
-     * @return self
-     */
     public function setInterval(?string $interval): self
     {
         $this->interval = $interval;
@@ -65,19 +57,11 @@ class MesReport
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
-    /**
-     * @param string|null $code
-     *
-     * @return self
-     */
     public function setCode(?string $code): self
     {
         $this->code = $code;
@@ -85,19 +69,11 @@ class MesReport
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUnit(): ?string
     {
         return $this->unit;
     }
 
-    /**
-     * @param string|null $unit
-     *
-     * @return self
-     */
     public function setUnit(?string $unit): self
     {
         $this->unit = $unit;
@@ -105,19 +81,11 @@ class MesReport
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAs(): ?string
     {
         return $this->as;
     }
 
-    /**
-     * @param string|null $as
-     *
-     * @return self
-     */
     public function setAs(?string $as): self
     {
         $this->as = $as;
@@ -125,19 +93,11 @@ class MesReport
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getFilter(): ?string
     {
         return $this->filter;
     }
 
-    /**
-     * @param string|null $filter
-     *
-     * @return self
-     */
     public function setFilter(?string $filter): self
     {
         $this->filter = $filter;
@@ -145,19 +105,11 @@ class MesReport
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getStartAt(): ?\DateTime
     {
         return $this->startAt;
     }
 
-    /**
-     * @param \DateTime|null $startAt
-     *
-     * @return self
-     */
     public function setStartAt(?\DateTime $startAt): self
     {
         $this->startAt = $startAt;
@@ -165,19 +117,11 @@ class MesReport
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getEndAt(): ?\DateTime
     {
         return $this->endAt;
     }
 
-    /**
-     * @param \DateTime|null $endAt
-     *
-     * @return self
-     */
     public function setEndAt(?\DateTime $endAt): self
     {
         $this->endAt = $endAt;
@@ -195,8 +139,6 @@ class MesReport
 
     /**
      * @param MesBucket[]|null $buckets
-     *
-     * @return self
      */
     public function setBuckets(?array $buckets): self
     {

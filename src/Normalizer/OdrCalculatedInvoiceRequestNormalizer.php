@@ -24,12 +24,12 @@ class OdrCalculatedInvoiceRequestNormalizer implements DenormalizerInterface, No
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrCalculatedInvoiceRequest';
+        return 'Afosto\\Sdk\\Model\\OdrCalculatedInvoiceRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrCalculatedInvoiceRequest';
+        return 'Afosto\\Sdk\\Model\\OdrCalculatedInvoiceRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class OdrCalculatedInvoiceRequestNormalizer implements DenormalizerInterface, No
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrCalculatedInvoiceRequest();
-        if (property_exists($data, 'stack_id') && $data->{'stack_id'} !== null) {
+        if (property_exists($data, 'stack_id') && null !== $data->{'stack_id'}) {
             $object->setStackId($data->{'stack_id'});
         }
 

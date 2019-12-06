@@ -99,8 +99,6 @@ class RelAddressModel
 
     /**
      * Two letter country code.
-     *
-     * @return string|null
      */
     public function getCountryCode(): ?string
     {
@@ -109,10 +107,6 @@ class RelAddressModel
 
     /**
      * Two letter country code.
-     *
-     * @param string|null $countryCode
-     *
-     * @return self
      */
     public function setCountryCode(?string $countryCode): self
     {
@@ -123,8 +117,6 @@ class RelAddressModel
 
     /**
      * The state or province name or abbreviation (optional).
-     *
-     * @return string|null
      */
     public function getAdministrativeArea(): ?string
     {
@@ -133,10 +125,6 @@ class RelAddressModel
 
     /**
      * The state or province name or abbreviation (optional).
-     *
-     * @param string|null $administrativeArea
-     *
-     * @return self
      */
     public function setAdministrativeArea(?string $administrativeArea): self
     {
@@ -147,8 +135,6 @@ class RelAddressModel
 
     /**
      * City.
-     *
-     * @return string|null
      */
     public function getLocality(): ?string
     {
@@ -157,10 +143,6 @@ class RelAddressModel
 
     /**
      * City.
-     *
-     * @param string|null $locality
-     *
-     * @return self
      */
     public function setLocality(?string $locality): self
     {
@@ -171,8 +153,6 @@ class RelAddressModel
 
     /**
      * Additional information about the locality (optional).
-     *
-     * @return string|null
      */
     public function getDependentLocality(): ?string
     {
@@ -181,10 +161,6 @@ class RelAddressModel
 
     /**
      * Additional information about the locality (optional).
-     *
-     * @param string|null $dependentLocality
-     *
-     * @return self
      */
     public function setDependentLocality(?string $dependentLocality): self
     {
@@ -195,8 +171,6 @@ class RelAddressModel
 
     /**
      * The complete postal code for the delivery point.
-     *
-     * @return string|null
      */
     public function getPostalCode(): ?string
     {
@@ -205,10 +179,6 @@ class RelAddressModel
 
     /**
      * The complete postal code for the delivery point.
-     *
-     * @param string|null $postalCode
-     *
-     * @return self
      */
     public function setPostalCode(?string $postalCode): self
     {
@@ -219,8 +189,6 @@ class RelAddressModel
 
     /**
      * Allow sorting, for example to route mail (optional).
-     *
-     * @return string|null
      */
     public function getSortingCode(): ?string
     {
@@ -229,10 +197,6 @@ class RelAddressModel
 
     /**
      * Allow sorting, for example to route mail (optional).
-     *
-     * @param string|null $sortingCode
-     *
-     * @return self
      */
     public function setSortingCode(?string $sortingCode): self
     {
@@ -243,8 +207,6 @@ class RelAddressModel
 
     /**
      * The first address line.
-     *
-     * @return string|null
      */
     public function getAddressLine1(): ?string
     {
@@ -253,10 +215,6 @@ class RelAddressModel
 
     /**
      * The first address line.
-     *
-     * @param string|null $addressLine1
-     *
-     * @return self
      */
     public function setAddressLine1(?string $addressLine1): self
     {
@@ -267,8 +225,6 @@ class RelAddressModel
 
     /**
      * The second address line (optional).
-     *
-     * @return string|null
      */
     public function getAddressLine2(): ?string
     {
@@ -277,10 +233,6 @@ class RelAddressModel
 
     /**
      * The second address line (optional).
-     *
-     * @param string|null $addressLine2
-     *
-     * @return self
      */
     public function setAddressLine2(?string $addressLine2): self
     {
@@ -289,19 +241,11 @@ class RelAddressModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getThoroughfare(): ?string
     {
         return $this->thoroughfare;
     }
 
-    /**
-     * @param string|null $thoroughfare
-     *
-     * @return self
-     */
     public function setThoroughfare(?string $thoroughfare): self
     {
         $this->thoroughfare = $thoroughfare;
@@ -309,19 +253,11 @@ class RelAddressModel
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getPremiseNumber(): ?int
     {
         return $this->premiseNumber;
     }
 
-    /**
-     * @param int|null $premiseNumber
-     *
-     * @return self
-     */
     public function setPremiseNumber(?int $premiseNumber): self
     {
         $this->premiseNumber = $premiseNumber;
@@ -329,19 +265,11 @@ class RelAddressModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPremiseNumberSuffix(): ?string
     {
         return $this->premiseNumberSuffix;
     }
 
-    /**
-     * @param string|null $premiseNumberSuffix
-     *
-     * @return self
-     */
     public function setPremiseNumberSuffix(?string $premiseNumberSuffix): self
     {
         $this->premiseNumberSuffix = $premiseNumberSuffix;
@@ -351,8 +279,6 @@ class RelAddressModel
 
     /**
      * The name of the recipient, firm, or company at this address (optional).
-     *
-     * @return string|null
      */
     public function getOrganisation(): ?string
     {
@@ -361,10 +287,6 @@ class RelAddressModel
 
     /**
      * The name of the recipient, firm, or company at this address (optional).
-     *
-     * @param string|null $organisation
-     *
-     * @return self
      */
     public function setOrganisation(?string $organisation): self
     {
@@ -375,8 +297,6 @@ class RelAddressModel
 
     /**
      * First name.
-     *
-     * @return string|null
      */
     public function getGivenName(): ?string
     {
@@ -385,10 +305,6 @@ class RelAddressModel
 
     /**
      * First name.
-     *
-     * @param string|null $givenName
-     *
-     * @return self
      */
     public function setGivenName(?string $givenName): self
     {
@@ -399,8 +315,6 @@ class RelAddressModel
 
     /**
      * Patronymic.
-     *
-     * @return string|null
      */
     public function getAdditionalName(): ?string
     {
@@ -409,10 +323,6 @@ class RelAddressModel
 
     /**
      * Patronymic.
-     *
-     * @param string|null $additionalName
-     *
-     * @return self
      */
     public function setAdditionalName(?string $additionalName): self
     {
@@ -423,8 +333,6 @@ class RelAddressModel
 
     /**
      * Last name.
-     *
-     * @return string|null
      */
     public function getFamilyName(): ?string
     {
@@ -433,10 +341,6 @@ class RelAddressModel
 
     /**
      * Last name.
-     *
-     * @param string|null $familyName
-     *
-     * @return self
      */
     public function setFamilyName(?string $familyName): self
     {

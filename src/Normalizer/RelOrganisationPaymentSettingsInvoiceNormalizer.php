@@ -24,12 +24,12 @@ class RelOrganisationPaymentSettingsInvoiceNormalizer implements DenormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettingsInvoice';
+        return 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettingsInvoice' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettingsInvoice';
+        return 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettingsInvoice' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class RelOrganisationPaymentSettingsInvoiceNormalizer implements DenormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelOrganisationPaymentSettingsInvoice();
-        if (property_exists($data, 'is_expected_through_post_mail') && $data->{'is_expected_through_post_mail'} !== null) {
+        if (property_exists($data, 'is_expected_through_post_mail') && null !== $data->{'is_expected_through_post_mail'}) {
             $object->setIsExpectedThroughPostMail($data->{'is_expected_through_post_mail'});
         }
-        if (property_exists($data, 'is_expected_through_email') && $data->{'is_expected_through_email'} !== null) {
+        if (property_exists($data, 'is_expected_through_email') && null !== $data->{'is_expected_through_email'}) {
             $object->setIsExpectedThroughEmail($data->{'is_expected_through_email'});
         }
-        if (property_exists($data, 'is_expected_at_delivery') && $data->{'is_expected_at_delivery'} !== null) {
+        if (property_exists($data, 'is_expected_at_delivery') && null !== $data->{'is_expected_at_delivery'}) {
             $object->setIsExpectedAtDelivery($data->{'is_expected_at_delivery'});
         }
 

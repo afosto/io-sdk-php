@@ -24,12 +24,12 @@ class LcsPlaceNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsPlace';
+        return 'Afosto\\Sdk\\Model\\LcsPlace' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsPlace';
+        return 'Afosto\\Sdk\\Model\\LcsPlace' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class LcsPlaceNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsPlace();
-        if (property_exists($data, 'ids') && $data->{'ids'} !== null) {
+        if (property_exists($data, 'ids') && null !== $data->{'ids'}) {
             $values = [];
             foreach ($data->{'ids'} as $value) {
                 $values[] = $value;

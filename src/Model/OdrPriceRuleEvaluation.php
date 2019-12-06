@@ -63,19 +63,11 @@ class OdrPriceRuleEvaluation
      */
     protected $items;
 
-    /**
-     * @return \DateTime|null
-     */
     public function getPricingAt(): ?\DateTime
     {
         return $this->pricingAt;
     }
 
-    /**
-     * @param \DateTime|null $pricingAt
-     *
-     * @return self
-     */
     public function setPricingAt(?\DateTime $pricingAt): self
     {
         $this->pricingAt = $pricingAt;
@@ -85,8 +77,6 @@ class OdrPriceRuleEvaluation
 
     /**
      * Count of items on invoice.
-     *
-     * @return int|null
      */
     public function getQuantity(): ?int
     {
@@ -95,10 +85,6 @@ class OdrPriceRuleEvaluation
 
     /**
      * Count of items on invoice.
-     *
-     * @param int|null $quantity
-     *
-     * @return self
      */
     public function setQuantity(?int $quantity): self
     {
@@ -109,8 +95,6 @@ class OdrPriceRuleEvaluation
 
     /**
      * Invioce total.
-     *
-     * @return int|null
      */
     public function getAmount(): ?int
     {
@@ -119,10 +103,6 @@ class OdrPriceRuleEvaluation
 
     /**
      * Invioce total.
-     *
-     * @param int|null $amount
-     *
-     * @return self
      */
     public function setAmount(?int $amount): self
     {
@@ -133,8 +113,6 @@ class OdrPriceRuleEvaluation
 
     /**
      * Id of the client that should be used.
-     *
-     * @return string|null
      */
     public function getClient(): ?string
     {
@@ -143,10 +121,6 @@ class OdrPriceRuleEvaluation
 
     /**
      * Id of the client that should be used.
-     *
-     * @param string|null $client
-     *
-     * @return self
      */
     public function setClient(?string $client): self
     {
@@ -169,8 +143,6 @@ class OdrPriceRuleEvaluation
      * Tags of customer groups.
      *
      * @param string[]|null $tags
-     *
-     * @return self
      */
     public function setTags(?array $tags): self
     {
@@ -181,8 +153,6 @@ class OdrPriceRuleEvaluation
 
     /**
      * Id of shipment method that should be used.
-     *
-     * @return string|null
      */
     public function getShipmentMethod(): ?string
     {
@@ -191,10 +161,6 @@ class OdrPriceRuleEvaluation
 
     /**
      * Id of shipment method that should be used.
-     *
-     * @param string|null $shipmentMethod
-     *
-     * @return self
      */
     public function setShipmentMethod(?string $shipmentMethod): self
     {
@@ -205,8 +171,6 @@ class OdrPriceRuleEvaluation
 
     /**
      * Id of payment method that should be used.
-     *
-     * @return string|null
      */
     public function getPaymentMethod(): ?string
     {
@@ -215,10 +179,6 @@ class OdrPriceRuleEvaluation
 
     /**
      * Id of payment method that should be used.
-     *
-     * @param string|null $paymentMethod
-     *
-     * @return self
      */
     public function setPaymentMethod(?string $paymentMethod): self
     {
@@ -241,8 +201,6 @@ class OdrPriceRuleEvaluation
      * Ids of coupons that should be tested.
      *
      * @param string[]|null $coupons
-     *
-     * @return self
      */
     public function setCoupons(?array $coupons): self
     {
@@ -261,8 +219,6 @@ class OdrPriceRuleEvaluation
 
     /**
      * @param OdrEvaluationItem[]|null $items
-     *
-     * @return self
      */
     public function setItems(?array $items): self
     {

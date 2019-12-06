@@ -14,8 +14,6 @@ class CreateStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 {
     /**
      * Creates and returns the new stack.
-     *
-     * @param \Afosto\Sdk\Model\OdrStackModel $body
      */
     public function __construct(\Afosto\Sdk\Model\OdrStackModel $body)
     {

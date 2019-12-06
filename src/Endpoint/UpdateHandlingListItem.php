@@ -17,7 +17,6 @@ class UpdateHandlingListItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint im
     /**
      * Update items' state on a handling list.
      *
-     * @param string                                        $id
      * @param \Afosto\Sdk\Model\LcsHandlingListItemUpdate[] $body
      */
     public function __construct(string $id, array $body)

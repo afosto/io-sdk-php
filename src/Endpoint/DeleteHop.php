@@ -16,8 +16,6 @@ class DeleteHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     /**
      * Mark a hop as deleted.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

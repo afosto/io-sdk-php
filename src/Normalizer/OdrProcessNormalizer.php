@@ -24,12 +24,12 @@ class OdrProcessNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrProcess';
+        return 'Afosto\\Sdk\\Model\\OdrProcess' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrProcess';
+        return 'Afosto\\Sdk\\Model\\OdrProcess' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class OdrProcessNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrProcess();
-        if (property_exists($data, 'action') && $data->{'action'} !== null) {
+        if (property_exists($data, 'action') && null !== $data->{'action'}) {
             $object->setAction($data->{'action'});
         }
-        if (property_exists($data, 'url') && $data->{'url'} !== null) {
+        if (property_exists($data, 'url') && null !== $data->{'url'}) {
             $object->setUrl($data->{'url'});
         }
-        if (property_exists($data, 'attempts') && $data->{'attempts'} !== null) {
+        if (property_exists($data, 'attempts') && null !== $data->{'attempts'}) {
             $values = [];
             foreach ($data->{'attempts'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrAttempt', 'json', $context);

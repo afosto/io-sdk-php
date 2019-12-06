@@ -24,12 +24,12 @@ class CatVatNormalizer implements DenormalizerInterface, NormalizerInterface, De
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CatVat';
+        return 'Afosto\\Sdk\\Model\\CatVat' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CatVat';
+        return 'Afosto\\Sdk\\Model\\CatVat' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class CatVatNormalizer implements DenormalizerInterface, NormalizerInterface, De
             return null;
         }
         $object = new \Afosto\Sdk\Model\CatVat();
-        if (property_exists($data, 'rate') && $data->{'rate'} !== null) {
+        if (property_exists($data, 'rate') && null !== $data->{'rate'}) {
             $object->setRate($data->{'rate'});
         }
-        if (property_exists($data, 'country') && $data->{'country'} !== null) {
+        if (property_exists($data, 'country') && null !== $data->{'country'}) {
             $object->setCountry($data->{'country'});
         }
-        if (property_exists($data, 'administrative_area') && $data->{'administrative_area'} !== null) {
+        if (property_exists($data, 'administrative_area') && null !== $data->{'administrative_area'}) {
             $object->setAdministrativeArea($data->{'administrative_area'});
         }
 

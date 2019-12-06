@@ -24,12 +24,12 @@ class WmsTransferNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsTransfer';
+        return 'Afosto\\Sdk\\Model\\WmsTransfer' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsTransfer';
+        return 'Afosto\\Sdk\\Model\\WmsTransfer' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,42 +38,42 @@ class WmsTransferNormalizer implements DenormalizerInterface, NormalizerInterfac
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsTransfer();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'target') && $data->{'target'} !== null) {
+        if (property_exists($data, 'target') && null !== $data->{'target'}) {
             $object->setTarget($data->{'target'});
         }
-        if (property_exists($data, 'status') && $data->{'status'} !== null) {
+        if (property_exists($data, 'status') && null !== $data->{'status'}) {
             $object->setStatus($data->{'status'});
         }
-        if (property_exists($data, 'collect_at') && $data->{'collect_at'} !== null) {
+        if (property_exists($data, 'collect_at') && null !== $data->{'collect_at'}) {
             $object->setCollectAt($data->{'collect_at'});
         }
-        if (property_exists($data, 'collections') && $data->{'collections'} !== null) {
+        if (property_exists($data, 'collections') && null !== $data->{'collections'}) {
             $values = [];
             foreach ($data->{'collections'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsSubTransferSummary', 'json', $context);
             }
             $object->setCollections($values);
         }
-        if (property_exists($data, 'deliveries') && $data->{'deliveries'} !== null) {
+        if (property_exists($data, 'deliveries') && null !== $data->{'deliveries'}) {
             $values_1 = [];
             foreach ($data->{'deliveries'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\WmsSubTransferSummary', 'json', $context);
             }
             $object->setDeliveries($values_1);
         }
-        if (property_exists($data, 'is_collection_pending') && $data->{'is_collection_pending'} !== null) {
+        if (property_exists($data, 'is_collection_pending') && null !== $data->{'is_collection_pending'}) {
             $object->setIsCollectionPending($data->{'is_collection_pending'});
         }
-        if (property_exists($data, 'stack_id') && $data->{'stack_id'} !== null) {
+        if (property_exists($data, 'stack_id') && null !== $data->{'stack_id'}) {
             $object->setStackId($data->{'stack_id'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

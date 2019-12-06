@@ -27,8 +27,6 @@ class OdrSearch
 
     /**
      * @param OdrSearchConstraint[]|null $constraints
-     *
-     * @return self
      */
     public function setConstraints(?array $constraints): self
     {

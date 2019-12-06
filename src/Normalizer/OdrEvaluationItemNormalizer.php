@@ -24,12 +24,12 @@ class OdrEvaluationItemNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrEvaluationItem';
+        return 'Afosto\\Sdk\\Model\\OdrEvaluationItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrEvaluationItem';
+        return 'Afosto\\Sdk\\Model\\OdrEvaluationItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,19 +38,19 @@ class OdrEvaluationItemNormalizer implements DenormalizerInterface, NormalizerIn
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrEvaluationItem();
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'filters') && $data->{'filters'} !== null) {
+        if (property_exists($data, 'filters') && null !== $data->{'filters'}) {
             $object->setFilters($data->{'filters'});
         }
-        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
         }
-        if (property_exists($data, 'is_discounted') && $data->{'is_discounted'} !== null) {
+        if (property_exists($data, 'is_discounted') && null !== $data->{'is_discounted'}) {
             $object->setIsDiscounted($data->{'is_discounted'});
         }
 

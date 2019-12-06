@@ -24,12 +24,12 @@ class OdrProviderMethodNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrProviderMethod';
+        return 'Afosto\\Sdk\\Model\\OdrProviderMethod' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrProviderMethod';
+        return 'Afosto\\Sdk\\Model\\OdrProviderMethod' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,20 +38,20 @@ class OdrProviderMethodNormalizer implements DenormalizerInterface, NormalizerIn
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrProviderMethod();
-        if (property_exists($data, 'code') && $data->{'code'} !== null) {
+        if (property_exists($data, 'code') && null !== $data->{'code'}) {
             $object->setCode($data->{'code'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'issuers') && $data->{'issuers'} !== null) {
+        if (property_exists($data, 'issuers') && null !== $data->{'issuers'}) {
             $values = [];
             foreach ($data->{'issuers'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrIssuer', 'json', $context);
             }
             $object->setIssuers($values);
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
 

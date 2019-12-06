@@ -24,12 +24,12 @@ class CatVatProductsPutResponse200Normalizer implements DenormalizerInterface, N
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CatVatProductsPutResponse200';
+        return 'Afosto\\Sdk\\Model\\CatVatProductsPutResponse200' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CatVatProductsPutResponse200';
+        return 'Afosto\\Sdk\\Model\\CatVatProductsPutResponse200' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class CatVatProductsPutResponse200Normalizer implements DenormalizerInterface, N
             return null;
         }
         $object = new \Afosto\Sdk\Model\CatVatProductsPutResponse200();
-        if (property_exists($data, 'success') && $data->{'success'} !== null) {
+        if (property_exists($data, 'success') && null !== $data->{'success'}) {
             $object->setSuccess($data->{'success'});
         }
-        if (property_exists($data, 'failed') && $data->{'failed'} !== null) {
+        if (property_exists($data, 'failed') && null !== $data->{'failed'}) {
             $object->setFailed($data->{'failed'});
         }
 

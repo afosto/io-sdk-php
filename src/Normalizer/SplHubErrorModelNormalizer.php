@@ -24,12 +24,12 @@ class SplHubErrorModelNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplHubErrorModel';
+        return 'Afosto\\Sdk\\Model\\SplHubErrorModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplHubErrorModel';
+        return 'Afosto\\Sdk\\Model\\SplHubErrorModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class SplHubErrorModelNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplHubErrorModel();
-        if (property_exists($data, 'message') && $data->{'message'} !== null) {
+        if (property_exists($data, 'message') && null !== $data->{'message'}) {
             $object->setMessage($data->{'message'});
         }
-        if (property_exists($data, 'level') && $data->{'level'} !== null) {
+        if (property_exists($data, 'level') && null !== $data->{'level'}) {
             $object->setLevel($data->{'level'});
         }
-        if (property_exists($data, 'job_reference') && $data->{'job_reference'} !== null) {
+        if (property_exists($data, 'job_reference') && null !== $data->{'job_reference'}) {
             $object->setJobReference($data->{'job_reference'});
         }
 

@@ -37,7 +37,6 @@ class ListSubscriptionInvoices extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
     /**
      * {@inheritdoc}
      *
-     *
      * @return \Afosto\Sdk\Model\IamInvoice[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)

@@ -69,19 +69,11 @@ class OdrStack
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -89,19 +81,11 @@ class OdrStack
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;
@@ -109,19 +93,11 @@ class OdrStack
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getCount(): ?int
     {
         return $this->count;
     }
 
-    /**
-     * @param int|null $count
-     *
-     * @return self
-     */
     public function setCount(?int $count): self
     {
         $this->count = $count;
@@ -129,19 +105,11 @@ class OdrStack
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsLocked(): ?bool
     {
         return $this->isLocked;
     }
 
-    /**
-     * @param bool|null $isLocked
-     *
-     * @return self
-     */
     public function setIsLocked(?bool $isLocked): self
     {
         $this->isLocked = $isLocked;
@@ -149,19 +117,11 @@ class OdrStack
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsConfirmed(): ?bool
     {
         return $this->isConfirmed;
     }
 
-    /**
-     * @param bool|null $isConfirmed
-     *
-     * @return self
-     */
     public function setIsConfirmed(?bool $isConfirmed): self
     {
         $this->isConfirmed = $isConfirmed;
@@ -169,19 +129,11 @@ class OdrStack
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsAccepted(): ?bool
     {
         return $this->isAccepted;
     }
 
-    /**
-     * @param bool|null $isAccepted
-     *
-     * @return self
-     */
     public function setIsAccepted(?bool $isAccepted): self
     {
         $this->isAccepted = $isAccepted;
@@ -189,19 +141,11 @@ class OdrStack
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsInProgress(): ?bool
     {
         return $this->isInProgress;
     }
 
-    /**
-     * @param bool|null $isInProgress
-     *
-     * @return self
-     */
     public function setIsInProgress(?bool $isInProgress): self
     {
         $this->isInProgress = $isInProgress;
@@ -209,19 +153,11 @@ class OdrStack
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsFinished(): ?bool
     {
         return $this->isFinished;
     }
 
-    /**
-     * @param bool|null $isFinished
-     *
-     * @return self
-     */
     public function setIsFinished(?bool $isFinished): self
     {
         $this->isFinished = $isFinished;
@@ -239,8 +175,6 @@ class OdrStack
 
     /**
      * @param string[]|null $disposals
-     *
-     * @return self
      */
     public function setDisposals(?array $disposals): self
     {
@@ -259,8 +193,6 @@ class OdrStack
 
     /**
      * @param OdrStackReference[]|null $source
-     *
-     * @return self
      */
     public function setSource(?array $source): self
     {
@@ -269,19 +201,11 @@ class OdrStack
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getExpectedAt(): ?\DateTime
     {
         return $this->expectedAt;
     }
 
-    /**
-     * @param \DateTime|null $expectedAt
-     *
-     * @return self
-     */
     public function setExpectedAt(?\DateTime $expectedAt): self
     {
         $this->expectedAt = $expectedAt;
@@ -299,8 +223,6 @@ class OdrStack
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -309,19 +231,11 @@ class OdrStack
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -329,19 +243,11 @@ class OdrStack
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

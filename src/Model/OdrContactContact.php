@@ -53,19 +53,11 @@ class OdrContactContact
      */
     protected $version;
 
-    /**
-     * @return string|null
-     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    /**
-     * @param string|null $email
-     *
-     * @return self
-     */
     public function setEmail(?string $email): self
     {
         $this->email = $email;
@@ -73,19 +65,11 @@ class OdrContactContact
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getVatNumber(): ?string
     {
         return $this->vatNumber;
     }
 
-    /**
-     * @param string|null $vatNumber
-     *
-     * @return self
-     */
     public function setVatNumber(?string $vatNumber): self
     {
         $this->vatNumber = $vatNumber;
@@ -93,19 +77,11 @@ class OdrContactContact
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCocNumber(): ?string
     {
         return $this->cocNumber;
     }
 
-    /**
-     * @param string|null $cocNumber
-     *
-     * @return self
-     */
     public function setCocNumber(?string $cocNumber): self
     {
         $this->cocNumber = $cocNumber;
@@ -113,19 +89,11 @@ class OdrContactContact
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getOrganisationId(): ?string
     {
         return $this->organisationId;
     }
 
-    /**
-     * @param string|null $organisationId
-     *
-     * @return self
-     */
     public function setOrganisationId(?string $organisationId): self
     {
         $this->organisationId = $organisationId;
@@ -133,19 +101,11 @@ class OdrContactContact
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getOrganisationVersion(): ?string
     {
         return $this->organisationVersion;
     }
 
-    /**
-     * @param string|null $organisationVersion
-     *
-     * @return self
-     */
     public function setOrganisationVersion(?string $organisationVersion): self
     {
         $this->organisationVersion = $organisationVersion;
@@ -153,19 +113,11 @@ class OdrContactContact
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressId(): ?string
     {
         return $this->addressId;
     }
 
-    /**
-     * @param string|null $addressId
-     *
-     * @return self
-     */
     public function setAddressId(?string $addressId): self
     {
         $this->addressId = $addressId;
@@ -173,19 +125,11 @@ class OdrContactContact
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getShipmentAddressId(): ?string
     {
         return $this->shipmentAddressId;
     }
 
-    /**
-     * @param string|null $shipmentAddressId
-     *
-     * @return self
-     */
     public function setShipmentAddressId(?string $shipmentAddressId): self
     {
         $this->shipmentAddressId = $shipmentAddressId;
@@ -193,19 +137,11 @@ class OdrContactContact
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPhoneNumberId(): ?string
     {
         return $this->phoneNumberId;
     }
 
-    /**
-     * @param string|null $phoneNumberId
-     *
-     * @return self
-     */
     public function setPhoneNumberId(?string $phoneNumberId): self
     {
         $this->phoneNumberId = $phoneNumberId;
@@ -213,19 +149,11 @@ class OdrContactContact
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -233,19 +161,11 @@ class OdrContactContact
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getVersion(): ?string
     {
         return $this->version;
     }
 
-    /**
-     * @param string|null $version
-     *
-     * @return self
-     */
     public function setVersion(?string $version): self
     {
         $this->version = $version;

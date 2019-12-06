@@ -24,12 +24,12 @@ class OdrItemModelNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrItemModel';
+        return 'Afosto\\Sdk\\Model\\OdrItemModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrItemModel';
+        return 'Afosto\\Sdk\\Model\\OdrItemModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class OdrItemModelNormalizer implements DenormalizerInterface, NormalizerInterfa
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrItemModel();
-        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
         }
 

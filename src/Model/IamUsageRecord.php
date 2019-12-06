@@ -25,19 +25,11 @@ class IamUsageRecord
      */
     protected $quantity;
 
-    /**
-     * @return string|null
-     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
-    /**
-     * @param string|null $code
-     *
-     * @return self
-     */
     public function setCode(?string $code): self
     {
         $this->code = $code;
@@ -45,19 +37,11 @@ class IamUsageRecord
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUnit(): ?string
     {
         return $this->unit;
     }
 
-    /**
-     * @param string|null $unit
-     *
-     * @return self
-     */
     public function setUnit(?string $unit): self
     {
         $this->unit = $unit;
@@ -65,19 +49,11 @@ class IamUsageRecord
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getQuantity(): ?int
     {
         return $this->quantity;
     }
 
-    /**
-     * @param int|null $quantity
-     *
-     * @return self
-     */
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;

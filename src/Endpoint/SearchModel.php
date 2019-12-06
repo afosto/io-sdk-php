@@ -20,8 +20,6 @@ class SearchModel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * Run a complex search.
      *
      * @param string                           $namespace        the namespace
-     * @param string                           $code
-     * @param string                           $model
      * @param \Afosto\Sdk\Model\CntSearchQuery $body             Query object
      * @param array                            $headerParameters {
      *

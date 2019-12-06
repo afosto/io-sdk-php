@@ -21,19 +21,11 @@ class SplHubModel
      */
     protected $description;
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -41,19 +33,11 @@ class SplHubModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;

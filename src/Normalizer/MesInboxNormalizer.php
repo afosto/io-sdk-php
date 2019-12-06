@@ -24,12 +24,12 @@ class MesInboxNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesInbox';
+        return 'Afosto\\Sdk\\Model\\MesInbox' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesInbox';
+        return 'Afosto\\Sdk\\Model\\MesInbox' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,32 +38,32 @@ class MesInboxNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesInbox();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'label') && $data->{'label'} !== null) {
+        if (property_exists($data, 'label') && null !== $data->{'label'}) {
             $object->setLabel($data->{'label'});
         }
-        if (property_exists($data, 'fqdn') && $data->{'fqdn'} !== null) {
+        if (property_exists($data, 'fqdn') && null !== $data->{'fqdn'}) {
             $object->setFqdn($data->{'fqdn'});
         }
-        if (property_exists($data, 'prefix') && $data->{'prefix'} !== null) {
+        if (property_exists($data, 'prefix') && null !== $data->{'prefix'}) {
             $object->setPrefix($data->{'prefix'});
         }
-        if (property_exists($data, 'user_id') && $data->{'user_id'} !== null) {
+        if (property_exists($data, 'user_id') && null !== $data->{'user_id'}) {
             $object->setUserId($data->{'user_id'});
         }
-        if (property_exists($data, 'folders') && $data->{'folders'} !== null) {
+        if (property_exists($data, 'folders') && null !== $data->{'folders'}) {
             $values = [];
             foreach ($data->{'folders'} as $value) {
                 $values[] = $value;
             }
             $object->setFolders($values);
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

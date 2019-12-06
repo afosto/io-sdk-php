@@ -29,19 +29,11 @@ class RelOrganisationPaymentSettingsPostPayment
      */
     protected $iban;
 
-    /**
-     * @return int|null
-     */
     public function getSpendingLimit(): ?int
     {
         return $this->spendingLimit;
     }
 
-    /**
-     * @param int|null $spendingLimit
-     *
-     * @return self
-     */
     public function setSpendingLimit(?int $spendingLimit): self
     {
         $this->spendingLimit = $spendingLimit;
@@ -49,19 +41,11 @@ class RelOrganisationPaymentSettingsPostPayment
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getCurrentDueAmount(): ?int
     {
         return $this->currentDueAmount;
     }
 
-    /**
-     * @param int|null $currentDueAmount
-     *
-     * @return self
-     */
     public function setCurrentDueAmount(?int $currentDueAmount): self
     {
         $this->currentDueAmount = $currentDueAmount;
@@ -69,19 +53,11 @@ class RelOrganisationPaymentSettingsPostPayment
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getDueAfter(): ?int
     {
         return $this->dueAfter;
     }
 
-    /**
-     * @param int|null $dueAfter
-     *
-     * @return self
-     */
     public function setDueAfter(?int $dueAfter): self
     {
         $this->dueAfter = $dueAfter;
@@ -89,19 +65,11 @@ class RelOrganisationPaymentSettingsPostPayment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getIban(): ?string
     {
         return $this->iban;
     }
 
-    /**
-     * @param string|null $iban
-     *
-     * @return self
-     */
     public function setIban(?string $iban): self
     {
         $this->iban = $iban;

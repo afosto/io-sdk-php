@@ -24,12 +24,12 @@ class MesTypeNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesType';
+        return 'Afosto\\Sdk\\Model\\MesType' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesType';
+        return 'Afosto\\Sdk\\Model\\MesType' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class MesTypeNormalizer implements DenormalizerInterface, NormalizerInterface, D
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesType();
-        if (property_exists($data, 'code') && $data->{'code'} !== null) {
+        if (property_exists($data, 'code') && null !== $data->{'code'}) {
             $object->setCode($data->{'code'});
         }
-        if (property_exists($data, 'unit') && $data->{'unit'} !== null) {
+        if (property_exists($data, 'unit') && null !== $data->{'unit'}) {
             $object->setUnit($data->{'unit'});
         }
-        if (property_exists($data, 'processable_as') && $data->{'processable_as'} !== null) {
+        if (property_exists($data, 'processable_as') && null !== $data->{'processable_as'}) {
             $object->setProcessableAs($data->{'processable_as'});
         }
-        if (property_exists($data, 'filter') && $data->{'filter'} !== null) {
+        if (property_exists($data, 'filter') && null !== $data->{'filter'}) {
             $object->setFilter($data->{'filter'});
         }
 

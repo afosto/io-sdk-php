@@ -24,12 +24,12 @@ class WmsStockUpRequestNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsStockUpRequest';
+        return 'Afosto\\Sdk\\Model\\WmsStockUpRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsStockUpRequest';
+        return 'Afosto\\Sdk\\Model\\WmsStockUpRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class WmsStockUpRequestNormalizer implements DenormalizerInterface, NormalizerIn
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsStockUpRequest();
-        if (property_exists($data, 'location_id') && $data->{'location_id'} !== null) {
+        if (property_exists($data, 'location_id') && null !== $data->{'location_id'}) {
             $object->setLocationId($data->{'location_id'});
         }
-        if (property_exists($data, 'stack') && $data->{'stack'} !== null) {
+        if (property_exists($data, 'stack') && null !== $data->{'stack'}) {
             $object->setStack($this->denormalizer->denormalize($data->{'stack'}, 'Afosto\\Sdk\\Model\\WmsStackReference', 'json', $context));
         }
 

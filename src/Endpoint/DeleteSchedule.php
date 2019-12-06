@@ -16,8 +16,6 @@ class DeleteSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 
     /**
      * Mark a schedule as deleted.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

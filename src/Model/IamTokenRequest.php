@@ -29,19 +29,11 @@ class IamTokenRequest
      */
     protected $scope;
 
-    /**
-     * @return string|null
-     */
     public function getClientId(): ?string
     {
         return $this->clientId;
     }
 
-    /**
-     * @param string|null $clientId
-     *
-     * @return self
-     */
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
@@ -49,19 +41,11 @@ class IamTokenRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getClientSecret(): ?string
     {
         return $this->clientSecret;
     }
 
-    /**
-     * @param string|null $clientSecret
-     *
-     * @return self
-     */
     public function setClientSecret(?string $clientSecret): self
     {
         $this->clientSecret = $clientSecret;
@@ -69,19 +53,11 @@ class IamTokenRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getGrantType(): ?string
     {
         return $this->grantType;
     }
 
-    /**
-     * @param string|null $grantType
-     *
-     * @return self
-     */
     public function setGrantType(?string $grantType): self
     {
         $this->grantType = $grantType;
@@ -89,19 +65,11 @@ class IamTokenRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getScope(): ?string
     {
         return $this->scope;
     }
 
-    /**
-     * @param string|null $scope
-     *
-     * @return self
-     */
     public function setScope(?string $scope): self
     {
         $this->scope = $scope;

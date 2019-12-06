@@ -17,7 +17,6 @@ class Unsubscribe extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * Remove a subscription to recieve updates on this conversation.
      *
-     * @param int                         $id
      * @param \Afosto\Sdk\Model\MesCancel $body The subscription data
      */
     public function __construct(int $id, \Afosto\Sdk\Model\MesCancel $body)

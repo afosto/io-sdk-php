@@ -21,19 +21,11 @@ class IamSecretRequest
      */
     protected $backups;
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -51,8 +43,6 @@ class IamSecretRequest
 
     /**
      * @param IamBackup[]|null $backups
-     *
-     * @return self
      */
     public function setBackups(?array $backups): self
     {

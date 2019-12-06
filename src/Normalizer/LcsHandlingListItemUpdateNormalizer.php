@@ -24,12 +24,12 @@ class LcsHandlingListItemUpdateNormalizer implements DenormalizerInterface, Norm
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsHandlingListItemUpdate';
+        return 'Afosto\\Sdk\\Model\\LcsHandlingListItemUpdate' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsHandlingListItemUpdate';
+        return 'Afosto\\Sdk\\Model\\LcsHandlingListItemUpdate' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class LcsHandlingListItemUpdateNormalizer implements DenormalizerInterface, Norm
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsHandlingListItemUpdate();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'is_handled') && $data->{'is_handled'} !== null) {
+        if (property_exists($data, 'is_handled') && null !== $data->{'is_handled'}) {
             $object->setIsHandled($data->{'is_handled'});
         }
-        if (property_exists($data, 'is_serviced') && $data->{'is_serviced'} !== null) {
+        if (property_exists($data, 'is_serviced') && null !== $data->{'is_serviced'}) {
             $object->setIsServiced($data->{'is_serviced'});
         }
-        if (property_exists($data, 'position') && $data->{'position'} !== null) {
+        if (property_exists($data, 'position') && null !== $data->{'position'}) {
             $object->setPosition($data->{'position'});
         }
 

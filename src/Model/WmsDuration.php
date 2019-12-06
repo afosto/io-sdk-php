@@ -21,8 +21,6 @@ class WmsDuration
 
     /**
      * the amount of days until delivery.
-     *
-     * @return int|null
      */
     public function getDuration(): ?int
     {
@@ -31,10 +29,6 @@ class WmsDuration
 
     /**
      * the amount of days until delivery.
-     *
-     * @param int|null $duration
-     *
-     * @return self
      */
     public function setDuration(?int $duration): self
     {

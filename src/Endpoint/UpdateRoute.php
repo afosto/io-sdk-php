@@ -14,8 +14,6 @@ class UpdateRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 {
     /**
      * Update a route.
-     *
-     * @param \Afosto\Sdk\Model\WmsUpdateRouteRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\WmsUpdateRouteRequest $body)
     {

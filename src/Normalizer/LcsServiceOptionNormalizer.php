@@ -24,12 +24,12 @@ class LcsServiceOptionNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsServiceOption';
+        return 'Afosto\\Sdk\\Model\\LcsServiceOption' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsServiceOption';
+        return 'Afosto\\Sdk\\Model\\LcsServiceOption' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class LcsServiceOptionNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsServiceOption();
-        if (property_exists($data, 'option') && $data->{'option'} !== null) {
+        if (property_exists($data, 'option') && null !== $data->{'option'}) {
             $object->setOption($data->{'option'});
         }
-        if (property_exists($data, 'configuration') && $data->{'configuration'} !== null) {
+        if (property_exists($data, 'configuration') && null !== $data->{'configuration'}) {
             $values = [];
             foreach ($data->{'configuration'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsServiceOptionConfigurationItem', 'json', $context);

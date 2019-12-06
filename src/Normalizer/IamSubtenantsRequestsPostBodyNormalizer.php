@@ -24,12 +24,12 @@ class IamSubtenantsRequestsPostBodyNormalizer implements DenormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamSubtenantsRequestsPostBody';
+        return 'Afosto\\Sdk\\Model\\IamSubtenantsRequestsPostBody' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamSubtenantsRequestsPostBody';
+        return 'Afosto\\Sdk\\Model\\IamSubtenantsRequestsPostBody' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class IamSubtenantsRequestsPostBodyNormalizer implements DenormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamSubtenantsRequestsPostBody();
-        if (property_exists($data, 'signee') && $data->{'signee'} !== null) {
+        if (property_exists($data, 'signee') && null !== $data->{'signee'}) {
             $object->setSignee($data->{'signee'});
         }
-        if (property_exists($data, 'roles') && $data->{'roles'} !== null) {
+        if (property_exists($data, 'roles') && null !== $data->{'roles'}) {
             $values = [];
             foreach ($data->{'roles'} as $value) {
                 $values[] = $value;

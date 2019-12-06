@@ -31,8 +31,6 @@ class WmsCreateTransferRequest
 
     /**
      * Target location.
-     *
-     * @return string|null
      */
     public function getTarget(): ?string
     {
@@ -41,10 +39,6 @@ class WmsCreateTransferRequest
 
     /**
      * Target location.
-     *
-     * @param string|null $target
-     *
-     * @return self
      */
     public function setTarget(?string $target): self
     {
@@ -55,8 +49,6 @@ class WmsCreateTransferRequest
 
     /**
      * Optional value: use when order should be collected in single location.
-     *
-     * @return string|null
      */
     public function getCollectAt(): ?string
     {
@@ -65,10 +57,6 @@ class WmsCreateTransferRequest
 
     /**
      * Optional value: use when order should be collected in single location.
-     *
-     * @param string|null $collectAt
-     *
-     * @return self
      */
     public function setCollectAt(?string $collectAt): self
     {
@@ -87,8 +75,6 @@ class WmsCreateTransferRequest
 
     /**
      * @param string[]|null $claims
-     *
-     * @return self
      */
     public function setClaims(?array $claims): self
     {

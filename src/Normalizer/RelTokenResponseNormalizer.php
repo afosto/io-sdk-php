@@ -24,12 +24,12 @@ class RelTokenResponseNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelTokenResponse';
+        return 'Afosto\\Sdk\\Model\\RelTokenResponse' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelTokenResponse';
+        return 'Afosto\\Sdk\\Model\\RelTokenResponse' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class RelTokenResponseNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelTokenResponse();
-        if (property_exists($data, 'status') && $data->{'status'} !== null) {
+        if (property_exists($data, 'status') && null !== $data->{'status'}) {
             $object->setStatus($data->{'status'});
         }
 

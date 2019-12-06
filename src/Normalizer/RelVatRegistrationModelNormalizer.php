@@ -24,12 +24,12 @@ class RelVatRegistrationModelNormalizer implements DenormalizerInterface, Normal
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelVatRegistrationModel';
+        return 'Afosto\\Sdk\\Model\\RelVatRegistrationModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelVatRegistrationModel';
+        return 'Afosto\\Sdk\\Model\\RelVatRegistrationModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class RelVatRegistrationModelNormalizer implements DenormalizerInterface, Normal
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelVatRegistrationModel();
-        if (property_exists($data, 'country_code') && $data->{'country_code'} !== null) {
+        if (property_exists($data, 'country_code') && null !== $data->{'country_code'}) {
             $object->setCountryCode($data->{'country_code'});
         }
-        if (property_exists($data, 'number') && $data->{'number'} !== null) {
+        if (property_exists($data, 'number') && null !== $data->{'number'}) {
             $object->setNumber($data->{'number'});
         }
 

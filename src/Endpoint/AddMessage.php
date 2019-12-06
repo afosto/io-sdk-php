@@ -17,7 +17,6 @@ class AddMessage extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
      * Append a message to the conversation.
      *
-     * @param int                             $id
      * @param \Afosto\Sdk\Model\MesMessageAdd $body The new message
      */
     public function __construct(int $id, \Afosto\Sdk\Model\MesMessageAdd $body)

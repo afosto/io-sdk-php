@@ -21,19 +21,11 @@ class LcsShipmentItemModelPositions
      */
     protected $target;
 
-    /**
-     * @return string|null
-     */
     public function getSource(): ?string
     {
         return $this->source;
     }
 
-    /**
-     * @param string|null $source
-     *
-     * @return self
-     */
     public function setSource(?string $source): self
     {
         $this->source = $source;
@@ -41,19 +33,11 @@ class LcsShipmentItemModelPositions
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTarget(): ?string
     {
         return $this->target;
     }
 
-    /**
-     * @param string|null $target
-     *
-     * @return self
-     */
     public function setTarget(?string $target): self
     {
         $this->target = $target;

@@ -24,12 +24,12 @@ class CatFilterSetNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CatFilterSet';
+        return 'Afosto\\Sdk\\Model\\CatFilterSet' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CatFilterSet';
+        return 'Afosto\\Sdk\\Model\\CatFilterSet' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class CatFilterSetNormalizer implements DenormalizerInterface, NormalizerInterfa
             return null;
         }
         $object = new \Afosto\Sdk\Model\CatFilterSet();
-        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'filters') && $data->{'filters'} !== null) {
+        if (property_exists($data, 'filters') && null !== $data->{'filters'}) {
             $object->setFilters($data->{'filters'});
         }
 

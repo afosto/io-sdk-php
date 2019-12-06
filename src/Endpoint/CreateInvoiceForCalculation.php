@@ -16,9 +16,6 @@ class CreateInvoiceForCalculation extends \Jane\OpenApiRuntime\Client\BaseEndpoi
 
     /**
      * Creates the invoice.
-     *
-     * @param string                                        $id
-     * @param \Afosto\Sdk\Model\OdrCalculatedInvoiceRequest $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\OdrCalculatedInvoiceRequest $body)
     {

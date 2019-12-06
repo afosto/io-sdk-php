@@ -21,19 +21,11 @@ class CntFacet
      */
     protected $buckets;
 
-    /**
-     * @return string|null
-     */
     public function getKey(): ?string
     {
         return $this->key;
     }
 
-    /**
-     * @param string|null $key
-     *
-     * @return self
-     */
     public function setKey(?string $key): self
     {
         $this->key = $key;
@@ -51,8 +43,6 @@ class CntFacet
 
     /**
      * @param CntBucket[]|null $buckets
-     *
-     * @return self
      */
     public function setBuckets(?array $buckets): self
     {

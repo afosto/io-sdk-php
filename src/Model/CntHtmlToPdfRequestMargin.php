@@ -29,19 +29,11 @@ class CntHtmlToPdfRequestMargin
      */
     protected $right = 0;
 
-    /**
-     * @return int|null
-     */
     public function getTop(): ?int
     {
         return $this->top;
     }
 
-    /**
-     * @param int|null $top
-     *
-     * @return self
-     */
     public function setTop(?int $top): self
     {
         $this->top = $top;
@@ -49,19 +41,11 @@ class CntHtmlToPdfRequestMargin
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getBottom(): ?int
     {
         return $this->bottom;
     }
 
-    /**
-     * @param int|null $bottom
-     *
-     * @return self
-     */
     public function setBottom(?int $bottom): self
     {
         $this->bottom = $bottom;
@@ -69,19 +53,11 @@ class CntHtmlToPdfRequestMargin
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getLeft(): ?int
     {
         return $this->left;
     }
 
-    /**
-     * @param int|null $left
-     *
-     * @return self
-     */
     public function setLeft(?int $left): self
     {
         $this->left = $left;
@@ -89,19 +65,11 @@ class CntHtmlToPdfRequestMargin
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getRight(): ?int
     {
         return $this->right;
     }
 
-    /**
-     * @param int|null $right
-     *
-     * @return self
-     */
     public function setRight(?int $right): self
     {
         $this->right = $right;

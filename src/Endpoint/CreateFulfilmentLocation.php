@@ -14,8 +14,6 @@ class CreateFulfilmentLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
 {
     /**
      * Create a new fulfilment location.
-     *
-     * @param \Afosto\Sdk\Model\LcsFulfilmentLocationCreate $body
      */
     public function __construct(\Afosto\Sdk\Model\LcsFulfilmentLocationCreate $body)
     {

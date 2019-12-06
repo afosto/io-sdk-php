@@ -43,19 +43,11 @@ class CatGroup
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -63,19 +55,11 @@ class CatGroup
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -85,8 +69,6 @@ class CatGroup
 
     /**
      * True when prices are stored including taxes.
-     *
-     * @return bool|null
      */
     public function getIsIncludingVat(): ?bool
     {
@@ -95,10 +77,6 @@ class CatGroup
 
     /**
      * True when prices are stored including taxes.
-     *
-     * @param bool|null $isIncludingVat
-     *
-     * @return self
      */
     public function setIsIncludingVat(?bool $isIncludingVat): self
     {
@@ -107,19 +85,11 @@ class CatGroup
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCurrency(): ?string
     {
         return $this->currency;
     }
 
-    /**
-     * @param string|null $currency
-     *
-     * @return self
-     */
     public function setCurrency(?string $currency): self
     {
         $this->currency = $currency;
@@ -137,8 +107,6 @@ class CatGroup
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -147,19 +115,11 @@ class CatGroup
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -167,19 +127,11 @@ class CatGroup
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

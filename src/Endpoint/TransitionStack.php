@@ -14,8 +14,6 @@ class TransitionStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 {
     /**
      * Creates and returns the new stack.
-     *
-     * @param \Afosto\Sdk\Model\OdrTransitionModel $body
      */
     public function __construct(\Afosto\Sdk\Model\OdrTransitionModel $body)
     {

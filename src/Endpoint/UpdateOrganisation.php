@@ -16,9 +16,6 @@ class UpdateOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 
     /**
      * Updates an existing organisation.
-     *
-     * @param string                                       $id
-     * @param \Afosto\Sdk\Model\RelOrganisationUpdateModel $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\RelOrganisationUpdateModel $body)
     {

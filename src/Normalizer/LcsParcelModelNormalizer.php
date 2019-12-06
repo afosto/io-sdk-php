@@ -24,12 +24,12 @@ class LcsParcelModelNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsParcelModel';
+        return 'Afosto\\Sdk\\Model\\LcsParcelModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsParcelModel';
+        return 'Afosto\\Sdk\\Model\\LcsParcelModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,22 +38,22 @@ class LcsParcelModelNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsParcelModel();
-        if (property_exists($data, 'weight') && $data->{'weight'} !== null) {
+        if (property_exists($data, 'weight') && null !== $data->{'weight'}) {
             $object->setWeight($data->{'weight'});
         }
-        if (property_exists($data, 'length') && $data->{'length'} !== null) {
+        if (property_exists($data, 'length') && null !== $data->{'length'}) {
             $object->setLength($data->{'length'});
         }
-        if (property_exists($data, 'width') && $data->{'width'} !== null) {
+        if (property_exists($data, 'width') && null !== $data->{'width'}) {
             $object->setWidth($data->{'width'});
         }
-        if (property_exists($data, 'height') && $data->{'height'} !== null) {
+        if (property_exists($data, 'height') && null !== $data->{'height'}) {
             $object->setHeight($data->{'height'});
         }
-        if (property_exists($data, 'tracking_code') && $data->{'tracking_code'} !== null) {
+        if (property_exists($data, 'tracking_code') && null !== $data->{'tracking_code'}) {
             $object->setTrackingCode($data->{'tracking_code'});
         }
-        if (property_exists($data, 'tracking_url') && $data->{'tracking_url'} !== null) {
+        if (property_exists($data, 'tracking_url') && null !== $data->{'tracking_url'}) {
             $object->setTrackingUrl($data->{'tracking_url'});
         }
 

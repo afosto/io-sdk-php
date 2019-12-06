@@ -17,25 +17,23 @@ class Error
      */
     protected $code;
     /**
-     * the error message.
-     *
      * @var string
      */
     protected $message;
-
     /**
-     * @return int|null
+     * @var string
      */
+    protected $reference;
+    /**
+     * @var string[][]
+     */
+    protected $errors;
+
     public function getCode(): ?int
     {
         return $this->code;
     }
 
-    /**
-     * @param int|null $code
-     *
-     * @return self
-     */
     public function setCode(?int $code): self
     {
         $this->code = $code;
@@ -43,26 +41,44 @@ class Error
         return $this;
     }
 
-    /**
-     * the error message.
-     *
-     * @return string|null
-     */
     public function getMessage(): ?string
     {
         return $this->message;
     }
 
-    /**
-     * the error message.
-     *
-     * @param string|null $message
-     *
-     * @return self
-     */
     public function setMessage(?string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(?string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    /**
+     * @return string[][]|null
+     */
+    public function getErrors(): ?\ArrayObject
+    {
+        return $this->errors;
+    }
+
+    /**
+     * @param string[][]|null $errors
+     */
+    public function setErrors(?\ArrayObject $errors): self
+    {
+        $this->errors = $errors;
 
         return $this;
     }

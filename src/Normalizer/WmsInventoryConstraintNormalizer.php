@@ -24,12 +24,12 @@ class WmsInventoryConstraintNormalizer implements DenormalizerInterface, Normali
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsInventoryConstraint';
+        return 'Afosto\\Sdk\\Model\\WmsInventoryConstraint' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsInventoryConstraint';
+        return 'Afosto\\Sdk\\Model\\WmsInventoryConstraint' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class WmsInventoryConstraintNormalizer implements DenormalizerInterface, Normali
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsInventoryConstraint();
-        if (property_exists($data, 'key') && $data->{'key'} !== null) {
+        if (property_exists($data, 'key') && null !== $data->{'key'}) {
             $object->setKey($data->{'key'});
         }
-        if (property_exists($data, 'operator') && $data->{'operator'} !== null) {
+        if (property_exists($data, 'operator') && null !== $data->{'operator'}) {
             $object->setOperator($data->{'operator'});
         }
-        if (property_exists($data, 'value') && $data->{'value'} !== null) {
+        if (property_exists($data, 'value') && null !== $data->{'value'}) {
             $values = [];
             foreach ($data->{'value'} as $value) {
                 $values[] = $value;

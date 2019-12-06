@@ -16,9 +16,6 @@ class UpdateRequest extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     /**
      * Updates the request state.
-     *
-     * @param string                                                         $id
-     * @param \Afosto\Sdk\Model\IamSubtenantsAuthorizationsRequestsIdPutBody $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\IamSubtenantsAuthorizationsRequestsIdPutBody $body)
     {

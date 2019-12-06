@@ -16,8 +16,6 @@ class GetProxy extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
 
     /**
      * Returns the proxy configuration.
-     *
-     * @param string $key
      */
     public function __construct(string $key)
     {

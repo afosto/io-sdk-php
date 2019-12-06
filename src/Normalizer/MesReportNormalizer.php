@@ -24,12 +24,12 @@ class MesReportNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesReport';
+        return 'Afosto\\Sdk\\Model\\MesReport' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesReport';
+        return 'Afosto\\Sdk\\Model\\MesReport' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,28 +38,28 @@ class MesReportNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesReport();
-        if (property_exists($data, 'interval') && $data->{'interval'} !== null) {
+        if (property_exists($data, 'interval') && null !== $data->{'interval'}) {
             $object->setInterval($data->{'interval'});
         }
-        if (property_exists($data, 'code') && $data->{'code'} !== null) {
+        if (property_exists($data, 'code') && null !== $data->{'code'}) {
             $object->setCode($data->{'code'});
         }
-        if (property_exists($data, 'unit') && $data->{'unit'} !== null) {
+        if (property_exists($data, 'unit') && null !== $data->{'unit'}) {
             $object->setUnit($data->{'unit'});
         }
-        if (property_exists($data, 'as') && $data->{'as'} !== null) {
+        if (property_exists($data, 'as') && null !== $data->{'as'}) {
             $object->setAs($data->{'as'});
         }
-        if (property_exists($data, 'filter') && $data->{'filter'} !== null) {
+        if (property_exists($data, 'filter') && null !== $data->{'filter'}) {
             $object->setFilter($data->{'filter'});
         }
-        if (property_exists($data, 'start_at') && $data->{'start_at'} !== null) {
+        if (property_exists($data, 'start_at') && null !== $data->{'start_at'}) {
             $object->setStartAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'start_at'}));
         }
-        if (property_exists($data, 'end_at') && $data->{'end_at'} !== null) {
+        if (property_exists($data, 'end_at') && null !== $data->{'end_at'}) {
             $object->setEndAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'end_at'}));
         }
-        if (property_exists($data, 'buckets') && $data->{'buckets'} !== null) {
+        if (property_exists($data, 'buckets') && null !== $data->{'buckets'}) {
             $values = [];
             foreach ($data->{'buckets'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\MesBucket', 'json', $context);

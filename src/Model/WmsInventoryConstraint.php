@@ -25,19 +25,11 @@ class WmsInventoryConstraint
      */
     protected $value;
 
-    /**
-     * @return string|null
-     */
     public function getKey(): ?string
     {
         return $this->key;
     }
 
-    /**
-     * @param string|null $key
-     *
-     * @return self
-     */
     public function setKey(?string $key): self
     {
         $this->key = $key;
@@ -45,19 +37,11 @@ class WmsInventoryConstraint
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getOperator(): ?string
     {
         return $this->operator;
     }
 
-    /**
-     * @param string|null $operator
-     *
-     * @return self
-     */
     public function setOperator(?string $operator): self
     {
         $this->operator = $operator;
@@ -75,8 +59,6 @@ class WmsInventoryConstraint
 
     /**
      * @param string[]|null $value
-     *
-     * @return self
      */
     public function setValue(?array $value): self
     {

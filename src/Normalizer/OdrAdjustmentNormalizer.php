@@ -24,12 +24,12 @@ class OdrAdjustmentNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrAdjustment';
+        return 'Afosto\\Sdk\\Model\\OdrAdjustment' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrAdjustment';
+        return 'Afosto\\Sdk\\Model\\OdrAdjustment' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,19 +38,19 @@ class OdrAdjustmentNormalizer implements DenormalizerInterface, NormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrAdjustment();
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
+        if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
         }
-        if (property_exists($data, 'is_percentage') && $data->{'is_percentage'} !== null) {
+        if (property_exists($data, 'is_percentage') && null !== $data->{'is_percentage'}) {
             $object->setIsPercentage($data->{'is_percentage'});
         }
-        if (property_exists($data, 'is_discount') && $data->{'is_discount'} !== null) {
+        if (property_exists($data, 'is_discount') && null !== $data->{'is_discount'}) {
             $object->setIsDiscount($data->{'is_discount'});
         }
 

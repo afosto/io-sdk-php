@@ -37,7 +37,6 @@ class GetTrial extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
     /**
      * {@inheritdoc}
      *
-     *
      * @return \Afosto\Sdk\Model\IamTrial|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)

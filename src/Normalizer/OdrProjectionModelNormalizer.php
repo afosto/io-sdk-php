@@ -24,12 +24,12 @@ class OdrProjectionModelNormalizer implements DenormalizerInterface, NormalizerI
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrProjectionModel';
+        return 'Afosto\\Sdk\\Model\\OdrProjectionModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrProjectionModel';
+        return 'Afosto\\Sdk\\Model\\OdrProjectionModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,36 +38,36 @@ class OdrProjectionModelNormalizer implements DenormalizerInterface, NormalizerI
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrProjectionModel();
-        if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
+        if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
-        if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
+        if (property_exists($data, 'currency') && null !== $data->{'currency'}) {
             $object->setCurrency($data->{'currency'});
         }
-        if (property_exists($data, 'items') && $data->{'items'} !== null) {
+        if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrInvoiceItemModel', 'json', $context);
             }
             $object->setItems($values);
         }
-        if (property_exists($data, 'adjustments') && $data->{'adjustments'} !== null) {
+        if (property_exists($data, 'adjustments') && null !== $data->{'adjustments'}) {
             $values_1 = [];
             foreach ($data->{'adjustments'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrAdjustment', 'json', $context);
             }
             $object->setAdjustments($values_1);
         }
-        if (property_exists($data, 'contact_id') && $data->{'contact_id'} !== null) {
+        if (property_exists($data, 'contact_id') && null !== $data->{'contact_id'}) {
             $object->setContactId($data->{'contact_id'});
         }
-        if (property_exists($data, 'organisation_id') && $data->{'organisation_id'} !== null) {
+        if (property_exists($data, 'organisation_id') && null !== $data->{'organisation_id'}) {
             $object->setOrganisationId($data->{'organisation_id'});
         }
-        if (property_exists($data, 'pricing_at') && $data->{'pricing_at'} !== null) {
+        if (property_exists($data, 'pricing_at') && null !== $data->{'pricing_at'}) {
             $object->setPricingAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'pricing_at'}));
         }
-        if (property_exists($data, 'coupons') && $data->{'coupons'} !== null) {
+        if (property_exists($data, 'coupons') && null !== $data->{'coupons'}) {
             $values_2 = [];
             foreach ($data->{'coupons'} as $value_2) {
                 $values_2[] = $value_2;

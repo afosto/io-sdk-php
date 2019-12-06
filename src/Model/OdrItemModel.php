@@ -25,19 +25,11 @@ class OdrItemModel
      */
     protected $quantity;
 
-    /**
-     * @return string|null
-     */
     public function getSku(): ?string
     {
         return $this->sku;
     }
 
-    /**
-     * @param string|null $sku
-     *
-     * @return self
-     */
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
@@ -45,19 +37,11 @@ class OdrItemModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -65,19 +49,11 @@ class OdrItemModel
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getQuantity(): ?int
     {
         return $this->quantity;
     }
 
-    /**
-     * @param int|null $quantity
-     *
-     * @return self
-     */
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;

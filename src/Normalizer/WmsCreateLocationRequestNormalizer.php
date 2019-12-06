@@ -24,12 +24,12 @@ class WmsCreateLocationRequestNormalizer implements DenormalizerInterface, Norma
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsCreateLocationRequest';
+        return 'Afosto\\Sdk\\Model\\WmsCreateLocationRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsCreateLocationRequest';
+        return 'Afosto\\Sdk\\Model\\WmsCreateLocationRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,22 +38,22 @@ class WmsCreateLocationRequestNormalizer implements DenormalizerInterface, Norma
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsCreateLocationRequest();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'country_iso') && $data->{'country_iso'} !== null) {
+        if (property_exists($data, 'country_iso') && null !== $data->{'country_iso'}) {
             $object->setCountryIso($data->{'country_iso'});
         }
-        if (property_exists($data, 'is_customer') && $data->{'is_customer'} !== null) {
+        if (property_exists($data, 'is_customer') && null !== $data->{'is_customer'}) {
             $object->setIsCustomer($data->{'is_customer'});
         }
-        if (property_exists($data, 'is_tracking_inventory') && $data->{'is_tracking_inventory'} !== null) {
+        if (property_exists($data, 'is_tracking_inventory') && null !== $data->{'is_tracking_inventory'}) {
             $object->setIsTrackingInventory($data->{'is_tracking_inventory'});
         }
-        if (property_exists($data, 'warehouse_id') && $data->{'warehouse_id'} !== null) {
+        if (property_exists($data, 'warehouse_id') && null !== $data->{'warehouse_id'}) {
             $object->setWarehouseId($data->{'warehouse_id'});
         }
 

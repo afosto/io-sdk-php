@@ -17,8 +17,7 @@ class GetPricing extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
      * Get a listing of prices that are stored in the group.
      *
-     * @param string $id
-     * @param array  $queryParameters {
+     * @param array $queryParameters {
      *
      *     @var string $country US - use to filter tax rate results
      *     @var string $administrative_area Florida - use to filter tax rate results

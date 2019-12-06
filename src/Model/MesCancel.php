@@ -21,19 +21,11 @@ class MesCancel
      */
     protected $medium;
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -41,19 +33,11 @@ class MesCancel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMedium(): ?string
     {
         return $this->medium;
     }
 
-    /**
-     * @param string|null $medium
-     *
-     * @return self
-     */
     public function setMedium(?string $medium): self
     {
         $this->medium = $medium;

@@ -21,19 +21,11 @@ class RelSignedTokenResponse
      */
     protected $expiresAt;
 
-    /**
-     * @return string|null
-     */
     public function getToken(): ?string
     {
         return $this->token;
     }
 
-    /**
-     * @param string|null $token
-     *
-     * @return self
-     */
     public function setToken(?string $token): self
     {
         $this->token = $token;
@@ -41,19 +33,11 @@ class RelSignedTokenResponse
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getExpiresAt(): ?\DateTime
     {
         return $this->expiresAt;
     }
 
-    /**
-     * @param \DateTime|null $expiresAt
-     *
-     * @return self
-     */
     public function setExpiresAt(?\DateTime $expiresAt): self
     {
         $this->expiresAt = $expiresAt;

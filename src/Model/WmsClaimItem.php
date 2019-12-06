@@ -29,19 +29,11 @@ class WmsClaimItem
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -49,19 +41,11 @@ class WmsClaimItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getWarehouseItemId(): ?string
     {
         return $this->warehouseItemId;
     }
 
-    /**
-     * @param string|null $warehouseItemId
-     *
-     * @return self
-     */
     public function setWarehouseItemId(?string $warehouseItemId): self
     {
         $this->warehouseItemId = $warehouseItemId;
@@ -69,19 +53,11 @@ class WmsClaimItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStackItemId(): ?string
     {
         return $this->stackItemId;
     }
 
-    /**
-     * @param string|null $stackItemId
-     *
-     * @return self
-     */
     public function setStackItemId(?string $stackItemId): self
     {
         $this->stackItemId = $stackItemId;
@@ -89,19 +65,11 @@ class WmsClaimItem
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

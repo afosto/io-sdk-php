@@ -24,12 +24,12 @@ class RelSignedTokenResponseNormalizer implements DenormalizerInterface, Normali
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelSignedTokenResponse';
+        return 'Afosto\\Sdk\\Model\\RelSignedTokenResponse' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelSignedTokenResponse';
+        return 'Afosto\\Sdk\\Model\\RelSignedTokenResponse' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class RelSignedTokenResponseNormalizer implements DenormalizerInterface, Normali
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelSignedTokenResponse();
-        if (property_exists($data, 'token') && $data->{'token'} !== null) {
+        if (property_exists($data, 'token') && null !== $data->{'token'}) {
             $object->setToken($data->{'token'});
         }
-        if (property_exists($data, 'expires_at') && $data->{'expires_at'} !== null) {
+        if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
 

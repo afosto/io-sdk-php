@@ -17,19 +17,11 @@ class IamSubscribe
      */
     protected $code;
 
-    /**
-     * @return string|null
-     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
-    /**
-     * @param string|null $code
-     *
-     * @return self
-     */
     public function setCode(?string $code): self
     {
         $this->code = $code;

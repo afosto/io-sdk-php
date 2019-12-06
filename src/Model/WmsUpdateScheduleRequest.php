@@ -47,19 +47,11 @@ class WmsUpdateScheduleRequest
      */
     protected $activeAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -67,19 +59,11 @@ class WmsUpdateScheduleRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -89,8 +73,6 @@ class WmsUpdateScheduleRequest
 
     /**
      * UTC timestamp.
-     *
-     * @return string|null
      */
     public function getLastCall(): ?string
     {
@@ -99,10 +81,6 @@ class WmsUpdateScheduleRequest
 
     /**
      * UTC timestamp.
-     *
-     * @param string|null $lastCall
-     *
-     * @return self
      */
     public function setLastCall(?string $lastCall): self
     {
@@ -113,8 +91,6 @@ class WmsUpdateScheduleRequest
 
     /**
      * UTC timestamp.
-     *
-     * @return string|null
      */
     public function getArrival(): ?string
     {
@@ -123,10 +99,6 @@ class WmsUpdateScheduleRequest
 
     /**
      * UTC timestamp.
-     *
-     * @param string|null $arrival
-     *
-     * @return self
      */
     public function setArrival(?string $arrival): self
     {
@@ -135,19 +107,11 @@ class WmsUpdateScheduleRequest
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getDuration(): ?int
     {
         return $this->duration;
     }
 
-    /**
-     * @param int|null $duration
-     *
-     * @return self
-     */
     public function setDuration(?int $duration): self
     {
         $this->duration = $duration;
@@ -169,8 +133,6 @@ class WmsUpdateScheduleRequest
      * As noted in ISO 8601 weekdays start at monday.
      *
      * @param int[]|null $availableWeekdays
-     *
-     * @return self
      */
     public function setAvailableWeekdays(?array $availableWeekdays): self
     {
@@ -189,8 +151,6 @@ class WmsUpdateScheduleRequest
 
     /**
      * @param \DateTime[]|null $activeAt
-     *
-     * @return self
      */
     public function setActiveAt(?array $activeAt): self
     {

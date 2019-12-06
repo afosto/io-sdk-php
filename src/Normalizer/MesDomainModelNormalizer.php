@@ -24,12 +24,12 @@ class MesDomainModelNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesDomainModel';
+        return 'Afosto\\Sdk\\Model\\MesDomainModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesDomainModel';
+        return 'Afosto\\Sdk\\Model\\MesDomainModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class MesDomainModelNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesDomainModel();
-        if (property_exists($data, 'fqdn') && $data->{'fqdn'} !== null) {
+        if (property_exists($data, 'fqdn') && null !== $data->{'fqdn'}) {
             $object->setFqdn($data->{'fqdn'});
         }
 

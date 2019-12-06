@@ -25,19 +25,11 @@ class RelOrganisationPaymentSettingsInvoice
      */
     protected $isExpectedAtDelivery;
 
-    /**
-     * @return bool|null
-     */
     public function getIsExpectedThroughPostMail(): ?bool
     {
         return $this->isExpectedThroughPostMail;
     }
 
-    /**
-     * @param bool|null $isExpectedThroughPostMail
-     *
-     * @return self
-     */
     public function setIsExpectedThroughPostMail(?bool $isExpectedThroughPostMail): self
     {
         $this->isExpectedThroughPostMail = $isExpectedThroughPostMail;
@@ -45,19 +37,11 @@ class RelOrganisationPaymentSettingsInvoice
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsExpectedThroughEmail(): ?bool
     {
         return $this->isExpectedThroughEmail;
     }
 
-    /**
-     * @param bool|null $isExpectedThroughEmail
-     *
-     * @return self
-     */
     public function setIsExpectedThroughEmail(?bool $isExpectedThroughEmail): self
     {
         $this->isExpectedThroughEmail = $isExpectedThroughEmail;
@@ -65,19 +49,11 @@ class RelOrganisationPaymentSettingsInvoice
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsExpectedAtDelivery(): ?bool
     {
         return $this->isExpectedAtDelivery;
     }
 
-    /**
-     * @param bool|null $isExpectedAtDelivery
-     *
-     * @return self
-     */
     public function setIsExpectedAtDelivery(?bool $isExpectedAtDelivery): self
     {
         $this->isExpectedAtDelivery = $isExpectedAtDelivery;

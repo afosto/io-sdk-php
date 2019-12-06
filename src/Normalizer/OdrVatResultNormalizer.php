@@ -24,12 +24,12 @@ class OdrVatResultNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrVatResult';
+        return 'Afosto\\Sdk\\Model\\OdrVatResult' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrVatResult';
+        return 'Afosto\\Sdk\\Model\\OdrVatResult' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class OdrVatResultNormalizer implements DenormalizerInterface, NormalizerInterfa
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrVatResult();
-        if (property_exists($data, 'rate') && $data->{'rate'} !== null) {
+        if (property_exists($data, 'rate') && null !== $data->{'rate'}) {
             $object->setRate($data->{'rate'});
         }
-        if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
+        if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
         }
 

@@ -24,12 +24,12 @@ class IamTokenRequestNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamTokenRequest';
+        return 'Afosto\\Sdk\\Model\\IamTokenRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamTokenRequest';
+        return 'Afosto\\Sdk\\Model\\IamTokenRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class IamTokenRequestNormalizer implements DenormalizerInterface, NormalizerInte
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamTokenRequest();
-        if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
+        if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
-        if (property_exists($data, 'client_secret') && $data->{'client_secret'} !== null) {
+        if (property_exists($data, 'client_secret') && null !== $data->{'client_secret'}) {
             $object->setClientSecret($data->{'client_secret'});
         }
-        if (property_exists($data, 'grant_type') && $data->{'grant_type'} !== null) {
+        if (property_exists($data, 'grant_type') && null !== $data->{'grant_type'}) {
             $object->setGrantType($data->{'grant_type'});
         }
-        if (property_exists($data, 'scope') && $data->{'scope'} !== null) {
+        if (property_exists($data, 'scope') && null !== $data->{'scope'}) {
             $object->setScope($data->{'scope'});
         }
 

@@ -16,9 +16,6 @@ class SearchPrices extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     /**
      * Query for a set of prices.
-     *
-     * @param string                           $id
-     * @param \Afosto\Sdk\Model\CatPriceSearch $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\CatPriceSearch $body)
     {

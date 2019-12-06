@@ -24,12 +24,12 @@ class PkrShipmentItemsItemImageNormalizer implements DenormalizerInterface, Norm
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\PkrShipmentItemsItemImage';
+        return 'Afosto\\Sdk\\Model\\PkrShipmentItemsItemImage' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\PkrShipmentItemsItemImage';
+        return 'Afosto\\Sdk\\Model\\PkrShipmentItemsItemImage' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class PkrShipmentItemsItemImageNormalizer implements DenormalizerInterface, Norm
             return null;
         }
         $object = new \Afosto\Sdk\Model\PkrShipmentItemsItemImage();
-        if (property_exists($data, 'original') && $data->{'original'} !== null) {
+        if (property_exists($data, 'original') && null !== $data->{'original'}) {
             $object->setOriginal($data->{'original'});
         }
-        if (property_exists($data, 'thumbnails') && $data->{'thumbnails'} !== null) {
+        if (property_exists($data, 'thumbnails') && null !== $data->{'thumbnails'}) {
             $object->setThumbnails($this->denormalizer->denormalize($data->{'thumbnails'}, 'Afosto\\Sdk\\Model\\PkrShipmentItemsItemImageThumbnails', 'json', $context));
         }
 

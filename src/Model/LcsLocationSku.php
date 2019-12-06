@@ -25,19 +25,11 @@ class LcsLocationSku
      */
     protected $createdAt;
 
-    /**
-     * @return string|null
-     */
     public function getSku(): ?string
     {
         return $this->sku;
     }
 
-    /**
-     * @param string|null $sku
-     *
-     * @return self
-     */
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
@@ -45,19 +37,11 @@ class LcsLocationSku
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPosition(): ?string
     {
         return $this->position;
     }
 
-    /**
-     * @param string|null $position
-     *
-     * @return self
-     */
     public function setPosition(?string $position): self
     {
         $this->position = $position;
@@ -65,19 +49,11 @@ class LcsLocationSku
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;

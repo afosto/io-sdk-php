@@ -31,8 +31,6 @@ class WmsCreateHopRequest
 
     /**
      * Location id.
-     *
-     * @return string|null
      */
     public function getFrom(): ?string
     {
@@ -41,10 +39,6 @@ class WmsCreateHopRequest
 
     /**
      * Location id.
-     *
-     * @param string|null $from
-     *
-     * @return self
      */
     public function setFrom(?string $from): self
     {
@@ -55,8 +49,6 @@ class WmsCreateHopRequest
 
     /**
      * Location id.
-     *
-     * @return string|null
      */
     public function getTo(): ?string
     {
@@ -65,10 +57,6 @@ class WmsCreateHopRequest
 
     /**
      * Location id.
-     *
-     * @param string|null $to
-     *
-     * @return self
      */
     public function setTo(?string $to): self
     {
@@ -87,8 +75,6 @@ class WmsCreateHopRequest
 
     /**
      * @param string[]|null $schedules
-     *
-     * @return self
      */
     public function setSchedules(?array $schedules): self
     {

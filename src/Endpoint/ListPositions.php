@@ -16,8 +16,6 @@ class ListPositions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     /**
      * Returns a list of fulfilment locations.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

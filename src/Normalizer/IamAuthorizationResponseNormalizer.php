@@ -24,12 +24,12 @@ class IamAuthorizationResponseNormalizer implements DenormalizerInterface, Norma
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamAuthorizationResponse';
+        return 'Afosto\\Sdk\\Model\\IamAuthorizationResponse' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamAuthorizationResponse';
+        return 'Afosto\\Sdk\\Model\\IamAuthorizationResponse' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,29 +38,29 @@ class IamAuthorizationResponseNormalizer implements DenormalizerInterface, Norma
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamAuthorizationResponse();
-        if (property_exists($data, 'forward_uri') && $data->{'forward_uri'} !== null) {
+        if (property_exists($data, 'forward_uri') && null !== $data->{'forward_uri'}) {
             $object->setForwardUri($data->{'forward_uri'});
         }
-        if (property_exists($data, 'client_name') && $data->{'client_name'} !== null) {
+        if (property_exists($data, 'client_name') && null !== $data->{'client_name'}) {
             $object->setClientName($data->{'client_name'});
         }
-        if (property_exists($data, 'client_redirect_uri') && $data->{'client_redirect_uri'} !== null) {
+        if (property_exists($data, 'client_redirect_uri') && null !== $data->{'client_redirect_uri'}) {
             $object->setClientRedirectUri($data->{'client_redirect_uri'});
         }
-        if (property_exists($data, 'scope') && $data->{'scope'} !== null) {
+        if (property_exists($data, 'scope') && null !== $data->{'scope'}) {
             $values = [];
             foreach ($data->{'scope'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\IamScope', 'json', $context);
             }
             $object->setScope($values);
         }
-        if (property_exists($data, 'is_authorization_approved') && $data->{'is_authorization_approved'} !== null) {
+        if (property_exists($data, 'is_authorization_approved') && null !== $data->{'is_authorization_approved'}) {
             $object->setIsAuthorizationApproved($data->{'is_authorization_approved'});
         }
-        if (property_exists($data, 'is_id_token_issued') && $data->{'is_id_token_issued'} !== null) {
+        if (property_exists($data, 'is_id_token_issued') && null !== $data->{'is_id_token_issued'}) {
             $object->setIsIdTokenIssued($data->{'is_id_token_issued'});
         }
-        if (property_exists($data, 'expires_in') && $data->{'expires_in'} !== null) {
+        if (property_exists($data, 'expires_in') && null !== $data->{'expires_in'}) {
             $object->setExpiresIn($data->{'expires_in'});
         }
 

@@ -24,12 +24,12 @@ class CatGroupUpdateNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CatGroupUpdate';
+        return 'Afosto\\Sdk\\Model\\CatGroupUpdate' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CatGroupUpdate';
+        return 'Afosto\\Sdk\\Model\\CatGroupUpdate' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class CatGroupUpdateNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\CatGroupUpdate();
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
 

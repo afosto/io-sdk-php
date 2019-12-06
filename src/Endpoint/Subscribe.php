@@ -17,7 +17,6 @@ class Subscribe extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     /**
      * Add a subscription to recieve updates on this conversation.
      *
-     * @param int                               $id
      * @param \Afosto\Sdk\Model\MesSubscription $body The subscription data
      */
     public function __construct(int $id, \Afosto\Sdk\Model\MesSubscription $body)

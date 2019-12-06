@@ -49,19 +49,11 @@ class WmsClaim
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -69,19 +61,11 @@ class WmsClaim
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;
@@ -89,19 +73,11 @@ class WmsClaim
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStackId(): ?string
     {
         return $this->stackId;
     }
 
-    /**
-     * @param string|null $stackId
-     *
-     * @return self
-     */
     public function setStackId(?string $stackId): self
     {
         $this->stackId = $stackId;
@@ -109,19 +85,11 @@ class WmsClaim
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLocationId(): ?string
     {
         return $this->locationId;
     }
 
-    /**
-     * @param string|null $locationId
-     *
-     * @return self
-     */
     public function setLocationId(?string $locationId): self
     {
         $this->locationId = $locationId;
@@ -129,19 +97,11 @@ class WmsClaim
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTarget(): ?string
     {
         return $this->target;
     }
 
-    /**
-     * @param string|null $target
-     *
-     * @return self
-     */
     public function setTarget(?string $target): self
     {
         $this->target = $target;
@@ -159,8 +119,6 @@ class WmsClaim
 
     /**
      * @param WmsClaimItem[]|null $items
-     *
-     * @return self
      */
     public function setItems(?array $items): self
     {
@@ -169,19 +127,11 @@ class WmsClaim
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getExpiresAt(): ?\DateTime
     {
         return $this->expiresAt;
     }
 
-    /**
-     * @param \DateTime|null $expiresAt
-     *
-     * @return self
-     */
     public function setExpiresAt(?\DateTime $expiresAt): self
     {
         $this->expiresAt = $expiresAt;
@@ -189,19 +139,11 @@ class WmsClaim
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -209,19 +151,11 @@ class WmsClaim
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

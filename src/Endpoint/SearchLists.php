@@ -15,8 +15,7 @@ class SearchLists extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * Search for a set of lists.
      *
-     * @param \Afosto\Sdk\Model\LcsListSearch $body
-     * @param array                           $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page
      *     @var string $x-page-size

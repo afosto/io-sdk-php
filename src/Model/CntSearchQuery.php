@@ -45,19 +45,11 @@ class CntSearchQuery
      */
     protected $sort;
 
-    /**
-     * @return string|null
-     */
     public function getQ(): ?string
     {
         return $this->q;
     }
 
-    /**
-     * @param string|null $q
-     *
-     * @return self
-     */
     public function setQ(?string $q): self
     {
         $this->q = $q;
@@ -65,19 +57,11 @@ class CntSearchQuery
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsFuzzy(): ?bool
     {
         return $this->isFuzzy;
     }
 
-    /**
-     * @param bool|null $isFuzzy
-     *
-     * @return self
-     */
     public function setIsFuzzy(?bool $isFuzzy): self
     {
         $this->isFuzzy = $isFuzzy;
@@ -95,8 +79,6 @@ class CntSearchQuery
 
     /**
      * @param CntFilter[]|null $filter
-     *
-     * @return self
      */
     public function setFilter(?array $filter): self
     {
@@ -115,8 +97,6 @@ class CntSearchQuery
 
     /**
      * @param string[]|null $facets
-     *
-     * @return self
      */
     public function setFacets(?array $facets): self
     {
@@ -125,19 +105,11 @@ class CntSearchQuery
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getLimit(): ?int
     {
         return $this->limit;
     }
 
-    /**
-     * @param int|null $limit
-     *
-     * @return self
-     */
     public function setLimit(?int $limit): self
     {
         $this->limit = $limit;
@@ -145,19 +117,11 @@ class CntSearchQuery
         return $this;
     }
 
-    /**
-     * @return float|null
-     */
     public function getThreshold(): ?float
     {
         return $this->threshold;
     }
 
-    /**
-     * @param float|null $threshold
-     *
-     * @return self
-     */
     public function setThreshold(?float $threshold): self
     {
         $this->threshold = $threshold;
@@ -165,19 +129,11 @@ class CntSearchQuery
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPageCursor(): ?string
     {
         return $this->pageCursor;
     }
 
-    /**
-     * @param string|null $pageCursor
-     *
-     * @return self
-     */
     public function setPageCursor(?string $pageCursor): self
     {
         $this->pageCursor = $pageCursor;
@@ -195,8 +151,6 @@ class CntSearchQuery
 
     /**
      * @param CntSort[]|null $sort
-     *
-     * @return self
      */
     public function setSort(?array $sort): self
     {

@@ -21,8 +21,6 @@ class OdrInvoiceAdjustmentResponseResult
 
     /**
      * The result of the rule. Will be negative in case of a discount.
-     *
-     * @return int|null
      */
     public function getOutput(): ?int
     {
@@ -31,10 +29,6 @@ class OdrInvoiceAdjustmentResponseResult
 
     /**
      * The result of the rule. Will be negative in case of a discount.
-     *
-     * @param int|null $output
-     *
-     * @return self
      */
     public function setOutput(?int $output): self
     {

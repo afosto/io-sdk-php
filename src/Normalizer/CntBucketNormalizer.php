@@ -24,12 +24,12 @@ class CntBucketNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntBucket';
+        return 'Afosto\\Sdk\\Model\\CntBucket' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntBucket';
+        return 'Afosto\\Sdk\\Model\\CntBucket' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class CntBucketNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntBucket();
-        if (property_exists($data, 'value') && $data->{'value'} !== null) {
+        if (property_exists($data, 'value') && null !== $data->{'value'}) {
             $object->setValue($data->{'value'});
         }
-        if (property_exists($data, 'count') && $data->{'count'} !== null) {
+        if (property_exists($data, 'count') && null !== $data->{'count'}) {
             $object->setCount($data->{'count'});
         }
 

@@ -33,19 +33,11 @@ class OdrGroup
      */
     protected $stacks;
 
-    /**
-     * @return string|null
-     */
     public function getSku(): ?string
     {
         return $this->sku;
     }
 
-    /**
-     * @param string|null $sku
-     *
-     * @return self
-     */
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
@@ -53,19 +45,11 @@ class OdrGroup
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -73,19 +57,11 @@ class OdrGroup
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getQuantity(): ?int
     {
         return $this->quantity;
     }
 
-    /**
-     * @param int|null $quantity
-     *
-     * @return self
-     */
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
@@ -103,8 +79,6 @@ class OdrGroup
 
     /**
      * @param string[]|null $ids
-     *
-     * @return self
      */
     public function setIds(?array $ids): self
     {
@@ -123,8 +97,6 @@ class OdrGroup
 
     /**
      * @param OdrStackReference[]|null $stacks
-     *
-     * @return self
      */
     public function setStacks(?array $stacks): self
     {

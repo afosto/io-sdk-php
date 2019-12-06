@@ -49,19 +49,11 @@ class OdrOrderModel
      */
     protected $dueAt;
 
-    /**
-     * @return string|null
-     */
     public function getClientId(): ?string
     {
         return $this->clientId;
     }
 
-    /**
-     * @param string|null $clientId
-     *
-     * @return self
-     */
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
@@ -69,19 +61,11 @@ class OdrOrderModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getContactId(): ?string
     {
         return $this->contactId;
     }
 
-    /**
-     * @param string|null $contactId
-     *
-     * @return self
-     */
     public function setContactId(?string $contactId): self
     {
         $this->contactId = $contactId;
@@ -89,19 +73,11 @@ class OdrOrderModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getOrganisationId(): ?string
     {
         return $this->organisationId;
     }
 
-    /**
-     * @param string|null $organisationId
-     *
-     * @return self
-     */
     public function setOrganisationId(?string $organisationId): self
     {
         $this->organisationId = $organisationId;
@@ -109,19 +85,11 @@ class OdrOrderModel
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsConfirmed(): ?bool
     {
         return $this->isConfirmed;
     }
 
-    /**
-     * @param bool|null $isConfirmed
-     *
-     * @return self
-     */
     public function setIsConfirmed(?bool $isConfirmed): self
     {
         $this->isConfirmed = $isConfirmed;
@@ -129,19 +97,11 @@ class OdrOrderModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStack(): ?string
     {
         return $this->stack;
     }
 
-    /**
-     * @param string|null $stack
-     *
-     * @return self
-     */
     public function setStack(?string $stack): self
     {
         $this->stack = $stack;
@@ -149,19 +109,11 @@ class OdrOrderModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressId(): ?string
     {
         return $this->addressId;
     }
 
-    /**
-     * @param string|null $addressId
-     *
-     * @return self
-     */
     public function setAddressId(?string $addressId): self
     {
         $this->addressId = $addressId;
@@ -169,19 +121,11 @@ class OdrOrderModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getShipmentAddressId(): ?string
     {
         return $this->shipmentAddressId;
     }
 
-    /**
-     * @param string|null $shipmentAddressId
-     *
-     * @return self
-     */
     public function setShipmentAddressId(?string $shipmentAddressId): self
     {
         $this->shipmentAddressId = $shipmentAddressId;
@@ -199,8 +143,6 @@ class OdrOrderModel
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -209,19 +151,11 @@ class OdrOrderModel
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getDueAt(): ?\DateTime
     {
         return $this->dueAt;
     }
 
-    /**
-     * @param \DateTime|null $dueAt
-     *
-     * @return self
-     */
     public function setDueAt(?\DateTime $dueAt): self
     {
         $this->dueAt = $dueAt;

@@ -24,12 +24,12 @@ class PkrShipmentAddressCountryNormalizer implements DenormalizerInterface, Norm
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\PkrShipmentAddressCountry';
+        return 'Afosto\\Sdk\\Model\\PkrShipmentAddressCountry' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\PkrShipmentAddressCountry';
+        return 'Afosto\\Sdk\\Model\\PkrShipmentAddressCountry' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class PkrShipmentAddressCountryNormalizer implements DenormalizerInterface, Norm
             return null;
         }
         $object = new \Afosto\Sdk\Model\PkrShipmentAddressCountry();
-        if (property_exists($data, 'iso') && $data->{'iso'} !== null) {
+        if (property_exists($data, 'iso') && null !== $data->{'iso'}) {
             $object->setIso($data->{'iso'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
 

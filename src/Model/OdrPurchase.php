@@ -25,19 +25,11 @@ class OdrPurchase
      */
     protected $items;
 
-    /**
-     * @return string|null
-     */
     public function getCustomerId(): ?string
     {
         return $this->customerId;
     }
 
-    /**
-     * @param string|null $customerId
-     *
-     * @return self
-     */
     public function setCustomerId(?string $customerId): self
     {
         $this->customerId = $customerId;
@@ -45,19 +37,11 @@ class OdrPurchase
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressSetId(): ?string
     {
         return $this->addressSetId;
     }
 
-    /**
-     * @param string|null $addressSetId
-     *
-     * @return self
-     */
     public function setAddressSetId(?string $addressSetId): self
     {
         $this->addressSetId = $addressSetId;
@@ -75,8 +59,6 @@ class OdrPurchase
 
     /**
      * @param OdrPurchaseItem[]|null $items
-     *
-     * @return self
      */
     public function setItems(?array $items): self
     {

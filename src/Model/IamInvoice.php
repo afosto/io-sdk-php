@@ -53,19 +53,11 @@ class IamInvoice
      */
     protected $endAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -73,19 +65,11 @@ class IamInvoice
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getTotal(): ?int
     {
         return $this->total;
     }
 
-    /**
-     * @param int|null $total
-     *
-     * @return self
-     */
     public function setTotal(?int $total): self
     {
         $this->total = $total;
@@ -93,19 +77,11 @@ class IamInvoice
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsPaid(): ?bool
     {
         return $this->isPaid;
     }
 
-    /**
-     * @param bool|null $isPaid
-     *
-     * @return self
-     */
     public function setIsPaid(?bool $isPaid): self
     {
         $this->isPaid = $isPaid;
@@ -113,19 +89,11 @@ class IamInvoice
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsCancelled(): ?bool
     {
         return $this->isCancelled;
     }
 
-    /**
-     * @param bool|null $isCancelled
-     *
-     * @return self
-     */
     public function setIsCancelled(?bool $isCancelled): self
     {
         $this->isCancelled = $isCancelled;
@@ -133,19 +101,11 @@ class IamInvoice
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getInvoicedAt(): ?\DateTime
     {
         return $this->invoicedAt;
     }
 
-    /**
-     * @param \DateTime|null $invoicedAt
-     *
-     * @return self
-     */
     public function setInvoicedAt(?\DateTime $invoicedAt): self
     {
         $this->invoicedAt = $invoicedAt;
@@ -153,19 +113,11 @@ class IamInvoice
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -173,19 +125,11 @@ class IamInvoice
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPdf(): ?string
     {
         return $this->pdf;
     }
 
-    /**
-     * @param string|null $pdf
-     *
-     * @return self
-     */
     public function setPdf(?string $pdf): self
     {
         $this->pdf = $pdf;
@@ -193,19 +137,11 @@ class IamInvoice
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPaymentUrl(): ?string
     {
         return $this->paymentUrl;
     }
 
-    /**
-     * @param string|null $paymentUrl
-     *
-     * @return self
-     */
     public function setPaymentUrl(?string $paymentUrl): self
     {
         $this->paymentUrl = $paymentUrl;
@@ -213,19 +149,11 @@ class IamInvoice
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getStartAt(): ?\DateTime
     {
         return $this->startAt;
     }
 
-    /**
-     * @param \DateTime|null $startAt
-     *
-     * @return self
-     */
     public function setStartAt(?\DateTime $startAt): self
     {
         $this->startAt = $startAt;
@@ -233,19 +161,11 @@ class IamInvoice
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getEndAt(): ?\DateTime
     {
         return $this->endAt;
     }
 
-    /**
-     * @param \DateTime|null $endAt
-     *
-     * @return self
-     */
     public function setEndAt(?\DateTime $endAt): self
     {
         $this->endAt = $endAt;

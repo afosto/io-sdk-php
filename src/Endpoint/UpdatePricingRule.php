@@ -16,9 +16,6 @@ class UpdatePricingRule extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 
     /**
      * Update an existing pricing rule.
-     *
-     * @param string                                $id
-     * @param \Afosto\Sdk\Model\OdrPricingRuleModel $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\OdrPricingRuleModel $body)
     {

@@ -14,8 +14,6 @@ class CreateRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 {
     /**
      * Add a new route.
-     *
-     * @param \Afosto\Sdk\Model\WmsCreateRouteRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\WmsCreateRouteRequest $body)
     {

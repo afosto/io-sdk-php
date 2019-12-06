@@ -17,8 +17,7 @@ class ViewInvoice extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * Returns a single invoice by id.
      *
-     * @param string $id
-     * @param array  $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size

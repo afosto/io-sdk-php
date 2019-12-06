@@ -24,12 +24,12 @@ class CntProxyNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntProxy';
+        return 'Afosto\\Sdk\\Model\\CntProxy' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntProxy';
+        return 'Afosto\\Sdk\\Model\\CntProxy' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,22 +38,22 @@ class CntProxyNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntProxy();
-        if (property_exists($data, 'key') && $data->{'key'} !== null) {
+        if (property_exists($data, 'key') && null !== $data->{'key'}) {
             $object->setKey($data->{'key'});
         }
-        if (property_exists($data, 'origin') && $data->{'origin'} !== null) {
+        if (property_exists($data, 'origin') && null !== $data->{'origin'}) {
             $object->setOrigin($data->{'origin'});
         }
-        if (property_exists($data, 'config') && $data->{'config'} !== null) {
+        if (property_exists($data, 'config') && null !== $data->{'config'}) {
             $object->setConfig($this->denormalizer->denormalize($data->{'config'}, 'Afosto\\Sdk\\Model\\CntConfig', 'json', $context));
         }
-        if (property_exists($data, 'tenant_id') && $data->{'tenant_id'} !== null) {
+        if (property_exists($data, 'tenant_id') && null !== $data->{'tenant_id'}) {
             $object->setTenantId($data->{'tenant_id'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

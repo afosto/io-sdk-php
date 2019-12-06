@@ -24,12 +24,12 @@ class IamUsageRecordNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamUsageRecord';
+        return 'Afosto\\Sdk\\Model\\IamUsageRecord' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamUsageRecord';
+        return 'Afosto\\Sdk\\Model\\IamUsageRecord' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class IamUsageRecordNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamUsageRecord();
-        if (property_exists($data, 'code') && $data->{'code'} !== null) {
+        if (property_exists($data, 'code') && null !== $data->{'code'}) {
             $object->setCode($data->{'code'});
         }
-        if (property_exists($data, 'unit') && $data->{'unit'} !== null) {
+        if (property_exists($data, 'unit') && null !== $data->{'unit'}) {
             $object->setUnit($data->{'unit'});
         }
-        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
         }
 

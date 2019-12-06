@@ -24,12 +24,12 @@ class CntProxyModelNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntProxyModel';
+        return 'Afosto\\Sdk\\Model\\CntProxyModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntProxyModel';
+        return 'Afosto\\Sdk\\Model\\CntProxyModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class CntProxyModelNormalizer implements DenormalizerInterface, NormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntProxyModel();
-        if (property_exists($data, 'key') && $data->{'key'} !== null) {
+        if (property_exists($data, 'key') && null !== $data->{'key'}) {
             $object->setKey($data->{'key'});
         }
-        if (property_exists($data, 'origin') && $data->{'origin'} !== null) {
+        if (property_exists($data, 'origin') && null !== $data->{'origin'}) {
             $object->setOrigin($data->{'origin'});
         }
-        if (property_exists($data, 'config') && $data->{'config'} !== null) {
+        if (property_exists($data, 'config') && null !== $data->{'config'}) {
             $object->setConfig($this->denormalizer->denormalize($data->{'config'}, 'Afosto\\Sdk\\Model\\CntConfig', 'json', $context));
         }
 

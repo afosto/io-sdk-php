@@ -17,19 +17,11 @@ class SplInbox
      */
     protected $inboxId;
 
-    /**
-     * @return string|null
-     */
     public function getInboxId(): ?string
     {
         return $this->inboxId;
     }
 
-    /**
-     * @param string|null $inboxId
-     *
-     * @return self
-     */
     public function setInboxId(?string $inboxId): self
     {
         $this->inboxId = $inboxId;

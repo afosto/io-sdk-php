@@ -24,12 +24,12 @@ class IamPlanNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamPlan';
+        return 'Afosto\\Sdk\\Model\\IamPlan' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamPlan';
+        return 'Afosto\\Sdk\\Model\\IamPlan' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,19 +38,19 @@ class IamPlanNormalizer implements DenormalizerInterface, NormalizerInterface, D
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamPlan();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'interval') && $data->{'interval'} !== null) {
+        if (property_exists($data, 'interval') && null !== $data->{'interval'}) {
             $object->setInterval($data->{'interval'});
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
+        if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
         }
-        if (property_exists($data, 'tiers') && $data->{'tiers'} !== null) {
+        if (property_exists($data, 'tiers') && null !== $data->{'tiers'}) {
             $values = [];
             foreach ($data->{'tiers'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\IamTier', 'json', $context);

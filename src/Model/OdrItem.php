@@ -29,19 +29,11 @@ class OdrItem
      */
     protected $stacks;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -49,19 +41,11 @@ class OdrItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSku(): ?string
     {
         return $this->sku;
     }
 
-    /**
-     * @param string|null $sku
-     *
-     * @return self
-     */
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
@@ -69,19 +53,11 @@ class OdrItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -99,8 +75,6 @@ class OdrItem
 
     /**
      * @param OdrStackReference[]|null $stacks
-     *
-     * @return self
      */
     public function setStacks(?array $stacks): self
     {

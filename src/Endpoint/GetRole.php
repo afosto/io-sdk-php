@@ -16,8 +16,6 @@ class GetRole extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\
 
     /**
      * Returns the rbac role.
-     *
-     * @param int $id
      */
     public function __construct(int $id)
     {

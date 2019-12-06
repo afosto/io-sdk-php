@@ -24,12 +24,12 @@ class OdrInvoiceStateNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrInvoiceState';
+        return 'Afosto\\Sdk\\Model\\OdrInvoiceState' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrInvoiceState';
+        return 'Afosto\\Sdk\\Model\\OdrInvoiceState' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class OdrInvoiceStateNormalizer implements DenormalizerInterface, NormalizerInte
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrInvoiceState();
-        if (property_exists($data, 'is_concept') && $data->{'is_concept'} !== null) {
+        if (property_exists($data, 'is_concept') && null !== $data->{'is_concept'}) {
             $object->setIsConcept($data->{'is_concept'});
         }
-        if (property_exists($data, 'is_paid') && $data->{'is_paid'} !== null) {
+        if (property_exists($data, 'is_paid') && null !== $data->{'is_paid'}) {
             $object->setIsPaid($data->{'is_paid'});
         }
-        if (property_exists($data, 'paid_at') && $data->{'paid_at'} !== null) {
+        if (property_exists($data, 'paid_at') && null !== $data->{'paid_at'}) {
             $object->setPaidAt($data->{'paid_at'});
         }
 

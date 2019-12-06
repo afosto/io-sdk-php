@@ -24,12 +24,12 @@ class WmsCreateDurationRequestNormalizer implements DenormalizerInterface, Norma
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsCreateDurationRequest';
+        return 'Afosto\\Sdk\\Model\\WmsCreateDurationRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsCreateDurationRequest';
+        return 'Afosto\\Sdk\\Model\\WmsCreateDurationRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class WmsCreateDurationRequestNormalizer implements DenormalizerInterface, Norma
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsCreateDurationRequest();
-        if (property_exists($data, 'route_id') && $data->{'route_id'} !== null) {
+        if (property_exists($data, 'route_id') && null !== $data->{'route_id'}) {
             $object->setRouteId($data->{'route_id'});
         }
-        if (property_exists($data, 'location_id') && $data->{'location_id'} !== null) {
+        if (property_exists($data, 'location_id') && null !== $data->{'location_id'}) {
             $object->setLocationId($data->{'location_id'});
         }
-        if (property_exists($data, 'calculate_at') && $data->{'calculate_at'} !== null) {
+        if (property_exists($data, 'calculate_at') && null !== $data->{'calculate_at'}) {
             $object->setCalculateAt($data->{'calculate_at'});
         }
 

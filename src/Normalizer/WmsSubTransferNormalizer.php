@@ -24,12 +24,12 @@ class WmsSubTransferNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsSubTransfer';
+        return 'Afosto\\Sdk\\Model\\WmsSubTransfer' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsSubTransfer';
+        return 'Afosto\\Sdk\\Model\\WmsSubTransfer' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,38 +38,38 @@ class WmsSubTransferNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsSubTransfer();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'transfer_id') && $data->{'transfer_id'} !== null) {
+        if (property_exists($data, 'transfer_id') && null !== $data->{'transfer_id'}) {
             $object->setTransferId($data->{'transfer_id'});
         }
-        if (property_exists($data, 'from') && $data->{'from'} !== null) {
+        if (property_exists($data, 'from') && null !== $data->{'from'}) {
             $object->setFrom($data->{'from'});
         }
-        if (property_exists($data, 'status') && $data->{'status'} !== null) {
+        if (property_exists($data, 'status') && null !== $data->{'status'}) {
             $object->setStatus($data->{'status'});
         }
-        if (property_exists($data, 'stack_id') && $data->{'stack_id'} !== null) {
+        if (property_exists($data, 'stack_id') && null !== $data->{'stack_id'}) {
             $object->setStackId($data->{'stack_id'});
         }
-        if (property_exists($data, 'route_id') && $data->{'route_id'} !== null) {
+        if (property_exists($data, 'route_id') && null !== $data->{'route_id'}) {
             $object->setRouteId($data->{'route_id'});
         }
-        if (property_exists($data, 'items') && $data->{'items'} !== null) {
+        if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsSubTransferItem', 'json', $context);
             }
             $object->setItems($values);
         }
-        if (property_exists($data, 'expected_at') && $data->{'expected_at'} !== null) {
+        if (property_exists($data, 'expected_at') && null !== $data->{'expected_at'}) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

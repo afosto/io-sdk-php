@@ -14,8 +14,6 @@ class CreateProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 {
     /**
      * Returns a cost projection for a given stack and additional data.
-     *
-     * @param \Afosto\Sdk\Model\OdrProjectionModel $body
      */
     public function __construct(\Afosto\Sdk\Model\OdrProjectionModel $body)
     {

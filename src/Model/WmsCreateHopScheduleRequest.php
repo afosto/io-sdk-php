@@ -21,19 +21,11 @@ class WmsCreateHopScheduleRequest
      */
     protected $schedules;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -51,8 +43,6 @@ class WmsCreateHopScheduleRequest
 
     /**
      * @param string[]|null $schedules
-     *
-     * @return self
      */
     public function setSchedules(?array $schedules): self
     {

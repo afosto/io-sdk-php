@@ -29,19 +29,11 @@ class OdrProviderMethod
      */
     protected $metadata;
 
-    /**
-     * @return string|null
-     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
-    /**
-     * @param string|null $code
-     *
-     * @return self
-     */
     public function setCode(?string $code): self
     {
         $this->code = $code;
@@ -49,19 +41,11 @@ class OdrProviderMethod
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -79,8 +63,6 @@ class OdrProviderMethod
 
     /**
      * @param OdrIssuer[]|null $issuers
-     *
-     * @return self
      */
     public function setIssuers(?array $issuers): self
     {
@@ -99,8 +81,6 @@ class OdrProviderMethod
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {

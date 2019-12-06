@@ -29,19 +29,11 @@ class OdrStackModel
      */
     protected $metadata;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -49,19 +41,11 @@ class OdrStackModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;
@@ -79,8 +63,6 @@ class OdrStackModel
 
     /**
      * @param OdrItemModel[]|null $items
-     *
-     * @return self
      */
     public function setItems(?array $items): self
     {
@@ -99,8 +81,6 @@ class OdrStackModel
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {

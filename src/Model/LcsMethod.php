@@ -49,19 +49,11 @@ class LcsMethod
      */
     protected $isNeighbourAllowed;
 
-    /**
-     * @return string|null
-     */
     public function getCarrierCode(): ?string
     {
         return $this->carrierCode;
     }
 
-    /**
-     * @param string|null $carrierCode
-     *
-     * @return self
-     */
     public function setCarrierCode(?string $carrierCode): self
     {
         $this->carrierCode = $carrierCode;
@@ -69,19 +61,11 @@ class LcsMethod
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMethodCode(): ?string
     {
         return $this->methodCode;
     }
 
-    /**
-     * @param string|null $methodCode
-     *
-     * @return self
-     */
     public function setMethodCode(?string $methodCode): self
     {
         $this->methodCode = $methodCode;
@@ -89,19 +73,11 @@ class LcsMethod
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -109,19 +85,11 @@ class LcsMethod
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -129,19 +97,11 @@ class LcsMethod
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDeliveryDuring(): ?string
     {
         return $this->deliveryDuring;
     }
 
-    /**
-     * @param string|null $deliveryDuring
-     *
-     * @return self
-     */
     public function setDeliveryDuring(?string $deliveryDuring): self
     {
         $this->deliveryDuring = $deliveryDuring;
@@ -149,19 +109,11 @@ class LcsMethod
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsSameDay(): ?bool
     {
         return $this->isSameDay;
     }
 
-    /**
-     * @param bool|null $isSameDay
-     *
-     * @return self
-     */
     public function setIsSameDay(?bool $isSameDay): self
     {
         $this->isSameDay = $isSameDay;
@@ -169,19 +121,11 @@ class LcsMethod
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsSunday(): ?bool
     {
         return $this->isSunday;
     }
 
-    /**
-     * @param bool|null $isSunday
-     *
-     * @return self
-     */
     public function setIsSunday(?bool $isSunday): self
     {
         $this->isSunday = $isSunday;
@@ -189,19 +133,11 @@ class LcsMethod
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsCarrierLocation(): ?bool
     {
         return $this->isCarrierLocation;
     }
 
-    /**
-     * @param bool|null $isCarrierLocation
-     *
-     * @return self
-     */
     public function setIsCarrierLocation(?bool $isCarrierLocation): self
     {
         $this->isCarrierLocation = $isCarrierLocation;
@@ -209,19 +145,11 @@ class LcsMethod
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsNeighbourAllowed(): ?bool
     {
         return $this->isNeighbourAllowed;
     }
 
-    /**
-     * @param bool|null $isNeighbourAllowed
-     *
-     * @return self
-     */
     public function setIsNeighbourAllowed(?bool $isNeighbourAllowed): self
     {
         $this->isNeighbourAllowed = $isNeighbourAllowed;

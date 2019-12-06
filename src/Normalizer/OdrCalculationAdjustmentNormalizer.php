@@ -24,12 +24,12 @@ class OdrCalculationAdjustmentNormalizer implements DenormalizerInterface, Norma
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrCalculationAdjustment';
+        return 'Afosto\\Sdk\\Model\\OdrCalculationAdjustment' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrCalculationAdjustment';
+        return 'Afosto\\Sdk\\Model\\OdrCalculationAdjustment' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,22 +38,22 @@ class OdrCalculationAdjustmentNormalizer implements DenormalizerInterface, Norma
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrCalculationAdjustment();
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
+        if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
         }
-        if (property_exists($data, 'is_percentage') && $data->{'is_percentage'} !== null) {
+        if (property_exists($data, 'is_percentage') && null !== $data->{'is_percentage'}) {
             $object->setIsPercentage($data->{'is_percentage'});
         }
-        if (property_exists($data, 'is_discount') && $data->{'is_discount'} !== null) {
+        if (property_exists($data, 'is_discount') && null !== $data->{'is_discount'}) {
             $object->setIsDiscount($data->{'is_discount'});
         }
-        if (property_exists($data, 'result') && $data->{'result'} !== null) {
+        if (property_exists($data, 'result') && null !== $data->{'result'}) {
             $object->setResult($this->denormalizer->denormalize($data->{'result'}, 'Afosto\\Sdk\\Model\\OdrCalculationAdjustmentResult', 'json', $context));
         }
 

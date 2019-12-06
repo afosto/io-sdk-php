@@ -14,8 +14,6 @@ class AddCard extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\
 {
     /**
      * Add a card's source.
-     *
-     * @param \Afosto\Sdk\Model\IamCardsPostBody $body
      */
     public function __construct(\Afosto\Sdk\Model\IamCardsPostBody $body)
     {
@@ -46,7 +44,6 @@ class AddCard extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\
 
     /**
      * {@inheritdoc}
-     *
      *
      * @return \Afosto\Sdk\Model\IamCard[]|null
      */

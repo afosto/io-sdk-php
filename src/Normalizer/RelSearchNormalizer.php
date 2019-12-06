@@ -24,12 +24,12 @@ class RelSearchNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelSearch';
+        return 'Afosto\\Sdk\\Model\\RelSearch' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelSearch';
+        return 'Afosto\\Sdk\\Model\\RelSearch' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class RelSearchNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelSearch();
-        if (property_exists($data, 'constraints') && $data->{'constraints'} !== null) {
+        if (property_exists($data, 'constraints') && null !== $data->{'constraints'}) {
             $values = [];
             foreach ($data->{'constraints'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\RelConstraint', 'json', $context);

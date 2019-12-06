@@ -24,12 +24,12 @@ class WmsAvailableRouteNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsAvailableRoute';
+        return 'Afosto\\Sdk\\Model\\WmsAvailableRoute' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsAvailableRoute';
+        return 'Afosto\\Sdk\\Model\\WmsAvailableRoute' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class WmsAvailableRouteNormalizer implements DenormalizerInterface, NormalizerIn
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsAvailableRoute();
-        if (property_exists($data, 'available') && $data->{'available'} !== null) {
+        if (property_exists($data, 'available') && null !== $data->{'available'}) {
             $object->setAvailable($data->{'available'});
         }
-        if (property_exists($data, 'route_id') && $data->{'route_id'} !== null) {
+        if (property_exists($data, 'route_id') && null !== $data->{'route_id'}) {
             $object->setRouteId($data->{'route_id'});
         }
 

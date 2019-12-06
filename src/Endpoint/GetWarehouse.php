@@ -16,8 +16,6 @@ class GetWarehouse extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     /**
      * Get a warehouse.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

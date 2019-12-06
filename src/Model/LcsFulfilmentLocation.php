@@ -33,19 +33,11 @@ class LcsFulfilmentLocation
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -53,19 +45,11 @@ class LcsFulfilmentLocation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -73,19 +57,11 @@ class LcsFulfilmentLocation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressId(): ?string
     {
         return $this->addressId;
     }
 
-    /**
-     * @param string|null $addressId
-     *
-     * @return self
-     */
     public function setAddressId(?string $addressId): self
     {
         $this->addressId = $addressId;
@@ -93,19 +69,11 @@ class LcsFulfilmentLocation
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -113,19 +81,11 @@ class LcsFulfilmentLocation
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

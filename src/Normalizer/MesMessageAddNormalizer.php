@@ -24,12 +24,12 @@ class MesMessageAddNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesMessageAdd';
+        return 'Afosto\\Sdk\\Model\\MesMessageAdd' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesMessageAdd';
+        return 'Afosto\\Sdk\\Model\\MesMessageAdd' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,20 +38,20 @@ class MesMessageAddNormalizer implements DenormalizerInterface, NormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesMessageAdd();
-        if (property_exists($data, 'content') && $data->{'content'} !== null) {
+        if (property_exists($data, 'content') && null !== $data->{'content'}) {
             $object->setContent($data->{'content'});
         }
-        if (property_exists($data, 'is_private') && $data->{'is_private'} !== null) {
+        if (property_exists($data, 'is_private') && null !== $data->{'is_private'}) {
             $object->setIsPrivate($data->{'is_private'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->{'metadata'} as $key => $value) {
                 $values[$key] = $value;
             }
             $object->setMetadata($values);
         }
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
 

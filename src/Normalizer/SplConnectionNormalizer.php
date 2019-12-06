@@ -24,12 +24,12 @@ class SplConnectionNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplConnection';
+        return 'Afosto\\Sdk\\Model\\SplConnection' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplConnection';
+        return 'Afosto\\Sdk\\Model\\SplConnection' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class SplConnectionNormalizer implements DenormalizerInterface, NormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplConnection();
-        if (property_exists($data, 'interface') && $data->{'interface'} !== null) {
+        if (property_exists($data, 'interface') && null !== $data->{'interface'}) {
             $object->setInterface($data->{'interface'});
         }
-        if (property_exists($data, 'address') && $data->{'address'} !== null) {
+        if (property_exists($data, 'address') && null !== $data->{'address'}) {
             $object->setAddress($data->{'address'});
         }
 

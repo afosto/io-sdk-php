@@ -24,12 +24,12 @@ class WmsWarehouseItemNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsWarehouseItem';
+        return 'Afosto\\Sdk\\Model\\WmsWarehouseItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsWarehouseItem';
+        return 'Afosto\\Sdk\\Model\\WmsWarehouseItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,35 +38,35 @@ class WmsWarehouseItemNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsWarehouseItem();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'claim_id') && $data->{'claim_id'} !== null) {
+        if (property_exists($data, 'claim_id') && null !== $data->{'claim_id'}) {
             $object->setClaimId($data->{'claim_id'});
         }
-        if (property_exists($data, 'location_id') && $data->{'location_id'} !== null) {
+        if (property_exists($data, 'location_id') && null !== $data->{'location_id'}) {
             $object->setLocationId($data->{'location_id'});
         }
-        if (property_exists($data, 'warehouse_id') && $data->{'warehouse_id'} !== null) {
+        if (property_exists($data, 'warehouse_id') && null !== $data->{'warehouse_id'}) {
             $object->setWarehouseId($data->{'warehouse_id'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->{'metadata'} as $key => $value) {
                 $values[$key] = $value;
             }
             $object->setMetadata($values);
         }
-        if (property_exists($data, 'state') && $data->{'state'} !== null) {
+        if (property_exists($data, 'state') && null !== $data->{'state'}) {
             $object->setState($data->{'state'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt($data->{'created_at'});
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt($data->{'updated_at'});
         }
 

@@ -45,19 +45,11 @@ class CntHtmlToPdfRequest
      */
     protected $waitTimeout = 10000;
 
-    /**
-     * @return string|null
-     */
     public function getPath(): ?string
     {
         return $this->path;
     }
 
-    /**
-     * @param string|null $path
-     *
-     * @return self
-     */
     public function setPath(?string $path): self
     {
         $this->path = $path;
@@ -65,19 +57,11 @@ class CntHtmlToPdfRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getFilename(): ?string
     {
         return $this->filename;
     }
 
-    /**
-     * @param string|null $filename
-     *
-     * @return self
-     */
     public function setFilename(?string $filename): self
     {
         $this->filename = $filename;
@@ -85,19 +69,11 @@ class CntHtmlToPdfRequest
         return $this;
     }
 
-    /**
-     * @return CntHtmlToPdfRequestSize|null
-     */
     public function getSize(): ?CntHtmlToPdfRequestSize
     {
         return $this->size;
     }
 
-    /**
-     * @param CntHtmlToPdfRequestSize|null $size
-     *
-     * @return self
-     */
     public function setSize(?CntHtmlToPdfRequestSize $size): self
     {
         $this->size = $size;
@@ -105,19 +81,11 @@ class CntHtmlToPdfRequest
         return $this;
     }
 
-    /**
-     * @return CntHtmlToPdfRequestMargin|null
-     */
     public function getMargin(): ?CntHtmlToPdfRequestMargin
     {
         return $this->margin;
     }
 
-    /**
-     * @param CntHtmlToPdfRequestMargin|null $margin
-     *
-     * @return self
-     */
     public function setMargin(?CntHtmlToPdfRequestMargin $margin): self
     {
         $this->margin = $margin;
@@ -125,19 +93,11 @@ class CntHtmlToPdfRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMethod(): ?string
     {
         return $this->method;
     }
 
-    /**
-     * @param string|null $method
-     *
-     * @return self
-     */
     public function setMethod(?string $method): self
     {
         $this->method = $method;
@@ -145,19 +105,11 @@ class CntHtmlToPdfRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getContent(): ?string
     {
         return $this->content;
     }
 
-    /**
-     * @param string|null $content
-     *
-     * @return self
-     */
     public function setContent(?string $content): self
     {
         $this->content = $content;
@@ -165,19 +117,11 @@ class CntHtmlToPdfRequest
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getWaitDelay(): ?int
     {
         return $this->waitDelay;
     }
 
-    /**
-     * @param int|null $waitDelay
-     *
-     * @return self
-     */
     public function setWaitDelay(?int $waitDelay): self
     {
         $this->waitDelay = $waitDelay;
@@ -185,19 +129,11 @@ class CntHtmlToPdfRequest
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getWaitTimeout(): ?int
     {
         return $this->waitTimeout;
     }
 
-    /**
-     * @param int|null $waitTimeout
-     *
-     * @return self
-     */
     public function setWaitTimeout(?int $waitTimeout): self
     {
         $this->waitTimeout = $waitTimeout;

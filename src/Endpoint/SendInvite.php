@@ -14,8 +14,6 @@ class SendInvite extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 {
     /**
      * Create a new subtenant request.
-     *
-     * @param \Afosto\Sdk\Model\IamSubtenantsAuthorizationsInvitesPostBody $body
      */
     public function __construct(\Afosto\Sdk\Model\IamSubtenantsAuthorizationsInvitesPostBody $body)
     {

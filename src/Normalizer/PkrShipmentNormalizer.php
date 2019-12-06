@@ -24,12 +24,12 @@ class PkrShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\PkrShipment';
+        return 'Afosto\\Sdk\\Model\\PkrShipment' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\PkrShipment';
+        return 'Afosto\\Sdk\\Model\\PkrShipment' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,47 +38,47 @@ class PkrShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
             return null;
         }
         $object = new \Afosto\Sdk\Model\PkrShipment();
-        if (property_exists($data, 'address') && $data->{'address'} !== null) {
+        if (property_exists($data, 'address') && null !== $data->{'address'}) {
             $object->setAddress($this->denormalizer->denormalize($data->{'address'}, 'Afosto\\Sdk\\Model\\PkrShipmentAddress', 'json', $context));
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt($data->{'created_at'});
         }
-        if (property_exists($data, 'expected_at') && $data->{'expected_at'} !== null) {
+        if (property_exists($data, 'expected_at') && null !== $data->{'expected_at'}) {
             $object->setExpectedAt($data->{'expected_at'});
         }
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'is_notified') && $data->{'is_notified'} !== null) {
+        if (property_exists($data, 'is_notified') && null !== $data->{'is_notified'}) {
             $object->setIsNotified($data->{'is_notified'});
         }
-        if (property_exists($data, 'items') && $data->{'items'} !== null) {
+        if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\PkrShipmentItemsItem', 'json', $context);
             }
             $object->setItems($values);
         }
-        if (property_exists($data, 'method') && $data->{'method'} !== null) {
+        if (property_exists($data, 'method') && null !== $data->{'method'}) {
             $object->setMethod($data->{'method'});
         }
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'sale') && $data->{'sale'} !== null) {
+        if (property_exists($data, 'sale') && null !== $data->{'sale'}) {
             $object->setSale($this->denormalizer->denormalize($data->{'sale'}, 'Afosto\\Sdk\\Model\\PkrShipmentSale', 'json', $context));
         }
-        if (property_exists($data, 'shipped_at') && $data->{'shipped_at'} !== null) {
+        if (property_exists($data, 'shipped_at') && null !== $data->{'shipped_at'}) {
             $object->setShippedAt($data->{'shipped_at'});
         }
-        if (property_exists($data, 'status') && $data->{'status'} !== null) {
+        if (property_exists($data, 'status') && null !== $data->{'status'}) {
             $object->setStatus($data->{'status'});
         }
-        if (property_exists($data, 'track_trace') && $data->{'track_trace'} !== null) {
+        if (property_exists($data, 'track_trace') && null !== $data->{'track_trace'}) {
             $object->setTrackTrace($data->{'track_trace'});
         }
-        if (property_exists($data, 'warehouse') && $data->{'warehouse'} !== null) {
+        if (property_exists($data, 'warehouse') && null !== $data->{'warehouse'}) {
             $object->setWarehouse($this->denormalizer->denormalize($data->{'warehouse'}, 'Afosto\\Sdk\\Model\\PkrShipmentWarehouse', 'json', $context));
         }
 

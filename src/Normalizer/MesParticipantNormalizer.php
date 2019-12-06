@@ -24,12 +24,12 @@ class MesParticipantNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesParticipant';
+        return 'Afosto\\Sdk\\Model\\MesParticipant' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesParticipant';
+        return 'Afosto\\Sdk\\Model\\MesParticipant' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class MesParticipantNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesParticipant();
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'is_machine') && $data->{'is_machine'} !== null) {
+        if (property_exists($data, 'is_machine') && null !== $data->{'is_machine'}) {
             $object->setIsMachine($data->{'is_machine'});
         }
-        if (property_exists($data, 'notifications') && $data->{'notifications'} !== null) {
+        if (property_exists($data, 'notifications') && null !== $data->{'notifications'}) {
             $values = [];
             foreach ($data->{'notifications'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\MesNotify', 'json', $context);

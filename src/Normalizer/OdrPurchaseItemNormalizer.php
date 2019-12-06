@@ -24,12 +24,12 @@ class OdrPurchaseItemNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrPurchaseItem';
+        return 'Afosto\\Sdk\\Model\\OdrPurchaseItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrPurchaseItem';
+        return 'Afosto\\Sdk\\Model\\OdrPurchaseItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,22 +38,22 @@ class OdrPurchaseItemNormalizer implements DenormalizerInterface, NormalizerInte
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrPurchaseItem();
-        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
+        if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
         }
-        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
         }
-        if (property_exists($data, 'vat_rate') && $data->{'vat_rate'} !== null) {
+        if (property_exists($data, 'vat_rate') && null !== $data->{'vat_rate'}) {
             $object->setVatRate($data->{'vat_rate'});
         }
 

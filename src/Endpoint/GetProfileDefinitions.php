@@ -52,6 +52,8 @@ class GetProfileDefinitions extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
      * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsBadRequestException
      * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsForbiddenException
      * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsNotFoundException
+     *
+     * @return null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {

@@ -45,19 +45,11 @@ class WmsLocation
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -65,19 +57,11 @@ class WmsLocation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -85,19 +69,11 @@ class WmsLocation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCountryIso(): ?string
     {
         return $this->countryIso;
     }
 
-    /**
-     * @param string|null $countryIso
-     *
-     * @return self
-     */
     public function setCountryIso(?string $countryIso): self
     {
         $this->countryIso = $countryIso;
@@ -105,19 +81,11 @@ class WmsLocation
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsCustomer(): ?bool
     {
         return $this->isCustomer;
     }
 
-    /**
-     * @param bool|null $isCustomer
-     *
-     * @return self
-     */
     public function setIsCustomer(?bool $isCustomer): self
     {
         $this->isCustomer = $isCustomer;
@@ -125,19 +93,11 @@ class WmsLocation
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsTrackingInventory(): ?bool
     {
         return $this->isTrackingInventory;
     }
 
-    /**
-     * @param bool|null $isTrackingInventory
-     *
-     * @return self
-     */
     public function setIsTrackingInventory(?bool $isTrackingInventory): self
     {
         $this->isTrackingInventory = $isTrackingInventory;
@@ -145,19 +105,11 @@ class WmsLocation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getWarehouseId(): ?string
     {
         return $this->warehouseId;
     }
 
-    /**
-     * @param string|null $warehouseId
-     *
-     * @return self
-     */
     public function setWarehouseId(?string $warehouseId): self
     {
         $this->warehouseId = $warehouseId;
@@ -165,19 +117,11 @@ class WmsLocation
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -185,19 +129,11 @@ class WmsLocation
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

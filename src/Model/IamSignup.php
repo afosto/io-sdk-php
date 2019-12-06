@@ -21,19 +21,11 @@ class IamSignup
      */
     protected $user;
 
-    /**
-     * @return IamCompany|null
-     */
     public function getCompany(): ?IamCompany
     {
         return $this->company;
     }
 
-    /**
-     * @param IamCompany|null $company
-     *
-     * @return self
-     */
     public function setCompany(?IamCompany $company): self
     {
         $this->company = $company;
@@ -41,19 +33,11 @@ class IamSignup
         return $this;
     }
 
-    /**
-     * @return IamUserModel|null
-     */
     public function getUser(): ?IamUserModel
     {
         return $this->user;
     }
 
-    /**
-     * @param IamUserModel|null $user
-     *
-     * @return self
-     */
     public function setUser(?IamUserModel $user): self
     {
         $this->user = $user;

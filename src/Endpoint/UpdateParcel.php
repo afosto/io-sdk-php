@@ -16,9 +16,6 @@ class UpdateParcel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     /**
      * Update the parcel parameters.
-     *
-     * @param string                           $id
-     * @param \Afosto\Sdk\Model\LcsParcelModel $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\LcsParcelModel $body)
     {

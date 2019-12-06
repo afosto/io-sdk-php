@@ -33,19 +33,11 @@ class OdrAdjustment
      */
     protected $isDiscount;
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -53,19 +45,11 @@ class OdrAdjustment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -73,19 +57,11 @@ class OdrAdjustment
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getAmount(): ?int
     {
         return $this->amount;
     }
 
-    /**
-     * @param int|null $amount
-     *
-     * @return self
-     */
     public function setAmount(?int $amount): self
     {
         $this->amount = $amount;
@@ -93,19 +69,11 @@ class OdrAdjustment
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsPercentage(): ?bool
     {
         return $this->isPercentage;
     }
 
-    /**
-     * @param bool|null $isPercentage
-     *
-     * @return self
-     */
     public function setIsPercentage(?bool $isPercentage): self
     {
         $this->isPercentage = $isPercentage;
@@ -113,19 +81,11 @@ class OdrAdjustment
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsDiscount(): ?bool
     {
         return $this->isDiscount;
     }
 
-    /**
-     * @param bool|null $isDiscount
-     *
-     * @return self
-     */
     public function setIsDiscount(?bool $isDiscount): self
     {
         $this->isDiscount = $isDiscount;

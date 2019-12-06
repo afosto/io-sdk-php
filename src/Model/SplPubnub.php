@@ -27,8 +27,6 @@ class SplPubnub
 
     /**
      * @param SplToken[]|null $tokens
-     *
-     * @return self
      */
     public function setTokens(?array $tokens): self
     {

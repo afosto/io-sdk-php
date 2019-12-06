@@ -31,8 +31,6 @@ class WmsClaimsPostResponse200
 
     /**
      * @param WmsClaim[]|null $claims
-     *
-     * @return self
      */
     public function setClaims(?array $claims): self
     {
@@ -41,19 +39,11 @@ class WmsClaimsPostResponse200
         return $this;
     }
 
-    /**
-     * @return WmsBackorder|null
-     */
     public function getBackorder(): ?WmsBackorder
     {
         return $this->backorder;
     }
 
-    /**
-     * @param WmsBackorder|null $backorder
-     *
-     * @return self
-     */
     public function setBackorder(?WmsBackorder $backorder): self
     {
         $this->backorder = $backorder;

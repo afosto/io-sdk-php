@@ -29,19 +29,11 @@ class WmsUpdateWarehouseItemRequest
      */
     protected $metadata;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -51,8 +43,6 @@ class WmsUpdateWarehouseItemRequest
 
     /**
      * refers to the position within the warehouse.
-     *
-     * @return string|null
      */
     public function getPosition(): ?string
     {
@@ -61,10 +51,6 @@ class WmsUpdateWarehouseItemRequest
 
     /**
      * refers to the position within the warehouse.
-     *
-     * @param string|null $position
-     *
-     * @return self
      */
     public function setPosition(?string $position): self
     {
@@ -87,8 +73,6 @@ class WmsUpdateWarehouseItemRequest
      * additional metadata that applies to the item.
      *
      * @param string[]|null $metadata
-     *
-     * @return self
      */
     public function setMetadata(?\ArrayObject $metadata): self
     {

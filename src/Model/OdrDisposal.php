@@ -37,19 +37,11 @@ class OdrDisposal
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -57,19 +49,11 @@ class OdrDisposal
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getClientId(): ?string
     {
         return $this->clientId;
     }
 
-    /**
-     * @param string|null $clientId
-     *
-     * @return self
-     */
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
@@ -87,8 +71,6 @@ class OdrDisposal
 
     /**
      * @param OdrLog[]|null $events
-     *
-     * @return self
      */
     public function setEvents(?array $events): self
     {
@@ -107,8 +89,6 @@ class OdrDisposal
 
     /**
      * @param OdrStack[]|null $stacks
-     *
-     * @return self
      */
     public function setStacks(?array $stacks): self
     {
@@ -117,19 +97,11 @@ class OdrDisposal
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -137,19 +109,11 @@ class OdrDisposal
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

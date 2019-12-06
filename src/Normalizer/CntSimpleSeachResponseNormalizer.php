@@ -24,12 +24,12 @@ class CntSimpleSeachResponseNormalizer implements DenormalizerInterface, Normali
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntSimpleSeachResponse';
+        return 'Afosto\\Sdk\\Model\\CntSimpleSeachResponse' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntSimpleSeachResponse';
+        return 'Afosto\\Sdk\\Model\\CntSimpleSeachResponse' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,14 +38,14 @@ class CntSimpleSeachResponseNormalizer implements DenormalizerInterface, Normali
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntSimpleSeachResponse();
-        if (property_exists($data, 'hits') && $data->{'hits'} !== null) {
+        if (property_exists($data, 'hits') && null !== $data->{'hits'}) {
             $values = [];
             foreach ($data->{'hits'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CntSimpleDocumentResponse', 'json', $context);
             }
             $object->setHits($values);
         }
-        if (property_exists($data, 'pagination') && $data->{'pagination'} !== null) {
+        if (property_exists($data, 'pagination') && null !== $data->{'pagination'}) {
             $object->setPagination($this->denormalizer->denormalize($data->{'pagination'}, 'Afosto\\Sdk\\Model\\CntPagination', 'json', $context));
         }
 

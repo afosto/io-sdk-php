@@ -24,12 +24,12 @@ class SplPrinterModelNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplPrinterModel';
+        return 'Afosto\\Sdk\\Model\\SplPrinterModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplPrinterModel';
+        return 'Afosto\\Sdk\\Model\\SplPrinterModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class SplPrinterModelNormalizer implements DenormalizerInterface, NormalizerInte
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplPrinterModel();
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'hub_id') && $data->{'hub_id'} !== null) {
+        if (property_exists($data, 'hub_id') && null !== $data->{'hub_id'}) {
             $object->setHubId($data->{'hub_id'});
         }
-        if (property_exists($data, 'default_encoding') && $data->{'default_encoding'} !== null) {
+        if (property_exists($data, 'default_encoding') && null !== $data->{'default_encoding'}) {
             $object->setDefaultEncoding($data->{'default_encoding'});
         }
-        if (property_exists($data, 'connection') && $data->{'connection'} !== null) {
+        if (property_exists($data, 'connection') && null !== $data->{'connection'}) {
             $object->setConnection($this->denormalizer->denormalize($data->{'connection'}, 'Afosto\\Sdk\\Model\\SplConnection', 'json', $context));
         }
 

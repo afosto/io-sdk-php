@@ -24,12 +24,12 @@ class IamSecretNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamSecret';
+        return 'Afosto\\Sdk\\Model\\IamSecret' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamSecret';
+        return 'Afosto\\Sdk\\Model\\IamSecret' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,31 +38,31 @@ class IamSecretNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamSecret();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'sub') && $data->{'sub'} !== null) {
+        if (property_exists($data, 'sub') && null !== $data->{'sub'}) {
             $object->setSub($data->{'sub'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'secret') && $data->{'secret'} !== null) {
+        if (property_exists($data, 'secret') && null !== $data->{'secret'}) {
             $object->setSecret($data->{'secret'});
         }
-        if (property_exists($data, 'is_confirmed') && $data->{'is_confirmed'} !== null) {
+        if (property_exists($data, 'is_confirmed') && null !== $data->{'is_confirmed'}) {
             $object->setIsConfirmed($data->{'is_confirmed'});
         }
-        if (property_exists($data, 'qr_url') && $data->{'qr_url'} !== null) {
+        if (property_exists($data, 'qr_url') && null !== $data->{'qr_url'}) {
             $object->setQrUrl($data->{'qr_url'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

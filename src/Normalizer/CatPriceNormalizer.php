@@ -24,12 +24,12 @@ class CatPriceNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CatPrice';
+        return 'Afosto\\Sdk\\Model\\CatPrice' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CatPrice';
+        return 'Afosto\\Sdk\\Model\\CatPrice' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,29 +38,29 @@ class CatPriceNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\CatPrice();
-        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
+        if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
         }
-        if (property_exists($data, 'original_amount') && $data->{'original_amount'} !== null) {
+        if (property_exists($data, 'original_amount') && null !== $data->{'original_amount'}) {
             $object->setOriginalAmount($data->{'original_amount'});
         }
-        if (property_exists($data, 'vat') && $data->{'vat'} !== null) {
+        if (property_exists($data, 'vat') && null !== $data->{'vat'}) {
             $values = [];
             foreach ($data->{'vat'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CatVat', 'json', $context);
             }
             $object->setVat($values);
         }
-        if (property_exists($data, 'filters') && $data->{'filters'} !== null) {
+        if (property_exists($data, 'filters') && null !== $data->{'filters'}) {
             $object->setFilters($data->{'filters'});
         }
-        if (property_exists($data, 'active_at') && $data->{'active_at'} !== null) {
+        if (property_exists($data, 'active_at') && null !== $data->{'active_at'}) {
             $object->setActiveAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'active_at'}));
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
 

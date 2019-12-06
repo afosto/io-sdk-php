@@ -36,6 +36,8 @@ class GetFilterKeys extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     /**
      * {@inheritdoc}
+     *
+     * @return null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {

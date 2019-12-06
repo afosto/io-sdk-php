@@ -24,12 +24,12 @@ class IamCardsPostBodyNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamCardsPostBody';
+        return 'Afosto\\Sdk\\Model\\IamCardsPostBody' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamCardsPostBody';
+        return 'Afosto\\Sdk\\Model\\IamCardsPostBody' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class IamCardsPostBodyNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamCardsPostBody();
-        if (property_exists($data, 'card_source') && $data->{'card_source'} !== null) {
+        if (property_exists($data, 'card_source') && null !== $data->{'card_source'}) {
             $object->setCardSource($data->{'card_source'});
         }
 

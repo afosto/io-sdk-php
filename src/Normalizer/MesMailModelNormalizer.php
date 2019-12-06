@@ -24,12 +24,12 @@ class MesMailModelNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesMailModel';
+        return 'Afosto\\Sdk\\Model\\MesMailModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesMailModel';
+        return 'Afosto\\Sdk\\Model\\MesMailModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,53 +38,53 @@ class MesMailModelNormalizer implements DenormalizerInterface, NormalizerInterfa
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesMailModel();
-        if (property_exists($data, 'from') && $data->{'from'} !== null) {
+        if (property_exists($data, 'from') && null !== $data->{'from'}) {
             $object->setFrom($this->denormalizer->denormalize($data->{'from'}, 'Afosto\\Sdk\\Model\\MesContactModel', 'json', $context));
         }
-        if (property_exists($data, 'to') && $data->{'to'} !== null) {
+        if (property_exists($data, 'to') && null !== $data->{'to'}) {
             $values = [];
             foreach ($data->{'to'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\MesContactModel', 'json', $context);
             }
             $object->setTo($values);
         }
-        if (property_exists($data, 'cc') && $data->{'cc'} !== null) {
+        if (property_exists($data, 'cc') && null !== $data->{'cc'}) {
             $values_1 = [];
             foreach ($data->{'cc'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\MesContactModel', 'json', $context);
             }
             $object->setCc($values_1);
         }
-        if (property_exists($data, 'bcc') && $data->{'bcc'} !== null) {
+        if (property_exists($data, 'bcc') && null !== $data->{'bcc'}) {
             $values_2 = [];
             foreach ($data->{'bcc'} as $value_2) {
                 $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\MesContactModel', 'json', $context);
             }
             $object->setBcc($values_2);
         }
-        if (property_exists($data, 'reply_to') && $data->{'reply_to'} !== null) {
+        if (property_exists($data, 'reply_to') && null !== $data->{'reply_to'}) {
             $object->setReplyTo($this->denormalizer->denormalize($data->{'reply_to'}, 'Afosto\\Sdk\\Model\\MesContactModel', 'json', $context));
         }
-        if (property_exists($data, 'subject') && $data->{'subject'} !== null) {
+        if (property_exists($data, 'subject') && null !== $data->{'subject'}) {
             $object->setSubject($data->{'subject'});
         }
-        if (property_exists($data, 'html_body') && $data->{'html_body'} !== null) {
+        if (property_exists($data, 'html_body') && null !== $data->{'html_body'}) {
             $object->setHtmlBody($data->{'html_body'});
         }
-        if (property_exists($data, 'attachments') && $data->{'attachments'} !== null) {
+        if (property_exists($data, 'attachments') && null !== $data->{'attachments'}) {
             $values_3 = [];
             foreach ($data->{'attachments'} as $value_3) {
                 $values_3[] = $value_3;
             }
             $object->setAttachments($values_3);
         }
-        if (property_exists($data, 'folder') && $data->{'folder'} !== null) {
+        if (property_exists($data, 'folder') && null !== $data->{'folder'}) {
             $object->setFolder($data->{'folder'});
         }
-        if (property_exists($data, 'is_unread') && $data->{'is_unread'} !== null) {
+        if (property_exists($data, 'is_unread') && null !== $data->{'is_unread'}) {
             $object->setIsUnread($data->{'is_unread'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
 

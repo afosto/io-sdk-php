@@ -24,12 +24,12 @@ class OdrContactContactNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrContactContact';
+        return 'Afosto\\Sdk\\Model\\OdrContactContact' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrContactContact';
+        return 'Afosto\\Sdk\\Model\\OdrContactContact' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,34 +38,34 @@ class OdrContactContactNormalizer implements DenormalizerInterface, NormalizerIn
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrContactContact();
-        if (property_exists($data, 'email') && $data->{'email'} !== null) {
+        if (property_exists($data, 'email') && null !== $data->{'email'}) {
             $object->setEmail($data->{'email'});
         }
-        if (property_exists($data, 'vat_number') && $data->{'vat_number'} !== null) {
+        if (property_exists($data, 'vat_number') && null !== $data->{'vat_number'}) {
             $object->setVatNumber($data->{'vat_number'});
         }
-        if (property_exists($data, 'coc_number') && $data->{'coc_number'} !== null) {
+        if (property_exists($data, 'coc_number') && null !== $data->{'coc_number'}) {
             $object->setCocNumber($data->{'coc_number'});
         }
-        if (property_exists($data, 'organisation_id') && $data->{'organisation_id'} !== null) {
+        if (property_exists($data, 'organisation_id') && null !== $data->{'organisation_id'}) {
             $object->setOrganisationId($data->{'organisation_id'});
         }
-        if (property_exists($data, 'organisation_version') && $data->{'organisation_version'} !== null) {
+        if (property_exists($data, 'organisation_version') && null !== $data->{'organisation_version'}) {
             $object->setOrganisationVersion($data->{'organisation_version'});
         }
-        if (property_exists($data, 'address_id') && $data->{'address_id'} !== null) {
+        if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
             $object->setAddressId($data->{'address_id'});
         }
-        if (property_exists($data, 'shipment_address_id') && $data->{'shipment_address_id'} !== null) {
+        if (property_exists($data, 'shipment_address_id') && null !== $data->{'shipment_address_id'}) {
             $object->setShipmentAddressId($data->{'shipment_address_id'});
         }
-        if (property_exists($data, 'phone_number_id') && $data->{'phone_number_id'} !== null) {
+        if (property_exists($data, 'phone_number_id') && null !== $data->{'phone_number_id'}) {
             $object->setPhoneNumberId($data->{'phone_number_id'});
         }
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'version') && $data->{'version'} !== null) {
+        if (property_exists($data, 'version') && null !== $data->{'version'}) {
             $object->setVersion($data->{'version'});
         }
 

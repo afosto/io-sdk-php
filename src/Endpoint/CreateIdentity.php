@@ -14,8 +14,6 @@ class CreateIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 {
     /**
      * Returns a  signed id token.
-     *
-     * @param \Afosto\Sdk\Model\RelCreateIdentityRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\RelCreateIdentityRequest $body)
     {

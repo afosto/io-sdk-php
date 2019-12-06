@@ -21,19 +21,11 @@ class RelPhoneNumberList
      */
     protected $secondary;
 
-    /**
-     * @return RelPhoneNumber|null
-     */
     public function getPrimary(): ?RelPhoneNumber
     {
         return $this->primary;
     }
 
-    /**
-     * @param RelPhoneNumber|null $primary
-     *
-     * @return self
-     */
     public function setPrimary(?RelPhoneNumber $primary): self
     {
         $this->primary = $primary;
@@ -51,8 +43,6 @@ class RelPhoneNumberList
 
     /**
      * @param RelPhoneNumber[]|null $secondary
-     *
-     * @return self
      */
     public function setSecondary(?array $secondary): self
     {

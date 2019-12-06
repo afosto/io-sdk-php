@@ -24,12 +24,12 @@ class WmsCreateProjectionRequestNormalizer implements DenormalizerInterface, Nor
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsCreateProjectionRequest';
+        return 'Afosto\\Sdk\\Model\\WmsCreateProjectionRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsCreateProjectionRequest';
+        return 'Afosto\\Sdk\\Model\\WmsCreateProjectionRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class WmsCreateProjectionRequestNormalizer implements DenormalizerInterface, Nor
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsCreateProjectionRequest();
-        if (property_exists($data, 'target') && $data->{'target'} !== null) {
+        if (property_exists($data, 'target') && null !== $data->{'target'}) {
             $object->setTarget($data->{'target'});
         }
-        if (property_exists($data, 'stack') && $data->{'stack'} !== null) {
+        if (property_exists($data, 'stack') && null !== $data->{'stack'}) {
             $object->setStack($this->denormalizer->denormalize($data->{'stack'}, 'Afosto\\Sdk\\Model\\WmsStackReference', 'json', $context));
         }
-        if (property_exists($data, 'constraints') && $data->{'constraints'} !== null) {
+        if (property_exists($data, 'constraints') && null !== $data->{'constraints'}) {
             $values = [];
             foreach ($data->{'constraints'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsConstraint', 'json', $context);

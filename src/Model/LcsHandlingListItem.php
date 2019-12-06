@@ -51,8 +51,6 @@ class LcsHandlingListItem
 
     /**
      * @param string[]|null $ids
-     *
-     * @return self
      */
     public function setIds(?array $ids): self
     {
@@ -71,8 +69,6 @@ class LcsHandlingListItem
 
     /**
      * @param string[]|null $handledIds
-     *
-     * @return self
      */
     public function setHandledIds(?array $handledIds): self
     {
@@ -81,19 +77,11 @@ class LcsHandlingListItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getShipmentId(): ?string
     {
         return $this->shipmentId;
     }
 
-    /**
-     * @param string|null $shipmentId
-     *
-     * @return self
-     */
     public function setShipmentId(?string $shipmentId): self
     {
         $this->shipmentId = $shipmentId;
@@ -101,19 +89,11 @@ class LcsHandlingListItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSku(): ?string
     {
         return $this->sku;
     }
 
-    /**
-     * @param string|null $sku
-     *
-     * @return self
-     */
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
@@ -121,19 +101,11 @@ class LcsHandlingListItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -141,19 +113,11 @@ class LcsHandlingListItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPosition(): ?string
     {
         return $this->position;
     }
 
-    /**
-     * @param string|null $position
-     *
-     * @return self
-     */
     public function setPosition(?string $position): self
     {
         $this->position = $position;
@@ -161,19 +125,11 @@ class LcsHandlingListItem
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getQuantity(): ?int
     {
         return $this->quantity;
     }
 
-    /**
-     * @param int|null $quantity
-     *
-     * @return self
-     */
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;

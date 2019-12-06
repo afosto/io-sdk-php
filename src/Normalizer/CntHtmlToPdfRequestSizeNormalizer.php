@@ -24,12 +24,12 @@ class CntHtmlToPdfRequestSizeNormalizer implements DenormalizerInterface, Normal
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequestSize';
+        return 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequestSize' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequestSize';
+        return 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequestSize' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class CntHtmlToPdfRequestSizeNormalizer implements DenormalizerInterface, Normal
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntHtmlToPdfRequestSize();
-        if (property_exists($data, 'predefined') && $data->{'predefined'} !== null) {
+        if (property_exists($data, 'predefined') && null !== $data->{'predefined'}) {
             $object->setPredefined($data->{'predefined'});
         }
-        if (property_exists($data, 'width') && $data->{'width'} !== null) {
+        if (property_exists($data, 'width') && null !== $data->{'width'}) {
             $object->setWidth($data->{'width'});
         }
-        if (property_exists($data, 'height') && $data->{'height'} !== null) {
+        if (property_exists($data, 'height') && null !== $data->{'height'}) {
             $object->setHeight($data->{'height'});
         }
 

@@ -24,12 +24,12 @@ class IamRoleModelNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamRoleModel';
+        return 'Afosto\\Sdk\\Model\\IamRoleModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamRoleModel';
+        return 'Afosto\\Sdk\\Model\\IamRoleModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class IamRoleModelNormalizer implements DenormalizerInterface, NormalizerInterfa
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamRoleModel();
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'scopes') && $data->{'scopes'} !== null) {
+        if (property_exists($data, 'scopes') && null !== $data->{'scopes'}) {
             $values = [];
             foreach ($data->{'scopes'} as $value) {
                 $values[] = $value;

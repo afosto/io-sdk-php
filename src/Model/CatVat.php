@@ -25,19 +25,11 @@ class CatVat
      */
     protected $administrativeArea;
 
-    /**
-     * @return int|null
-     */
     public function getRate(): ?int
     {
         return $this->rate;
     }
 
-    /**
-     * @param int|null $rate
-     *
-     * @return self
-     */
     public function setRate(?int $rate): self
     {
         $this->rate = $rate;
@@ -45,19 +37,11 @@ class CatVat
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCountry(): ?string
     {
         return $this->country;
     }
 
-    /**
-     * @param string|null $country
-     *
-     * @return self
-     */
     public function setCountry(?string $country): self
     {
         $this->country = $country;
@@ -65,19 +49,11 @@ class CatVat
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAdministrativeArea(): ?string
     {
         return $this->administrativeArea;
     }
 
-    /**
-     * @param string|null $administrativeArea
-     *
-     * @return self
-     */
     public function setAdministrativeArea(?string $administrativeArea): self
     {
         $this->administrativeArea = $administrativeArea;

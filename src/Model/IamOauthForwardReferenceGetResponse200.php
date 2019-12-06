@@ -21,19 +21,11 @@ class IamOauthForwardReferenceGetResponse200
      */
     protected $idToken;
 
-    /**
-     * @return string|null
-     */
     public function getToken(): ?string
     {
         return $this->token;
     }
 
-    /**
-     * @param string|null $token
-     *
-     * @return self
-     */
     public function setToken(?string $token): self
     {
         $this->token = $token;
@@ -41,19 +33,11 @@ class IamOauthForwardReferenceGetResponse200
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getIdToken(): ?string
     {
         return $this->idToken;
     }
 
-    /**
-     * @param string|null $idToken
-     *
-     * @return self
-     */
     public function setIdToken(?string $idToken): self
     {
         $this->idToken = $idToken;

@@ -21,19 +21,11 @@ class SplStatus
      */
     protected $changedAt;
 
-    /**
-     * @return string|null
-     */
     public function getStatus(): ?string
     {
         return $this->status;
     }
 
-    /**
-     * @param string|null $status
-     *
-     * @return self
-     */
     public function setStatus(?string $status): self
     {
         $this->status = $status;
@@ -41,19 +33,11 @@ class SplStatus
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getChangedAt(): ?\DateTime
     {
         return $this->changedAt;
     }
 
-    /**
-     * @param \DateTime|null $changedAt
-     *
-     * @return self
-     */
     public function setChangedAt(?\DateTime $changedAt): self
     {
         $this->changedAt = $changedAt;

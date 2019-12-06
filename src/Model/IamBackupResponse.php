@@ -21,19 +21,11 @@ class IamBackupResponse
      */
     protected $createdAt;
 
-    /**
-     * @return string|null
-     */
     public function getAddress(): ?string
     {
         return $this->address;
     }
 
-    /**
-     * @param string|null $address
-     *
-     * @return self
-     */
     public function setAddress(?string $address): self
     {
         $this->address = $address;
@@ -41,19 +33,11 @@ class IamBackupResponse
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;

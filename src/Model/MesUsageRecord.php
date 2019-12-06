@@ -45,19 +45,11 @@ class MesUsageRecord
      */
     protected $createdAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -65,19 +57,11 @@ class MesUsageRecord
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -85,19 +69,11 @@ class MesUsageRecord
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
-    /**
-     * @param string|null $code
-     *
-     * @return self
-     */
     public function setCode(?string $code): self
     {
         $this->code = $code;
@@ -105,19 +81,11 @@ class MesUsageRecord
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUnit(): ?string
     {
         return $this->unit;
     }
 
-    /**
-     * @param string|null $unit
-     *
-     * @return self
-     */
     public function setUnit(?string $unit): self
     {
         $this->unit = $unit;
@@ -125,19 +93,11 @@ class MesUsageRecord
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getQuantity(): ?int
     {
         return $this->quantity;
     }
 
-    /**
-     * @param int|null $quantity
-     *
-     * @return self
-     */
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
@@ -145,19 +105,11 @@ class MesUsageRecord
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getProcessableAs(): ?string
     {
         return $this->processableAs;
     }
 
-    /**
-     * @param string|null $processableAs
-     *
-     * @return self
-     */
     public function setProcessableAs(?string $processableAs): self
     {
         $this->processableAs = $processableAs;
@@ -165,19 +117,11 @@ class MesUsageRecord
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getTrackedAt(): ?\DateTime
     {
         return $this->trackedAt;
     }
 
-    /**
-     * @param \DateTime|null $trackedAt
-     *
-     * @return self
-     */
     public function setTrackedAt(?\DateTime $trackedAt): self
     {
         $this->trackedAt = $trackedAt;
@@ -185,19 +129,11 @@ class MesUsageRecord
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;

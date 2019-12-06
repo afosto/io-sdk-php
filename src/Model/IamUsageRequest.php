@@ -21,19 +21,11 @@ class IamUsageRequest
      */
     protected $unit;
 
-    /**
-     * @return string|null
-     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
-    /**
-     * @param string|null $code
-     *
-     * @return self
-     */
     public function setCode(?string $code): self
     {
         $this->code = $code;
@@ -41,19 +33,11 @@ class IamUsageRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUnit(): ?string
     {
         return $this->unit;
     }
 
-    /**
-     * @param string|null $unit
-     *
-     * @return self
-     */
     public function setUnit(?string $unit): self
     {
         $this->unit = $unit;

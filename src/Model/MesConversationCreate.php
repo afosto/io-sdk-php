@@ -43,19 +43,11 @@ class MesConversationCreate
      */
     protected $expiresAt;
 
-    /**
-     * @return string|null
-     */
     public function getEvent(): ?string
     {
         return $this->event;
     }
 
-    /**
-     * @param string|null $event
-     *
-     * @return self
-     */
     public function setEvent(?string $event): self
     {
         $this->event = $event;
@@ -63,19 +55,11 @@ class MesConversationCreate
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getEntityType(): ?string
     {
         return $this->entityType;
     }
 
-    /**
-     * @param string|null $entityType
-     *
-     * @return self
-     */
     public function setEntityType(?string $entityType): self
     {
         $this->entityType = $entityType;
@@ -83,19 +67,11 @@ class MesConversationCreate
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -103,19 +79,11 @@ class MesConversationCreate
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getEntityId(): ?string
     {
         return $this->entityId;
     }
 
-    /**
-     * @param string|null $entityId
-     *
-     * @return self
-     */
     public function setEntityId(?string $entityId): self
     {
         $this->entityId = $entityId;
@@ -123,19 +91,11 @@ class MesConversationCreate
         return $this;
     }
 
-    /**
-     * @return MesParticipantCreate|null
-     */
     public function getParticipant(): ?MesParticipantCreate
     {
         return $this->participant;
     }
 
-    /**
-     * @param MesParticipantCreate|null $participant
-     *
-     * @return self
-     */
     public function setParticipant(?MesParticipantCreate $participant): self
     {
         $this->participant = $participant;
@@ -157,8 +117,6 @@ class MesConversationCreate
      * additional metadata that applies to the item.
      *
      * @param string[]|null $metadata
-     *
-     * @return self
      */
     public function setMetadata(?\ArrayObject $metadata): self
     {
@@ -167,19 +125,11 @@ class MesConversationCreate
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getExpiresAt(): ?\DateTime
     {
         return $this->expiresAt;
     }
 
-    /**
-     * @param \DateTime|null $expiresAt
-     *
-     * @return self
-     */
     public function setExpiresAt(?\DateTime $expiresAt): self
     {
         $this->expiresAt = $expiresAt;

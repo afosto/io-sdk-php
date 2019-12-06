@@ -33,19 +33,11 @@ class OdrPaymentIntent
      */
     protected $metadata;
 
-    /**
-     * @return int|null
-     */
     public function getAmount(): ?int
     {
         return $this->amount;
     }
 
-    /**
-     * @param int|null $amount
-     *
-     * @return self
-     */
     public function setAmount(?int $amount): self
     {
         $this->amount = $amount;
@@ -53,19 +45,11 @@ class OdrPaymentIntent
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getProviderCode(): ?string
     {
         return $this->providerCode;
     }
 
-    /**
-     * @param string|null $providerCode
-     *
-     * @return self
-     */
     public function setProviderCode(?string $providerCode): self
     {
         $this->providerCode = $providerCode;
@@ -73,19 +57,11 @@ class OdrPaymentIntent
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMethodCode(): ?string
     {
         return $this->methodCode;
     }
 
-    /**
-     * @param string|null $methodCode
-     *
-     * @return self
-     */
     public function setMethodCode(?string $methodCode): self
     {
         $this->methodCode = $methodCode;
@@ -93,19 +69,11 @@ class OdrPaymentIntent
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getIssuerCode(): ?string
     {
         return $this->issuerCode;
     }
 
-    /**
-     * @param string|null $issuerCode
-     *
-     * @return self
-     */
     public function setIssuerCode(?string $issuerCode): self
     {
         $this->issuerCode = $issuerCode;
@@ -123,8 +91,6 @@ class OdrPaymentIntent
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {

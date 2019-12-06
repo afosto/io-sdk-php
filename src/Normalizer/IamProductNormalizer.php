@@ -24,12 +24,12 @@ class IamProductNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamProduct';
+        return 'Afosto\\Sdk\\Model\\IamProduct' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamProduct';
+        return 'Afosto\\Sdk\\Model\\IamProduct' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,22 +38,22 @@ class IamProductNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamProduct();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'code') && $data->{'code'} !== null) {
+        if (property_exists($data, 'code') && null !== $data->{'code'}) {
             $object->setCode($data->{'code'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'unit') && $data->{'unit'} !== null) {
+        if (property_exists($data, 'unit') && null !== $data->{'unit'}) {
             $object->setUnit($data->{'unit'});
         }
-        if (property_exists($data, 'plan') && $data->{'plan'} !== null) {
+        if (property_exists($data, 'plan') && null !== $data->{'plan'}) {
             $object->setPlan($this->denormalizer->denormalize($data->{'plan'}, 'Afosto\\Sdk\\Model\\IamPlan', 'json', $context));
         }
 

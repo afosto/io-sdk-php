@@ -21,19 +21,11 @@ class SplConnection
      */
     protected $address;
 
-    /**
-     * @return string|null
-     */
     public function getInterface(): ?string
     {
         return $this->interface;
     }
 
-    /**
-     * @param string|null $interface
-     *
-     * @return self
-     */
     public function setInterface(?string $interface): self
     {
         $this->interface = $interface;
@@ -41,19 +33,11 @@ class SplConnection
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddress(): ?string
     {
         return $this->address;
     }
 
-    /**
-     * @param string|null $address
-     *
-     * @return self
-     */
     public function setAddress(?string $address): self
     {
         $this->address = $address;

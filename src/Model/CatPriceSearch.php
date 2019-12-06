@@ -21,19 +21,11 @@ class CatPriceSearch
      */
     protected $constraints;
 
-    /**
-     * @return \DateTime|null
-     */
     public function getActiveAt(): ?\DateTime
     {
         return $this->activeAt;
     }
 
-    /**
-     * @param \DateTime|null $activeAt
-     *
-     * @return self
-     */
     public function setActiveAt(?\DateTime $activeAt): self
     {
         $this->activeAt = $activeAt;
@@ -51,8 +43,6 @@ class CatPriceSearch
 
     /**
      * @param CatPriceConstraint[]|null $constraints
-     *
-     * @return self
      */
     public function setConstraints(?array $constraints): self
     {

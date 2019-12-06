@@ -24,12 +24,12 @@ class LcsLocationPositionNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsLocationPosition';
+        return 'Afosto\\Sdk\\Model\\LcsLocationPosition' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsLocationPosition';
+        return 'Afosto\\Sdk\\Model\\LcsLocationPosition' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,20 +38,20 @@ class LcsLocationPositionNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsLocationPosition();
-        if (property_exists($data, 'code') && $data->{'code'} !== null) {
+        if (property_exists($data, 'code') && null !== $data->{'code'}) {
             $object->setCode($data->{'code'});
         }
-        if (property_exists($data, 'sorting') && $data->{'sorting'} !== null) {
+        if (property_exists($data, 'sorting') && null !== $data->{'sorting'}) {
             $object->setSorting($data->{'sorting'});
         }
-        if (property_exists($data, 'skus') && $data->{'skus'} !== null) {
+        if (property_exists($data, 'skus') && null !== $data->{'skus'}) {
             $values = [];
             foreach ($data->{'skus'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsLocationSku', 'json', $context);
             }
             $object->setSkus($values);
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
 

@@ -24,12 +24,12 @@ class RelVersionNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelVersion';
+        return 'Afosto\\Sdk\\Model\\RelVersion' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelVersion';
+        return 'Afosto\\Sdk\\Model\\RelVersion' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class RelVersionNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelVersion();
-        if (property_exists($data, 'version') && $data->{'version'} !== null) {
+        if (property_exists($data, 'version') && null !== $data->{'version'}) {
             $object->setVersion($data->{'version'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
 

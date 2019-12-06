@@ -29,19 +29,11 @@ class SplNetworkDevice
      */
     protected $createdAt;
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -49,19 +41,11 @@ class SplNetworkDevice
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMacAddress(): ?string
     {
         return $this->macAddress;
     }
 
-    /**
-     * @param string|null $macAddress
-     *
-     * @return self
-     */
     public function setMacAddress(?string $macAddress): self
     {
         $this->macAddress = $macAddress;
@@ -69,19 +53,11 @@ class SplNetworkDevice
         return $this;
     }
 
-    /**
-     * @return SplConnection|null
-     */
     public function getInterface(): ?SplConnection
     {
         return $this->interface;
     }
 
-    /**
-     * @param SplConnection|null $interface
-     *
-     * @return self
-     */
     public function setInterface(?SplConnection $interface): self
     {
         $this->interface = $interface;
@@ -89,19 +65,11 @@ class SplNetworkDevice
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;

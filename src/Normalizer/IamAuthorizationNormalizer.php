@@ -24,12 +24,12 @@ class IamAuthorizationNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamAuthorization';
+        return 'Afosto\\Sdk\\Model\\IamAuthorization' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamAuthorization';
+        return 'Afosto\\Sdk\\Model\\IamAuthorization' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,29 +38,29 @@ class IamAuthorizationNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamAuthorization();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'user') && $data->{'user'} !== null) {
+        if (property_exists($data, 'user') && null !== $data->{'user'}) {
             $object->setUser($this->denormalizer->denormalize($data->{'user'}, 'Afosto\\Sdk\\Model\\IamSubtenantUser', 'json', $context));
         }
-        if (property_exists($data, 'roles') && $data->{'roles'} !== null) {
+        if (property_exists($data, 'roles') && null !== $data->{'roles'}) {
             $values = [];
             foreach ($data->{'roles'} as $value) {
                 $values[] = $value;
             }
             $object->setRoles($values);
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'state') && $data->{'state'} !== null) {
+        if (property_exists($data, 'state') && null !== $data->{'state'}) {
             $object->setState($data->{'state'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

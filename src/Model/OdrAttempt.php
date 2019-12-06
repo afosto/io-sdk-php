@@ -29,19 +29,11 @@ class OdrAttempt
      */
     protected $isExpired;
 
-    /**
-     * @return string|null
-     */
     public function getPspReference(): ?string
     {
         return $this->pspReference;
     }
 
-    /**
-     * @param string|null $pspReference
-     *
-     * @return self
-     */
     public function setPspReference(?string $pspReference): self
     {
         $this->pspReference = $pspReference;
@@ -49,19 +41,11 @@ class OdrAttempt
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getStartedAt(): ?\DateTime
     {
         return $this->startedAt;
     }
 
-    /**
-     * @param \DateTime|null $startedAt
-     *
-     * @return self
-     */
     public function setStartedAt(?\DateTime $startedAt): self
     {
         $this->startedAt = $startedAt;
@@ -69,19 +53,11 @@ class OdrAttempt
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsPaid(): ?bool
     {
         return $this->isPaid;
     }
 
-    /**
-     * @param bool|null $isPaid
-     *
-     * @return self
-     */
     public function setIsPaid(?bool $isPaid): self
     {
         $this->isPaid = $isPaid;
@@ -89,19 +65,11 @@ class OdrAttempt
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsExpired(): ?bool
     {
         return $this->isExpired;
     }
 
-    /**
-     * @param bool|null $isExpired
-     *
-     * @return self
-     */
     public function setIsExpired(?bool $isExpired): self
     {
         $this->isExpired = $isExpired;

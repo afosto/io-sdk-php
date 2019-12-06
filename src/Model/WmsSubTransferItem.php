@@ -45,19 +45,11 @@ class WmsSubTransferItem
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -65,19 +57,11 @@ class WmsSubTransferItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStatus(): ?string
     {
         return $this->status;
     }
 
-    /**
-     * @param string|null $status
-     *
-     * @return self
-     */
     public function setStatus(?string $status): self
     {
         $this->status = $status;
@@ -85,19 +69,11 @@ class WmsSubTransferItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getClaimItemId(): ?string
     {
         return $this->claimItemId;
     }
 
-    /**
-     * @param string|null $claimItemId
-     *
-     * @return self
-     */
     public function setClaimItemId(?string $claimItemId): self
     {
         $this->claimItemId = $claimItemId;
@@ -105,19 +81,11 @@ class WmsSubTransferItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getWarehouseItemId(): ?string
     {
         return $this->warehouseItemId;
     }
 
-    /**
-     * @param string|null $warehouseItemId
-     *
-     * @return self
-     */
     public function setWarehouseItemId(?string $warehouseItemId): self
     {
         $this->warehouseItemId = $warehouseItemId;
@@ -125,19 +93,11 @@ class WmsSubTransferItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStackItemId(): ?string
     {
         return $this->stackItemId;
     }
 
-    /**
-     * @param string|null $stackItemId
-     *
-     * @return self
-     */
     public function setStackItemId(?string $stackItemId): self
     {
         $this->stackItemId = $stackItemId;
@@ -145,19 +105,11 @@ class WmsSubTransferItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLocationId(): ?string
     {
         return $this->locationId;
     }
 
-    /**
-     * @param string|null $locationId
-     *
-     * @return self
-     */
     public function setLocationId(?string $locationId): self
     {
         $this->locationId = $locationId;
@@ -165,19 +117,11 @@ class WmsSubTransferItem
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -185,19 +129,11 @@ class WmsSubTransferItem
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

@@ -17,19 +17,11 @@ class IamValidationResponse
      */
     protected $isVerified;
 
-    /**
-     * @return bool|null
-     */
     public function getIsVerified(): ?bool
     {
         return $this->isVerified;
     }
 
-    /**
-     * @param bool|null $isVerified
-     *
-     * @return self
-     */
     public function setIsVerified(?bool $isVerified): self
     {
         $this->isVerified = $isVerified;

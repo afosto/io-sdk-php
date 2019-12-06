@@ -35,8 +35,6 @@ class IamLogsFiltersGetResponse200
 
     /**
      * @param string[]|null $resource
-     *
-     * @return self
      */
     public function setResource(?array $resource): self
     {
@@ -55,8 +53,6 @@ class IamLogsFiltersGetResponse200
 
     /**
      * @param string[]|null $method
-     *
-     * @return self
      */
     public function setMethod(?array $method): self
     {
@@ -75,8 +71,6 @@ class IamLogsFiltersGetResponse200
 
     /**
      * @param string[]|null $user
-     *
-     * @return self
      */
     public function setUser(?array $user): self
     {

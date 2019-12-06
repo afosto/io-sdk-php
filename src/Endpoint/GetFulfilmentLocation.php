@@ -16,8 +16,6 @@ class GetFulfilmentLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
 
     /**
      * Returns a fulfilment location.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

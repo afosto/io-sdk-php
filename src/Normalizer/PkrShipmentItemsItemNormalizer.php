@@ -24,12 +24,12 @@ class PkrShipmentItemsItemNormalizer implements DenormalizerInterface, Normalize
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\PkrShipmentItemsItem';
+        return 'Afosto\\Sdk\\Model\\PkrShipmentItemsItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\PkrShipmentItemsItem';
+        return 'Afosto\\Sdk\\Model\\PkrShipmentItemsItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,22 +38,22 @@ class PkrShipmentItemsItemNormalizer implements DenormalizerInterface, Normalize
             return null;
         }
         $object = new \Afosto\Sdk\Model\PkrShipmentItemsItem();
-        if (property_exists($data, 'ean') && $data->{'ean'} !== null) {
+        if (property_exists($data, 'ean') && null !== $data->{'ean'}) {
             $object->setEan($data->{'ean'});
         }
-        if (property_exists($data, 'image') && $data->{'image'} !== null) {
+        if (property_exists($data, 'image') && null !== $data->{'image'}) {
             $object->setImage($this->denormalizer->denormalize($data->{'image'}, 'Afosto\\Sdk\\Model\\PkrShipmentItemsItemImage', 'json', $context));
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'product') && $data->{'product'} !== null) {
+        if (property_exists($data, 'product') && null !== $data->{'product'}) {
             $object->setProduct($this->denormalizer->denormalize($data->{'product'}, 'Afosto\\Sdk\\Model\\PkrShipmentItemsItemProduct', 'json', $context));
         }
-        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
         }
-        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
 

@@ -24,12 +24,12 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsMethod';
+        return 'Afosto\\Sdk\\Model\\LcsMethod' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsMethod';
+        return 'Afosto\\Sdk\\Model\\LcsMethod' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,31 +38,31 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsMethod();
-        if (property_exists($data, 'carrier_code') && $data->{'carrier_code'} !== null) {
+        if (property_exists($data, 'carrier_code') && null !== $data->{'carrier_code'}) {
             $object->setCarrierCode($data->{'carrier_code'});
         }
-        if (property_exists($data, 'method_code') && $data->{'method_code'} !== null) {
+        if (property_exists($data, 'method_code') && null !== $data->{'method_code'}) {
             $object->setMethodCode($data->{'method_code'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'delivery_during') && $data->{'delivery_during'} !== null) {
+        if (property_exists($data, 'delivery_during') && null !== $data->{'delivery_during'}) {
             $object->setDeliveryDuring($data->{'delivery_during'});
         }
-        if (property_exists($data, 'is_same_day') && $data->{'is_same_day'} !== null) {
+        if (property_exists($data, 'is_same_day') && null !== $data->{'is_same_day'}) {
             $object->setIsSameDay($data->{'is_same_day'});
         }
-        if (property_exists($data, 'is_sunday') && $data->{'is_sunday'} !== null) {
+        if (property_exists($data, 'is_sunday') && null !== $data->{'is_sunday'}) {
             $object->setIsSunday($data->{'is_sunday'});
         }
-        if (property_exists($data, 'is_carrier_location') && $data->{'is_carrier_location'} !== null) {
+        if (property_exists($data, 'is_carrier_location') && null !== $data->{'is_carrier_location'}) {
             $object->setIsCarrierLocation($data->{'is_carrier_location'});
         }
-        if (property_exists($data, 'is_neighbour_allowed') && $data->{'is_neighbour_allowed'} !== null) {
+        if (property_exists($data, 'is_neighbour_allowed') && null !== $data->{'is_neighbour_allowed'}) {
             $object->setIsNeighbourAllowed($data->{'is_neighbour_allowed'});
         }
 

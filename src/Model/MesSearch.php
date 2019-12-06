@@ -27,8 +27,6 @@ class MesSearch
 
     /**
      * @param MesSearchConstraint[]|null $constraints
-     *
-     * @return self
      */
     public function setConstraints(?array $constraints): self
     {

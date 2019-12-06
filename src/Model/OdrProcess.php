@@ -25,19 +25,11 @@ class OdrProcess
      */
     protected $attempts;
 
-    /**
-     * @return string|null
-     */
     public function getAction(): ?string
     {
         return $this->action;
     }
 
-    /**
-     * @param string|null $action
-     *
-     * @return self
-     */
     public function setAction(?string $action): self
     {
         $this->action = $action;
@@ -45,19 +37,11 @@ class OdrProcess
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUrl(): ?string
     {
         return $this->url;
     }
 
-    /**
-     * @param string|null $url
-     *
-     * @return self
-     */
     public function setUrl(?string $url): self
     {
         $this->url = $url;
@@ -75,8 +59,6 @@ class OdrProcess
 
     /**
      * @param OdrAttempt[]|null $attempts
-     *
-     * @return self
      */
     public function setAttempts(?array $attempts): self
     {

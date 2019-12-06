@@ -27,8 +27,6 @@ class RelSearch
 
     /**
      * @param RelConstraint[]|null $constraints
-     *
-     * @return self
      */
     public function setConstraints(?array $constraints): self
     {

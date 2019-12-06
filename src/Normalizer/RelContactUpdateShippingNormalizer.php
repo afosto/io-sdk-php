@@ -24,12 +24,12 @@ class RelContactUpdateShippingNormalizer implements DenormalizerInterface, Norma
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelContactUpdateShipping';
+        return 'Afosto\\Sdk\\Model\\RelContactUpdateShipping' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelContactUpdateShipping';
+        return 'Afosto\\Sdk\\Model\\RelContactUpdateShipping' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class RelContactUpdateShippingNormalizer implements DenormalizerInterface, Norma
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelContactUpdateShipping();
-        if (property_exists($data, 'primary') && $data->{'primary'} !== null) {
+        if (property_exists($data, 'primary') && null !== $data->{'primary'}) {
             $object->setPrimary($data->{'primary'});
         }
-        if (property_exists($data, 'secondary') && $data->{'secondary'} !== null) {
+        if (property_exists($data, 'secondary') && null !== $data->{'secondary'}) {
             $values = [];
             foreach ($data->{'secondary'} as $value) {
                 $values[] = $value;

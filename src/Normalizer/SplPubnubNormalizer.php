@@ -24,12 +24,12 @@ class SplPubnubNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplPubnub';
+        return 'Afosto\\Sdk\\Model\\SplPubnub' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplPubnub';
+        return 'Afosto\\Sdk\\Model\\SplPubnub' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class SplPubnubNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplPubnub();
-        if (property_exists($data, 'tokens') && $data->{'tokens'} !== null) {
+        if (property_exists($data, 'tokens') && null !== $data->{'tokens'}) {
             $values = [];
             foreach ($data->{'tokens'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\SplToken', 'json', $context);

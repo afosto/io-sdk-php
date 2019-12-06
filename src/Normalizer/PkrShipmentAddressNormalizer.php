@@ -24,12 +24,12 @@ class PkrShipmentAddressNormalizer implements DenormalizerInterface, NormalizerI
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\PkrShipmentAddress';
+        return 'Afosto\\Sdk\\Model\\PkrShipmentAddress' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\PkrShipmentAddress';
+        return 'Afosto\\Sdk\\Model\\PkrShipmentAddress' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,31 +38,31 @@ class PkrShipmentAddressNormalizer implements DenormalizerInterface, NormalizerI
             return null;
         }
         $object = new \Afosto\Sdk\Model\PkrShipmentAddress();
-        if (property_exists($data, 'city') && $data->{'city'} !== null) {
+        if (property_exists($data, 'city') && null !== $data->{'city'}) {
             $object->setCity($data->{'city'});
         }
-        if (property_exists($data, 'company') && $data->{'company'} !== null) {
+        if (property_exists($data, 'company') && null !== $data->{'company'}) {
             $object->setCompany($data->{'company'});
         }
-        if (property_exists($data, 'country') && $data->{'country'} !== null) {
+        if (property_exists($data, 'country') && null !== $data->{'country'}) {
             $object->setCountry($this->denormalizer->denormalize($data->{'country'}, 'Afosto\\Sdk\\Model\\PkrShipmentAddressCountry', 'json', $context));
         }
-        if (property_exists($data, 'house_number') && $data->{'house_number'} !== null) {
+        if (property_exists($data, 'house_number') && null !== $data->{'house_number'}) {
             $object->setHouseNumber($data->{'house_number'});
         }
-        if (property_exists($data, 'house_number_suffix') && $data->{'house_number_suffix'} !== null) {
+        if (property_exists($data, 'house_number_suffix') && null !== $data->{'house_number_suffix'}) {
             $object->setHouseNumberSuffix($data->{'house_number_suffix'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'region') && $data->{'region'} !== null) {
+        if (property_exists($data, 'region') && null !== $data->{'region'}) {
             $object->setRegion($data->{'region'});
         }
-        if (property_exists($data, 'street') && $data->{'street'} !== null) {
+        if (property_exists($data, 'street') && null !== $data->{'street'}) {
             $object->setStreet($data->{'street'});
         }
-        if (property_exists($data, 'zip_code') && $data->{'zip_code'} !== null) {
+        if (property_exists($data, 'zip_code') && null !== $data->{'zip_code'}) {
             $object->setZipCode($data->{'zip_code'});
         }
 

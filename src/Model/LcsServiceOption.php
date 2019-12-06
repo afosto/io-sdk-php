@@ -21,19 +21,11 @@ class LcsServiceOption
      */
     protected $configuration;
 
-    /**
-     * @return string|null
-     */
     public function getOption(): ?string
     {
         return $this->option;
     }
 
-    /**
-     * @param string|null $option
-     *
-     * @return self
-     */
     public function setOption(?string $option): self
     {
         $this->option = $option;
@@ -51,8 +43,6 @@ class LcsServiceOption
 
     /**
      * @param LcsServiceOptionConfigurationItem[]|null $configuration
-     *
-     * @return self
      */
     public function setConfiguration(?array $configuration): self
     {

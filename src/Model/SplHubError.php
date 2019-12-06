@@ -45,19 +45,11 @@ class SplHubError
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -65,19 +57,11 @@ class SplHubError
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMessage(): ?string
     {
         return $this->message;
     }
 
-    /**
-     * @param string|null $message
-     *
-     * @return self
-     */
     public function setMessage(?string $message): self
     {
         $this->message = $message;
@@ -85,19 +69,11 @@ class SplHubError
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLevel(): ?string
     {
         return $this->level;
     }
 
-    /**
-     * @param string|null $level
-     *
-     * @return self
-     */
     public function setLevel(?string $level): self
     {
         $this->level = $level;
@@ -105,19 +81,11 @@ class SplHubError
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsResolved(): ?bool
     {
         return $this->isResolved;
     }
 
-    /**
-     * @param bool|null $isResolved
-     *
-     * @return self
-     */
     public function setIsResolved(?bool $isResolved): self
     {
         $this->isResolved = $isResolved;
@@ -125,19 +93,11 @@ class SplHubError
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getJobReference(): ?string
     {
         return $this->jobReference;
     }
 
-    /**
-     * @param string|null $jobReference
-     *
-     * @return self
-     */
     public function setJobReference(?string $jobReference): self
     {
         $this->jobReference = $jobReference;
@@ -145,19 +105,11 @@ class SplHubError
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getHubId(): ?string
     {
         return $this->hubId;
     }
 
-    /**
-     * @param string|null $hubId
-     *
-     * @return self
-     */
     public function setHubId(?string $hubId): self
     {
         $this->hubId = $hubId;
@@ -165,19 +117,11 @@ class SplHubError
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -185,19 +129,11 @@ class SplHubError
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

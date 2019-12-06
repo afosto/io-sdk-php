@@ -21,19 +21,11 @@ class WmsStockUpRequest
      */
     protected $stack;
 
-    /**
-     * @return string|null
-     */
     public function getLocationId(): ?string
     {
         return $this->locationId;
     }
 
-    /**
-     * @param string|null $locationId
-     *
-     * @return self
-     */
     public function setLocationId(?string $locationId): self
     {
         $this->locationId = $locationId;
@@ -41,19 +33,11 @@ class WmsStockUpRequest
         return $this;
     }
 
-    /**
-     * @return WmsStackReference|null
-     */
     public function getStack(): ?WmsStackReference
     {
         return $this->stack;
     }
 
-    /**
-     * @param WmsStackReference|null $stack
-     *
-     * @return self
-     */
     public function setStack(?WmsStackReference $stack): self
     {
         $this->stack = $stack;

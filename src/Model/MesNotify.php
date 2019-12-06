@@ -21,19 +21,11 @@ class MesNotify
      */
     protected $medium;
 
-    /**
-     * @return string|null
-     */
     public function getAddress(): ?string
     {
         return $this->address;
     }
 
-    /**
-     * @param string|null $address
-     *
-     * @return self
-     */
     public function setAddress(?string $address): self
     {
         $this->address = $address;
@@ -41,19 +33,11 @@ class MesNotify
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMedium(): ?string
     {
         return $this->medium;
     }
 
-    /**
-     * @param string|null $medium
-     *
-     * @return self
-     */
     public function setMedium(?string $medium): self
     {
         $this->medium = $medium;

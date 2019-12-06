@@ -27,8 +27,6 @@ class LcsShipmentSearch
 
     /**
      * @param LcsShipmentSearchConstraint[]|null $constraints
-     *
-     * @return self
      */
     public function setConstraints(?array $constraints): self
     {

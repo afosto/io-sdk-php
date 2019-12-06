@@ -16,9 +16,6 @@ class DeleteItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     /**
      * Delete items from the given reference.
-     *
-     * @param string                                $id
-     * @param \Afosto\Sdk\Model\OdrStackDeleteModel $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\OdrStackDeleteModel $body)
     {

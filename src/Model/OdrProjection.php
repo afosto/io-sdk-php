@@ -63,8 +63,6 @@ class OdrProjection
 
     /**
      * @param OdrProjectionItem[]|null $items
-     *
-     * @return self
      */
     public function setItems(?array $items): self
     {
@@ -73,19 +71,11 @@ class OdrProjection
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getSubtotal(): ?int
     {
         return $this->subtotal;
     }
 
-    /**
-     * @param int|null $subtotal
-     *
-     * @return self
-     */
     public function setSubtotal(?int $subtotal): self
     {
         $this->subtotal = $subtotal;
@@ -103,8 +93,6 @@ class OdrProjection
 
     /**
      * @param OdrCalculationAdjustment[]|null $adjustments
-     *
-     * @return self
      */
     public function setAdjustments(?array $adjustments): self
     {
@@ -113,19 +101,11 @@ class OdrProjection
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getTotal(): ?int
     {
         return $this->total;
     }
 
-    /**
-     * @param int|null $total
-     *
-     * @return self
-     */
     public function setTotal(?int $total): self
     {
         $this->total = $total;
@@ -143,8 +123,6 @@ class OdrProjection
 
     /**
      * @param OdrVatResult[]|null $vat
-     *
-     * @return self
      */
     public function setVat(?array $vat): self
     {
@@ -153,19 +131,11 @@ class OdrProjection
         return $this;
     }
 
-    /**
-     * @return OdrContact|null
-     */
     public function getVendor(): ?OdrContact
     {
         return $this->vendor;
     }
 
-    /**
-     * @param OdrContact|null $vendor
-     *
-     * @return self
-     */
     public function setVendor(?OdrContact $vendor): self
     {
         $this->vendor = $vendor;
@@ -173,19 +143,11 @@ class OdrProjection
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCurrency(): ?string
     {
         return $this->currency;
     }
 
-    /**
-     * @param string|null $currency
-     *
-     * @return self
-     */
     public function setCurrency(?string $currency): self
     {
         $this->currency = $currency;
@@ -193,19 +155,11 @@ class OdrProjection
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsIncludingVat(): ?bool
     {
         return $this->isIncludingVat;
     }
 
-    /**
-     * @param bool|null $isIncludingVat
-     *
-     * @return self
-     */
     public function setIsIncludingVat(?bool $isIncludingVat): self
     {
         $this->isIncludingVat = $isIncludingVat;
@@ -213,19 +167,11 @@ class OdrProjection
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getClientId(): ?string
     {
         return $this->clientId;
     }
 
-    /**
-     * @param string|null $clientId
-     *
-     * @return self
-     */
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
@@ -233,19 +179,11 @@ class OdrProjection
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getPricingAt(): ?\DateTime
     {
         return $this->pricingAt;
     }
 
-    /**
-     * @param \DateTime|null $pricingAt
-     *
-     * @return self
-     */
     public function setPricingAt(?\DateTime $pricingAt): self
     {
         $this->pricingAt = $pricingAt;

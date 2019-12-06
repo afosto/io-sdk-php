@@ -24,12 +24,12 @@ class IamSubscriptionItemNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamSubscriptionItem';
+        return 'Afosto\\Sdk\\Model\\IamSubscriptionItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamSubscriptionItem';
+        return 'Afosto\\Sdk\\Model\\IamSubscriptionItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class IamSubscriptionItemNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamSubscriptionItem();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'product') && $data->{'product'} !== null) {
+        if (property_exists($data, 'product') && null !== $data->{'product'}) {
             $object->setProduct($this->denormalizer->denormalize($data->{'product'}, 'Afosto\\Sdk\\Model\\IamProduct', 'json', $context));
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
 

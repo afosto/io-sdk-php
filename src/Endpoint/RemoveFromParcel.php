@@ -16,9 +16,6 @@ class RemoveFromParcel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     /**
      * Remove items from parcel.
-     *
-     * @param string                     $id
-     * @param \Afosto\Sdk\Model\LcsPlace $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\LcsPlace $body)
     {

@@ -24,12 +24,12 @@ class RelVatRegistrationVerificationNormalizer implements DenormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelVatRegistrationVerification';
+        return 'Afosto\\Sdk\\Model\\RelVatRegistrationVerification' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelVatRegistrationVerification';
+        return 'Afosto\\Sdk\\Model\\RelVatRegistrationVerification' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,25 +38,25 @@ class RelVatRegistrationVerificationNormalizer implements DenormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelVatRegistrationVerification();
-        if (property_exists($data, 'is_pending') && $data->{'is_pending'} !== null) {
+        if (property_exists($data, 'is_pending') && null !== $data->{'is_pending'}) {
             $object->setIsPending($data->{'is_pending'});
         }
-        if (property_exists($data, 'is_valid') && $data->{'is_valid'} !== null) {
+        if (property_exists($data, 'is_valid') && null !== $data->{'is_valid'}) {
             $object->setIsValid($data->{'is_valid'});
         }
-        if (property_exists($data, 'country_code') && $data->{'country_code'} !== null) {
+        if (property_exists($data, 'country_code') && null !== $data->{'country_code'}) {
             $object->setCountryCode($data->{'country_code'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'verified_at') && $data->{'verified_at'} !== null) {
+        if (property_exists($data, 'verified_at') && null !== $data->{'verified_at'}) {
             $object->setVerifiedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'verified_at'}));
         }
 

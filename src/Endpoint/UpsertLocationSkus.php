@@ -17,7 +17,6 @@ class UpsertLocationSkus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
     /**
      * Updates the position order for a location.
      *
-     * @param string                             $id
      * @param \Afosto\Sdk\Model\LcsLocationSku[] $body
      */
     public function __construct(string $id, array $body)

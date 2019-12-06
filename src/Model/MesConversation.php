@@ -59,19 +59,11 @@ class MesConversation
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -79,19 +71,11 @@ class MesConversation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getEvent(): ?string
     {
         return $this->event;
     }
 
-    /**
-     * @param string|null $event
-     *
-     * @return self
-     */
     public function setEvent(?string $event): self
     {
         $this->event = $event;
@@ -99,19 +83,11 @@ class MesConversation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getEntityType(): ?string
     {
         return $this->entityType;
     }
 
-    /**
-     * @param string|null $entityType
-     *
-     * @return self
-     */
     public function setEntityType(?string $entityType): self
     {
         $this->entityType = $entityType;
@@ -119,19 +95,11 @@ class MesConversation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getEntityId(): ?string
     {
         return $this->entityId;
     }
 
-    /**
-     * @param string|null $entityId
-     *
-     * @return self
-     */
     public function setEntityId(?string $entityId): self
     {
         $this->entityId = $entityId;
@@ -149,8 +117,6 @@ class MesConversation
 
     /**
      * @param MesMessage[]|null $messages
-     *
-     * @return self
      */
     public function setMessages(?array $messages): self
     {
@@ -169,8 +135,6 @@ class MesConversation
 
     /**
      * @param MesParticipant[]|null $participants
-     *
-     * @return self
      */
     public function setParticipants(?array $participants): self
     {
@@ -193,8 +157,6 @@ class MesConversation
      * additional metadata that applies to the item.
      *
      * @param string[]|null $metadata
-     *
-     * @return self
      */
     public function setMetadata(?\ArrayObject $metadata): self
     {
@@ -203,19 +165,11 @@ class MesConversation
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getStartedAt(): ?\DateTime
     {
         return $this->startedAt;
     }
 
-    /**
-     * @param \DateTime|null $startedAt
-     *
-     * @return self
-     */
     public function setStartedAt(?\DateTime $startedAt): self
     {
         $this->startedAt = $startedAt;
@@ -223,19 +177,11 @@ class MesConversation
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getExpiresAt(): ?\DateTime
     {
         return $this->expiresAt;
     }
 
-    /**
-     * @param \DateTime|null $expiresAt
-     *
-     * @return self
-     */
     public function setExpiresAt(?\DateTime $expiresAt): self
     {
         $this->expiresAt = $expiresAt;
@@ -243,19 +189,11 @@ class MesConversation
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -263,19 +201,11 @@ class MesConversation
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

@@ -24,12 +24,12 @@ class RelPhoneNumberNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelPhoneNumber';
+        return 'Afosto\\Sdk\\Model\\RelPhoneNumber' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelPhoneNumber';
+        return 'Afosto\\Sdk\\Model\\RelPhoneNumber' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,22 +38,22 @@ class RelPhoneNumberNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelPhoneNumber();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'country_code') && $data->{'country_code'} !== null) {
+        if (property_exists($data, 'country_code') && null !== $data->{'country_code'}) {
             $object->setCountryCode($data->{'country_code'});
         }
-        if (property_exists($data, 'number') && $data->{'number'} !== null) {
+        if (property_exists($data, 'number') && null !== $data->{'number'}) {
             $object->setNumber($data->{'number'});
         }
-        if (property_exists($data, 'national') && $data->{'national'} !== null) {
+        if (property_exists($data, 'national') && null !== $data->{'national'}) {
             $object->setNational($data->{'national'});
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
 

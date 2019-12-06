@@ -21,19 +21,11 @@ class IamSubtenantsAuthorizationsInvitesPostBody
      */
     protected $roles;
 
-    /**
-     * @return string|null
-     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    /**
-     * @param string|null $email
-     *
-     * @return self
-     */
     public function setEmail(?string $email): self
     {
         $this->email = $email;
@@ -51,8 +43,6 @@ class IamSubtenantsAuthorizationsInvitesPostBody
 
     /**
      * @param string[]|null $roles
-     *
-     * @return self
      */
     public function setRoles(?array $roles): self
     {

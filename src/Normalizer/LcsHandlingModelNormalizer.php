@@ -24,12 +24,12 @@ class LcsHandlingModelNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsHandlingModel';
+        return 'Afosto\\Sdk\\Model\\LcsHandlingModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsHandlingModel';
+        return 'Afosto\\Sdk\\Model\\LcsHandlingModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,14 +38,14 @@ class LcsHandlingModelNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsHandlingModel();
-        if (property_exists($data, 'shipments') && $data->{'shipments'} !== null) {
+        if (property_exists($data, 'shipments') && null !== $data->{'shipments'}) {
             $values = [];
             foreach ($data->{'shipments'} as $value) {
                 $values[] = $value;
             }
             $object->setShipments($values);
         }
-        if (property_exists($data, 'is_due_at') && $data->{'is_due_at'} !== null) {
+        if (property_exists($data, 'is_due_at') && null !== $data->{'is_due_at'}) {
             $object->setIsDueAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'is_due_at'}));
         }
 

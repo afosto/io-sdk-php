@@ -14,8 +14,6 @@ class CreateHandlingList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 {
     /**
      * Add a new handling list.
-     *
-     * @param \Afosto\Sdk\Model\LcsHandlingModel $body
      */
     public function __construct(\Afosto\Sdk\Model\LcsHandlingModel $body)
     {

@@ -31,8 +31,6 @@ class OdrStackAddModel
 
     /**
      * @param OdrItemModel[]|null $items
-     *
-     * @return self
      */
     public function setItems(?array $items): self
     {
@@ -51,8 +49,6 @@ class OdrStackAddModel
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {

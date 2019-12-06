@@ -14,8 +14,6 @@ class GeneratePDF extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 {
     /**
      * Transform HTML into a PDF.
-     *
-     * @param \Afosto\Sdk\Model\CntHtmlToPdfRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\CntHtmlToPdfRequest $body)
     {

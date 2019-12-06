@@ -69,19 +69,11 @@ class IamClient
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -89,19 +81,11 @@ class IamClient
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getClientId(): ?string
     {
         return $this->clientId;
     }
 
-    /**
-     * @param string|null $clientId
-     *
-     * @return self
-     */
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
@@ -109,19 +93,11 @@ class IamClient
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getClientSecret(): ?string
     {
         return $this->clientSecret;
     }
 
-    /**
-     * @param string|null $clientSecret
-     *
-     * @return self
-     */
     public function setClientSecret(?string $clientSecret): self
     {
         $this->clientSecret = $clientSecret;
@@ -129,19 +105,11 @@ class IamClient
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -149,19 +117,11 @@ class IamClient
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getRedirectUri(): ?string
     {
         return $this->redirectUri;
     }
 
-    /**
-     * @param string|null $redirectUri
-     *
-     * @return self
-     */
     public function setRedirectUri(?string $redirectUri): self
     {
         $this->redirectUri = $redirectUri;
@@ -179,8 +139,6 @@ class IamClient
 
     /**
      * @param string[]|null $grantTypes
-     *
-     * @return self
      */
     public function setGrantTypes(?array $grantTypes): self
     {
@@ -199,8 +157,6 @@ class IamClient
 
     /**
      * @param string[]|null $scope
-     *
-     * @return self
      */
     public function setScope(?array $scope): self
     {
@@ -209,19 +165,11 @@ class IamClient
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTenantId(): ?string
     {
         return $this->tenantId;
     }
 
-    /**
-     * @param string|null $tenantId
-     *
-     * @return self
-     */
     public function setTenantId(?string $tenantId): self
     {
         $this->tenantId = $tenantId;
@@ -229,19 +177,11 @@ class IamClient
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsApproved(): ?bool
     {
         return $this->isApproved;
     }
 
-    /**
-     * @param bool|null $isApproved
-     *
-     * @return self
-     */
     public function setIsApproved(?bool $isApproved): self
     {
         $this->isApproved = $isApproved;
@@ -249,19 +189,11 @@ class IamClient
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsDeleted(): ?bool
     {
         return $this->isDeleted;
     }
 
-    /**
-     * @param bool|null $isDeleted
-     *
-     * @return self
-     */
     public function setIsDeleted(?bool $isDeleted): self
     {
         $this->isDeleted = $isDeleted;
@@ -269,19 +201,11 @@ class IamClient
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAuthor(): ?string
     {
         return $this->author;
     }
 
-    /**
-     * @param string|null $author
-     *
-     * @return self
-     */
     public function setAuthor(?string $author): self
     {
         $this->author = $author;
@@ -289,19 +213,11 @@ class IamClient
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getDeletedAt(): ?\DateTime
     {
         return $this->deletedAt;
     }
 
-    /**
-     * @param \DateTime|null $deletedAt
-     *
-     * @return self
-     */
     public function setDeletedAt(?\DateTime $deletedAt): self
     {
         $this->deletedAt = $deletedAt;
@@ -309,19 +225,11 @@ class IamClient
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -329,19 +237,11 @@ class IamClient
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

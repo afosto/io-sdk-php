@@ -24,12 +24,12 @@ class WmsBackorderNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsBackorder';
+        return 'Afosto\\Sdk\\Model\\WmsBackorder' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsBackorder';
+        return 'Afosto\\Sdk\\Model\\WmsBackorder' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class WmsBackorderNormalizer implements DenormalizerInterface, NormalizerInterfa
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsBackorder();
-        if (property_exists($data, 'item_count') && $data->{'item_count'} !== null) {
+        if (property_exists($data, 'item_count') && null !== $data->{'item_count'}) {
             $object->setItemCount($data->{'item_count'});
         }
-        if (property_exists($data, 'stack_id') && $data->{'stack_id'} !== null) {
+        if (property_exists($data, 'stack_id') && null !== $data->{'stack_id'}) {
             $object->setStackId($data->{'stack_id'});
         }
 

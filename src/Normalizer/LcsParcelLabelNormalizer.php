@@ -24,12 +24,12 @@ class LcsParcelLabelNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsParcelLabel';
+        return 'Afosto\\Sdk\\Model\\LcsParcelLabel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsParcelLabel';
+        return 'Afosto\\Sdk\\Model\\LcsParcelLabel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class LcsParcelLabelNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsParcelLabel();
-        if (property_exists($data, 'file_id') && $data->{'file_id'} !== null) {
+        if (property_exists($data, 'file_id') && null !== $data->{'file_id'}) {
             $object->setFileId($data->{'file_id'});
         }
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'label_text') && $data->{'label_text'} !== null) {
+        if (property_exists($data, 'label_text') && null !== $data->{'label_text'}) {
             $object->setLabelText($data->{'label_text'});
         }
-        if (property_exists($data, 'requested_at') && $data->{'requested_at'} !== null) {
+        if (property_exists($data, 'requested_at') && null !== $data->{'requested_at'}) {
             $object->setRequestedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'requested_at'}));
         }
 

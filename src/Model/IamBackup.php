@@ -21,19 +21,11 @@ class IamBackup
      */
     protected $address;
 
-    /**
-     * @return string|null
-     */
     public function getChannel(): ?string
     {
         return $this->channel;
     }
 
-    /**
-     * @param string|null $channel
-     *
-     * @return self
-     */
     public function setChannel(?string $channel): self
     {
         $this->channel = $channel;
@@ -41,19 +33,11 @@ class IamBackup
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddress(): ?string
     {
         return $this->address;
     }
 
-    /**
-     * @param string|null $address
-     *
-     * @return self
-     */
     public function setAddress(?string $address): self
     {
         $this->address = $address;

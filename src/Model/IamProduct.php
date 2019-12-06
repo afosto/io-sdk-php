@@ -43,8 +43,6 @@ class IamProduct
 
     /**
      * The stripe id.
-     *
-     * @return string|null
      */
     public function getId(): ?string
     {
@@ -53,10 +51,6 @@ class IamProduct
 
     /**
      * The stripe id.
-     *
-     * @param string|null $id
-     *
-     * @return self
      */
     public function setId(?string $id): self
     {
@@ -67,8 +61,6 @@ class IamProduct
 
     /**
      * Three letter string that is also used to prefix scopes.
-     *
-     * @return string|null
      */
     public function getCode(): ?string
     {
@@ -77,10 +69,6 @@ class IamProduct
 
     /**
      * Three letter string that is also used to prefix scopes.
-     *
-     * @param string|null $code
-     *
-     * @return self
      */
     public function setCode(?string $code): self
     {
@@ -89,19 +77,11 @@ class IamProduct
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -109,19 +89,11 @@ class IamProduct
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -129,19 +101,11 @@ class IamProduct
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUnit(): ?string
     {
         return $this->unit;
     }
 
-    /**
-     * @param string|null $unit
-     *
-     * @return self
-     */
     public function setUnit(?string $unit): self
     {
         $this->unit = $unit;
@@ -149,19 +113,11 @@ class IamProduct
         return $this;
     }
 
-    /**
-     * @return IamPlan|null
-     */
     public function getPlan(): ?IamPlan
     {
         return $this->plan;
     }
 
-    /**
-     * @param IamPlan|null $plan
-     *
-     * @return self
-     */
     public function setPlan(?IamPlan $plan): self
     {
         $this->plan = $plan;

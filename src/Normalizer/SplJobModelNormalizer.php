@@ -24,12 +24,12 @@ class SplJobModelNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplJobModel';
+        return 'Afosto\\Sdk\\Model\\SplJobModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplJobModel';
+        return 'Afosto\\Sdk\\Model\\SplJobModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,22 +38,22 @@ class SplJobModelNormalizer implements DenormalizerInterface, NormalizerInterfac
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplJobModel();
-        if (property_exists($data, 'job') && $data->{'job'} !== null) {
+        if (property_exists($data, 'job') && null !== $data->{'job'}) {
             $object->setJob($data->{'job'});
         }
-        if (property_exists($data, 'tag') && $data->{'tag'} !== null) {
+        if (property_exists($data, 'tag') && null !== $data->{'tag'}) {
             $object->setTag($data->{'tag'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'hub_id') && $data->{'hub_id'} !== null) {
+        if (property_exists($data, 'hub_id') && null !== $data->{'hub_id'}) {
             $object->setHubId($data->{'hub_id'});
         }
-        if (property_exists($data, 'schedule_at') && $data->{'schedule_at'} !== null) {
+        if (property_exists($data, 'schedule_at') && null !== $data->{'schedule_at'}) {
             $object->setScheduleAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'schedule_at'}));
         }
 

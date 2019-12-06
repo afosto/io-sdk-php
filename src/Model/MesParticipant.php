@@ -29,19 +29,11 @@ class MesParticipant
      */
     protected $notifications;
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -49,19 +41,11 @@ class MesParticipant
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -69,19 +53,11 @@ class MesParticipant
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsMachine(): ?bool
     {
         return $this->isMachine;
     }
 
-    /**
-     * @param bool|null $isMachine
-     *
-     * @return self
-     */
     public function setIsMachine(?bool $isMachine): self
     {
         $this->isMachine = $isMachine;
@@ -99,8 +75,6 @@ class MesParticipant
 
     /**
      * @param MesNotify[]|null $notifications
-     *
-     * @return self
      */
     public function setNotifications(?array $notifications): self
     {

@@ -24,12 +24,12 @@ class SplHubStatusNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplHubStatus';
+        return 'Afosto\\Sdk\\Model\\SplHubStatus' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplHubStatus';
+        return 'Afosto\\Sdk\\Model\\SplHubStatus' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,19 +38,19 @@ class SplHubStatusNormalizer implements DenormalizerInterface, NormalizerInterfa
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplHubStatus();
-        if (property_exists($data, 'is_online') && $data->{'is_online'} !== null) {
+        if (property_exists($data, 'is_online') && null !== $data->{'is_online'}) {
             $object->setIsOnline($data->{'is_online'});
         }
-        if (property_exists($data, 'is_idle') && $data->{'is_idle'} !== null) {
+        if (property_exists($data, 'is_idle') && null !== $data->{'is_idle'}) {
             $object->setIsIdle($data->{'is_idle'});
         }
-        if (property_exists($data, 'location') && $data->{'location'} !== null) {
+        if (property_exists($data, 'location') && null !== $data->{'location'}) {
             $object->setLocation($data->{'location'});
         }
-        if (property_exists($data, 'network') && $data->{'network'} !== null) {
+        if (property_exists($data, 'network') && null !== $data->{'network'}) {
             $object->setNetwork($this->denormalizer->denormalize($data->{'network'}, 'Afosto\\Sdk\\Model\\SplHubNetwork', 'json', $context));
         }
-        if (property_exists($data, 'image') && $data->{'image'} !== null) {
+        if (property_exists($data, 'image') && null !== $data->{'image'}) {
             $object->setImage($this->denormalizer->denormalize($data->{'image'}, 'Afosto\\Sdk\\Model\\SplHubImage', 'json', $context));
         }
 

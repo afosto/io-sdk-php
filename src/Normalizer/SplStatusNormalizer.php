@@ -24,12 +24,12 @@ class SplStatusNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplStatus';
+        return 'Afosto\\Sdk\\Model\\SplStatus' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplStatus';
+        return 'Afosto\\Sdk\\Model\\SplStatus' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class SplStatusNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplStatus();
-        if (property_exists($data, 'status') && $data->{'status'} !== null) {
+        if (property_exists($data, 'status') && null !== $data->{'status'}) {
             $object->setStatus($data->{'status'});
         }
-        if (property_exists($data, 'changed_at') && $data->{'changed_at'} !== null) {
+        if (property_exists($data, 'changed_at') && null !== $data->{'changed_at'}) {
             $object->setChangedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'changed_at'}));
         }
 

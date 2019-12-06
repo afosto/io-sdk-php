@@ -24,12 +24,12 @@ class IamAccessTokenNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamAccessToken';
+        return 'Afosto\\Sdk\\Model\\IamAccessToken' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamAccessToken';
+        return 'Afosto\\Sdk\\Model\\IamAccessToken' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class IamAccessTokenNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamAccessToken();
-        if (property_exists($data, 'token_type') && $data->{'token_type'} !== null) {
+        if (property_exists($data, 'token_type') && null !== $data->{'token_type'}) {
             $object->setTokenType($data->{'token_type'});
         }
-        if (property_exists($data, 'expires_in') && $data->{'expires_in'} !== null) {
+        if (property_exists($data, 'expires_in') && null !== $data->{'expires_in'}) {
             $object->setExpiresIn($data->{'expires_in'});
         }
-        if (property_exists($data, 'access_token') && $data->{'access_token'} !== null) {
+        if (property_exists($data, 'access_token') && null !== $data->{'access_token'}) {
             $object->setAccessToken($data->{'access_token'});
         }
-        if (property_exists($data, 'refresh_token') && $data->{'refresh_token'} !== null) {
+        if (property_exists($data, 'refresh_token') && null !== $data->{'refresh_token'}) {
             $object->setRefreshToken($data->{'refresh_token'});
         }
 

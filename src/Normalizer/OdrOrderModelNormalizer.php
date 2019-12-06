@@ -24,12 +24,12 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrOrderModel';
+        return 'Afosto\\Sdk\\Model\\OdrOrderModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrOrderModel';
+        return 'Afosto\\Sdk\\Model\\OdrOrderModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,31 +38,31 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrOrderModel();
-        if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
+        if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
-        if (property_exists($data, 'contact_id') && $data->{'contact_id'} !== null) {
+        if (property_exists($data, 'contact_id') && null !== $data->{'contact_id'}) {
             $object->setContactId($data->{'contact_id'});
         }
-        if (property_exists($data, 'organisation_id') && $data->{'organisation_id'} !== null) {
+        if (property_exists($data, 'organisation_id') && null !== $data->{'organisation_id'}) {
             $object->setOrganisationId($data->{'organisation_id'});
         }
-        if (property_exists($data, 'is_confirmed') && $data->{'is_confirmed'} !== null) {
+        if (property_exists($data, 'is_confirmed') && null !== $data->{'is_confirmed'}) {
             $object->setIsConfirmed($data->{'is_confirmed'});
         }
-        if (property_exists($data, 'stack') && $data->{'stack'} !== null) {
+        if (property_exists($data, 'stack') && null !== $data->{'stack'}) {
             $object->setStack($data->{'stack'});
         }
-        if (property_exists($data, 'address_id') && $data->{'address_id'} !== null) {
+        if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
             $object->setAddressId($data->{'address_id'});
         }
-        if (property_exists($data, 'shipment_address_id') && $data->{'shipment_address_id'} !== null) {
+        if (property_exists($data, 'shipment_address_id') && null !== $data->{'shipment_address_id'}) {
             $object->setShipmentAddressId($data->{'shipment_address_id'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'due_at') && $data->{'due_at'} !== null) {
+        if (property_exists($data, 'due_at') && null !== $data->{'due_at'}) {
             $object->setDueAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'due_at'}));
         }
 

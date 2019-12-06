@@ -24,12 +24,12 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsParcel';
+        return 'Afosto\\Sdk\\Model\\LcsParcel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsParcel';
+        return 'Afosto\\Sdk\\Model\\LcsParcel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,50 +38,50 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsParcel();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'number') && $data->{'number'} !== null) {
+        if (property_exists($data, 'number') && null !== $data->{'number'}) {
             $object->setNumber($data->{'number'});
         }
-        if (property_exists($data, 'weight') && $data->{'weight'} !== null) {
+        if (property_exists($data, 'weight') && null !== $data->{'weight'}) {
             $object->setWeight($data->{'weight'});
         }
-        if (property_exists($data, 'length') && $data->{'length'} !== null) {
+        if (property_exists($data, 'length') && null !== $data->{'length'}) {
             $object->setLength($data->{'length'});
         }
-        if (property_exists($data, 'width') && $data->{'width'} !== null) {
+        if (property_exists($data, 'width') && null !== $data->{'width'}) {
             $object->setWidth($data->{'width'});
         }
-        if (property_exists($data, 'height') && $data->{'height'} !== null) {
+        if (property_exists($data, 'height') && null !== $data->{'height'}) {
             $object->setHeight($data->{'height'});
         }
-        if (property_exists($data, 'tracking_code') && $data->{'tracking_code'} !== null) {
+        if (property_exists($data, 'tracking_code') && null !== $data->{'tracking_code'}) {
             $object->setTrackingCode($data->{'tracking_code'});
         }
-        if (property_exists($data, 'tracking_url') && $data->{'tracking_url'} !== null) {
+        if (property_exists($data, 'tracking_url') && null !== $data->{'tracking_url'}) {
             $object->setTrackingUrl($data->{'tracking_url'});
         }
-        if (property_exists($data, 'label') && $data->{'label'} !== null) {
+        if (property_exists($data, 'label') && null !== $data->{'label'}) {
             $object->setLabel($this->denormalizer->denormalize($data->{'label'}, 'Afosto\\Sdk\\Model\\LcsParcelLabel', 'json', $context));
         }
-        if (property_exists($data, 'stack_id') && $data->{'stack_id'} !== null) {
+        if (property_exists($data, 'stack_id') && null !== $data->{'stack_id'}) {
             $object->setStackId($data->{'stack_id'});
         }
-        if (property_exists($data, 'items') && $data->{'items'} !== null) {
+        if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsParcelItem', 'json', $context);
             }
             $object->setItems($values);
         }
-        if (property_exists($data, 'is_delivered') && $data->{'is_delivered'} !== null) {
+        if (property_exists($data, 'is_delivered') && null !== $data->{'is_delivered'}) {
             $object->setIsDelivered($data->{'is_delivered'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

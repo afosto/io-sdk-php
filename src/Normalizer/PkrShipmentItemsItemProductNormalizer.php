@@ -24,12 +24,12 @@ class PkrShipmentItemsItemProductNormalizer implements DenormalizerInterface, No
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\PkrShipmentItemsItemProduct';
+        return 'Afosto\\Sdk\\Model\\PkrShipmentItemsItemProduct' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\PkrShipmentItemsItemProduct';
+        return 'Afosto\\Sdk\\Model\\PkrShipmentItemsItemProduct' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class PkrShipmentItemsItemProductNormalizer implements DenormalizerInterface, No
             return null;
         }
         $object = new \Afosto\Sdk\Model\PkrShipmentItemsItemProduct();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
 

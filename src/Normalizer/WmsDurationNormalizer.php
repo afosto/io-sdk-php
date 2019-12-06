@@ -24,12 +24,12 @@ class WmsDurationNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsDuration';
+        return 'Afosto\\Sdk\\Model\\WmsDuration' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsDuration';
+        return 'Afosto\\Sdk\\Model\\WmsDuration' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class WmsDurationNormalizer implements DenormalizerInterface, NormalizerInterfac
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsDuration();
-        if (property_exists($data, 'duration') && $data->{'duration'} !== null) {
+        if (property_exists($data, 'duration') && null !== $data->{'duration'}) {
             $object->setDuration($data->{'duration'});
         }
 

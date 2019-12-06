@@ -49,19 +49,11 @@ class IamSecret
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -69,19 +61,11 @@ class IamSecret
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;
@@ -89,19 +73,11 @@ class IamSecret
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSub(): ?string
     {
         return $this->sub;
     }
 
-    /**
-     * @param string|null $sub
-     *
-     * @return self
-     */
     public function setSub(?string $sub): self
     {
         $this->sub = $sub;
@@ -109,19 +85,11 @@ class IamSecret
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -129,19 +97,11 @@ class IamSecret
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSecret(): ?string
     {
         return $this->secret;
     }
 
-    /**
-     * @param string|null $secret
-     *
-     * @return self
-     */
     public function setSecret(?string $secret): self
     {
         $this->secret = $secret;
@@ -149,19 +109,11 @@ class IamSecret
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsConfirmed(): ?bool
     {
         return $this->isConfirmed;
     }
 
-    /**
-     * @param bool|null $isConfirmed
-     *
-     * @return self
-     */
     public function setIsConfirmed(?bool $isConfirmed): self
     {
         $this->isConfirmed = $isConfirmed;
@@ -169,19 +121,11 @@ class IamSecret
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getQrUrl(): ?string
     {
         return $this->qrUrl;
     }
 
-    /**
-     * @param string|null $qrUrl
-     *
-     * @return self
-     */
     public function setQrUrl(?string $qrUrl): self
     {
         $this->qrUrl = $qrUrl;
@@ -189,19 +133,11 @@ class IamSecret
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -209,19 +145,11 @@ class IamSecret
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

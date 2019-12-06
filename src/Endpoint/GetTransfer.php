@@ -16,8 +16,6 @@ class GetTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     /**
      * Create an optimized set of claims.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

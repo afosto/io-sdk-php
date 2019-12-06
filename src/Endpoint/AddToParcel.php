@@ -16,9 +16,6 @@ class AddToParcel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     /**
      * Add items to a parcel.
-     *
-     * @param string                     $id
-     * @param \Afosto\Sdk\Model\LcsPlace $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\LcsPlace $body)
     {

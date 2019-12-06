@@ -24,12 +24,12 @@ class RelContactNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelContact';
+        return 'Afosto\\Sdk\\Model\\RelContact' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelContact';
+        return 'Afosto\\Sdk\\Model\\RelContact' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,54 +38,54 @@ class RelContactNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelContact();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'version') && $data->{'version'} !== null) {
+        if (property_exists($data, 'version') && null !== $data->{'version'}) {
             $object->setVersion($data->{'version'});
         }
-        if (property_exists($data, 'email') && $data->{'email'} !== null) {
+        if (property_exists($data, 'email') && null !== $data->{'email'}) {
             $object->setEmail($data->{'email'});
         }
-        if (property_exists($data, 'tags') && $data->{'tags'} !== null) {
+        if (property_exists($data, 'tags') && null !== $data->{'tags'}) {
             $values = [];
             foreach ($data->{'tags'} as $value) {
                 $values[] = $value;
             }
             $object->setTags($values);
         }
-        if (property_exists($data, 'given_name') && $data->{'given_name'} !== null) {
+        if (property_exists($data, 'given_name') && null !== $data->{'given_name'}) {
             $object->setGivenName($data->{'given_name'});
         }
-        if (property_exists($data, 'additional_name') && $data->{'additional_name'} !== null) {
+        if (property_exists($data, 'additional_name') && null !== $data->{'additional_name'}) {
             $object->setAdditionalName($data->{'additional_name'});
         }
-        if (property_exists($data, 'family_name') && $data->{'family_name'} !== null) {
+        if (property_exists($data, 'family_name') && null !== $data->{'family_name'}) {
             $object->setFamilyName($data->{'family_name'});
         }
-        if (property_exists($data, 'organisations') && $data->{'organisations'} !== null) {
+        if (property_exists($data, 'organisations') && null !== $data->{'organisations'}) {
             $object->setOrganisations($this->denormalizer->denormalize($data->{'organisations'}, 'Afosto\\Sdk\\Model\\RelOrganisationList', 'json', $context));
         }
-        if (property_exists($data, 'billing') && $data->{'billing'} !== null) {
+        if (property_exists($data, 'billing') && null !== $data->{'billing'}) {
             $object->setBilling($this->denormalizer->denormalize($data->{'billing'}, 'Afosto\\Sdk\\Model\\RelAddressList', 'json', $context));
         }
-        if (property_exists($data, 'shipping') && $data->{'shipping'} !== null) {
+        if (property_exists($data, 'shipping') && null !== $data->{'shipping'}) {
             $object->setShipping($this->denormalizer->denormalize($data->{'shipping'}, 'Afosto\\Sdk\\Model\\RelAddressList', 'json', $context));
         }
-        if (property_exists($data, 'phone_numbers') && $data->{'phone_numbers'} !== null) {
+        if (property_exists($data, 'phone_numbers') && null !== $data->{'phone_numbers'}) {
             $object->setPhoneNumbers($this->denormalizer->denormalize($data->{'phone_numbers'}, 'Afosto\\Sdk\\Model\\RelPhoneNumberList', 'json', $context));
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $values_1 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->{'metadata'} as $key => $value_1) {
                 $values_1[$key] = $value_1;
             }
             $object->setMetadata($values_1);
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

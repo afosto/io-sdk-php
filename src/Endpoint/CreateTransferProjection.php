@@ -14,8 +14,6 @@ class CreateTransferProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
 {
     /**
      * Create an optimized set of claims.
-     *
-     * @param \Afosto\Sdk\Model\WmsCreateTransferRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\WmsCreateTransferRequest $body)
     {

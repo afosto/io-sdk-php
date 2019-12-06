@@ -16,8 +16,6 @@ class GetStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
 
     /**
      * Returns a stack.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

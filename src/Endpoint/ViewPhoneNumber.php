@@ -16,8 +16,6 @@ class ViewPhoneNumber extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 
     /**
      * Returns a single phonenumber by id.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

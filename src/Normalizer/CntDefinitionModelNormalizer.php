@@ -24,12 +24,12 @@ class CntDefinitionModelNormalizer implements DenormalizerInterface, NormalizerI
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntDefinitionModel';
+        return 'Afosto\\Sdk\\Model\\CntDefinitionModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntDefinitionModel';
+        return 'Afosto\\Sdk\\Model\\CntDefinitionModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,19 +38,19 @@ class CntDefinitionModelNormalizer implements DenormalizerInterface, NormalizerI
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntDefinitionModel();
-        if (property_exists($data, 'namespace') && $data->{'namespace'} !== null) {
+        if (property_exists($data, 'namespace') && null !== $data->{'namespace'}) {
             $object->setNamespace($data->{'namespace'});
         }
-        if (property_exists($data, 'code') && $data->{'code'} !== null) {
+        if (property_exists($data, 'code') && null !== $data->{'code'}) {
             $object->setCode($data->{'code'});
         }
-        if (property_exists($data, 'model') && $data->{'model'} !== null) {
+        if (property_exists($data, 'model') && null !== $data->{'model'}) {
             $object->setModel($data->{'model'});
         }
-        if (property_exists($data, 'key') && $data->{'key'} !== null) {
+        if (property_exists($data, 'key') && null !== $data->{'key'}) {
             $object->setKey($data->{'key'});
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
 

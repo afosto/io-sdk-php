@@ -16,8 +16,6 @@ class GetSystemRole extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     /**
      * Returns a single rbac role.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

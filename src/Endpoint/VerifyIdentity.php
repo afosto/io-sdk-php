@@ -14,8 +14,6 @@ class VerifyIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 {
     /**
      * Mark the identity as verified.
-     *
-     * @param \Afosto\Sdk\Model\RelCreateConfirmRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\RelCreateConfirmRequest $body)
     {

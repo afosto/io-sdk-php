@@ -24,12 +24,12 @@ class CntFacetNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntFacet';
+        return 'Afosto\\Sdk\\Model\\CntFacet' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntFacet';
+        return 'Afosto\\Sdk\\Model\\CntFacet' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class CntFacetNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntFacet();
-        if (property_exists($data, 'key') && $data->{'key'} !== null) {
+        if (property_exists($data, 'key') && null !== $data->{'key'}) {
             $object->setKey($data->{'key'});
         }
-        if (property_exists($data, 'buckets') && $data->{'buckets'} !== null) {
+        if (property_exists($data, 'buckets') && null !== $data->{'buckets'}) {
             $values = [];
             foreach ($data->{'buckets'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CntBucket', 'json', $context);

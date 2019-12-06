@@ -57,19 +57,11 @@ class MesMailModel
      */
     protected $metadata;
 
-    /**
-     * @return MesContactModel|null
-     */
     public function getFrom(): ?MesContactModel
     {
         return $this->from;
     }
 
-    /**
-     * @param MesContactModel|null $from
-     *
-     * @return self
-     */
     public function setFrom(?MesContactModel $from): self
     {
         $this->from = $from;
@@ -87,8 +79,6 @@ class MesMailModel
 
     /**
      * @param MesContactModel[]|null $to
-     *
-     * @return self
      */
     public function setTo(?array $to): self
     {
@@ -107,8 +97,6 @@ class MesMailModel
 
     /**
      * @param MesContactModel[]|null $cc
-     *
-     * @return self
      */
     public function setCc(?array $cc): self
     {
@@ -127,8 +115,6 @@ class MesMailModel
 
     /**
      * @param MesContactModel[]|null $bcc
-     *
-     * @return self
      */
     public function setBcc(?array $bcc): self
     {
@@ -137,19 +123,11 @@ class MesMailModel
         return $this;
     }
 
-    /**
-     * @return MesContactModel|null
-     */
     public function getReplyTo(): ?MesContactModel
     {
         return $this->replyTo;
     }
 
-    /**
-     * @param MesContactModel|null $replyTo
-     *
-     * @return self
-     */
     public function setReplyTo(?MesContactModel $replyTo): self
     {
         $this->replyTo = $replyTo;
@@ -157,19 +135,11 @@ class MesMailModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSubject(): ?string
     {
         return $this->subject;
     }
 
-    /**
-     * @param string|null $subject
-     *
-     * @return self
-     */
     public function setSubject(?string $subject): self
     {
         $this->subject = $subject;
@@ -177,19 +147,11 @@ class MesMailModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getHtmlBody(): ?string
     {
         return $this->htmlBody;
     }
 
-    /**
-     * @param string|null $htmlBody
-     *
-     * @return self
-     */
     public function setHtmlBody(?string $htmlBody): self
     {
         $this->htmlBody = $htmlBody;
@@ -207,8 +169,6 @@ class MesMailModel
 
     /**
      * @param string[]|null $attachments
-     *
-     * @return self
      */
     public function setAttachments(?array $attachments): self
     {
@@ -217,19 +177,11 @@ class MesMailModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getFolder(): ?string
     {
         return $this->folder;
     }
 
-    /**
-     * @param string|null $folder
-     *
-     * @return self
-     */
     public function setFolder(?string $folder): self
     {
         $this->folder = $folder;
@@ -237,19 +189,11 @@ class MesMailModel
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsUnread(): ?bool
     {
         return $this->isUnread;
     }
 
-    /**
-     * @param bool|null $isUnread
-     *
-     * @return self
-     */
     public function setIsUnread(?bool $isUnread): self
     {
         $this->isUnread = $isUnread;
@@ -267,8 +211,6 @@ class MesMailModel
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {

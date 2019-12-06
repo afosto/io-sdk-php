@@ -16,9 +16,6 @@ class ConfirmClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     /**
      * Confirm a reservation claim and make it an actual claim.
-     *
-     * @param string    $id
-     * @param \stdClass $body
      */
     public function __construct(string $id, \stdClass $body)
     {

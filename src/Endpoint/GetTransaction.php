@@ -16,8 +16,6 @@ class GetTransaction extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 
     /**
      * Returns the details of a transaction.
-     *
-     * @param string $secret
      */
     public function __construct(string $secret)
     {

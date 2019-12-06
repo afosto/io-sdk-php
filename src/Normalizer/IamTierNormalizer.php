@@ -24,12 +24,12 @@ class IamTierNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamTier';
+        return 'Afosto\\Sdk\\Model\\IamTier' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamTier';
+        return 'Afosto\\Sdk\\Model\\IamTier' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class IamTierNormalizer implements DenormalizerInterface, NormalizerInterface, D
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamTier();
-        if (property_exists($data, 'up_to') && $data->{'up_to'} !== null) {
+        if (property_exists($data, 'up_to') && null !== $data->{'up_to'}) {
             $object->setUpTo($data->{'up_to'});
         }
-        if (property_exists($data, 'flat_amount') && $data->{'flat_amount'} !== null) {
+        if (property_exists($data, 'flat_amount') && null !== $data->{'flat_amount'}) {
             $object->setFlatAmount($data->{'flat_amount'});
         }
-        if (property_exists($data, 'unit_amount') && $data->{'unit_amount'} !== null) {
+        if (property_exists($data, 'unit_amount') && null !== $data->{'unit_amount'}) {
             $object->setUnitAmount($data->{'unit_amount'});
         }
 

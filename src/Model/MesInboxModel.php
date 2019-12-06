@@ -29,19 +29,11 @@ class MesInboxModel
      */
     protected $userId;
 
-    /**
-     * @return string|null
-     */
     public function getLabel(): ?string
     {
         return $this->label;
     }
 
-    /**
-     * @param string|null $label
-     *
-     * @return self
-     */
     public function setLabel(?string $label): self
     {
         $this->label = $label;
@@ -49,19 +41,11 @@ class MesInboxModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getFqdn(): ?string
     {
         return $this->fqdn;
     }
 
-    /**
-     * @param string|null $fqdn
-     *
-     * @return self
-     */
     public function setFqdn(?string $fqdn): self
     {
         $this->fqdn = $fqdn;
@@ -69,19 +53,11 @@ class MesInboxModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPrefix(): ?string
     {
         return $this->prefix;
     }
 
-    /**
-     * @param string|null $prefix
-     *
-     * @return self
-     */
     public function setPrefix(?string $prefix): self
     {
         $this->prefix = $prefix;
@@ -89,19 +65,11 @@ class MesInboxModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUserId(): ?string
     {
         return $this->userId;
     }
 
-    /**
-     * @param string|null $userId
-     *
-     * @return self
-     */
     public function setUserId(?string $userId): self
     {
         $this->userId = $userId;

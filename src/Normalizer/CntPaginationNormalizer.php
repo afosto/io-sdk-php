@@ -24,12 +24,12 @@ class CntPaginationNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntPagination';
+        return 'Afosto\\Sdk\\Model\\CntPagination' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntPagination';
+        return 'Afosto\\Sdk\\Model\\CntPagination' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class CntPaginationNormalizer implements DenormalizerInterface, NormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntPagination();
-        if (property_exists($data, 'entity_count') && $data->{'entity_count'} !== null) {
+        if (property_exists($data, 'entity_count') && null !== $data->{'entity_count'}) {
             $object->setEntityCount($data->{'entity_count'});
         }
-        if (property_exists($data, 'page_limit') && $data->{'page_limit'} !== null) {
+        if (property_exists($data, 'page_limit') && null !== $data->{'page_limit'}) {
             $object->setPageLimit($data->{'page_limit'});
         }
-        if (property_exists($data, 'page_count') && $data->{'page_count'} !== null) {
+        if (property_exists($data, 'page_count') && null !== $data->{'page_count'}) {
             $object->setPageCount($data->{'page_count'});
         }
-        if (property_exists($data, 'next_page_cursor') && $data->{'next_page_cursor'} !== null) {
+        if (property_exists($data, 'next_page_cursor') && null !== $data->{'next_page_cursor'}) {
             $object->setNextPageCursor($data->{'next_page_cursor'});
         }
 

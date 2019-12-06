@@ -24,12 +24,12 @@ class WmsTransferReportNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsTransferReport';
+        return 'Afosto\\Sdk\\Model\\WmsTransferReport' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsTransferReport';
+        return 'Afosto\\Sdk\\Model\\WmsTransferReport' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class WmsTransferReportNormalizer implements DenormalizerInterface, NormalizerIn
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsTransferReport();
-        if (property_exists($data, 'target') && $data->{'target'} !== null) {
+        if (property_exists($data, 'target') && null !== $data->{'target'}) {
             $object->setTarget($data->{'target'});
         }
-        if (property_exists($data, 'claim_item_ids') && $data->{'claim_item_ids'} !== null) {
+        if (property_exists($data, 'claim_item_ids') && null !== $data->{'claim_item_ids'}) {
             $values = [];
             foreach ($data->{'claim_item_ids'} as $value) {
                 $values[] = $value;

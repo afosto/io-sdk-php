@@ -14,8 +14,6 @@ class AuthorizeIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 {
     /**
      * Returns a  signed id token.
-     *
-     * @param \Afosto\Sdk\Model\RelCreateIdentityRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\RelCreateIdentityRequest $body)
     {

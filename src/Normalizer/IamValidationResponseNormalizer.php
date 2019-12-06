@@ -24,12 +24,12 @@ class IamValidationResponseNormalizer implements DenormalizerInterface, Normaliz
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamValidationResponse';
+        return 'Afosto\\Sdk\\Model\\IamValidationResponse' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamValidationResponse';
+        return 'Afosto\\Sdk\\Model\\IamValidationResponse' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class IamValidationResponseNormalizer implements DenormalizerInterface, Normaliz
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamValidationResponse();
-        if (property_exists($data, 'is_verified') && $data->{'is_verified'} !== null) {
+        if (property_exists($data, 'is_verified') && null !== $data->{'is_verified'}) {
             $object->setIsVerified($data->{'is_verified'});
         }
 

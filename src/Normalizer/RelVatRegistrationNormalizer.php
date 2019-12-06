@@ -24,12 +24,12 @@ class RelVatRegistrationNormalizer implements DenormalizerInterface, NormalizerI
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelVatRegistration';
+        return 'Afosto\\Sdk\\Model\\RelVatRegistration' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelVatRegistration';
+        return 'Afosto\\Sdk\\Model\\RelVatRegistration' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class RelVatRegistrationNormalizer implements DenormalizerInterface, NormalizerI
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelVatRegistration();
-        if (property_exists($data, 'country_code') && $data->{'country_code'} !== null) {
+        if (property_exists($data, 'country_code') && null !== $data->{'country_code'}) {
             $object->setCountryCode($data->{'country_code'});
         }
-        if (property_exists($data, 'number') && $data->{'number'} !== null) {
+        if (property_exists($data, 'number') && null !== $data->{'number'}) {
             $object->setNumber($data->{'number'});
         }
-        if (property_exists($data, 'verification') && $data->{'verification'} !== null) {
+        if (property_exists($data, 'verification') && null !== $data->{'verification'}) {
             $object->setVerification($this->denormalizer->denormalize($data->{'verification'}, 'Afosto\\Sdk\\Model\\RelVatRegistrationVerification', 'json', $context));
         }
 

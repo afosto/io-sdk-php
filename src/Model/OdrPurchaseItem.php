@@ -37,19 +37,11 @@ class OdrPurchaseItem
      */
     protected $vatRate;
 
-    /**
-     * @return string|null
-     */
     public function getSku(): ?string
     {
         return $this->sku;
     }
 
-    /**
-     * @param string|null $sku
-     *
-     * @return self
-     */
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
@@ -57,19 +49,11 @@ class OdrPurchaseItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -77,19 +61,11 @@ class OdrPurchaseItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;
@@ -97,19 +73,11 @@ class OdrPurchaseItem
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getAmount(): ?int
     {
         return $this->amount;
     }
 
-    /**
-     * @param int|null $amount
-     *
-     * @return self
-     */
     public function setAmount(?int $amount): self
     {
         $this->amount = $amount;
@@ -117,19 +85,11 @@ class OdrPurchaseItem
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getQuantity(): ?int
     {
         return $this->quantity;
     }
 
-    /**
-     * @param int|null $quantity
-     *
-     * @return self
-     */
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
@@ -137,19 +97,11 @@ class OdrPurchaseItem
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getVatRate(): ?int
     {
         return $this->vatRate;
     }
 
-    /**
-     * @param int|null $vatRate
-     *
-     * @return self
-     */
     public function setVatRate(?int $vatRate): self
     {
         $this->vatRate = $vatRate;

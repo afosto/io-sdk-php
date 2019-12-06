@@ -24,12 +24,12 @@ class MesSubscriptionNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesSubscription';
+        return 'Afosto\\Sdk\\Model\\MesSubscription' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesSubscription';
+        return 'Afosto\\Sdk\\Model\\MesSubscription' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class MesSubscriptionNormalizer implements DenormalizerInterface, NormalizerInte
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesSubscription();
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'medium') && $data->{'medium'} !== null) {
+        if (property_exists($data, 'medium') && null !== $data->{'medium'}) {
             $object->setMedium($data->{'medium'});
         }
-        if (property_exists($data, 'address') && $data->{'address'} !== null) {
+        if (property_exists($data, 'address') && null !== $data->{'address'}) {
             $object->setAddress($data->{'address'});
         }
 

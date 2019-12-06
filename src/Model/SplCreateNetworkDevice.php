@@ -25,19 +25,11 @@ class SplCreateNetworkDevice
      */
     protected $interface;
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -45,19 +37,11 @@ class SplCreateNetworkDevice
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMacAddress(): ?string
     {
         return $this->macAddress;
     }
 
-    /**
-     * @param string|null $macAddress
-     *
-     * @return self
-     */
     public function setMacAddress(?string $macAddress): self
     {
         $this->macAddress = $macAddress;
@@ -65,19 +49,11 @@ class SplCreateNetworkDevice
         return $this;
     }
 
-    /**
-     * @return SplConnection|null
-     */
     public function getInterface(): ?SplConnection
     {
         return $this->interface;
     }
 
-    /**
-     * @param SplConnection|null $interface
-     *
-     * @return self
-     */
     public function setInterface(?SplConnection $interface): self
     {
         $this->interface = $interface;

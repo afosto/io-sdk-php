@@ -24,12 +24,12 @@ class WmsCreateClaimRequestNormalizer implements DenormalizerInterface, Normaliz
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsCreateClaimRequest';
+        return 'Afosto\\Sdk\\Model\\WmsCreateClaimRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsCreateClaimRequest';
+        return 'Afosto\\Sdk\\Model\\WmsCreateClaimRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,26 +38,26 @@ class WmsCreateClaimRequestNormalizer implements DenormalizerInterface, Normaliz
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsCreateClaimRequest();
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'target') && $data->{'target'} !== null) {
+        if (property_exists($data, 'target') && null !== $data->{'target'}) {
             $object->setTarget($data->{'target'});
         }
-        if (property_exists($data, 'stack') && $data->{'stack'} !== null) {
+        if (property_exists($data, 'stack') && null !== $data->{'stack'}) {
             $object->setStack($this->denormalizer->denormalize($data->{'stack'}, 'Afosto\\Sdk\\Model\\WmsStackReference', 'json', $context));
         }
-        if (property_exists($data, 'expires_at') && $data->{'expires_at'} !== null) {
+        if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
-        if (property_exists($data, 'constraints') && $data->{'constraints'} !== null) {
+        if (property_exists($data, 'constraints') && null !== $data->{'constraints'}) {
             $values = [];
             foreach ($data->{'constraints'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsConstraint', 'json', $context);
             }
             $object->setConstraints($values);
         }
-        if (property_exists($data, 'sorts') && $data->{'sorts'} !== null) {
+        if (property_exists($data, 'sorts') && null !== $data->{'sorts'}) {
             $values_1 = [];
             foreach ($data->{'sorts'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\WmsSort', 'json', $context);

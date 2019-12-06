@@ -14,8 +14,6 @@ class AddSubscription extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 {
     /**
      * Add a product to the subscription.
-     *
-     * @param \Afosto\Sdk\Model\IamSubscribe $body
      */
     public function __construct(\Afosto\Sdk\Model\IamSubscribe $body)
     {
@@ -46,7 +44,6 @@ class AddSubscription extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 
     /**
      * {@inheritdoc}
-     *
      *
      * @return \Afosto\Sdk\Model\IamUsageRecord[]|null
      */

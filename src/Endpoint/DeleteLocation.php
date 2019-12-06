@@ -16,8 +16,6 @@ class DeleteLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 
     /**
      * Mark a location as deleted.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

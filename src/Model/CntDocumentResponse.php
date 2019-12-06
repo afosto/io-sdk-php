@@ -37,19 +37,11 @@ class CntDocumentResponse
      */
     protected $filters;
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -57,19 +49,11 @@ class CntDocumentResponse
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    /**
-     * @param string|null $title
-     *
-     * @return self
-     */
     public function setTitle(?string $title): self
     {
         $this->title = $title;
@@ -77,19 +61,11 @@ class CntDocumentResponse
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -97,19 +73,11 @@ class CntDocumentResponse
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSub(): ?string
     {
         return $this->sub;
     }
 
-    /**
-     * @param string|null $sub
-     *
-     * @return self
-     */
     public function setSub(?string $sub): self
     {
         $this->sub = $sub;
@@ -127,8 +95,6 @@ class CntDocumentResponse
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -147,8 +113,6 @@ class CntDocumentResponse
 
     /**
      * @param mixed[]|null $filters
-     *
-     * @return self
      */
     public function setFilters(?array $filters): self
     {

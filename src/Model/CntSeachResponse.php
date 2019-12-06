@@ -35,8 +35,6 @@ class CntSeachResponse
 
     /**
      * @param CntDocumentResponse[]|null $hits
-     *
-     * @return self
      */
     public function setHits(?array $hits): self
     {
@@ -55,8 +53,6 @@ class CntSeachResponse
 
     /**
      * @param CntFacet[]|null $facets
-     *
-     * @return self
      */
     public function setFacets(?array $facets): self
     {
@@ -65,19 +61,11 @@ class CntSeachResponse
         return $this;
     }
 
-    /**
-     * @return CntPagination|null
-     */
     public function getPagination(): ?CntPagination
     {
         return $this->pagination;
     }
 
-    /**
-     * @param CntPagination|null $pagination
-     *
-     * @return self
-     */
     public function setPagination(?CntPagination $pagination): self
     {
         $this->pagination = $pagination;

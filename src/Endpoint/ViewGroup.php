@@ -16,8 +16,6 @@ class ViewGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     /**
      * View the pricing group by id.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

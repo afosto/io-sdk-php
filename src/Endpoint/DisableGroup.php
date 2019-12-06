@@ -16,8 +16,6 @@ class DisableGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     /**
      * Disabling a pricing group makes sure it cannot me added to new settings.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

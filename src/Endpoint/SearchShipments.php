@@ -15,8 +15,7 @@ class SearchShipments extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     /**
      * Search for a set of shipments.
      *
-     * @param \Afosto\Sdk\Model\LcsShipmentSearch $body
-     * @param array                               $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page
      *     @var string $x-page-size

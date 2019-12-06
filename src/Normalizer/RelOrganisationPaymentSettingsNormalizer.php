@@ -24,12 +24,12 @@ class RelOrganisationPaymentSettingsNormalizer implements DenormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettings';
+        return 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettings' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettings';
+        return 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettings' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class RelOrganisationPaymentSettingsNormalizer implements DenormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelOrganisationPaymentSettings();
-        if (property_exists($data, 'post_payment') && $data->{'post_payment'} !== null) {
+        if (property_exists($data, 'post_payment') && null !== $data->{'post_payment'}) {
             $object->setPostPayment($this->denormalizer->denormalize($data->{'post_payment'}, 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettingsPostPayment', 'json', $context));
         }
-        if (property_exists($data, 'invoice') && $data->{'invoice'} !== null) {
+        if (property_exists($data, 'invoice') && null !== $data->{'invoice'}) {
             $object->setInvoice($this->denormalizer->denormalize($data->{'invoice'}, 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettingsInvoice', 'json', $context));
         }
 

@@ -16,8 +16,6 @@ class ListMethodsForTransaction extends \Jane\OpenApiRuntime\Client\BaseEndpoint
 
     /**
      * Returns a list of payment methods available for the transaction.
-     *
-     * @param string $secret
      */
     public function __construct(string $secret)
     {

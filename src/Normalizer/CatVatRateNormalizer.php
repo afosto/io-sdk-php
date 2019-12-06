@@ -24,12 +24,12 @@ class CatVatRateNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CatVatRate';
+        return 'Afosto\\Sdk\\Model\\CatVatRate' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CatVatRate';
+        return 'Afosto\\Sdk\\Model\\CatVatRate' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,22 +38,22 @@ class CatVatRateNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\CatVatRate();
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'rate') && $data->{'rate'} !== null) {
+        if (property_exists($data, 'rate') && null !== $data->{'rate'}) {
             $object->setRate($data->{'rate'});
         }
-        if (property_exists($data, 'country') && $data->{'country'} !== null) {
+        if (property_exists($data, 'country') && null !== $data->{'country'}) {
             $object->setCountry($data->{'country'});
         }
-        if (property_exists($data, 'is_default') && $data->{'is_default'} !== null) {
+        if (property_exists($data, 'is_default') && null !== $data->{'is_default'}) {
             $object->setIsDefault($data->{'is_default'});
         }
-        if (property_exists($data, 'administrative_area') && $data->{'administrative_area'} !== null) {
+        if (property_exists($data, 'administrative_area') && null !== $data->{'administrative_area'}) {
             $object->setAdministrativeArea($data->{'administrative_area'});
         }
-        if (property_exists($data, 'active_at') && $data->{'active_at'} !== null) {
+        if (property_exists($data, 'active_at') && null !== $data->{'active_at'}) {
             $object->setActiveAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'active_at'}));
         }
 

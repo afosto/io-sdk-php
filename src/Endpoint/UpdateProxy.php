@@ -16,9 +16,6 @@ class UpdateProxy extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     /**
      * Updates the proxy.
-     *
-     * @param string                                $key
-     * @param \Afosto\Sdk\Model\CntProxyUpdateModel $body
      */
     public function __construct(string $key, \Afosto\Sdk\Model\CntProxyUpdateModel $body)
     {

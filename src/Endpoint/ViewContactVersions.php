@@ -16,8 +16,6 @@ class ViewContactVersions extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
 
     /**
      * Returns a version list for the contact.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

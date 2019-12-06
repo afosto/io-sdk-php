@@ -21,19 +21,11 @@ class RelContactUpdateOrganisations
      */
     protected $secondary;
 
-    /**
-     * @return RelContactUpdateOrganisationsPrimary|null
-     */
     public function getPrimary(): ?RelContactUpdateOrganisationsPrimary
     {
         return $this->primary;
     }
 
-    /**
-     * @param RelContactUpdateOrganisationsPrimary|null $primary
-     *
-     * @return self
-     */
     public function setPrimary(?RelContactUpdateOrganisationsPrimary $primary): self
     {
         $this->primary = $primary;
@@ -51,8 +43,6 @@ class RelContactUpdateOrganisations
 
     /**
      * @param RelContactUpdateOrganisationsSecondaryItem[]|null $secondary
-     *
-     * @return self
      */
     public function setSecondary(?array $secondary): self
     {

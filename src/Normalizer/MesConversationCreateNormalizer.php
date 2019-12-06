@@ -24,12 +24,12 @@ class MesConversationCreateNormalizer implements DenormalizerInterface, Normaliz
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesConversationCreate';
+        return 'Afosto\\Sdk\\Model\\MesConversationCreate' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesConversationCreate';
+        return 'Afosto\\Sdk\\Model\\MesConversationCreate' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,29 +38,29 @@ class MesConversationCreateNormalizer implements DenormalizerInterface, Normaliz
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesConversationCreate();
-        if (property_exists($data, 'event') && $data->{'event'} !== null) {
+        if (property_exists($data, 'event') && null !== $data->{'event'}) {
             $object->setEvent($data->{'event'});
         }
-        if (property_exists($data, 'entity_type') && $data->{'entity_type'} !== null) {
+        if (property_exists($data, 'entity_type') && null !== $data->{'entity_type'}) {
             $object->setEntityType($data->{'entity_type'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'entity_id') && $data->{'entity_id'} !== null) {
+        if (property_exists($data, 'entity_id') && null !== $data->{'entity_id'}) {
             $object->setEntityId($data->{'entity_id'});
         }
-        if (property_exists($data, 'participant') && $data->{'participant'} !== null) {
+        if (property_exists($data, 'participant') && null !== $data->{'participant'}) {
             $object->setParticipant($this->denormalizer->denormalize($data->{'participant'}, 'Afosto\\Sdk\\Model\\MesParticipantCreate', 'json', $context));
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->{'metadata'} as $key => $value) {
                 $values[$key] = $value;
             }
             $object->setMetadata($values);
         }
-        if (property_exists($data, 'expires_at') && $data->{'expires_at'} !== null) {
+        if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
 

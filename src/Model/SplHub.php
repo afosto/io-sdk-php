@@ -65,19 +65,11 @@ class SplHub
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -85,19 +77,11 @@ class SplHub
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUuid(): ?string
     {
         return $this->uuid;
     }
 
-    /**
-     * @param string|null $uuid
-     *
-     * @return self
-     */
     public function setUuid(?string $uuid): self
     {
         $this->uuid = $uuid;
@@ -105,19 +89,11 @@ class SplHub
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -125,19 +101,11 @@ class SplHub
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -155,8 +123,6 @@ class SplHub
 
     /**
      * @param SplProperty[]|null $properties
-     *
-     * @return self
      */
     public function setProperties(?array $properties): self
     {
@@ -165,19 +131,11 @@ class SplHub
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStatus(): ?string
     {
         return $this->status;
     }
 
-    /**
-     * @param string|null $status
-     *
-     * @return self
-     */
     public function setStatus(?string $status): self
     {
         $this->status = $status;
@@ -185,19 +143,11 @@ class SplHub
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getStatusUpdatedAt(): ?\DateTime
     {
         return $this->statusUpdatedAt;
     }
 
-    /**
-     * @param \DateTime|null $statusUpdatedAt
-     *
-     * @return self
-     */
     public function setStatusUpdatedAt(?\DateTime $statusUpdatedAt): self
     {
         $this->statusUpdatedAt = $statusUpdatedAt;
@@ -205,19 +155,11 @@ class SplHub
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getDisabledAt(): ?\DateTime
     {
         return $this->disabledAt;
     }
 
-    /**
-     * @param \DateTime|null $disabledAt
-     *
-     * @return self
-     */
     public function setDisabledAt(?\DateTime $disabledAt): self
     {
         $this->disabledAt = $disabledAt;
@@ -225,19 +167,11 @@ class SplHub
         return $this;
     }
 
-    /**
-     * @return SplPubnub|null
-     */
     public function getPubnub(): ?SplPubnub
     {
         return $this->pubnub;
     }
 
-    /**
-     * @param SplPubnub|null $pubnub
-     *
-     * @return self
-     */
     public function setPubnub(?SplPubnub $pubnub): self
     {
         $this->pubnub = $pubnub;
@@ -245,19 +179,11 @@ class SplHub
         return $this;
     }
 
-    /**
-     * @return SplIntegration|null
-     */
     public function getIntegration(): ?SplIntegration
     {
         return $this->integration;
     }
 
-    /**
-     * @param SplIntegration|null $integration
-     *
-     * @return self
-     */
     public function setIntegration(?SplIntegration $integration): self
     {
         $this->integration = $integration;
@@ -265,19 +191,11 @@ class SplHub
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getOsFileId(): ?string
     {
         return $this->osFileId;
     }
 
-    /**
-     * @param string|null $osFileId
-     *
-     * @return self
-     */
     public function setOsFileId(?string $osFileId): self
     {
         $this->osFileId = $osFileId;
@@ -285,19 +203,11 @@ class SplHub
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -305,19 +215,11 @@ class SplHub
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

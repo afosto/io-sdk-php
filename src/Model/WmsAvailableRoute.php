@@ -25,8 +25,6 @@ class WmsAvailableRoute
 
     /**
      * Deliverable items through this route.
-     *
-     * @return int|null
      */
     public function getAvailable(): ?int
     {
@@ -35,10 +33,6 @@ class WmsAvailableRoute
 
     /**
      * Deliverable items through this route.
-     *
-     * @param int|null $available
-     *
-     * @return self
      */
     public function setAvailable(?int $available): self
     {
@@ -47,19 +41,11 @@ class WmsAvailableRoute
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getRouteId(): ?string
     {
         return $this->routeId;
     }
 
-    /**
-     * @param string|null $routeId
-     *
-     * @return self
-     */
     public function setRouteId(?string $routeId): self
     {
         $this->routeId = $routeId;

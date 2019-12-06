@@ -24,12 +24,12 @@ class WmsStockNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsStock';
+        return 'Afosto\\Sdk\\Model\\WmsStock' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsStock';
+        return 'Afosto\\Sdk\\Model\\WmsStock' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,22 +38,22 @@ class WmsStockNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsStock();
-        if (property_exists($data, 'warehouse_id') && $data->{'warehouse_id'} !== null) {
+        if (property_exists($data, 'warehouse_id') && null !== $data->{'warehouse_id'}) {
             $object->setWarehouseId($data->{'warehouse_id'});
         }
-        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'available') && $data->{'available'} !== null) {
+        if (property_exists($data, 'available') && null !== $data->{'available'}) {
             $object->setAvailable($data->{'available'});
         }
-        if (property_exists($data, 'claimed') && $data->{'claimed'} !== null) {
+        if (property_exists($data, 'claimed') && null !== $data->{'claimed'}) {
             $object->setClaimed($data->{'claimed'});
         }
-        if (property_exists($data, 'transit') && $data->{'transit'} !== null) {
+        if (property_exists($data, 'transit') && null !== $data->{'transit'}) {
             $object->setTransit($data->{'transit'});
         }
-        if (property_exists($data, 'total') && $data->{'total'} !== null) {
+        if (property_exists($data, 'total') && null !== $data->{'total'}) {
             $object->setTotal($data->{'total'});
         }
 

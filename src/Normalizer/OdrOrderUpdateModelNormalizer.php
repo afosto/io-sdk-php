@@ -24,12 +24,12 @@ class OdrOrderUpdateModelNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrOrderUpdateModel';
+        return 'Afosto\\Sdk\\Model\\OdrOrderUpdateModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrOrderUpdateModel';
+        return 'Afosto\\Sdk\\Model\\OdrOrderUpdateModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,19 +38,19 @@ class OdrOrderUpdateModelNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrOrderUpdateModel();
-        if (property_exists($data, 'address_id') && $data->{'address_id'} !== null) {
+        if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
             $object->setAddressId($data->{'address_id'});
         }
-        if (property_exists($data, 'shipment_address_id') && $data->{'shipment_address_id'} !== null) {
+        if (property_exists($data, 'shipment_address_id') && null !== $data->{'shipment_address_id'}) {
             $object->setShipmentAddressId($data->{'shipment_address_id'});
         }
-        if (property_exists($data, 'organisation_id') && $data->{'organisation_id'} !== null) {
+        if (property_exists($data, 'organisation_id') && null !== $data->{'organisation_id'}) {
             $object->setOrganisationId($data->{'organisation_id'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'due_at') && $data->{'due_at'} !== null) {
+        if (property_exists($data, 'due_at') && null !== $data->{'due_at'}) {
             $object->setDueAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'due_at'}));
         }
 

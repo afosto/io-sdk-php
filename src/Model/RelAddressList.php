@@ -21,19 +21,11 @@ class RelAddressList
      */
     protected $secondary;
 
-    /**
-     * @return RelAddress|null
-     */
     public function getPrimary(): ?RelAddress
     {
         return $this->primary;
     }
 
-    /**
-     * @param RelAddress|null $primary
-     *
-     * @return self
-     */
     public function setPrimary(?RelAddress $primary): self
     {
         $this->primary = $primary;
@@ -51,8 +43,6 @@ class RelAddressList
 
     /**
      * @param RelAddress[]|null $secondary
-     *
-     * @return self
      */
     public function setSecondary(?array $secondary): self
     {

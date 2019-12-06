@@ -14,8 +14,6 @@ class CreateClaims extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 {
     /**
      * Create an optimized set of claims.
-     *
-     * @param \Afosto\Sdk\Model\WmsCreateClaimRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\WmsCreateClaimRequest $body)
     {

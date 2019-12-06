@@ -21,19 +21,11 @@ class CntBucket
      */
     protected $count;
 
-    /**
-     * @return string|null
-     */
     public function getValue(): ?string
     {
         return $this->value;
     }
 
-    /**
-     * @param string|null $value
-     *
-     * @return self
-     */
     public function setValue(?string $value): self
     {
         $this->value = $value;
@@ -41,19 +33,11 @@ class CntBucket
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCount(): ?string
     {
         return $this->count;
     }
 
-    /**
-     * @param string|null $count
-     *
-     * @return self
-     */
     public function setCount(?string $count): self
     {
         $this->count = $count;

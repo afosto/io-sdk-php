@@ -24,12 +24,12 @@ class MesConversationNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesConversation';
+        return 'Afosto\\Sdk\\Model\\MesConversation' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesConversation';
+        return 'Afosto\\Sdk\\Model\\MesConversation' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,49 +38,49 @@ class MesConversationNormalizer implements DenormalizerInterface, NormalizerInte
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesConversation();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'event') && $data->{'event'} !== null) {
+        if (property_exists($data, 'event') && null !== $data->{'event'}) {
             $object->setEvent($data->{'event'});
         }
-        if (property_exists($data, 'entity_type') && $data->{'entity_type'} !== null) {
+        if (property_exists($data, 'entity_type') && null !== $data->{'entity_type'}) {
             $object->setEntityType($data->{'entity_type'});
         }
-        if (property_exists($data, 'entity_id') && $data->{'entity_id'} !== null) {
+        if (property_exists($data, 'entity_id') && null !== $data->{'entity_id'}) {
             $object->setEntityId($data->{'entity_id'});
         }
-        if (property_exists($data, 'messages') && $data->{'messages'} !== null) {
+        if (property_exists($data, 'messages') && null !== $data->{'messages'}) {
             $values = [];
             foreach ($data->{'messages'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\MesMessage', 'json', $context);
             }
             $object->setMessages($values);
         }
-        if (property_exists($data, 'participants') && $data->{'participants'} !== null) {
+        if (property_exists($data, 'participants') && null !== $data->{'participants'}) {
             $values_1 = [];
             foreach ($data->{'participants'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\MesParticipant', 'json', $context);
             }
             $object->setParticipants($values_1);
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $values_2 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->{'metadata'} as $key => $value_2) {
                 $values_2[$key] = $value_2;
             }
             $object->setMetadata($values_2);
         }
-        if (property_exists($data, 'started_at') && $data->{'started_at'} !== null) {
+        if (property_exists($data, 'started_at') && null !== $data->{'started_at'}) {
             $object->setStartedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'started_at'}));
         }
-        if (property_exists($data, 'expires_at') && $data->{'expires_at'} !== null) {
+        if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

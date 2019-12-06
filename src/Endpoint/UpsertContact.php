@@ -14,8 +14,6 @@ class UpsertContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 {
     /**
      * Create a new or update an existing contact, based on it's emailaddress. Will only update the primary parts of lists. Doing so it will move the old primary to a secondary (on changes).
-     *
-     * @param \Afosto\Sdk\Model\RelContactUpdate $body
      */
     public function __construct(\Afosto\Sdk\Model\RelContactUpdate $body)
     {

@@ -16,9 +16,6 @@ class UpdateShipment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 
     /**
      * Update the shipment method or addressing.
-     *
-     * @param string                                   $id
-     * @param \Afosto\Sdk\Model\LcsShipmentUpdateModel $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\LcsShipmentUpdateModel $body)
     {

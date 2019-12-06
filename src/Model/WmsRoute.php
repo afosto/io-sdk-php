@@ -45,19 +45,11 @@ class WmsRoute
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -65,19 +57,11 @@ class WmsRoute
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -87,8 +71,6 @@ class WmsRoute
 
     /**
      * Location id.
-     *
-     * @return string|null
      */
     public function getFrom(): ?string
     {
@@ -97,10 +79,6 @@ class WmsRoute
 
     /**
      * Location id.
-     *
-     * @param string|null $from
-     *
-     * @return self
      */
     public function setFrom(?string $from): self
     {
@@ -111,8 +89,6 @@ class WmsRoute
 
     /**
      * Location id.
-     *
-     * @return string|null
      */
     public function getTo(): ?string
     {
@@ -121,10 +97,6 @@ class WmsRoute
 
     /**
      * Location id.
-     *
-     * @param string|null $to
-     *
-     * @return self
      */
     public function setTo(?string $to): self
     {
@@ -143,8 +115,6 @@ class WmsRoute
 
     /**
      * @param string[]|null $hops
-     *
-     * @return self
      */
     public function setHops(?array $hops): self
     {
@@ -153,19 +123,11 @@ class WmsRoute
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -173,19 +135,11 @@ class WmsRoute
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

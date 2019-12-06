@@ -41,19 +41,11 @@ class IamSystemRole
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -61,19 +53,11 @@ class IamSystemRole
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -91,8 +75,6 @@ class IamSystemRole
 
     /**
      * @param string[]|null $scopes
-     *
-     * @return self
      */
     public function setScopes(?array $scopes): self
     {
@@ -101,19 +83,11 @@ class IamSystemRole
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getClientId(): ?string
     {
         return $this->clientId;
     }
 
-    /**
-     * @param string|null $clientId
-     *
-     * @return self
-     */
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
@@ -121,19 +95,11 @@ class IamSystemRole
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsManaged(): ?bool
     {
         return $this->isManaged;
     }
 
-    /**
-     * @param bool|null $isManaged
-     *
-     * @return self
-     */
     public function setIsManaged(?bool $isManaged): self
     {
         $this->isManaged = $isManaged;
@@ -141,19 +107,11 @@ class IamSystemRole
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -161,19 +119,11 @@ class IamSystemRole
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

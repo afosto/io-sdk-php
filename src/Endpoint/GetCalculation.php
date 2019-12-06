@@ -16,8 +16,6 @@ class GetCalculation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 
     /**
      * Returns a calculation.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

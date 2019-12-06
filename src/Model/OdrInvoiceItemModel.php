@@ -45,19 +45,11 @@ class OdrInvoiceItemModel
      */
     protected $vatPercentage;
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -65,19 +57,11 @@ class OdrInvoiceItemModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSku(): ?string
     {
         return $this->sku;
     }
 
-    /**
-     * @param string|null $sku
-     *
-     * @return self
-     */
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
@@ -85,19 +69,11 @@ class OdrInvoiceItemModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -105,19 +81,11 @@ class OdrInvoiceItemModel
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getAmount(): ?int
     {
         return $this->amount;
     }
 
-    /**
-     * @param int|null $amount
-     *
-     * @return self
-     */
     public function setAmount(?int $amount): self
     {
         $this->amount = $amount;
@@ -125,19 +93,11 @@ class OdrInvoiceItemModel
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsDiscounted(): ?bool
     {
         return $this->isDiscounted;
     }
 
-    /**
-     * @param bool|null $isDiscounted
-     *
-     * @return self
-     */
     public function setIsDiscounted(?bool $isDiscounted): self
     {
         $this->isDiscounted = $isDiscounted;
@@ -145,19 +105,11 @@ class OdrInvoiceItemModel
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getQuantity(): ?int
     {
         return $this->quantity;
     }
 
-    /**
-     * @param int|null $quantity
-     *
-     * @return self
-     */
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
@@ -175,8 +127,6 @@ class OdrInvoiceItemModel
 
     /**
      * @param OdrAdjustment[]|null $adjustments
-     *
-     * @return self
      */
     public function setAdjustments(?array $adjustments): self
     {
@@ -185,19 +135,11 @@ class OdrInvoiceItemModel
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getVatPercentage(): ?int
     {
         return $this->vatPercentage;
     }
 
-    /**
-     * @param int|null $vatPercentage
-     *
-     * @return self
-     */
     public function setVatPercentage(?int $vatPercentage): self
     {
         $this->vatPercentage = $vatPercentage;

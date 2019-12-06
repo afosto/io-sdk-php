@@ -14,8 +14,6 @@ class CreatePricingRule extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 {
     /**
      * Add a new pricing rule to the set.
-     *
-     * @param \Afosto\Sdk\Model\OdrPricingRuleModel $body
      */
     public function __construct(\Afosto\Sdk\Model\OdrPricingRuleModel $body)
     {

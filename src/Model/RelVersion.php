@@ -21,19 +21,11 @@ class RelVersion
      */
     protected $createdAt;
 
-    /**
-     * @return string|null
-     */
     public function getVersion(): ?string
     {
         return $this->version;
     }
 
-    /**
-     * @param string|null $version
-     *
-     * @return self
-     */
     public function setVersion(?string $version): self
     {
         $this->version = $version;
@@ -41,19 +33,11 @@ class RelVersion
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;

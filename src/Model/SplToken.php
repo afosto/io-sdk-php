@@ -21,19 +21,11 @@ class SplToken
      */
     protected $expiresAt;
 
-    /**
-     * @return string|null
-     */
     public function getKey(): ?string
     {
         return $this->key;
     }
 
-    /**
-     * @param string|null $key
-     *
-     * @return self
-     */
     public function setKey(?string $key): self
     {
         $this->key = $key;
@@ -41,19 +33,11 @@ class SplToken
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getExpiresAt(): ?\DateTime
     {
         return $this->expiresAt;
     }
 
-    /**
-     * @param \DateTime|null $expiresAt
-     *
-     * @return self
-     */
     public function setExpiresAt(?\DateTime $expiresAt): self
     {
         $this->expiresAt = $expiresAt;

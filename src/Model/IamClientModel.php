@@ -29,19 +29,11 @@ class IamClientModel
      */
     protected $scope;
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -49,19 +41,11 @@ class IamClientModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getRedirectUri(): ?string
     {
         return $this->redirectUri;
     }
 
-    /**
-     * @param string|null $redirectUri
-     *
-     * @return self
-     */
     public function setRedirectUri(?string $redirectUri): self
     {
         $this->redirectUri = $redirectUri;
@@ -79,8 +63,6 @@ class IamClientModel
 
     /**
      * @param string[]|null $grantTypes
-     *
-     * @return self
      */
     public function setGrantTypes(?array $grantTypes): self
     {
@@ -99,8 +81,6 @@ class IamClientModel
 
     /**
      * @param string[]|null $scope
-     *
-     * @return self
      */
     public function setScope(?array $scope): self
     {

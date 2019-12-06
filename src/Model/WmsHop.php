@@ -43,19 +43,11 @@ class WmsHop
      */
     protected $deletedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -65,8 +57,6 @@ class WmsHop
 
     /**
      * Location id.
-     *
-     * @return string|null
      */
     public function getFrom(): ?string
     {
@@ -75,10 +65,6 @@ class WmsHop
 
     /**
      * Location id.
-     *
-     * @param string|null $from
-     *
-     * @return self
      */
     public function setFrom(?string $from): self
     {
@@ -89,8 +75,6 @@ class WmsHop
 
     /**
      * Location id.
-     *
-     * @return string|null
      */
     public function getTo(): ?string
     {
@@ -99,10 +83,6 @@ class WmsHop
 
     /**
      * Location id.
-     *
-     * @param string|null $to
-     *
-     * @return self
      */
     public function setTo(?string $to): self
     {
@@ -125,8 +105,6 @@ class WmsHop
      * a list of applied schedules.
      *
      * @param string[]|null $schedules
-     *
-     * @return self
      */
     public function setSchedules(?array $schedules): self
     {
@@ -135,19 +113,11 @@ class WmsHop
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -155,19 +125,11 @@ class WmsHop
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getDeletedAt(): ?\DateTime
     {
         return $this->deletedAt;
     }
 
-    /**
-     * @param \DateTime|null $deletedAt
-     *
-     * @return self
-     */
     public function setDeletedAt(?\DateTime $deletedAt): self
     {
         $this->deletedAt = $deletedAt;

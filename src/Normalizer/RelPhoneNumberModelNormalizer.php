@@ -24,12 +24,12 @@ class RelPhoneNumberModelNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelPhoneNumberModel';
+        return 'Afosto\\Sdk\\Model\\RelPhoneNumberModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelPhoneNumberModel';
+        return 'Afosto\\Sdk\\Model\\RelPhoneNumberModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class RelPhoneNumberModelNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelPhoneNumberModel();
-        if (property_exists($data, 'country_code') && $data->{'country_code'} !== null) {
+        if (property_exists($data, 'country_code') && null !== $data->{'country_code'}) {
             $object->setCountryCode($data->{'country_code'});
         }
-        if (property_exists($data, 'number') && $data->{'number'} !== null) {
+        if (property_exists($data, 'number') && null !== $data->{'number'}) {
             $object->setNumber($data->{'number'});
         }
 

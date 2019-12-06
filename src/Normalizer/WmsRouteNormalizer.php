@@ -24,12 +24,12 @@ class WmsRouteNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsRoute';
+        return 'Afosto\\Sdk\\Model\\WmsRoute' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsRoute';
+        return 'Afosto\\Sdk\\Model\\WmsRoute' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,29 +38,29 @@ class WmsRouteNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsRoute();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'from') && $data->{'from'} !== null) {
+        if (property_exists($data, 'from') && null !== $data->{'from'}) {
             $object->setFrom($data->{'from'});
         }
-        if (property_exists($data, 'to') && $data->{'to'} !== null) {
+        if (property_exists($data, 'to') && null !== $data->{'to'}) {
             $object->setTo($data->{'to'});
         }
-        if (property_exists($data, 'hops') && $data->{'hops'} !== null) {
+        if (property_exists($data, 'hops') && null !== $data->{'hops'}) {
             $values = [];
             foreach ($data->{'hops'} as $value) {
                 $values[] = $value;
             }
             $object->setHops($values);
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

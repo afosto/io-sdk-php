@@ -24,12 +24,12 @@ class LcsShipmentUpdateModelNormalizer implements DenormalizerInterface, Normali
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsShipmentUpdateModel';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentUpdateModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsShipmentUpdateModel';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentUpdateModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class LcsShipmentUpdateModelNormalizer implements DenormalizerInterface, Normali
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsShipmentUpdateModel();
-        if (property_exists($data, 'method_id') && $data->{'method_id'} !== null) {
+        if (property_exists($data, 'method_id') && null !== $data->{'method_id'}) {
             $object->setMethodId($data->{'method_id'});
         }
-        if (property_exists($data, 'addressing') && $data->{'addressing'} !== null) {
+        if (property_exists($data, 'addressing') && null !== $data->{'addressing'}) {
             $object->setAddressing($this->denormalizer->denormalize($data->{'addressing'}, 'Afosto\\Sdk\\Model\\LcsShipmentUpdateModelAddressing', 'json', $context));
         }
-        if (property_exists($data, 'expected_at') && $data->{'expected_at'} !== null) {
+        if (property_exists($data, 'expected_at') && null !== $data->{'expected_at'}) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
         }
 

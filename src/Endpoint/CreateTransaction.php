@@ -14,8 +14,6 @@ class CreateTransaction extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 {
     /**
      * Returns a new signed upload url.
-     *
-     * @param \Afosto\Sdk\Model\OdrTransactionModel $body
      */
     public function __construct(\Afosto\Sdk\Model\OdrTransactionModel $body)
     {

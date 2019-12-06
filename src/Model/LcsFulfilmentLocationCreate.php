@@ -21,19 +21,11 @@ class LcsFulfilmentLocationCreate
      */
     protected $addressId;
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -41,19 +33,11 @@ class LcsFulfilmentLocationCreate
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressId(): ?string
     {
         return $this->addressId;
     }
 
-    /**
-     * @param string|null $addressId
-     *
-     * @return self
-     */
     public function setAddressId(?string $addressId): self
     {
         $this->addressId = $addressId;

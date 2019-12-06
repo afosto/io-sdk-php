@@ -24,12 +24,12 @@ class IamClientUpdateModelNormalizer implements DenormalizerInterface, Normalize
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamClientUpdateModel';
+        return 'Afosto\\Sdk\\Model\\IamClientUpdateModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamClientUpdateModel';
+        return 'Afosto\\Sdk\\Model\\IamClientUpdateModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class IamClientUpdateModelNormalizer implements DenormalizerInterface, Normalize
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamClientUpdateModel();
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
 

@@ -16,9 +16,6 @@ class UpdateCalculationState extends \Jane\OpenApiRuntime\Client\BaseEndpoint im
 
     /**
      * Update a calculation state.
-     *
-     * @param string                                $id
-     * @param \Afosto\Sdk\Model\OdrCalculationState $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\OdrCalculationState $body)
     {

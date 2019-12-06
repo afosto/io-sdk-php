@@ -29,19 +29,11 @@ class CntPagination
      */
     protected $nextPageCursor;
 
-    /**
-     * @return int|null
-     */
     public function getEntityCount(): ?int
     {
         return $this->entityCount;
     }
 
-    /**
-     * @param int|null $entityCount
-     *
-     * @return self
-     */
     public function setEntityCount(?int $entityCount): self
     {
         $this->entityCount = $entityCount;
@@ -49,19 +41,11 @@ class CntPagination
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getPageLimit(): ?int
     {
         return $this->pageLimit;
     }
 
-    /**
-     * @param int|null $pageLimit
-     *
-     * @return self
-     */
     public function setPageLimit(?int $pageLimit): self
     {
         $this->pageLimit = $pageLimit;
@@ -69,19 +53,11 @@ class CntPagination
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getPageCount(): ?int
     {
         return $this->pageCount;
     }
 
-    /**
-     * @param int|null $pageCount
-     *
-     * @return self
-     */
     public function setPageCount(?int $pageCount): self
     {
         $this->pageCount = $pageCount;
@@ -89,19 +65,11 @@ class CntPagination
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getNextPageCursor(): ?string
     {
         return $this->nextPageCursor;
     }
 
-    /**
-     * @param string|null $nextPageCursor
-     *
-     * @return self
-     */
     public function setNextPageCursor(?string $nextPageCursor): self
     {
         $this->nextPageCursor = $nextPageCursor;

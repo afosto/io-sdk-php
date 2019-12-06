@@ -27,8 +27,6 @@ class OdrOptionsRulesConstraintsGetResponse200
 
     /**
      * @param string[]|null $amount
-     *
-     * @return self
      */
     public function setAmount(?array $amount): self
     {

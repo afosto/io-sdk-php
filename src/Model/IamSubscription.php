@@ -37,19 +37,11 @@ class IamSubscription
      */
     protected $items;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -57,19 +49,11 @@ class IamSubscription
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
-    /**
-     * @param string|null $code
-     *
-     * @return self
-     */
     public function setCode(?string $code): self
     {
         $this->code = $code;
@@ -77,19 +61,11 @@ class IamSubscription
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsRenewing(): ?bool
     {
         return $this->isRenewing;
     }
 
-    /**
-     * @param bool|null $isRenewing
-     *
-     * @return self
-     */
     public function setIsRenewing(?bool $isRenewing): self
     {
         $this->isRenewing = $isRenewing;
@@ -97,19 +73,11 @@ class IamSubscription
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getStartAt(): ?\DateTime
     {
         return $this->startAt;
     }
 
-    /**
-     * @param \DateTime|null $startAt
-     *
-     * @return self
-     */
     public function setStartAt(?\DateTime $startAt): self
     {
         $this->startAt = $startAt;
@@ -117,19 +85,11 @@ class IamSubscription
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getEndAt(): ?\DateTime
     {
         return $this->endAt;
     }
 
-    /**
-     * @param \DateTime|null $endAt
-     *
-     * @return self
-     */
     public function setEndAt(?\DateTime $endAt): self
     {
         $this->endAt = $endAt;
@@ -147,8 +107,6 @@ class IamSubscription
 
     /**
      * @param IamSubscriptionItem[]|null $items
-     *
-     * @return self
      */
     public function setItems(?array $items): self
     {

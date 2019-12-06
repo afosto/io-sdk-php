@@ -24,12 +24,12 @@ class IamSecretReadNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamSecretRead';
+        return 'Afosto\\Sdk\\Model\\IamSecretRead' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamSecretRead';
+        return 'Afosto\\Sdk\\Model\\IamSecretRead' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,38 +38,38 @@ class IamSecretReadNormalizer implements DenormalizerInterface, NormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamSecretRead();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'sub') && $data->{'sub'} !== null) {
+        if (property_exists($data, 'sub') && null !== $data->{'sub'}) {
             $object->setSub($data->{'sub'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'secret_last_4') && $data->{'secret_last_4'} !== null) {
+        if (property_exists($data, 'secret_last_4') && null !== $data->{'secret_last_4'}) {
             $object->setSecretLast4($data->{'secret_last_4'});
         }
-        if (property_exists($data, 'is_confirmed') && $data->{'is_confirmed'} !== null) {
+        if (property_exists($data, 'is_confirmed') && null !== $data->{'is_confirmed'}) {
             $object->setIsConfirmed($data->{'is_confirmed'});
         }
-        if (property_exists($data, 'backups') && $data->{'backups'} !== null) {
+        if (property_exists($data, 'backups') && null !== $data->{'backups'}) {
             $values = [];
             foreach ($data->{'backups'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\IamBackup', 'json', $context);
             }
             $object->setBackups($values);
         }
-        if (property_exists($data, 'deleted_at') && $data->{'deleted_at'} !== null) {
+        if (property_exists($data, 'deleted_at') && null !== $data->{'deleted_at'}) {
             $object->setDeletedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'deleted_at'}));
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

@@ -17,19 +17,11 @@ class LcsLocationsIdPositionsPutResponse200
      */
     protected $success;
 
-    /**
-     * @return int|null
-     */
     public function getSuccess(): ?int
     {
         return $this->success;
     }
 
-    /**
-     * @param int|null $success
-     *
-     * @return self
-     */
     public function setSuccess(?int $success): self
     {
         $this->success = $success;

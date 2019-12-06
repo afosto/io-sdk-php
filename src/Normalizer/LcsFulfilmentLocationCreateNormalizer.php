@@ -24,12 +24,12 @@ class LcsFulfilmentLocationCreateNormalizer implements DenormalizerInterface, No
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsFulfilmentLocationCreate';
+        return 'Afosto\\Sdk\\Model\\LcsFulfilmentLocationCreate' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsFulfilmentLocationCreate';
+        return 'Afosto\\Sdk\\Model\\LcsFulfilmentLocationCreate' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class LcsFulfilmentLocationCreateNormalizer implements DenormalizerInterface, No
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsFulfilmentLocationCreate();
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'address_id') && $data->{'address_id'} !== null) {
+        if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
             $object->setAddressId($data->{'address_id'});
         }
 

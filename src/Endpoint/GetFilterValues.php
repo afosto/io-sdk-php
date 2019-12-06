@@ -16,8 +16,6 @@ class GetFilterValues extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 
     /**
      * Returns distinct filter values.
-     *
-     * @param string $key
      */
     public function __construct(string $key)
     {
@@ -48,6 +46,8 @@ class GetFilterValues extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 
     /**
      * {@inheritdoc}
+     *
+     * @return null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {

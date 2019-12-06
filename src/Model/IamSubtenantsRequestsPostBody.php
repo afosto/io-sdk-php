@@ -21,19 +21,11 @@ class IamSubtenantsRequestsPostBody
      */
     protected $roles;
 
-    /**
-     * @return string|null
-     */
     public function getSignee(): ?string
     {
         return $this->signee;
     }
 
-    /**
-     * @param string|null $signee
-     *
-     * @return self
-     */
     public function setSignee(?string $signee): self
     {
         $this->signee = $signee;
@@ -51,8 +43,6 @@ class IamSubtenantsRequestsPostBody
 
     /**
      * @param string[]|null $roles
-     *
-     * @return self
      */
     public function setRoles(?array $roles): self
     {

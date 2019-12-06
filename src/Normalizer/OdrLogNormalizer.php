@@ -24,12 +24,12 @@ class OdrLogNormalizer implements DenormalizerInterface, NormalizerInterface, De
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrLog';
+        return 'Afosto\\Sdk\\Model\\OdrLog' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrLog';
+        return 'Afosto\\Sdk\\Model\\OdrLog' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,19 +38,19 @@ class OdrLogNormalizer implements DenormalizerInterface, NormalizerInterface, De
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrLog();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'stack_type') && $data->{'stack_type'} !== null) {
+        if (property_exists($data, 'stack_type') && null !== $data->{'stack_type'}) {
             $object->setStackType($data->{'stack_type'});
         }
-        if (property_exists($data, 'stack_id') && $data->{'stack_id'} !== null) {
+        if (property_exists($data, 'stack_id') && null !== $data->{'stack_id'}) {
             $object->setStackId($data->{'stack_id'});
         }
-        if (property_exists($data, 'event') && $data->{'event'} !== null) {
+        if (property_exists($data, 'event') && null !== $data->{'event'}) {
             $object->setEvent($data->{'event'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
 

@@ -24,12 +24,12 @@ class IamBackupNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamBackup';
+        return 'Afosto\\Sdk\\Model\\IamBackup' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamBackup';
+        return 'Afosto\\Sdk\\Model\\IamBackup' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class IamBackupNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamBackup();
-        if (property_exists($data, 'channel') && $data->{'channel'} !== null) {
+        if (property_exists($data, 'channel') && null !== $data->{'channel'}) {
             $object->setChannel($data->{'channel'});
         }
-        if (property_exists($data, 'address') && $data->{'address'} !== null) {
+        if (property_exists($data, 'address') && null !== $data->{'address'}) {
             $object->setAddress($data->{'address'});
         }
 

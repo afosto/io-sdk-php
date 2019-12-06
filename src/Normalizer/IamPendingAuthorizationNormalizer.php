@@ -24,12 +24,12 @@ class IamPendingAuthorizationNormalizer implements DenormalizerInterface, Normal
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamPendingAuthorization';
+        return 'Afosto\\Sdk\\Model\\IamPendingAuthorization' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamPendingAuthorization';
+        return 'Afosto\\Sdk\\Model\\IamPendingAuthorization' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,23 +38,23 @@ class IamPendingAuthorizationNormalizer implements DenormalizerInterface, Normal
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamPendingAuthorization();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'email') && $data->{'email'} !== null) {
+        if (property_exists($data, 'email') && null !== $data->{'email'}) {
             $object->setEmail($data->{'email'});
         }
-        if (property_exists($data, 'roles') && $data->{'roles'} !== null) {
+        if (property_exists($data, 'roles') && null !== $data->{'roles'}) {
             $values = [];
             foreach ($data->{'roles'} as $value) {
                 $values[] = $value;
             }
             $object->setRoles($values);
         }
-        if (property_exists($data, 'state') && $data->{'state'} !== null) {
+        if (property_exists($data, 'state') && null !== $data->{'state'}) {
             $object->setState($data->{'state'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
 

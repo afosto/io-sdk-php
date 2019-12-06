@@ -24,12 +24,12 @@ class CntHtmlToPdfRequestMarginNormalizer implements DenormalizerInterface, Norm
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequestMargin';
+        return 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequestMargin' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequestMargin';
+        return 'Afosto\\Sdk\\Model\\CntHtmlToPdfRequestMargin' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class CntHtmlToPdfRequestMarginNormalizer implements DenormalizerInterface, Norm
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntHtmlToPdfRequestMargin();
-        if (property_exists($data, 'top') && $data->{'top'} !== null) {
+        if (property_exists($data, 'top') && null !== $data->{'top'}) {
             $object->setTop($data->{'top'});
         }
-        if (property_exists($data, 'bottom') && $data->{'bottom'} !== null) {
+        if (property_exists($data, 'bottom') && null !== $data->{'bottom'}) {
             $object->setBottom($data->{'bottom'});
         }
-        if (property_exists($data, 'left') && $data->{'left'} !== null) {
+        if (property_exists($data, 'left') && null !== $data->{'left'}) {
             $object->setLeft($data->{'left'});
         }
-        if (property_exists($data, 'right') && $data->{'right'} !== null) {
+        if (property_exists($data, 'right') && null !== $data->{'right'}) {
             $object->setRight($data->{'right'});
         }
 

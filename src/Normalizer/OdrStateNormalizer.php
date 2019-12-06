@@ -24,12 +24,12 @@ class OdrStateNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrState';
+        return 'Afosto\\Sdk\\Model\\OdrState' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrState';
+        return 'Afosto\\Sdk\\Model\\OdrState' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class OdrStateNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrState();
-        if (property_exists($data, 'is_confirmed') && $data->{'is_confirmed'} !== null) {
+        if (property_exists($data, 'is_confirmed') && null !== $data->{'is_confirmed'}) {
             $object->setIsConfirmed($data->{'is_confirmed'});
         }
-        if (property_exists($data, 'is_accepted') && $data->{'is_accepted'} !== null) {
+        if (property_exists($data, 'is_accepted') && null !== $data->{'is_accepted'}) {
             $object->setIsAccepted($data->{'is_accepted'});
         }
-        if (property_exists($data, 'is_approved') && $data->{'is_approved'} !== null) {
+        if (property_exists($data, 'is_approved') && null !== $data->{'is_approved'}) {
             $object->setIsApproved($data->{'is_approved'});
         }
 

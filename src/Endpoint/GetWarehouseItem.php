@@ -16,8 +16,6 @@ class GetWarehouseItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     /**
      * Create an optimized set of claims.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

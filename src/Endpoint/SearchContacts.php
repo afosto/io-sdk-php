@@ -14,8 +14,6 @@ class SearchContacts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 {
     /**
      * Search contacts based on their id's or email addresses.
-     *
-     * @param \Afosto\Sdk\Model\RelSearch $body
      */
     public function __construct(\Afosto\Sdk\Model\RelSearch $body)
     {

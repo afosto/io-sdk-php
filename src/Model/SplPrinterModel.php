@@ -29,19 +29,11 @@ class SplPrinterModel
      */
     protected $connection;
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -49,19 +41,11 @@ class SplPrinterModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getHubId(): ?string
     {
         return $this->hubId;
     }
 
-    /**
-     * @param string|null $hubId
-     *
-     * @return self
-     */
     public function setHubId(?string $hubId): self
     {
         $this->hubId = $hubId;
@@ -69,19 +53,11 @@ class SplPrinterModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDefaultEncoding(): ?string
     {
         return $this->defaultEncoding;
     }
 
-    /**
-     * @param string|null $defaultEncoding
-     *
-     * @return self
-     */
     public function setDefaultEncoding(?string $defaultEncoding): self
     {
         $this->defaultEncoding = $defaultEncoding;
@@ -89,19 +65,11 @@ class SplPrinterModel
         return $this;
     }
 
-    /**
-     * @return SplConnection|null
-     */
     public function getConnection(): ?SplConnection
     {
         return $this->connection;
     }
 
-    /**
-     * @param SplConnection|null $connection
-     *
-     * @return self
-     */
     public function setConnection(?SplConnection $connection): self
     {
         $this->connection = $connection;

@@ -33,19 +33,11 @@ class CntDefinitionModel
      */
     protected $type;
 
-    /**
-     * @return string|null
-     */
     public function getNamespace(): ?string
     {
         return $this->namespace;
     }
 
-    /**
-     * @param string|null $namespace
-     *
-     * @return self
-     */
     public function setNamespace(?string $namespace): self
     {
         $this->namespace = $namespace;
@@ -53,19 +45,11 @@ class CntDefinitionModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
-    /**
-     * @param string|null $code
-     *
-     * @return self
-     */
     public function setCode(?string $code): self
     {
         $this->code = $code;
@@ -73,19 +57,11 @@ class CntDefinitionModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getModel(): ?string
     {
         return $this->model;
     }
 
-    /**
-     * @param string|null $model
-     *
-     * @return self
-     */
     public function setModel(?string $model): self
     {
         $this->model = $model;
@@ -93,19 +69,11 @@ class CntDefinitionModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getKey(): ?string
     {
         return $this->key;
     }
 
-    /**
-     * @param string|null $key
-     *
-     * @return self
-     */
     public function setKey(?string $key): self
     {
         $this->key = $key;
@@ -113,19 +81,11 @@ class CntDefinitionModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;

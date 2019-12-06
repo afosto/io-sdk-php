@@ -29,19 +29,11 @@ class IamAccessToken
      */
     protected $refreshToken;
 
-    /**
-     * @return string|null
-     */
     public function getTokenType(): ?string
     {
         return $this->tokenType;
     }
 
-    /**
-     * @param string|null $tokenType
-     *
-     * @return self
-     */
     public function setTokenType(?string $tokenType): self
     {
         $this->tokenType = $tokenType;
@@ -49,19 +41,11 @@ class IamAccessToken
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getExpiresIn(): ?int
     {
         return $this->expiresIn;
     }
 
-    /**
-     * @param int|null $expiresIn
-     *
-     * @return self
-     */
     public function setExpiresIn(?int $expiresIn): self
     {
         $this->expiresIn = $expiresIn;
@@ -69,19 +53,11 @@ class IamAccessToken
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAccessToken(): ?string
     {
         return $this->accessToken;
     }
 
-    /**
-     * @param string|null $accessToken
-     *
-     * @return self
-     */
     public function setAccessToken(?string $accessToken): self
     {
         $this->accessToken = $accessToken;
@@ -89,19 +65,11 @@ class IamAccessToken
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getRefreshToken(): ?string
     {
         return $this->refreshToken;
     }
 
-    /**
-     * @param string|null $refreshToken
-     *
-     * @return self
-     */
     public function setRefreshToken(?string $refreshToken): self
     {
         $this->refreshToken = $refreshToken;

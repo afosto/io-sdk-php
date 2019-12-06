@@ -25,19 +25,11 @@ class CntProxyModel
      */
     protected $config;
 
-    /**
-     * @return string|null
-     */
     public function getKey(): ?string
     {
         return $this->key;
     }
 
-    /**
-     * @param string|null $key
-     *
-     * @return self
-     */
     public function setKey(?string $key): self
     {
         $this->key = $key;
@@ -45,19 +37,11 @@ class CntProxyModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getOrigin(): ?string
     {
         return $this->origin;
     }
 
-    /**
-     * @param string|null $origin
-     *
-     * @return self
-     */
     public function setOrigin(?string $origin): self
     {
         $this->origin = $origin;
@@ -65,19 +49,11 @@ class CntProxyModel
         return $this;
     }
 
-    /**
-     * @return CntConfig|null
-     */
     public function getConfig(): ?CntConfig
     {
         return $this->config;
     }
 
-    /**
-     * @param CntConfig|null $config
-     *
-     * @return self
-     */
     public function setConfig(?CntConfig $config): self
     {
         $this->config = $config;

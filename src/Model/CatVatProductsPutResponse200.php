@@ -21,19 +21,11 @@ class CatVatProductsPutResponse200
      */
     protected $failed;
 
-    /**
-     * @return int|null
-     */
     public function getSuccess(): ?int
     {
         return $this->success;
     }
 
-    /**
-     * @param int|null $success
-     *
-     * @return self
-     */
     public function setSuccess(?int $success): self
     {
         $this->success = $success;
@@ -41,19 +33,11 @@ class CatVatProductsPutResponse200
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getFailed(): ?int
     {
         return $this->failed;
     }
 
-    /**
-     * @param int|null $failed
-     *
-     * @return self
-     */
     public function setFailed(?int $failed): self
     {
         $this->failed = $failed;

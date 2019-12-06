@@ -69,19 +69,11 @@ class OdrTransaction
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -89,19 +81,11 @@ class OdrTransaction
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -109,19 +93,11 @@ class OdrTransaction
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getAmountDue(): ?int
     {
         return $this->amountDue;
     }
 
-    /**
-     * @param int|null $amountDue
-     *
-     * @return self
-     */
     public function setAmountDue(?int $amountDue): self
     {
         $this->amountDue = $amountDue;
@@ -129,19 +105,11 @@ class OdrTransaction
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getAmountPaid(): ?int
     {
         return $this->amountPaid;
     }
 
-    /**
-     * @param int|null $amountPaid
-     *
-     * @return self
-     */
     public function setAmountPaid(?int $amountPaid): self
     {
         $this->amountPaid = $amountPaid;
@@ -149,19 +117,11 @@ class OdrTransaction
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCurrency(): ?string
     {
         return $this->currency;
     }
 
-    /**
-     * @param string|null $currency
-     *
-     * @return self
-     */
     public function setCurrency(?string $currency): self
     {
         $this->currency = $currency;
@@ -179,8 +139,6 @@ class OdrTransaction
 
     /**
      * @param OdrPayment[]|null $payments
-     *
-     * @return self
      */
     public function setPayments(?array $payments): self
     {
@@ -199,8 +157,6 @@ class OdrTransaction
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -209,19 +165,11 @@ class OdrTransaction
         return $this;
     }
 
-    /**
-     * @return OdrPurchase|null
-     */
     public function getPurchase(): ?OdrPurchase
     {
         return $this->purchase;
     }
 
-    /**
-     * @param OdrPurchase|null $purchase
-     *
-     * @return self
-     */
     public function setPurchase(?OdrPurchase $purchase): self
     {
         $this->purchase = $purchase;
@@ -229,19 +177,11 @@ class OdrTransaction
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getReturnUrl(): ?string
     {
         return $this->returnUrl;
     }
 
-    /**
-     * @param string|null $returnUrl
-     *
-     * @return self
-     */
     public function setReturnUrl(?string $returnUrl): self
     {
         $this->returnUrl = $returnUrl;
@@ -249,19 +189,11 @@ class OdrTransaction
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getWebhookUrl(): ?string
     {
         return $this->webhookUrl;
     }
 
-    /**
-     * @param string|null $webhookUrl
-     *
-     * @return self
-     */
     public function setWebhookUrl(?string $webhookUrl): self
     {
         $this->webhookUrl = $webhookUrl;
@@ -269,19 +201,11 @@ class OdrTransaction
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSecret(): ?string
     {
         return $this->secret;
     }
 
-    /**
-     * @param string|null $secret
-     *
-     * @return self
-     */
     public function setSecret(?string $secret): self
     {
         $this->secret = $secret;
@@ -289,19 +213,11 @@ class OdrTransaction
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getClientId(): ?string
     {
         return $this->clientId;
     }
 
-    /**
-     * @param string|null $clientId
-     *
-     * @return self
-     */
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
@@ -309,19 +225,11 @@ class OdrTransaction
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -329,19 +237,11 @@ class OdrTransaction
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

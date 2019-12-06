@@ -27,8 +27,6 @@ class RelPhoneNumberModel
 
     /**
      * Two letter country code.
-     *
-     * @return string|null
      */
     public function getCountryCode(): ?string
     {
@@ -37,10 +35,6 @@ class RelPhoneNumberModel
 
     /**
      * Two letter country code.
-     *
-     * @param string|null $countryCode
-     *
-     * @return self
      */
     public function setCountryCode(?string $countryCode): self
     {
@@ -51,8 +45,6 @@ class RelPhoneNumberModel
 
     /**
      * The actual phonenumber.
-     *
-     * @return string|null
      */
     public function getNumber(): ?string
     {
@@ -61,10 +53,6 @@ class RelPhoneNumberModel
 
     /**
      * The actual phonenumber.
-     *
-     * @param string|null $number
-     *
-     * @return self
      */
     public function setNumber(?string $number): self
     {

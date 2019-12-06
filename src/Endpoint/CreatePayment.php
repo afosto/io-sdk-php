@@ -16,9 +16,6 @@ class CreatePayment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     /**
      * Start a payment for a transaction.
-     *
-     * @param string                             $secret
-     * @param \Afosto\Sdk\Model\OdrPaymentIntent $body
      */
     public function __construct(string $secret, \Afosto\Sdk\Model\OdrPaymentIntent $body)
     {

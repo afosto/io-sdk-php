@@ -14,8 +14,6 @@ class SendSubtenantRequest extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
 {
     /**
      * Create a new subtenant request.
-     *
-     * @param \Afosto\Sdk\Model\IamSubtenantsRequestsPostBody $body
      */
     public function __construct(\Afosto\Sdk\Model\IamSubtenantsRequestsPostBody $body)
     {

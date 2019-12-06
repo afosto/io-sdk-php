@@ -21,19 +21,11 @@ class CntSort
      */
     protected $order;
 
-    /**
-     * @return string|null
-     */
     public function getFilterKey(): ?string
     {
         return $this->filterKey;
     }
 
-    /**
-     * @param string|null $filterKey
-     *
-     * @return self
-     */
     public function setFilterKey(?string $filterKey): self
     {
         $this->filterKey = $filterKey;
@@ -41,19 +33,11 @@ class CntSort
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getOrder(): ?string
     {
         return $this->order;
     }
 
-    /**
-     * @param string|null $order
-     *
-     * @return self
-     */
     public function setOrder(?string $order): self
     {
         $this->order = $order;

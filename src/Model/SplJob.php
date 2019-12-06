@@ -61,19 +61,11 @@ class SplJob
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -81,19 +73,11 @@ class SplJob
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getJob(): ?string
     {
         return $this->job;
     }
 
-    /**
-     * @param string|null $job
-     *
-     * @return self
-     */
     public function setJob(?string $job): self
     {
         $this->job = $job;
@@ -101,19 +85,11 @@ class SplJob
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTag(): ?string
     {
         return $this->tag;
     }
 
-    /**
-     * @param string|null $tag
-     *
-     * @return self
-     */
     public function setTag(?string $tag): self
     {
         $this->tag = $tag;
@@ -121,19 +97,11 @@ class SplJob
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -141,19 +109,11 @@ class SplJob
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getArtifact(): ?string
     {
         return $this->artifact;
     }
 
-    /**
-     * @param string|null $artifact
-     *
-     * @return self
-     */
     public function setArtifact(?string $artifact): self
     {
         $this->artifact = $artifact;
@@ -161,19 +121,11 @@ class SplJob
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -181,19 +133,11 @@ class SplJob
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStatus(): ?string
     {
         return $this->status;
     }
 
-    /**
-     * @param string|null $status
-     *
-     * @return self
-     */
     public function setStatus(?string $status): self
     {
         $this->status = $status;
@@ -201,19 +145,11 @@ class SplJob
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getHubId(): ?string
     {
         return $this->hubId;
     }
 
-    /**
-     * @param string|null $hubId
-     *
-     * @return self
-     */
     public function setHubId(?string $hubId): self
     {
         $this->hubId = $hubId;
@@ -221,19 +157,11 @@ class SplJob
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getScheduleAt(): ?\DateTime
     {
         return $this->scheduleAt;
     }
 
-    /**
-     * @param \DateTime|null $scheduleAt
-     *
-     * @return self
-     */
     public function setScheduleAt(?\DateTime $scheduleAt): self
     {
         $this->scheduleAt = $scheduleAt;
@@ -241,19 +169,11 @@ class SplJob
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getPrintedAt(): ?\DateTime
     {
         return $this->printedAt;
     }
 
-    /**
-     * @param \DateTime|null $printedAt
-     *
-     * @return self
-     */
     public function setPrintedAt(?\DateTime $printedAt): self
     {
         $this->printedAt = $printedAt;
@@ -261,19 +181,11 @@ class SplJob
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -281,19 +193,11 @@ class SplJob
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

@@ -24,12 +24,12 @@ class RelOrganisationListNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelOrganisationList';
+        return 'Afosto\\Sdk\\Model\\RelOrganisationList' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelOrganisationList';
+        return 'Afosto\\Sdk\\Model\\RelOrganisationList' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class RelOrganisationListNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelOrganisationList();
-        if (property_exists($data, 'primary') && $data->{'primary'} !== null) {
+        if (property_exists($data, 'primary') && null !== $data->{'primary'}) {
             $object->setPrimary($this->denormalizer->denormalize($data->{'primary'}, 'Afosto\\Sdk\\Model\\RelOrganisation', 'json', $context));
         }
-        if (property_exists($data, 'secondary') && $data->{'secondary'} !== null) {
+        if (property_exists($data, 'secondary') && null !== $data->{'secondary'}) {
             $values = [];
             foreach ($data->{'secondary'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\RelOrganisation', 'json', $context);

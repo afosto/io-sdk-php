@@ -16,8 +16,6 @@ class GetClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
 
     /**
      * Get a claim and it's status.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

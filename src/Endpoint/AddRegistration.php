@@ -17,7 +17,6 @@ class AddRegistration extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     /**
      * Register a new participant in the conversation.
      *
-     * @param int                                    $id
      * @param \Afosto\Sdk\Model\MesParticipantCreate $body The new message
      */
     public function __construct(int $id, \Afosto\Sdk\Model\MesParticipantCreate $body)

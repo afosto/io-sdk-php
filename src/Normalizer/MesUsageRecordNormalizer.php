@@ -24,12 +24,12 @@ class MesUsageRecordNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesUsageRecord';
+        return 'Afosto\\Sdk\\Model\\MesUsageRecord' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesUsageRecord';
+        return 'Afosto\\Sdk\\Model\\MesUsageRecord' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,28 +38,28 @@ class MesUsageRecordNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesUsageRecord();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'code') && $data->{'code'} !== null) {
+        if (property_exists($data, 'code') && null !== $data->{'code'}) {
             $object->setCode($data->{'code'});
         }
-        if (property_exists($data, 'unit') && $data->{'unit'} !== null) {
+        if (property_exists($data, 'unit') && null !== $data->{'unit'}) {
             $object->setUnit($data->{'unit'});
         }
-        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
         }
-        if (property_exists($data, 'processable_as') && $data->{'processable_as'} !== null) {
+        if (property_exists($data, 'processable_as') && null !== $data->{'processable_as'}) {
             $object->setProcessableAs($data->{'processable_as'});
         }
-        if (property_exists($data, 'tracked_at') && $data->{'tracked_at'} !== null) {
+        if (property_exists($data, 'tracked_at') && null !== $data->{'tracked_at'}) {
             $object->setTrackedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'tracked_at'}));
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
 

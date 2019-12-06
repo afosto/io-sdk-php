@@ -37,7 +37,6 @@ class GetBillingInformation extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
     /**
      * {@inheritdoc}
      *
-     *
      * @return \Afosto\Sdk\Model\IamCompany|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)

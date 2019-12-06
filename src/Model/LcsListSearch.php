@@ -27,8 +27,6 @@ class LcsListSearch
 
     /**
      * @param LcsListSearchConstraint[]|null $constraints
-     *
-     * @return self
      */
     public function setConstraints(?array $constraints): self
     {

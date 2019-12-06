@@ -24,12 +24,12 @@ class IamLogsFiltersGetResponse200Normalizer implements DenormalizerInterface, N
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamLogsFiltersGetResponse200';
+        return 'Afosto\\Sdk\\Model\\IamLogsFiltersGetResponse200' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamLogsFiltersGetResponse200';
+        return 'Afosto\\Sdk\\Model\\IamLogsFiltersGetResponse200' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,21 +38,21 @@ class IamLogsFiltersGetResponse200Normalizer implements DenormalizerInterface, N
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamLogsFiltersGetResponse200();
-        if (property_exists($data, 'resource') && $data->{'resource'} !== null) {
+        if (property_exists($data, 'resource') && null !== $data->{'resource'}) {
             $values = [];
             foreach ($data->{'resource'} as $value) {
                 $values[] = $value;
             }
             $object->setResource($values);
         }
-        if (property_exists($data, 'method') && $data->{'method'} !== null) {
+        if (property_exists($data, 'method') && null !== $data->{'method'}) {
             $values_1 = [];
             foreach ($data->{'method'} as $value_1) {
                 $values_1[] = $value_1;
             }
             $object->setMethod($values_1);
         }
-        if (property_exists($data, 'user') && $data->{'user'} !== null) {
+        if (property_exists($data, 'user') && null !== $data->{'user'}) {
             $values_2 = [];
             foreach ($data->{'user'} as $value_2) {
                 $values_2[] = $value_2;

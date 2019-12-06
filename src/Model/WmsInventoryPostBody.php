@@ -27,8 +27,6 @@ class WmsInventoryPostBody
 
     /**
      * @param WmsInventoryConstraint[]|null $constraints
-     *
-     * @return self
      */
     public function setConstraints(?array $constraints): self
     {

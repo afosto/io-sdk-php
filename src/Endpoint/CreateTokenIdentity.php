@@ -14,8 +14,6 @@ class CreateTokenIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
 {
     /**
      * Returns a new token to confirm identity or reset a password.
-     *
-     * @param \Afosto\Sdk\Model\RelCreateTokenRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\RelCreateTokenRequest $body)
     {

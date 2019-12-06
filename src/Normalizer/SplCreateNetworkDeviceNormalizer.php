@@ -24,12 +24,12 @@ class SplCreateNetworkDeviceNormalizer implements DenormalizerInterface, Normali
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplCreateNetworkDevice';
+        return 'Afosto\\Sdk\\Model\\SplCreateNetworkDevice' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplCreateNetworkDevice';
+        return 'Afosto\\Sdk\\Model\\SplCreateNetworkDevice' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class SplCreateNetworkDeviceNormalizer implements DenormalizerInterface, Normali
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplCreateNetworkDevice();
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'mac_address') && $data->{'mac_address'} !== null) {
+        if (property_exists($data, 'mac_address') && null !== $data->{'mac_address'}) {
             $object->setMacAddress($data->{'mac_address'});
         }
-        if (property_exists($data, 'interface') && $data->{'interface'} !== null) {
+        if (property_exists($data, 'interface') && null !== $data->{'interface'}) {
             $object->setInterface($this->denormalizer->denormalize($data->{'interface'}, 'Afosto\\Sdk\\Model\\SplConnection', 'json', $context));
         }
 

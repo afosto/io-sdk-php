@@ -37,19 +37,11 @@ class WmsCreateLocationRequest
      */
     protected $warehouseId;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -57,19 +49,11 @@ class WmsCreateLocationRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -77,19 +61,11 @@ class WmsCreateLocationRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCountryIso(): ?string
     {
         return $this->countryIso;
     }
 
-    /**
-     * @param string|null $countryIso
-     *
-     * @return self
-     */
     public function setCountryIso(?string $countryIso): self
     {
         $this->countryIso = $countryIso;
@@ -97,19 +73,11 @@ class WmsCreateLocationRequest
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsCustomer(): ?bool
     {
         return $this->isCustomer;
     }
 
-    /**
-     * @param bool|null $isCustomer
-     *
-     * @return self
-     */
     public function setIsCustomer(?bool $isCustomer): self
     {
         $this->isCustomer = $isCustomer;
@@ -117,19 +85,11 @@ class WmsCreateLocationRequest
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsTrackingInventory(): ?bool
     {
         return $this->isTrackingInventory;
     }
 
-    /**
-     * @param bool|null $isTrackingInventory
-     *
-     * @return self
-     */
     public function setIsTrackingInventory(?bool $isTrackingInventory): self
     {
         $this->isTrackingInventory = $isTrackingInventory;
@@ -137,19 +97,11 @@ class WmsCreateLocationRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getWarehouseId(): ?string
     {
         return $this->warehouseId;
     }
 
-    /**
-     * @param string|null $warehouseId
-     *
-     * @return self
-     */
     public function setWarehouseId(?string $warehouseId): self
     {
         $this->warehouseId = $warehouseId;

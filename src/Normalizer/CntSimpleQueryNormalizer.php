@@ -24,12 +24,12 @@ class CntSimpleQueryNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntSimpleQuery';
+        return 'Afosto\\Sdk\\Model\\CntSimpleQuery' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntSimpleQuery';
+        return 'Afosto\\Sdk\\Model\\CntSimpleQuery' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,40 +38,40 @@ class CntSimpleQueryNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntSimpleQuery();
-        if (property_exists($data, 'codes') && $data->{'codes'} !== null) {
+        if (property_exists($data, 'codes') && null !== $data->{'codes'}) {
             $values = [];
             foreach ($data->{'codes'} as $value) {
                 $values[] = $value;
             }
             $object->setCodes($values);
         }
-        if (property_exists($data, 'models') && $data->{'models'} !== null) {
+        if (property_exists($data, 'models') && null !== $data->{'models'}) {
             $values_1 = [];
             foreach ($data->{'models'} as $value_1) {
                 $values_1[] = $value_1;
             }
             $object->setModels($values_1);
         }
-        if (property_exists($data, 'namespaces') && $data->{'namespaces'} !== null) {
+        if (property_exists($data, 'namespaces') && null !== $data->{'namespaces'}) {
             $values_2 = [];
             foreach ($data->{'namespaces'} as $value_2) {
                 $values_2[] = $value_2;
             }
             $object->setNamespaces($values_2);
         }
-        if (property_exists($data, 'q') && $data->{'q'} !== null) {
+        if (property_exists($data, 'q') && null !== $data->{'q'}) {
             $object->setQ($data->{'q'});
         }
-        if (property_exists($data, 'is_fuzzy') && $data->{'is_fuzzy'} !== null) {
+        if (property_exists($data, 'is_fuzzy') && null !== $data->{'is_fuzzy'}) {
             $object->setIsFuzzy($data->{'is_fuzzy'});
         }
-        if (property_exists($data, 'limit') && $data->{'limit'} !== null) {
+        if (property_exists($data, 'limit') && null !== $data->{'limit'}) {
             $object->setLimit($data->{'limit'});
         }
-        if (property_exists($data, 'threshold') && $data->{'threshold'} !== null) {
+        if (property_exists($data, 'threshold') && null !== $data->{'threshold'}) {
             $object->setThreshold($data->{'threshold'});
         }
-        if (property_exists($data, 'page_cursor') && $data->{'page_cursor'} !== null) {
+        if (property_exists($data, 'page_cursor') && null !== $data->{'page_cursor'}) {
             $object->setPageCursor($data->{'page_cursor'});
         }
 

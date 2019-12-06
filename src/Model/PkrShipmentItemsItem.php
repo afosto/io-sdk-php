@@ -37,19 +37,11 @@ class PkrShipmentItemsItem
      */
     protected $sku;
 
-    /**
-     * @return string|null
-     */
     public function getEan(): ?string
     {
         return $this->ean;
     }
 
-    /**
-     * @param string|null $ean
-     *
-     * @return self
-     */
     public function setEan(?string $ean): self
     {
         $this->ean = $ean;
@@ -57,19 +49,11 @@ class PkrShipmentItemsItem
         return $this;
     }
 
-    /**
-     * @return PkrShipmentItemsItemImage|null
-     */
     public function getImage(): ?PkrShipmentItemsItemImage
     {
         return $this->image;
     }
 
-    /**
-     * @param PkrShipmentItemsItemImage|null $image
-     *
-     * @return self
-     */
     public function setImage(?PkrShipmentItemsItemImage $image): self
     {
         $this->image = $image;
@@ -77,19 +61,11 @@ class PkrShipmentItemsItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -97,19 +73,11 @@ class PkrShipmentItemsItem
         return $this;
     }
 
-    /**
-     * @return PkrShipmentItemsItemProduct|null
-     */
     public function getProduct(): ?PkrShipmentItemsItemProduct
     {
         return $this->product;
     }
 
-    /**
-     * @param PkrShipmentItemsItemProduct|null $product
-     *
-     * @return self
-     */
     public function setProduct(?PkrShipmentItemsItemProduct $product): self
     {
         $this->product = $product;
@@ -117,19 +85,11 @@ class PkrShipmentItemsItem
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getQuantity(): ?int
     {
         return $this->quantity;
     }
 
-    /**
-     * @param int|null $quantity
-     *
-     * @return self
-     */
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
@@ -137,19 +97,11 @@ class PkrShipmentItemsItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSku(): ?string
     {
         return $this->sku;
     }
 
-    /**
-     * @param string|null $sku
-     *
-     * @return self
-     */
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;

@@ -29,19 +29,11 @@ class MesType
      */
     protected $filter;
 
-    /**
-     * @return string|null
-     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
-    /**
-     * @param string|null $code
-     *
-     * @return self
-     */
     public function setCode(?string $code): self
     {
         $this->code = $code;
@@ -49,19 +41,11 @@ class MesType
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUnit(): ?string
     {
         return $this->unit;
     }
 
-    /**
-     * @param string|null $unit
-     *
-     * @return self
-     */
     public function setUnit(?string $unit): self
     {
         $this->unit = $unit;
@@ -69,19 +53,11 @@ class MesType
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getProcessableAs(): ?string
     {
         return $this->processableAs;
     }
 
-    /**
-     * @param string|null $processableAs
-     *
-     * @return self
-     */
     public function setProcessableAs(?string $processableAs): self
     {
         $this->processableAs = $processableAs;
@@ -89,19 +65,11 @@ class MesType
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getFilter(): ?string
     {
         return $this->filter;
     }
 
-    /**
-     * @param string|null $filter
-     *
-     * @return self
-     */
     public function setFilter(?string $filter): self
     {
         $this->filter = $filter;

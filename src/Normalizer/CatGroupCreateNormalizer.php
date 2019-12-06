@@ -24,12 +24,12 @@ class CatGroupCreateNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CatGroupCreate';
+        return 'Afosto\\Sdk\\Model\\CatGroupCreate' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CatGroupCreate';
+        return 'Afosto\\Sdk\\Model\\CatGroupCreate' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class CatGroupCreateNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\CatGroupCreate();
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'is_including_vat') && $data->{'is_including_vat'} !== null) {
+        if (property_exists($data, 'is_including_vat') && null !== $data->{'is_including_vat'}) {
             $object->setIsIncludingVat($data->{'is_including_vat'});
         }
-        if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
+        if (property_exists($data, 'currency') && null !== $data->{'currency'}) {
             $object->setCurrency($data->{'currency'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
 

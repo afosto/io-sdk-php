@@ -37,19 +37,11 @@ class CntProxy
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getKey(): ?string
     {
         return $this->key;
     }
 
-    /**
-     * @param string|null $key
-     *
-     * @return self
-     */
     public function setKey(?string $key): self
     {
         $this->key = $key;
@@ -57,19 +49,11 @@ class CntProxy
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getOrigin(): ?string
     {
         return $this->origin;
     }
 
-    /**
-     * @param string|null $origin
-     *
-     * @return self
-     */
     public function setOrigin(?string $origin): self
     {
         $this->origin = $origin;
@@ -77,19 +61,11 @@ class CntProxy
         return $this;
     }
 
-    /**
-     * @return CntConfig|null
-     */
     public function getConfig(): ?CntConfig
     {
         return $this->config;
     }
 
-    /**
-     * @param CntConfig|null $config
-     *
-     * @return self
-     */
     public function setConfig(?CntConfig $config): self
     {
         $this->config = $config;
@@ -97,19 +73,11 @@ class CntProxy
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTenantId(): ?string
     {
         return $this->tenantId;
     }
 
-    /**
-     * @param string|null $tenantId
-     *
-     * @return self
-     */
     public function setTenantId(?string $tenantId): self
     {
         $this->tenantId = $tenantId;
@@ -117,19 +85,11 @@ class CntProxy
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -137,19 +97,11 @@ class CntProxy
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

@@ -65,19 +65,11 @@ class OdrOrder
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -85,19 +77,11 @@ class OdrOrder
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getNumber(): ?string
     {
         return $this->number;
     }
 
-    /**
-     * @param string|null $number
-     *
-     * @return self
-     */
     public function setNumber(?string $number): self
     {
         $this->number = $number;
@@ -105,19 +89,11 @@ class OdrOrder
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getClientId(): ?string
     {
         return $this->clientId;
     }
 
-    /**
-     * @param string|null $clientId
-     *
-     * @return self
-     */
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
@@ -125,19 +101,11 @@ class OdrOrder
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getContactId(): ?string
     {
         return $this->contactId;
     }
 
-    /**
-     * @param string|null $contactId
-     *
-     * @return self
-     */
     public function setContactId(?string $contactId): self
     {
         $this->contactId = $contactId;
@@ -145,19 +113,11 @@ class OdrOrder
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getOrganisationId(): ?string
     {
         return $this->organisationId;
     }
 
-    /**
-     * @param string|null $organisationId
-     *
-     * @return self
-     */
     public function setOrganisationId(?string $organisationId): self
     {
         $this->organisationId = $organisationId;
@@ -165,19 +125,11 @@ class OdrOrder
         return $this;
     }
 
-    /**
-     * @return OdrState|null
-     */
     public function getState(): ?OdrState
     {
         return $this->state;
     }
 
-    /**
-     * @param OdrState|null $state
-     *
-     * @return self
-     */
     public function setState(?OdrState $state): self
     {
         $this->state = $state;
@@ -185,19 +137,11 @@ class OdrOrder
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressId(): ?string
     {
         return $this->addressId;
     }
 
-    /**
-     * @param string|null $addressId
-     *
-     * @return self
-     */
     public function setAddressId(?string $addressId): self
     {
         $this->addressId = $addressId;
@@ -205,19 +149,11 @@ class OdrOrder
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getShipmentAddressId(): ?string
     {
         return $this->shipmentAddressId;
     }
 
-    /**
-     * @param string|null $shipmentAddressId
-     *
-     * @return self
-     */
     public function setShipmentAddressId(?string $shipmentAddressId): self
     {
         $this->shipmentAddressId = $shipmentAddressId;
@@ -235,8 +171,6 @@ class OdrOrder
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -245,19 +179,11 @@ class OdrOrder
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getDueAt(): ?\DateTime
     {
         return $this->dueAt;
     }
 
-    /**
-     * @param \DateTime|null $dueAt
-     *
-     * @return self
-     */
     public function setDueAt(?\DateTime $dueAt): self
     {
         $this->dueAt = $dueAt;
@@ -265,19 +191,11 @@ class OdrOrder
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getDeletedAt(): ?\DateTime
     {
         return $this->deletedAt;
     }
 
-    /**
-     * @param \DateTime|null $deletedAt
-     *
-     * @return self
-     */
     public function setDeletedAt(?\DateTime $deletedAt): self
     {
         $this->deletedAt = $deletedAt;
@@ -285,19 +203,11 @@ class OdrOrder
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -305,19 +215,11 @@ class OdrOrder
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

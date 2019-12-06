@@ -16,9 +16,6 @@ class UpdateItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     /**
      * Update the warehouse item.
-     *
-     * @param string                                          $id
-     * @param \Afosto\Sdk\Model\WmsUpdateWarehouseItemRequest $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\WmsUpdateWarehouseItemRequest $body)
     {

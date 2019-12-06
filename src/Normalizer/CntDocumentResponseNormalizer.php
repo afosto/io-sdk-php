@@ -24,12 +24,12 @@ class CntDocumentResponseNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntDocumentResponse';
+        return 'Afosto\\Sdk\\Model\\CntDocumentResponse' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntDocumentResponse';
+        return 'Afosto\\Sdk\\Model\\CntDocumentResponse' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,22 +38,22 @@ class CntDocumentResponseNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntDocumentResponse();
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'title') && $data->{'title'} !== null) {
+        if (property_exists($data, 'title') && null !== $data->{'title'}) {
             $object->setTitle($data->{'title'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'sub') && $data->{'sub'} !== null) {
+        if (property_exists($data, 'sub') && null !== $data->{'sub'}) {
             $object->setSub($data->{'sub'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'filters') && $data->{'filters'} !== null) {
+        if (property_exists($data, 'filters') && null !== $data->{'filters'}) {
             $values = [];
             foreach ($data->{'filters'} as $value) {
                 $values[] = $value;

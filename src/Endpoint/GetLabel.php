@@ -16,8 +16,6 @@ class GetLabel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
 
     /**
      * Returns a file reference to a label.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

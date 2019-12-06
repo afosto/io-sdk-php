@@ -16,8 +16,6 @@ class GetConversation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 
     /**
      * Retrieve a single conversation.
-     *
-     * @param int $id
      */
     public function __construct(int $id)
     {

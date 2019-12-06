@@ -25,19 +25,11 @@ class SplHubErrorModel
      */
     protected $jobReference;
 
-    /**
-     * @return string|null
-     */
     public function getMessage(): ?string
     {
         return $this->message;
     }
 
-    /**
-     * @param string|null $message
-     *
-     * @return self
-     */
     public function setMessage(?string $message): self
     {
         $this->message = $message;
@@ -45,19 +37,11 @@ class SplHubErrorModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLevel(): ?string
     {
         return $this->level;
     }
 
-    /**
-     * @param string|null $level
-     *
-     * @return self
-     */
     public function setLevel(?string $level): self
     {
         $this->level = $level;
@@ -65,19 +49,11 @@ class SplHubErrorModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getJobReference(): ?string
     {
         return $this->jobReference;
     }
 
-    /**
-     * @param string|null $jobReference
-     *
-     * @return self
-     */
     public function setJobReference(?string $jobReference): self
     {
         $this->jobReference = $jobReference;

@@ -17,7 +17,6 @@ class UpdateRole extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
      * Update a RBAC role.
      *
-     * @param int                            $id
      * @param \Afosto\Sdk\Model\IamRoleModel $body Role object
      */
     public function __construct(int $id, \Afosto\Sdk\Model\IamRoleModel $body)

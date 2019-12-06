@@ -14,8 +14,6 @@ class CreateOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 {
     /**
      * Create a new order.
-     *
-     * @param \Afosto\Sdk\Model\OdrOrderModel $body
      */
     public function __construct(\Afosto\Sdk\Model\OdrOrderModel $body)
     {

@@ -24,12 +24,12 @@ class MesDnsRecordNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesDnsRecord';
+        return 'Afosto\\Sdk\\Model\\MesDnsRecord' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesDnsRecord';
+        return 'Afosto\\Sdk\\Model\\MesDnsRecord' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class MesDnsRecordNormalizer implements DenormalizerInterface, NormalizerInterfa
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesDnsRecord();
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'value') && $data->{'value'} !== null) {
+        if (property_exists($data, 'value') && null !== $data->{'value'}) {
             $object->setValue($data->{'value'});
         }
-        if (property_exists($data, 'is_verified') && $data->{'is_verified'} !== null) {
+        if (property_exists($data, 'is_verified') && null !== $data->{'is_verified'}) {
             $object->setIsVerified($data->{'is_verified'});
         }
 

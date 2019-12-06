@@ -33,19 +33,11 @@ class SplHubStatus
      */
     protected $image;
 
-    /**
-     * @return bool|null
-     */
     public function getIsOnline(): ?bool
     {
         return $this->isOnline;
     }
 
-    /**
-     * @param bool|null $isOnline
-     *
-     * @return self
-     */
     public function setIsOnline(?bool $isOnline): self
     {
         $this->isOnline = $isOnline;
@@ -53,19 +45,11 @@ class SplHubStatus
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsIdle(): ?bool
     {
         return $this->isIdle;
     }
 
-    /**
-     * @param bool|null $isIdle
-     *
-     * @return self
-     */
     public function setIsIdle(?bool $isIdle): self
     {
         $this->isIdle = $isIdle;
@@ -73,19 +57,11 @@ class SplHubStatus
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLocation(): ?string
     {
         return $this->location;
     }
 
-    /**
-     * @param string|null $location
-     *
-     * @return self
-     */
     public function setLocation(?string $location): self
     {
         $this->location = $location;
@@ -93,19 +69,11 @@ class SplHubStatus
         return $this;
     }
 
-    /**
-     * @return SplHubNetwork|null
-     */
     public function getNetwork(): ?SplHubNetwork
     {
         return $this->network;
     }
 
-    /**
-     * @param SplHubNetwork|null $network
-     *
-     * @return self
-     */
     public function setNetwork(?SplHubNetwork $network): self
     {
         $this->network = $network;
@@ -113,19 +81,11 @@ class SplHubStatus
         return $this;
     }
 
-    /**
-     * @return SplHubImage|null
-     */
     public function getImage(): ?SplHubImage
     {
         return $this->image;
     }
 
-    /**
-     * @param SplHubImage|null $image
-     *
-     * @return self
-     */
     public function setImage(?SplHubImage $image): self
     {
         $this->image = $image;

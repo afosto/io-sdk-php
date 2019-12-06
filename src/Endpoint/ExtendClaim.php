@@ -16,9 +16,6 @@ class ExtendClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     /**
      * Extend the time the inventory is claimed.
-     *
-     * @param string                                     $id
-     * @param \Afosto\Sdk\Model\WmsClaimsIdExtendPutBody $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\WmsClaimsIdExtendPutBody $body)
     {

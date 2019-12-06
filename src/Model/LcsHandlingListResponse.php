@@ -69,19 +69,11 @@ class LcsHandlingListResponse
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -89,19 +81,11 @@ class LcsHandlingListResponse
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSub(): ?string
     {
         return $this->sub;
     }
 
-    /**
-     * @param string|null $sub
-     *
-     * @return self
-     */
     public function setSub(?string $sub): self
     {
         $this->sub = $sub;
@@ -119,8 +103,6 @@ class LcsHandlingListResponse
 
     /**
      * @param string[]|null $shipments
-     *
-     * @return self
      */
     public function setShipments(?array $shipments): self
     {
@@ -129,19 +111,11 @@ class LcsHandlingListResponse
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLocationId(): ?string
     {
         return $this->locationId;
     }
 
-    /**
-     * @param string|null $locationId
-     *
-     * @return self
-     */
     public function setLocationId(?string $locationId): self
     {
         $this->locationId = $locationId;
@@ -149,19 +123,11 @@ class LcsHandlingListResponse
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsOutbound(): ?bool
     {
         return $this->isOutbound;
     }
 
-    /**
-     * @param bool|null $isOutbound
-     *
-     * @return self
-     */
     public function setIsOutbound(?bool $isOutbound): self
     {
         $this->isOutbound = $isOutbound;
@@ -169,19 +135,11 @@ class LcsHandlingListResponse
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsAssigned(): ?bool
     {
         return $this->isAssigned;
     }
 
-    /**
-     * @param bool|null $isAssigned
-     *
-     * @return self
-     */
     public function setIsAssigned(?bool $isAssigned): self
     {
         $this->isAssigned = $isAssigned;
@@ -189,19 +147,11 @@ class LcsHandlingListResponse
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsInProgress(): ?bool
     {
         return $this->isInProgress;
     }
 
-    /**
-     * @param bool|null $isInProgress
-     *
-     * @return self
-     */
     public function setIsInProgress(?bool $isInProgress): self
     {
         $this->isInProgress = $isInProgress;
@@ -209,19 +159,11 @@ class LcsHandlingListResponse
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsOnHold(): ?bool
     {
         return $this->isOnHold;
     }
 
-    /**
-     * @param bool|null $isOnHold
-     *
-     * @return self
-     */
     public function setIsOnHold(?bool $isOnHold): self
     {
         $this->isOnHold = $isOnHold;
@@ -229,19 +171,11 @@ class LcsHandlingListResponse
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsFinished(): ?bool
     {
         return $this->isFinished;
     }
 
-    /**
-     * @param bool|null $isFinished
-     *
-     * @return self
-     */
     public function setIsFinished(?bool $isFinished): self
     {
         $this->isFinished = $isFinished;
@@ -249,19 +183,11 @@ class LcsHandlingListResponse
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getStartedAt(): ?\DateTime
     {
         return $this->startedAt;
     }
 
-    /**
-     * @param \DateTime|null $startedAt
-     *
-     * @return self
-     */
     public function setStartedAt(?\DateTime $startedAt): self
     {
         $this->startedAt = $startedAt;
@@ -269,19 +195,11 @@ class LcsHandlingListResponse
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getFinishedAt(): ?\DateTime
     {
         return $this->finishedAt;
     }
 
-    /**
-     * @param \DateTime|null $finishedAt
-     *
-     * @return self
-     */
     public function setFinishedAt(?\DateTime $finishedAt): self
     {
         $this->finishedAt = $finishedAt;
@@ -289,19 +207,11 @@ class LcsHandlingListResponse
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getIsDueAt(): ?\DateTime
     {
         return $this->isDueAt;
     }
 
-    /**
-     * @param \DateTime|null $isDueAt
-     *
-     * @return self
-     */
     public function setIsDueAt(?\DateTime $isDueAt): self
     {
         $this->isDueAt = $isDueAt;
@@ -309,19 +219,11 @@ class LcsHandlingListResponse
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -329,19 +231,11 @@ class LcsHandlingListResponse
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

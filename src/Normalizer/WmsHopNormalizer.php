@@ -24,12 +24,12 @@ class WmsHopNormalizer implements DenormalizerInterface, NormalizerInterface, De
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsHop';
+        return 'Afosto\\Sdk\\Model\\WmsHop' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsHop';
+        return 'Afosto\\Sdk\\Model\\WmsHop' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,26 +38,26 @@ class WmsHopNormalizer implements DenormalizerInterface, NormalizerInterface, De
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsHop();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'from') && $data->{'from'} !== null) {
+        if (property_exists($data, 'from') && null !== $data->{'from'}) {
             $object->setFrom($data->{'from'});
         }
-        if (property_exists($data, 'to') && $data->{'to'} !== null) {
+        if (property_exists($data, 'to') && null !== $data->{'to'}) {
             $object->setTo($data->{'to'});
         }
-        if (property_exists($data, 'schedules') && $data->{'schedules'} !== null) {
+        if (property_exists($data, 'schedules') && null !== $data->{'schedules'}) {
             $values = [];
             foreach ($data->{'schedules'} as $value) {
                 $values[] = $value;
             }
             $object->setSchedules($values);
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'deleted_at') && $data->{'deleted_at'} !== null) {
+        if (property_exists($data, 'deleted_at') && null !== $data->{'deleted_at'}) {
             $object->setDeletedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'deleted_at'}));
         }
 

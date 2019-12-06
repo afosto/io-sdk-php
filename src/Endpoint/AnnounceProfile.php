@@ -55,6 +55,8 @@ class AnnounceProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      * @throws \Afosto\Sdk\Exception\AnnounceProfileUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AnnounceProfileForbiddenException
      * @throws \Afosto\Sdk\Exception\AnnounceProfileConflictException
+     *
+     * @return null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {

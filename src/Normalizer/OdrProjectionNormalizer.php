@@ -24,12 +24,12 @@ class OdrProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrProjection';
+        return 'Afosto\\Sdk\\Model\\OdrProjection' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrProjection';
+        return 'Afosto\\Sdk\\Model\\OdrProjection' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,46 +38,46 @@ class OdrProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrProjection();
-        if (property_exists($data, 'items') && $data->{'items'} !== null) {
+        if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrProjectionItem', 'json', $context);
             }
             $object->setItems($values);
         }
-        if (property_exists($data, 'subtotal') && $data->{'subtotal'} !== null) {
+        if (property_exists($data, 'subtotal') && null !== $data->{'subtotal'}) {
             $object->setSubtotal($data->{'subtotal'});
         }
-        if (property_exists($data, 'adjustments') && $data->{'adjustments'} !== null) {
+        if (property_exists($data, 'adjustments') && null !== $data->{'adjustments'}) {
             $values_1 = [];
             foreach ($data->{'adjustments'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrCalculationAdjustment', 'json', $context);
             }
             $object->setAdjustments($values_1);
         }
-        if (property_exists($data, 'total') && $data->{'total'} !== null) {
+        if (property_exists($data, 'total') && null !== $data->{'total'}) {
             $object->setTotal($data->{'total'});
         }
-        if (property_exists($data, 'vat') && $data->{'vat'} !== null) {
+        if (property_exists($data, 'vat') && null !== $data->{'vat'}) {
             $values_2 = [];
             foreach ($data->{'vat'} as $value_2) {
                 $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\OdrVatResult', 'json', $context);
             }
             $object->setVat($values_2);
         }
-        if (property_exists($data, 'vendor') && $data->{'vendor'} !== null) {
+        if (property_exists($data, 'vendor') && null !== $data->{'vendor'}) {
             $object->setVendor($this->denormalizer->denormalize($data->{'vendor'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
         }
-        if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
+        if (property_exists($data, 'currency') && null !== $data->{'currency'}) {
             $object->setCurrency($data->{'currency'});
         }
-        if (property_exists($data, 'is_including_vat') && $data->{'is_including_vat'} !== null) {
+        if (property_exists($data, 'is_including_vat') && null !== $data->{'is_including_vat'}) {
             $object->setIsIncludingVat($data->{'is_including_vat'});
         }
-        if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
+        if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
-        if (property_exists($data, 'pricing_at') && $data->{'pricing_at'} !== null) {
+        if (property_exists($data, 'pricing_at') && null !== $data->{'pricing_at'}) {
             $object->setPricingAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'pricing_at'}));
         }
 

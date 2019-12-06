@@ -24,12 +24,12 @@ class CntConfigNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntConfig';
+        return 'Afosto\\Sdk\\Model\\CntConfig' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntConfig';
+        return 'Afosto\\Sdk\\Model\\CntConfig' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class CntConfigNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntConfig();
-        if (property_exists($data, 'is_origin_cache_ignored') && $data->{'is_origin_cache_ignored'} !== null) {
+        if (property_exists($data, 'is_origin_cache_ignored') && null !== $data->{'is_origin_cache_ignored'}) {
             $object->setIsOriginCacheIgnored($data->{'is_origin_cache_ignored'});
         }
-        if (property_exists($data, 'is_canonical_added') && $data->{'is_canonical_added'} !== null) {
+        if (property_exists($data, 'is_canonical_added') && null !== $data->{'is_canonical_added'}) {
             $object->setIsCanonicalAdded($data->{'is_canonical_added'});
         }
-        if (property_exists($data, 'watermark_url') && $data->{'watermark_url'} !== null) {
+        if (property_exists($data, 'watermark_url') && null !== $data->{'watermark_url'}) {
             $object->setWatermarkUrl($data->{'watermark_url'});
         }
 

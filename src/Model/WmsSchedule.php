@@ -43,19 +43,11 @@ class WmsSchedule
      */
     protected $activeAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -65,8 +57,6 @@ class WmsSchedule
 
     /**
      * UTC timestamp.
-     *
-     * @return string|null
      */
     public function getLastCall(): ?string
     {
@@ -75,10 +65,6 @@ class WmsSchedule
 
     /**
      * UTC timestamp.
-     *
-     * @param string|null $lastCall
-     *
-     * @return self
      */
     public function setLastCall(?string $lastCall): self
     {
@@ -89,8 +75,6 @@ class WmsSchedule
 
     /**
      * UTC timestamp.
-     *
-     * @return string|null
      */
     public function getArrival(): ?string
     {
@@ -99,10 +83,6 @@ class WmsSchedule
 
     /**
      * UTC timestamp.
-     *
-     * @param string|null $arrival
-     *
-     * @return self
      */
     public function setArrival(?string $arrival): self
     {
@@ -111,19 +91,11 @@ class WmsSchedule
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getDuration(): ?int
     {
         return $this->duration;
     }
 
-    /**
-     * @param int|null $duration
-     *
-     * @return self
-     */
     public function setDuration(?int $duration): self
     {
         $this->duration = $duration;
@@ -145,8 +117,6 @@ class WmsSchedule
      * As noted in ISO 8601 weekdays start at monday.
      *
      * @param int[]|null $availableWeekdays
-     *
-     * @return self
      */
     public function setAvailableWeekdays(?array $availableWeekdays): self
     {
@@ -165,8 +135,6 @@ class WmsSchedule
 
     /**
      * @param string[]|null $activeAt
-     *
-     * @return self
      */
     public function setActiveAt(?array $activeAt): self
     {

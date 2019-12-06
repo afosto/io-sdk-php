@@ -21,19 +21,11 @@ class CatFilterSet
      */
     protected $filters;
 
-    /**
-     * @return string|null
-     */
     public function getSku(): ?string
     {
         return $this->sku;
     }
 
-    /**
-     * @param string|null $sku
-     *
-     * @return self
-     */
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
@@ -51,8 +43,6 @@ class CatFilterSet
 
     /**
      * @param mixed $filters
-     *
-     * @return self
      */
     public function setFilters($filters): self
     {

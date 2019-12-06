@@ -16,8 +16,6 @@ class DeleteHandlingList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 
     /**
      * Delete a handling list.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

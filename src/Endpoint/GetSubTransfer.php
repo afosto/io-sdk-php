@@ -16,8 +16,6 @@ class GetSubTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 
     /**
      * Returns a sub transfer.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

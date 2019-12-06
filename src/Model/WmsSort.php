@@ -25,19 +25,11 @@ class WmsSort
      */
     protected $list;
 
-    /**
-     * @return string|null
-     */
     public function getOrder(): ?string
     {
         return $this->order;
     }
 
-    /**
-     * @param string|null $order
-     *
-     * @return self
-     */
     public function setOrder(?string $order): self
     {
         $this->order = $order;
@@ -45,19 +37,11 @@ class WmsSort
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getBy(): ?string
     {
         return $this->by;
     }
 
-    /**
-     * @param string|null $by
-     *
-     * @return self
-     */
     public function setBy(?string $by): self
     {
         $this->by = $by;
@@ -75,8 +59,6 @@ class WmsSort
 
     /**
      * @param string[]|null $list
-     *
-     * @return self
      */
     public function setList(?array $list): self
     {

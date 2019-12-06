@@ -24,12 +24,12 @@ class RelCreateIdentityRequestNormalizer implements DenormalizerInterface, Norma
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelCreateIdentityRequest';
+        return 'Afosto\\Sdk\\Model\\RelCreateIdentityRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelCreateIdentityRequest';
+        return 'Afosto\\Sdk\\Model\\RelCreateIdentityRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class RelCreateIdentityRequestNormalizer implements DenormalizerInterface, Norma
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelCreateIdentityRequest();
-        if (property_exists($data, 'email') && $data->{'email'} !== null) {
+        if (property_exists($data, 'email') && null !== $data->{'email'}) {
             $object->setEmail($data->{'email'});
         }
-        if (property_exists($data, 'password') && $data->{'password'} !== null) {
+        if (property_exists($data, 'password') && null !== $data->{'password'}) {
             $object->setPassword($data->{'password'});
         }
-        if (property_exists($data, 'audience') && $data->{'audience'} !== null) {
+        if (property_exists($data, 'audience') && null !== $data->{'audience'}) {
             $object->setAudience($data->{'audience'});
         }
 

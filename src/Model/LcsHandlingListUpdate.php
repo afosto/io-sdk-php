@@ -25,19 +25,11 @@ class LcsHandlingListUpdate
      */
     protected $sub;
 
-    /**
-     * @return bool|null
-     */
     public function getIsInProgress(): ?bool
     {
         return $this->isInProgress;
     }
 
-    /**
-     * @param bool|null $isInProgress
-     *
-     * @return self
-     */
     public function setIsInProgress(?bool $isInProgress): self
     {
         $this->isInProgress = $isInProgress;
@@ -45,19 +37,11 @@ class LcsHandlingListUpdate
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsOnHold(): ?bool
     {
         return $this->isOnHold;
     }
 
-    /**
-     * @param bool|null $isOnHold
-     *
-     * @return self
-     */
     public function setIsOnHold(?bool $isOnHold): self
     {
         $this->isOnHold = $isOnHold;
@@ -65,19 +49,11 @@ class LcsHandlingListUpdate
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSub(): ?string
     {
         return $this->sub;
     }
 
-    /**
-     * @param string|null $sub
-     *
-     * @return self
-     */
     public function setSub(?string $sub): self
     {
         $this->sub = $sub;

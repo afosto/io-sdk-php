@@ -47,7 +47,6 @@ class UpdateBillingInformation extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
     /**
      * {@inheritdoc}
      *
-     *
      * @return \Afosto\Sdk\Model\IamCompany|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)

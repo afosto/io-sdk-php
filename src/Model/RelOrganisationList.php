@@ -21,19 +21,11 @@ class RelOrganisationList
      */
     protected $secondary;
 
-    /**
-     * @return RelOrganisation|null
-     */
     public function getPrimary(): ?RelOrganisation
     {
         return $this->primary;
     }
 
-    /**
-     * @param RelOrganisation|null $primary
-     *
-     * @return self
-     */
     public function setPrimary(?RelOrganisation $primary): self
     {
         $this->primary = $primary;
@@ -51,8 +43,6 @@ class RelOrganisationList
 
     /**
      * @param RelOrganisation[]|null $secondary
-     *
-     * @return self
      */
     public function setSecondary(?array $secondary): self
     {

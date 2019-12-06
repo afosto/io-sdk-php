@@ -105,19 +105,11 @@ class OdrInvoiceListItem
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -125,19 +117,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getVersion(): ?string
     {
         return $this->version;
     }
 
-    /**
-     * @param string|null $version
-     *
-     * @return self
-     */
     public function setVersion(?string $version): self
     {
         $this->version = $version;
@@ -145,19 +129,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getNumber(): ?string
     {
         return $this->number;
     }
 
-    /**
-     * @param string|null $number
-     *
-     * @return self
-     */
     public function setNumber(?string $number): self
     {
         $this->number = $number;
@@ -165,19 +141,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getCount(): ?int
     {
         return $this->count;
     }
 
-    /**
-     * @param int|null $count
-     *
-     * @return self
-     */
     public function setCount(?int $count): self
     {
         $this->count = $count;
@@ -185,19 +153,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getSubtotal(): ?int
     {
         return $this->subtotal;
     }
 
-    /**
-     * @param int|null $subtotal
-     *
-     * @return self
-     */
     public function setSubtotal(?int $subtotal): self
     {
         $this->subtotal = $subtotal;
@@ -215,8 +175,6 @@ class OdrInvoiceListItem
 
     /**
      * @param OdrInvoiceAdjustmentResponse[]|null $adjustments
-     *
-     * @return self
      */
     public function setAdjustments(?array $adjustments): self
     {
@@ -225,19 +183,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getTotal(): ?int
     {
         return $this->total;
     }
 
-    /**
-     * @param int|null $total
-     *
-     * @return self
-     */
     public function setTotal(?int $total): self
     {
         $this->total = $total;
@@ -255,8 +205,6 @@ class OdrInvoiceListItem
 
     /**
      * @param OdrVatResult[]|null $vat
-     *
-     * @return self
      */
     public function setVat(?array $vat): self
     {
@@ -265,19 +213,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCurrency(): ?string
     {
         return $this->currency;
     }
 
-    /**
-     * @param string|null $currency
-     *
-     * @return self
-     */
     public function setCurrency(?string $currency): self
     {
         $this->currency = $currency;
@@ -285,19 +225,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return OdrContact|null
-     */
     public function getCustomer(): ?OdrContact
     {
         return $this->customer;
     }
 
-    /**
-     * @param OdrContact|null $customer
-     *
-     * @return self
-     */
     public function setCustomer(?OdrContact $customer): self
     {
         $this->customer = $customer;
@@ -305,19 +237,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return OdrContact|null
-     */
     public function getVendor(): ?OdrContact
     {
         return $this->vendor;
     }
 
-    /**
-     * @param OdrContact|null $vendor
-     *
-     * @return self
-     */
     public function setVendor(?OdrContact $vendor): self
     {
         $this->vendor = $vendor;
@@ -325,19 +249,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsIncludingVat(): ?bool
     {
         return $this->isIncludingVat;
     }
 
-    /**
-     * @param bool|null $isIncludingVat
-     *
-     * @return self
-     */
     public function setIsIncludingVat(?bool $isIncludingVat): self
     {
         $this->isIncludingVat = $isIncludingVat;
@@ -345,19 +261,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsVatShifted(): ?bool
     {
         return $this->isVatShifted;
     }
 
-    /**
-     * @param bool|null $isVatShifted
-     *
-     * @return self
-     */
     public function setIsVatShifted(?bool $isVatShifted): self
     {
         $this->isVatShifted = $isVatShifted;
@@ -365,19 +273,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsConcept(): ?bool
     {
         return $this->isConcept;
     }
 
-    /**
-     * @param bool|null $isConcept
-     *
-     * @return self
-     */
     public function setIsConcept(?bool $isConcept): self
     {
         $this->isConcept = $isConcept;
@@ -385,19 +285,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsPaid(): ?bool
     {
         return $this->isPaid;
     }
 
-    /**
-     * @param bool|null $isPaid
-     *
-     * @return self
-     */
     public function setIsPaid(?bool $isPaid): self
     {
         $this->isPaid = $isPaid;
@@ -405,19 +297,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getClientId(): ?string
     {
         return $this->clientId;
     }
 
-    /**
-     * @param string|null $clientId
-     *
-     * @return self
-     */
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
@@ -425,19 +309,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getFileId(): ?string
     {
         return $this->fileId;
     }
 
-    /**
-     * @param string|null $fileId
-     *
-     * @return self
-     */
     public function setFileId(?string $fileId): self
     {
         $this->fileId = $fileId;
@@ -455,8 +331,6 @@ class OdrInvoiceListItem
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -465,19 +339,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getPricingAt(): ?\DateTime
     {
         return $this->pricingAt;
     }
 
-    /**
-     * @param \DateTime|null $pricingAt
-     *
-     * @return self
-     */
     public function setPricingAt(?\DateTime $pricingAt): self
     {
         $this->pricingAt = $pricingAt;
@@ -485,19 +351,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getInvoicedAt(): ?\DateTime
     {
         return $this->invoicedAt;
     }
 
-    /**
-     * @param \DateTime|null $invoicedAt
-     *
-     * @return self
-     */
     public function setInvoicedAt(?\DateTime $invoicedAt): self
     {
         $this->invoicedAt = $invoicedAt;
@@ -505,19 +363,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getPaidAt(): ?\DateTime
     {
         return $this->paidAt;
     }
 
-    /**
-     * @param \DateTime|null $paidAt
-     *
-     * @return self
-     */
     public function setPaidAt(?\DateTime $paidAt): self
     {
         $this->paidAt = $paidAt;
@@ -525,19 +375,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -545,19 +387,11 @@ class OdrInvoiceListItem
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

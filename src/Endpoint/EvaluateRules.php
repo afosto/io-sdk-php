@@ -14,8 +14,6 @@ class EvaluateRules extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 {
     /**
      * Test to see if rules would be applied.
-     *
-     * @param \Afosto\Sdk\Model\OdrPriceRuleEvaluation $body
      */
     public function __construct(\Afosto\Sdk\Model\OdrPriceRuleEvaluation $body)
     {

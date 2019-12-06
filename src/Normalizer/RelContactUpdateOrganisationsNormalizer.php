@@ -24,12 +24,12 @@ class RelContactUpdateOrganisationsNormalizer implements DenormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelContactUpdateOrganisations';
+        return 'Afosto\\Sdk\\Model\\RelContactUpdateOrganisations' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelContactUpdateOrganisations';
+        return 'Afosto\\Sdk\\Model\\RelContactUpdateOrganisations' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class RelContactUpdateOrganisationsNormalizer implements DenormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelContactUpdateOrganisations();
-        if (property_exists($data, 'primary') && $data->{'primary'} !== null) {
+        if (property_exists($data, 'primary') && null !== $data->{'primary'}) {
             $object->setPrimary($this->denormalizer->denormalize($data->{'primary'}, 'Afosto\\Sdk\\Model\\RelContactUpdateOrganisationsPrimary', 'json', $context));
         }
-        if (property_exists($data, 'secondary') && $data->{'secondary'} !== null) {
+        if (property_exists($data, 'secondary') && null !== $data->{'secondary'}) {
             $values = [];
             foreach ($data->{'secondary'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\RelContactUpdateOrganisationsSecondaryItem', 'json', $context);

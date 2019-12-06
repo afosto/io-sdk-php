@@ -24,12 +24,12 @@ class OdrAttemptNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrAttempt';
+        return 'Afosto\\Sdk\\Model\\OdrAttempt' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrAttempt';
+        return 'Afosto\\Sdk\\Model\\OdrAttempt' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class OdrAttemptNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrAttempt();
-        if (property_exists($data, 'psp_reference') && $data->{'psp_reference'} !== null) {
+        if (property_exists($data, 'psp_reference') && null !== $data->{'psp_reference'}) {
             $object->setPspReference($data->{'psp_reference'});
         }
-        if (property_exists($data, 'started_at') && $data->{'started_at'} !== null) {
+        if (property_exists($data, 'started_at') && null !== $data->{'started_at'}) {
             $object->setStartedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'started_at'}));
         }
-        if (property_exists($data, 'is_paid') && $data->{'is_paid'} !== null) {
+        if (property_exists($data, 'is_paid') && null !== $data->{'is_paid'}) {
             $object->setIsPaid($data->{'is_paid'});
         }
-        if (property_exists($data, 'is_expired') && $data->{'is_expired'} !== null) {
+        if (property_exists($data, 'is_expired') && null !== $data->{'is_expired'}) {
             $object->setIsExpired($data->{'is_expired'});
         }
 

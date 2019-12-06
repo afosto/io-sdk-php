@@ -37,19 +37,11 @@ class CatVatRate
      */
     protected $activeAt;
 
-    /**
-     * @return int|null
-     */
     public function getReference(): ?int
     {
         return $this->reference;
     }
 
-    /**
-     * @param int|null $reference
-     *
-     * @return self
-     */
     public function setReference(?int $reference): self
     {
         $this->reference = $reference;
@@ -57,19 +49,11 @@ class CatVatRate
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getRate(): ?int
     {
         return $this->rate;
     }
 
-    /**
-     * @param int|null $rate
-     *
-     * @return self
-     */
     public function setRate(?int $rate): self
     {
         $this->rate = $rate;
@@ -77,19 +61,11 @@ class CatVatRate
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCountry(): ?string
     {
         return $this->country;
     }
 
-    /**
-     * @param string|null $country
-     *
-     * @return self
-     */
     public function setCountry(?string $country): self
     {
         $this->country = $country;
@@ -97,19 +73,11 @@ class CatVatRate
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsDefault(): ?bool
     {
         return $this->isDefault;
     }
 
-    /**
-     * @param bool|null $isDefault
-     *
-     * @return self
-     */
     public function setIsDefault(?bool $isDefault): self
     {
         $this->isDefault = $isDefault;
@@ -117,19 +85,11 @@ class CatVatRate
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAdministrativeArea(): ?string
     {
         return $this->administrativeArea;
     }
 
-    /**
-     * @param string|null $administrativeArea
-     *
-     * @return self
-     */
     public function setAdministrativeArea(?string $administrativeArea): self
     {
         $this->administrativeArea = $administrativeArea;
@@ -137,19 +97,11 @@ class CatVatRate
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getActiveAt(): ?\DateTime
     {
         return $this->activeAt;
     }
 
-    /**
-     * @param \DateTime|null $activeAt
-     *
-     * @return self
-     */
     public function setActiveAt(?\DateTime $activeAt): self
     {
         $this->activeAt = $activeAt;

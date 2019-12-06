@@ -17,19 +17,11 @@ class RelCreateConfirmRequest
      */
     protected $token;
 
-    /**
-     * @return string|null
-     */
     public function getToken(): ?string
     {
         return $this->token;
     }
 
-    /**
-     * @param string|null $token
-     *
-     * @return self
-     */
     public function setToken(?string $token): self
     {
         $this->token = $token;

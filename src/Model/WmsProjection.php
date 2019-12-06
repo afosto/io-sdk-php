@@ -35,8 +35,6 @@ class WmsProjection
 
     /**
      * @param WmsAvailableRoute[]|null $routes
-     *
-     * @return self
      */
     public function setRoutes(?array $routes): self
     {
@@ -55,8 +53,6 @@ class WmsProjection
 
     /**
      * @param WmsAvailableProjectionItem[]|null $available
-     *
-     * @return self
      */
     public function setAvailable(?array $available): self
     {
@@ -75,8 +71,6 @@ class WmsProjection
 
     /**
      * @param WmsUnavailableProjectionItem[]|null $unavailable
-     *
-     * @return self
      */
     public function setUnavailable(?array $unavailable): self
     {

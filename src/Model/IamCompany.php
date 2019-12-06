@@ -29,19 +29,11 @@ class IamCompany
      */
     protected $address;
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -49,19 +41,11 @@ class IamCompany
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getVatNumber(): ?string
     {
         return $this->vatNumber;
     }
 
-    /**
-     * @param string|null $vatNumber
-     *
-     * @return self
-     */
     public function setVatNumber(?string $vatNumber): self
     {
         $this->vatNumber = $vatNumber;
@@ -69,19 +53,11 @@ class IamCompany
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPhoneNumber(): ?string
     {
         return $this->phoneNumber;
     }
 
-    /**
-     * @param string|null $phoneNumber
-     *
-     * @return self
-     */
     public function setPhoneNumber(?string $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
@@ -89,19 +65,11 @@ class IamCompany
         return $this;
     }
 
-    /**
-     * @return IamAddress|null
-     */
     public function getAddress(): ?IamAddress
     {
         return $this->address;
     }
 
-    /**
-     * @param IamAddress|null $address
-     *
-     * @return self
-     */
     public function setAddress(?IamAddress $address): self
     {
         $this->address = $address;

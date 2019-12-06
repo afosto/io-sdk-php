@@ -24,12 +24,12 @@ class WmsProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsProjection';
+        return 'Afosto\\Sdk\\Model\\WmsProjection' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsProjection';
+        return 'Afosto\\Sdk\\Model\\WmsProjection' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,21 +38,21 @@ class WmsProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsProjection();
-        if (property_exists($data, 'routes') && $data->{'routes'} !== null) {
+        if (property_exists($data, 'routes') && null !== $data->{'routes'}) {
             $values = [];
             foreach ($data->{'routes'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsAvailableRoute', 'json', $context);
             }
             $object->setRoutes($values);
         }
-        if (property_exists($data, 'available') && $data->{'available'} !== null) {
+        if (property_exists($data, 'available') && null !== $data->{'available'}) {
             $values_1 = [];
             foreach ($data->{'available'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\WmsAvailableProjectionItem', 'json', $context);
             }
             $object->setAvailable($values_1);
         }
-        if (property_exists($data, 'unavailable') && $data->{'unavailable'} !== null) {
+        if (property_exists($data, 'unavailable') && null !== $data->{'unavailable'}) {
             $values_2 = [];
             foreach ($data->{'unavailable'} as $value_2) {
                 $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\WmsUnavailableProjectionItem', 'json', $context);

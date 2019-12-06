@@ -24,12 +24,12 @@ class WmsLocationNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsLocation';
+        return 'Afosto\\Sdk\\Model\\WmsLocation' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsLocation';
+        return 'Afosto\\Sdk\\Model\\WmsLocation' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,28 +38,28 @@ class WmsLocationNormalizer implements DenormalizerInterface, NormalizerInterfac
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsLocation();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'country_iso') && $data->{'country_iso'} !== null) {
+        if (property_exists($data, 'country_iso') && null !== $data->{'country_iso'}) {
             $object->setCountryIso($data->{'country_iso'});
         }
-        if (property_exists($data, 'is_customer') && $data->{'is_customer'} !== null) {
+        if (property_exists($data, 'is_customer') && null !== $data->{'is_customer'}) {
             $object->setIsCustomer($data->{'is_customer'});
         }
-        if (property_exists($data, 'is_tracking_inventory') && $data->{'is_tracking_inventory'} !== null) {
+        if (property_exists($data, 'is_tracking_inventory') && null !== $data->{'is_tracking_inventory'}) {
             $object->setIsTrackingInventory($data->{'is_tracking_inventory'});
         }
-        if (property_exists($data, 'warehouse_id') && $data->{'warehouse_id'} !== null) {
+        if (property_exists($data, 'warehouse_id') && null !== $data->{'warehouse_id'}) {
             $object->setWarehouseId($data->{'warehouse_id'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

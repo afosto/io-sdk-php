@@ -16,8 +16,6 @@ class GetFile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\
 
     /**
      * Returns a file.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

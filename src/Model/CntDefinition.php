@@ -45,19 +45,11 @@ class CntDefinition
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -65,19 +57,11 @@ class CntDefinition
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getNamespace(): ?string
     {
         return $this->namespace;
     }
 
-    /**
-     * @param string|null $namespace
-     *
-     * @return self
-     */
     public function setNamespace(?string $namespace): self
     {
         $this->namespace = $namespace;
@@ -85,19 +69,11 @@ class CntDefinition
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
-    /**
-     * @param string|null $code
-     *
-     * @return self
-     */
     public function setCode(?string $code): self
     {
         $this->code = $code;
@@ -105,19 +81,11 @@ class CntDefinition
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getModel(): ?string
     {
         return $this->model;
     }
 
-    /**
-     * @param string|null $model
-     *
-     * @return self
-     */
     public function setModel(?string $model): self
     {
         $this->model = $model;
@@ -135,8 +103,6 @@ class CntDefinition
 
     /**
      * @param CntField[]|null $filters
-     *
-     * @return self
      */
     public function setFilters(?array $filters): self
     {
@@ -145,19 +111,11 @@ class CntDefinition
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTenantId(): ?string
     {
         return $this->tenantId;
     }
 
-    /**
-     * @param string|null $tenantId
-     *
-     * @return self
-     */
     public function setTenantId(?string $tenantId): self
     {
         $this->tenantId = $tenantId;
@@ -165,19 +123,11 @@ class CntDefinition
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -185,19 +135,11 @@ class CntDefinition
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

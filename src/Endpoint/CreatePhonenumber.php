@@ -14,8 +14,6 @@ class CreatePhonenumber extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 {
     /**
      * Create a phonenumber.
-     *
-     * @param \Afosto\Sdk\Model\RelPhoneNumberModel $body
      */
     public function __construct(\Afosto\Sdk\Model\RelPhoneNumberModel $body)
     {

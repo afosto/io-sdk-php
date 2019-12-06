@@ -24,12 +24,12 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrGroup';
+        return 'Afosto\\Sdk\\Model\\OdrGroup' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrGroup';
+        return 'Afosto\\Sdk\\Model\\OdrGroup' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,23 +38,23 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrGroup();
-        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
         }
-        if (property_exists($data, 'ids') && $data->{'ids'} !== null) {
+        if (property_exists($data, 'ids') && null !== $data->{'ids'}) {
             $values = [];
             foreach ($data->{'ids'} as $value) {
                 $values[] = $value;
             }
             $object->setIds($values);
         }
-        if (property_exists($data, 'stacks') && $data->{'stacks'} !== null) {
+        if (property_exists($data, 'stacks') && null !== $data->{'stacks'}) {
             $values_1 = [];
             foreach ($data->{'stacks'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context);

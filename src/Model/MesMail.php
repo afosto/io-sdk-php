@@ -77,19 +77,11 @@ class MesMail
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -97,19 +89,11 @@ class MesMail
         return $this;
     }
 
-    /**
-     * @return MesContactModel|null
-     */
     public function getFrom(): ?MesContactModel
     {
         return $this->from;
     }
 
-    /**
-     * @param MesContactModel|null $from
-     *
-     * @return self
-     */
     public function setFrom(?MesContactModel $from): self
     {
         $this->from = $from;
@@ -127,8 +111,6 @@ class MesMail
 
     /**
      * @param MesContactModel[]|null $to
-     *
-     * @return self
      */
     public function setTo(?array $to): self
     {
@@ -147,8 +129,6 @@ class MesMail
 
     /**
      * @param MesContactModel[]|null $cc
-     *
-     * @return self
      */
     public function setCc(?array $cc): self
     {
@@ -167,8 +147,6 @@ class MesMail
 
     /**
      * @param MesContactModel[]|null $bcc
-     *
-     * @return self
      */
     public function setBcc(?array $bcc): self
     {
@@ -177,19 +155,11 @@ class MesMail
         return $this;
     }
 
-    /**
-     * @return MesContactModel|null
-     */
     public function getReplyTo(): ?MesContactModel
     {
         return $this->replyTo;
     }
 
-    /**
-     * @param MesContactModel|null $replyTo
-     *
-     * @return self
-     */
     public function setReplyTo(?MesContactModel $replyTo): self
     {
         $this->replyTo = $replyTo;
@@ -197,19 +167,11 @@ class MesMail
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSubject(): ?string
     {
         return $this->subject;
     }
 
-    /**
-     * @param string|null $subject
-     *
-     * @return self
-     */
     public function setSubject(?string $subject): self
     {
         $this->subject = $subject;
@@ -217,19 +179,11 @@ class MesMail
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getHtmlBody(): ?string
     {
         return $this->htmlBody;
     }
 
-    /**
-     * @param string|null $htmlBody
-     *
-     * @return self
-     */
     public function setHtmlBody(?string $htmlBody): self
     {
         $this->htmlBody = $htmlBody;
@@ -247,8 +201,6 @@ class MesMail
 
     /**
      * @param string[]|null $attachments
-     *
-     * @return self
      */
     public function setAttachments(?array $attachments): self
     {
@@ -257,19 +209,11 @@ class MesMail
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getFolder(): ?string
     {
         return $this->folder;
     }
 
-    /**
-     * @param string|null $folder
-     *
-     * @return self
-     */
     public function setFolder(?string $folder): self
     {
         $this->folder = $folder;
@@ -277,19 +221,11 @@ class MesMail
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsUnread(): ?bool
     {
         return $this->isUnread;
     }
 
-    /**
-     * @param bool|null $isUnread
-     *
-     * @return self
-     */
     public function setIsUnread(?bool $isUnread): self
     {
         $this->isUnread = $isUnread;
@@ -297,19 +233,11 @@ class MesMail
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getInboxId(): ?string
     {
         return $this->inboxId;
     }
 
-    /**
-     * @param string|null $inboxId
-     *
-     * @return self
-     */
     public function setInboxId(?string $inboxId): self
     {
         $this->inboxId = $inboxId;
@@ -327,8 +255,6 @@ class MesMail
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -337,19 +263,11 @@ class MesMail
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getDeliveredAt(): ?\DateTime
     {
         return $this->deliveredAt;
     }
 
-    /**
-     * @param \DateTime|null $deliveredAt
-     *
-     * @return self
-     */
     public function setDeliveredAt(?\DateTime $deliveredAt): self
     {
         $this->deliveredAt = $deliveredAt;
@@ -357,19 +275,11 @@ class MesMail
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -377,19 +287,11 @@ class MesMail
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

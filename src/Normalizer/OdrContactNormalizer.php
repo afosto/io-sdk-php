@@ -24,12 +24,12 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrContact';
+        return 'Afosto\\Sdk\\Model\\OdrContact' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrContact';
+        return 'Afosto\\Sdk\\Model\\OdrContact' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrContact();
-        if (property_exists($data, 'vat_country_code') && $data->{'vat_country_code'} !== null) {
+        if (property_exists($data, 'vat_country_code') && null !== $data->{'vat_country_code'}) {
             $object->setVatCountryCode($data->{'vat_country_code'});
         }
-        if (property_exists($data, 'contact') && $data->{'contact'} !== null) {
+        if (property_exists($data, 'contact') && null !== $data->{'contact'}) {
             $object->setContact($this->denormalizer->denormalize($data->{'contact'}, 'Afosto\\Sdk\\Model\\OdrContactContact', 'json', $context));
         }
 

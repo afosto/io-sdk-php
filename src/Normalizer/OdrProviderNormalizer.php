@@ -24,12 +24,12 @@ class OdrProviderNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrProvider';
+        return 'Afosto\\Sdk\\Model\\OdrProvider' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrProvider';
+        return 'Afosto\\Sdk\\Model\\OdrProvider' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,19 +38,19 @@ class OdrProviderNormalizer implements DenormalizerInterface, NormalizerInterfac
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrProvider();
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'code') && $data->{'code'} !== null) {
+        if (property_exists($data, 'code') && null !== $data->{'code'}) {
             $object->setCode($data->{'code'});
         }
-        if (property_exists($data, 'is_active') && $data->{'is_active'} !== null) {
+        if (property_exists($data, 'is_active') && null !== $data->{'is_active'}) {
             $object->setIsActive($data->{'is_active'});
         }
-        if (property_exists($data, 'is_configured') && $data->{'is_configured'} !== null) {
+        if (property_exists($data, 'is_configured') && null !== $data->{'is_configured'}) {
             $object->setIsConfigured($data->{'is_configured'});
         }
-        if (property_exists($data, 'methods') && $data->{'methods'} !== null) {
+        if (property_exists($data, 'methods') && null !== $data->{'methods'}) {
             $values = [];
             foreach ($data->{'methods'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrProviderMethod', 'json', $context);

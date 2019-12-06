@@ -21,19 +21,11 @@ class RelContactUpdatePhoneNumbers
      */
     protected $secondary;
 
-    /**
-     * @return string|null
-     */
     public function getPrimary(): ?string
     {
         return $this->primary;
     }
 
-    /**
-     * @param string|null $primary
-     *
-     * @return self
-     */
     public function setPrimary(?string $primary): self
     {
         $this->primary = $primary;
@@ -51,8 +43,6 @@ class RelContactUpdatePhoneNumbers
 
     /**
      * @param string[]|null $secondary
-     *
-     * @return self
      */
     public function setSecondary(?array $secondary): self
     {

@@ -24,12 +24,12 @@ class LcsHandlingListItemNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsHandlingListItem';
+        return 'Afosto\\Sdk\\Model\\LcsHandlingListItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsHandlingListItem';
+        return 'Afosto\\Sdk\\Model\\LcsHandlingListItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,33 +38,33 @@ class LcsHandlingListItemNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsHandlingListItem();
-        if (property_exists($data, 'ids') && $data->{'ids'} !== null) {
+        if (property_exists($data, 'ids') && null !== $data->{'ids'}) {
             $values = [];
             foreach ($data->{'ids'} as $value) {
                 $values[] = $value;
             }
             $object->setIds($values);
         }
-        if (property_exists($data, 'handled_ids') && $data->{'handled_ids'} !== null) {
+        if (property_exists($data, 'handled_ids') && null !== $data->{'handled_ids'}) {
             $values_1 = [];
             foreach ($data->{'handled_ids'} as $value_1) {
                 $values_1[] = $value_1;
             }
             $object->setHandledIds($values_1);
         }
-        if (property_exists($data, 'shipment_id') && $data->{'shipment_id'} !== null) {
+        if (property_exists($data, 'shipment_id') && null !== $data->{'shipment_id'}) {
             $object->setShipmentId($data->{'shipment_id'});
         }
-        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'position') && $data->{'position'} !== null) {
+        if (property_exists($data, 'position') && null !== $data->{'position'}) {
             $object->setPosition($data->{'position'});
         }
-        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
         }
 

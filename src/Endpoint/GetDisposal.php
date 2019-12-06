@@ -16,8 +16,6 @@ class GetDisposal extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     /**
      * Returns a disposal.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

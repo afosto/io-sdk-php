@@ -24,12 +24,12 @@ class MesBucketNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesBucket';
+        return 'Afosto\\Sdk\\Model\\MesBucket' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesBucket';
+        return 'Afosto\\Sdk\\Model\\MesBucket' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class MesBucketNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesBucket();
-        if (property_exists($data, 'date') && $data->{'date'} !== null) {
+        if (property_exists($data, 'date') && null !== $data->{'date'}) {
             $object->setDate(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'date'}));
         }
-        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
         }
-        if (property_exists($data, 'filter_key') && $data->{'filter_key'} !== null) {
+        if (property_exists($data, 'filter_key') && null !== $data->{'filter_key'}) {
             $object->setFilterKey($data->{'filter_key'});
         }
-        if (property_exists($data, 'filter_value') && $data->{'filter_value'} !== null) {
+        if (property_exists($data, 'filter_value') && null !== $data->{'filter_value'}) {
             $object->setFilterValue($data->{'filter_value'});
         }
 

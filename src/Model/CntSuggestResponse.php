@@ -27,8 +27,6 @@ class CntSuggestResponse
 
     /**
      * @param CntSimpleDocumentResponse[]|null $hits
-     *
-     * @return self
      */
     public function setHits(?array $hits): self
     {

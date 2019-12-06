@@ -55,19 +55,11 @@ class WmsSubTransfer
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -75,19 +67,11 @@ class WmsSubTransfer
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTransferId(): ?string
     {
         return $this->transferId;
     }
 
-    /**
-     * @param string|null $transferId
-     *
-     * @return self
-     */
     public function setTransferId(?string $transferId): self
     {
         $this->transferId = $transferId;
@@ -97,8 +81,6 @@ class WmsSubTransfer
 
     /**
      * Location id.
-     *
-     * @return string|null
      */
     public function getFrom(): ?string
     {
@@ -107,10 +89,6 @@ class WmsSubTransfer
 
     /**
      * Location id.
-     *
-     * @param string|null $from
-     *
-     * @return self
      */
     public function setFrom(?string $from): self
     {
@@ -119,19 +97,11 @@ class WmsSubTransfer
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStatus(): ?string
     {
         return $this->status;
     }
 
-    /**
-     * @param string|null $status
-     *
-     * @return self
-     */
     public function setStatus(?string $status): self
     {
         $this->status = $status;
@@ -139,19 +109,11 @@ class WmsSubTransfer
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStackId(): ?string
     {
         return $this->stackId;
     }
 
-    /**
-     * @param string|null $stackId
-     *
-     * @return self
-     */
     public function setStackId(?string $stackId): self
     {
         $this->stackId = $stackId;
@@ -159,19 +121,11 @@ class WmsSubTransfer
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getRouteId(): ?string
     {
         return $this->routeId;
     }
 
-    /**
-     * @param string|null $routeId
-     *
-     * @return self
-     */
     public function setRouteId(?string $routeId): self
     {
         $this->routeId = $routeId;
@@ -189,8 +143,6 @@ class WmsSubTransfer
 
     /**
      * @param WmsSubTransferItem[]|null $items
-     *
-     * @return self
      */
     public function setItems(?array $items): self
     {
@@ -199,19 +151,11 @@ class WmsSubTransfer
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getExpectedAt(): ?\DateTime
     {
         return $this->expectedAt;
     }
 
-    /**
-     * @param \DateTime|null $expectedAt
-     *
-     * @return self
-     */
     public function setExpectedAt(?\DateTime $expectedAt): self
     {
         $this->expectedAt = $expectedAt;
@@ -219,19 +163,11 @@ class WmsSubTransfer
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -239,19 +175,11 @@ class WmsSubTransfer
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

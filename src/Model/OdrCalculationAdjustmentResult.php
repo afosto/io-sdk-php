@@ -27,19 +27,11 @@ class OdrCalculationAdjustmentResult
      */
     protected $output;
 
-    /**
-     * @return bool|null
-     */
     public function getIsAppliedRule(): ?bool
     {
         return $this->isAppliedRule;
     }
 
-    /**
-     * @param bool|null $isAppliedRule
-     *
-     * @return self
-     */
     public function setIsAppliedRule(?bool $isAppliedRule): self
     {
         $this->isAppliedRule = $isAppliedRule;
@@ -47,19 +39,11 @@ class OdrCalculationAdjustmentResult
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getRuleId(): ?string
     {
         return $this->ruleId;
     }
 
-    /**
-     * @param string|null $ruleId
-     *
-     * @return self
-     */
     public function setRuleId(?string $ruleId): self
     {
         $this->ruleId = $ruleId;
@@ -69,8 +53,6 @@ class OdrCalculationAdjustmentResult
 
     /**
      * The result of the rule. Will be negative in case of a discount.
-     *
-     * @return int|null
      */
     public function getOutput(): ?int
     {
@@ -79,10 +61,6 @@ class OdrCalculationAdjustmentResult
 
     /**
      * The result of the rule. Will be negative in case of a discount.
-     *
-     * @param int|null $output
-     *
-     * @return self
      */
     public function setOutput(?int $output): self
     {

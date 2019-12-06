@@ -24,12 +24,12 @@ class RelCreateResetRequestNormalizer implements DenormalizerInterface, Normaliz
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelCreateResetRequest';
+        return 'Afosto\\Sdk\\Model\\RelCreateResetRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelCreateResetRequest';
+        return 'Afosto\\Sdk\\Model\\RelCreateResetRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class RelCreateResetRequestNormalizer implements DenormalizerInterface, Normaliz
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelCreateResetRequest();
-        if (property_exists($data, 'token') && $data->{'token'} !== null) {
+        if (property_exists($data, 'token') && null !== $data->{'token'}) {
             $object->setToken($data->{'token'});
         }
-        if (property_exists($data, 'password') && $data->{'password'} !== null) {
+        if (property_exists($data, 'password') && null !== $data->{'password'}) {
             $object->setPassword($data->{'password'});
         }
 

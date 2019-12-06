@@ -24,12 +24,12 @@ class OdrInvoiceItemNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrInvoiceItem';
+        return 'Afosto\\Sdk\\Model\\OdrInvoiceItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrInvoiceItem';
+        return 'Afosto\\Sdk\\Model\\OdrInvoiceItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,50 +38,50 @@ class OdrInvoiceItemNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrInvoiceItem();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
+        if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
         }
-        if (property_exists($data, 'is_discounted') && $data->{'is_discounted'} !== null) {
+        if (property_exists($data, 'is_discounted') && null !== $data->{'is_discounted'}) {
             $object->setIsDiscounted($data->{'is_discounted'});
         }
-        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
         }
-        if (property_exists($data, 'subtotal') && $data->{'subtotal'} !== null) {
+        if (property_exists($data, 'subtotal') && null !== $data->{'subtotal'}) {
             $object->setSubtotal($data->{'subtotal'});
         }
-        if (property_exists($data, 'adjustments') && $data->{'adjustments'} !== null) {
+        if (property_exists($data, 'adjustments') && null !== $data->{'adjustments'}) {
             $values = [];
             foreach ($data->{'adjustments'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrInvoiceAdjustmentResponse', 'json', $context);
             }
             $object->setAdjustments($values);
         }
-        if (property_exists($data, 'vat_percentage') && $data->{'vat_percentage'} !== null) {
+        if (property_exists($data, 'vat_percentage') && null !== $data->{'vat_percentage'}) {
             $object->setVatPercentage($data->{'vat_percentage'});
         }
-        if (property_exists($data, 'total') && $data->{'total'} !== null) {
+        if (property_exists($data, 'total') && null !== $data->{'total'}) {
             $object->setTotal($data->{'total'});
         }
-        if (property_exists($data, 'total_revenue') && $data->{'total_revenue'} !== null) {
+        if (property_exists($data, 'total_revenue') && null !== $data->{'total_revenue'}) {
             $object->setTotalRevenue($data->{'total_revenue'});
         }
-        if (property_exists($data, 'stack_items') && $data->{'stack_items'} !== null) {
+        if (property_exists($data, 'stack_items') && null !== $data->{'stack_items'}) {
             $values_1 = [];
             foreach ($data->{'stack_items'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrCalculationStackItem', 'json', $context);

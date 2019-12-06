@@ -17,19 +17,11 @@ class OdrCalculationState
      */
     protected $isConcept;
 
-    /**
-     * @return bool|null
-     */
     public function getIsConcept(): ?bool
     {
         return $this->isConcept;
     }
 
-    /**
-     * @param bool|null $isConcept
-     *
-     * @return self
-     */
     public function setIsConcept(?bool $isConcept): self
     {
         $this->isConcept = $isConcept;

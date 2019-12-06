@@ -24,12 +24,12 @@ class WmsScheduleNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsSchedule';
+        return 'Afosto\\Sdk\\Model\\WmsSchedule' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsSchedule';
+        return 'Afosto\\Sdk\\Model\\WmsSchedule' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,26 +38,26 @@ class WmsScheduleNormalizer implements DenormalizerInterface, NormalizerInterfac
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsSchedule();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'last_call') && $data->{'last_call'} !== null) {
+        if (property_exists($data, 'last_call') && null !== $data->{'last_call'}) {
             $object->setLastCall($data->{'last_call'});
         }
-        if (property_exists($data, 'arrival') && $data->{'arrival'} !== null) {
+        if (property_exists($data, 'arrival') && null !== $data->{'arrival'}) {
             $object->setArrival($data->{'arrival'});
         }
-        if (property_exists($data, 'duration') && $data->{'duration'} !== null) {
+        if (property_exists($data, 'duration') && null !== $data->{'duration'}) {
             $object->setDuration($data->{'duration'});
         }
-        if (property_exists($data, 'available_weekdays') && $data->{'available_weekdays'} !== null) {
+        if (property_exists($data, 'available_weekdays') && null !== $data->{'available_weekdays'}) {
             $values = [];
             foreach ($data->{'available_weekdays'} as $value) {
                 $values[] = $value;
             }
             $object->setAvailableWeekdays($values);
         }
-        if (property_exists($data, 'active_at') && $data->{'active_at'} !== null) {
+        if (property_exists($data, 'active_at') && null !== $data->{'active_at'}) {
             $values_1 = [];
             foreach ($data->{'active_at'} as $value_1) {
                 $values_1[] = $value_1;

@@ -24,12 +24,12 @@ class RelContactUpdateOrganisationsSecondaryItemNormalizer implements Denormaliz
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelContactUpdateOrganisationsSecondaryItem';
+        return 'Afosto\\Sdk\\Model\\RelContactUpdateOrganisationsSecondaryItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelContactUpdateOrganisationsSecondaryItem';
+        return 'Afosto\\Sdk\\Model\\RelContactUpdateOrganisationsSecondaryItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class RelContactUpdateOrganisationsSecondaryItemNormalizer implements Denormaliz
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelContactUpdateOrganisationsSecondaryItem();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'version') && $data->{'version'} !== null) {
+        if (property_exists($data, 'version') && null !== $data->{'version'}) {
             $object->setVersion($data->{'version'});
         }
 

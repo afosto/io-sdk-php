@@ -24,12 +24,12 @@ class OdrTransactionNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrTransaction';
+        return 'Afosto\\Sdk\\Model\\OdrTransaction' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrTransaction';
+        return 'Afosto\\Sdk\\Model\\OdrTransaction' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,50 +38,50 @@ class OdrTransactionNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrTransaction();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'amount_due') && $data->{'amount_due'} !== null) {
+        if (property_exists($data, 'amount_due') && null !== $data->{'amount_due'}) {
             $object->setAmountDue($data->{'amount_due'});
         }
-        if (property_exists($data, 'amount_paid') && $data->{'amount_paid'} !== null) {
+        if (property_exists($data, 'amount_paid') && null !== $data->{'amount_paid'}) {
             $object->setAmountPaid($data->{'amount_paid'});
         }
-        if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
+        if (property_exists($data, 'currency') && null !== $data->{'currency'}) {
             $object->setCurrency($data->{'currency'});
         }
-        if (property_exists($data, 'payments') && $data->{'payments'} !== null) {
+        if (property_exists($data, 'payments') && null !== $data->{'payments'}) {
             $values = [];
             foreach ($data->{'payments'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrPayment', 'json', $context);
             }
             $object->setPayments($values);
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'purchase') && $data->{'purchase'} !== null) {
+        if (property_exists($data, 'purchase') && null !== $data->{'purchase'}) {
             $object->setPurchase($this->denormalizer->denormalize($data->{'purchase'}, 'Afosto\\Sdk\\Model\\OdrPurchase', 'json', $context));
         }
-        if (property_exists($data, 'return_url') && $data->{'return_url'} !== null) {
+        if (property_exists($data, 'return_url') && null !== $data->{'return_url'}) {
             $object->setReturnUrl($data->{'return_url'});
         }
-        if (property_exists($data, 'webhook_url') && $data->{'webhook_url'} !== null) {
+        if (property_exists($data, 'webhook_url') && null !== $data->{'webhook_url'}) {
             $object->setWebhookUrl($data->{'webhook_url'});
         }
-        if (property_exists($data, 'secret') && $data->{'secret'} !== null) {
+        if (property_exists($data, 'secret') && null !== $data->{'secret'}) {
             $object->setSecret($data->{'secret'});
         }
-        if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
+        if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

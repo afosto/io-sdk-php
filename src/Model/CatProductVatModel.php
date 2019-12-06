@@ -21,19 +21,11 @@ class CatProductVatModel
      */
     protected $rates;
 
-    /**
-     * @return string|null
-     */
     public function getSku(): ?string
     {
         return $this->sku;
     }
 
-    /**
-     * @param string|null $sku
-     *
-     * @return self
-     */
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
@@ -51,8 +43,6 @@ class CatProductVatModel
 
     /**
      * @param CatVatModel[]|null $rates
-     *
-     * @return self
      */
     public function setRates(?array $rates): self
     {

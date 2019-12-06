@@ -41,19 +41,11 @@ class IamAuthorization
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -61,19 +53,11 @@ class IamAuthorization
         return $this;
     }
 
-    /**
-     * @return IamSubtenantUser|null
-     */
     public function getUser(): ?IamSubtenantUser
     {
         return $this->user;
     }
 
-    /**
-     * @param IamSubtenantUser|null $user
-     *
-     * @return self
-     */
     public function setUser(?IamSubtenantUser $user): self
     {
         $this->user = $user;
@@ -91,8 +75,6 @@ class IamAuthorization
 
     /**
      * @param string[]|null $roles
-     *
-     * @return self
      */
     public function setRoles(?array $roles): self
     {
@@ -101,19 +83,11 @@ class IamAuthorization
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;
@@ -121,19 +95,11 @@ class IamAuthorization
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getState(): ?string
     {
         return $this->state;
     }
 
-    /**
-     * @param string|null $state
-     *
-     * @return self
-     */
     public function setState(?string $state): self
     {
         $this->state = $state;
@@ -141,19 +107,11 @@ class IamAuthorization
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -161,19 +119,11 @@ class IamAuthorization
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

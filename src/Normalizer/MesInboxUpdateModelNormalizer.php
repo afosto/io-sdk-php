@@ -24,12 +24,12 @@ class MesInboxUpdateModelNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesInboxUpdateModel';
+        return 'Afosto\\Sdk\\Model\\MesInboxUpdateModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesInboxUpdateModel';
+        return 'Afosto\\Sdk\\Model\\MesInboxUpdateModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class MesInboxUpdateModelNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesInboxUpdateModel();
-        if (property_exists($data, 'label') && $data->{'label'} !== null) {
+        if (property_exists($data, 'label') && null !== $data->{'label'}) {
             $object->setLabel($data->{'label'});
         }
-        if (property_exists($data, 'user_id') && $data->{'user_id'} !== null) {
+        if (property_exists($data, 'user_id') && null !== $data->{'user_id'}) {
             $object->setUserId($data->{'user_id'});
         }
 

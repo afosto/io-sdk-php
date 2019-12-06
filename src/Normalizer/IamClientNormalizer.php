@@ -24,12 +24,12 @@ class IamClientNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamClient';
+        return 'Afosto\\Sdk\\Model\\IamClient' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamClient';
+        return 'Afosto\\Sdk\\Model\\IamClient' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,54 +38,54 @@ class IamClientNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamClient();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
+        if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
-        if (property_exists($data, 'client_secret') && $data->{'client_secret'} !== null) {
+        if (property_exists($data, 'client_secret') && null !== $data->{'client_secret'}) {
             $object->setClientSecret($data->{'client_secret'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'redirect_uri') && $data->{'redirect_uri'} !== null) {
+        if (property_exists($data, 'redirect_uri') && null !== $data->{'redirect_uri'}) {
             $object->setRedirectUri($data->{'redirect_uri'});
         }
-        if (property_exists($data, 'grant_types') && $data->{'grant_types'} !== null) {
+        if (property_exists($data, 'grant_types') && null !== $data->{'grant_types'}) {
             $values = [];
             foreach ($data->{'grant_types'} as $value) {
                 $values[] = $value;
             }
             $object->setGrantTypes($values);
         }
-        if (property_exists($data, 'scope') && $data->{'scope'} !== null) {
+        if (property_exists($data, 'scope') && null !== $data->{'scope'}) {
             $values_1 = [];
             foreach ($data->{'scope'} as $value_1) {
                 $values_1[] = $value_1;
             }
             $object->setScope($values_1);
         }
-        if (property_exists($data, 'tenant_id') && $data->{'tenant_id'} !== null) {
+        if (property_exists($data, 'tenant_id') && null !== $data->{'tenant_id'}) {
             $object->setTenantId($data->{'tenant_id'});
         }
-        if (property_exists($data, 'is_approved') && $data->{'is_approved'} !== null) {
+        if (property_exists($data, 'is_approved') && null !== $data->{'is_approved'}) {
             $object->setIsApproved($data->{'is_approved'});
         }
-        if (property_exists($data, 'is_deleted') && $data->{'is_deleted'} !== null) {
+        if (property_exists($data, 'is_deleted') && null !== $data->{'is_deleted'}) {
             $object->setIsDeleted($data->{'is_deleted'});
         }
-        if (property_exists($data, 'author') && $data->{'author'} !== null) {
+        if (property_exists($data, 'author') && null !== $data->{'author'}) {
             $object->setAuthor($data->{'author'});
         }
-        if (property_exists($data, 'deleted_at') && $data->{'deleted_at'} !== null) {
+        if (property_exists($data, 'deleted_at') && null !== $data->{'deleted_at'}) {
             $object->setDeletedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'deleted_at'}));
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

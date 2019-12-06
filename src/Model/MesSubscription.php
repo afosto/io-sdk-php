@@ -25,19 +25,11 @@ class MesSubscription
      */
     protected $address;
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -45,19 +37,11 @@ class MesSubscription
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMedium(): ?string
     {
         return $this->medium;
     }
 
-    /**
-     * @param string|null $medium
-     *
-     * @return self
-     */
     public function setMedium(?string $medium): self
     {
         $this->medium = $medium;
@@ -65,19 +49,11 @@ class MesSubscription
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getAddress(): ?bool
     {
         return $this->address;
     }
 
-    /**
-     * @param bool|null $address
-     *
-     * @return self
-     */
     public function setAddress(?bool $address): self
     {
         $this->address = $address;

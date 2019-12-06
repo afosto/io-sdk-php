@@ -17,19 +17,11 @@ class IamSubtenantsInvitesIdPutBody
      */
     protected $state;
 
-    /**
-     * @return string|null
-     */
     public function getState(): ?string
     {
         return $this->state;
     }
 
-    /**
-     * @param string|null $state
-     *
-     * @return self
-     */
     public function setState(?string $state): self
     {
         $this->state = $state;

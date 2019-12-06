@@ -73,19 +73,11 @@ class OdrPayment
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -93,19 +85,11 @@ class OdrPayment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -113,19 +97,11 @@ class OdrPayment
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getAmount(): ?int
     {
         return $this->amount;
     }
 
-    /**
-     * @param int|null $amount
-     *
-     * @return self
-     */
     public function setAmount(?int $amount): self
     {
         $this->amount = $amount;
@@ -133,19 +109,11 @@ class OdrPayment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getProviderCode(): ?string
     {
         return $this->providerCode;
     }
 
-    /**
-     * @param string|null $providerCode
-     *
-     * @return self
-     */
     public function setProviderCode(?string $providerCode): self
     {
         $this->providerCode = $providerCode;
@@ -153,19 +121,11 @@ class OdrPayment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMethodCode(): ?string
     {
         return $this->methodCode;
     }
 
-    /**
-     * @param string|null $methodCode
-     *
-     * @return self
-     */
     public function setMethodCode(?string $methodCode): self
     {
         $this->methodCode = $methodCode;
@@ -173,19 +133,11 @@ class OdrPayment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getIssuerCode(): ?string
     {
         return $this->issuerCode;
     }
 
-    /**
-     * @param string|null $issuerCode
-     *
-     * @return self
-     */
     public function setIssuerCode(?string $issuerCode): self
     {
         $this->issuerCode = $issuerCode;
@@ -193,19 +145,11 @@ class OdrPayment
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsRefund(): ?bool
     {
         return $this->isRefund;
     }
 
-    /**
-     * @param bool|null $isRefund
-     *
-     * @return self
-     */
     public function setIsRefund(?bool $isRefund): self
     {
         $this->isRefund = $isRefund;
@@ -213,19 +157,11 @@ class OdrPayment
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsPending(): ?bool
     {
         return $this->isPending;
     }
 
-    /**
-     * @param bool|null $isPending
-     *
-     * @return self
-     */
     public function setIsPending(?bool $isPending): self
     {
         $this->isPending = $isPending;
@@ -233,19 +169,11 @@ class OdrPayment
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsPaid(): ?bool
     {
         return $this->isPaid;
     }
 
-    /**
-     * @param bool|null $isPaid
-     *
-     * @return self
-     */
     public function setIsPaid(?bool $isPaid): self
     {
         $this->isPaid = $isPaid;
@@ -253,19 +181,11 @@ class OdrPayment
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsAuthorized(): ?bool
     {
         return $this->isAuthorized;
     }
 
-    /**
-     * @param bool|null $isAuthorized
-     *
-     * @return self
-     */
     public function setIsAuthorized(?bool $isAuthorized): self
     {
         $this->isAuthorized = $isAuthorized;
@@ -273,19 +193,11 @@ class OdrPayment
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsCaptured(): ?bool
     {
         return $this->isCaptured;
     }
 
-    /**
-     * @param bool|null $isCaptured
-     *
-     * @return self
-     */
     public function setIsCaptured(?bool $isCaptured): self
     {
         $this->isCaptured = $isCaptured;
@@ -303,8 +215,6 @@ class OdrPayment
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -313,19 +223,11 @@ class OdrPayment
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getPaidAt(): ?\DateTime
     {
         return $this->paidAt;
     }
 
-    /**
-     * @param \DateTime|null $paidAt
-     *
-     * @return self
-     */
     public function setPaidAt(?\DateTime $paidAt): self
     {
         $this->paidAt = $paidAt;
@@ -333,19 +235,11 @@ class OdrPayment
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -353,19 +247,11 @@ class OdrPayment
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

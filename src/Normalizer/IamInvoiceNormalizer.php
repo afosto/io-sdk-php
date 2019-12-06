@@ -24,12 +24,12 @@ class IamInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamInvoice';
+        return 'Afosto\\Sdk\\Model\\IamInvoice' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamInvoice';
+        return 'Afosto\\Sdk\\Model\\IamInvoice' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,34 +38,34 @@ class IamInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamInvoice();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'total') && $data->{'total'} !== null) {
+        if (property_exists($data, 'total') && null !== $data->{'total'}) {
             $object->setTotal($data->{'total'});
         }
-        if (property_exists($data, 'is_paid') && $data->{'is_paid'} !== null) {
+        if (property_exists($data, 'is_paid') && null !== $data->{'is_paid'}) {
             $object->setIsPaid($data->{'is_paid'});
         }
-        if (property_exists($data, 'is_cancelled') && $data->{'is_cancelled'} !== null) {
+        if (property_exists($data, 'is_cancelled') && null !== $data->{'is_cancelled'}) {
             $object->setIsCancelled($data->{'is_cancelled'});
         }
-        if (property_exists($data, 'invoiced_at') && $data->{'invoiced_at'} !== null) {
+        if (property_exists($data, 'invoiced_at') && null !== $data->{'invoiced_at'}) {
             $object->setInvoicedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'invoiced_at'}));
         }
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'pdf') && $data->{'pdf'} !== null) {
+        if (property_exists($data, 'pdf') && null !== $data->{'pdf'}) {
             $object->setPdf($data->{'pdf'});
         }
-        if (property_exists($data, 'payment_url') && $data->{'payment_url'} !== null) {
+        if (property_exists($data, 'payment_url') && null !== $data->{'payment_url'}) {
             $object->setPaymentUrl($data->{'payment_url'});
         }
-        if (property_exists($data, 'start_at') && $data->{'start_at'} !== null) {
+        if (property_exists($data, 'start_at') && null !== $data->{'start_at'}) {
             $object->setStartAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'start_at'}));
         }
-        if (property_exists($data, 'end_at') && $data->{'end_at'} !== null) {
+        if (property_exists($data, 'end_at') && null !== $data->{'end_at'}) {
             $object->setEndAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'end_at'}));
         }
 

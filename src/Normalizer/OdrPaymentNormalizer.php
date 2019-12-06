@@ -24,12 +24,12 @@ class OdrPaymentNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrPayment';
+        return 'Afosto\\Sdk\\Model\\OdrPayment' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrPayment';
+        return 'Afosto\\Sdk\\Model\\OdrPayment' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,49 +38,49 @@ class OdrPaymentNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrPayment();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
+        if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
         }
-        if (property_exists($data, 'provider_code') && $data->{'provider_code'} !== null) {
+        if (property_exists($data, 'provider_code') && null !== $data->{'provider_code'}) {
             $object->setProviderCode($data->{'provider_code'});
         }
-        if (property_exists($data, 'method_code') && $data->{'method_code'} !== null) {
+        if (property_exists($data, 'method_code') && null !== $data->{'method_code'}) {
             $object->setMethodCode($data->{'method_code'});
         }
-        if (property_exists($data, 'issuer_code') && $data->{'issuer_code'} !== null) {
+        if (property_exists($data, 'issuer_code') && null !== $data->{'issuer_code'}) {
             $object->setIssuerCode($data->{'issuer_code'});
         }
-        if (property_exists($data, 'is_refund') && $data->{'is_refund'} !== null) {
+        if (property_exists($data, 'is_refund') && null !== $data->{'is_refund'}) {
             $object->setIsRefund($data->{'is_refund'});
         }
-        if (property_exists($data, 'is_pending') && $data->{'is_pending'} !== null) {
+        if (property_exists($data, 'is_pending') && null !== $data->{'is_pending'}) {
             $object->setIsPending($data->{'is_pending'});
         }
-        if (property_exists($data, 'is_paid') && $data->{'is_paid'} !== null) {
+        if (property_exists($data, 'is_paid') && null !== $data->{'is_paid'}) {
             $object->setIsPaid($data->{'is_paid'});
         }
-        if (property_exists($data, 'is_authorized') && $data->{'is_authorized'} !== null) {
+        if (property_exists($data, 'is_authorized') && null !== $data->{'is_authorized'}) {
             $object->setIsAuthorized($data->{'is_authorized'});
         }
-        if (property_exists($data, 'is_captured') && $data->{'is_captured'} !== null) {
+        if (property_exists($data, 'is_captured') && null !== $data->{'is_captured'}) {
             $object->setIsCaptured($data->{'is_captured'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'paid_at') && $data->{'paid_at'} !== null) {
+        if (property_exists($data, 'paid_at') && null !== $data->{'paid_at'}) {
             $object->setPaidAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'paid_at'}));
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

@@ -14,8 +14,6 @@ class CreateClaimProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
 {
     /**
      * Create a Projection to generate the available allocation options.
-     *
-     * @param \Afosto\Sdk\Model\WmsCreateProjectionRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\WmsCreateProjectionRequest $body)
     {

@@ -24,12 +24,12 @@ class SplHubErrorNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplHubError';
+        return 'Afosto\\Sdk\\Model\\SplHubError' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplHubError';
+        return 'Afosto\\Sdk\\Model\\SplHubError' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,28 +38,28 @@ class SplHubErrorNormalizer implements DenormalizerInterface, NormalizerInterfac
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplHubError();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'message') && $data->{'message'} !== null) {
+        if (property_exists($data, 'message') && null !== $data->{'message'}) {
             $object->setMessage($data->{'message'});
         }
-        if (property_exists($data, 'level') && $data->{'level'} !== null) {
+        if (property_exists($data, 'level') && null !== $data->{'level'}) {
             $object->setLevel($data->{'level'});
         }
-        if (property_exists($data, 'is_resolved') && $data->{'is_resolved'} !== null) {
+        if (property_exists($data, 'is_resolved') && null !== $data->{'is_resolved'}) {
             $object->setIsResolved($data->{'is_resolved'});
         }
-        if (property_exists($data, 'job_reference') && $data->{'job_reference'} !== null) {
+        if (property_exists($data, 'job_reference') && null !== $data->{'job_reference'}) {
             $object->setJobReference($data->{'job_reference'});
         }
-        if (property_exists($data, 'hub_id') && $data->{'hub_id'} !== null) {
+        if (property_exists($data, 'hub_id') && null !== $data->{'hub_id'}) {
             $object->setHubId($data->{'hub_id'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

@@ -24,12 +24,12 @@ class IamSecretRequestNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamSecretRequest';
+        return 'Afosto\\Sdk\\Model\\IamSecretRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamSecretRequest';
+        return 'Afosto\\Sdk\\Model\\IamSecretRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class IamSecretRequestNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamSecretRequest();
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'backups') && $data->{'backups'} !== null) {
+        if (property_exists($data, 'backups') && null !== $data->{'backups'}) {
             $values = [];
             foreach ($data->{'backups'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\IamBackup', 'json', $context);

@@ -14,8 +14,6 @@ class CreateSignedUrl extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 {
     /**
      * Returns a new upload signature.
-     *
-     * @param \Afosto\Sdk\Model\CntUploadRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\CntUploadRequest $body)
     {

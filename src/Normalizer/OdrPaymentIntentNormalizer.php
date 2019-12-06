@@ -24,12 +24,12 @@ class OdrPaymentIntentNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrPaymentIntent';
+        return 'Afosto\\Sdk\\Model\\OdrPaymentIntent' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrPaymentIntent';
+        return 'Afosto\\Sdk\\Model\\OdrPaymentIntent' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,19 +38,19 @@ class OdrPaymentIntentNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrPaymentIntent();
-        if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
+        if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
         }
-        if (property_exists($data, 'provider_code') && $data->{'provider_code'} !== null) {
+        if (property_exists($data, 'provider_code') && null !== $data->{'provider_code'}) {
             $object->setProviderCode($data->{'provider_code'});
         }
-        if (property_exists($data, 'method_code') && $data->{'method_code'} !== null) {
+        if (property_exists($data, 'method_code') && null !== $data->{'method_code'}) {
             $object->setMethodCode($data->{'method_code'});
         }
-        if (property_exists($data, 'issuer_code') && $data->{'issuer_code'} !== null) {
+        if (property_exists($data, 'issuer_code') && null !== $data->{'issuer_code'}) {
             $object->setIssuerCode($data->{'issuer_code'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
 

@@ -24,12 +24,12 @@ class WmsSubTransferItemNormalizer implements DenormalizerInterface, NormalizerI
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsSubTransferItem';
+        return 'Afosto\\Sdk\\Model\\WmsSubTransferItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsSubTransferItem';
+        return 'Afosto\\Sdk\\Model\\WmsSubTransferItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,28 +38,28 @@ class WmsSubTransferItemNormalizer implements DenormalizerInterface, NormalizerI
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsSubTransferItem();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'status') && $data->{'status'} !== null) {
+        if (property_exists($data, 'status') && null !== $data->{'status'}) {
             $object->setStatus($data->{'status'});
         }
-        if (property_exists($data, 'claim_item_id') && $data->{'claim_item_id'} !== null) {
+        if (property_exists($data, 'claim_item_id') && null !== $data->{'claim_item_id'}) {
             $object->setClaimItemId($data->{'claim_item_id'});
         }
-        if (property_exists($data, 'warehouse_item_id') && $data->{'warehouse_item_id'} !== null) {
+        if (property_exists($data, 'warehouse_item_id') && null !== $data->{'warehouse_item_id'}) {
             $object->setWarehouseItemId($data->{'warehouse_item_id'});
         }
-        if (property_exists($data, 'stack_item_id') && $data->{'stack_item_id'} !== null) {
+        if (property_exists($data, 'stack_item_id') && null !== $data->{'stack_item_id'}) {
             $object->setStackItemId($data->{'stack_item_id'});
         }
-        if (property_exists($data, 'location_id') && $data->{'location_id'} !== null) {
+        if (property_exists($data, 'location_id') && null !== $data->{'location_id'}) {
             $object->setLocationId($data->{'location_id'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

@@ -21,19 +21,11 @@ class RelVatRegistrationModel
      */
     protected $number;
 
-    /**
-     * @return string|null
-     */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
     }
 
-    /**
-     * @param string|null $countryCode
-     *
-     * @return self
-     */
     public function setCountryCode(?string $countryCode): self
     {
         $this->countryCode = $countryCode;
@@ -41,19 +33,11 @@ class RelVatRegistrationModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getNumber(): ?string
     {
         return $this->number;
     }
 
-    /**
-     * @param string|null $number
-     *
-     * @return self
-     */
     public function setNumber(?string $number): self
     {
         $this->number = $number;

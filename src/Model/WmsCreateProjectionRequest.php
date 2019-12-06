@@ -29,8 +29,6 @@ class WmsCreateProjectionRequest
 
     /**
      * Location id.
-     *
-     * @return string|null
      */
     public function getTarget(): ?string
     {
@@ -39,10 +37,6 @@ class WmsCreateProjectionRequest
 
     /**
      * Location id.
-     *
-     * @param string|null $target
-     *
-     * @return self
      */
     public function setTarget(?string $target): self
     {
@@ -51,19 +45,11 @@ class WmsCreateProjectionRequest
         return $this;
     }
 
-    /**
-     * @return WmsStackReference|null
-     */
     public function getStack(): ?WmsStackReference
     {
         return $this->stack;
     }
 
-    /**
-     * @param WmsStackReference|null $stack
-     *
-     * @return self
-     */
     public function setStack(?WmsStackReference $stack): self
     {
         $this->stack = $stack;
@@ -81,8 +67,6 @@ class WmsCreateProjectionRequest
 
     /**
      * @param WmsConstraint[]|null $constraints
-     *
-     * @return self
      */
     public function setConstraints(?array $constraints): self
     {

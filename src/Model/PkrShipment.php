@@ -73,19 +73,11 @@ class PkrShipment
      */
     protected $warehouse;
 
-    /**
-     * @return PkrShipmentAddress|null
-     */
     public function getAddress(): ?PkrShipmentAddress
     {
         return $this->address;
     }
 
-    /**
-     * @param PkrShipmentAddress|null $address
-     *
-     * @return self
-     */
     public function setAddress(?PkrShipmentAddress $address): self
     {
         $this->address = $address;
@@ -95,8 +87,6 @@ class PkrShipment
 
     /**
      * The create time of the shipment.
-     *
-     * @return string|null
      */
     public function getCreatedAt(): ?string
     {
@@ -105,10 +95,6 @@ class PkrShipment
 
     /**
      * The create time of the shipment.
-     *
-     * @param string|null $createdAt
-     *
-     * @return self
      */
     public function setCreatedAt(?string $createdAt): self
     {
@@ -117,19 +103,11 @@ class PkrShipment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getExpectedAt(): ?string
     {
         return $this->expectedAt;
     }
 
-    /**
-     * @param string|null $expectedAt
-     *
-     * @return self
-     */
     public function setExpectedAt(?string $expectedAt): self
     {
         $this->expectedAt = $expectedAt;
@@ -139,8 +117,6 @@ class PkrShipment
 
     /**
      * ID of the shipment.
-     *
-     * @return int|null
      */
     public function getId(): ?int
     {
@@ -149,10 +125,6 @@ class PkrShipment
 
     /**
      * ID of the shipment.
-     *
-     * @param int|null $id
-     *
-     * @return self
      */
     public function setId(?int $id): self
     {
@@ -161,19 +133,11 @@ class PkrShipment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getIsNotified(): ?string
     {
         return $this->isNotified;
     }
 
-    /**
-     * @param string|null $isNotified
-     *
-     * @return self
-     */
     public function setIsNotified(?string $isNotified): self
     {
         $this->isNotified = $isNotified;
@@ -191,8 +155,6 @@ class PkrShipment
 
     /**
      * @param PkrShipmentItemsItem[]|null $items
-     *
-     * @return self
      */
     public function setItems(?array $items): self
     {
@@ -201,19 +163,11 @@ class PkrShipment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMethod(): ?string
     {
         return $this->method;
     }
 
-    /**
-     * @param string|null $method
-     *
-     * @return self
-     */
     public function setMethod(?string $method): self
     {
         $this->method = $method;
@@ -223,8 +177,6 @@ class PkrShipment
 
     /**
      * Reference of the shipment.
-     *
-     * @return string|null
      */
     public function getReference(): ?string
     {
@@ -233,10 +185,6 @@ class PkrShipment
 
     /**
      * Reference of the shipment.
-     *
-     * @param string|null $reference
-     *
-     * @return self
      */
     public function setReference(?string $reference): self
     {
@@ -245,19 +193,11 @@ class PkrShipment
         return $this;
     }
 
-    /**
-     * @return PkrShipmentSale|null
-     */
     public function getSale(): ?PkrShipmentSale
     {
         return $this->sale;
     }
 
-    /**
-     * @param PkrShipmentSale|null $sale
-     *
-     * @return self
-     */
     public function setSale(?PkrShipmentSale $sale): self
     {
         $this->sale = $sale;
@@ -267,8 +207,6 @@ class PkrShipment
 
     /**
      * The shipped at time of the shipment.
-     *
-     * @return string|null
      */
     public function getShippedAt(): ?string
     {
@@ -277,10 +215,6 @@ class PkrShipment
 
     /**
      * The shipped at time of the shipment.
-     *
-     * @param string|null $shippedAt
-     *
-     * @return self
      */
     public function setShippedAt(?string $shippedAt): self
     {
@@ -289,19 +223,11 @@ class PkrShipment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStatus(): ?string
     {
         return $this->status;
     }
 
-    /**
-     * @param string|null $status
-     *
-     * @return self
-     */
     public function setStatus(?string $status): self
     {
         $this->status = $status;
@@ -309,19 +235,11 @@ class PkrShipment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTrackTrace(): ?string
     {
         return $this->trackTrace;
     }
 
-    /**
-     * @param string|null $trackTrace
-     *
-     * @return self
-     */
     public function setTrackTrace(?string $trackTrace): self
     {
         $this->trackTrace = $trackTrace;
@@ -329,19 +247,11 @@ class PkrShipment
         return $this;
     }
 
-    /**
-     * @return PkrShipmentWarehouse|null
-     */
     public function getWarehouse(): ?PkrShipmentWarehouse
     {
         return $this->warehouse;
     }
 
-    /**
-     * @param PkrShipmentWarehouse|null $warehouse
-     *
-     * @return self
-     */
     public function setWarehouse(?PkrShipmentWarehouse $warehouse): self
     {
         $this->warehouse = $warehouse;

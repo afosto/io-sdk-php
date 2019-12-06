@@ -21,19 +21,11 @@ class LcsShipmentModelAddressing
      */
     protected $from;
 
-    /**
-     * @return LcsShipmentAddressing|null
-     */
     public function getTo(): ?LcsShipmentAddressing
     {
         return $this->to;
     }
 
-    /**
-     * @param LcsShipmentAddressing|null $to
-     *
-     * @return self
-     */
     public function setTo(?LcsShipmentAddressing $to): self
     {
         $this->to = $to;
@@ -41,19 +33,11 @@ class LcsShipmentModelAddressing
         return $this;
     }
 
-    /**
-     * @return LcsShipmentAddressing|null
-     */
     public function getFrom(): ?LcsShipmentAddressing
     {
         return $this->from;
     }
 
-    /**
-     * @param LcsShipmentAddressing|null $from
-     *
-     * @return self
-     */
     public function setFrom(?LcsShipmentAddressing $from): self
     {
         $this->from = $from;

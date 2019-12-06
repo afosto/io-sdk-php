@@ -16,8 +16,6 @@ class ViewOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     /**
      * View a single order.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

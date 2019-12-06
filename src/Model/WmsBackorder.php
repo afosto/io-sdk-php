@@ -21,19 +21,11 @@ class WmsBackorder
      */
     protected $stackId;
 
-    /**
-     * @return int|null
-     */
     public function getItemCount(): ?int
     {
         return $this->itemCount;
     }
 
-    /**
-     * @param int|null $itemCount
-     *
-     * @return self
-     */
     public function setItemCount(?int $itemCount): self
     {
         $this->itemCount = $itemCount;
@@ -41,19 +33,11 @@ class WmsBackorder
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStackId(): ?string
     {
         return $this->stackId;
     }
 
-    /**
-     * @param string|null $stackId
-     *
-     * @return self
-     */
     public function setStackId(?string $stackId): self
     {
         $this->stackId = $stackId;

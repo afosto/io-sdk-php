@@ -24,12 +24,12 @@ class CntSeachResponseNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntSeachResponse';
+        return 'Afosto\\Sdk\\Model\\CntSeachResponse' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntSeachResponse';
+        return 'Afosto\\Sdk\\Model\\CntSeachResponse' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,21 +38,21 @@ class CntSeachResponseNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntSeachResponse();
-        if (property_exists($data, 'hits') && $data->{'hits'} !== null) {
+        if (property_exists($data, 'hits') && null !== $data->{'hits'}) {
             $values = [];
             foreach ($data->{'hits'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CntDocumentResponse', 'json', $context);
             }
             $object->setHits($values);
         }
-        if (property_exists($data, 'facets') && $data->{'facets'} !== null) {
+        if (property_exists($data, 'facets') && null !== $data->{'facets'}) {
             $values_1 = [];
             foreach ($data->{'facets'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\CntFacet', 'json', $context);
             }
             $object->setFacets($values_1);
         }
-        if (property_exists($data, 'pagination') && $data->{'pagination'} !== null) {
+        if (property_exists($data, 'pagination') && null !== $data->{'pagination'}) {
             $object->setPagination($this->denormalizer->denormalize($data->{'pagination'}, 'Afosto\\Sdk\\Model\\CntPagination', 'json', $context));
         }
 

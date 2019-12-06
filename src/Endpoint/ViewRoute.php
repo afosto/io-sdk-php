@@ -16,8 +16,6 @@ class ViewRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     /**
      * View a route.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

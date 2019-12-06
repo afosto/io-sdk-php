@@ -24,12 +24,12 @@ class OdrInvoiceAdjustmentResponseResultNormalizer implements DenormalizerInterf
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrInvoiceAdjustmentResponseResult';
+        return 'Afosto\\Sdk\\Model\\OdrInvoiceAdjustmentResponseResult' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrInvoiceAdjustmentResponseResult';
+        return 'Afosto\\Sdk\\Model\\OdrInvoiceAdjustmentResponseResult' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class OdrInvoiceAdjustmentResponseResultNormalizer implements DenormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrInvoiceAdjustmentResponseResult();
-        if (property_exists($data, 'output') && $data->{'output'} !== null) {
+        if (property_exists($data, 'output') && null !== $data->{'output'}) {
             $object->setOutput($data->{'output'});
         }
 

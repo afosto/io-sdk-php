@@ -24,12 +24,12 @@ class IamLogNormalizer implements DenormalizerInterface, NormalizerInterface, De
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamLog';
+        return 'Afosto\\Sdk\\Model\\IamLog' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamLog';
+        return 'Afosto\\Sdk\\Model\\IamLog' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,25 +38,25 @@ class IamLogNormalizer implements DenormalizerInterface, NormalizerInterface, De
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamLog();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'method') && $data->{'method'} !== null) {
+        if (property_exists($data, 'method') && null !== $data->{'method'}) {
             $object->setMethod($data->{'method'});
         }
-        if (property_exists($data, 'resource') && $data->{'resource'} !== null) {
+        if (property_exists($data, 'resource') && null !== $data->{'resource'}) {
             $object->setResource($data->{'resource'});
         }
-        if (property_exists($data, 'user') && $data->{'user'} !== null) {
+        if (property_exists($data, 'user') && null !== $data->{'user'}) {
             $object->setUser($data->{'user'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'logged_at') && $data->{'logged_at'} !== null) {
+        if (property_exists($data, 'logged_at') && null !== $data->{'logged_at'}) {
             $object->setLoggedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'logged_at'}));
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
 

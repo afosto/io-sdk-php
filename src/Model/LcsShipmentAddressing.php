@@ -25,19 +25,11 @@ class LcsShipmentAddressing
      */
     protected $carrier;
 
-    /**
-     * @return string|null
-     */
     public function getEntityType(): ?string
     {
         return $this->entityType;
     }
 
-    /**
-     * @param string|null $entityType
-     *
-     * @return self
-     */
     public function setEntityType(?string $entityType): self
     {
         $this->entityType = $entityType;
@@ -45,19 +37,11 @@ class LcsShipmentAddressing
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getEntityId(): ?string
     {
         return $this->entityId;
     }
 
-    /**
-     * @param string|null $entityId
-     *
-     * @return self
-     */
     public function setEntityId(?string $entityId): self
     {
         $this->entityId = $entityId;
@@ -65,19 +49,11 @@ class LcsShipmentAddressing
         return $this;
     }
 
-    /**
-     * @return LcsShipmentAddressingCarrier|null
-     */
     public function getCarrier(): ?LcsShipmentAddressingCarrier
     {
         return $this->carrier;
     }
 
-    /**
-     * @param LcsShipmentAddressingCarrier|null $carrier
-     *
-     * @return self
-     */
     public function setCarrier(?LcsShipmentAddressingCarrier $carrier): self
     {
         $this->carrier = $carrier;

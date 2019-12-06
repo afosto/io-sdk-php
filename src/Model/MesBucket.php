@@ -29,19 +29,11 @@ class MesBucket
      */
     protected $filterValue;
 
-    /**
-     * @return \DateTime|null
-     */
     public function getDate(): ?\DateTime
     {
         return $this->date;
     }
 
-    /**
-     * @param \DateTime|null $date
-     *
-     * @return self
-     */
     public function setDate(?\DateTime $date): self
     {
         $this->date = $date;
@@ -49,19 +41,11 @@ class MesBucket
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getQuantity(): ?int
     {
         return $this->quantity;
     }
 
-    /**
-     * @param int|null $quantity
-     *
-     * @return self
-     */
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
@@ -69,19 +53,11 @@ class MesBucket
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getFilterKey(): ?string
     {
         return $this->filterKey;
     }
 
-    /**
-     * @param string|null $filterKey
-     *
-     * @return self
-     */
     public function setFilterKey(?string $filterKey): self
     {
         $this->filterKey = $filterKey;
@@ -89,19 +65,11 @@ class MesBucket
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getFilterValue(): ?string
     {
         return $this->filterValue;
     }
 
-    /**
-     * @param string|null $filterValue
-     *
-     * @return self
-     */
     public function setFilterValue(?string $filterValue): self
     {
         $this->filterValue = $filterValue;

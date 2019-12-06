@@ -24,12 +24,12 @@ class SplHubNetworkNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplHubNetwork';
+        return 'Afosto\\Sdk\\Model\\SplHubNetwork' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplHubNetwork';
+        return 'Afosto\\Sdk\\Model\\SplHubNetwork' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class SplHubNetworkNormalizer implements DenormalizerInterface, NormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplHubNetwork();
-        if (property_exists($data, 'ip_address') && $data->{'ip_address'} !== null) {
+        if (property_exists($data, 'ip_address') && null !== $data->{'ip_address'}) {
             $object->setIpAddress($data->{'ip_address'});
         }
-        if (property_exists($data, 'remote_ip_address') && $data->{'remote_ip_address'} !== null) {
+        if (property_exists($data, 'remote_ip_address') && null !== $data->{'remote_ip_address'}) {
             $object->setRemoteIpAddress($data->{'remote_ip_address'});
         }
-        if (property_exists($data, 'last_connected_at') && $data->{'last_connected_at'} !== null) {
+        if (property_exists($data, 'last_connected_at') && null !== $data->{'last_connected_at'}) {
             $object->setLastConnectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'last_connected_at'}));
         }
 

@@ -24,12 +24,12 @@ class IamTrialNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamTrial';
+        return 'Afosto\\Sdk\\Model\\IamTrial' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamTrial';
+        return 'Afosto\\Sdk\\Model\\IamTrial' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class IamTrialNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamTrial();
-        if (property_exists($data, 'is_on_trial') && $data->{'is_on_trial'} !== null) {
+        if (property_exists($data, 'is_on_trial') && null !== $data->{'is_on_trial'}) {
             $object->setIsOnTrial($data->{'is_on_trial'});
         }
-        if (property_exists($data, 'trial_balance') && $data->{'trial_balance'} !== null) {
+        if (property_exists($data, 'trial_balance') && null !== $data->{'trial_balance'}) {
             $object->setTrialBalance($data->{'trial_balance'});
         }
-        if (property_exists($data, 'trial_ends_at') && $data->{'trial_ends_at'} !== null) {
+        if (property_exists($data, 'trial_ends_at') && null !== $data->{'trial_ends_at'}) {
             $object->setTrialEndsAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'trial_ends_at'}));
         }
 

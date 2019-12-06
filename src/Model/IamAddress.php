@@ -33,19 +33,11 @@ class IamAddress
      */
     protected $countryCode;
 
-    /**
-     * @return string|null
-     */
     public function getAddressLine1(): ?string
     {
         return $this->addressLine1;
     }
 
-    /**
-     * @param string|null $addressLine1
-     *
-     * @return self
-     */
     public function setAddressLine1(?string $addressLine1): self
     {
         $this->addressLine1 = $addressLine1;
@@ -53,19 +45,11 @@ class IamAddress
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressLine2(): ?string
     {
         return $this->addressLine2;
     }
 
-    /**
-     * @param string|null $addressLine2
-     *
-     * @return self
-     */
     public function setAddressLine2(?string $addressLine2): self
     {
         $this->addressLine2 = $addressLine2;
@@ -73,19 +57,11 @@ class IamAddress
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPostalCode(): ?string
     {
         return $this->postalCode;
     }
 
-    /**
-     * @param string|null $postalCode
-     *
-     * @return self
-     */
     public function setPostalCode(?string $postalCode): self
     {
         $this->postalCode = $postalCode;
@@ -93,19 +69,11 @@ class IamAddress
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCity(): ?string
     {
         return $this->city;
     }
 
-    /**
-     * @param string|null $city
-     *
-     * @return self
-     */
     public function setCity(?string $city): self
     {
         $this->city = $city;
@@ -113,19 +81,11 @@ class IamAddress
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
     }
 
-    /**
-     * @param string|null $countryCode
-     *
-     * @return self
-     */
     public function setCountryCode(?string $countryCode): self
     {
         $this->countryCode = $countryCode;

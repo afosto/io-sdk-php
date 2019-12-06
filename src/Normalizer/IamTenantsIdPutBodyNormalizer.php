@@ -24,12 +24,12 @@ class IamTenantsIdPutBodyNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamTenantsIdPutBody';
+        return 'Afosto\\Sdk\\Model\\IamTenantsIdPutBody' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamTenantsIdPutBody';
+        return 'Afosto\\Sdk\\Model\\IamTenantsIdPutBody' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class IamTenantsIdPutBodyNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamTenantsIdPutBody();
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
 

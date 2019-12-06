@@ -33,19 +33,11 @@ class OdrOrderUpdateModel
      */
     protected $dueAt;
 
-    /**
-     * @return string|null
-     */
     public function getAddressId(): ?string
     {
         return $this->addressId;
     }
 
-    /**
-     * @param string|null $addressId
-     *
-     * @return self
-     */
     public function setAddressId(?string $addressId): self
     {
         $this->addressId = $addressId;
@@ -53,19 +45,11 @@ class OdrOrderUpdateModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getShipmentAddressId(): ?string
     {
         return $this->shipmentAddressId;
     }
 
-    /**
-     * @param string|null $shipmentAddressId
-     *
-     * @return self
-     */
     public function setShipmentAddressId(?string $shipmentAddressId): self
     {
         $this->shipmentAddressId = $shipmentAddressId;
@@ -73,19 +57,11 @@ class OdrOrderUpdateModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getOrganisationId(): ?string
     {
         return $this->organisationId;
     }
 
-    /**
-     * @param string|null $organisationId
-     *
-     * @return self
-     */
     public function setOrganisationId(?string $organisationId): self
     {
         $this->organisationId = $organisationId;
@@ -103,8 +79,6 @@ class OdrOrderUpdateModel
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -113,19 +87,11 @@ class OdrOrderUpdateModel
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getDueAt(): ?\DateTime
     {
         return $this->dueAt;
     }
 
-    /**
-     * @param \DateTime|null $dueAt
-     *
-     * @return self
-     */
     public function setDueAt(?\DateTime $dueAt): self
     {
         $this->dueAt = $dueAt;

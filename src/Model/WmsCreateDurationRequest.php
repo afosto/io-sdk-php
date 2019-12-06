@@ -25,19 +25,11 @@ class WmsCreateDurationRequest
      */
     protected $calculateAt;
 
-    /**
-     * @return string|null
-     */
     public function getRouteId(): ?string
     {
         return $this->routeId;
     }
 
-    /**
-     * @param string|null $routeId
-     *
-     * @return self
-     */
     public function setRouteId(?string $routeId): self
     {
         $this->routeId = $routeId;
@@ -45,19 +37,11 @@ class WmsCreateDurationRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLocationId(): ?string
     {
         return $this->locationId;
     }
 
-    /**
-     * @param string|null $locationId
-     *
-     * @return self
-     */
     public function setLocationId(?string $locationId): self
     {
         $this->locationId = $locationId;
@@ -65,19 +49,11 @@ class WmsCreateDurationRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCalculateAt(): ?string
     {
         return $this->calculateAt;
     }
 
-    /**
-     * @param string|null $calculateAt
-     *
-     * @return self
-     */
     public function setCalculateAt(?string $calculateAt): self
     {
         $this->calculateAt = $calculateAt;

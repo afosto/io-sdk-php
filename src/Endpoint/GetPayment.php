@@ -16,8 +16,6 @@ class GetPayment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     /**
      * Returns the live details of a payment.
-     *
-     * @param string $reference
      */
     public function __construct(string $reference)
     {

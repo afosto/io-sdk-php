@@ -45,8 +45,6 @@ class RelOrganisationUpdateModel
 
     /**
      * The name of the recipient, firm, or company at this address (optional).
-     *
-     * @return string|null
      */
     public function getName(): ?string
     {
@@ -55,10 +53,6 @@ class RelOrganisationUpdateModel
 
     /**
      * The name of the recipient, firm, or company at this address (optional).
-     *
-     * @param string|null $name
-     *
-     * @return self
      */
     public function setName(?string $name): self
     {
@@ -67,19 +61,11 @@ class RelOrganisationUpdateModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCocNumber(): ?string
     {
         return $this->cocNumber;
     }
 
-    /**
-     * @param string|null $cocNumber
-     *
-     * @return self
-     */
     public function setCocNumber(?string $cocNumber): self
     {
         $this->cocNumber = $cocNumber;
@@ -87,19 +73,11 @@ class RelOrganisationUpdateModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAccountManager(): ?string
     {
         return $this->accountManager;
     }
 
-    /**
-     * @param string|null $accountManager
-     *
-     * @return self
-     */
     public function setAccountManager(?string $accountManager): self
     {
         $this->accountManager = $accountManager;
@@ -117,8 +95,6 @@ class RelOrganisationUpdateModel
 
     /**
      * @param RelVatRegistrationModel[]|null $registrations
-     *
-     * @return self
      */
     public function setRegistrations(?array $registrations): self
     {
@@ -127,19 +103,11 @@ class RelOrganisationUpdateModel
         return $this;
     }
 
-    /**
-     * @return RelOrganisationPaymentSettings|null
-     */
     public function getPaymentSettings(): ?RelOrganisationPaymentSettings
     {
         return $this->paymentSettings;
     }
 
-    /**
-     * @param RelOrganisationPaymentSettings|null $paymentSettings
-     *
-     * @return self
-     */
     public function setPaymentSettings(?RelOrganisationPaymentSettings $paymentSettings): self
     {
         $this->paymentSettings = $paymentSettings;
@@ -147,19 +115,11 @@ class RelOrganisationUpdateModel
         return $this;
     }
 
-    /**
-     * @return RelOrganisationUpdateModelAddresses|null
-     */
     public function getAddresses(): ?RelOrganisationUpdateModelAddresses
     {
         return $this->addresses;
     }
 
-    /**
-     * @param RelOrganisationUpdateModelAddresses|null $addresses
-     *
-     * @return self
-     */
     public function setAddresses(?RelOrganisationUpdateModelAddresses $addresses): self
     {
         $this->addresses = $addresses;
@@ -167,19 +127,11 @@ class RelOrganisationUpdateModel
         return $this;
     }
 
-    /**
-     * @return RelOrganisationUpdateModelPhoneNumbers|null
-     */
     public function getPhoneNumbers(): ?RelOrganisationUpdateModelPhoneNumbers
     {
         return $this->phoneNumbers;
     }
 
-    /**
-     * @param RelOrganisationUpdateModelPhoneNumbers|null $phoneNumbers
-     *
-     * @return self
-     */
     public function setPhoneNumbers(?RelOrganisationUpdateModelPhoneNumbers $phoneNumbers): self
     {
         $this->phoneNumbers = $phoneNumbers;

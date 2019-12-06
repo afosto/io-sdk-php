@@ -24,12 +24,12 @@ class RelOrganisationUpdateModelPhoneNumbersNormalizer implements DenormalizerIn
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelPhoneNumbers';
+        return 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelPhoneNumbers' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelPhoneNumbers';
+        return 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelPhoneNumbers' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class RelOrganisationUpdateModelPhoneNumbersNormalizer implements DenormalizerIn
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelOrganisationUpdateModelPhoneNumbers();
-        if (property_exists($data, 'primary') && $data->{'primary'} !== null) {
+        if (property_exists($data, 'primary') && null !== $data->{'primary'}) {
             $object->setPrimary($data->{'primary'});
         }
-        if (property_exists($data, 'secondary') && $data->{'secondary'} !== null) {
+        if (property_exists($data, 'secondary') && null !== $data->{'secondary'}) {
             $values = [];
             foreach ($data->{'secondary'} as $value) {
                 $values[] = $value;

@@ -33,19 +33,11 @@ class OdrLog
      */
     protected $createdAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -53,19 +45,11 @@ class OdrLog
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStackType(): ?string
     {
         return $this->stackType;
     }
 
-    /**
-     * @param string|null $stackType
-     *
-     * @return self
-     */
     public function setStackType(?string $stackType): self
     {
         $this->stackType = $stackType;
@@ -73,19 +57,11 @@ class OdrLog
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStackId(): ?string
     {
         return $this->stackId;
     }
 
-    /**
-     * @param string|null $stackId
-     *
-     * @return self
-     */
     public function setStackId(?string $stackId): self
     {
         $this->stackId = $stackId;
@@ -93,19 +69,11 @@ class OdrLog
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getEvent(): ?string
     {
         return $this->event;
     }
 
-    /**
-     * @param string|null $event
-     *
-     * @return self
-     */
     public function setEvent(?string $event): self
     {
         $this->event = $event;
@@ -113,19 +81,11 @@ class OdrLog
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;

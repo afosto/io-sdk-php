@@ -17,8 +17,7 @@ class UpdateCompanyName extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
     /**
      * Update the company name.
      *
-     * @param string                                $id   Id that belongs to the tenant
-     * @param \Afosto\Sdk\Model\IamTenantsIdPutBody $body
+     * @param string $id Id that belongs to the tenant
      */
     public function __construct(string $id, \Afosto\Sdk\Model\IamTenantsIdPutBody $body)
     {

@@ -57,19 +57,11 @@ class WmsTransfer
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -79,8 +71,6 @@ class WmsTransfer
 
     /**
      * Target location.
-     *
-     * @return string|null
      */
     public function getTarget(): ?string
     {
@@ -89,10 +79,6 @@ class WmsTransfer
 
     /**
      * Target location.
-     *
-     * @param string|null $target
-     *
-     * @return self
      */
     public function setTarget(?string $target): self
     {
@@ -101,19 +87,11 @@ class WmsTransfer
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStatus(): ?string
     {
         return $this->status;
     }
 
-    /**
-     * @param string|null $status
-     *
-     * @return self
-     */
     public function setStatus(?string $status): self
     {
         $this->status = $status;
@@ -121,19 +99,11 @@ class WmsTransfer
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCollectAt(): ?string
     {
         return $this->collectAt;
     }
 
-    /**
-     * @param string|null $collectAt
-     *
-     * @return self
-     */
     public function setCollectAt(?string $collectAt): self
     {
         $this->collectAt = $collectAt;
@@ -155,8 +125,6 @@ class WmsTransfer
      * Optional: used when order should be packed in a single box for the target.
      *
      * @param WmsSubTransferSummary[]|null $collections
-     *
-     * @return self
      */
     public function setCollections(?array $collections): self
     {
@@ -175,8 +143,6 @@ class WmsTransfer
 
     /**
      * @param WmsSubTransferSummary[]|null $deliveries
-     *
-     * @return self
      */
     public function setDeliveries(?array $deliveries): self
     {
@@ -185,19 +151,11 @@ class WmsTransfer
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsCollectionPending(): ?bool
     {
         return $this->isCollectionPending;
     }
 
-    /**
-     * @param bool|null $isCollectionPending
-     *
-     * @return self
-     */
     public function setIsCollectionPending(?bool $isCollectionPending): self
     {
         $this->isCollectionPending = $isCollectionPending;
@@ -205,19 +163,11 @@ class WmsTransfer
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStackId(): ?string
     {
         return $this->stackId;
     }
 
-    /**
-     * @param string|null $stackId
-     *
-     * @return self
-     */
     public function setStackId(?string $stackId): self
     {
         $this->stackId = $stackId;
@@ -225,19 +175,11 @@ class WmsTransfer
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -245,19 +187,11 @@ class WmsTransfer
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

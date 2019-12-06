@@ -14,8 +14,6 @@ class CreateParcel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 {
     /**
      * Add a new parcel to the list.
-     *
-     * @param \Afosto\Sdk\Model\LcsParcelCreateModel $body
      */
     public function __construct(\Afosto\Sdk\Model\LcsParcelCreateModel $body)
     {

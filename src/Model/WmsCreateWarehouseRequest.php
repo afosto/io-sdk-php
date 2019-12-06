@@ -25,19 +25,11 @@ class WmsCreateWarehouseRequest
      */
     protected $metadata;
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -45,19 +37,11 @@ class WmsCreateWarehouseRequest
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsActive(): ?bool
     {
         return $this->isActive;
     }
 
-    /**
-     * @param bool|null $isActive
-     *
-     * @return self
-     */
     public function setIsActive(?bool $isActive): self
     {
         $this->isActive = $isActive;
@@ -75,8 +59,6 @@ class WmsCreateWarehouseRequest
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {

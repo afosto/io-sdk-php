@@ -14,8 +14,6 @@ class CreateAddress extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 {
     /**
      * Create an address.
-     *
-     * @param \Afosto\Sdk\Model\RelAddressModel $body
      */
     public function __construct(\Afosto\Sdk\Model\RelAddressModel $body)
     {

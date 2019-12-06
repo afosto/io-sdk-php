@@ -24,12 +24,12 @@ class MesInboxModelNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesInboxModel';
+        return 'Afosto\\Sdk\\Model\\MesInboxModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesInboxModel';
+        return 'Afosto\\Sdk\\Model\\MesInboxModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class MesInboxModelNormalizer implements DenormalizerInterface, NormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesInboxModel();
-        if (property_exists($data, 'label') && $data->{'label'} !== null) {
+        if (property_exists($data, 'label') && null !== $data->{'label'}) {
             $object->setLabel($data->{'label'});
         }
-        if (property_exists($data, 'fqdn') && $data->{'fqdn'} !== null) {
+        if (property_exists($data, 'fqdn') && null !== $data->{'fqdn'}) {
             $object->setFqdn($data->{'fqdn'});
         }
-        if (property_exists($data, 'prefix') && $data->{'prefix'} !== null) {
+        if (property_exists($data, 'prefix') && null !== $data->{'prefix'}) {
             $object->setPrefix($data->{'prefix'});
         }
-        if (property_exists($data, 'user_id') && $data->{'user_id'} !== null) {
+        if (property_exists($data, 'user_id') && null !== $data->{'user_id'}) {
             $object->setUserId($data->{'user_id'});
         }
 

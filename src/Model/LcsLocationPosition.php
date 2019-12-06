@@ -29,19 +29,11 @@ class LcsLocationPosition
      */
     protected $createdAt;
 
-    /**
-     * @return string|null
-     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
-    /**
-     * @param string|null $code
-     *
-     * @return self
-     */
     public function setCode(?string $code): self
     {
         $this->code = $code;
@@ -49,19 +41,11 @@ class LcsLocationPosition
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getSorting(): ?int
     {
         return $this->sorting;
     }
 
-    /**
-     * @param int|null $sorting
-     *
-     * @return self
-     */
     public function setSorting(?int $sorting): self
     {
         $this->sorting = $sorting;
@@ -79,8 +63,6 @@ class LcsLocationPosition
 
     /**
      * @param LcsLocationSku[]|null $skus
-     *
-     * @return self
      */
     public function setSkus(?array $skus): self
     {
@@ -89,19 +71,11 @@ class LcsLocationPosition
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;

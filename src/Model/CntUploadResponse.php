@@ -21,19 +21,11 @@ class CntUploadResponse
      */
     protected $signature;
 
-    /**
-     * @return \DateTime|null
-     */
     public function getExpiresAt(): ?\DateTime
     {
         return $this->expiresAt;
     }
 
-    /**
-     * @param \DateTime|null $expiresAt
-     *
-     * @return self
-     */
     public function setExpiresAt(?\DateTime $expiresAt): self
     {
         $this->expiresAt = $expiresAt;
@@ -41,19 +33,11 @@ class CntUploadResponse
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSignature(): ?string
     {
         return $this->signature;
     }
 
-    /**
-     * @param string|null $signature
-     *
-     * @return self
-     */
     public function setSignature(?string $signature): self
     {
         $this->signature = $signature;

@@ -24,12 +24,12 @@ class MesNotifyNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesNotify';
+        return 'Afosto\\Sdk\\Model\\MesNotify' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesNotify';
+        return 'Afosto\\Sdk\\Model\\MesNotify' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class MesNotifyNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesNotify();
-        if (property_exists($data, 'address') && $data->{'address'} !== null) {
+        if (property_exists($data, 'address') && null !== $data->{'address'}) {
             $object->setAddress($data->{'address'});
         }
-        if (property_exists($data, 'medium') && $data->{'medium'} !== null) {
+        if (property_exists($data, 'medium') && null !== $data->{'medium'}) {
             $object->setMedium($data->{'medium'});
         }
 

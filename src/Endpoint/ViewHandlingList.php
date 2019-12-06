@@ -16,8 +16,6 @@ class ViewHandlingList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     /**
      * Returns a handling list.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

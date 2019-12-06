@@ -24,12 +24,12 @@ class IamSubtenantNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamSubtenant';
+        return 'Afosto\\Sdk\\Model\\IamSubtenant' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamSubtenant';
+        return 'Afosto\\Sdk\\Model\\IamSubtenant' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,32 +38,32 @@ class IamSubtenantNormalizer implements DenormalizerInterface, NormalizerInterfa
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamSubtenant();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'company') && $data->{'company'} !== null) {
+        if (property_exists($data, 'company') && null !== $data->{'company'}) {
             $object->setCompany($data->{'company'});
         }
-        if (property_exists($data, 'state') && $data->{'state'} !== null) {
+        if (property_exists($data, 'state') && null !== $data->{'state'}) {
             $object->setState($data->{'state'});
         }
-        if (property_exists($data, 'tenant_id') && $data->{'tenant_id'} !== null) {
+        if (property_exists($data, 'tenant_id') && null !== $data->{'tenant_id'}) {
             $object->setTenantId($data->{'tenant_id'});
         }
-        if (property_exists($data, 'signee') && $data->{'signee'} !== null) {
+        if (property_exists($data, 'signee') && null !== $data->{'signee'}) {
             $object->setSignee($data->{'signee'});
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'roles') && $data->{'roles'} !== null) {
+        if (property_exists($data, 'roles') && null !== $data->{'roles'}) {
             $values = [];
             foreach ($data->{'roles'} as $value) {
                 $values[] = $value;
             }
             $object->setRoles($values);
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
 

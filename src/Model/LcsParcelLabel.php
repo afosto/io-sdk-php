@@ -29,19 +29,11 @@ class LcsParcelLabel
      */
     protected $requestedAt;
 
-    /**
-     * @return string|null
-     */
     public function getFileId(): ?string
     {
         return $this->fileId;
     }
 
-    /**
-     * @param string|null $fileId
-     *
-     * @return self
-     */
     public function setFileId(?string $fileId): self
     {
         $this->fileId = $fileId;
@@ -49,19 +41,11 @@ class LcsParcelLabel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -69,19 +53,11 @@ class LcsParcelLabel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLabelText(): ?string
     {
         return $this->labelText;
     }
 
-    /**
-     * @param string|null $labelText
-     *
-     * @return self
-     */
     public function setLabelText(?string $labelText): self
     {
         $this->labelText = $labelText;
@@ -89,19 +65,11 @@ class LcsParcelLabel
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getRequestedAt(): ?\DateTime
     {
         return $this->requestedAt;
     }
 
-    /**
-     * @param \DateTime|null $requestedAt
-     *
-     * @return self
-     */
     public function setRequestedAt(?\DateTime $requestedAt): self
     {
         $this->requestedAt = $requestedAt;

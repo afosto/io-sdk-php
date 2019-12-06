@@ -16,8 +16,6 @@ class RemoveParcel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     /**
      * Remove a parcel.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

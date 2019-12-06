@@ -24,12 +24,12 @@ class OdrCalculationStateNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrCalculationState';
+        return 'Afosto\\Sdk\\Model\\OdrCalculationState' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrCalculationState';
+        return 'Afosto\\Sdk\\Model\\OdrCalculationState' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class OdrCalculationStateNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrCalculationState();
-        if (property_exists($data, 'is_concept') && $data->{'is_concept'} !== null) {
+        if (property_exists($data, 'is_concept') && null !== $data->{'is_concept'}) {
             $object->setIsConcept($data->{'is_concept'});
         }
 

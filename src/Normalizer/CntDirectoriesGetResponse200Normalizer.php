@@ -24,12 +24,12 @@ class CntDirectoriesGetResponse200Normalizer implements DenormalizerInterface, N
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntDirectoriesGetResponse200';
+        return 'Afosto\\Sdk\\Model\\CntDirectoriesGetResponse200' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntDirectoriesGetResponse200';
+        return 'Afosto\\Sdk\\Model\\CntDirectoriesGetResponse200' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class CntDirectoriesGetResponse200Normalizer implements DenormalizerInterface, N
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntDirectoriesGetResponse200();
-        if (property_exists($data, 'directories') && $data->{'directories'} !== null) {
+        if (property_exists($data, 'directories') && null !== $data->{'directories'}) {
             $values = [];
             foreach ($data->{'directories'} as $value) {
                 $values[] = $value;

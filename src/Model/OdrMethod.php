@@ -53,19 +53,11 @@ class OdrMethod
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
-    /**
-     * @param string|null $code
-     *
-     * @return self
-     */
     public function setCode(?string $code): self
     {
         $this->code = $code;
@@ -73,19 +65,11 @@ class OdrMethod
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getProviderCode(): ?string
     {
         return $this->providerCode;
     }
 
-    /**
-     * @param string|null $providerCode
-     *
-     * @return self
-     */
     public function setProviderCode(?string $providerCode): self
     {
         $this->providerCode = $providerCode;
@@ -93,19 +77,11 @@ class OdrMethod
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -113,19 +89,11 @@ class OdrMethod
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -133,19 +101,11 @@ class OdrMethod
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getInstructions(): ?string
     {
         return $this->instructions;
     }
 
-    /**
-     * @param string|null $instructions
-     *
-     * @return self
-     */
     public function setInstructions(?string $instructions): self
     {
         $this->instructions = $instructions;
@@ -163,8 +123,6 @@ class OdrMethod
 
     /**
      * @param OdrIssuer[]|null $issuers
-     *
-     * @return self
      */
     public function setIssuers(?array $issuers): self
     {
@@ -173,19 +131,11 @@ class OdrMethod
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsActive(): ?bool
     {
         return $this->isActive;
     }
 
-    /**
-     * @param bool|null $isActive
-     *
-     * @return self
-     */
     public function setIsActive(?bool $isActive): self
     {
         $this->isActive = $isActive;
@@ -203,8 +153,6 @@ class OdrMethod
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -213,19 +161,11 @@ class OdrMethod
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -233,19 +173,11 @@ class OdrMethod
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

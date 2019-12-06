@@ -24,12 +24,12 @@ class MesMessageNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesMessage';
+        return 'Afosto\\Sdk\\Model\\MesMessage' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesMessage';
+        return 'Afosto\\Sdk\\Model\\MesMessage' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,23 +38,23 @@ class MesMessageNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesMessage();
-        if (property_exists($data, 'content') && $data->{'content'} !== null) {
+        if (property_exists($data, 'content') && null !== $data->{'content'}) {
             $object->setContent($data->{'content'});
         }
-        if (property_exists($data, 'participant_reference') && $data->{'participant_reference'} !== null) {
+        if (property_exists($data, 'participant_reference') && null !== $data->{'participant_reference'}) {
             $object->setParticipantReference($data->{'participant_reference'});
         }
-        if (property_exists($data, 'is_private') && $data->{'is_private'} !== null) {
+        if (property_exists($data, 'is_private') && null !== $data->{'is_private'}) {
             $object->setIsPrivate($data->{'is_private'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->{'metadata'} as $key => $value) {
                 $values[$key] = $value;
             }
             $object->setMetadata($values);
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
 

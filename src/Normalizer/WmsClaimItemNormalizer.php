@@ -24,12 +24,12 @@ class WmsClaimItemNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsClaimItem';
+        return 'Afosto\\Sdk\\Model\\WmsClaimItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsClaimItem';
+        return 'Afosto\\Sdk\\Model\\WmsClaimItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class WmsClaimItemNormalizer implements DenormalizerInterface, NormalizerInterfa
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsClaimItem();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'warehouse_item_id') && $data->{'warehouse_item_id'} !== null) {
+        if (property_exists($data, 'warehouse_item_id') && null !== $data->{'warehouse_item_id'}) {
             $object->setWarehouseItemId($data->{'warehouse_item_id'});
         }
-        if (property_exists($data, 'stack_item_id') && $data->{'stack_item_id'} !== null) {
+        if (property_exists($data, 'stack_item_id') && null !== $data->{'stack_item_id'}) {
             $object->setStackItemId($data->{'stack_item_id'});
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

@@ -14,8 +14,6 @@ class ResetIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 {
     /**
      * Pass a token to reset the password.
-     *
-     * @param \Afosto\Sdk\Model\RelCreateResetRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\RelCreateResetRequest $body)
     {

@@ -24,12 +24,12 @@ class CatPriceSearchNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CatPriceSearch';
+        return 'Afosto\\Sdk\\Model\\CatPriceSearch' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CatPriceSearch';
+        return 'Afosto\\Sdk\\Model\\CatPriceSearch' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class CatPriceSearchNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\CatPriceSearch();
-        if (property_exists($data, 'active_at') && $data->{'active_at'} !== null) {
+        if (property_exists($data, 'active_at') && null !== $data->{'active_at'}) {
             $object->setActiveAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'active_at'}));
         }
-        if (property_exists($data, 'constraints') && $data->{'constraints'} !== null) {
+        if (property_exists($data, 'constraints') && null !== $data->{'constraints'}) {
             $values = [];
             foreach ($data->{'constraints'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CatPriceConstraint', 'json', $context);

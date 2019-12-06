@@ -24,12 +24,12 @@ class IamTenantsPostResponse200Normalizer implements DenormalizerInterface, Norm
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamTenantsPostResponse200';
+        return 'Afosto\\Sdk\\Model\\IamTenantsPostResponse200' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamTenantsPostResponse200';
+        return 'Afosto\\Sdk\\Model\\IamTenantsPostResponse200' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class IamTenantsPostResponse200Normalizer implements DenormalizerInterface, Norm
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamTenantsPostResponse200();
-        if (property_exists($data, 'tenant') && $data->{'tenant'} !== null) {
+        if (property_exists($data, 'tenant') && null !== $data->{'tenant'}) {
             $object->setTenant($this->denormalizer->denormalize($data->{'tenant'}, 'Afosto\\Sdk\\Model\\IamTenant', 'json', $context));
         }
-        if (property_exists($data, 'user') && $data->{'user'} !== null) {
+        if (property_exists($data, 'user') && null !== $data->{'user'}) {
             $object->setUser($this->denormalizer->denormalize($data->{'user'}, 'Afosto\\Sdk\\Model\\IamUser', 'json', $context));
         }
 

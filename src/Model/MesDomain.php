@@ -37,19 +37,11 @@ class MesDomain
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -57,19 +49,11 @@ class MesDomain
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsVerified(): ?bool
     {
         return $this->isVerified;
     }
 
-    /**
-     * @param bool|null $isVerified
-     *
-     * @return self
-     */
     public function setIsVerified(?bool $isVerified): self
     {
         $this->isVerified = $isVerified;
@@ -87,8 +71,6 @@ class MesDomain
 
     /**
      * @param MesDnsRecord[]|null $dns
-     *
-     * @return self
      */
     public function setDns(?array $dns): self
     {
@@ -97,19 +79,11 @@ class MesDomain
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTenantId(): ?string
     {
         return $this->tenantId;
     }
 
-    /**
-     * @param string|null $tenantId
-     *
-     * @return self
-     */
     public function setTenantId(?string $tenantId): self
     {
         $this->tenantId = $tenantId;
@@ -117,19 +91,11 @@ class MesDomain
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -137,19 +103,11 @@ class MesDomain
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

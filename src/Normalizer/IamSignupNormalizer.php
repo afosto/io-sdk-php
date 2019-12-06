@@ -24,12 +24,12 @@ class IamSignupNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamSignup';
+        return 'Afosto\\Sdk\\Model\\IamSignup' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamSignup';
+        return 'Afosto\\Sdk\\Model\\IamSignup' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class IamSignupNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamSignup();
-        if (property_exists($data, 'company') && $data->{'company'} !== null) {
+        if (property_exists($data, 'company') && null !== $data->{'company'}) {
             $object->setCompany($this->denormalizer->denormalize($data->{'company'}, 'Afosto\\Sdk\\Model\\IamCompany', 'json', $context));
         }
-        if (property_exists($data, 'user') && $data->{'user'} !== null) {
+        if (property_exists($data, 'user') && null !== $data->{'user'}) {
             $object->setUser($this->denormalizer->denormalize($data->{'user'}, 'Afosto\\Sdk\\Model\\IamUserModel', 'json', $context));
         }
 

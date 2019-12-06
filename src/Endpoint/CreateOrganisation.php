@@ -14,8 +14,6 @@ class CreateOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 {
     /**
      * Create an organisation.
-     *
-     * @param \Afosto\Sdk\Model\RelOrganisationUpdateModel $body
      */
     public function __construct(\Afosto\Sdk\Model\RelOrganisationUpdateModel $body)
     {

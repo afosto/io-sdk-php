@@ -14,8 +14,6 @@ class UpdateLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 {
     /**
      * Update a location.
-     *
-     * @param \Afosto\Sdk\Model\WmsUpdateLocationRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\WmsUpdateLocationRequest $body)
     {

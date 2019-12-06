@@ -41,19 +41,11 @@ class LcsShipmentModel
      */
     protected $stack;
 
-    /**
-     * @return LcsShipmentModelAddressing|null
-     */
     public function getAddressing(): ?LcsShipmentModelAddressing
     {
         return $this->addressing;
     }
 
-    /**
-     * @param LcsShipmentModelAddressing|null $addressing
-     *
-     * @return self
-     */
     public function setAddressing(?LcsShipmentModelAddressing $addressing): self
     {
         $this->addressing = $addressing;
@@ -71,8 +63,6 @@ class LcsShipmentModel
 
     /**
      * @param LcsShipmentItemModel[]|null $items
-     *
-     * @return self
      */
     public function setItems(?array $items): self
     {
@@ -91,8 +81,6 @@ class LcsShipmentModel
 
     /**
      * @param LcsBackorderItem[]|null $backorders
-     *
-     * @return self
      */
     public function setBackorders(?array $backorders): self
     {
@@ -101,19 +89,11 @@ class LcsShipmentModel
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getExpectedAt(): ?\DateTime
     {
         return $this->expectedAt;
     }
 
-    /**
-     * @param \DateTime|null $expectedAt
-     *
-     * @return self
-     */
     public function setExpectedAt(?\DateTime $expectedAt): self
     {
         $this->expectedAt = $expectedAt;
@@ -121,19 +101,11 @@ class LcsShipmentModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMethodId(): ?string
     {
         return $this->methodId;
     }
 
-    /**
-     * @param string|null $methodId
-     *
-     * @return self
-     */
     public function setMethodId(?string $methodId): self
     {
         $this->methodId = $methodId;
@@ -141,19 +113,11 @@ class LcsShipmentModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getContactId(): ?string
     {
         return $this->contactId;
     }
 
-    /**
-     * @param string|null $contactId
-     *
-     * @return self
-     */
     public function setContactId(?string $contactId): self
     {
         $this->contactId = $contactId;
@@ -161,19 +125,11 @@ class LcsShipmentModel
         return $this;
     }
 
-    /**
-     * @return LcsShipmentModelStack|null
-     */
     public function getStack(): ?LcsShipmentModelStack
     {
         return $this->stack;
     }
 
-    /**
-     * @param LcsShipmentModelStack|null $stack
-     *
-     * @return self
-     */
     public function setStack(?LcsShipmentModelStack $stack): self
     {
         $this->stack = $stack;

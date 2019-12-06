@@ -24,12 +24,12 @@ class CatProductVatModelNormalizer implements DenormalizerInterface, NormalizerI
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CatProductVatModel';
+        return 'Afosto\\Sdk\\Model\\CatProductVatModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CatProductVatModel';
+        return 'Afosto\\Sdk\\Model\\CatProductVatModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class CatProductVatModelNormalizer implements DenormalizerInterface, NormalizerI
             return null;
         }
         $object = new \Afosto\Sdk\Model\CatProductVatModel();
-        if (property_exists($data, 'sku') && $data->{'sku'} !== null) {
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'rates') && $data->{'rates'} !== null) {
+        if (property_exists($data, 'rates') && null !== $data->{'rates'}) {
             $values = [];
             foreach ($data->{'rates'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CatVatModel', 'json', $context);

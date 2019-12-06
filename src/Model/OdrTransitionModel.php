@@ -25,19 +25,11 @@ class OdrTransitionModel
      */
     protected $constraints;
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;
@@ -55,8 +47,6 @@ class OdrTransitionModel
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -75,8 +65,6 @@ class OdrTransitionModel
 
     /**
      * @param OdrSearchConstraint[]|null $constraints
-     *
-     * @return self
      */
     public function setConstraints(?array $constraints): self
     {

@@ -24,12 +24,12 @@ class OdrPriceRuleEvaluationNormalizer implements DenormalizerInterface, Normali
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrPriceRuleEvaluation';
+        return 'Afosto\\Sdk\\Model\\OdrPriceRuleEvaluation' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrPriceRuleEvaluation';
+        return 'Afosto\\Sdk\\Model\\OdrPriceRuleEvaluation' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,39 +38,39 @@ class OdrPriceRuleEvaluationNormalizer implements DenormalizerInterface, Normali
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrPriceRuleEvaluation();
-        if (property_exists($data, 'pricing_at') && $data->{'pricing_at'} !== null) {
+        if (property_exists($data, 'pricing_at') && null !== $data->{'pricing_at'}) {
             $object->setPricingAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'pricing_at'}));
         }
-        if (property_exists($data, 'quantity') && $data->{'quantity'} !== null) {
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
         }
-        if (property_exists($data, 'amount') && $data->{'amount'} !== null) {
+        if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
         }
-        if (property_exists($data, 'client') && $data->{'client'} !== null) {
+        if (property_exists($data, 'client') && null !== $data->{'client'}) {
             $object->setClient($data->{'client'});
         }
-        if (property_exists($data, 'tags') && $data->{'tags'} !== null) {
+        if (property_exists($data, 'tags') && null !== $data->{'tags'}) {
             $values = [];
             foreach ($data->{'tags'} as $value) {
                 $values[] = $value;
             }
             $object->setTags($values);
         }
-        if (property_exists($data, 'shipment_method') && $data->{'shipment_method'} !== null) {
+        if (property_exists($data, 'shipment_method') && null !== $data->{'shipment_method'}) {
             $object->setShipmentMethod($data->{'shipment_method'});
         }
-        if (property_exists($data, 'payment_method') && $data->{'payment_method'} !== null) {
+        if (property_exists($data, 'payment_method') && null !== $data->{'payment_method'}) {
             $object->setPaymentMethod($data->{'payment_method'});
         }
-        if (property_exists($data, 'coupons') && $data->{'coupons'} !== null) {
+        if (property_exists($data, 'coupons') && null !== $data->{'coupons'}) {
             $values_1 = [];
             foreach ($data->{'coupons'} as $value_1) {
                 $values_1[] = $value_1;
             }
             $object->setCoupons($values_1);
         }
-        if (property_exists($data, 'items') && $data->{'items'} !== null) {
+        if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values_2 = [];
             foreach ($data->{'items'} as $value_2) {
                 $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\OdrEvaluationItem', 'json', $context);

@@ -24,12 +24,12 @@ class RelCreateTokenRequestNormalizer implements DenormalizerInterface, Normaliz
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelCreateTokenRequest';
+        return 'Afosto\\Sdk\\Model\\RelCreateTokenRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelCreateTokenRequest';
+        return 'Afosto\\Sdk\\Model\\RelCreateTokenRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class RelCreateTokenRequestNormalizer implements DenormalizerInterface, Normaliz
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelCreateTokenRequest();
-        if (property_exists($data, 'email') && $data->{'email'} !== null) {
+        if (property_exists($data, 'email') && null !== $data->{'email'}) {
             $object->setEmail($data->{'email'});
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'audience') && $data->{'audience'} !== null) {
+        if (property_exists($data, 'audience') && null !== $data->{'audience'}) {
             $object->setAudience($data->{'audience'});
         }
 

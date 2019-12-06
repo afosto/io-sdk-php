@@ -24,12 +24,12 @@ class WmsUpdateWarehouseItemRequestNormalizer implements DenormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsUpdateWarehouseItemRequest';
+        return 'Afosto\\Sdk\\Model\\WmsUpdateWarehouseItemRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsUpdateWarehouseItemRequest';
+        return 'Afosto\\Sdk\\Model\\WmsUpdateWarehouseItemRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class WmsUpdateWarehouseItemRequestNormalizer implements DenormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsUpdateWarehouseItemRequest();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'position') && $data->{'position'} !== null) {
+        if (property_exists($data, 'position') && null !== $data->{'position'}) {
             $object->setPosition($data->{'position'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->{'metadata'} as $key => $value) {
                 $values[$key] = $value;

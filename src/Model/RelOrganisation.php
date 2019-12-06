@@ -51,19 +51,11 @@ class RelOrganisation
      */
     protected $accountManager;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -71,19 +63,11 @@ class RelOrganisation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getVersion(): ?string
     {
         return $this->version;
     }
 
-    /**
-     * @param string|null $version
-     *
-     * @return self
-     */
     public function setVersion(?string $version): self
     {
         $this->version = $version;
@@ -93,8 +77,6 @@ class RelOrganisation
 
     /**
      * The name of the recipient, firm, or company at this address (optional).
-     *
-     * @return string|null
      */
     public function getName(): ?string
     {
@@ -103,10 +85,6 @@ class RelOrganisation
 
     /**
      * The name of the recipient, firm, or company at this address (optional).
-     *
-     * @param string|null $name
-     *
-     * @return self
      */
     public function setName(?string $name): self
     {
@@ -125,8 +103,6 @@ class RelOrganisation
 
     /**
      * @param RelVatRegistration[]|null $registrations
-     *
-     * @return self
      */
     public function setRegistrations(?array $registrations): self
     {
@@ -135,19 +111,11 @@ class RelOrganisation
         return $this;
     }
 
-    /**
-     * @return RelOrganisationPaymentSettings|null
-     */
     public function getPaymentSettings(): ?RelOrganisationPaymentSettings
     {
         return $this->paymentSettings;
     }
 
-    /**
-     * @param RelOrganisationPaymentSettings|null $paymentSettings
-     *
-     * @return self
-     */
     public function setPaymentSettings(?RelOrganisationPaymentSettings $paymentSettings): self
     {
         $this->paymentSettings = $paymentSettings;
@@ -155,19 +123,11 @@ class RelOrganisation
         return $this;
     }
 
-    /**
-     * @return RelPhoneNumberList|null
-     */
     public function getPhoneNumbers(): ?RelPhoneNumberList
     {
         return $this->phoneNumbers;
     }
 
-    /**
-     * @param RelPhoneNumberList|null $phoneNumbers
-     *
-     * @return self
-     */
     public function setPhoneNumbers(?RelPhoneNumberList $phoneNumbers): self
     {
         $this->phoneNumbers = $phoneNumbers;
@@ -175,19 +135,11 @@ class RelOrganisation
         return $this;
     }
 
-    /**
-     * @return RelAddressList|null
-     */
     public function getAddresses(): ?RelAddressList
     {
         return $this->addresses;
     }
 
-    /**
-     * @param RelAddressList|null $addresses
-     *
-     * @return self
-     */
     public function setAddresses(?RelAddressList $addresses): self
     {
         $this->addresses = $addresses;
@@ -195,19 +147,11 @@ class RelOrganisation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCocNumber(): ?string
     {
         return $this->cocNumber;
     }
 
-    /**
-     * @param string|null $cocNumber
-     *
-     * @return self
-     */
     public function setCocNumber(?string $cocNumber): self
     {
         $this->cocNumber = $cocNumber;
@@ -215,19 +159,11 @@ class RelOrganisation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAccountManager(): ?string
     {
         return $this->accountManager;
     }
 
-    /**
-     * @param string|null $accountManager
-     *
-     * @return self
-     */
     public function setAccountManager(?string $accountManager): self
     {
         $this->accountManager = $accountManager;

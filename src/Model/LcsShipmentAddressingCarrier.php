@@ -21,19 +21,11 @@ class LcsShipmentAddressingCarrier
      */
     protected $carrierLocationReference;
 
-    /**
-     * @return bool|null
-     */
     public function getIsCarrierLocation(): ?bool
     {
         return $this->isCarrierLocation;
     }
 
-    /**
-     * @param bool|null $isCarrierLocation
-     *
-     * @return self
-     */
     public function setIsCarrierLocation(?bool $isCarrierLocation): self
     {
         $this->isCarrierLocation = $isCarrierLocation;
@@ -41,19 +33,11 @@ class LcsShipmentAddressingCarrier
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCarrierLocationReference(): ?string
     {
         return $this->carrierLocationReference;
     }
 
-    /**
-     * @param string|null $carrierLocationReference
-     *
-     * @return self
-     */
     public function setCarrierLocationReference(?string $carrierLocationReference): self
     {
         $this->carrierLocationReference = $carrierLocationReference;

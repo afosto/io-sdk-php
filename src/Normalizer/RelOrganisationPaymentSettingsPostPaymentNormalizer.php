@@ -24,12 +24,12 @@ class RelOrganisationPaymentSettingsPostPaymentNormalizer implements Denormalize
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettingsPostPayment';
+        return 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettingsPostPayment' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettingsPostPayment';
+        return 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettingsPostPayment' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class RelOrganisationPaymentSettingsPostPaymentNormalizer implements Denormalize
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelOrganisationPaymentSettingsPostPayment();
-        if (property_exists($data, 'spending_limit') && $data->{'spending_limit'} !== null) {
+        if (property_exists($data, 'spending_limit') && null !== $data->{'spending_limit'}) {
             $object->setSpendingLimit($data->{'spending_limit'});
         }
-        if (property_exists($data, 'current_due_amount') && $data->{'current_due_amount'} !== null) {
+        if (property_exists($data, 'current_due_amount') && null !== $data->{'current_due_amount'}) {
             $object->setCurrentDueAmount($data->{'current_due_amount'});
         }
-        if (property_exists($data, 'due_after') && $data->{'due_after'} !== null) {
+        if (property_exists($data, 'due_after') && null !== $data->{'due_after'}) {
             $object->setDueAfter($data->{'due_after'});
         }
-        if (property_exists($data, 'iban') && $data->{'iban'} !== null) {
+        if (property_exists($data, 'iban') && null !== $data->{'iban'}) {
             $object->setIban($data->{'iban'});
         }
 

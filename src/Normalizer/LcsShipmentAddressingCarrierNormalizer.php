@@ -24,12 +24,12 @@ class LcsShipmentAddressingCarrierNormalizer implements DenormalizerInterface, N
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsShipmentAddressingCarrier';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentAddressingCarrier' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsShipmentAddressingCarrier';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentAddressingCarrier' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class LcsShipmentAddressingCarrierNormalizer implements DenormalizerInterface, N
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsShipmentAddressingCarrier();
-        if (property_exists($data, 'is_carrier_location') && $data->{'is_carrier_location'} !== null) {
+        if (property_exists($data, 'is_carrier_location') && null !== $data->{'is_carrier_location'}) {
             $object->setIsCarrierLocation($data->{'is_carrier_location'});
         }
-        if (property_exists($data, 'carrier_location_reference') && $data->{'carrier_location_reference'} !== null) {
+        if (property_exists($data, 'carrier_location_reference') && null !== $data->{'carrier_location_reference'}) {
             $object->setCarrierLocationReference($data->{'carrier_location_reference'});
         }
 

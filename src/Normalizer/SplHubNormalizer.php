@@ -24,12 +24,12 @@ class SplHubNormalizer implements DenormalizerInterface, NormalizerInterface, De
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplHub';
+        return 'Afosto\\Sdk\\Model\\SplHub' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplHub';
+        return 'Afosto\\Sdk\\Model\\SplHub' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,47 +38,47 @@ class SplHubNormalizer implements DenormalizerInterface, NormalizerInterface, De
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplHub();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'uuid') && $data->{'uuid'} !== null) {
+        if (property_exists($data, 'uuid') && null !== $data->{'uuid'}) {
             $object->setUuid($data->{'uuid'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'properties') && $data->{'properties'} !== null) {
+        if (property_exists($data, 'properties') && null !== $data->{'properties'}) {
             $values = [];
             foreach ($data->{'properties'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\SplProperty', 'json', $context);
             }
             $object->setProperties($values);
         }
-        if (property_exists($data, 'status') && $data->{'status'} !== null) {
+        if (property_exists($data, 'status') && null !== $data->{'status'}) {
             $object->setStatus($data->{'status'});
         }
-        if (property_exists($data, 'status_updated_at') && $data->{'status_updated_at'} !== null) {
+        if (property_exists($data, 'status_updated_at') && null !== $data->{'status_updated_at'}) {
             $object->setStatusUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'status_updated_at'}));
         }
-        if (property_exists($data, 'disabled_at') && $data->{'disabled_at'} !== null) {
+        if (property_exists($data, 'disabled_at') && null !== $data->{'disabled_at'}) {
             $object->setDisabledAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'disabled_at'}));
         }
-        if (property_exists($data, 'pubnub') && $data->{'pubnub'} !== null) {
+        if (property_exists($data, 'pubnub') && null !== $data->{'pubnub'}) {
             $object->setPubnub($this->denormalizer->denormalize($data->{'pubnub'}, 'Afosto\\Sdk\\Model\\SplPubnub', 'json', $context));
         }
-        if (property_exists($data, 'integration') && $data->{'integration'} !== null) {
+        if (property_exists($data, 'integration') && null !== $data->{'integration'}) {
             $object->setIntegration($this->denormalizer->denormalize($data->{'integration'}, 'Afosto\\Sdk\\Model\\SplIntegration', 'json', $context));
         }
-        if (property_exists($data, 'os_file_id') && $data->{'os_file_id'} !== null) {
+        if (property_exists($data, 'os_file_id') && null !== $data->{'os_file_id'}) {
             $object->setOsFileId($data->{'os_file_id'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

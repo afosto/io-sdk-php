@@ -14,8 +14,6 @@ class CreateTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 {
     /**
      * Create a new transfer.
-     *
-     * @param \Afosto\Sdk\Model\WmsCreateTransferRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\WmsCreateTransferRequest $body)
     {

@@ -16,8 +16,6 @@ class ViewOrganisationVersions extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
 
     /**
      * Returns a version list for the organisation.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

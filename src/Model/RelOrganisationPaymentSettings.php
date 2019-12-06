@@ -21,19 +21,11 @@ class RelOrganisationPaymentSettings
      */
     protected $invoice;
 
-    /**
-     * @return RelOrganisationPaymentSettingsPostPayment|null
-     */
     public function getPostPayment(): ?RelOrganisationPaymentSettingsPostPayment
     {
         return $this->postPayment;
     }
 
-    /**
-     * @param RelOrganisationPaymentSettingsPostPayment|null $postPayment
-     *
-     * @return self
-     */
     public function setPostPayment(?RelOrganisationPaymentSettingsPostPayment $postPayment): self
     {
         $this->postPayment = $postPayment;
@@ -41,19 +33,11 @@ class RelOrganisationPaymentSettings
         return $this;
     }
 
-    /**
-     * @return RelOrganisationPaymentSettingsInvoice|null
-     */
     public function getInvoice(): ?RelOrganisationPaymentSettingsInvoice
     {
         return $this->invoice;
     }
 
-    /**
-     * @param RelOrganisationPaymentSettingsInvoice|null $invoice
-     *
-     * @return self
-     */
     public function setInvoice(?RelOrganisationPaymentSettingsInvoice $invoice): self
     {
         $this->invoice = $invoice;

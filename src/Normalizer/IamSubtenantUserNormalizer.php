@@ -24,12 +24,12 @@ class IamSubtenantUserNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamSubtenantUser';
+        return 'Afosto\\Sdk\\Model\\IamSubtenantUser' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamSubtenantUser';
+        return 'Afosto\\Sdk\\Model\\IamSubtenantUser' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class IamSubtenantUserNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamSubtenantUser();
-        if (property_exists($data, 'first_name') && $data->{'first_name'} !== null) {
+        if (property_exists($data, 'first_name') && null !== $data->{'first_name'}) {
             $object->setFirstName($data->{'first_name'});
         }
-        if (property_exists($data, 'last_name') && $data->{'last_name'} !== null) {
+        if (property_exists($data, 'last_name') && null !== $data->{'last_name'}) {
             $object->setLastName($data->{'last_name'});
         }
-        if (property_exists($data, 'email') && $data->{'email'} !== null) {
+        if (property_exists($data, 'email') && null !== $data->{'email'}) {
             $object->setEmail($data->{'email'});
         }
-        if (property_exists($data, 'company') && $data->{'company'} !== null) {
+        if (property_exists($data, 'company') && null !== $data->{'company'}) {
             $object->setCompany($data->{'company'});
         }
 

@@ -93,19 +93,11 @@ class LcsShipment
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -113,19 +105,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getNumber(): ?string
     {
         return $this->number;
     }
 
-    /**
-     * @param string|null $number
-     *
-     * @return self
-     */
     public function setNumber(?string $number): self
     {
         $this->number = $number;
@@ -133,19 +117,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return LcsMethod|null
-     */
     public function getMethod(): ?LcsMethod
     {
         return $this->method;
     }
 
-    /**
-     * @param LcsMethod|null $method
-     *
-     * @return self
-     */
     public function setMethod(?LcsMethod $method): self
     {
         $this->method = $method;
@@ -153,19 +129,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getContactId(): ?string
     {
         return $this->contactId;
     }
 
-    /**
-     * @param string|null $contactId
-     *
-     * @return self
-     */
     public function setContactId(?string $contactId): self
     {
         $this->contactId = $contactId;
@@ -173,19 +141,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return LcsShipmentAddressing|null
-     */
     public function getAddressing(): ?LcsShipmentAddressing
     {
         return $this->addressing;
     }
 
-    /**
-     * @param LcsShipmentAddressing|null $addressing
-     *
-     * @return self
-     */
     public function setAddressing(?LcsShipmentAddressing $addressing): self
     {
         $this->addressing = $addressing;
@@ -193,19 +153,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getExpectedAt(): ?\DateTime
     {
         return $this->expectedAt;
     }
 
-    /**
-     * @param \DateTime|null $expectedAt
-     *
-     * @return self
-     */
     public function setExpectedAt(?\DateTime $expectedAt): self
     {
         $this->expectedAt = $expectedAt;
@@ -213,19 +165,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStackId(): ?string
     {
         return $this->stackId;
     }
 
-    /**
-     * @param string|null $stackId
-     *
-     * @return self
-     */
     public function setStackId(?string $stackId): self
     {
         $this->stackId = $stackId;
@@ -233,19 +177,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsEditable(): ?bool
     {
         return $this->isEditable;
     }
 
-    /**
-     * @param bool|null $isEditable
-     *
-     * @return self
-     */
     public function setIsEditable(?bool $isEditable): self
     {
         $this->isEditable = $isEditable;
@@ -253,19 +189,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsOutbound(): ?bool
     {
         return $this->isOutbound;
     }
 
-    /**
-     * @param bool|null $isOutbound
-     *
-     * @return self
-     */
     public function setIsOutbound(?bool $isOutbound): self
     {
         $this->isOutbound = $isOutbound;
@@ -273,19 +201,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsListed(): ?bool
     {
         return $this->isListed;
     }
 
-    /**
-     * @param bool|null $isListed
-     *
-     * @return self
-     */
     public function setIsListed(?bool $isListed): self
     {
         $this->isListed = $isListed;
@@ -293,19 +213,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsFinished(): ?bool
     {
         return $this->isFinished;
     }
 
-    /**
-     * @param bool|null $isFinished
-     *
-     * @return self
-     */
     public function setIsFinished(?bool $isFinished): self
     {
         $this->isFinished = $isFinished;
@@ -313,19 +225,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsInTransit(): ?bool
     {
         return $this->isInTransit;
     }
 
-    /**
-     * @param bool|null $isInTransit
-     *
-     * @return self
-     */
     public function setIsInTransit(?bool $isInTransit): self
     {
         $this->isInTransit = $isInTransit;
@@ -333,19 +237,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsDelivered(): ?bool
     {
         return $this->isDelivered;
     }
 
-    /**
-     * @param bool|null $isDelivered
-     *
-     * @return self
-     */
     public function setIsDelivered(?bool $isDelivered): self
     {
         $this->isDelivered = $isDelivered;
@@ -363,8 +259,6 @@ class LcsShipment
 
     /**
      * @param LcsShipmentItem[]|null $items
-     *
-     * @return self
      */
     public function setItems(?array $items): self
     {
@@ -383,8 +277,6 @@ class LcsShipment
 
     /**
      * @param LcsBackorderItem[]|null $backorders
-     *
-     * @return self
      */
     public function setBackorders(?array $backorders): self
     {
@@ -403,8 +295,6 @@ class LcsShipment
 
     /**
      * @param LcsParcel[]|null $parcels
-     *
-     * @return self
      */
     public function setParcels(?array $parcels): self
     {
@@ -413,19 +303,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSecret(): ?string
     {
         return $this->secret;
     }
 
-    /**
-     * @param string|null $secret
-     *
-     * @return self
-     */
     public function setSecret(?string $secret): self
     {
         $this->secret = $secret;
@@ -433,19 +315,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getListId(): ?string
     {
         return $this->listId;
     }
 
-    /**
-     * @param string|null $listId
-     *
-     * @return self
-     */
     public function setListId(?string $listId): self
     {
         $this->listId = $listId;
@@ -453,19 +327,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -473,19 +339,11 @@ class LcsShipment
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

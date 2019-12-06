@@ -25,19 +25,11 @@ class OdrInvoiceState
      */
     protected $paidAt;
 
-    /**
-     * @return bool|null
-     */
     public function getIsConcept(): ?bool
     {
         return $this->isConcept;
     }
 
-    /**
-     * @param bool|null $isConcept
-     *
-     * @return self
-     */
     public function setIsConcept(?bool $isConcept): self
     {
         $this->isConcept = $isConcept;
@@ -45,19 +37,11 @@ class OdrInvoiceState
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsPaid(): ?bool
     {
         return $this->isPaid;
     }
 
-    /**
-     * @param bool|null $isPaid
-     *
-     * @return self
-     */
     public function setIsPaid(?bool $isPaid): self
     {
         $this->isPaid = $isPaid;
@@ -65,19 +49,11 @@ class OdrInvoiceState
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPaidAt(): ?string
     {
         return $this->paidAt;
     }
 
-    /**
-     * @param string|null $paidAt
-     *
-     * @return self
-     */
     public function setPaidAt(?string $paidAt): self
     {
         $this->paidAt = $paidAt;

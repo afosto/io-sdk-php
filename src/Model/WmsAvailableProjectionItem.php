@@ -21,19 +21,11 @@ class WmsAvailableProjectionItem
      */
     protected $routes;
 
-    /**
-     * @return string|null
-     */
     public function getStackItemId(): ?string
     {
         return $this->stackItemId;
     }
 
-    /**
-     * @param string|null $stackItemId
-     *
-     * @return self
-     */
     public function setStackItemId(?string $stackItemId): self
     {
         $this->stackItemId = $stackItemId;
@@ -51,8 +43,6 @@ class WmsAvailableProjectionItem
 
     /**
      * @param string[]|null $routes
-     *
-     * @return self
      */
     public function setRoutes(?array $routes): self
     {

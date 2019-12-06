@@ -33,8 +33,6 @@ class PkrShipmentDocument
 
     /**
      * The number of times the document should be printed.
-     *
-     * @return int|null
      */
     public function getQuantity(): ?int
     {
@@ -43,10 +41,6 @@ class PkrShipmentDocument
 
     /**
      * The number of times the document should be printed.
-     *
-     * @param int|null $quantity
-     *
-     * @return self
      */
     public function setQuantity(?int $quantity): self
     {
@@ -57,8 +51,6 @@ class PkrShipmentDocument
 
     /**
      * The ID of the shipment.
-     *
-     * @return int|null
      */
     public function getShipmentId(): ?int
     {
@@ -67,10 +59,6 @@ class PkrShipmentDocument
 
     /**
      * The ID of the shipment.
-     *
-     * @param int|null $shipmentId
-     *
-     * @return self
      */
     public function setShipmentId(?int $shipmentId): self
     {
@@ -81,8 +69,6 @@ class PkrShipmentDocument
 
     /**
      * Type of document.
-     *
-     * @return string|null
      */
     public function getType(): ?string
     {
@@ -91,10 +77,6 @@ class PkrShipmentDocument
 
     /**
      * Type of document.
-     *
-     * @param string|null $type
-     *
-     * @return self
      */
     public function setType(?string $type): self
     {

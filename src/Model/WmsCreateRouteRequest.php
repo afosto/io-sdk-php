@@ -33,19 +33,11 @@ class WmsCreateRouteRequest
      */
     protected $hops;
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -55,8 +47,6 @@ class WmsCreateRouteRequest
 
     /**
      * Location id.
-     *
-     * @return string|null
      */
     public function getFrom(): ?string
     {
@@ -65,10 +55,6 @@ class WmsCreateRouteRequest
 
     /**
      * Location id.
-     *
-     * @param string|null $from
-     *
-     * @return self
      */
     public function setFrom(?string $from): self
     {
@@ -79,8 +65,6 @@ class WmsCreateRouteRequest
 
     /**
      * Location id.
-     *
-     * @return string|null
      */
     public function getTo(): ?string
     {
@@ -89,10 +73,6 @@ class WmsCreateRouteRequest
 
     /**
      * Location id.
-     *
-     * @param string|null $to
-     *
-     * @return self
      */
     public function setTo(?string $to): self
     {
@@ -111,8 +91,6 @@ class WmsCreateRouteRequest
 
     /**
      * @param string[]|null $hops
-     *
-     * @return self
      */
     public function setHops(?array $hops): self
     {

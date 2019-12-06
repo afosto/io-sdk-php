@@ -57,19 +57,11 @@ class OdrPricingRuleModel
      */
     protected $expiresAt;
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -87,8 +79,6 @@ class OdrPricingRuleModel
 
     /**
      * @param OdrPricingRuleConstraint[]|null $constraints
-     *
-     * @return self
      */
     public function setConstraints(?array $constraints): self
     {
@@ -107,8 +97,6 @@ class OdrPricingRuleModel
 
     /**
      * @param OdrPricingRuleFilter[]|null $filters
-     *
-     * @return self
      */
     public function setFilters(?array $filters): self
     {
@@ -127,8 +115,6 @@ class OdrPricingRuleModel
 
     /**
      * @param OdrAdjustment[]|null $adjustments
-     *
-     * @return self
      */
     public function setAdjustments(?array $adjustments): self
     {
@@ -137,19 +123,11 @@ class OdrPricingRuleModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getApplyTo(): ?string
     {
         return $this->applyTo;
     }
 
-    /**
-     * @param string|null $applyTo
-     *
-     * @return self
-     */
     public function setApplyTo(?string $applyTo): self
     {
         $this->applyTo = $applyTo;
@@ -157,19 +135,11 @@ class OdrPricingRuleModel
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getGrantLimit(): ?int
     {
         return $this->grantLimit;
     }
 
-    /**
-     * @param int|null $grantLimit
-     *
-     * @return self
-     */
     public function setGrantLimit(?int $grantLimit): self
     {
         $this->grantLimit = $grantLimit;
@@ -177,19 +147,11 @@ class OdrPricingRuleModel
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getPriority(): ?int
     {
         return $this->priority;
     }
 
-    /**
-     * @param int|null $priority
-     *
-     * @return self
-     */
     public function setPriority(?int $priority): self
     {
         $this->priority = $priority;
@@ -197,19 +159,11 @@ class OdrPricingRuleModel
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsLastRule(): ?bool
     {
         return $this->isLastRule;
     }
 
-    /**
-     * @param bool|null $isLastRule
-     *
-     * @return self
-     */
     public function setIsLastRule(?bool $isLastRule): self
     {
         $this->isLastRule = $isLastRule;
@@ -227,8 +181,6 @@ class OdrPricingRuleModel
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -237,19 +189,11 @@ class OdrPricingRuleModel
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getActiveAt(): ?\DateTime
     {
         return $this->activeAt;
     }
 
-    /**
-     * @param \DateTime|null $activeAt
-     *
-     * @return self
-     */
     public function setActiveAt(?\DateTime $activeAt): self
     {
         $this->activeAt = $activeAt;
@@ -257,19 +201,11 @@ class OdrPricingRuleModel
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getExpiresAt(): ?\DateTime
     {
         return $this->expiresAt;
     }
 
-    /**
-     * @param \DateTime|null $expiresAt
-     *
-     * @return self
-     */
     public function setExpiresAt(?\DateTime $expiresAt): self
     {
         $this->expiresAt = $expiresAt;

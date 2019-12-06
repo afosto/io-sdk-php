@@ -17,19 +17,11 @@ class IamValidationRequest
      */
     protected $otp;
 
-    /**
-     * @return string|null
-     */
     public function getOtp(): ?string
     {
         return $this->otp;
     }
 
-    /**
-     * @param string|null $otp
-     *
-     * @return self
-     */
     public function setOtp(?string $otp): self
     {
         $this->otp = $otp;

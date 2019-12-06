@@ -14,8 +14,6 @@ class CreateCalculation extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 {
     /**
      * Create a new calculation.
-     *
-     * @param \Afosto\Sdk\Model\OdrBillRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\OdrBillRequest $body)
     {

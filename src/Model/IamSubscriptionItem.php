@@ -25,19 +25,11 @@ class IamSubscriptionItem
      */
     protected $type;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -45,19 +37,11 @@ class IamSubscriptionItem
         return $this;
     }
 
-    /**
-     * @return IamProduct|null
-     */
     public function getProduct(): ?IamProduct
     {
         return $this->product;
     }
 
-    /**
-     * @param IamProduct|null $product
-     *
-     * @return self
-     */
     public function setProduct(?IamProduct $product): self
     {
         $this->product = $product;
@@ -65,19 +49,11 @@ class IamSubscriptionItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;

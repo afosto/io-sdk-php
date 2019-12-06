@@ -24,12 +24,12 @@ class LcsHandlingListResponseNormalizer implements DenormalizerInterface, Normal
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsHandlingListResponse';
+        return 'Afosto\\Sdk\\Model\\LcsHandlingListResponse' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsHandlingListResponse';
+        return 'Afosto\\Sdk\\Model\\LcsHandlingListResponse' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,50 +38,50 @@ class LcsHandlingListResponseNormalizer implements DenormalizerInterface, Normal
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsHandlingListResponse();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'sub') && $data->{'sub'} !== null) {
+        if (property_exists($data, 'sub') && null !== $data->{'sub'}) {
             $object->setSub($data->{'sub'});
         }
-        if (property_exists($data, 'shipments') && $data->{'shipments'} !== null) {
+        if (property_exists($data, 'shipments') && null !== $data->{'shipments'}) {
             $values = [];
             foreach ($data->{'shipments'} as $value) {
                 $values[] = $value;
             }
             $object->setShipments($values);
         }
-        if (property_exists($data, 'location_id') && $data->{'location_id'} !== null) {
+        if (property_exists($data, 'location_id') && null !== $data->{'location_id'}) {
             $object->setLocationId($data->{'location_id'});
         }
-        if (property_exists($data, 'is_outbound') && $data->{'is_outbound'} !== null) {
+        if (property_exists($data, 'is_outbound') && null !== $data->{'is_outbound'}) {
             $object->setIsOutbound($data->{'is_outbound'});
         }
-        if (property_exists($data, 'is_assigned') && $data->{'is_assigned'} !== null) {
+        if (property_exists($data, 'is_assigned') && null !== $data->{'is_assigned'}) {
             $object->setIsAssigned($data->{'is_assigned'});
         }
-        if (property_exists($data, 'is_in_progress') && $data->{'is_in_progress'} !== null) {
+        if (property_exists($data, 'is_in_progress') && null !== $data->{'is_in_progress'}) {
             $object->setIsInProgress($data->{'is_in_progress'});
         }
-        if (property_exists($data, 'is_on_hold') && $data->{'is_on_hold'} !== null) {
+        if (property_exists($data, 'is_on_hold') && null !== $data->{'is_on_hold'}) {
             $object->setIsOnHold($data->{'is_on_hold'});
         }
-        if (property_exists($data, 'is_finished') && $data->{'is_finished'} !== null) {
+        if (property_exists($data, 'is_finished') && null !== $data->{'is_finished'}) {
             $object->setIsFinished($data->{'is_finished'});
         }
-        if (property_exists($data, 'started_at') && $data->{'started_at'} !== null) {
+        if (property_exists($data, 'started_at') && null !== $data->{'started_at'}) {
             $object->setStartedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'started_at'}));
         }
-        if (property_exists($data, 'finished_at') && $data->{'finished_at'} !== null) {
+        if (property_exists($data, 'finished_at') && null !== $data->{'finished_at'}) {
             $object->setFinishedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'finished_at'}));
         }
-        if (property_exists($data, 'is_due_at') && $data->{'is_due_at'} !== null) {
+        if (property_exists($data, 'is_due_at') && null !== $data->{'is_due_at'}) {
             $object->setIsDueAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'is_due_at'}));
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

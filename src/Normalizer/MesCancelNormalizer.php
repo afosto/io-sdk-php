@@ -24,12 +24,12 @@ class MesCancelNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\MesCancel';
+        return 'Afosto\\Sdk\\Model\\MesCancel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\MesCancel';
+        return 'Afosto\\Sdk\\Model\\MesCancel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class MesCancelNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesCancel();
-        if (property_exists($data, 'reference') && $data->{'reference'} !== null) {
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'medium') && $data->{'medium'} !== null) {
+        if (property_exists($data, 'medium') && null !== $data->{'medium'}) {
             $object->setMedium($data->{'medium'});
         }
 

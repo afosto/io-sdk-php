@@ -55,6 +55,8 @@ class UpdateProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      * @throws \Afosto\Sdk\Exception\UpdateProfileUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateProfileForbiddenException
      * @throws \Afosto\Sdk\Exception\UpdateProfileConflictException
+     *
+     * @return null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {

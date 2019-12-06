@@ -24,12 +24,12 @@ class IamUserNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamUser';
+        return 'Afosto\\Sdk\\Model\\IamUser' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamUser';
+        return 'Afosto\\Sdk\\Model\\IamUser' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,44 +38,44 @@ class IamUserNormalizer implements DenormalizerInterface, NormalizerInterface, D
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamUser();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'email') && $data->{'email'} !== null) {
+        if (property_exists($data, 'email') && null !== $data->{'email'}) {
             $object->setEmail($data->{'email'});
         }
-        if (property_exists($data, 'first_name') && $data->{'first_name'} !== null) {
+        if (property_exists($data, 'first_name') && null !== $data->{'first_name'}) {
             $object->setFirstName($data->{'first_name'});
         }
-        if (property_exists($data, 'last_name') && $data->{'last_name'} !== null) {
+        if (property_exists($data, 'last_name') && null !== $data->{'last_name'}) {
             $object->setLastName($data->{'last_name'});
         }
-        if (property_exists($data, 'is_verified') && $data->{'is_verified'} !== null) {
+        if (property_exists($data, 'is_verified') && null !== $data->{'is_verified'}) {
             $object->setIsVerified($data->{'is_verified'});
         }
-        if (property_exists($data, 'is_pending_invite') && $data->{'is_pending_invite'} !== null) {
+        if (property_exists($data, 'is_pending_invite') && null !== $data->{'is_pending_invite'}) {
             $object->setIsPendingInvite($data->{'is_pending_invite'});
         }
-        if (property_exists($data, 'is_deleted') && $data->{'is_deleted'} !== null) {
+        if (property_exists($data, 'is_deleted') && null !== $data->{'is_deleted'}) {
             $object->setIsDeleted($data->{'is_deleted'});
         }
-        if (property_exists($data, 'tenant_id') && $data->{'tenant_id'} !== null) {
+        if (property_exists($data, 'tenant_id') && null !== $data->{'tenant_id'}) {
             $object->setTenantId($data->{'tenant_id'});
         }
-        if (property_exists($data, 'roles') && $data->{'roles'} !== null) {
+        if (property_exists($data, 'roles') && null !== $data->{'roles'}) {
             $values = [];
             foreach ($data->{'roles'} as $value) {
                 $values[] = $value;
             }
             $object->setRoles($values);
         }
-        if (property_exists($data, 'deleted_at') && $data->{'deleted_at'} !== null) {
+        if (property_exists($data, 'deleted_at') && null !== $data->{'deleted_at'}) {
             $object->setDeletedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'deleted_at'}));
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

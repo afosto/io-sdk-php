@@ -43,19 +43,11 @@ class RelPhoneNumber
      */
     protected $createdAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -65,8 +57,6 @@ class RelPhoneNumber
 
     /**
      * Two letter country code.
-     *
-     * @return string|null
      */
     public function getCountryCode(): ?string
     {
@@ -75,10 +65,6 @@ class RelPhoneNumber
 
     /**
      * Two letter country code.
-     *
-     * @param string|null $countryCode
-     *
-     * @return self
      */
     public function setCountryCode(?string $countryCode): self
     {
@@ -89,8 +75,6 @@ class RelPhoneNumber
 
     /**
      * The actual phonenumber formatted as E164.
-     *
-     * @return string|null
      */
     public function getNumber(): ?string
     {
@@ -99,10 +83,6 @@ class RelPhoneNumber
 
     /**
      * The actual phonenumber formatted as E164.
-     *
-     * @param string|null $number
-     *
-     * @return self
      */
     public function setNumber(?string $number): self
     {
@@ -113,8 +93,6 @@ class RelPhoneNumber
 
     /**
      * The actual phonenumber formatted as national number.
-     *
-     * @return string|null
      */
     public function getNational(): ?string
     {
@@ -123,10 +101,6 @@ class RelPhoneNumber
 
     /**
      * The actual phonenumber formatted as national number.
-     *
-     * @param string|null $national
-     *
-     * @return self
      */
     public function setNational(?string $national): self
     {
@@ -135,19 +109,11 @@ class RelPhoneNumber
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;
@@ -155,19 +121,11 @@ class RelPhoneNumber
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;

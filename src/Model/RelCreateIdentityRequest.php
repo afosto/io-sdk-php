@@ -25,19 +25,11 @@ class RelCreateIdentityRequest
      */
     protected $audience;
 
-    /**
-     * @return string|null
-     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    /**
-     * @param string|null $email
-     *
-     * @return self
-     */
     public function setEmail(?string $email): self
     {
         $this->email = $email;
@@ -45,19 +37,11 @@ class RelCreateIdentityRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    /**
-     * @param string|null $password
-     *
-     * @return self
-     */
     public function setPassword(?string $password): self
     {
         $this->password = $password;
@@ -65,19 +49,11 @@ class RelCreateIdentityRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAudience(): ?string
     {
         return $this->audience;
     }
 
-    /**
-     * @param string|null $audience
-     *
-     * @return self
-     */
     public function setAudience(?string $audience): self
     {
         $this->audience = $audience;

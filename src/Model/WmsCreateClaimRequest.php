@@ -41,19 +41,11 @@ class WmsCreateClaimRequest
      */
     protected $sorts;
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;
@@ -63,8 +55,6 @@ class WmsCreateClaimRequest
 
     /**
      * Location id.
-     *
-     * @return string|null
      */
     public function getTarget(): ?string
     {
@@ -73,10 +63,6 @@ class WmsCreateClaimRequest
 
     /**
      * Location id.
-     *
-     * @param string|null $target
-     *
-     * @return self
      */
     public function setTarget(?string $target): self
     {
@@ -85,19 +71,11 @@ class WmsCreateClaimRequest
         return $this;
     }
 
-    /**
-     * @return WmsStackReference|null
-     */
     public function getStack(): ?WmsStackReference
     {
         return $this->stack;
     }
 
-    /**
-     * @param WmsStackReference|null $stack
-     *
-     * @return self
-     */
     public function setStack(?WmsStackReference $stack): self
     {
         $this->stack = $stack;
@@ -107,8 +85,6 @@ class WmsCreateClaimRequest
 
     /**
      * Only allowed for reservations.
-     *
-     * @return \DateTime|null
      */
     public function getExpiresAt(): ?\DateTime
     {
@@ -117,10 +93,6 @@ class WmsCreateClaimRequest
 
     /**
      * Only allowed for reservations.
-     *
-     * @param \DateTime|null $expiresAt
-     *
-     * @return self
      */
     public function setExpiresAt(?\DateTime $expiresAt): self
     {
@@ -139,8 +111,6 @@ class WmsCreateClaimRequest
 
     /**
      * @param WmsConstraint[]|null $constraints
-     *
-     * @return self
      */
     public function setConstraints(?array $constraints): self
     {
@@ -159,8 +129,6 @@ class WmsCreateClaimRequest
 
     /**
      * @param WmsSort[]|null $sorts
-     *
-     * @return self
      */
     public function setSorts(?array $sorts): self
     {

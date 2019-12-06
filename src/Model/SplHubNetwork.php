@@ -25,19 +25,11 @@ class SplHubNetwork
      */
     protected $lastConnectedAt;
 
-    /**
-     * @return string|null
-     */
     public function getIpAddress(): ?string
     {
         return $this->ipAddress;
     }
 
-    /**
-     * @param string|null $ipAddress
-     *
-     * @return self
-     */
     public function setIpAddress(?string $ipAddress): self
     {
         $this->ipAddress = $ipAddress;
@@ -45,19 +37,11 @@ class SplHubNetwork
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getRemoteIpAddress(): ?string
     {
         return $this->remoteIpAddress;
     }
 
-    /**
-     * @param string|null $remoteIpAddress
-     *
-     * @return self
-     */
     public function setRemoteIpAddress(?string $remoteIpAddress): self
     {
         $this->remoteIpAddress = $remoteIpAddress;
@@ -65,19 +49,11 @@ class SplHubNetwork
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getLastConnectedAt(): ?\DateTime
     {
         return $this->lastConnectedAt;
     }
 
-    /**
-     * @param \DateTime|null $lastConnectedAt
-     *
-     * @return self
-     */
     public function setLastConnectedAt(?\DateTime $lastConnectedAt): self
     {
         $this->lastConnectedAt = $lastConnectedAt;

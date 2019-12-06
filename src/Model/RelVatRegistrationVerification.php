@@ -41,19 +41,11 @@ class RelVatRegistrationVerification
      */
     protected $verifiedAt;
 
-    /**
-     * @return bool|null
-     */
     public function getIsPending(): ?bool
     {
         return $this->isPending;
     }
 
-    /**
-     * @param bool|null $isPending
-     *
-     * @return self
-     */
     public function setIsPending(?bool $isPending): self
     {
         $this->isPending = $isPending;
@@ -61,19 +53,11 @@ class RelVatRegistrationVerification
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsValid(): ?bool
     {
         return $this->isValid;
     }
 
-    /**
-     * @param bool|null $isValid
-     *
-     * @return self
-     */
     public function setIsValid(?bool $isValid): self
     {
         $this->isValid = $isValid;
@@ -81,19 +65,11 @@ class RelVatRegistrationVerification
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
     }
 
-    /**
-     * @param string|null $countryCode
-     *
-     * @return self
-     */
     public function setCountryCode(?string $countryCode): self
     {
         $this->countryCode = $countryCode;
@@ -101,19 +77,11 @@ class RelVatRegistrationVerification
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -121,19 +89,11 @@ class RelVatRegistrationVerification
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;
@@ -151,8 +111,6 @@ class RelVatRegistrationVerification
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -161,19 +119,11 @@ class RelVatRegistrationVerification
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getVerifiedAt(): ?\DateTime
     {
         return $this->verifiedAt;
     }
 
-    /**
-     * @param \DateTime|null $verifiedAt
-     *
-     * @return self
-     */
     public function setVerifiedAt(?\DateTime $verifiedAt): self
     {
         $this->verifiedAt = $verifiedAt;

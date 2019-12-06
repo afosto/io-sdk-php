@@ -17,7 +17,6 @@ class UpsertPrices extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * Create or update prices.
      *
-     * @param string                          $id
      * @param \Afosto\Sdk\Model\CatNewPrice[] $body
      */
     public function __construct(string $id, array $body)

@@ -29,19 +29,11 @@ class CntHtmlToPdfRequestSize
      */
     protected $height;
 
-    /**
-     * @return string|null
-     */
     public function getPredefined(): ?string
     {
         return $this->predefined;
     }
 
-    /**
-     * @param string|null $predefined
-     *
-     * @return self
-     */
     public function setPredefined(?string $predefined): self
     {
         $this->predefined = $predefined;
@@ -51,8 +43,6 @@ class CntHtmlToPdfRequestSize
 
     /**
      * Size in mm.
-     *
-     * @return int|null
      */
     public function getWidth(): ?int
     {
@@ -61,10 +51,6 @@ class CntHtmlToPdfRequestSize
 
     /**
      * Size in mm.
-     *
-     * @param int|null $width
-     *
-     * @return self
      */
     public function setWidth(?int $width): self
     {
@@ -75,8 +61,6 @@ class CntHtmlToPdfRequestSize
 
     /**
      * Size in mm.
-     *
-     * @return int|null
      */
     public function getHeight(): ?int
     {
@@ -85,10 +69,6 @@ class CntHtmlToPdfRequestSize
 
     /**
      * Size in mm.
-     *
-     * @param int|null $height
-     *
-     * @return self
      */
     public function setHeight(?int $height): self
     {

@@ -14,8 +14,6 @@ class GetUsages extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 {
     /**
      * List of subscribed products.
-     *
-     * @param \Afosto\Sdk\Model\IamUsageRequest $body
      */
     public function __construct(\Afosto\Sdk\Model\IamUsageRequest $body)
     {
@@ -46,7 +44,6 @@ class GetUsages extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     /**
      * {@inheritdoc}
-     *
      *
      * @return \Afosto\Sdk\Model\IamUsageRecord[]|null
      */

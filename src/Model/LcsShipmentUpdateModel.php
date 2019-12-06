@@ -25,19 +25,11 @@ class LcsShipmentUpdateModel
      */
     protected $expectedAt;
 
-    /**
-     * @return string|null
-     */
     public function getMethodId(): ?string
     {
         return $this->methodId;
     }
 
-    /**
-     * @param string|null $methodId
-     *
-     * @return self
-     */
     public function setMethodId(?string $methodId): self
     {
         $this->methodId = $methodId;
@@ -45,19 +37,11 @@ class LcsShipmentUpdateModel
         return $this;
     }
 
-    /**
-     * @return LcsShipmentUpdateModelAddressing|null
-     */
     public function getAddressing(): ?LcsShipmentUpdateModelAddressing
     {
         return $this->addressing;
     }
 
-    /**
-     * @param LcsShipmentUpdateModelAddressing|null $addressing
-     *
-     * @return self
-     */
     public function setAddressing(?LcsShipmentUpdateModelAddressing $addressing): self
     {
         $this->addressing = $addressing;
@@ -65,19 +49,11 @@ class LcsShipmentUpdateModel
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getExpectedAt(): ?\DateTime
     {
         return $this->expectedAt;
     }
 
-    /**
-     * @param \DateTime|null $expectedAt
-     *
-     * @return self
-     */
     public function setExpectedAt(?\DateTime $expectedAt): self
     {
         $this->expectedAt = $expectedAt;

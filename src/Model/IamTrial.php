@@ -25,19 +25,11 @@ class IamTrial
      */
     protected $trialEndsAt;
 
-    /**
-     * @return bool|null
-     */
     public function getIsOnTrial(): ?bool
     {
         return $this->isOnTrial;
     }
 
-    /**
-     * @param bool|null $isOnTrial
-     *
-     * @return self
-     */
     public function setIsOnTrial(?bool $isOnTrial): self
     {
         $this->isOnTrial = $isOnTrial;
@@ -45,19 +37,11 @@ class IamTrial
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getTrialBalance(): ?int
     {
         return $this->trialBalance;
     }
 
-    /**
-     * @param int|null $trialBalance
-     *
-     * @return self
-     */
     public function setTrialBalance(?int $trialBalance): self
     {
         $this->trialBalance = $trialBalance;
@@ -65,19 +49,11 @@ class IamTrial
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getTrialEndsAt(): ?\DateTime
     {
         return $this->trialEndsAt;
     }
 
-    /**
-     * @param \DateTime|null $trialEndsAt
-     *
-     * @return self
-     */
     public function setTrialEndsAt(?\DateTime $trialEndsAt): self
     {
         $this->trialEndsAt = $trialEndsAt;

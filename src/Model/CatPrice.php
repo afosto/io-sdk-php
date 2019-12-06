@@ -41,19 +41,11 @@ class CatPrice
      */
     protected $createdAt;
 
-    /**
-     * @return string|null
-     */
     public function getSku(): ?string
     {
         return $this->sku;
     }
 
-    /**
-     * @param string|null $sku
-     *
-     * @return self
-     */
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
@@ -61,19 +53,11 @@ class CatPrice
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getAmount(): ?int
     {
         return $this->amount;
     }
 
-    /**
-     * @param int|null $amount
-     *
-     * @return self
-     */
     public function setAmount(?int $amount): self
     {
         $this->amount = $amount;
@@ -81,19 +65,11 @@ class CatPrice
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getOriginalAmount(): ?int
     {
         return $this->originalAmount;
     }
 
-    /**
-     * @param int|null $originalAmount
-     *
-     * @return self
-     */
     public function setOriginalAmount(?int $originalAmount): self
     {
         $this->originalAmount = $originalAmount;
@@ -111,8 +87,6 @@ class CatPrice
 
     /**
      * @param CatVat[]|null $vat
-     *
-     * @return self
      */
     public function setVat(?array $vat): self
     {
@@ -131,8 +105,6 @@ class CatPrice
 
     /**
      * @param mixed $filters
-     *
-     * @return self
      */
     public function setFilters($filters): self
     {
@@ -141,19 +113,11 @@ class CatPrice
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getActiveAt(): ?\DateTime
     {
         return $this->activeAt;
     }
 
-    /**
-     * @param \DateTime|null $activeAt
-     *
-     * @return self
-     */
     public function setActiveAt(?\DateTime $activeAt): self
     {
         $this->activeAt = $activeAt;
@@ -161,19 +125,11 @@ class CatPrice
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;

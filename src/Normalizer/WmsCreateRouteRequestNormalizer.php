@@ -24,12 +24,12 @@ class WmsCreateRouteRequestNormalizer implements DenormalizerInterface, Normaliz
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsCreateRouteRequest';
+        return 'Afosto\\Sdk\\Model\\WmsCreateRouteRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsCreateRouteRequest';
+        return 'Afosto\\Sdk\\Model\\WmsCreateRouteRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class WmsCreateRouteRequestNormalizer implements DenormalizerInterface, Normaliz
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsCreateRouteRequest();
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'from') && $data->{'from'} !== null) {
+        if (property_exists($data, 'from') && null !== $data->{'from'}) {
             $object->setFrom($data->{'from'});
         }
-        if (property_exists($data, 'to') && $data->{'to'} !== null) {
+        if (property_exists($data, 'to') && null !== $data->{'to'}) {
             $object->setTo($data->{'to'});
         }
-        if (property_exists($data, 'hops') && $data->{'hops'} !== null) {
+        if (property_exists($data, 'hops') && null !== $data->{'hops'}) {
             $values = [];
             foreach ($data->{'hops'} as $value) {
                 $values[] = $value;

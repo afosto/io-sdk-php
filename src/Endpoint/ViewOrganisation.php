@@ -17,8 +17,7 @@ class ViewOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
     /**
      * Returns a single organisation by id.
      *
-     * @param string $id
-     * @param array  $queryParameters {
+     * @param array $queryParameters {
      *
      *     @var string $version
      * }

@@ -25,19 +25,11 @@ class CatVatModel
      */
     protected $reference;
 
-    /**
-     * @return string|null
-     */
     public function getCountry(): ?string
     {
         return $this->country;
     }
 
-    /**
-     * @param string|null $country
-     *
-     * @return self
-     */
     public function setCountry(?string $country): self
     {
         $this->country = $country;
@@ -45,19 +37,11 @@ class CatVatModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAdministrativeArea(): ?string
     {
         return $this->administrativeArea;
     }
 
-    /**
-     * @param string|null $administrativeArea
-     *
-     * @return self
-     */
     public function setAdministrativeArea(?string $administrativeArea): self
     {
         $this->administrativeArea = $administrativeArea;
@@ -65,19 +49,11 @@ class CatVatModel
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getReference(): ?int
     {
         return $this->reference;
     }
 
-    /**
-     * @param int|null $reference
-     *
-     * @return self
-     */
     public function setReference(?int $reference): self
     {
         $this->reference = $reference;

@@ -14,8 +14,6 @@ class CreatePricingGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 {
     /**
      * Add a new pricing group to the list.
-     *
-     * @param \Afosto\Sdk\Model\CatGroupCreate $body
      */
     public function __construct(\Afosto\Sdk\Model\CatGroupCreate $body)
     {

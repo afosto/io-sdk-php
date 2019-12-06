@@ -31,19 +31,11 @@ class MesMessageAdd
      */
     protected $reference;
 
-    /**
-     * @return string|null
-     */
     public function getContent(): ?string
     {
         return $this->content;
     }
 
-    /**
-     * @param string|null $content
-     *
-     * @return self
-     */
     public function setContent(?string $content): self
     {
         $this->content = $content;
@@ -51,19 +43,11 @@ class MesMessageAdd
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsPrivate(): ?bool
     {
         return $this->isPrivate;
     }
 
-    /**
-     * @param bool|null $isPrivate
-     *
-     * @return self
-     */
     public function setIsPrivate(?bool $isPrivate): self
     {
         $this->isPrivate = $isPrivate;
@@ -85,8 +69,6 @@ class MesMessageAdd
      * additional metadata that applies to the item.
      *
      * @param string[]|null $metadata
-     *
-     * @return self
      */
     public function setMetadata(?\ArrayObject $metadata): self
     {
@@ -95,19 +77,11 @@ class MesMessageAdd
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;

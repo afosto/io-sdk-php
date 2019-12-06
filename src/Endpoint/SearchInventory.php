@@ -15,8 +15,7 @@ class SearchInventory extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     /**
      * Get a list of inventory summaries.
      *
-     * @param \Afosto\Sdk\Model\WmsInventoryPostBody $body
-     * @param array                                  $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size

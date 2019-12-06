@@ -17,19 +17,11 @@ class WmsUnavailableProjectionItem
      */
     protected $stackItemId;
 
-    /**
-     * @return string|null
-     */
     public function getStackItemId(): ?string
     {
         return $this->stackItemId;
     }
 
-    /**
-     * @param string|null $stackItemId
-     *
-     * @return self
-     */
     public function setStackItemId(?string $stackItemId): self
     {
         $this->stackItemId = $stackItemId;

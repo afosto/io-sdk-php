@@ -97,19 +97,11 @@ class OdrCalculation
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -117,19 +109,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getVersion(): ?string
     {
         return $this->version;
     }
 
-    /**
-     * @param string|null $version
-     *
-     * @return self
-     */
     public function setVersion(?string $version): self
     {
         $this->version = $version;
@@ -137,19 +121,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getNumber(): ?string
     {
         return $this->number;
     }
 
-    /**
-     * @param string|null $number
-     *
-     * @return self
-     */
     public function setNumber(?string $number): self
     {
         $this->number = $number;
@@ -167,8 +143,6 @@ class OdrCalculation
 
     /**
      * @param OdrCalculationItem[]|null $items
-     *
-     * @return self
      */
     public function setItems(?array $items): self
     {
@@ -177,19 +151,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getSubtotal(): ?int
     {
         return $this->subtotal;
     }
 
-    /**
-     * @param int|null $subtotal
-     *
-     * @return self
-     */
     public function setSubtotal(?int $subtotal): self
     {
         $this->subtotal = $subtotal;
@@ -207,8 +173,6 @@ class OdrCalculation
 
     /**
      * @param OdrCalculationAdjustment[]|null $adjustments
-     *
-     * @return self
      */
     public function setAdjustments(?array $adjustments): self
     {
@@ -217,19 +181,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getTotal(): ?int
     {
         return $this->total;
     }
 
-    /**
-     * @param int|null $total
-     *
-     * @return self
-     */
     public function setTotal(?int $total): self
     {
         $this->total = $total;
@@ -247,8 +203,6 @@ class OdrCalculation
 
     /**
      * @param OdrVatResult[]|null $vat
-     *
-     * @return self
      */
     public function setVat(?array $vat): self
     {
@@ -257,19 +211,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCurrency(): ?string
     {
         return $this->currency;
     }
 
-    /**
-     * @param string|null $currency
-     *
-     * @return self
-     */
     public function setCurrency(?string $currency): self
     {
         $this->currency = $currency;
@@ -277,19 +223,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return OdrContact|null
-     */
     public function getCustomer(): ?OdrContact
     {
         return $this->customer;
     }
 
-    /**
-     * @param OdrContact|null $customer
-     *
-     * @return self
-     */
     public function setCustomer(?OdrContact $customer): self
     {
         $this->customer = $customer;
@@ -297,19 +235,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return OdrContact|null
-     */
     public function getVendor(): ?OdrContact
     {
         return $this->vendor;
     }
 
-    /**
-     * @param OdrContact|null $vendor
-     *
-     * @return self
-     */
     public function setVendor(?OdrContact $vendor): self
     {
         $this->vendor = $vendor;
@@ -317,19 +247,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsIncludingVat(): ?bool
     {
         return $this->isIncludingVat;
     }
 
-    /**
-     * @param bool|null $isIncludingVat
-     *
-     * @return self
-     */
     public function setIsIncludingVat(?bool $isIncludingVat): self
     {
         $this->isIncludingVat = $isIncludingVat;
@@ -337,19 +259,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsVatShifted(): ?bool
     {
         return $this->isVatShifted;
     }
 
-    /**
-     * @param bool|null $isVatShifted
-     *
-     * @return self
-     */
     public function setIsVatShifted(?bool $isVatShifted): self
     {
         $this->isVatShifted = $isVatShifted;
@@ -357,19 +271,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsAuthorized(): ?bool
     {
         return $this->isAuthorized;
     }
 
-    /**
-     * @param bool|null $isAuthorized
-     *
-     * @return self
-     */
     public function setIsAuthorized(?bool $isAuthorized): self
     {
         $this->isAuthorized = $isAuthorized;
@@ -377,19 +283,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsInvoiced(): ?bool
     {
         return $this->isInvoiced;
     }
 
-    /**
-     * @param bool|null $isInvoiced
-     *
-     * @return self
-     */
     public function setIsInvoiced(?bool $isInvoiced): self
     {
         $this->isInvoiced = $isInvoiced;
@@ -397,19 +295,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getClientId(): ?string
     {
         return $this->clientId;
     }
 
-    /**
-     * @param string|null $clientId
-     *
-     * @return self
-     */
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
@@ -417,19 +307,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getFileId(): ?string
     {
         return $this->fileId;
     }
 
-    /**
-     * @param string|null $fileId
-     *
-     * @return self
-     */
     public function setFileId(?string $fileId): self
     {
         $this->fileId = $fileId;
@@ -447,8 +329,6 @@ class OdrCalculation
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {
@@ -457,19 +337,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getPricingAt(): ?\DateTime
     {
         return $this->pricingAt;
     }
 
-    /**
-     * @param \DateTime|null $pricingAt
-     *
-     * @return self
-     */
     public function setPricingAt(?\DateTime $pricingAt): self
     {
         $this->pricingAt = $pricingAt;
@@ -477,19 +349,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -497,19 +361,11 @@ class OdrCalculation
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

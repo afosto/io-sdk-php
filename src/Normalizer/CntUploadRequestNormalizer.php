@@ -24,12 +24,12 @@ class CntUploadRequestNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntUploadRequest';
+        return 'Afosto\\Sdk\\Model\\CntUploadRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntUploadRequest';
+        return 'Afosto\\Sdk\\Model\\CntUploadRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,19 +38,19 @@ class CntUploadRequestNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntUploadRequest();
-        if (property_exists($data, 'is_public') && $data->{'is_public'} !== null) {
+        if (property_exists($data, 'is_public') && null !== $data->{'is_public'}) {
             $object->setIsPublic($data->{'is_public'});
         }
-        if (property_exists($data, 'path') && $data->{'path'} !== null) {
+        if (property_exists($data, 'path') && null !== $data->{'path'}) {
             $object->setPath($data->{'path'});
         }
-        if (property_exists($data, 'is_listed') && $data->{'is_listed'} !== null) {
+        if (property_exists($data, 'is_listed') && null !== $data->{'is_listed'}) {
             $object->setIsListed($data->{'is_listed'});
         }
-        if (property_exists($data, 'method') && $data->{'method'} !== null) {
+        if (property_exists($data, 'method') && null !== $data->{'method'}) {
             $object->setMethod($data->{'method'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
 

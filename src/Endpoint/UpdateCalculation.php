@@ -16,9 +16,6 @@ class UpdateCalculation extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 
     /**
      * Update a concept calculation.
-     *
-     * @param string                           $id
-     * @param \Afosto\Sdk\Model\OdrBillRequest $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\OdrBillRequest $body)
     {

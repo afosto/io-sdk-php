@@ -16,8 +16,6 @@ class RemoveCard extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     /**
      * Remove an active card.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {
@@ -48,7 +46,6 @@ class RemoveCard extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     /**
      * {@inheritdoc}
-     *
      *
      * @return \Afosto\Sdk\Model\IamCard[]|null
      */

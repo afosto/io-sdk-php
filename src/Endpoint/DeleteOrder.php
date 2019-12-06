@@ -16,8 +16,6 @@ class DeleteOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     /**
      * Delete an existing order.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

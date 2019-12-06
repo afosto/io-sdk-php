@@ -24,12 +24,12 @@ class OdrMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrMethod';
+        return 'Afosto\\Sdk\\Model\\OdrMethod' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrMethod';
+        return 'Afosto\\Sdk\\Model\\OdrMethod' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,38 +38,38 @@ class OdrMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrMethod();
-        if (property_exists($data, 'code') && $data->{'code'} !== null) {
+        if (property_exists($data, 'code') && null !== $data->{'code'}) {
             $object->setCode($data->{'code'});
         }
-        if (property_exists($data, 'provider_code') && $data->{'provider_code'} !== null) {
+        if (property_exists($data, 'provider_code') && null !== $data->{'provider_code'}) {
             $object->setProviderCode($data->{'provider_code'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'instructions') && $data->{'instructions'} !== null) {
+        if (property_exists($data, 'instructions') && null !== $data->{'instructions'}) {
             $object->setInstructions($data->{'instructions'});
         }
-        if (property_exists($data, 'issuers') && $data->{'issuers'} !== null) {
+        if (property_exists($data, 'issuers') && null !== $data->{'issuers'}) {
             $values = [];
             foreach ($data->{'issuers'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrIssuer', 'json', $context);
             }
             $object->setIssuers($values);
         }
-        if (property_exists($data, 'is_active') && $data->{'is_active'} !== null) {
+        if (property_exists($data, 'is_active') && null !== $data->{'is_active'}) {
             $object->setIsActive($data->{'is_active'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

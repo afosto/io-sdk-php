@@ -24,12 +24,12 @@ class PkrTaskNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\PkrTask';
+        return 'Afosto\\Sdk\\Model\\PkrTask' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\PkrTask';
+        return 'Afosto\\Sdk\\Model\\PkrTask' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class PkrTaskNormalizer implements DenormalizerInterface, NormalizerInterface, D
             return null;
         }
         $object = new \Afosto\Sdk\Model\PkrTask();
-        if (property_exists($data, 'href') && $data->{'href'} !== null) {
+        if (property_exists($data, 'href') && null !== $data->{'href'}) {
             $object->setHref($data->{'href'});
         }
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
 

@@ -24,12 +24,12 @@ class SplHubImageNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplHubImage';
+        return 'Afosto\\Sdk\\Model\\SplHubImage' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplHubImage';
+        return 'Afosto\\Sdk\\Model\\SplHubImage' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class SplHubImageNormalizer implements DenormalizerInterface, NormalizerInterfac
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplHubImage();
-        if (property_exists($data, 'is_up_to_date') && $data->{'is_up_to_date'} !== null) {
+        if (property_exists($data, 'is_up_to_date') && null !== $data->{'is_up_to_date'}) {
             $object->setIsUpToDate($data->{'is_up_to_date'});
         }
-        if (property_exists($data, 'download_progress') && $data->{'download_progress'} !== null) {
+        if (property_exists($data, 'download_progress') && null !== $data->{'download_progress'}) {
             $object->setDownloadProgress($data->{'download_progress'});
         }
-        if (property_exists($data, 'version') && $data->{'version'} !== null) {
+        if (property_exists($data, 'version') && null !== $data->{'version'}) {
             $object->setVersion($data->{'version'});
         }
 

@@ -24,12 +24,12 @@ class ErrorNormalizer implements DenormalizerInterface, NormalizerInterface, Den
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\Error';
+        return 'Afosto\\Sdk\\Model\\Error' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\Error';
+        return 'Afosto\\Sdk\\Model\\Error' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,11 +38,25 @@ class ErrorNormalizer implements DenormalizerInterface, NormalizerInterface, Den
             return null;
         }
         $object = new \Afosto\Sdk\Model\Error();
-        if (property_exists($data, 'code') && $data->{'code'} !== null) {
+        if (property_exists($data, 'code') && null !== $data->{'code'}) {
             $object->setCode($data->{'code'});
         }
-        if (property_exists($data, 'message') && $data->{'message'} !== null) {
+        if (property_exists($data, 'message') && null !== $data->{'message'}) {
             $object->setMessage($data->{'message'});
+        }
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
+            $object->setReference($data->{'reference'});
+        }
+        if (property_exists($data, 'errors') && null !== $data->{'errors'}) {
+            $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data->{'errors'} as $key => $value) {
+                $values_1 = [];
+                foreach ($value as $value_1) {
+                    $values_1[] = $value_1;
+                }
+                $values[$key] = $values_1;
+            }
+            $object->setErrors($values);
         }
 
         return $object;
@@ -56,6 +70,20 @@ class ErrorNormalizer implements DenormalizerInterface, NormalizerInterface, Den
         }
         if (null !== $object->getMessage()) {
             $data->{'message'} = $object->getMessage();
+        }
+        if (null !== $object->getReference()) {
+            $data->{'reference'} = $object->getReference();
+        }
+        if (null !== $object->getErrors()) {
+            $values = new \stdClass();
+            foreach ($object->getErrors() as $key => $value) {
+                $values_1 = [];
+                foreach ($value as $value_1) {
+                    $values_1[] = $value_1;
+                }
+                $values->{$key} = $values_1;
+            }
+            $data->{'errors'} = $values;
         }
 
         return $data;

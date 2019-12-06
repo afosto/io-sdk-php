@@ -61,19 +61,11 @@ class RelContactUpdate
      */
     protected $metadata;
 
-    /**
-     * @return string|null
-     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    /**
-     * @param string|null $email
-     *
-     * @return self
-     */
     public function setEmail(?string $email): self
     {
         $this->email = $email;
@@ -91,8 +83,6 @@ class RelContactUpdate
 
     /**
      * @param string[]|null $tags
-     *
-     * @return self
      */
     public function setTags(?array $tags): self
     {
@@ -103,8 +93,6 @@ class RelContactUpdate
 
     /**
      * First name.
-     *
-     * @return string|null
      */
     public function getGivenName(): ?string
     {
@@ -113,10 +101,6 @@ class RelContactUpdate
 
     /**
      * First name.
-     *
-     * @param string|null $givenName
-     *
-     * @return self
      */
     public function setGivenName(?string $givenName): self
     {
@@ -127,8 +111,6 @@ class RelContactUpdate
 
     /**
      * Patronymic.
-     *
-     * @return string|null
      */
     public function getAdditionalName(): ?string
     {
@@ -137,10 +119,6 @@ class RelContactUpdate
 
     /**
      * Patronymic.
-     *
-     * @param string|null $additionalName
-     *
-     * @return self
      */
     public function setAdditionalName(?string $additionalName): self
     {
@@ -151,8 +129,6 @@ class RelContactUpdate
 
     /**
      * Last name.
-     *
-     * @return string|null
      */
     public function getFamilyName(): ?string
     {
@@ -161,10 +137,6 @@ class RelContactUpdate
 
     /**
      * Last name.
-     *
-     * @param string|null $familyName
-     *
-     * @return self
      */
     public function setFamilyName(?string $familyName): self
     {
@@ -173,19 +145,11 @@ class RelContactUpdate
         return $this;
     }
 
-    /**
-     * @return RelContactUpdateOrganisations|null
-     */
     public function getOrganisations(): ?RelContactUpdateOrganisations
     {
         return $this->organisations;
     }
 
-    /**
-     * @param RelContactUpdateOrganisations|null $organisations
-     *
-     * @return self
-     */
     public function setOrganisations(?RelContactUpdateOrganisations $organisations): self
     {
         $this->organisations = $organisations;
@@ -193,19 +157,11 @@ class RelContactUpdate
         return $this;
     }
 
-    /**
-     * @return RelContactUpdateBilling|null
-     */
     public function getBilling(): ?RelContactUpdateBilling
     {
         return $this->billing;
     }
 
-    /**
-     * @param RelContactUpdateBilling|null $billing
-     *
-     * @return self
-     */
     public function setBilling(?RelContactUpdateBilling $billing): self
     {
         $this->billing = $billing;
@@ -213,19 +169,11 @@ class RelContactUpdate
         return $this;
     }
 
-    /**
-     * @return RelContactUpdateShipping|null
-     */
     public function getShipping(): ?RelContactUpdateShipping
     {
         return $this->shipping;
     }
 
-    /**
-     * @param RelContactUpdateShipping|null $shipping
-     *
-     * @return self
-     */
     public function setShipping(?RelContactUpdateShipping $shipping): self
     {
         $this->shipping = $shipping;
@@ -233,19 +181,11 @@ class RelContactUpdate
         return $this;
     }
 
-    /**
-     * @return RelContactUpdatePhoneNumbers|null
-     */
     public function getPhoneNumbers(): ?RelContactUpdatePhoneNumbers
     {
         return $this->phoneNumbers;
     }
 
-    /**
-     * @param RelContactUpdatePhoneNumbers|null $phoneNumbers
-     *
-     * @return self
-     */
     public function setPhoneNumbers(?RelContactUpdatePhoneNumbers $phoneNumbers): self
     {
         $this->phoneNumbers = $phoneNumbers;
@@ -267,8 +207,6 @@ class RelContactUpdate
      * additional metadata that applies to the item.
      *
      * @param string[]|null $metadata
-     *
-     * @return self
      */
     public function setMetadata(?\ArrayObject $metadata): self
     {

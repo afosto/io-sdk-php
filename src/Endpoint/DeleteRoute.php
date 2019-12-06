@@ -16,8 +16,6 @@ class DeleteRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     /**
      * Marks a route as deleted.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

@@ -24,12 +24,12 @@ class WmsSortNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsSort';
+        return 'Afosto\\Sdk\\Model\\WmsSort' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsSort';
+        return 'Afosto\\Sdk\\Model\\WmsSort' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class WmsSortNormalizer implements DenormalizerInterface, NormalizerInterface, D
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsSort();
-        if (property_exists($data, 'order') && $data->{'order'} !== null) {
+        if (property_exists($data, 'order') && null !== $data->{'order'}) {
             $object->setOrder($data->{'order'});
         }
-        if (property_exists($data, 'by') && $data->{'by'} !== null) {
+        if (property_exists($data, 'by') && null !== $data->{'by'}) {
             $object->setBy($data->{'by'});
         }
-        if (property_exists($data, 'list') && $data->{'list'} !== null) {
+        if (property_exists($data, 'list') && null !== $data->{'list'}) {
             $values = [];
             foreach ($data->{'list'} as $value) {
                 $values[] = $value;

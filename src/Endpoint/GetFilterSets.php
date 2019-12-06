@@ -63,7 +63,6 @@ class GetFilterSets extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * {@inheritdoc}
      *
-     *
      * @return \Afosto\Sdk\Model\CatFilterSet[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)

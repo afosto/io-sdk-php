@@ -24,12 +24,12 @@ class IamSubscriptionNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamSubscription';
+        return 'Afosto\\Sdk\\Model\\IamSubscription' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamSubscription';
+        return 'Afosto\\Sdk\\Model\\IamSubscription' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,22 +38,22 @@ class IamSubscriptionNormalizer implements DenormalizerInterface, NormalizerInte
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamSubscription();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'code') && $data->{'code'} !== null) {
+        if (property_exists($data, 'code') && null !== $data->{'code'}) {
             $object->setCode($data->{'code'});
         }
-        if (property_exists($data, 'is_renewing') && $data->{'is_renewing'} !== null) {
+        if (property_exists($data, 'is_renewing') && null !== $data->{'is_renewing'}) {
             $object->setIsRenewing($data->{'is_renewing'});
         }
-        if (property_exists($data, 'start_at') && $data->{'start_at'} !== null) {
+        if (property_exists($data, 'start_at') && null !== $data->{'start_at'}) {
             $object->setStartAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'start_at'}));
         }
-        if (property_exists($data, 'end_at') && $data->{'end_at'} !== null) {
+        if (property_exists($data, 'end_at') && null !== $data->{'end_at'}) {
             $object->setEndAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'end_at'}));
         }
-        if (property_exists($data, 'items') && $data->{'items'} !== null) {
+        if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\IamSubscriptionItem', 'json', $context);

@@ -51,19 +51,11 @@ class WmsWarehouseItem
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -71,19 +63,11 @@ class WmsWarehouseItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSku(): ?string
     {
         return $this->sku;
     }
 
-    /**
-     * @param string|null $sku
-     *
-     * @return self
-     */
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
@@ -91,19 +75,11 @@ class WmsWarehouseItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getClaimId(): ?string
     {
         return $this->claimId;
     }
 
-    /**
-     * @param string|null $claimId
-     *
-     * @return self
-     */
     public function setClaimId(?string $claimId): self
     {
         $this->claimId = $claimId;
@@ -111,19 +87,11 @@ class WmsWarehouseItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLocationId(): ?string
     {
         return $this->locationId;
     }
 
-    /**
-     * @param string|null $locationId
-     *
-     * @return self
-     */
     public function setLocationId(?string $locationId): self
     {
         $this->locationId = $locationId;
@@ -131,19 +99,11 @@ class WmsWarehouseItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getWarehouseId(): ?string
     {
         return $this->warehouseId;
     }
 
-    /**
-     * @param string|null $warehouseId
-     *
-     * @return self
-     */
     public function setWarehouseId(?string $warehouseId): self
     {
         $this->warehouseId = $warehouseId;
@@ -165,8 +125,6 @@ class WmsWarehouseItem
      * additional metadata that applies to the item.
      *
      * @param string[]|null $metadata
-     *
-     * @return self
      */
     public function setMetadata(?\ArrayObject $metadata): self
     {
@@ -175,19 +133,11 @@ class WmsWarehouseItem
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getState(): ?int
     {
         return $this->state;
     }
 
-    /**
-     * @param int|null $state
-     *
-     * @return self
-     */
     public function setState(?int $state): self
     {
         $this->state = $state;
@@ -195,19 +145,11 @@ class WmsWarehouseItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCreatedAt(): ?string
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param string|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?string $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -215,19 +157,11 @@ class WmsWarehouseItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUpdatedAt(): ?string
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param string|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?string $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

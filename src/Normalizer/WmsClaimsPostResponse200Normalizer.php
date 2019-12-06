@@ -24,12 +24,12 @@ class WmsClaimsPostResponse200Normalizer implements DenormalizerInterface, Norma
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsClaimsPostResponse200';
+        return 'Afosto\\Sdk\\Model\\WmsClaimsPostResponse200' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsClaimsPostResponse200';
+        return 'Afosto\\Sdk\\Model\\WmsClaimsPostResponse200' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,14 +38,14 @@ class WmsClaimsPostResponse200Normalizer implements DenormalizerInterface, Norma
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsClaimsPostResponse200();
-        if (property_exists($data, 'claims') && $data->{'claims'} !== null) {
+        if (property_exists($data, 'claims') && null !== $data->{'claims'}) {
             $values = [];
             foreach ($data->{'claims'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsClaim', 'json', $context);
             }
             $object->setClaims($values);
         }
-        if (property_exists($data, 'backorder') && $data->{'backorder'} !== null) {
+        if (property_exists($data, 'backorder') && null !== $data->{'backorder'}) {
             $object->setBackorder($this->denormalizer->denormalize($data->{'backorder'}, 'Afosto\\Sdk\\Model\\WmsBackorder', 'json', $context));
         }
 

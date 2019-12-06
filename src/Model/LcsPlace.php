@@ -27,8 +27,6 @@ class LcsPlace
 
     /**
      * @param string[]|null $ids
-     *
-     * @return self
      */
     public function setIds(?array $ids): self
     {

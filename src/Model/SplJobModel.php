@@ -37,19 +37,11 @@ class SplJobModel
      */
     protected $scheduleAt;
 
-    /**
-     * @return string|null
-     */
     public function getJob(): ?string
     {
         return $this->job;
     }
 
-    /**
-     * @param string|null $job
-     *
-     * @return self
-     */
     public function setJob(?string $job): self
     {
         $this->job = $job;
@@ -57,19 +49,11 @@ class SplJobModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTag(): ?string
     {
         return $this->tag;
     }
 
-    /**
-     * @param string|null $tag
-     *
-     * @return self
-     */
     public function setTag(?string $tag): self
     {
         $this->tag = $tag;
@@ -77,19 +61,11 @@ class SplJobModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -97,19 +73,11 @@ class SplJobModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -117,19 +85,11 @@ class SplJobModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getHubId(): ?string
     {
         return $this->hubId;
     }
 
-    /**
-     * @param string|null $hubId
-     *
-     * @return self
-     */
     public function setHubId(?string $hubId): self
     {
         $this->hubId = $hubId;
@@ -137,19 +97,11 @@ class SplJobModel
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getScheduleAt(): ?\DateTime
     {
         return $this->scheduleAt;
     }
 
-    /**
-     * @param \DateTime|null $scheduleAt
-     *
-     * @return self
-     */
     public function setScheduleAt(?\DateTime $scheduleAt): self
     {
         $this->scheduleAt = $scheduleAt;

@@ -16,8 +16,6 @@ class ListLocationSkus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     /**
      * Returns a list of fulfilment locations.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

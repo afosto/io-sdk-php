@@ -21,19 +21,11 @@ class IamUserUpdateModel
      */
     protected $lastName;
 
-    /**
-     * @return string|null
-     */
     public function getFirstName(): ?string
     {
         return $this->firstName;
     }
 
-    /**
-     * @param string|null $firstName
-     *
-     * @return self
-     */
     public function setFirstName(?string $firstName): self
     {
         $this->firstName = $firstName;
@@ -41,19 +33,11 @@ class IamUserUpdateModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLastName(): ?string
     {
         return $this->lastName;
     }
 
-    /**
-     * @param string|null $lastName
-     *
-     * @return self
-     */
     public function setLastName(?string $lastName): self
     {
         $this->lastName = $lastName;

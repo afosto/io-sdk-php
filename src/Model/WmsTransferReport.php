@@ -21,19 +21,11 @@ class WmsTransferReport
      */
     protected $claimItemIds;
 
-    /**
-     * @return string|null
-     */
     public function getTarget(): ?string
     {
         return $this->target;
     }
 
-    /**
-     * @param string|null $target
-     *
-     * @return self
-     */
     public function setTarget(?string $target): self
     {
         $this->target = $target;
@@ -51,8 +43,6 @@ class WmsTransferReport
 
     /**
      * @param string[]|null $claimItemIds
-     *
-     * @return self
      */
     public function setClaimItemIds(?array $claimItemIds): self
     {

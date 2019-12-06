@@ -24,12 +24,12 @@ class IamAddressNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamAddress';
+        return 'Afosto\\Sdk\\Model\\IamAddress' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamAddress';
+        return 'Afosto\\Sdk\\Model\\IamAddress' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,19 +38,19 @@ class IamAddressNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamAddress();
-        if (property_exists($data, 'address_line_1') && $data->{'address_line_1'} !== null) {
+        if (property_exists($data, 'address_line_1') && null !== $data->{'address_line_1'}) {
             $object->setAddressLine1($data->{'address_line_1'});
         }
-        if (property_exists($data, 'address_line_2') && $data->{'address_line_2'} !== null) {
+        if (property_exists($data, 'address_line_2') && null !== $data->{'address_line_2'}) {
             $object->setAddressLine2($data->{'address_line_2'});
         }
-        if (property_exists($data, 'postal_code') && $data->{'postal_code'} !== null) {
+        if (property_exists($data, 'postal_code') && null !== $data->{'postal_code'}) {
             $object->setPostalCode($data->{'postal_code'});
         }
-        if (property_exists($data, 'city') && $data->{'city'} !== null) {
+        if (property_exists($data, 'city') && null !== $data->{'city'}) {
             $object->setCity($data->{'city'});
         }
-        if (property_exists($data, 'country_code') && $data->{'country_code'} !== null) {
+        if (property_exists($data, 'country_code') && null !== $data->{'country_code'}) {
             $object->setCountryCode($data->{'country_code'});
         }
 

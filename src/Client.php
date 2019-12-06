@@ -74,7 +74,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Retrieve a single conversation.
      *
-     * @param int    $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetConversationUnauthorizedException
@@ -90,7 +89,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Append a message to the conversation.
      *
-     * @param int                             $id
      * @param \Afosto\Sdk\Model\MesMessageAdd $body  The new message
      * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -107,7 +105,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Register a new participant in the conversation.
      *
-     * @param int                                    $id
      * @param \Afosto\Sdk\Model\MesParticipantCreate $body  The new message
      * @param string                                 $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -124,7 +121,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add a subscription to recieve updates on this conversation.
      *
-     * @param int                               $id
      * @param \Afosto\Sdk\Model\MesSubscription $body  The subscription data
      * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -141,7 +137,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Remove a subscription to recieve updates on this conversation.
      *
-     * @param int                         $id
      * @param \Afosto\Sdk\Model\MesCancel $body  The subscription data
      * @param string                      $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -179,8 +174,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create a new order.
      *
-     * @param \Afosto\Sdk\Model\OdrOrderModel $body
-     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateOrderUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateOrderNotFoundException
@@ -195,7 +189,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Delete an existing order.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\DeleteOrderUnauthorizedException
@@ -211,7 +204,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * View a single order.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ViewOrderUnauthorizedException
@@ -227,9 +219,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update the customer parameters for the order.
      *
-     * @param string                                $id
-     * @param \Afosto\Sdk\Model\OdrOrderUpdateModel $body
-     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateOrderUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateOrderNotFoundException
@@ -244,9 +234,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update the order state.
      *
-     * @param string                     $id
-     * @param \Afosto\Sdk\Model\OdrState $body
-     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateOrderStateUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateOrderStateNotFoundException
@@ -513,8 +501,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a cost projection for a given stack and additional data.
      *
-     * @param \Afosto\Sdk\Model\OdrProjectionModel $body
-     * @param string                               $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateProjectionBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateProjectionUnauthorizedException
@@ -542,8 +529,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create a new calculation.
      *
-     * @param \Afosto\Sdk\Model\OdrBillRequest $body
-     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateCalculationBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateCalculationUnauthorizedException
@@ -558,7 +544,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a calculation.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetCalculationBadRequestException
@@ -574,9 +559,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update a concept calculation.
      *
-     * @param string                           $id
-     * @param \Afosto\Sdk\Model\OdrBillRequest $body
-     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateCalculationBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateCalculationUnauthorizedException
@@ -591,9 +574,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update a calculation state.
      *
-     * @param string                                $id
-     * @param \Afosto\Sdk\Model\OdrCalculationState $body
-     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateCalculationStateBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateCalculationStateUnauthorizedException
@@ -608,9 +589,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Creates the invoice.
      *
-     * @param string                                        $id
-     * @param \Afosto\Sdk\Model\OdrCalculatedInvoiceRequest $body
-     * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationUnauthorizedException
@@ -638,8 +617,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create a new invoice.
      *
-     * @param \Afosto\Sdk\Model\OdrBillRequest $body
-     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateInvoiceBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateInvoiceUnauthorizedException
@@ -654,8 +632,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a single invoice by id.
      *
-     * @param string $id
-     * @param array  $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
@@ -676,9 +653,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update an concept / proforma invoice.
      *
-     * @param string                           $id
-     * @param \Afosto\Sdk\Model\OdrBillRequest $body
-     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateInvoiceBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateInvoiceUnauthorizedException
@@ -693,9 +668,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update an invoice.
      *
-     * @param string                            $id
-     * @param \Afosto\Sdk\Model\OdrInvoiceState $body
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateUnauthorizedException
@@ -731,8 +704,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add a new pricing rule to the set.
      *
-     * @param \Afosto\Sdk\Model\OdrPricingRuleModel $body
-     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreatePricingRuleBadRequestException
      * @throws \Afosto\Sdk\Exception\CreatePricingRuleUnauthorizedException
@@ -747,7 +719,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Get a pricing rule.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetPricingRuleUnauthorizedException
@@ -763,9 +734,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update an existing pricing rule.
      *
-     * @param string                                $id
-     * @param \Afosto\Sdk\Model\OdrPricingRuleModel $body
-     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdatePricingRuleBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdatePricingRuleUnauthorizedException
@@ -780,8 +749,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Test to see if rules would be applied.
      *
-     * @param \Afosto\Sdk\Model\OdrPriceRuleEvaluation $body
-     * @param string                                   $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\EvaluateRulesBadRequestException
      * @throws \Afosto\Sdk\Exception\EvaluateRulesUnauthorizedException
@@ -1033,8 +1001,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add a new proxy configuration.
      *
-     * @param \Afosto\Sdk\Model\CntProxyModel $body
-     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateProxyBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateProxyUnauthorizedException
@@ -1049,7 +1016,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns the proxy configuration.
      *
-     * @param string $key
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetProxyBadRequestException
@@ -1065,9 +1031,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Updates the proxy.
      *
-     * @param string                                $key
-     * @param \Afosto\Sdk\Model\CntProxyUpdateModel $body
-     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateProxyBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateProxyUnauthorizedException
@@ -1186,8 +1150,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add a card's source.
      *
-     * @param \Afosto\Sdk\Model\IamCardsPostBody $body
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1199,7 +1162,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Remove an active card.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
@@ -1232,8 +1194,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add a product to the subscription.
      *
-     * @param \Afosto\Sdk\Model\IamSubscribe $body
-     * @param string                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1275,8 +1236,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * List of subscribed products.
      *
-     * @param \Afosto\Sdk\Model\IamUsageRequest $body
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1589,9 +1549,8 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update the company name.
      *
-     * @param string                                $id    Id that belongs to the tenant
-     * @param \Afosto\Sdk\Model\IamTenantsIdPutBody $body
-     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $id    Id that belongs to the tenant
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateCompanyNameUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateCompanyNameNotFoundException
@@ -1652,9 +1611,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Updates the invite state.
      *
-     * @param string                                          $id
-     * @param \Afosto\Sdk\Model\IamSubtenantsInvitesIdPutBody $body
-     * @param string                                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateInviteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateInviteNotFoundException
@@ -1682,8 +1639,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create a new subtenant request.
      *
-     * @param \Afosto\Sdk\Model\IamSubtenantsRequestsPostBody $body
-     * @param string                                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\SendSubtenantRequestUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SendSubtenantRequestNotFoundException
@@ -1731,9 +1687,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Updates the request state.
      *
-     * @param string                                                         $id
-     * @param \Afosto\Sdk\Model\IamSubtenantsAuthorizationsRequestsIdPutBody $body
-     * @param string                                                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateRequestUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateRequestNotFoundException
@@ -1761,8 +1715,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create a new subtenant request.
      *
-     * @param \Afosto\Sdk\Model\IamSubtenantsAuthorizationsInvitesPostBody $body
-     * @param string                                                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\SendInviteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SendInviteNotFoundException
@@ -2010,7 +1963,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Delete a RBAC role.
      *
-     * @param int    $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\DeleteRoleUnauthorizedException
@@ -2026,7 +1978,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns the rbac role.
      *
-     * @param int    $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetRoleUnauthorizedException
@@ -2042,7 +1993,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update a RBAC role.
      *
-     * @param int                            $id
      * @param \Afosto\Sdk\Model\IamRoleModel $body  Role object
      * @param string                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -2079,7 +2029,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a single rbac role.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetSystemRoleUnauthorizedException
@@ -2401,8 +2350,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a new signed upload url.
      *
-     * @param \Afosto\Sdk\Model\OdrTransactionModel $body
-     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateTransactionBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateTransactionUnauthorizedException
@@ -2417,8 +2365,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns the details of a transaction.
      *
-     * @param string $secret
-     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetTransactionBadRequestException
      * @throws \Afosto\Sdk\Exception\GetTransactionUnauthorizedException
@@ -2433,9 +2380,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Start a payment for a transaction.
      *
-     * @param string                             $secret
-     * @param \Afosto\Sdk\Model\OdrPaymentIntent $body
-     * @param string                             $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreatePaymentBadRequestException
      * @throws \Afosto\Sdk\Exception\CreatePaymentUnauthorizedException
@@ -2450,8 +2395,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a list of payment methods available for the transaction.
      *
-     * @param string $secret
-     * @param string $fetch  Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionBadRequestException
      * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionUnauthorizedException
@@ -2466,8 +2410,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns the live details of a payment.
      *
-     * @param string $reference
-     * @param string $fetch     Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetPaymentBadRequestException
      * @throws \Afosto\Sdk\Exception\GetPaymentUnauthorizedException
@@ -2503,8 +2446,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add a new route.
      *
-     * @param \Afosto\Sdk\Model\WmsCreateRouteRequest $body
-     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateRouteNotFoundException
@@ -2519,8 +2461,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update a route.
      *
-     * @param \Afosto\Sdk\Model\WmsUpdateRouteRequest $body
-     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateRouteNotFoundException
@@ -2535,7 +2476,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Marks a route as deleted.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\DeleteRouteUnauthorizedException
@@ -2551,7 +2491,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * View a route.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ViewRouteUnauthorizedException
@@ -2604,8 +2543,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update a location.
      *
-     * @param \Afosto\Sdk\Model\WmsUpdateLocationRequest $body
-     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateLocationNotFoundException
@@ -2620,7 +2558,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Mark a location as deleted.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\DeleteLocationUnauthorizedException
@@ -2636,7 +2573,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Get a location.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetLocationUnauthorizedException
@@ -2705,7 +2641,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Mark a hop as deleted.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\DeleteHopUnauthorizedException
@@ -2721,7 +2656,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Get a hop.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetHopUnauthorizedException
@@ -2795,7 +2729,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Mark a schedule as deleted.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\DeleteScheduleUnauthorizedException
@@ -2811,7 +2744,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Get a schedule.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetScheduleUnauthorizedException
@@ -2896,7 +2828,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Get a warehouse.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetWarehouseUnauthorizedException
@@ -2912,8 +2843,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create a Projection to generate the available allocation options.
      *
-     * @param \Afosto\Sdk\Model\WmsCreateProjectionRequest $body
-     * @param string                                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateClaimProjectionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateClaimProjectionNotFoundException
@@ -2949,8 +2879,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create an optimized set of claims.
      *
-     * @param \Afosto\Sdk\Model\WmsCreateClaimRequest $body
-     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateClaimsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateClaimsNotFoundException
@@ -2965,7 +2894,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Get a claim and it's status.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetClaimUnauthorizedException
@@ -2981,9 +2909,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Extend the time the inventory is claimed.
      *
-     * @param string                                     $id
-     * @param \Afosto\Sdk\Model\WmsClaimsIdExtendPutBody $body
-     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ExtendClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ExtendClaimNotFoundException
@@ -2998,9 +2924,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Confirm a reservation claim and make it an actual claim.
      *
-     * @param string    $id
-     * @param \stdClass $body
-     * @param string    $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ConfirmClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ConfirmClaimNotFoundException
@@ -3015,8 +2939,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create an optimized set of claims.
      *
-     * @param \Afosto\Sdk\Model\WmsCreateTransferRequest $body
-     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateTransferProjectionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTransferProjectionNotFoundException
@@ -3052,8 +2975,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create a new transfer.
      *
-     * @param \Afosto\Sdk\Model\WmsCreateTransferRequest $body
-     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTransferNotFoundException
@@ -3068,7 +2990,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create an optimized set of claims.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetTransferUnauthorizedException
@@ -3121,7 +3042,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a sub transfer.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetSubTransferUnauthorizedException
@@ -3174,8 +3094,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Get a list of inventory summaries.
      *
-     * @param \Afosto\Sdk\Model\WmsInventoryPostBody $body
-     * @param array                                  $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
@@ -3196,8 +3115,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Get a list of inventory summaries.
      *
-     * @param \Afosto\Sdk\Model\WmsStockUpRequest $body
-     * @param string                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\SetInventoryUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SetInventoryNotFoundException
@@ -3212,7 +3130,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create an optimized set of claims.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetWarehouseItemUnauthorizedException
@@ -3228,9 +3145,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update the warehouse item.
      *
-     * @param string                                          $id
-     * @param \Afosto\Sdk\Model\WmsUpdateWarehouseItemRequest $body
-     * @param string                                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateItemNotFoundException
@@ -3279,7 +3194,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a file.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetFileBadRequestException
@@ -3295,8 +3209,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a new upload signature.
      *
-     * @param \Afosto\Sdk\Model\CntUploadRequest $body
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateSignedUrlBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateSignedUrlUnauthorizedException
@@ -3311,8 +3224,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Upload a new file.
      *
-     * @param string $signature
-     * @param array  $formParameters {
+     * @param array $formParameters {
      *
      *     @var string|resource|\Psr\Http\Message\StreamInterface $file
      * }
@@ -3355,8 +3267,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * Run a complex search.
      *
      * @param string                           $namespace        the namespace
-     * @param string                           $code
-     * @param string                           $model
      * @param \Afosto\Sdk\Model\CntSearchQuery $body             Query object
      * @param array                            $headerParameters {
      *
@@ -3462,8 +3372,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add a new handling list.
      *
-     * @param \Afosto\Sdk\Model\LcsHandlingModel $body
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateHandlingListBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateHandlingListUnauthorizedException
@@ -3478,8 +3387,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Search for a set of lists.
      *
-     * @param \Afosto\Sdk\Model\LcsListSearch $body
-     * @param array                           $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page
      *     @var string $x-page-size
@@ -3500,7 +3408,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Delete a handling list.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\DeleteHandlingListBadRequestException
@@ -3516,7 +3423,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a handling list.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ViewHandlingListBadRequestException
@@ -3532,7 +3438,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update items' state on a handling list.
      *
-     * @param string                                        $id
      * @param \Afosto\Sdk\Model\LcsHandlingListItemUpdate[] $body
      * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -3549,9 +3454,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update state of an handling list.
      *
-     * @param string                                  $id
-     * @param \Afosto\Sdk\Model\LcsHandlingListUpdate $body
-     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateListStateBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateListStateUnauthorizedException
@@ -3587,8 +3490,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add a new shipment to the list.
      *
-     * @param \Afosto\Sdk\Model\LcsShipmentModel $body
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateShipmentBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateShipmentUnauthorizedException
@@ -3603,8 +3505,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Search for a set of shipments.
      *
-     * @param \Afosto\Sdk\Model\LcsShipmentSearch $body
-     * @param array                               $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page
      *     @var string $x-page-size
@@ -3625,7 +3526,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a single shipment.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ViewShipmentBadRequestException
@@ -3641,9 +3541,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update the shipment method or addressing.
      *
-     * @param string                                   $id
-     * @param \Afosto\Sdk\Model\LcsShipmentUpdateModel $body
-     * @param string                                   $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateShipmentBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateShipmentUnauthorizedException
@@ -3679,8 +3577,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add a new parcel to the list.
      *
-     * @param \Afosto\Sdk\Model\LcsParcelCreateModel $body
-     * @param string                                 $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateParcelBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateParcelUnauthorizedException
@@ -3695,7 +3592,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Remove a parcel.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\RemoveParcelBadRequestException
@@ -3711,9 +3607,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update the parcel parameters.
      *
-     * @param string                           $id
-     * @param \Afosto\Sdk\Model\LcsParcelModel $body
-     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateParcelBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateParcelUnauthorizedException
@@ -3728,9 +3622,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Remove items from parcel.
      *
-     * @param string                     $id
-     * @param \Afosto\Sdk\Model\LcsPlace $body
-     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\RemoveFromParcelBadRequestException
      * @throws \Afosto\Sdk\Exception\RemoveFromParcelUnauthorizedException
@@ -3745,9 +3637,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add items to a parcel.
      *
-     * @param string                     $id
-     * @param \Afosto\Sdk\Model\LcsPlace $body
-     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\AddToParcelBadRequestException
      * @throws \Afosto\Sdk\Exception\AddToParcelUnauthorizedException
@@ -3783,8 +3673,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create a new fulfilment location.
      *
-     * @param \Afosto\Sdk\Model\LcsFulfilmentLocationCreate $body
-     * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateFulfilmentLocationBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateFulfilmentLocationUnauthorizedException
@@ -3799,7 +3688,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a fulfilment location.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationBadRequestException
@@ -3815,7 +3703,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a list of fulfilment locations.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListPositionsBadRequestException
@@ -3831,8 +3718,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Updates the position order for a location.
      *
-     * @param string $id
-     * @param array  $body
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdatePositionOrderBadRequestException
@@ -3848,7 +3733,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a list of fulfilment locations.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListLocationSkusBadRequestException
@@ -3864,7 +3748,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Updates the position order for a location.
      *
-     * @param string                             $id
      * @param \Afosto\Sdk\Model\LcsLocationSku[] $body
      * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -3881,7 +3764,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a file reference to a label.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetLabelBadRequestException
@@ -4000,7 +3882,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a disposal.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetDisposalUnauthorizedException
@@ -4043,8 +3924,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Creates and returns the new stack.
      *
-     * @param \Afosto\Sdk\Model\OdrStackModel $body
-     * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateStackUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateStackNotFoundException
@@ -4059,8 +3939,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Creates and returns the new stack.
      *
-     * @param \Afosto\Sdk\Model\OdrTransitionModel $body
-     * @param string                               $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\TransitionStackUnauthorizedException
      * @throws \Afosto\Sdk\Exception\TransitionStackNotFoundException
@@ -4075,7 +3954,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Removes a stack.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\DeleteStackUnauthorizedException
@@ -4091,7 +3969,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a stack.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetStackUnauthorizedException
@@ -4107,8 +3984,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a list of items grouped by sku, description and references.
      *
-     * @param string $id
-     * @param array  $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
@@ -4129,9 +4005,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Delete items from the given reference.
      *
-     * @param string                                $id
-     * @param \Afosto\Sdk\Model\OdrStackDeleteModel $body
-     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\DeleteItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteItemsNotFoundException
@@ -4146,8 +4020,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a list of items.
      *
-     * @param string $id
-     * @param array  $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
@@ -4168,9 +4041,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Adds items to the stack that was previously created.
      *
-     * @param string                             $id
-     * @param \Afosto\Sdk\Model\OdrStackAddModel $body
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\AddToStackUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AddToStackNotFoundException
@@ -4207,8 +4078,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a list of items.
      *
-     * @param \Afosto\Sdk\Model\OdrSearch $body
-     * @param array                       $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
@@ -4245,8 +4115,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Transform HTML into a PDF.
      *
-     * @param \Afosto\Sdk\Model\CntHtmlToPdfRequest $body
-     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GeneratePDFBadRequestException
      * @throws \Afosto\Sdk\Exception\GeneratePDFUnauthorizedException
@@ -4282,8 +4151,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add a new pricing group to the list.
      *
-     * @param \Afosto\Sdk\Model\CatGroupCreate $body
-     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreatePricingGroupUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreatePricingGroupNotFoundException
@@ -4298,7 +4166,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Disabling a pricing group makes sure it cannot me added to new settings.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\DisableGroupUnauthorizedException
@@ -4314,7 +4181,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * View the pricing group by id.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ViewGroupUnauthorizedException
@@ -4330,9 +4196,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update metadata or the name of the pricing group.
      *
-     * @param string                           $id
-     * @param \Afosto\Sdk\Model\CatGroupUpdate $body
-     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateGroupUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateGroupNotFoundException
@@ -4347,8 +4211,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Get a listing of prices that are stored in the group.
      *
-     * @param string $id
-     * @param array  $queryParameters {
+     * @param array $queryParameters {
      *
      *     @var string $country US - use to filter tax rate results
      *     @var string $administrative_area Florida - use to filter tax rate results
@@ -4375,9 +4238,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Query for a set of prices.
      *
-     * @param string                           $id
-     * @param \Afosto\Sdk\Model\CatPriceSearch $body
-     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\SearchPricesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchPricesNotFoundException
@@ -4392,7 +4253,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create or update prices.
      *
-     * @param string                          $id
      * @param \Afosto\Sdk\Model\CatNewPrice[] $body
      * @param string                          $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -4496,7 +4356,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns distinct filter values.
      *
-     * @param string $key
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return \Psr\Http\Message\ResponseInterface|null
@@ -4530,8 +4389,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Search contacts based on their id's or email addresses.
      *
-     * @param \Afosto\Sdk\Model\RelSearch $body
-     * @param string                      $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\SearchContactsBadRequestException
      * @throws \Afosto\Sdk\Exception\SearchContactsUnauthorizedException
@@ -4546,8 +4404,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create a new or update an existing contact, based on it's emailaddress. Will only update the primary parts of lists. Doing so it will move the old primary to a secondary (on changes).
      *
-     * @param \Afosto\Sdk\Model\RelContactUpdate $body
-     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpsertContactBadRequestException
      * @throws \Afosto\Sdk\Exception\UpsertContactUnauthorizedException
@@ -4562,8 +4419,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a single contact by id.
      *
-     * @param string $id
-     * @param array  $queryParameters {
+     * @param array $queryParameters {
      *
      *     @var string $version
      * }
@@ -4583,7 +4439,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a version list for the contact.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ViewContactVersionsBadRequestException
@@ -4599,8 +4454,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create an address.
      *
-     * @param \Afosto\Sdk\Model\RelAddressModel $body
-     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateAddressBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateAddressUnauthorizedException
@@ -4615,7 +4469,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a single address by id.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ViewAddressBadRequestException
@@ -4651,8 +4504,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create a phonenumber.
      *
-     * @param \Afosto\Sdk\Model\RelPhoneNumberModel $body
-     * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreatePhonenumberBadRequestException
      * @throws \Afosto\Sdk\Exception\CreatePhonenumberUnauthorizedException
@@ -4667,7 +4519,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a single phonenumber by id.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ViewPhoneNumberBadRequestException
@@ -4704,8 +4555,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Create an organisation.
      *
-     * @param \Afosto\Sdk\Model\RelOrganisationUpdateModel $body
-     * @param string                                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateOrganisationBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateOrganisationUnauthorizedException
@@ -4720,8 +4570,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a single organisation by id.
      *
-     * @param string $id
-     * @param array  $queryParameters {
+     * @param array $queryParameters {
      *
      *     @var string $version
      * }
@@ -4741,9 +4590,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Updates an existing organisation.
      *
-     * @param string                                       $id
-     * @param \Afosto\Sdk\Model\RelOrganisationUpdateModel $body
-     * @param string                                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateOrganisationBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateOrganisationUnauthorizedException
@@ -4758,7 +4605,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a version list for the organisation.
      *
-     * @param string $id
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ViewOrganisationVersionsBadRequestException
@@ -4774,8 +4620,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a  signed id token.
      *
-     * @param \Afosto\Sdk\Model\RelCreateIdentityRequest $body
-     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateIdentityUnauthorizedException
@@ -4791,8 +4636,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a  signed id token.
      *
-     * @param \Afosto\Sdk\Model\RelCreateIdentityRequest $body
-     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\AuthorizeIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\AuthorizeIdentityUnauthorizedException
@@ -4808,8 +4652,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a new token to confirm identity or reset a password.
      *
-     * @param \Afosto\Sdk\Model\RelCreateTokenRequest $body
-     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateTokenIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateTokenIdentityUnauthorizedException
@@ -4825,8 +4668,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Pass a token to reset the password.
      *
-     * @param \Afosto\Sdk\Model\RelCreateResetRequest $body
-     * @param string                                  $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ResetIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\ResetIdentityUnauthorizedException
@@ -4841,8 +4683,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Mark the identity as verified.
      *
-     * @param \Afosto\Sdk\Model\RelCreateConfirmRequest $body
-     * @param string                                    $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\VerifyIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\VerifyIdentityUnauthorizedException

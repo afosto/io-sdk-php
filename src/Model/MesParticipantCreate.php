@@ -25,19 +25,11 @@ class MesParticipantCreate
      */
     protected $isMachine;
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -45,19 +37,11 @@ class MesParticipantCreate
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -65,19 +49,11 @@ class MesParticipantCreate
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsMachine(): ?bool
     {
         return $this->isMachine;
     }
 
-    /**
-     * @param bool|null $isMachine
-     *
-     * @return self
-     */
     public function setIsMachine(?bool $isMachine): self
     {
         $this->isMachine = $isMachine;

@@ -24,12 +24,12 @@ class SplNetworkDeviceNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplNetworkDevice';
+        return 'Afosto\\Sdk\\Model\\SplNetworkDevice' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplNetworkDevice';
+        return 'Afosto\\Sdk\\Model\\SplNetworkDevice' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class SplNetworkDeviceNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplNetworkDevice();
-        if (property_exists($data, 'description') && $data->{'description'} !== null) {
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'mac_address') && $data->{'mac_address'} !== null) {
+        if (property_exists($data, 'mac_address') && null !== $data->{'mac_address'}) {
             $object->setMacAddress($data->{'mac_address'});
         }
-        if (property_exists($data, 'interface') && $data->{'interface'} !== null) {
+        if (property_exists($data, 'interface') && null !== $data->{'interface'}) {
             $object->setInterface($this->denormalizer->denormalize($data->{'interface'}, 'Afosto\\Sdk\\Model\\SplConnection', 'json', $context));
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
 

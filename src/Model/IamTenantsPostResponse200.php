@@ -21,19 +21,11 @@ class IamTenantsPostResponse200
      */
     protected $user;
 
-    /**
-     * @return IamTenant|null
-     */
     public function getTenant(): ?IamTenant
     {
         return $this->tenant;
     }
 
-    /**
-     * @param IamTenant|null $tenant
-     *
-     * @return self
-     */
     public function setTenant(?IamTenant $tenant): self
     {
         $this->tenant = $tenant;
@@ -41,19 +33,11 @@ class IamTenantsPostResponse200
         return $this;
     }
 
-    /**
-     * @return IamUser|null
-     */
     public function getUser(): ?IamUser
     {
         return $this->user;
     }
 
-    /**
-     * @param IamUser|null $user
-     *
-     * @return self
-     */
     public function setUser(?IamUser $user): self
     {
         $this->user = $user;

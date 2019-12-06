@@ -24,12 +24,12 @@ class WmsClaimsIdExtendPutBodyNormalizer implements DenormalizerInterface, Norma
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsClaimsIdExtendPutBody';
+        return 'Afosto\\Sdk\\Model\\WmsClaimsIdExtendPutBody' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsClaimsIdExtendPutBody';
+        return 'Afosto\\Sdk\\Model\\WmsClaimsIdExtendPutBody' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class WmsClaimsIdExtendPutBodyNormalizer implements DenormalizerInterface, Norma
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsClaimsIdExtendPutBody();
-        if (property_exists($data, 'expires_at') && $data->{'expires_at'} !== null) {
+        if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
 

@@ -35,19 +35,11 @@ class MesMessage
      */
     protected $createdAt;
 
-    /**
-     * @return string|null
-     */
     public function getContent(): ?string
     {
         return $this->content;
     }
 
-    /**
-     * @param string|null $content
-     *
-     * @return self
-     */
     public function setContent(?string $content): self
     {
         $this->content = $content;
@@ -55,19 +47,11 @@ class MesMessage
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getParticipantReference(): ?string
     {
         return $this->participantReference;
     }
 
-    /**
-     * @param string|null $participantReference
-     *
-     * @return self
-     */
     public function setParticipantReference(?string $participantReference): self
     {
         $this->participantReference = $participantReference;
@@ -75,19 +59,11 @@ class MesMessage
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsPrivate(): ?bool
     {
         return $this->isPrivate;
     }
 
-    /**
-     * @param bool|null $isPrivate
-     *
-     * @return self
-     */
     public function setIsPrivate(?bool $isPrivate): self
     {
         $this->isPrivate = $isPrivate;
@@ -109,8 +85,6 @@ class MesMessage
      * additional metadata that applies to the item.
      *
      * @param string[]|null $metadata
-     *
-     * @return self
      */
     public function setMetadata(?\ArrayObject $metadata): self
     {
@@ -119,19 +93,11 @@ class MesMessage
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;

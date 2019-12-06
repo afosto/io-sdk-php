@@ -16,9 +16,6 @@ class UpdatePositionOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
 
     /**
      * Updates the position order for a location.
-     *
-     * @param string $id
-     * @param array  $body
      */
     public function __construct(string $id, array $body)
     {

@@ -24,12 +24,12 @@ class CntSearchQueryNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntSearchQuery';
+        return 'Afosto\\Sdk\\Model\\CntSearchQuery' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntSearchQuery';
+        return 'Afosto\\Sdk\\Model\\CntSearchQuery' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,36 +38,36 @@ class CntSearchQueryNormalizer implements DenormalizerInterface, NormalizerInter
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntSearchQuery();
-        if (property_exists($data, 'q') && $data->{'q'} !== null) {
+        if (property_exists($data, 'q') && null !== $data->{'q'}) {
             $object->setQ($data->{'q'});
         }
-        if (property_exists($data, 'is_fuzzy') && $data->{'is_fuzzy'} !== null) {
+        if (property_exists($data, 'is_fuzzy') && null !== $data->{'is_fuzzy'}) {
             $object->setIsFuzzy($data->{'is_fuzzy'});
         }
-        if (property_exists($data, 'filter') && $data->{'filter'} !== null) {
+        if (property_exists($data, 'filter') && null !== $data->{'filter'}) {
             $values = [];
             foreach ($data->{'filter'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CntFilter', 'json', $context);
             }
             $object->setFilter($values);
         }
-        if (property_exists($data, 'facets') && $data->{'facets'} !== null) {
+        if (property_exists($data, 'facets') && null !== $data->{'facets'}) {
             $values_1 = [];
             foreach ($data->{'facets'} as $value_1) {
                 $values_1[] = $value_1;
             }
             $object->setFacets($values_1);
         }
-        if (property_exists($data, 'limit') && $data->{'limit'} !== null) {
+        if (property_exists($data, 'limit') && null !== $data->{'limit'}) {
             $object->setLimit($data->{'limit'});
         }
-        if (property_exists($data, 'threshold') && $data->{'threshold'} !== null) {
+        if (property_exists($data, 'threshold') && null !== $data->{'threshold'}) {
             $object->setThreshold($data->{'threshold'});
         }
-        if (property_exists($data, 'page_cursor') && $data->{'page_cursor'} !== null) {
+        if (property_exists($data, 'page_cursor') && null !== $data->{'page_cursor'}) {
             $object->setPageCursor($data->{'page_cursor'});
         }
-        if (property_exists($data, 'sort') && $data->{'sort'} !== null) {
+        if (property_exists($data, 'sort') && null !== $data->{'sort'}) {
             $values_2 = [];
             foreach ($data->{'sort'} as $value_2) {
                 $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\CntSort', 'json', $context);

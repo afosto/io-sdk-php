@@ -45,19 +45,11 @@ class CntSimpleDocumentResponse
      */
     protected $metadata;
 
-    /**
-     * @return string|null
-     */
     public function getReference(): ?string
     {
         return $this->reference;
     }
 
-    /**
-     * @param string|null $reference
-     *
-     * @return self
-     */
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
@@ -65,19 +57,11 @@ class CntSimpleDocumentResponse
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    /**
-     * @param string|null $title
-     *
-     * @return self
-     */
     public function setTitle(?string $title): self
     {
         $this->title = $title;
@@ -85,19 +69,11 @@ class CntSimpleDocumentResponse
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
-    /**
-     * @param string|null $code
-     *
-     * @return self
-     */
     public function setCode(?string $code): self
     {
         $this->code = $code;
@@ -105,19 +81,11 @@ class CntSimpleDocumentResponse
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getModel(): ?string
     {
         return $this->model;
     }
 
-    /**
-     * @param string|null $model
-     *
-     * @return self
-     */
     public function setModel(?string $model): self
     {
         $this->model = $model;
@@ -125,19 +93,11 @@ class CntSimpleDocumentResponse
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getNamespace(): ?string
     {
         return $this->namespace;
     }
 
-    /**
-     * @param string|null $namespace
-     *
-     * @return self
-     */
     public function setNamespace(?string $namespace): self
     {
         $this->namespace = $namespace;
@@ -145,19 +105,11 @@ class CntSimpleDocumentResponse
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -165,19 +117,11 @@ class CntSimpleDocumentResponse
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSub(): ?string
     {
         return $this->sub;
     }
 
-    /**
-     * @param string|null $sub
-     *
-     * @return self
-     */
     public function setSub(?string $sub): self
     {
         $this->sub = $sub;
@@ -195,8 +139,6 @@ class CntSimpleDocumentResponse
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {

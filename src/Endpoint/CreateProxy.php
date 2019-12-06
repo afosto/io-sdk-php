@@ -14,8 +14,6 @@ class CreateProxy extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 {
     /**
      * Add a new proxy configuration.
-     *
-     * @param \Afosto\Sdk\Model\CntProxyModel $body
      */
     public function __construct(\Afosto\Sdk\Model\CntProxyModel $body)
     {

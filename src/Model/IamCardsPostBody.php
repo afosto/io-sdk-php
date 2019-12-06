@@ -17,19 +17,11 @@ class IamCardsPostBody
      */
     protected $cardSource;
 
-    /**
-     * @return string|null
-     */
     public function getCardSource(): ?string
     {
         return $this->cardSource;
     }
 
-    /**
-     * @param string|null $cardSource
-     *
-     * @return self
-     */
     public function setCardSource(?string $cardSource): self
     {
         $this->cardSource = $cardSource;

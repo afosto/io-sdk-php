@@ -25,19 +25,11 @@ class CntConfig
      */
     protected $watermarkUrl;
 
-    /**
-     * @return bool|null
-     */
     public function getIsOriginCacheIgnored(): ?bool
     {
         return $this->isOriginCacheIgnored;
     }
 
-    /**
-     * @param bool|null $isOriginCacheIgnored
-     *
-     * @return self
-     */
     public function setIsOriginCacheIgnored(?bool $isOriginCacheIgnored): self
     {
         $this->isOriginCacheIgnored = $isOriginCacheIgnored;
@@ -45,19 +37,11 @@ class CntConfig
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsCanonicalAdded(): ?bool
     {
         return $this->isCanonicalAdded;
     }
 
-    /**
-     * @param bool|null $isCanonicalAdded
-     *
-     * @return self
-     */
     public function setIsCanonicalAdded(?bool $isCanonicalAdded): self
     {
         $this->isCanonicalAdded = $isCanonicalAdded;
@@ -65,19 +49,11 @@ class CntConfig
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getWatermarkUrl(): ?string
     {
         return $this->watermarkUrl;
     }
 
-    /**
-     * @param string|null $watermarkUrl
-     *
-     * @return self
-     */
     public function setWatermarkUrl(?string $watermarkUrl): self
     {
         $this->watermarkUrl = $watermarkUrl;

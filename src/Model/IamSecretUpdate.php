@@ -27,8 +27,6 @@ class IamSecretUpdate
 
     /**
      * @param IamBackup[]|null $backups
-     *
-     * @return self
      */
     public function setBackups(?array $backups): self
     {

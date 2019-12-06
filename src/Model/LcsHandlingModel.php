@@ -31,8 +31,6 @@ class LcsHandlingModel
 
     /**
      * @param string[]|null $shipments
-     *
-     * @return self
      */
     public function setShipments(?array $shipments): self
     {
@@ -41,19 +39,11 @@ class LcsHandlingModel
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getIsDueAt(): ?\DateTime
     {
         return $this->isDueAt;
     }
 
-    /**
-     * @param \DateTime|null $isDueAt
-     *
-     * @return self
-     */
     public function setIsDueAt(?\DateTime $isDueAt): self
     {
         $this->isDueAt = $isDueAt;

@@ -16,9 +16,6 @@ class UpdateInvoiceState extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 
     /**
      * Update an invoice.
-     *
-     * @param string                            $id
-     * @param \Afosto\Sdk\Model\OdrInvoiceState $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\OdrInvoiceState $body)
     {

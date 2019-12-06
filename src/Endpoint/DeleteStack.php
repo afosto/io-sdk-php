@@ -16,8 +16,6 @@ class DeleteStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     /**
      * Removes a stack.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

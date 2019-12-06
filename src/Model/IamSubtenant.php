@@ -45,19 +45,11 @@ class IamSubtenant
      */
     protected $createdAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -65,19 +57,11 @@ class IamSubtenant
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCompany(): ?string
     {
         return $this->company;
     }
 
-    /**
-     * @param string|null $company
-     *
-     * @return self
-     */
     public function setCompany(?string $company): self
     {
         $this->company = $company;
@@ -85,19 +69,11 @@ class IamSubtenant
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getState(): ?string
     {
         return $this->state;
     }
 
-    /**
-     * @param string|null $state
-     *
-     * @return self
-     */
     public function setState(?string $state): self
     {
         $this->state = $state;
@@ -105,19 +81,11 @@ class IamSubtenant
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTenantId(): ?string
     {
         return $this->tenantId;
     }
 
-    /**
-     * @param string|null $tenantId
-     *
-     * @return self
-     */
     public function setTenantId(?string $tenantId): self
     {
         $this->tenantId = $tenantId;
@@ -125,19 +93,11 @@ class IamSubtenant
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSignee(): ?string
     {
         return $this->signee;
     }
 
-    /**
-     * @param string|null $signee
-     *
-     * @return self
-     */
     public function setSignee(?string $signee): self
     {
         $this->signee = $signee;
@@ -145,19 +105,11 @@ class IamSubtenant
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
-    /**
-     * @param string|null $type
-     *
-     * @return self
-     */
     public function setType(?string $type): self
     {
         $this->type = $type;
@@ -175,8 +127,6 @@ class IamSubtenant
 
     /**
      * @param string[]|null $roles
-     *
-     * @return self
      */
     public function setRoles(?array $roles): self
     {
@@ -185,19 +135,11 @@ class IamSubtenant
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;

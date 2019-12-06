@@ -45,19 +45,11 @@ class MesInbox
      */
     protected $updatedAt;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -65,19 +57,11 @@ class MesInbox
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLabel(): ?string
     {
         return $this->label;
     }
 
-    /**
-     * @param string|null $label
-     *
-     * @return self
-     */
     public function setLabel(?string $label): self
     {
         $this->label = $label;
@@ -85,19 +69,11 @@ class MesInbox
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getFqdn(): ?string
     {
         return $this->fqdn;
     }
 
-    /**
-     * @param string|null $fqdn
-     *
-     * @return self
-     */
     public function setFqdn(?string $fqdn): self
     {
         $this->fqdn = $fqdn;
@@ -105,19 +81,11 @@ class MesInbox
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPrefix(): ?string
     {
         return $this->prefix;
     }
 
-    /**
-     * @param string|null $prefix
-     *
-     * @return self
-     */
     public function setPrefix(?string $prefix): self
     {
         $this->prefix = $prefix;
@@ -125,19 +93,11 @@ class MesInbox
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getUserId(): ?string
     {
         return $this->userId;
     }
 
-    /**
-     * @param string|null $userId
-     *
-     * @return self
-     */
     public function setUserId(?string $userId): self
     {
         $this->userId = $userId;
@@ -155,8 +115,6 @@ class MesInbox
 
     /**
      * @param string[]|null $folders
-     *
-     * @return self
      */
     public function setFolders(?array $folders): self
     {
@@ -165,19 +123,11 @@ class MesInbox
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime|null $createdAt
-     *
-     * @return self
-     */
     public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -185,19 +135,11 @@ class MesInbox
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime|null $updatedAt
-     *
-     * @return self
-     */
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;

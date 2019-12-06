@@ -45,19 +45,11 @@ class LcsShipmentItem
      */
     protected $service;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -65,19 +57,11 @@ class LcsShipmentItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSku(): ?string
     {
         return $this->sku;
     }
 
-    /**
-     * @param string|null $sku
-     *
-     * @return self
-     */
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
@@ -85,19 +69,11 @@ class LcsShipmentItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPosition(): ?string
     {
         return $this->position;
     }
 
-    /**
-     * @param string|null $position
-     *
-     * @return self
-     */
     public function setPosition(?string $position): self
     {
         $this->position = $position;
@@ -105,19 +81,11 @@ class LcsShipmentItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return self
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -125,19 +93,11 @@ class LcsShipmentItem
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsBoxed(): ?bool
     {
         return $this->isBoxed;
     }
 
-    /**
-     * @param bool|null $isBoxed
-     *
-     * @return self
-     */
     public function setIsBoxed(?bool $isBoxed): self
     {
         $this->isBoxed = $isBoxed;
@@ -145,19 +105,11 @@ class LcsShipmentItem
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsListed(): ?bool
     {
         return $this->isListed;
     }
 
-    /**
-     * @param bool|null $isListed
-     *
-     * @return self
-     */
     public function setIsListed(?bool $isListed): self
     {
         $this->isListed = $isListed;
@@ -165,19 +117,11 @@ class LcsShipmentItem
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getHsCode(): ?string
     {
         return $this->hsCode;
     }
 
-    /**
-     * @param string|null $hsCode
-     *
-     * @return self
-     */
     public function setHsCode(?string $hsCode): self
     {
         $this->hsCode = $hsCode;
@@ -195,8 +139,6 @@ class LcsShipmentItem
 
     /**
      * @param LcsServiceOption[]|null $service
-     *
-     * @return self
      */
     public function setService(?array $service): self
     {

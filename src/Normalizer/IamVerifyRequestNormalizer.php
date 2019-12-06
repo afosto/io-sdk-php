@@ -24,12 +24,12 @@ class IamVerifyRequestNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamVerifyRequest';
+        return 'Afosto\\Sdk\\Model\\IamVerifyRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamVerifyRequest';
+        return 'Afosto\\Sdk\\Model\\IamVerifyRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class IamVerifyRequestNormalizer implements DenormalizerInterface, NormalizerInt
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamVerifyRequest();
-        if (property_exists($data, 'token') && $data->{'token'} !== null) {
+        if (property_exists($data, 'token') && null !== $data->{'token'}) {
             $object->setToken($data->{'token'});
         }
 

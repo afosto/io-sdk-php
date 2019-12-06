@@ -45,19 +45,11 @@ class OdrProjectionModel
      */
     protected $coupons;
 
-    /**
-     * @return string|null
-     */
     public function getClientId(): ?string
     {
         return $this->clientId;
     }
 
-    /**
-     * @param string|null $clientId
-     *
-     * @return self
-     */
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
@@ -65,19 +57,11 @@ class OdrProjectionModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCurrency(): ?string
     {
         return $this->currency;
     }
 
-    /**
-     * @param string|null $currency
-     *
-     * @return self
-     */
     public function setCurrency(?string $currency): self
     {
         $this->currency = $currency;
@@ -95,8 +79,6 @@ class OdrProjectionModel
 
     /**
      * @param OdrInvoiceItemModel[]|null $items
-     *
-     * @return self
      */
     public function setItems(?array $items): self
     {
@@ -115,8 +97,6 @@ class OdrProjectionModel
 
     /**
      * @param OdrAdjustment[]|null $adjustments
-     *
-     * @return self
      */
     public function setAdjustments(?array $adjustments): self
     {
@@ -125,19 +105,11 @@ class OdrProjectionModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getContactId(): ?string
     {
         return $this->contactId;
     }
 
-    /**
-     * @param string|null $contactId
-     *
-     * @return self
-     */
     public function setContactId(?string $contactId): self
     {
         $this->contactId = $contactId;
@@ -145,19 +117,11 @@ class OdrProjectionModel
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getOrganisationId(): ?string
     {
         return $this->organisationId;
     }
 
-    /**
-     * @param string|null $organisationId
-     *
-     * @return self
-     */
     public function setOrganisationId(?string $organisationId): self
     {
         $this->organisationId = $organisationId;
@@ -165,19 +129,11 @@ class OdrProjectionModel
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getPricingAt(): ?\DateTime
     {
         return $this->pricingAt;
     }
 
-    /**
-     * @param \DateTime|null $pricingAt
-     *
-     * @return self
-     */
     public function setPricingAt(?\DateTime $pricingAt): self
     {
         $this->pricingAt = $pricingAt;
@@ -195,8 +151,6 @@ class OdrProjectionModel
 
     /**
      * @param string[]|null $coupons
-     *
-     * @return self
      */
     public function setCoupons(?array $coupons): self
     {

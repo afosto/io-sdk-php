@@ -16,9 +16,6 @@ class UpdateOrderState extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     /**
      * Update the order state.
-     *
-     * @param string                     $id
-     * @param \Afosto\Sdk\Model\OdrState $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\OdrState $body)
     {

@@ -33,19 +33,11 @@ class CntUploadRequest
      */
     protected $metadata;
 
-    /**
-     * @return bool|null
-     */
     public function getIsPublic(): ?bool
     {
         return $this->isPublic;
     }
 
-    /**
-     * @param bool|null $isPublic
-     *
-     * @return self
-     */
     public function setIsPublic(?bool $isPublic): self
     {
         $this->isPublic = $isPublic;
@@ -53,19 +45,11 @@ class CntUploadRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPath(): ?string
     {
         return $this->path;
     }
 
-    /**
-     * @param string|null $path
-     *
-     * @return self
-     */
     public function setPath(?string $path): self
     {
         $this->path = $path;
@@ -73,19 +57,11 @@ class CntUploadRequest
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsListed(): ?bool
     {
         return $this->isListed;
     }
 
-    /**
-     * @param bool|null $isListed
-     *
-     * @return self
-     */
     public function setIsListed(?bool $isListed): self
     {
         $this->isListed = $isListed;
@@ -93,19 +69,11 @@ class CntUploadRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMethod(): ?string
     {
         return $this->method;
     }
 
-    /**
-     * @param string|null $method
-     *
-     * @return self
-     */
     public function setMethod(?string $method): self
     {
         $this->method = $method;
@@ -123,8 +91,6 @@ class CntUploadRequest
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {

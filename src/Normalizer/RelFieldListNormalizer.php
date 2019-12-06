@@ -24,12 +24,12 @@ class RelFieldListNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\RelFieldList';
+        return 'Afosto\\Sdk\\Model\\RelFieldList' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\RelFieldList';
+        return 'Afosto\\Sdk\\Model\\RelFieldList' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,21 +38,21 @@ class RelFieldListNormalizer implements DenormalizerInterface, NormalizerInterfa
             return null;
         }
         $object = new \Afosto\Sdk\Model\RelFieldList();
-        if (property_exists($data, 'required') && $data->{'required'} !== null) {
+        if (property_exists($data, 'required') && null !== $data->{'required'}) {
             $values = [];
             foreach ($data->{'required'} as $value) {
                 $values[] = $value;
             }
             $object->setRequired($values);
         }
-        if (property_exists($data, 'allowed') && $data->{'allowed'} !== null) {
+        if (property_exists($data, 'allowed') && null !== $data->{'allowed'}) {
             $values_1 = [];
             foreach ($data->{'allowed'} as $value_1) {
                 $values_1[] = $value_1;
             }
             $object->setAllowed($values_1);
         }
-        if (property_exists($data, 'country_code') && $data->{'country_code'} !== null) {
+        if (property_exists($data, 'country_code') && null !== $data->{'country_code'}) {
             $object->setCountryCode($data->{'country_code'});
         }
 

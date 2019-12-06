@@ -24,12 +24,12 @@ class SplPrinterNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplPrinter';
+        return 'Afosto\\Sdk\\Model\\SplPrinter' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplPrinter';
+        return 'Afosto\\Sdk\\Model\\SplPrinter' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,31 +38,31 @@ class SplPrinterNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplPrinter();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'hub_id') && $data->{'hub_id'} !== null) {
+        if (property_exists($data, 'hub_id') && null !== $data->{'hub_id'}) {
             $object->setHubId($data->{'hub_id'});
         }
-        if (property_exists($data, 'default_encoding') && $data->{'default_encoding'} !== null) {
+        if (property_exists($data, 'default_encoding') && null !== $data->{'default_encoding'}) {
             $object->setDefaultEncoding($data->{'default_encoding'});
         }
-        if (property_exists($data, 'connection') && $data->{'connection'} !== null) {
+        if (property_exists($data, 'connection') && null !== $data->{'connection'}) {
             $object->setConnection($this->denormalizer->denormalize($data->{'connection'}, 'Afosto\\Sdk\\Model\\SplConnection', 'json', $context));
         }
-        if (property_exists($data, 'inbox_id') && $data->{'inbox_id'} !== null) {
+        if (property_exists($data, 'inbox_id') && null !== $data->{'inbox_id'}) {
             $object->setInboxId($data->{'inbox_id'});
         }
-        if (property_exists($data, 'disabled_at') && $data->{'disabled_at'} !== null) {
+        if (property_exists($data, 'disabled_at') && null !== $data->{'disabled_at'}) {
             $object->setDisabledAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'disabled_at'}));
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

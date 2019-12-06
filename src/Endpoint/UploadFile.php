@@ -17,8 +17,7 @@ class UploadFile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
      * Upload a new file.
      *
-     * @param string $signature
-     * @param array  $formParameters {
+     * @param array $formParameters {
      *
      *     @var string|resource|\Psr\Http\Message\StreamInterface $file
      * }

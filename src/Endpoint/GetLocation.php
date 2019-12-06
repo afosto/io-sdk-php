@@ -16,8 +16,6 @@ class GetLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     /**
      * Get a location.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

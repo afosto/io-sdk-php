@@ -25,8 +25,6 @@ class PkrTask
 
     /**
      * the url.
-     *
-     * @return string|null
      */
     public function getHref(): ?string
     {
@@ -35,10 +33,6 @@ class PkrTask
 
     /**
      * the url.
-     *
-     * @param string|null $href
-     *
-     * @return self
      */
     public function setHref(?string $href): self
     {
@@ -47,19 +41,11 @@ class PkrTask
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;

@@ -24,12 +24,12 @@ class IamCompanyNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamCompany';
+        return 'Afosto\\Sdk\\Model\\IamCompany' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamCompany';
+        return 'Afosto\\Sdk\\Model\\IamCompany' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,16 +38,16 @@ class IamCompanyNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamCompany();
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'vat_number') && $data->{'vat_number'} !== null) {
+        if (property_exists($data, 'vat_number') && null !== $data->{'vat_number'}) {
             $object->setVatNumber($data->{'vat_number'});
         }
-        if (property_exists($data, 'phone_number') && $data->{'phone_number'} !== null) {
+        if (property_exists($data, 'phone_number') && null !== $data->{'phone_number'}) {
             $object->setPhoneNumber($data->{'phone_number'});
         }
-        if (property_exists($data, 'address') && $data->{'address'} !== null) {
+        if (property_exists($data, 'address') && null !== $data->{'address'}) {
             $object->setAddress($this->denormalizer->denormalize($data->{'address'}, 'Afosto\\Sdk\\Model\\IamAddress', 'json', $context));
         }
 

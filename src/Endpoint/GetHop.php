@@ -16,8 +16,6 @@ class GetHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\O
 
     /**
      * Get a hop.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

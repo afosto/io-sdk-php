@@ -24,12 +24,12 @@ class IamCardNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamCard';
+        return 'Afosto\\Sdk\\Model\\IamCard' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamCard';
+        return 'Afosto\\Sdk\\Model\\IamCard' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,22 +38,22 @@ class IamCardNormalizer implements DenormalizerInterface, NormalizerInterface, D
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamCard();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'last_4') && $data->{'last_4'} !== null) {
+        if (property_exists($data, 'last_4') && null !== $data->{'last_4'}) {
             $object->setLast4($data->{'last_4'});
         }
-        if (property_exists($data, 'name') && $data->{'name'} !== null) {
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'is_default') && $data->{'is_default'} !== null) {
+        if (property_exists($data, 'is_default') && null !== $data->{'is_default'}) {
             $object->setIsDefault($data->{'is_default'});
         }
-        if (property_exists($data, 'brand') && $data->{'brand'} !== null) {
+        if (property_exists($data, 'brand') && null !== $data->{'brand'}) {
             $object->setBrand($data->{'brand'});
         }
-        if (property_exists($data, 'expires_at') && $data->{'expires_at'} !== null) {
+        if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
 

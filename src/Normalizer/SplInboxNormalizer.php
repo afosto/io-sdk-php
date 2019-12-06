@@ -24,12 +24,12 @@ class SplInboxNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\SplInbox';
+        return 'Afosto\\Sdk\\Model\\SplInbox' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\SplInbox';
+        return 'Afosto\\Sdk\\Model\\SplInbox' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class SplInboxNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\SplInbox();
-        if (property_exists($data, 'inbox_id') && $data->{'inbox_id'} !== null) {
+        if (property_exists($data, 'inbox_id') && null !== $data->{'inbox_id'}) {
             $object->setInboxId($data->{'inbox_id'});
         }
 

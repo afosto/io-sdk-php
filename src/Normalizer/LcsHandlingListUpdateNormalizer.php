@@ -24,12 +24,12 @@ class LcsHandlingListUpdateNormalizer implements DenormalizerInterface, Normaliz
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsHandlingListUpdate';
+        return 'Afosto\\Sdk\\Model\\LcsHandlingListUpdate' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsHandlingListUpdate';
+        return 'Afosto\\Sdk\\Model\\LcsHandlingListUpdate' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class LcsHandlingListUpdateNormalizer implements DenormalizerInterface, Normaliz
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsHandlingListUpdate();
-        if (property_exists($data, 'is_in_progress') && $data->{'is_in_progress'} !== null) {
+        if (property_exists($data, 'is_in_progress') && null !== $data->{'is_in_progress'}) {
             $object->setIsInProgress($data->{'is_in_progress'});
         }
-        if (property_exists($data, 'is_on_hold') && $data->{'is_on_hold'} !== null) {
+        if (property_exists($data, 'is_on_hold') && null !== $data->{'is_on_hold'}) {
             $object->setIsOnHold($data->{'is_on_hold'});
         }
-        if (property_exists($data, 'sub') && $data->{'sub'} !== null) {
+        if (property_exists($data, 'sub') && null !== $data->{'sub'}) {
             $object->setSub($data->{'sub'});
         }
 

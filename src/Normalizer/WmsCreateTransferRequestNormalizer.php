@@ -24,12 +24,12 @@ class WmsCreateTransferRequestNormalizer implements DenormalizerInterface, Norma
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\WmsCreateTransferRequest';
+        return 'Afosto\\Sdk\\Model\\WmsCreateTransferRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\WmsCreateTransferRequest';
+        return 'Afosto\\Sdk\\Model\\WmsCreateTransferRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class WmsCreateTransferRequestNormalizer implements DenormalizerInterface, Norma
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsCreateTransferRequest();
-        if (property_exists($data, 'target') && $data->{'target'} !== null) {
+        if (property_exists($data, 'target') && null !== $data->{'target'}) {
             $object->setTarget($data->{'target'});
         }
-        if (property_exists($data, 'collect_at') && $data->{'collect_at'} !== null) {
+        if (property_exists($data, 'collect_at') && null !== $data->{'collect_at'}) {
             $object->setCollectAt($data->{'collect_at'});
         }
-        if (property_exists($data, 'claims') && $data->{'claims'} !== null) {
+        if (property_exists($data, 'claims') && null !== $data->{'claims'}) {
             $values = [];
             foreach ($data->{'claims'} as $value) {
                 $values[] = $value;

@@ -21,19 +21,11 @@ class WmsUpdateTransferRequest
      */
     protected $routeId;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -41,19 +33,11 @@ class WmsUpdateTransferRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getRouteId(): ?string
     {
         return $this->routeId;
     }
 
-    /**
-     * @param string|null $routeId
-     *
-     * @return self
-     */
     public function setRouteId(?string $routeId): self
     {
         $this->routeId = $routeId;

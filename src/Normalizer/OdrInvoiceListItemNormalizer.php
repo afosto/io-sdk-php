@@ -24,12 +24,12 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrInvoiceListItem';
+        return 'Afosto\\Sdk\\Model\\OdrInvoiceListItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrInvoiceListItem';
+        return 'Afosto\\Sdk\\Model\\OdrInvoiceListItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,81 +38,81 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrInvoiceListItem();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'version') && $data->{'version'} !== null) {
+        if (property_exists($data, 'version') && null !== $data->{'version'}) {
             $object->setVersion($data->{'version'});
         }
-        if (property_exists($data, 'number') && $data->{'number'} !== null) {
+        if (property_exists($data, 'number') && null !== $data->{'number'}) {
             $object->setNumber($data->{'number'});
         }
-        if (property_exists($data, 'count') && $data->{'count'} !== null) {
+        if (property_exists($data, 'count') && null !== $data->{'count'}) {
             $object->setCount($data->{'count'});
         }
-        if (property_exists($data, 'subtotal') && $data->{'subtotal'} !== null) {
+        if (property_exists($data, 'subtotal') && null !== $data->{'subtotal'}) {
             $object->setSubtotal($data->{'subtotal'});
         }
-        if (property_exists($data, 'adjustments') && $data->{'adjustments'} !== null) {
+        if (property_exists($data, 'adjustments') && null !== $data->{'adjustments'}) {
             $values = [];
             foreach ($data->{'adjustments'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrInvoiceAdjustmentResponse', 'json', $context);
             }
             $object->setAdjustments($values);
         }
-        if (property_exists($data, 'total') && $data->{'total'} !== null) {
+        if (property_exists($data, 'total') && null !== $data->{'total'}) {
             $object->setTotal($data->{'total'});
         }
-        if (property_exists($data, 'vat') && $data->{'vat'} !== null) {
+        if (property_exists($data, 'vat') && null !== $data->{'vat'}) {
             $values_1 = [];
             foreach ($data->{'vat'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrVatResult', 'json', $context);
             }
             $object->setVat($values_1);
         }
-        if (property_exists($data, 'currency') && $data->{'currency'} !== null) {
+        if (property_exists($data, 'currency') && null !== $data->{'currency'}) {
             $object->setCurrency($data->{'currency'});
         }
-        if (property_exists($data, 'customer') && $data->{'customer'} !== null) {
+        if (property_exists($data, 'customer') && null !== $data->{'customer'}) {
             $object->setCustomer($this->denormalizer->denormalize($data->{'customer'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
         }
-        if (property_exists($data, 'vendor') && $data->{'vendor'} !== null) {
+        if (property_exists($data, 'vendor') && null !== $data->{'vendor'}) {
             $object->setVendor($this->denormalizer->denormalize($data->{'vendor'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
         }
-        if (property_exists($data, 'is_including_vat') && $data->{'is_including_vat'} !== null) {
+        if (property_exists($data, 'is_including_vat') && null !== $data->{'is_including_vat'}) {
             $object->setIsIncludingVat($data->{'is_including_vat'});
         }
-        if (property_exists($data, 'is_vat_shifted') && $data->{'is_vat_shifted'} !== null) {
+        if (property_exists($data, 'is_vat_shifted') && null !== $data->{'is_vat_shifted'}) {
             $object->setIsVatShifted($data->{'is_vat_shifted'});
         }
-        if (property_exists($data, 'is_concept') && $data->{'is_concept'} !== null) {
+        if (property_exists($data, 'is_concept') && null !== $data->{'is_concept'}) {
             $object->setIsConcept($data->{'is_concept'});
         }
-        if (property_exists($data, 'is_paid') && $data->{'is_paid'} !== null) {
+        if (property_exists($data, 'is_paid') && null !== $data->{'is_paid'}) {
             $object->setIsPaid($data->{'is_paid'});
         }
-        if (property_exists($data, 'client_id') && $data->{'client_id'} !== null) {
+        if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
-        if (property_exists($data, 'file_id') && $data->{'file_id'} !== null) {
+        if (property_exists($data, 'file_id') && null !== $data->{'file_id'}) {
             $object->setFileId($data->{'file_id'});
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'pricing_at') && $data->{'pricing_at'} !== null) {
+        if (property_exists($data, 'pricing_at') && null !== $data->{'pricing_at'}) {
             $object->setPricingAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'pricing_at'}));
         }
-        if (property_exists($data, 'invoiced_at') && $data->{'invoiced_at'} !== null) {
+        if (property_exists($data, 'invoiced_at') && null !== $data->{'invoiced_at'}) {
             $object->setInvoicedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'invoiced_at'}));
         }
-        if (property_exists($data, 'paid_at') && $data->{'paid_at'} !== null) {
+        if (property_exists($data, 'paid_at') && null !== $data->{'paid_at'}) {
             $object->setPaidAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'paid_at'}));
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

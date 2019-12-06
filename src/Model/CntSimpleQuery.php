@@ -55,8 +55,6 @@ class CntSimpleQuery
 
     /**
      * @param string[]|null $codes
-     *
-     * @return self
      */
     public function setCodes(?array $codes): self
     {
@@ -75,8 +73,6 @@ class CntSimpleQuery
 
     /**
      * @param string[]|null $models
-     *
-     * @return self
      */
     public function setModels(?array $models): self
     {
@@ -95,8 +91,6 @@ class CntSimpleQuery
 
     /**
      * @param string[]|null $namespaces
-     *
-     * @return self
      */
     public function setNamespaces(?array $namespaces): self
     {
@@ -105,19 +99,11 @@ class CntSimpleQuery
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getQ(): ?string
     {
         return $this->q;
     }
 
-    /**
-     * @param string|null $q
-     *
-     * @return self
-     */
     public function setQ(?string $q): self
     {
         $this->q = $q;
@@ -125,19 +111,11 @@ class CntSimpleQuery
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsFuzzy(): ?bool
     {
         return $this->isFuzzy;
     }
 
-    /**
-     * @param bool|null $isFuzzy
-     *
-     * @return self
-     */
     public function setIsFuzzy(?bool $isFuzzy): self
     {
         $this->isFuzzy = $isFuzzy;
@@ -145,19 +123,11 @@ class CntSimpleQuery
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getLimit(): ?int
     {
         return $this->limit;
     }
 
-    /**
-     * @param int|null $limit
-     *
-     * @return self
-     */
     public function setLimit(?int $limit): self
     {
         $this->limit = $limit;
@@ -165,19 +135,11 @@ class CntSimpleQuery
         return $this;
     }
 
-    /**
-     * @return float|null
-     */
     public function getThreshold(): ?float
     {
         return $this->threshold;
     }
 
-    /**
-     * @param float|null $threshold
-     *
-     * @return self
-     */
     public function setThreshold(?float $threshold): self
     {
         $this->threshold = $threshold;
@@ -185,19 +147,11 @@ class CntSimpleQuery
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getPageCursor(): ?string
     {
         return $this->pageCursor;
     }
 
-    /**
-     * @param string|null $pageCursor
-     *
-     * @return self
-     */
     public function setPageCursor(?string $pageCursor): self
     {
         $this->pageCursor = $pageCursor;

@@ -21,19 +21,11 @@ class OdrContact
      */
     protected $contact;
 
-    /**
-     * @return string|null
-     */
     public function getVatCountryCode(): ?string
     {
         return $this->vatCountryCode;
     }
 
-    /**
-     * @param string|null $vatCountryCode
-     *
-     * @return self
-     */
     public function setVatCountryCode(?string $vatCountryCode): self
     {
         $this->vatCountryCode = $vatCountryCode;
@@ -41,19 +33,11 @@ class OdrContact
         return $this;
     }
 
-    /**
-     * @return OdrContactContact|null
-     */
     public function getContact(): ?OdrContactContact
     {
         return $this->contact;
     }
 
-    /**
-     * @param OdrContactContact|null $contact
-     *
-     * @return self
-     */
     public function setContact(?OdrContactContact $contact): self
     {
         $this->contact = $contact;

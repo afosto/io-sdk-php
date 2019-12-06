@@ -24,12 +24,12 @@ class OdrStackNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrStack';
+        return 'Afosto\\Sdk\\Model\\OdrStack' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrStack';
+        return 'Afosto\\Sdk\\Model\\OdrStack' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,54 +38,54 @@ class OdrStackNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrStack();
-        if (property_exists($data, 'id') && $data->{'id'} !== null) {
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'type') && $data->{'type'} !== null) {
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'count') && $data->{'count'} !== null) {
+        if (property_exists($data, 'count') && null !== $data->{'count'}) {
             $object->setCount($data->{'count'});
         }
-        if (property_exists($data, 'is_locked') && $data->{'is_locked'} !== null) {
+        if (property_exists($data, 'is_locked') && null !== $data->{'is_locked'}) {
             $object->setIsLocked($data->{'is_locked'});
         }
-        if (property_exists($data, 'is_confirmed') && $data->{'is_confirmed'} !== null) {
+        if (property_exists($data, 'is_confirmed') && null !== $data->{'is_confirmed'}) {
             $object->setIsConfirmed($data->{'is_confirmed'});
         }
-        if (property_exists($data, 'is_accepted') && $data->{'is_accepted'} !== null) {
+        if (property_exists($data, 'is_accepted') && null !== $data->{'is_accepted'}) {
             $object->setIsAccepted($data->{'is_accepted'});
         }
-        if (property_exists($data, 'is_in_progress') && $data->{'is_in_progress'} !== null) {
+        if (property_exists($data, 'is_in_progress') && null !== $data->{'is_in_progress'}) {
             $object->setIsInProgress($data->{'is_in_progress'});
         }
-        if (property_exists($data, 'is_finished') && $data->{'is_finished'} !== null) {
+        if (property_exists($data, 'is_finished') && null !== $data->{'is_finished'}) {
             $object->setIsFinished($data->{'is_finished'});
         }
-        if (property_exists($data, 'disposals') && $data->{'disposals'} !== null) {
+        if (property_exists($data, 'disposals') && null !== $data->{'disposals'}) {
             $values = [];
             foreach ($data->{'disposals'} as $value) {
                 $values[] = $value;
             }
             $object->setDisposals($values);
         }
-        if (property_exists($data, 'source') && $data->{'source'} !== null) {
+        if (property_exists($data, 'source') && null !== $data->{'source'}) {
             $values_1 = [];
             foreach ($data->{'source'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context);
             }
             $object->setSource($values_1);
         }
-        if (property_exists($data, 'expected_at') && $data->{'expected_at'} !== null) {
+        if (property_exists($data, 'expected_at') && null !== $data->{'expected_at'}) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
         }
-        if (property_exists($data, 'metadata') && $data->{'metadata'} !== null) {
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'created_at') && $data->{'created_at'} !== null) {
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'updated_at') && $data->{'updated_at'} !== null) {
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 

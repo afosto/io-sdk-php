@@ -61,19 +61,11 @@ class OdrBillRequest
      */
     protected $metadata;
 
-    /**
-     * @return string|null
-     */
     public function getStackId(): ?string
     {
         return $this->stackId;
     }
 
-    /**
-     * @param string|null $stackId
-     *
-     * @return self
-     */
     public function setStackId(?string $stackId): self
     {
         $this->stackId = $stackId;
@@ -81,19 +73,11 @@ class OdrBillRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getClientId(): ?string
     {
         return $this->clientId;
     }
 
-    /**
-     * @param string|null $clientId
-     *
-     * @return self
-     */
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
@@ -101,19 +85,11 @@ class OdrBillRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCurrency(): ?string
     {
         return $this->currency;
     }
 
-    /**
-     * @param string|null $currency
-     *
-     * @return self
-     */
     public function setCurrency(?string $currency): self
     {
         $this->currency = $currency;
@@ -131,8 +107,6 @@ class OdrBillRequest
 
     /**
      * @param OdrInvoiceItemModel[]|null $items
-     *
-     * @return self
      */
     public function setItems(?array $items): self
     {
@@ -151,8 +125,6 @@ class OdrBillRequest
 
     /**
      * @param OdrAdjustment[]|null $adjustments
-     *
-     * @return self
      */
     public function setAdjustments(?array $adjustments): self
     {
@@ -161,19 +133,11 @@ class OdrBillRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getContactId(): ?string
     {
         return $this->contactId;
     }
 
-    /**
-     * @param string|null $contactId
-     *
-     * @return self
-     */
     public function setContactId(?string $contactId): self
     {
         $this->contactId = $contactId;
@@ -181,19 +145,11 @@ class OdrBillRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getOrganisationId(): ?string
     {
         return $this->organisationId;
     }
 
-    /**
-     * @param string|null $organisationId
-     *
-     * @return self
-     */
     public function setOrganisationId(?string $organisationId): self
     {
         $this->organisationId = $organisationId;
@@ -201,19 +157,11 @@ class OdrBillRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAddressId(): ?string
     {
         return $this->addressId;
     }
 
-    /**
-     * @param string|null $addressId
-     *
-     * @return self
-     */
     public function setAddressId(?string $addressId): self
     {
         $this->addressId = $addressId;
@@ -221,19 +169,11 @@ class OdrBillRequest
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getShipmentAddressId(): ?string
     {
         return $this->shipmentAddressId;
     }
 
-    /**
-     * @param string|null $shipmentAddressId
-     *
-     * @return self
-     */
     public function setShipmentAddressId(?string $shipmentAddressId): self
     {
         $this->shipmentAddressId = $shipmentAddressId;
@@ -241,19 +181,11 @@ class OdrBillRequest
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getPricingAt(): ?\DateTime
     {
         return $this->pricingAt;
     }
 
-    /**
-     * @param \DateTime|null $pricingAt
-     *
-     * @return self
-     */
     public function setPricingAt(?\DateTime $pricingAt): self
     {
         $this->pricingAt = $pricingAt;
@@ -271,8 +203,6 @@ class OdrBillRequest
 
     /**
      * @param string[]|null $coupons
-     *
-     * @return self
      */
     public function setCoupons(?array $coupons): self
     {
@@ -291,8 +221,6 @@ class OdrBillRequest
 
     /**
      * @param mixed $metadata
-     *
-     * @return self
      */
     public function setMetadata($metadata): self
     {

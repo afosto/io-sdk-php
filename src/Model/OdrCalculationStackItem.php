@@ -21,19 +21,11 @@ class OdrCalculationStackItem
      */
     protected $isInvoiced;
 
-    /**
-     * @return string|null
-     */
     public function getId(): ?string
     {
         return $this->id;
     }
 
-    /**
-     * @param string|null $id
-     *
-     * @return self
-     */
     public function setId(?string $id): self
     {
         $this->id = $id;
@@ -41,19 +33,11 @@ class OdrCalculationStackItem
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsInvoiced(): ?bool
     {
         return $this->isInvoiced;
     }
 
-    /**
-     * @param bool|null $isInvoiced
-     *
-     * @return self
-     */
     public function setIsInvoiced(?bool $isInvoiced): self
     {
         $this->isInvoiced = $isInvoiced;

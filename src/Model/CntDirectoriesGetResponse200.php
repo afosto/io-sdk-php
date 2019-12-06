@@ -27,8 +27,6 @@ class CntDirectoriesGetResponse200
 
     /**
      * @param string[]|null $directories
-     *
-     * @return self
      */
     public function setDirectories(?array $directories): self
     {

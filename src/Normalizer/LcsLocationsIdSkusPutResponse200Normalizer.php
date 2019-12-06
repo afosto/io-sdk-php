@@ -24,12 +24,12 @@ class LcsLocationsIdSkusPutResponse200Normalizer implements DenormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsLocationsIdSkusPutResponse200';
+        return 'Afosto\\Sdk\\Model\\LcsLocationsIdSkusPutResponse200' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsLocationsIdSkusPutResponse200';
+        return 'Afosto\\Sdk\\Model\\LcsLocationsIdSkusPutResponse200' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,10 +38,10 @@ class LcsLocationsIdSkusPutResponse200Normalizer implements DenormalizerInterfac
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsLocationsIdSkusPutResponse200();
-        if (property_exists($data, 'success') && $data->{'success'} !== null) {
+        if (property_exists($data, 'success') && null !== $data->{'success'}) {
             $object->setSuccess($data->{'success'});
         }
-        if (property_exists($data, 'failed') && $data->{'failed'} !== null) {
+        if (property_exists($data, 'failed') && null !== $data->{'failed'}) {
             $object->setFailed($data->{'failed'});
         }
 

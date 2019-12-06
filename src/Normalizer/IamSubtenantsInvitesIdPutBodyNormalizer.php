@@ -24,12 +24,12 @@ class IamSubtenantsInvitesIdPutBodyNormalizer implements DenormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\IamSubtenantsInvitesIdPutBody';
+        return 'Afosto\\Sdk\\Model\\IamSubtenantsInvitesIdPutBody' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\IamSubtenantsInvitesIdPutBody';
+        return 'Afosto\\Sdk\\Model\\IamSubtenantsInvitesIdPutBody' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class IamSubtenantsInvitesIdPutBodyNormalizer implements DenormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\IamSubtenantsInvitesIdPutBody();
-        if (property_exists($data, 'state') && $data->{'state'} !== null) {
+        if (property_exists($data, 'state') && null !== $data->{'state'}) {
             $object->setState($data->{'state'});
         }
 

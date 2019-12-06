@@ -24,12 +24,12 @@ class LcsShipmentAddressingNormalizer implements DenormalizerInterface, Normaliz
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsShipmentAddressing';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentAddressing' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsShipmentAddressing';
+        return 'Afosto\\Sdk\\Model\\LcsShipmentAddressing' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class LcsShipmentAddressingNormalizer implements DenormalizerInterface, Normaliz
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsShipmentAddressing();
-        if (property_exists($data, 'entity_type') && $data->{'entity_type'} !== null) {
+        if (property_exists($data, 'entity_type') && null !== $data->{'entity_type'}) {
             $object->setEntityType($data->{'entity_type'});
         }
-        if (property_exists($data, 'entity_id') && $data->{'entity_id'} !== null) {
+        if (property_exists($data, 'entity_id') && null !== $data->{'entity_id'}) {
             $object->setEntityId($data->{'entity_id'});
         }
-        if (property_exists($data, 'carrier') && $data->{'carrier'} !== null) {
+        if (property_exists($data, 'carrier') && null !== $data->{'carrier'}) {
             $object->setCarrier($this->denormalizer->denormalize($data->{'carrier'}, 'Afosto\\Sdk\\Model\\LcsShipmentAddressingCarrier', 'json', $context));
         }
 

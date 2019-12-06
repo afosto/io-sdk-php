@@ -25,19 +25,11 @@ class OdrState
      */
     protected $isApproved;
 
-    /**
-     * @return bool|null
-     */
     public function getIsConfirmed(): ?bool
     {
         return $this->isConfirmed;
     }
 
-    /**
-     * @param bool|null $isConfirmed
-     *
-     * @return self
-     */
     public function setIsConfirmed(?bool $isConfirmed): self
     {
         $this->isConfirmed = $isConfirmed;
@@ -45,19 +37,11 @@ class OdrState
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsAccepted(): ?bool
     {
         return $this->isAccepted;
     }
 
-    /**
-     * @param bool|null $isAccepted
-     *
-     * @return self
-     */
     public function setIsAccepted(?bool $isAccepted): self
     {
         $this->isAccepted = $isAccepted;
@@ -65,19 +49,11 @@ class OdrState
         return $this;
     }
 
-    /**
-     * @return bool|null
-     */
     public function getIsApproved(): ?bool
     {
         return $this->isApproved;
     }
 
-    /**
-     * @param bool|null $isApproved
-     *
-     * @return self
-     */
     public function setIsApproved(?bool $isApproved): self
     {
         $this->isApproved = $isApproved;

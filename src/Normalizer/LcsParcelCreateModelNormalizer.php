@@ -24,12 +24,12 @@ class LcsParcelCreateModelNormalizer implements DenormalizerInterface, Normalize
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\LcsParcelCreateModel';
+        return 'Afosto\\Sdk\\Model\\LcsParcelCreateModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\LcsParcelCreateModel';
+        return 'Afosto\\Sdk\\Model\\LcsParcelCreateModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,28 +38,28 @@ class LcsParcelCreateModelNormalizer implements DenormalizerInterface, Normalize
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsParcelCreateModel();
-        if (property_exists($data, 'shipment_id') && $data->{'shipment_id'} !== null) {
+        if (property_exists($data, 'shipment_id') && null !== $data->{'shipment_id'}) {
             $object->setShipmentId($data->{'shipment_id'});
         }
-        if (property_exists($data, 'weight') && $data->{'weight'} !== null) {
+        if (property_exists($data, 'weight') && null !== $data->{'weight'}) {
             $object->setWeight($data->{'weight'});
         }
-        if (property_exists($data, 'length') && $data->{'length'} !== null) {
+        if (property_exists($data, 'length') && null !== $data->{'length'}) {
             $object->setLength($data->{'length'});
         }
-        if (property_exists($data, 'width') && $data->{'width'} !== null) {
+        if (property_exists($data, 'width') && null !== $data->{'width'}) {
             $object->setWidth($data->{'width'});
         }
-        if (property_exists($data, 'height') && $data->{'height'} !== null) {
+        if (property_exists($data, 'height') && null !== $data->{'height'}) {
             $object->setHeight($data->{'height'});
         }
-        if (property_exists($data, 'tracking_code') && $data->{'tracking_code'} !== null) {
+        if (property_exists($data, 'tracking_code') && null !== $data->{'tracking_code'}) {
             $object->setTrackingCode($data->{'tracking_code'});
         }
-        if (property_exists($data, 'tracking_url') && $data->{'tracking_url'} !== null) {
+        if (property_exists($data, 'tracking_url') && null !== $data->{'tracking_url'}) {
             $object->setTrackingUrl($data->{'tracking_url'});
         }
-        if (property_exists($data, 'item_ids') && $data->{'item_ids'} !== null) {
+        if (property_exists($data, 'item_ids') && null !== $data->{'item_ids'}) {
             $values = [];
             foreach ($data->{'item_ids'} as $value) {
                 $values[] = $value;

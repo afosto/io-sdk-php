@@ -49,19 +49,11 @@ class PkrShipmentAddress
      */
     protected $zipCode;
 
-    /**
-     * @return string|null
-     */
     public function getCity(): ?string
     {
         return $this->city;
     }
 
-    /**
-     * @param string|null $city
-     *
-     * @return self
-     */
     public function setCity(?string $city): self
     {
         $this->city = $city;
@@ -69,19 +61,11 @@ class PkrShipmentAddress
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCompany(): ?string
     {
         return $this->company;
     }
 
-    /**
-     * @param string|null $company
-     *
-     * @return self
-     */
     public function setCompany(?string $company): self
     {
         $this->company = $company;
@@ -89,19 +73,11 @@ class PkrShipmentAddress
         return $this;
     }
 
-    /**
-     * @return PkrShipmentAddressCountry|null
-     */
     public function getCountry(): ?PkrShipmentAddressCountry
     {
         return $this->country;
     }
 
-    /**
-     * @param PkrShipmentAddressCountry|null $country
-     *
-     * @return self
-     */
     public function setCountry(?PkrShipmentAddressCountry $country): self
     {
         $this->country = $country;
@@ -109,19 +85,11 @@ class PkrShipmentAddress
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
     public function getHouseNumber(): ?int
     {
         return $this->houseNumber;
     }
 
-    /**
-     * @param int|null $houseNumber
-     *
-     * @return self
-     */
     public function setHouseNumber(?int $houseNumber): self
     {
         $this->houseNumber = $houseNumber;
@@ -129,19 +97,11 @@ class PkrShipmentAddress
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getHouseNumberSuffix(): ?string
     {
         return $this->houseNumberSuffix;
     }
 
-    /**
-     * @param string|null $houseNumberSuffix
-     *
-     * @return self
-     */
     public function setHouseNumberSuffix(?string $houseNumberSuffix): self
     {
         $this->houseNumberSuffix = $houseNumberSuffix;
@@ -149,19 +109,11 @@ class PkrShipmentAddress
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @param string|null $name
-     *
-     * @return self
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -169,19 +121,11 @@ class PkrShipmentAddress
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getRegion(): ?string
     {
         return $this->region;
     }
 
-    /**
-     * @param string|null $region
-     *
-     * @return self
-     */
     public function setRegion(?string $region): self
     {
         $this->region = $region;
@@ -189,19 +133,11 @@ class PkrShipmentAddress
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getStreet(): ?string
     {
         return $this->street;
     }
 
-    /**
-     * @param string|null $street
-     *
-     * @return self
-     */
     public function setStreet(?string $street): self
     {
         $this->street = $street;
@@ -209,19 +145,11 @@ class PkrShipmentAddress
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getZipCode(): ?string
     {
         return $this->zipCode;
     }
 
-    /**
-     * @param string|null $zipCode
-     *
-     * @return self
-     */
     public function setZipCode(?string $zipCode): self
     {
         $this->zipCode = $zipCode;

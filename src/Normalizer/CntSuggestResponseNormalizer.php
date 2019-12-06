@@ -24,12 +24,12 @@ class CntSuggestResponseNormalizer implements DenormalizerInterface, NormalizerI
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntSuggestResponse';
+        return 'Afosto\\Sdk\\Model\\CntSuggestResponse' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntSuggestResponse';
+        return 'Afosto\\Sdk\\Model\\CntSuggestResponse' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,7 +38,7 @@ class CntSuggestResponseNormalizer implements DenormalizerInterface, NormalizerI
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntSuggestResponse();
-        if (property_exists($data, 'hits') && $data->{'hits'} !== null) {
+        if (property_exists($data, 'hits') && null !== $data->{'hits'}) {
             $values = [];
             foreach ($data->{'hits'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CntSimpleDocumentResponse', 'json', $context);

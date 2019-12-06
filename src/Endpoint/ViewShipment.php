@@ -16,8 +16,6 @@ class ViewShipment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     /**
      * Returns a single shipment.
-     *
-     * @param string $id
      */
     public function __construct(string $id)
     {

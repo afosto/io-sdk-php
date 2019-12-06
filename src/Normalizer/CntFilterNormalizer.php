@@ -24,12 +24,12 @@ class CntFilterNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\CntFilter';
+        return 'Afosto\\Sdk\\Model\\CntFilter' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\CntFilter';
+        return 'Afosto\\Sdk\\Model\\CntFilter' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class CntFilterNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntFilter();
-        if (property_exists($data, 'key') && $data->{'key'} !== null) {
+        if (property_exists($data, 'key') && null !== $data->{'key'}) {
             $object->setKey($data->{'key'});
         }
-        if (property_exists($data, 'operator') && $data->{'operator'} !== null) {
+        if (property_exists($data, 'operator') && null !== $data->{'operator'}) {
             $object->setOperator($data->{'operator'});
         }
-        if (property_exists($data, 'values') && $data->{'values'} !== null) {
+        if (property_exists($data, 'values') && null !== $data->{'values'}) {
             $values = [];
             foreach ($data->{'values'} as $value) {
                 $values[] = $value;

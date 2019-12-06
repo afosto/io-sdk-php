@@ -17,8 +17,7 @@ class GetContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
      * Returns a single contact by id.
      *
-     * @param string $id
-     * @param array  $queryParameters {
+     * @param array $queryParameters {
      *
      *     @var string $version
      * }

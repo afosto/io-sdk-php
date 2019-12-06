@@ -24,12 +24,12 @@ class OdrCalculationAdjustmentResultNormalizer implements DenormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return $type === 'Afosto\\Sdk\\Model\\OdrCalculationAdjustmentResult';
+        return 'Afosto\\Sdk\\Model\\OdrCalculationAdjustmentResult' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return get_class($data) === 'Afosto\\Sdk\\Model\\OdrCalculationAdjustmentResult';
+        return 'Afosto\\Sdk\\Model\\OdrCalculationAdjustmentResult' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -38,13 +38,13 @@ class OdrCalculationAdjustmentResultNormalizer implements DenormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrCalculationAdjustmentResult();
-        if (property_exists($data, 'is_applied_rule') && $data->{'is_applied_rule'} !== null) {
+        if (property_exists($data, 'is_applied_rule') && null !== $data->{'is_applied_rule'}) {
             $object->setIsAppliedRule($data->{'is_applied_rule'});
         }
-        if (property_exists($data, 'rule_id') && $data->{'rule_id'} !== null) {
+        if (property_exists($data, 'rule_id') && null !== $data->{'rule_id'}) {
             $object->setRuleId($data->{'rule_id'});
         }
-        if (property_exists($data, 'output') && $data->{'output'} !== null) {
+        if (property_exists($data, 'output') && null !== $data->{'output'}) {
             $object->setOutput($data->{'output'});
         }
 

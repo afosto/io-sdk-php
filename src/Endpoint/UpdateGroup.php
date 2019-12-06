@@ -16,9 +16,6 @@ class UpdateGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     /**
      * Update metadata or the name of the pricing group.
-     *
-     * @param string                           $id
-     * @param \Afosto\Sdk\Model\CatGroupUpdate $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\CatGroupUpdate $body)
     {

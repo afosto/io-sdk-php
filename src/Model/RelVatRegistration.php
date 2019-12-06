@@ -25,19 +25,11 @@ class RelVatRegistration
      */
     protected $verification;
 
-    /**
-     * @return string|null
-     */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
     }
 
-    /**
-     * @param string|null $countryCode
-     *
-     * @return self
-     */
     public function setCountryCode(?string $countryCode): self
     {
         $this->countryCode = $countryCode;
@@ -45,19 +37,11 @@ class RelVatRegistration
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getNumber(): ?string
     {
         return $this->number;
     }
 
-    /**
-     * @param string|null $number
-     *
-     * @return self
-     */
     public function setNumber(?string $number): self
     {
         $this->number = $number;
@@ -65,19 +49,11 @@ class RelVatRegistration
         return $this;
     }
 
-    /**
-     * @return RelVatRegistrationVerification|null
-     */
     public function getVerification(): ?RelVatRegistrationVerification
     {
         return $this->verification;
     }
 
-    /**
-     * @param RelVatRegistrationVerification|null $verification
-     *
-     * @return self
-     */
     public function setVerification(?RelVatRegistrationVerification $verification): self
     {
         $this->verification = $verification;

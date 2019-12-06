@@ -16,9 +16,6 @@ class UpdateOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     /**
      * Update the customer parameters for the order.
-     *
-     * @param string                                $id
-     * @param \Afosto\Sdk\Model\OdrOrderUpdateModel $body
      */
     public function __construct(string $id, \Afosto\Sdk\Model\OdrOrderUpdateModel $body)
     {
