@@ -38,11 +38,8 @@ class OdrPurchaseNormalizer implements DenormalizerInterface, NormalizerInterfac
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrPurchase();
-        if (property_exists($data, 'customer_id') && null !== $data->{'customer_id'}) {
-            $object->setCustomerId($data->{'customer_id'});
-        }
-        if (property_exists($data, 'address_set_id') && null !== $data->{'address_set_id'}) {
-            $object->setAddressSetId($data->{'address_set_id'});
+        if (property_exists($data, 'contact_id') && null !== $data->{'contact_id'}) {
+            $object->setContactId($data->{'contact_id'});
         }
         if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
@@ -58,11 +55,8 @@ class OdrPurchaseNormalizer implements DenormalizerInterface, NormalizerInterfac
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getCustomerId()) {
-            $data->{'customer_id'} = $object->getCustomerId();
-        }
-        if (null !== $object->getAddressSetId()) {
-            $data->{'address_set_id'} = $object->getAddressSetId();
+        if (null !== $object->getContactId()) {
+            $data->{'contact_id'} = $object->getContactId();
         }
         if (null !== $object->getItems()) {
             $values = [];

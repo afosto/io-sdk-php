@@ -15,36 +15,20 @@ class OdrPurchase
     /**
      * @var string
      */
-    protected $customerId;
-    /**
-     * @var string
-     */
-    protected $addressSetId;
+    protected $contactId;
     /**
      * @var OdrPurchaseItem[]
      */
     protected $items;
 
-    public function getCustomerId(): ?string
+    public function getContactId(): ?string
     {
-        return $this->customerId;
+        return $this->contactId;
     }
 
-    public function setCustomerId(?string $customerId): self
+    public function setContactId(?string $contactId): self
     {
-        $this->customerId = $customerId;
-
-        return $this;
-    }
-
-    public function getAddressSetId(): ?string
-    {
-        return $this->addressSetId;
-    }
-
-    public function setAddressSetId(?string $addressSetId): self
-    {
-        $this->addressSetId = $addressSetId;
+        $this->contactId = $contactId;
 
         return $this;
     }
