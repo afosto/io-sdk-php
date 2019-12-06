@@ -26,7 +26,6 @@ You can easily install the client through composer:
 composer require afosto/io-sdk
 ```
 
-
 ## Built with
 
 - [JanePHP](https://github.com/janephp/janephp) - For generation the api client
@@ -37,6 +36,22 @@ composer require afosto/io-sdk
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/spooler-app/php-client/tags). 
 
+
+## example 
+an example on how to use the Sdk
+
+```php
+
+$client = new \Afosto\Sdk\Sdk("1234","123456");
+$user = $client->getAuthorizedClient()->createUser(
+    (new \Afosto\Sdk\Model\IamUserModel)
+        ->setEmail("info@afosto.com")
+        ->setFirstName("info")
+        ->setLastName("afosto")
+);
+
+print_r($user);
+```
 
 ## License
 
