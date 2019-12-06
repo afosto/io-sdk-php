@@ -29,10 +29,6 @@ class CatPrice
      */
     protected $vat;
     /**
-     * @var mixed
-     */
-    protected $filters;
-    /**
      * @var \DateTime
      */
     protected $activeAt;
@@ -91,24 +87,6 @@ class CatPrice
     public function setVat(?array $vat): self
     {
         $this->vat = $vat;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFilters()
-    {
-        return $this->filters;
-    }
-
-    /**
-     * @param mixed $filters
-     */
-    public function setFilters($filters): self
-    {
-        $this->filters = $filters;
 
         return $this;
     }

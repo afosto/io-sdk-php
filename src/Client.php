@@ -4310,62 +4310,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Get a listing filters per sku.
-     *
-     * @param array $headerParameters {
-     *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Afosto\Sdk\Model\CatFilterSet[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getFilterSets(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFilterSets($headerParameters), $fetch);
-    }
-
-    /**
-     * Create or update filters for products.
-     *
-     * @param \Afosto\Sdk\Model\CatFilterSet[] $body
-     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\AttachFiltersUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AttachFiltersNotFoundException
-     *
-     * @return \Afosto\Sdk\Model\CatFiltersPutResponse200|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function attachFilters(array $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachFilters($body), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Psr\Http\Message\ResponseInterface|null
-     */
-    public function getFilterKeys(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFilterKeys(), $fetch);
-    }
-
-    /**
-     * Returns distinct filter values.
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @return \Psr\Http\Message\ResponseInterface|null
-     */
-    public function getFilterValues(string $key, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFilterValues($key), $fetch);
-    }
-
-    /**
      * Returns a list of contact information.
      *
      * @param array $headerParameters {
