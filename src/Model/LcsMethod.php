@@ -13,41 +13,37 @@ namespace Afosto\Sdk\Model;
 class LcsMethod
 {
     /**
+     * @var int
+     */
+    protected $id;
+    /**
      * @var string
      */
     protected $carrierCode;
     /**
      * @var string
      */
-    protected $methodCode;
-    /**
-     * @var string
-     */
     protected $name;
     /**
-     * @var string
+     * @var int
      */
-    protected $description;
+    protected $maxWeight;
     /**
-     * @var string
+     * @var LcsCountry[]
      */
-    protected $deliveryDuring;
-    /**
-     * @var bool
-     */
-    protected $isSameDay;
-    /**
-     * @var bool
-     */
-    protected $isSunday;
-    /**
-     * @var bool
-     */
-    protected $isCarrierLocation;
-    /**
-     * @var bool
-     */
-    protected $isNeighbourAllowed;
+    protected $countries;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     public function getCarrierCode(): ?string
     {
@@ -57,18 +53,6 @@ class LcsMethod
     public function setCarrierCode(?string $carrierCode): self
     {
         $this->carrierCode = $carrierCode;
-
-        return $this;
-    }
-
-    public function getMethodCode(): ?string
-    {
-        return $this->methodCode;
-    }
-
-    public function setMethodCode(?string $methodCode): self
-    {
-        $this->methodCode = $methodCode;
 
         return $this;
     }
@@ -85,74 +69,32 @@ class LcsMethod
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getMaxWeight(): ?int
     {
-        return $this->description;
+        return $this->maxWeight;
     }
 
-    public function setDescription(?string $description): self
+    public function setMaxWeight(?int $maxWeight): self
     {
-        $this->description = $description;
+        $this->maxWeight = $maxWeight;
 
         return $this;
     }
 
-    public function getDeliveryDuring(): ?string
+    /**
+     * @return LcsCountry[]|null
+     */
+    public function getCountries(): ?array
     {
-        return $this->deliveryDuring;
+        return $this->countries;
     }
 
-    public function setDeliveryDuring(?string $deliveryDuring): self
+    /**
+     * @param LcsCountry[]|null $countries
+     */
+    public function setCountries(?array $countries): self
     {
-        $this->deliveryDuring = $deliveryDuring;
-
-        return $this;
-    }
-
-    public function getIsSameDay(): ?bool
-    {
-        return $this->isSameDay;
-    }
-
-    public function setIsSameDay(?bool $isSameDay): self
-    {
-        $this->isSameDay = $isSameDay;
-
-        return $this;
-    }
-
-    public function getIsSunday(): ?bool
-    {
-        return $this->isSunday;
-    }
-
-    public function setIsSunday(?bool $isSunday): self
-    {
-        $this->isSunday = $isSunday;
-
-        return $this;
-    }
-
-    public function getIsCarrierLocation(): ?bool
-    {
-        return $this->isCarrierLocation;
-    }
-
-    public function setIsCarrierLocation(?bool $isCarrierLocation): self
-    {
-        $this->isCarrierLocation = $isCarrierLocation;
-
-        return $this;
-    }
-
-    public function getIsNeighbourAllowed(): ?bool
-    {
-        return $this->isNeighbourAllowed;
-    }
-
-    public function setIsNeighbourAllowed(?bool $isNeighbourAllowed): self
-    {
-        $this->isNeighbourAllowed = $isNeighbourAllowed;
+        $this->countries = $countries;
 
         return $this;
     }

@@ -3554,6 +3554,26 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * List all methods.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $country_code
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListMethodsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListMethodsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsMethod|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listMethods(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListMethods($queryParameters), $fetch);
+    }
+
+    /**
      * List all parcels.
      *
      * @param array $headerParameters {

@@ -38,32 +38,24 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsMethod();
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
+            $object->setId($data->{'id'});
+        }
         if (property_exists($data, 'carrier_code') && null !== $data->{'carrier_code'}) {
             $object->setCarrierCode($data->{'carrier_code'});
-        }
-        if (property_exists($data, 'method_code') && null !== $data->{'method_code'}) {
-            $object->setMethodCode($data->{'method_code'});
         }
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'description') && null !== $data->{'description'}) {
-            $object->setDescription($data->{'description'});
+        if (property_exists($data, 'max_weight') && null !== $data->{'max_weight'}) {
+            $object->setMaxWeight($data->{'max_weight'});
         }
-        if (property_exists($data, 'delivery_during') && null !== $data->{'delivery_during'}) {
-            $object->setDeliveryDuring($data->{'delivery_during'});
-        }
-        if (property_exists($data, 'is_same_day') && null !== $data->{'is_same_day'}) {
-            $object->setIsSameDay($data->{'is_same_day'});
-        }
-        if (property_exists($data, 'is_sunday') && null !== $data->{'is_sunday'}) {
-            $object->setIsSunday($data->{'is_sunday'});
-        }
-        if (property_exists($data, 'is_carrier_location') && null !== $data->{'is_carrier_location'}) {
-            $object->setIsCarrierLocation($data->{'is_carrier_location'});
-        }
-        if (property_exists($data, 'is_neighbour_allowed') && null !== $data->{'is_neighbour_allowed'}) {
-            $object->setIsNeighbourAllowed($data->{'is_neighbour_allowed'});
+        if (property_exists($data, 'countries') && null !== $data->{'countries'}) {
+            $values = [];
+            foreach ($data->{'countries'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsCountry', 'json', $context);
+            }
+            $object->setCountries($values);
         }
 
         return $object;
@@ -72,32 +64,24 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
+        }
         if (null !== $object->getCarrierCode()) {
             $data->{'carrier_code'} = $object->getCarrierCode();
-        }
-        if (null !== $object->getMethodCode()) {
-            $data->{'method_code'} = $object->getMethodCode();
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
         }
-        if (null !== $object->getDescription()) {
-            $data->{'description'} = $object->getDescription();
+        if (null !== $object->getMaxWeight()) {
+            $data->{'max_weight'} = $object->getMaxWeight();
         }
-        if (null !== $object->getDeliveryDuring()) {
-            $data->{'delivery_during'} = $object->getDeliveryDuring();
-        }
-        if (null !== $object->getIsSameDay()) {
-            $data->{'is_same_day'} = $object->getIsSameDay();
-        }
-        if (null !== $object->getIsSunday()) {
-            $data->{'is_sunday'} = $object->getIsSunday();
-        }
-        if (null !== $object->getIsCarrierLocation()) {
-            $data->{'is_carrier_location'} = $object->getIsCarrierLocation();
-        }
-        if (null !== $object->getIsNeighbourAllowed()) {
-            $data->{'is_neighbour_allowed'} = $object->getIsNeighbourAllowed();
+        if (null !== $object->getCountries()) {
+            $values = [];
+            foreach ($object->getCountries() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $data->{'countries'} = $values;
         }
 
         return $data;
