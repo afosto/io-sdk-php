@@ -54,6 +54,13 @@ class OdrItemNormalizer implements DenormalizerInterface, NormalizerInterface, D
             }
             $object->setStacks($values);
         }
+        if (property_exists($data, 'filters') && null !== $data->{'filters'}) {
+            $values_1 = [];
+            foreach ($data->{'filters'} as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrFilter', 'json', $context);
+            }
+            $object->setFilters($values_1);
+        }
 
         return $object;
     }
@@ -76,6 +83,13 @@ class OdrItemNormalizer implements DenormalizerInterface, NormalizerInterface, D
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'stacks'} = $values;
+        }
+        if (null !== $object->getFilters()) {
+            $values_1 = [];
+            foreach ($object->getFilters() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            }
+            $data->{'filters'} = $values_1;
         }
 
         return $data;

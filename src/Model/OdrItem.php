@@ -28,6 +28,10 @@ class OdrItem
      * @var OdrStackReference[]
      */
     protected $stacks;
+    /**
+     * @var OdrFilter[]
+     */
+    protected $filters;
 
     public function getId(): ?string
     {
@@ -79,6 +83,24 @@ class OdrItem
     public function setStacks(?array $stacks): self
     {
         $this->stacks = $stacks;
+
+        return $this;
+    }
+
+    /**
+     * @return OdrFilter[]|null
+     */
+    public function getFilters(): ?array
+    {
+        return $this->filters;
+    }
+
+    /**
+     * @param OdrFilter[]|null $filters
+     */
+    public function setFilters(?array $filters): self
+    {
+        $this->filters = $filters;
 
         return $this;
     }

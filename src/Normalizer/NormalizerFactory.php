@@ -265,6 +265,7 @@ class NormalizerFactory
         $normalizers[] = new SplJobModelNormalizer();
         $normalizers[] = new SplJobResultNormalizer();
         $normalizers[] = new SplStatusNormalizer();
+        $normalizers[] = new OdrFilterSetNormalizer();
         $normalizers[] = new OdrDisposalNormalizer();
         $normalizers[] = new OdrLogNormalizer();
         $normalizers[] = new OdrStackNormalizer();
@@ -273,6 +274,7 @@ class NormalizerFactory
         $normalizers[] = new OdrStackDeleteModelNormalizer();
         $normalizers[] = new OdrTransitionModelNormalizer();
         $normalizers[] = new OdrItemNormalizer();
+        $normalizers[] = new OdrFilterNormalizer();
         $normalizers[] = new OdrItemModelNormalizer();
         $normalizers[] = new OdrGroupNormalizer();
         $normalizers[] = new OdrStackReferenceNormalizer();
@@ -347,6 +349,7 @@ class NormalizerFactory
         $normalizers[] = new LcsListsIdStatePutResponse200Normalizer();
         $normalizers[] = new LcsLocationsIdPositionsPutResponse200Normalizer();
         $normalizers[] = new LcsLocationsIdSkusPutResponse200Normalizer();
+        $normalizers[] = new OdrFiltersPutResponse200Normalizer();
         $normalizers[] = new CatGroupsIdPricesPutResponse200Normalizer();
         $normalizers[] = new CatVatProductsPutResponse200Normalizer();
 

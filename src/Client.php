@@ -4010,7 +4010,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\DeleteItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteItemsNotFoundException
      *
-     * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Psr\Http\Message\ResponseInterface|null
      */
     public function deleteItems(string $id, \Afosto\Sdk\Model\OdrStackDeleteModel $body, string $fetch = self::FETCH_OBJECT)
     {
@@ -4110,6 +4110,54 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function announceSkus(array $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AnnounceSkus($body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Afosto\Sdk\Model\OdrFilterSet[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getFilterSets(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFilterSets(), $fetch);
+    }
+
+    /**
+     * Create or update filters for products.
+     *
+     * @param \Afosto\Sdk\Model\OdrFilterSet[] $body
+     * @param string                           $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AttachFiltersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AttachFiltersNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\OdrFiltersPutResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function attachFilters(array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachFilters($body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function getFilterKeys(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFilterKeys(), $fetch);
+    }
+
+    /**
+     * Returns distinct filter values.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function getFilterValues(string $key, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFilterValues($key), $fetch);
     }
 
     /**

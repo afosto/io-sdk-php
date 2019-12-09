@@ -10,16 +10,15 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class DeleteItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class AttachFilters extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $id;
-
     /**
-     * Delete items from the given reference.
+     * Create or update filters for products.
+     *
+     * @param \Afosto\Sdk\Model\OdrFilterSet[] $body
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\OdrStackDeleteModel $body)
+    public function __construct(array $body)
     {
-        $this->id = $id;
         $this->body = $body;
     }
 
@@ -27,12 +26,12 @@ class DeleteItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getMethod(): string
     {
-        return 'DELETE';
+        return 'PUT';
     }
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/stacks/{id}/items');
+        return '/odr/filters';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -48,21 +47,21 @@ class DeleteItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\DeleteItemsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\AttachFiltersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AttachFiltersNotFoundException
      *
-     * @return null
+     * @return \Afosto\Sdk\Model\OdrFiltersPutResponse200|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
-        if (204 === $status) {
-            return null;
+        if (200 === $status) {
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrFiltersPutResponse200', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\DeleteItemsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\AttachFiltersUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\DeleteItemsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\AttachFiltersNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }
