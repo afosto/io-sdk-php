@@ -25,33 +25,9 @@ class OdrMethod
      */
     protected $name;
     /**
-     * @var string
-     */
-    protected $description;
-    /**
-     * @var string
-     */
-    protected $instructions;
-    /**
      * @var OdrIssuer[]
      */
     protected $issuers;
-    /**
-     * @var bool
-     */
-    protected $isActive;
-    /**
-     * @var mixed
-     */
-    protected $metadata;
-    /**
-     * @var \DateTime
-     */
-    protected $createdAt;
-    /**
-     * @var \DateTime
-     */
-    protected $updatedAt;
 
     public function getCode(): ?string
     {
@@ -89,30 +65,6 @@ class OdrMethod
         return $this;
     }
 
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    public function getInstructions(): ?string
-    {
-        return $this->instructions;
-    }
-
-    public function setInstructions(?string $instructions): self
-    {
-        $this->instructions = $instructions;
-
-        return $this;
-    }
-
     /**
      * @return OdrIssuer[]|null
      */
@@ -127,60 +79,6 @@ class OdrMethod
     public function setIssuers(?array $issuers): self
     {
         $this->issuers = $issuers;
-
-        return $this;
-    }
-
-    public function getIsActive(): ?bool
-    {
-        return $this->isActive;
-    }
-
-    public function setIsActive(?bool $isActive): self
-    {
-        $this->isActive = $isActive;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMetadata()
-    {
-        return $this->metadata;
-    }
-
-    /**
-     * @param mixed $metadata
-     */
-    public function setMetadata($metadata): self
-    {
-        $this->metadata = $metadata;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTime
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(?\DateTime $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getUpdatedAt(): ?\DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(?\DateTime $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
 
         return $this;
     }

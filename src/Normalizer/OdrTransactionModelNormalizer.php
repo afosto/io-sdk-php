@@ -39,7 +39,7 @@ class OdrTransactionModelNormalizer implements DenormalizerInterface, Normalizer
         }
         $object = new \Afosto\Sdk\Model\OdrTransactionModel();
         if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
-            $object->setReference($data->{'reference'});
+            $object->setReference($this->denormalizer->denormalize($data->{'reference'}, 'Afosto\\Sdk\\Model\\OdrReference', 'json', $context));
         }
         if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
@@ -56,9 +56,6 @@ class OdrTransactionModelNormalizer implements DenormalizerInterface, Normalizer
         if (property_exists($data, 'purchase') && null !== $data->{'purchase'}) {
             $object->setPurchase($this->denormalizer->denormalize($data->{'purchase'}, 'Afosto\\Sdk\\Model\\OdrPurchase', 'json', $context));
         }
-        if (property_exists($data, 'return_url') && null !== $data->{'return_url'}) {
-            $object->setReturnUrl($data->{'return_url'});
-        }
         if (property_exists($data, 'webhook_url') && null !== $data->{'webhook_url'}) {
             $object->setWebhookUrl($data->{'webhook_url'});
         }
@@ -73,7 +70,7 @@ class OdrTransactionModelNormalizer implements DenormalizerInterface, Normalizer
     {
         $data = new \stdClass();
         if (null !== $object->getReference()) {
-            $data->{'reference'} = $object->getReference();
+            $data->{'reference'} = $this->normalizer->normalize($object->getReference(), 'json', $context);
         }
         if (null !== $object->getDescription()) {
             $data->{'description'} = $object->getDescription();
@@ -89,9 +86,6 @@ class OdrTransactionModelNormalizer implements DenormalizerInterface, Normalizer
         }
         if (null !== $object->getPurchase()) {
             $data->{'purchase'} = $this->normalizer->normalize($object->getPurchase(), 'json', $context);
-        }
-        if (null !== $object->getReturnUrl()) {
-            $data->{'return_url'} = $object->getReturnUrl();
         }
         if (null !== $object->getWebhookUrl()) {
             $data->{'webhook_url'} = $object->getWebhookUrl();

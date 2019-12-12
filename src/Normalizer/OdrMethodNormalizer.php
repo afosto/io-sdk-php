@@ -47,30 +47,12 @@ class OdrMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'description') && null !== $data->{'description'}) {
-            $object->setDescription($data->{'description'});
-        }
-        if (property_exists($data, 'instructions') && null !== $data->{'instructions'}) {
-            $object->setInstructions($data->{'instructions'});
-        }
         if (property_exists($data, 'issuers') && null !== $data->{'issuers'}) {
             $values = [];
             foreach ($data->{'issuers'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrIssuer', 'json', $context);
             }
             $object->setIssuers($values);
-        }
-        if (property_exists($data, 'is_active') && null !== $data->{'is_active'}) {
-            $object->setIsActive($data->{'is_active'});
-        }
-        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
-            $object->setMetadata($data->{'metadata'});
-        }
-        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
-            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
-        }
-        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
-            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 
         return $object;
@@ -88,30 +70,12 @@ class OdrMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
         }
-        if (null !== $object->getDescription()) {
-            $data->{'description'} = $object->getDescription();
-        }
-        if (null !== $object->getInstructions()) {
-            $data->{'instructions'} = $object->getInstructions();
-        }
         if (null !== $object->getIssuers()) {
             $values = [];
             foreach ($object->getIssuers() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'issuers'} = $values;
-        }
-        if (null !== $object->getIsActive()) {
-            $data->{'is_active'} = $object->getIsActive();
-        }
-        if (null !== $object->getMetadata()) {
-            $data->{'metadata'} = $object->getMetadata();
-        }
-        if (null !== $object->getCreatedAt()) {
-            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
-        }
-        if (null !== $object->getUpdatedAt()) {
-            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

@@ -41,8 +41,8 @@ class OdrPaymentNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
-            $object->setReference($data->{'reference'});
+        if (property_exists($data, 'secret') && null !== $data->{'secret'}) {
+            $object->setSecret($data->{'secret'});
         }
         if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
@@ -71,6 +71,9 @@ class OdrPaymentNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'is_captured') && null !== $data->{'is_captured'}) {
             $object->setIsCaptured($data->{'is_captured'});
         }
+        if (property_exists($data, 'return_url') && null !== $data->{'return_url'}) {
+            $object->setReturnUrl($data->{'return_url'});
+        }
         if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
@@ -93,8 +96,8 @@ class OdrPaymentNormalizer implements DenormalizerInterface, NormalizerInterface
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getReference()) {
-            $data->{'reference'} = $object->getReference();
+        if (null !== $object->getSecret()) {
+            $data->{'secret'} = $object->getSecret();
         }
         if (null !== $object->getAmount()) {
             $data->{'amount'} = $object->getAmount();
@@ -122,6 +125,9 @@ class OdrPaymentNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (null !== $object->getIsCaptured()) {
             $data->{'is_captured'} = $object->getIsCaptured();
+        }
+        if (null !== $object->getReturnUrl()) {
+            $data->{'return_url'} = $object->getReturnUrl();
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();

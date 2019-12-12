@@ -12,14 +12,14 @@ namespace Afosto\Sdk\Endpoint;
 
 class GetPayment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $reference;
+    protected $secret;
 
     /**
      * Returns the live details of a payment.
      */
-    public function __construct(string $reference)
+    public function __construct(string $secret)
     {
-        $this->reference = $reference;
+        $this->secret = $secret;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -31,7 +31,7 @@ class GetPayment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     public function getUri(): string
     {
-        return str_replace(['{reference}'], [$this->reference], '/odr/payments/{reference}');
+        return str_replace(['{secret}'], [$this->secret], '/odr/payments/{secret}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

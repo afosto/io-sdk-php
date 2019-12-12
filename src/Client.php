@@ -2417,9 +2417,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrProcess|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getPayment(string $reference, string $fetch = self::FETCH_OBJECT)
+    public function getPayment(string $secret, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPayment($reference), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPayment($secret), $fetch);
     }
 
     /**

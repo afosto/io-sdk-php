@@ -53,6 +53,9 @@ class OdrPaymentIntentNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
+        if (property_exists($data, 'return_url') && null !== $data->{'return_url'}) {
+            $object->setReturnUrl($data->{'return_url'});
+        }
 
         return $object;
     }
@@ -74,6 +77,9 @@ class OdrPaymentIntentNormalizer implements DenormalizerInterface, NormalizerInt
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();
+        }
+        if (null !== $object->getReturnUrl()) {
+            $data->{'return_url'} = $object->getReturnUrl();
         }
 
         return $data;

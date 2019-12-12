@@ -17,7 +17,7 @@ class OdrTransaction
      */
     protected $id;
     /**
-     * @var string
+     * @var OdrReference
      */
     protected $reference;
     /**
@@ -44,10 +44,6 @@ class OdrTransaction
      * @var OdrPurchase
      */
     protected $purchase;
-    /**
-     * @var string
-     */
-    protected $returnUrl;
     /**
      * @var string
      */
@@ -81,12 +77,12 @@ class OdrTransaction
         return $this;
     }
 
-    public function getReference(): ?string
+    public function getReference(): ?OdrReference
     {
         return $this->reference;
     }
 
-    public function setReference(?string $reference): self
+    public function setReference(?OdrReference $reference): self
     {
         $this->reference = $reference;
 
@@ -173,18 +169,6 @@ class OdrTransaction
     public function setPurchase(?OdrPurchase $purchase): self
     {
         $this->purchase = $purchase;
-
-        return $this;
-    }
-
-    public function getReturnUrl(): ?string
-    {
-        return $this->returnUrl;
-    }
-
-    public function setReturnUrl(?string $returnUrl): self
-    {
-        $this->returnUrl = $returnUrl;
 
         return $this;
     }

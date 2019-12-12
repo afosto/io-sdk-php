@@ -19,7 +19,7 @@ class OdrPayment
     /**
      * @var string
      */
-    protected $reference;
+    protected $secret;
     /**
      * @var int
      */
@@ -57,6 +57,10 @@ class OdrPayment
      */
     protected $isCaptured = false;
     /**
+     * @var string
+     */
+    protected $returnUrl;
+    /**
      * @var mixed
      */
     protected $metadata;
@@ -85,14 +89,14 @@ class OdrPayment
         return $this;
     }
 
-    public function getReference(): ?string
+    public function getSecret(): ?string
     {
-        return $this->reference;
+        return $this->secret;
     }
 
-    public function setReference(?string $reference): self
+    public function setSecret(?string $secret): self
     {
-        $this->reference = $reference;
+        $this->secret = $secret;
 
         return $this;
     }
@@ -201,6 +205,18 @@ class OdrPayment
     public function setIsCaptured(?bool $isCaptured): self
     {
         $this->isCaptured = $isCaptured;
+
+        return $this;
+    }
+
+    public function getReturnUrl(): ?string
+    {
+        return $this->returnUrl;
+    }
+
+    public function setReturnUrl(?string $returnUrl): self
+    {
+        $this->returnUrl = $returnUrl;
 
         return $this;
     }

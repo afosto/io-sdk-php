@@ -32,6 +32,10 @@ class OdrPaymentIntent
      * @var mixed
      */
     protected $metadata;
+    /**
+     * @var string
+     */
+    protected $returnUrl;
 
     public function getAmount(): ?int
     {
@@ -95,6 +99,18 @@ class OdrPaymentIntent
     public function setMetadata($metadata): self
     {
         $this->metadata = $metadata;
+
+        return $this;
+    }
+
+    public function getReturnUrl(): ?string
+    {
+        return $this->returnUrl;
+    }
+
+    public function setReturnUrl(?string $returnUrl): self
+    {
+        $this->returnUrl = $returnUrl;
 
         return $this;
     }

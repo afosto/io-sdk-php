@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Model;
 class OdrTransactionModel
 {
     /**
-     * @var string
+     * @var OdrReference
      */
     protected $reference;
     /**
@@ -39,22 +39,18 @@ class OdrTransactionModel
     /**
      * @var string
      */
-    protected $returnUrl;
-    /**
-     * @var string
-     */
     protected $webhookUrl;
     /**
      * @var string
      */
     protected $clientId;
 
-    public function getReference(): ?string
+    public function getReference(): ?OdrReference
     {
         return $this->reference;
     }
 
-    public function setReference(?string $reference): self
+    public function setReference(?OdrReference $reference): self
     {
         $this->reference = $reference;
 
@@ -123,18 +119,6 @@ class OdrTransactionModel
     public function setPurchase(?OdrPurchase $purchase): self
     {
         $this->purchase = $purchase;
-
-        return $this;
-    }
-
-    public function getReturnUrl(): ?string
-    {
-        return $this->returnUrl;
-    }
-
-    public function setReturnUrl(?string $returnUrl): self
-    {
-        $this->returnUrl = $returnUrl;
 
         return $this;
     }
