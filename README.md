@@ -38,11 +38,13 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 
 ## example 
-an example on how to use the Sdk
+Connecting with the SDK is easy.
+you instantiate the sdk with client credentials, and you are ready to make requests
+additionaly you can add the scopes you want you your request
 
 ```php
-
-$client = new \Afosto\Sdk\Sdk("1234","123456");
+$scopes = ['iam:users:create'];
+$client = new \Afosto\Sdk\Sdk("1234","123456",$scopes);
 $user = $client->getAuthorizedClient()->createUser(
     (new \Afosto\Sdk\Model\IamUserModel)
         ->setEmail("info@afosto.com")
@@ -50,7 +52,8 @@ $user = $client->getAuthorizedClient()->createUser(
         ->setLastName("afosto")
 );
 
-print_r($user);
+//prints the created user id
+print_r($user->getId());
 ```
 
 ## License
