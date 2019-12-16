@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class IamCard
+class IamPaymentSource
 {
     /**
      * @var string
@@ -36,6 +36,10 @@ class IamCard
      * @var \DateTime
      */
     protected $expiresAt;
+    /**
+     * @var string
+     */
+    protected $mandate;
 
     public function getId(): ?string
     {
@@ -105,6 +109,18 @@ class IamCard
     public function setExpiresAt(?\DateTime $expiresAt): self
     {
         $this->expiresAt = $expiresAt;
+
+        return $this;
+    }
+
+    public function getMandate(): ?string
+    {
+        return $this->mandate;
+    }
+
+    public function setMandate(?string $mandate): self
+    {
+        $this->mandate = $mandate;
 
         return $this;
     }

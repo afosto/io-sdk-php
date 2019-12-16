@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class IamCardNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class IamPaymentSourceNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\IamCard' === $type;
+        return 'Afosto\\Sdk\\Model\\IamPaymentSource' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\IamCard' === get_class($data);
+        return 'Afosto\\Sdk\\Model\\IamPaymentSource' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class IamCardNormalizer implements DenormalizerInterface, NormalizerInterface, D
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\IamCard();
+        $object = new \Afosto\Sdk\Model\IamPaymentSource();
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
@@ -55,6 +55,9 @@ class IamCardNormalizer implements DenormalizerInterface, NormalizerInterface, D
         }
         if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
+        }
+        if (property_exists($data, 'mandate') && null !== $data->{'mandate'}) {
+            $object->setMandate($data->{'mandate'});
         }
 
         return $object;
@@ -80,6 +83,9 @@ class IamCardNormalizer implements DenormalizerInterface, NormalizerInterface, D
         }
         if (null !== $object->getExpiresAt()) {
             $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getMandate()) {
+            $data->{'mandate'} = $object->getMandate();
         }
 
         return $data;

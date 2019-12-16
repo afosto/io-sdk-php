@@ -10,21 +10,21 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class IamCardsPostBody
+class IamSourcesPostBody
 {
     /**
      * @var string
      */
-    protected $cardSource;
+    protected $source;
 
-    public function getCardSource(): ?string
+    public function getSource(): ?string
     {
-        return $this->cardSource;
+        return $this->source;
     }
 
-    public function setCardSource(?string $cardSource): self
+    public function setSource(?string $source): self
     {
-        $this->cardSource = $cardSource;
+        $this->source = $source;
 
         return $this;
     }

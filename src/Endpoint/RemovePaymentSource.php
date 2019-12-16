@@ -10,12 +10,12 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class RemoveCard extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class RemovePaymentSource extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     protected $id;
 
     /**
-     * Remove an active card.
+     * Remove an active payment source.
      */
     public function __construct(string $id)
     {
@@ -47,12 +47,12 @@ class RemoveCard extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
      * {@inheritdoc}
      *
-     * @return \Afosto\Sdk\Model\IamCard[]|null
+     * @return \Afosto\Sdk\Model\IamPaymentSource[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamCard[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamPaymentSource[]', 'json');
         }
     }
 }

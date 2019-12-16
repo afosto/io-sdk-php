@@ -1140,35 +1140,35 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamPaymentSource[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listCards(string $fetch = self::FETCH_OBJECT)
+    public function listPaymentSources(string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCards(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListPaymentSources(), $fetch);
     }
 
     /**
-     * Add a card's source.
+     * Add a payment source.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamPaymentSource[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function addCard(\Afosto\Sdk\Model\IamCardsPostBody $body, string $fetch = self::FETCH_OBJECT)
+    public function addPaymentSource(\Afosto\Sdk\Model\IamSourcesPostBody $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddCard($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddPaymentSource($body), $fetch);
     }
 
     /**
-     * Remove an active card.
+     * Remove an active payment source.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \Afosto\Sdk\Model\IamCard[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamPaymentSource[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function removeCard(string $id, string $fetch = self::FETCH_OBJECT)
+    public function removePaymentSource(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RemoveCard($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RemovePaymentSource($id), $fetch);
     }
 
     /**
@@ -1204,13 +1204,21 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * List of the invoices.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @return \Afosto\Sdk\Model\IamInvoice[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listSubscriptionInvoices(string $fetch = self::FETCH_OBJECT)
+    public function listSubscriptionInvoices(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListSubscriptionInvoices(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListSubscriptionInvoices($headerParameters), $fetch);
     }
 
     /**

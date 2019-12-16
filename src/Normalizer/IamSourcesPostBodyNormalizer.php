@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class IamCardsPostBodyNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class IamSourcesPostBodyNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\IamCardsPostBody' === $type;
+        return 'Afosto\\Sdk\\Model\\IamSourcesPostBody' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\IamCardsPostBody' === get_class($data);
+        return 'Afosto\\Sdk\\Model\\IamSourcesPostBody' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,9 +37,9 @@ class IamCardsPostBodyNormalizer implements DenormalizerInterface, NormalizerInt
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\IamCardsPostBody();
-        if (property_exists($data, 'card_source') && null !== $data->{'card_source'}) {
-            $object->setCardSource($data->{'card_source'});
+        $object = new \Afosto\Sdk\Model\IamSourcesPostBody();
+        if (property_exists($data, 'source') && null !== $data->{'source'}) {
+            $object->setSource($data->{'source'});
         }
 
         return $object;
@@ -48,8 +48,8 @@ class IamCardsPostBodyNormalizer implements DenormalizerInterface, NormalizerInt
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getCardSource()) {
-            $data->{'card_source'} = $object->getCardSource();
+        if (null !== $object->getSource()) {
+            $data->{'source'} = $object->getSource();
         }
 
         return $data;

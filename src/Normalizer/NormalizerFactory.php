@@ -89,7 +89,7 @@ class NormalizerFactory
         $normalizers[] = new IamInvoiceNormalizer();
         $normalizers[] = new IamCompanyNormalizer();
         $normalizers[] = new IamAddressNormalizer();
-        $normalizers[] = new IamCardNormalizer();
+        $normalizers[] = new IamPaymentSourceNormalizer();
         $normalizers[] = new IamSubscriptionNormalizer();
         $normalizers[] = new IamSubscriptionItemNormalizer();
         $normalizers[] = new IamUsageRequestNormalizer();
@@ -334,7 +334,7 @@ class NormalizerFactory
         $normalizers[] = new RelAddressNormalizer();
         $normalizers[] = new RelVersionNormalizer();
         $normalizers[] = new OdrOptionsRulesConstraintsGetResponse200Normalizer();
-        $normalizers[] = new IamCardsPostBodyNormalizer();
+        $normalizers[] = new IamSourcesPostBodyNormalizer();
         $normalizers[] = new IamLogsFiltersGetResponse200Normalizer();
         $normalizers[] = new IamTenantsPostResponse200Normalizer();
         $normalizers[] = new IamTenantsIdPutBodyNormalizer();
