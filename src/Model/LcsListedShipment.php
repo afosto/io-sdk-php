@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class LcsShipment
+class LcsListedShipment
 {
     /**
      * @var string
@@ -29,7 +29,7 @@ class LcsShipment
      */
     protected $contactId;
     /**
-     * @var LcsShipmentAddressing
+     * @var LcsListedShipmentAddressing
      */
     protected $addressing;
     /**
@@ -64,22 +64,6 @@ class LcsShipment
      * @var bool
      */
     protected $isDelivered;
-    /**
-     * @var LcsShipmentItem[]
-     */
-    protected $items;
-    /**
-     * @var LcsShipmentItemCorrection[]
-     */
-    protected $backorders;
-    /**
-     * @var LcsShipmentItemCorrection[]
-     */
-    protected $overage;
-    /**
-     * @var LcsParcel[]
-     */
-    protected $parcels;
     /**
      * @var string
      */
@@ -145,12 +129,12 @@ class LcsShipment
         return $this;
     }
 
-    public function getAddressing(): ?LcsShipmentAddressing
+    public function getAddressing(): ?LcsListedShipmentAddressing
     {
         return $this->addressing;
     }
 
-    public function setAddressing(?LcsShipmentAddressing $addressing): self
+    public function setAddressing(?LcsListedShipmentAddressing $addressing): self
     {
         $this->addressing = $addressing;
 
@@ -249,78 +233,6 @@ class LcsShipment
     public function setIsDelivered(?bool $isDelivered): self
     {
         $this->isDelivered = $isDelivered;
-
-        return $this;
-    }
-
-    /**
-     * @return LcsShipmentItem[]|null
-     */
-    public function getItems(): ?array
-    {
-        return $this->items;
-    }
-
-    /**
-     * @param LcsShipmentItem[]|null $items
-     */
-    public function setItems(?array $items): self
-    {
-        $this->items = $items;
-
-        return $this;
-    }
-
-    /**
-     * @return LcsShipmentItemCorrection[]|null
-     */
-    public function getBackorders(): ?array
-    {
-        return $this->backorders;
-    }
-
-    /**
-     * @param LcsShipmentItemCorrection[]|null $backorders
-     */
-    public function setBackorders(?array $backorders): self
-    {
-        $this->backorders = $backorders;
-
-        return $this;
-    }
-
-    /**
-     * @return LcsShipmentItemCorrection[]|null
-     */
-    public function getOverage(): ?array
-    {
-        return $this->overage;
-    }
-
-    /**
-     * @param LcsShipmentItemCorrection[]|null $overage
-     */
-    public function setOverage(?array $overage): self
-    {
-        $this->overage = $overage;
-
-        return $this;
-    }
-
-    /**
-     * @return LcsParcel[]|null
-     */
-    public function getParcels(): ?array
-    {
-        return $this->parcels;
-    }
-
-    /**
-     * @param LcsParcel[]|null $parcels
-     */
-    public function setParcels(?array $parcels): self
-    {
-        $this->parcels = $parcels;
 
         return $this;
     }

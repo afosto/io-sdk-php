@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LcsListedShipmentNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsShipment' === $type;
+        return 'Afosto\\Sdk\\Model\\LcsListedShipment' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsShipment' === get_class($data);
+        return 'Afosto\\Sdk\\Model\\LcsListedShipment' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsShipment();
+        $object = new \Afosto\Sdk\Model\LcsListedShipment();
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
@@ -51,7 +51,7 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
             $object->setContactId($data->{'contact_id'});
         }
         if (property_exists($data, 'addressing') && null !== $data->{'addressing'}) {
-            $object->setAddressing($this->denormalizer->denormalize($data->{'addressing'}, 'Afosto\\Sdk\\Model\\LcsShipmentAddressing', 'json', $context));
+            $object->setAddressing($this->denormalizer->denormalize($data->{'addressing'}, 'Afosto\\Sdk\\Model\\LcsListedShipmentAddressing', 'json', $context));
         }
         if (property_exists($data, 'expected_at') && null !== $data->{'expected_at'}) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
@@ -76,34 +76,6 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
         }
         if (property_exists($data, 'is_delivered') && null !== $data->{'is_delivered'}) {
             $object->setIsDelivered($data->{'is_delivered'});
-        }
-        if (property_exists($data, 'items') && null !== $data->{'items'}) {
-            $values = [];
-            foreach ($data->{'items'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsShipmentItem', 'json', $context);
-            }
-            $object->setItems($values);
-        }
-        if (property_exists($data, 'backorders') && null !== $data->{'backorders'}) {
-            $values_1 = [];
-            foreach ($data->{'backorders'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\LcsShipmentItemCorrection', 'json', $context);
-            }
-            $object->setBackorders($values_1);
-        }
-        if (property_exists($data, 'overage') && null !== $data->{'overage'}) {
-            $values_2 = [];
-            foreach ($data->{'overage'} as $value_2) {
-                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\LcsShipmentItemCorrection', 'json', $context);
-            }
-            $object->setOverage($values_2);
-        }
-        if (property_exists($data, 'parcels') && null !== $data->{'parcels'}) {
-            $values_3 = [];
-            foreach ($data->{'parcels'} as $value_3) {
-                $values_3[] = $this->denormalizer->denormalize($value_3, 'Afosto\\Sdk\\Model\\LcsParcel', 'json', $context);
-            }
-            $object->setParcels($values_3);
         }
         if (property_exists($data, 'secret') && null !== $data->{'secret'}) {
             $object->setSecret($data->{'secret'});
@@ -162,34 +134,6 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
         }
         if (null !== $object->getIsDelivered()) {
             $data->{'is_delivered'} = $object->getIsDelivered();
-        }
-        if (null !== $object->getItems()) {
-            $values = [];
-            foreach ($object->getItems() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data->{'items'} = $values;
-        }
-        if (null !== $object->getBackorders()) {
-            $values_1 = [];
-            foreach ($object->getBackorders() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-            }
-            $data->{'backorders'} = $values_1;
-        }
-        if (null !== $object->getOverage()) {
-            $values_2 = [];
-            foreach ($object->getOverage() as $value_2) {
-                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
-            }
-            $data->{'overage'} = $values_2;
-        }
-        if (null !== $object->getParcels()) {
-            $values_3 = [];
-            foreach ($object->getParcels() as $value_3) {
-                $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
-            }
-            $data->{'parcels'} = $values_3;
         }
         if (null !== $object->getSecret()) {
             $data->{'secret'} = $object->getSecret();

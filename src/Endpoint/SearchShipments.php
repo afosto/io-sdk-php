@@ -67,12 +67,12 @@ class SearchShipments extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      * @throws \Afosto\Sdk\Exception\SearchShipmentsBadRequestException
      * @throws \Afosto\Sdk\Exception\SearchShipmentsUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\LcsShipment[]|null
+     * @return \Afosto\Sdk\Model\LcsListedShipment[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsShipment[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsListedShipment[]', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\SearchShipmentsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

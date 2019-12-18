@@ -21,9 +21,13 @@ class LcsShipmentModel
      */
     protected $items;
     /**
-     * @var LcsBackorderItem[]
+     * @var LcsShipmentItemCorrection[]
      */
     protected $backorders;
+    /**
+     * @var LcsShipmentItemCorrection[]
+     */
+    protected $overage;
     /**
      * @var \DateTime
      */
@@ -72,7 +76,7 @@ class LcsShipmentModel
     }
 
     /**
-     * @return LcsBackorderItem[]|null
+     * @return LcsShipmentItemCorrection[]|null
      */
     public function getBackorders(): ?array
     {
@@ -80,11 +84,29 @@ class LcsShipmentModel
     }
 
     /**
-     * @param LcsBackorderItem[]|null $backorders
+     * @param LcsShipmentItemCorrection[]|null $backorders
      */
     public function setBackorders(?array $backorders): self
     {
         $this->backorders = $backorders;
+
+        return $this;
+    }
+
+    /**
+     * @return LcsShipmentItemCorrection[]|null
+     */
+    public function getOverage(): ?array
+    {
+        return $this->overage;
+    }
+
+    /**
+     * @param LcsShipmentItemCorrection[]|null $overage
+     */
+    public function setOverage(?array $overage): self
+    {
+        $this->overage = $overage;
 
         return $this;
     }

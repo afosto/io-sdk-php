@@ -13,17 +13,21 @@ namespace Afosto\Sdk\Model;
 class LcsMethod
 {
     /**
-     * @var int
+     * @var string
      */
     protected $id;
     /**
      * @var string
      */
-    protected $carrierCode;
+    protected $carrier;
     /**
      * @var string
      */
     protected $name;
+    /**
+     * @var string
+     */
+    protected $description;
     /**
      * @var int
      */
@@ -32,27 +36,55 @@ class LcsMethod
      * @var LcsCountry[]
      */
     protected $countries;
+    /**
+     * @var string
+     */
+    protected $deliveryDuring;
+    /**
+     * @var bool
+     */
+    protected $isConfigured = false;
+    /**
+     * @var bool
+     */
+    protected $isSameDay;
+    /**
+     * @var bool
+     */
+    protected $isSunday;
+    /**
+     * @var bool
+     */
+    protected $isCarrierLocation;
+    /**
+     * @var string
+     */
+    protected $providerMethodId;
+    /**
+     * @var string
+     */
+    protected $provider;
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }
 
-    public function setId(?int $id): self
+    public function setId(?string $id): self
     {
         $this->id = $id;
 
         return $this;
     }
 
-    public function getCarrierCode(): ?string
+    public function getCarrier(): ?string
     {
-        return $this->carrierCode;
+        return $this->carrier;
     }
 
-    public function setCarrierCode(?string $carrierCode): self
+    public function setCarrier(?string $carrier): self
     {
-        $this->carrierCode = $carrierCode;
+        $this->carrier = $carrier;
 
         return $this;
     }
@@ -65,6 +97,18 @@ class LcsMethod
     public function setName(?string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
@@ -95,6 +139,90 @@ class LcsMethod
     public function setCountries(?array $countries): self
     {
         $this->countries = $countries;
+
+        return $this;
+    }
+
+    public function getDeliveryDuring(): ?string
+    {
+        return $this->deliveryDuring;
+    }
+
+    public function setDeliveryDuring(?string $deliveryDuring): self
+    {
+        $this->deliveryDuring = $deliveryDuring;
+
+        return $this;
+    }
+
+    public function getIsConfigured(): ?bool
+    {
+        return $this->isConfigured;
+    }
+
+    public function setIsConfigured(?bool $isConfigured): self
+    {
+        $this->isConfigured = $isConfigured;
+
+        return $this;
+    }
+
+    public function getIsSameDay(): ?bool
+    {
+        return $this->isSameDay;
+    }
+
+    public function setIsSameDay(?bool $isSameDay): self
+    {
+        $this->isSameDay = $isSameDay;
+
+        return $this;
+    }
+
+    public function getIsSunday(): ?bool
+    {
+        return $this->isSunday;
+    }
+
+    public function setIsSunday(?bool $isSunday): self
+    {
+        $this->isSunday = $isSunday;
+
+        return $this;
+    }
+
+    public function getIsCarrierLocation(): ?bool
+    {
+        return $this->isCarrierLocation;
+    }
+
+    public function setIsCarrierLocation(?bool $isCarrierLocation): self
+    {
+        $this->isCarrierLocation = $isCarrierLocation;
+
+        return $this;
+    }
+
+    public function getProviderMethodId(): ?string
+    {
+        return $this->providerMethodId;
+    }
+
+    public function setProviderMethodId(?string $providerMethodId): self
+    {
+        $this->providerMethodId = $providerMethodId;
+
+        return $this;
+    }
+
+    public function getProvider(): ?string
+    {
+        return $this->provider;
+    }
+
+    public function setProvider(?string $provider): self
+    {
+        $this->provider = $provider;
 
         return $this;
     }

@@ -41,11 +41,14 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'carrier_code') && null !== $data->{'carrier_code'}) {
-            $object->setCarrierCode($data->{'carrier_code'});
+        if (property_exists($data, 'carrier') && null !== $data->{'carrier'}) {
+            $object->setCarrier($data->{'carrier'});
         }
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
+        }
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
+            $object->setDescription($data->{'description'});
         }
         if (property_exists($data, 'max_weight') && null !== $data->{'max_weight'}) {
             $object->setMaxWeight($data->{'max_weight'});
@@ -57,6 +60,27 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
             }
             $object->setCountries($values);
         }
+        if (property_exists($data, 'delivery_during') && null !== $data->{'delivery_during'}) {
+            $object->setDeliveryDuring($data->{'delivery_during'});
+        }
+        if (property_exists($data, 'is_configured') && null !== $data->{'is_configured'}) {
+            $object->setIsConfigured($data->{'is_configured'});
+        }
+        if (property_exists($data, 'is_same_day') && null !== $data->{'is_same_day'}) {
+            $object->setIsSameDay($data->{'is_same_day'});
+        }
+        if (property_exists($data, 'is_sunday') && null !== $data->{'is_sunday'}) {
+            $object->setIsSunday($data->{'is_sunday'});
+        }
+        if (property_exists($data, 'is_carrier_location') && null !== $data->{'is_carrier_location'}) {
+            $object->setIsCarrierLocation($data->{'is_carrier_location'});
+        }
+        if (property_exists($data, 'provider_method_id') && null !== $data->{'provider_method_id'}) {
+            $object->setProviderMethodId($data->{'provider_method_id'});
+        }
+        if (property_exists($data, 'provider') && null !== $data->{'provider'}) {
+            $object->setProvider($data->{'provider'});
+        }
 
         return $object;
     }
@@ -67,11 +91,14 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getCarrierCode()) {
-            $data->{'carrier_code'} = $object->getCarrierCode();
+        if (null !== $object->getCarrier()) {
+            $data->{'carrier'} = $object->getCarrier();
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
+        }
+        if (null !== $object->getDescription()) {
+            $data->{'description'} = $object->getDescription();
         }
         if (null !== $object->getMaxWeight()) {
             $data->{'max_weight'} = $object->getMaxWeight();
@@ -82,6 +109,27 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'countries'} = $values;
+        }
+        if (null !== $object->getDeliveryDuring()) {
+            $data->{'delivery_during'} = $object->getDeliveryDuring();
+        }
+        if (null !== $object->getIsConfigured()) {
+            $data->{'is_configured'} = $object->getIsConfigured();
+        }
+        if (null !== $object->getIsSameDay()) {
+            $data->{'is_same_day'} = $object->getIsSameDay();
+        }
+        if (null !== $object->getIsSunday()) {
+            $data->{'is_sunday'} = $object->getIsSunday();
+        }
+        if (null !== $object->getIsCarrierLocation()) {
+            $data->{'is_carrier_location'} = $object->getIsCarrierLocation();
+        }
+        if (null !== $object->getProviderMethodId()) {
+            $data->{'provider_method_id'} = $object->getProviderMethodId();
+        }
+        if (null !== $object->getProvider()) {
+            $data->{'provider'} = $object->getProvider();
         }
 
         return $data;

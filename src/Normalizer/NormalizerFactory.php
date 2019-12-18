@@ -225,6 +225,7 @@ class NormalizerFactory
         $normalizers[] = new CntDefinitionModelNormalizer();
         $normalizers[] = new CntDefinitionNormalizer();
         $normalizers[] = new CntPaginationNormalizer();
+        $normalizers[] = new LcsShipmentItemCorrectionNormalizer();
         $normalizers[] = new LcsListSearchNormalizer();
         $normalizers[] = new LcsListSearchConstraintNormalizer();
         $normalizers[] = new LcsShipmentSearchNormalizer();
@@ -240,11 +241,12 @@ class NormalizerFactory
         $normalizers[] = new LcsLocationPositionNormalizer();
         $normalizers[] = new LcsMethodNormalizer();
         $normalizers[] = new LcsCountryNormalizer();
+        $normalizers[] = new LcsListedShipmentNormalizer();
+        $normalizers[] = new LcsListedShipmentAddressingNormalizer();
         $normalizers[] = new LcsShipmentNormalizer();
         $normalizers[] = new LcsShipmentAddressingNormalizer();
         $normalizers[] = new LcsShipmentAddressingNormalizer();
         $normalizers[] = new LcsShipmentAddressingCarrierNormalizer();
-        $normalizers[] = new LcsBackorderItemNormalizer();
         $normalizers[] = new LcsShipmentItemModelNormalizer();
         $normalizers[] = new LcsShipmentItemModelPositionsNormalizer();
         $normalizers[] = new LcsShipmentItemNormalizer();

@@ -51,9 +51,16 @@ class LcsShipmentModelNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'backorders') && null !== $data->{'backorders'}) {
             $values_1 = [];
             foreach ($data->{'backorders'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\LcsBackorderItem', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\LcsShipmentItemCorrection', 'json', $context);
             }
             $object->setBackorders($values_1);
+        }
+        if (property_exists($data, 'overage') && null !== $data->{'overage'}) {
+            $values_2 = [];
+            foreach ($data->{'overage'} as $value_2) {
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\LcsShipmentItemCorrection', 'json', $context);
+            }
+            $object->setOverage($values_2);
         }
         if (property_exists($data, 'expected_at') && null !== $data->{'expected_at'}) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
@@ -90,6 +97,13 @@ class LcsShipmentModelNormalizer implements DenormalizerInterface, NormalizerInt
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'backorders'} = $values_1;
+        }
+        if (null !== $object->getOverage()) {
+            $values_2 = [];
+            foreach ($object->getOverage() as $value_2) {
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
+            }
+            $data->{'overage'} = $values_2;
         }
         if (null !== $object->getExpectedAt()) {
             $data->{'expected_at'} = $object->getExpectedAt()->format("Y-m-d\TH:i:sP");

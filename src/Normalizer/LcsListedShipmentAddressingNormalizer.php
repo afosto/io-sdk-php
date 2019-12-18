@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsBackorderItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LcsListedShipmentAddressingNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsBackorderItem' === $type;
+        return 'Afosto\\Sdk\\Model\\LcsListedShipmentAddressing' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsBackorderItem' === get_class($data);
+        return 'Afosto\\Sdk\\Model\\LcsListedShipmentAddressing' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,15 +37,12 @@ class LcsBackorderItemNormalizer implements DenormalizerInterface, NormalizerInt
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsBackorderItem();
-        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
-            $object->setSku($data->{'sku'});
+        $object = new \Afosto\Sdk\Model\LcsListedShipmentAddressing();
+        if (property_exists($data, 'to') && null !== $data->{'to'}) {
+            $object->setTo($this->denormalizer->denormalize($data->{'to'}, 'Afosto\\Sdk\\Model\\LcsShipmentAddressing', 'json', $context));
         }
-        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
-            $object->setQuantity($data->{'quantity'});
-        }
-        if (property_exists($data, 'description') && null !== $data->{'description'}) {
-            $object->setDescription($data->{'description'});
+        if (property_exists($data, 'from') && null !== $data->{'from'}) {
+            $object->setFrom($this->denormalizer->denormalize($data->{'from'}, 'Afosto\\Sdk\\Model\\LcsShipmentAddressing', 'json', $context));
         }
 
         return $object;
@@ -54,14 +51,11 @@ class LcsBackorderItemNormalizer implements DenormalizerInterface, NormalizerInt
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getSku()) {
-            $data->{'sku'} = $object->getSku();
+        if (null !== $object->getTo()) {
+            $data->{'to'} = $this->normalizer->normalize($object->getTo(), 'json', $context);
         }
-        if (null !== $object->getQuantity()) {
-            $data->{'quantity'} = $object->getQuantity();
-        }
-        if (null !== $object->getDescription()) {
-            $data->{'description'} = $object->getDescription();
+        if (null !== $object->getFrom()) {
+            $data->{'from'} = $this->normalizer->normalize($object->getFrom(), 'json', $context);
         }
 
         return $data;

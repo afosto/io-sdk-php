@@ -3488,7 +3488,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListShipmentsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListShipmentsUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\LcsShipment[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsListedShipment[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listShipments(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -3524,7 +3524,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\SearchShipmentsBadRequestException
      * @throws \Afosto\Sdk\Exception\SearchShipmentsUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\LcsShipment[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsListedShipment[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function searchShipments(\Afosto\Sdk\Model\LcsShipmentSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -3559,6 +3559,38 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function updateShipment(string $id, \Afosto\Sdk\Model\LcsShipmentUpdateModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateShipment($id, $body), $fetch);
+    }
+
+    /**
+     * Update the shipment's backordered items.
+     *
+     * @param \Afosto\Sdk\Model\LcsShipmentItemCorrection[] $body
+     * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentBackordersBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentBackordersUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsShipment|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateShipmentBackorders(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateShipmentBackorders($id, $body), $fetch);
+    }
+
+    /**
+     * Update items that were not expected.
+     *
+     * @param \Afosto\Sdk\Model\LcsShipmentItemCorrection[] $body
+     * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentOverageBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentOverageUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsShipment|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateShipmentOverage(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateShipmentOverage($id, $body), $fetch);
     }
 
     /**
@@ -3729,6 +3761,21 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Updates a location.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateFulfilmentLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateFulfilmentLocationUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsFulfilmentLocation|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateFulfilmentLocation(string $id, \Afosto\Sdk\Model\LcsFulfilmentLocationCreate $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateFulfilmentLocation($id, $body), $fetch);
+    }
+
+    /**
      * Returns a list of fulfilment locations.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -3756,6 +3803,21 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function updatePositionOrder(string $id, array $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdatePositionOrder($id, $body), $fetch);
+    }
+
+    /**
+     * Searches a set of positions based on skus.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchPositionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchPositionsUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsLocationSku|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchPositions(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchPositions($id, $body), $fetch);
     }
 
     /**
