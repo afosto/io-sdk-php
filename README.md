@@ -8,12 +8,12 @@ If you run into any problems please do not hesitate to open an issue at this rep
 
 ### Docs
 
-API documentation can be found at [https://docs.afosto.app](https://docs.afosto.app).
+API documentation can be found at [https://developers.afosto.io](https://developers.afosto.io).
 
 ### Prerequisites
 
 To get started you'll need:
-- a free afosto.io account (signup [here](https://login.afosto.app/signup))
+- a free afosto.io account (signup [here](https://login.afosto.io/signup))
 - make sure you have [composer](getcomposer.org) installed to get started quickly
 - php 7 
 
@@ -37,9 +37,8 @@ composer require afosto/io-sdk
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/spooler-app/php-client/tags). 
 
 
-## example 
-Connecting with the SDK is easy.
-you instantiate the sdk with client credentials, and you are ready to make requests
+## Example 
+Connecting with the SDK is easy. You instantiate the sdk with client credentials, and you are ready to make requests
 additionaly you can add the scopes you want you your request
 
 ```php
