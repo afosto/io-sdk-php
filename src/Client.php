@@ -549,7 +549,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetCalculationBadRequestException
      * @throws \Afosto\Sdk\Exception\GetCalculationUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\OdrCalculation[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrCalculation|\Psr\Http\Message\ResponseInterface|null
      */
     public function getCalculation(string $id, string $fetch = self::FETCH_OBJECT)
     {
