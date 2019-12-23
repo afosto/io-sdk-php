@@ -37,6 +37,10 @@ class IamInvoice
      */
     protected $reference;
     /**
+     * @var IamProduct[]
+     */
+    protected $products;
+    /**
      * @var string
      */
     protected $pdf;
@@ -121,6 +125,24 @@ class IamInvoice
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
+
+        return $this;
+    }
+
+    /**
+     * @return IamProduct[]|null
+     */
+    public function getProducts(): ?array
+    {
+        return $this->products;
+    }
+
+    /**
+     * @param IamProduct[]|null $products
+     */
+    public function setProducts(?array $products): self
+    {
+        $this->products = $products;
 
         return $this;
     }

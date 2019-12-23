@@ -56,6 +56,13 @@ class IamInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
+        if (property_exists($data, 'products') && null !== $data->{'products'}) {
+            $values = [];
+            foreach ($data->{'products'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\IamProduct', 'json', $context);
+            }
+            $object->setProducts($values);
+        }
         if (property_exists($data, 'pdf') && null !== $data->{'pdf'}) {
             $object->setPdf($data->{'pdf'});
         }
@@ -92,6 +99,13 @@ class IamInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (null !== $object->getReference()) {
             $data->{'reference'} = $object->getReference();
+        }
+        if (null !== $object->getProducts()) {
+            $values = [];
+            foreach ($object->getProducts() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $data->{'products'} = $values;
         }
         if (null !== $object->getPdf()) {
             $data->{'pdf'} = $object->getPdf();
