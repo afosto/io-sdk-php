@@ -3627,7 +3627,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListParcelsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListParcelsUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsParcel[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listParcels(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -3662,6 +3662,21 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function removeParcel(string $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RemoveParcel($id), $fetch);
+    }
+
+    /**
+     * Get a single parcel.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetParcelBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetParcelUnauthorizedException
+     *
+     * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getParcel(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetParcel($id), $fetch);
     }
 
     /**

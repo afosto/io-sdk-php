@@ -66,12 +66,12 @@ class ListParcels extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\ListParcelsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListParcelsUnauthorizedException
      *
-     * @return \Afosto\Sdk\Model\LcsParcel|null
+     * @return \Afosto\Sdk\Model\LcsParcel[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsParcel', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsParcel[]', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ListParcelsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
