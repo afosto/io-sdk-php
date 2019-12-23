@@ -54,9 +54,13 @@ class CntDocumentResponseNormalizer implements DenormalizerInterface, Normalizer
             $object->setMetadata($data->{'metadata'});
         }
         if (property_exists($data, 'filters') && null !== $data->{'filters'}) {
-            $values = [];
-            foreach ($data->{'filters'} as $value) {
-                $values[] = $value;
+            $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data->{'filters'} as $key => $value) {
+                $values_1 = [];
+                foreach ($value as $value_1) {
+                    $values_1[] = $value_1;
+                }
+                $values[$key] = $values_1;
             }
             $object->setFilters($values);
         }
@@ -83,9 +87,13 @@ class CntDocumentResponseNormalizer implements DenormalizerInterface, Normalizer
             $data->{'metadata'} = $object->getMetadata();
         }
         if (null !== $object->getFilters()) {
-            $values = [];
-            foreach ($object->getFilters() as $value) {
-                $values[] = $value;
+            $values = new \stdClass();
+            foreach ($object->getFilters() as $key => $value) {
+                $values_1 = [];
+                foreach ($value as $value_1) {
+                    $values_1[] = $value_1;
+                }
+                $values->{$key} = $values_1;
             }
             $data->{'filters'} = $values;
         }
