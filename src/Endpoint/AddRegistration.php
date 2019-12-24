@@ -52,6 +52,10 @@ class AddRegistration extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      *
      * @throws \Afosto\Sdk\Exception\AddRegistrationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AddRegistrationNotFoundException
+     * @throws \Afosto\Sdk\Exception\AddRegistrationBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddRegistrationForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddRegistrationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddRegistrationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesConversation|null
      */
@@ -65,6 +69,18 @@ class AddRegistration extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\AddRegistrationNotFoundException();
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\AddRegistrationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\AddRegistrationForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\AddRegistrationInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\AddRegistrationServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

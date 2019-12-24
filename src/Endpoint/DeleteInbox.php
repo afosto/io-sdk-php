@@ -51,6 +51,10 @@ class DeleteInbox extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\DeleteInboxUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteInboxNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteInboxBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteInboxForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteInboxInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteInboxServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesInbox|null
      */
@@ -64,6 +68,18 @@ class DeleteInbox extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteInboxNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteInboxBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteInboxForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteInboxInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteInboxServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

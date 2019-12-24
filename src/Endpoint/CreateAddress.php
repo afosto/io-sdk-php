@@ -47,6 +47,10 @@ class CreateAddress extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\CreateAddressBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateAddressUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateAddressForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateAddressNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateAddressInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateAddressServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelAddress|null
      */
@@ -60,6 +64,18 @@ class CreateAddress extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateAddressUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateAddressForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateAddressNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateAddressInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateAddressServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

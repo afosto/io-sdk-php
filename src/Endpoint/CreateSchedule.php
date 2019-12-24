@@ -49,6 +49,10 @@ class CreateSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      *
      * @throws \Afosto\Sdk\Exception\CreateScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateScheduleNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateScheduleBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateScheduleForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateScheduleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateScheduleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsSchedule|null
      */
@@ -62,6 +66,18 @@ class CreateSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateScheduleNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateScheduleBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateScheduleForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateScheduleInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateScheduleServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

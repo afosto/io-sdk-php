@@ -65,6 +65,10 @@ class ListContacts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\ListContactsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListContactsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListContactsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListContactsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListContactsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListContactsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelContact[]|null
      */
@@ -78,6 +82,18 @@ class ListContacts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListContactsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListContactsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListContactsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListContactsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListContactsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

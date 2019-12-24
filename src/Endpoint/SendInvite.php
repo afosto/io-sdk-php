@@ -47,6 +47,10 @@ class SendInvite extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\SendInviteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SendInviteNotFoundException
+     * @throws \Afosto\Sdk\Exception\SendInviteBadRequestException
+     * @throws \Afosto\Sdk\Exception\SendInviteForbiddenException
+     * @throws \Afosto\Sdk\Exception\SendInviteInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SendInviteServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamPendingAuthorization|null
      */
@@ -60,6 +64,18 @@ class SendInvite extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\SendInviteNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\SendInviteBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\SendInviteForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\SendInviteInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\SendInviteServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

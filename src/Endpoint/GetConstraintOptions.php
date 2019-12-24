@@ -39,6 +39,10 @@ class GetConstraintOptions extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
      *
      * @throws \Afosto\Sdk\Exception\GetConstraintOptionsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetConstraintOptionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetConstraintOptionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetConstraintOptionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetConstraintOptionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetConstraintOptionsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrOptionsRulesConstraintsGetResponse200|null
      */
@@ -52,6 +56,18 @@ class GetConstraintOptions extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetConstraintOptionsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetConstraintOptionsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetConstraintOptionsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetConstraintOptionsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetConstraintOptionsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -66,6 +66,10 @@ class SearchItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\SearchItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchItemsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrItem[]|null
      */
@@ -79,6 +83,18 @@ class SearchItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\SearchItemsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchItemsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchItemsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchItemsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchItemsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

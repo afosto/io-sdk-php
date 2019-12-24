@@ -51,6 +51,10 @@ class GetInbox extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
      *
      * @throws \Afosto\Sdk\Exception\GetInboxUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetInboxNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetInboxBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetInboxForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetInboxInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetInboxServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesInbox|null
      */
@@ -64,6 +68,18 @@ class GetInbox extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetInboxNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetInboxBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetInboxForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetInboxInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetInboxServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

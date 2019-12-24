@@ -49,6 +49,10 @@ class CreateTenant extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\CreateTenantUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTenantNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateTenantBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateTenantForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateTenantInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateTenantServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamTenantsPostResponse200|null
      */
@@ -62,6 +66,18 @@ class CreateTenant extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateTenantNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateTenantBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateTenantForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateTenantInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateTenantServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

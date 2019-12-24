@@ -86,6 +86,10 @@ class ListJobs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
      *
      * @throws \Afosto\Sdk\Exception\ListJobsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListJobsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListJobsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListJobsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListJobsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListJobsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplJob[]|null
      */
@@ -99,6 +103,18 @@ class ListJobs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListJobsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListJobsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListJobsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListJobsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListJobsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

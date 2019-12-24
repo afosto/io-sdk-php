@@ -66,6 +66,10 @@ class GetContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\GetContactBadRequestException
      * @throws \Afosto\Sdk\Exception\GetContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetContactForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetContactNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetContactInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetContactServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelContact|null
      */
@@ -79,6 +83,18 @@ class GetContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetContactUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetContactForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\GetContactNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetContactInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetContactServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

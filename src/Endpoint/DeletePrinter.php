@@ -52,6 +52,9 @@ class DeletePrinter extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      * @throws \Afosto\Sdk\Exception\DeletePrinterBadRequestException
      * @throws \Afosto\Sdk\Exception\DeletePrinterUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeletePrinterNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeletePrinterForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeletePrinterInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeletePrinterServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplPrinter|null
      */
@@ -68,6 +71,15 @@ class DeletePrinter extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeletePrinterNotFoundException();
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DeletePrinterForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\DeletePrinterInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DeletePrinterServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

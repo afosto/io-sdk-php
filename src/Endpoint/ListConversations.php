@@ -65,6 +65,10 @@ class ListConversations extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      *
      * @throws \Afosto\Sdk\Exception\ListConversationsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListConversationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListConversationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListConversationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListConversationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListConversationsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesConversation[]|null
      */
@@ -78,6 +82,18 @@ class ListConversations extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListConversationsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListConversationsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListConversationsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListConversationsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListConversationsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

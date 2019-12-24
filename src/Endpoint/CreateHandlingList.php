@@ -47,6 +47,10 @@ class CreateHandlingList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
      *
      * @throws \Afosto\Sdk\Exception\CreateHandlingListBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateHandlingListUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateHandlingListForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateHandlingListNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateHandlingListInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateHandlingListServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsHandlingListResponse|null
      */
@@ -60,6 +64,18 @@ class CreateHandlingList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateHandlingListUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateHandlingListForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateHandlingListNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateHandlingListInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateHandlingListServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

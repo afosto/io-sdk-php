@@ -63,6 +63,10 @@ class ListMethods extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\ListMethodsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListMethodsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListMethodsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListMethodsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListMethodsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListMethodsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsMethod|null
      */
@@ -76,6 +80,18 @@ class ListMethods extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListMethodsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListMethodsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListMethodsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListMethodsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListMethodsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

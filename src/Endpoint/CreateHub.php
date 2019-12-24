@@ -49,6 +49,10 @@ class CreateHub extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\CreateHubBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateHubUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateHubForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateHubNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateHubInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateHubServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplHub|null
      */
@@ -62,6 +66,18 @@ class CreateHub extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateHubUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateHubForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateHubNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateHubInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateHubServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

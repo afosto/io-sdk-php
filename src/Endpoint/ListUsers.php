@@ -65,6 +65,10 @@ class ListUsers extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\ListUsersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListUsersNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListUsersBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListUsersForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListUsersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListUsersServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUser[]|null
      */
@@ -78,6 +82,18 @@ class ListUsers extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListUsersNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListUsersBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListUsersForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListUsersInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListUsersServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

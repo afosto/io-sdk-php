@@ -50,6 +50,10 @@ class UpdateRequest extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\UpdateRequestUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateRequestNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateRequestBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateRequestForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateRequestInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateRequestServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamAuthorization|null
      */
@@ -63,6 +67,18 @@ class UpdateRequest extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateRequestNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateRequestBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateRequestForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateRequestInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateRequestServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

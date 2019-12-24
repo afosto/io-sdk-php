@@ -54,6 +54,9 @@ class VerifyToken extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\VerifyTokenBadRequestException
      * @throws \Afosto\Sdk\Exception\VerifyTokenUnauthorizedException
      * @throws \Afosto\Sdk\Exception\VerifyTokenNotFoundException
+     * @throws \Afosto\Sdk\Exception\VerifyTokenForbiddenException
+     * @throws \Afosto\Sdk\Exception\VerifyTokenInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\VerifyTokenServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamValidationResponse|null
      */
@@ -70,6 +73,15 @@ class VerifyToken extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\VerifyTokenNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\VerifyTokenForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\VerifyTokenInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\VerifyTokenServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

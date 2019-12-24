@@ -49,6 +49,10 @@ class RemoveParcel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\RemoveParcelBadRequestException
      * @throws \Afosto\Sdk\Exception\RemoveParcelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RemoveParcelForbiddenException
+     * @throws \Afosto\Sdk\Exception\RemoveParcelNotFoundException
+     * @throws \Afosto\Sdk\Exception\RemoveParcelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RemoveParcelServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsParcel|null
      */
@@ -62,6 +66,18 @@ class RemoveParcel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\RemoveParcelUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\RemoveParcelForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\RemoveParcelNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\RemoveParcelInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\RemoveParcelServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

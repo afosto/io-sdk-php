@@ -49,6 +49,10 @@ class DeleteStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\DeleteStackUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteStackNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteStackBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteStackForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteStackInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteStackServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrStack|null
      */
@@ -62,6 +66,18 @@ class DeleteStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteStackNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteStackBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteStackForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteStackInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteStackServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -50,6 +50,10 @@ class UpdateListState extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      *
      * @throws \Afosto\Sdk\Exception\UpdateListStateBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateListStateUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateListStateForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateListStateNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateListStateInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateListStateServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsListsIdStatePutResponse200|null
      */
@@ -63,6 +67,18 @@ class UpdateListState extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateListStateUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateListStateForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateListStateNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateListStateInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateListStateServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

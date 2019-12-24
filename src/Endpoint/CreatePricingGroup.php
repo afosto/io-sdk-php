@@ -47,6 +47,10 @@ class CreatePricingGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
      *
      * @throws \Afosto\Sdk\Exception\CreatePricingGroupUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreatePricingGroupNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreatePricingGroupBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreatePricingGroupForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreatePricingGroupInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreatePricingGroupServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatGroup|null
      */
@@ -60,6 +64,18 @@ class CreatePricingGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreatePricingGroupNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePricingGroupBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePricingGroupForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePricingGroupInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePricingGroupServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

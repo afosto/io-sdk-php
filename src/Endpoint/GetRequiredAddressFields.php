@@ -63,6 +63,10 @@ class GetRequiredAddressFields extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
      *
      * @throws \Afosto\Sdk\Exception\GetRequiredAddressFieldsBadRequestException
      * @throws \Afosto\Sdk\Exception\GetRequiredAddressFieldsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetRequiredAddressFieldsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetRequiredAddressFieldsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetRequiredAddressFieldsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetRequiredAddressFieldsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelFieldList|null
      */
@@ -76,6 +80,18 @@ class GetRequiredAddressFields extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetRequiredAddressFieldsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetRequiredAddressFieldsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\GetRequiredAddressFieldsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetRequiredAddressFieldsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetRequiredAddressFieldsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

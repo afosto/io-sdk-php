@@ -47,12 +47,37 @@ class GetFilterValues extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\GetFilterValuesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetFilterValuesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetFilterValuesForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetFilterValuesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetFilterValuesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetFilterValuesServiceUnavailableException
+     *
      * @return null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return json_decode($body);
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetFilterValuesBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\GetFilterValuesUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetFilterValuesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\GetFilterValuesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetFilterValuesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetFilterValuesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

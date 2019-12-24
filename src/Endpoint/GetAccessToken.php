@@ -50,6 +50,9 @@ class GetAccessToken extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      * @throws \Afosto\Sdk\Exception\GetAccessTokenBadRequestException
      * @throws \Afosto\Sdk\Exception\GetAccessTokenUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetAccessTokenNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetAccessTokenForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetAccessTokenInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetAccessTokenServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamAccessToken|null
      */
@@ -66,6 +69,15 @@ class GetAccessToken extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetAccessTokenNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetAccessTokenForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetAccessTokenInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetAccessTokenServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

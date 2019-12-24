@@ -53,6 +53,10 @@ class UpdateEmail extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\UpdateEmailUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateEmailNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateEmailBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateEmailForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateEmailInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateEmailServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesMail|null
      */
@@ -66,6 +70,18 @@ class UpdateEmail extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateEmailNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateEmailBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateEmailForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateEmailInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateEmailServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

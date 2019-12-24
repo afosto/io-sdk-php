@@ -65,6 +65,10 @@ class ListFiles extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\ListFilesBadRequestException
      * @throws \Afosto\Sdk\Exception\ListFilesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListFilesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListFilesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListFilesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListFilesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntFile[]|null
      */
@@ -78,6 +82,18 @@ class ListFiles extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListFilesUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListFilesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListFilesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListFilesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListFilesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -51,6 +51,10 @@ class DeleteClient extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\DeleteClientUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteClientNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteClientBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteClientForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteClientInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteClientServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamClient|null
      */
@@ -64,6 +68,18 @@ class DeleteClient extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteClientNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteClientBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteClientForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteClientInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteClientServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

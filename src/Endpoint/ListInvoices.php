@@ -39,6 +39,10 @@ class ListInvoices extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\ListInvoicesBadRequestException
      * @throws \Afosto\Sdk\Exception\ListInvoicesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListInvoicesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListInvoicesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListInvoicesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListInvoicesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrInvoiceListItem[]|null
      */
@@ -52,6 +56,18 @@ class ListInvoices extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListInvoicesUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListInvoicesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListInvoicesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListInvoicesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListInvoicesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

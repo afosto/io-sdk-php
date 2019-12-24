@@ -55,6 +55,9 @@ class RequestBackup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      * @throws \Afosto\Sdk\Exception\RequestBackupBadRequestException
      * @throws \Afosto\Sdk\Exception\RequestBackupUnauthorizedException
      * @throws \Afosto\Sdk\Exception\RequestBackupNotFoundException
+     * @throws \Afosto\Sdk\Exception\RequestBackupForbiddenException
+     * @throws \Afosto\Sdk\Exception\RequestBackupInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RequestBackupServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamBackupResponse|null
      */
@@ -71,6 +74,15 @@ class RequestBackup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\RequestBackupNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\RequestBackupForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\RequestBackupInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\RequestBackupServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

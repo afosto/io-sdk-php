@@ -49,6 +49,10 @@ class DeleteRole extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\DeleteRoleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteRoleNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteRoleBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteRoleForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteRoleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteRoleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamRole|null
      */
@@ -62,6 +66,18 @@ class DeleteRole extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteRoleNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteRoleBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteRoleForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteRoleInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteRoleServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

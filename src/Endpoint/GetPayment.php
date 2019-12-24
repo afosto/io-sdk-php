@@ -49,6 +49,10 @@ class GetPayment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\GetPaymentBadRequestException
      * @throws \Afosto\Sdk\Exception\GetPaymentUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetPaymentForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetPaymentNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetPaymentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetPaymentServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrProcess|null
      */
@@ -62,6 +66,18 @@ class GetPayment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetPaymentUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetPaymentForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\GetPaymentNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetPaymentInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetPaymentServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

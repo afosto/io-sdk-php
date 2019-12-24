@@ -49,6 +49,10 @@ class UpsertDefinition extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      *
      * @throws \Afosto\Sdk\Exception\UpsertDefinitionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpsertDefinitionNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpsertDefinitionBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpsertDefinitionForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpsertDefinitionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpsertDefinitionServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntDefinition|null
      */
@@ -62,6 +66,18 @@ class UpsertDefinition extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpsertDefinitionNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UpsertDefinitionBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpsertDefinitionForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpsertDefinitionInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpsertDefinitionServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

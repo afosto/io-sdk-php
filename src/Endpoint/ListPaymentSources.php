@@ -37,12 +37,37 @@ class ListPaymentSources extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\ListPaymentSourcesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPaymentSourcesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListPaymentSourcesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPaymentSourcesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListPaymentSourcesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPaymentSourcesServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamPaymentSource[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamPaymentSource[]', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPaymentSourcesBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPaymentSourcesUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPaymentSourcesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPaymentSourcesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPaymentSourcesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPaymentSourcesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

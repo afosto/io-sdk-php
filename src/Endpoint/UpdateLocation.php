@@ -47,6 +47,10 @@ class UpdateLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      *
      * @throws \Afosto\Sdk\Exception\UpdateLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateLocationForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateLocationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateLocationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsLocation|null
      */
@@ -60,6 +64,18 @@ class UpdateLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateLocationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateLocationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateLocationForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateLocationInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateLocationServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

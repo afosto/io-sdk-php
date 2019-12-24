@@ -65,6 +65,10 @@ class ListInboxes extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\ListInboxesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListInboxesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListInboxesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListInboxesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListInboxesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListInboxesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesInbox[]|null
      */
@@ -78,6 +82,18 @@ class ListInboxes extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListInboxesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListInboxesBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListInboxesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListInboxesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListInboxesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

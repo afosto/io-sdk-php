@@ -50,6 +50,9 @@ class CreatePrinter extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      * @throws \Afosto\Sdk\Exception\CreatePrinterUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreatePrinterBadRequestException
      * @throws \Afosto\Sdk\Exception\CreatePrinterNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreatePrinterForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreatePrinterInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreatePrinterServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplPrinter|null
      */
@@ -66,6 +69,15 @@ class CreatePrinter extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreatePrinterNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePrinterForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePrinterInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePrinterServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

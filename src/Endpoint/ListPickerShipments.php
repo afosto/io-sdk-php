@@ -84,6 +84,8 @@ class ListPickerShipments extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
      * @throws \Afosto\Sdk\Exception\ListPickerShipmentsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListPickerShipmentsNotFoundException
      * @throws \Afosto\Sdk\Exception\ListPickerShipmentsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPickerShipmentsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPickerShipmentsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\PkrShipment[]|null
      */
@@ -103,6 +105,12 @@ class ListPickerShipments extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
         }
         if (500 === $status) {
             throw new \Afosto\Sdk\Exception\ListPickerShipmentsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPickerShipmentsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPickerShipmentsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

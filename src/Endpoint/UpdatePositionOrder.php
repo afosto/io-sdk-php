@@ -50,6 +50,10 @@ class UpdatePositionOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
      *
      * @throws \Afosto\Sdk\Exception\UpdatePositionOrderBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdatePositionOrderUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdatePositionOrderForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdatePositionOrderNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdatePositionOrderInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdatePositionOrderServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsLocationsIdPositionsPutResponse200|null
      */
@@ -63,6 +67,18 @@ class UpdatePositionOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdatePositionOrderUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdatePositionOrderForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdatePositionOrderNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdatePositionOrderInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdatePositionOrderServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -50,6 +50,10 @@ class AddToParcel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\AddToParcelBadRequestException
      * @throws \Afosto\Sdk\Exception\AddToParcelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AddToParcelForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddToParcelNotFoundException
+     * @throws \Afosto\Sdk\Exception\AddToParcelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddToParcelServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsParcel|null
      */
@@ -63,6 +67,18 @@ class AddToParcel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\AddToParcelUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\AddToParcelForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\AddToParcelNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\AddToParcelInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\AddToParcelServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -50,6 +50,10 @@ class UpdateInvoice extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\UpdateInvoiceBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateInvoiceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrInvoice|null
      */
@@ -63,6 +67,18 @@ class UpdateInvoice extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateInvoiceUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateInvoiceForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateInvoiceNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateInvoiceInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateInvoiceServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

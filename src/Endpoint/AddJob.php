@@ -48,6 +48,9 @@ class AddJob extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\O
      * @throws \Afosto\Sdk\Exception\AddJobNotFoundException
      * @throws \Afosto\Sdk\Exception\AddJobUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AddJobBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddJobForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddJobInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddJobServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplJob|null
      */
@@ -64,6 +67,15 @@ class AddJob extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\O
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\AddJobBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\AddJobForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\AddJobInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\AddJobServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -49,6 +49,10 @@ class CreateMail extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\CreateMailUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateMailNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateMailBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateMailForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateMailInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateMailServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesMail|null
      */
@@ -62,6 +66,18 @@ class CreateMail extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateMailNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateMailBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateMailForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateMailInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateMailServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

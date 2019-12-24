@@ -49,6 +49,10 @@ class CreateDomain extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\CreateDomainUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateDomainNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateDomainBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateDomainForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateDomainInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateDomainServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesDomain|null
      */
@@ -62,6 +66,18 @@ class CreateDomain extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateDomainNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateDomainBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateDomainForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateDomainInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateDomainServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

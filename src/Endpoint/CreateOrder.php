@@ -47,6 +47,10 @@ class CreateOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\CreateOrderUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateOrderNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateOrderBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateOrderForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateOrderInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateOrderServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrOrder|null
      */
@@ -60,6 +64,18 @@ class CreateOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateOrderNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateOrderBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateOrderForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateOrderInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateOrderServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

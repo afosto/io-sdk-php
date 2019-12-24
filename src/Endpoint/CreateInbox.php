@@ -49,6 +49,10 @@ class CreateInbox extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\CreateInboxUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateInboxNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateInboxBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateInboxForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateInboxInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateInboxServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesInbox|null
      */
@@ -62,6 +66,18 @@ class CreateInbox extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateInboxNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateInboxBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateInboxForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateInboxInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateInboxServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

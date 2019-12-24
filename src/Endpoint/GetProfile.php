@@ -51,6 +51,10 @@ class GetProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\GetProfileForbiddenException
      * @throws \Afosto\Sdk\Exception\GetProfileNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetProfileBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetProfileUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetProfileInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetProfileServiceUnavailableException
      *
      * @return null
      */
@@ -70,6 +74,18 @@ class GetProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetProfileNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error[]', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetProfileBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\GetProfileUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetProfileInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetProfileServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

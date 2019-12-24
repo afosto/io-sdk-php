@@ -55,6 +55,9 @@ class UpdateProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      * @throws \Afosto\Sdk\Exception\UpdateProfileUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateProfileForbiddenException
      * @throws \Afosto\Sdk\Exception\UpdateProfileConflictException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileServiceUnavailableException
      *
      * @return null
      */
@@ -74,6 +77,15 @@ class UpdateProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (200 === $status) {
             return json_decode($body);
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateProfileNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateProfileInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateProfileServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -52,6 +52,9 @@ class GetJobStatus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * @throws \Afosto\Sdk\Exception\GetJobStatusNotFoundException
      * @throws \Afosto\Sdk\Exception\GetJobStatusUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetJobStatusBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetJobStatusForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetJobStatusInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetJobStatusServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplJob|null
      */
@@ -68,6 +71,15 @@ class GetJobStatus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\GetJobStatusBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetJobStatusForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetJobStatusInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetJobStatusServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

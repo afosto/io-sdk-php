@@ -49,6 +49,10 @@ class AttachFilters extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\AttachFiltersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AttachFiltersNotFoundException
+     * @throws \Afosto\Sdk\Exception\AttachFiltersBadRequestException
+     * @throws \Afosto\Sdk\Exception\AttachFiltersForbiddenException
+     * @throws \Afosto\Sdk\Exception\AttachFiltersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AttachFiltersServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrFiltersPutResponse200|null
      */
@@ -62,6 +66,18 @@ class AttachFilters extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\AttachFiltersNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\AttachFiltersBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\AttachFiltersForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\AttachFiltersInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\AttachFiltersServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -75,6 +75,10 @@ class SearchModel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\SearchModelUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchModelNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchModelBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchModelForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchModelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchModelServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntSeachResponse|null
      */
@@ -88,6 +92,18 @@ class SearchModel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\SearchModelNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchModelBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchModelForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchModelInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchModelServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

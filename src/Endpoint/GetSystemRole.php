@@ -49,6 +49,10 @@ class GetSystemRole extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\GetSystemRoleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSystemRoleNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSystemRoleBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSystemRoleForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSystemRoleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSystemRoleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSystemRole[]|null
      */
@@ -62,6 +66,18 @@ class GetSystemRole extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetSystemRoleNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetSystemRoleBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetSystemRoleForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetSystemRoleInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetSystemRoleServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

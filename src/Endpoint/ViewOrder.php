@@ -49,6 +49,10 @@ class ViewOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\ViewOrderUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ViewOrderNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewOrderBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewOrderForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewOrderInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewOrderServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrOrder|null
      */
@@ -62,6 +66,18 @@ class ViewOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ViewOrderNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewOrderBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewOrderForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewOrderInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewOrderServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

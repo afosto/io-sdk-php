@@ -52,6 +52,9 @@ class UpdateStatus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * @throws \Afosto\Sdk\Exception\UpdateStatusNotFoundException
      * @throws \Afosto\Sdk\Exception\UpdateStatusUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateStatusBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateStatusForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateStatusInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateStatusServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplJobResult|null
      */
@@ -68,6 +71,15 @@ class UpdateStatus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateStatusBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateStatusForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateStatusInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateStatusServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

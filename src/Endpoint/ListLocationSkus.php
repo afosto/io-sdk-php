@@ -49,6 +49,10 @@ class ListLocationSkus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      *
      * @throws \Afosto\Sdk\Exception\ListLocationSkusBadRequestException
      * @throws \Afosto\Sdk\Exception\ListLocationSkusUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListLocationSkusForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListLocationSkusNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListLocationSkusInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListLocationSkusServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsLocationSku[]|null
      */
@@ -62,6 +66,18 @@ class ListLocationSkus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListLocationSkusUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListLocationSkusForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListLocationSkusNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListLocationSkusInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListLocationSkusServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

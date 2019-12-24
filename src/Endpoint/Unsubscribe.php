@@ -52,6 +52,10 @@ class Unsubscribe extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\UnsubscribeUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UnsubscribeNotFoundException
+     * @throws \Afosto\Sdk\Exception\UnsubscribeBadRequestException
+     * @throws \Afosto\Sdk\Exception\UnsubscribeForbiddenException
+     * @throws \Afosto\Sdk\Exception\UnsubscribeInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UnsubscribeServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesConversation|null
      */
@@ -65,6 +69,18 @@ class Unsubscribe extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UnsubscribeNotFoundException();
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UnsubscribeBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UnsubscribeForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UnsubscribeInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UnsubscribeServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

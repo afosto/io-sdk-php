@@ -52,6 +52,10 @@ class UpdateCompanyName extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      *
      * @throws \Afosto\Sdk\Exception\UpdateCompanyNameUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateCompanyNameNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateCompanyNameBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateCompanyNameForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateCompanyNameInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateCompanyNameServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamTenant|null
      */
@@ -65,6 +69,18 @@ class UpdateCompanyName extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateCompanyNameNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateCompanyNameBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateCompanyNameForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateCompanyNameInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateCompanyNameServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

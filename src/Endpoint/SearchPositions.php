@@ -50,6 +50,10 @@ class SearchPositions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      *
      * @throws \Afosto\Sdk\Exception\SearchPositionsBadRequestException
      * @throws \Afosto\Sdk\Exception\SearchPositionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchPositionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchPositionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchPositionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchPositionsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsLocationSku|null
      */
@@ -63,6 +67,18 @@ class SearchPositions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\SearchPositionsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchPositionsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchPositionsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchPositionsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchPositionsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

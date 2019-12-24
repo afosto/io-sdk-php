@@ -47,6 +47,10 @@ class CreatePricingRule extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      *
      * @throws \Afosto\Sdk\Exception\CreatePricingRuleBadRequestException
      * @throws \Afosto\Sdk\Exception\CreatePricingRuleUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreatePricingRuleForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreatePricingRuleNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreatePricingRuleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreatePricingRuleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrPricingRule|null
      */
@@ -60,6 +64,18 @@ class CreatePricingRule extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreatePricingRuleUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePricingRuleForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePricingRuleNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePricingRuleInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePricingRuleServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

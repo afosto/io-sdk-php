@@ -47,6 +47,10 @@ class CreateStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\CreateStackUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateStackNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateStackBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateStackForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateStackInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateStackServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrStack|null
      */
@@ -60,6 +64,18 @@ class CreateStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateStackNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateStackBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateStackForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateStackInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateStackServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

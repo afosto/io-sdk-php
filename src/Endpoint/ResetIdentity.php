@@ -47,6 +47,10 @@ class ResetIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\ResetIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\ResetIdentityUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ResetIdentityForbiddenException
+     * @throws \Afosto\Sdk\Exception\ResetIdentityNotFoundException
+     * @throws \Afosto\Sdk\Exception\ResetIdentityInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ResetIdentityServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelSignedTokenResponse|null
      */
@@ -60,6 +64,18 @@ class ResetIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ResetIdentityUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ResetIdentityForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ResetIdentityNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ResetIdentityInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ResetIdentityServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

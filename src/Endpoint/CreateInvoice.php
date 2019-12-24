@@ -47,6 +47,10 @@ class CreateInvoice extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\CreateInvoiceBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateInvoiceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrInvoice|null
      */
@@ -60,6 +64,18 @@ class CreateInvoice extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateInvoiceUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateInvoiceForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateInvoiceNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateInvoiceInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateInvoiceServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

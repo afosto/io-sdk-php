@@ -52,6 +52,10 @@ class Subscribe extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\SubscribeUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SubscribeNotFoundException
+     * @throws \Afosto\Sdk\Exception\SubscribeBadRequestException
+     * @throws \Afosto\Sdk\Exception\SubscribeForbiddenException
+     * @throws \Afosto\Sdk\Exception\SubscribeInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SubscribeServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesConversation|null
      */
@@ -65,6 +69,18 @@ class Subscribe extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\SubscribeNotFoundException();
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\SubscribeBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\SubscribeForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\SubscribeInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\SubscribeServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

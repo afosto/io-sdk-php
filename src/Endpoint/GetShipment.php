@@ -53,6 +53,8 @@ class GetShipment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\GetShipmentUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetShipmentNotFoundException
      * @throws \Afosto\Sdk\Exception\GetShipmentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetShipmentForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetShipmentServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\PkrShipment|null
      */
@@ -72,6 +74,12 @@ class GetShipment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (500 === $status) {
             throw new \Afosto\Sdk\Exception\GetShipmentInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetShipmentForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetShipmentServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

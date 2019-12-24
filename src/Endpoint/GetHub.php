@@ -51,6 +51,10 @@ class GetHub extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\O
      *
      * @throws \Afosto\Sdk\Exception\GetHubUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetHubNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetHubBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetHubForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetHubInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetHubServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplHub|null
      */
@@ -64,6 +68,18 @@ class GetHub extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\O
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetHubNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetHubBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetHubForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetHubInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetHubServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

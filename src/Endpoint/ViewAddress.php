@@ -49,6 +49,10 @@ class ViewAddress extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\ViewAddressBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewAddressUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewAddressForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewAddressNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewAddressInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewAddressServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelAddress|null
      */
@@ -62,6 +66,18 @@ class ViewAddress extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ViewAddressUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewAddressForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewAddressNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewAddressInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewAddressServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -48,6 +48,9 @@ class VerifyIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      * @throws \Afosto\Sdk\Exception\VerifyIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\VerifyIdentityUnauthorizedException
      * @throws \Afosto\Sdk\Exception\VerifyIdentityNotFoundException
+     * @throws \Afosto\Sdk\Exception\VerifyIdentityForbiddenException
+     * @throws \Afosto\Sdk\Exception\VerifyIdentityInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\VerifyIdentityServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelSignedTokenResponse|null
      */
@@ -64,6 +67,15 @@ class VerifyIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\VerifyIdentityNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\VerifyIdentityForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\VerifyIdentityInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\VerifyIdentityServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

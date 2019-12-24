@@ -49,6 +49,10 @@ class AttachVatRate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\AttachVatRateUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AttachVatRateNotFoundException
+     * @throws \Afosto\Sdk\Exception\AttachVatRateBadRequestException
+     * @throws \Afosto\Sdk\Exception\AttachVatRateForbiddenException
+     * @throws \Afosto\Sdk\Exception\AttachVatRateInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AttachVatRateServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatVatProductsPutResponse200|null
      */
@@ -62,6 +66,18 @@ class AttachVatRate extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\AttachVatRateNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\AttachVatRateBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\AttachVatRateForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\AttachVatRateInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\AttachVatRateServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

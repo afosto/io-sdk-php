@@ -49,6 +49,10 @@ class InvalidateTokens extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      *
      * @throws \Afosto\Sdk\Exception\InvalidateTokensUnauthorizedException
      * @throws \Afosto\Sdk\Exception\InvalidateTokensNotFoundException
+     * @throws \Afosto\Sdk\Exception\InvalidateTokensBadRequestException
+     * @throws \Afosto\Sdk\Exception\InvalidateTokensForbiddenException
+     * @throws \Afosto\Sdk\Exception\InvalidateTokensInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\InvalidateTokensServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUserTokenResponse|null
      */
@@ -62,6 +66,18 @@ class InvalidateTokens extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\InvalidateTokensNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\InvalidateTokensBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\InvalidateTokensForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\InvalidateTokensInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\InvalidateTokensServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -37,12 +37,37 @@ class ListProducts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\ListProductsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListProductsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListProductsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListProductsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListProductsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListProductsServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamProduct[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamProduct[]', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListProductsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\ListProductsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListProductsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListProductsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListProductsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListProductsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

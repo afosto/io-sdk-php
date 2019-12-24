@@ -49,6 +49,10 @@ class GetTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\GetTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetTransferNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetTransferBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTransferForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetTransferInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetTransferServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsTransfer|null
      */
@@ -62,6 +66,18 @@ class GetTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetTransferNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetTransferBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetTransferForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetTransferInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetTransferServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

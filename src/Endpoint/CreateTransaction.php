@@ -47,6 +47,10 @@ class CreateTransaction extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      *
      * @throws \Afosto\Sdk\Exception\CreateTransactionBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateTransactionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateTransactionForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateTransactionNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateTransactionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateTransactionServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrTransaction|null
      */
@@ -60,6 +64,18 @@ class CreateTransaction extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateTransactionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateTransactionForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateTransactionNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateTransactionInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateTransactionServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

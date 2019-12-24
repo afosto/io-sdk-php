@@ -49,6 +49,10 @@ class GetLabel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
      *
      * @throws \Afosto\Sdk\Exception\GetLabelBadRequestException
      * @throws \Afosto\Sdk\Exception\GetLabelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetLabelForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetLabelNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetLabelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetLabelServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsParcel|null
      */
@@ -62,6 +66,18 @@ class GetLabel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetLabelUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetLabelForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\GetLabelNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetLabelInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetLabelServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

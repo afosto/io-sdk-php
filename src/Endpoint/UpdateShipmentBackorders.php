@@ -52,6 +52,10 @@ class UpdateShipmentBackorders extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
      *
      * @throws \Afosto\Sdk\Exception\UpdateShipmentBackordersBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateShipmentBackordersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentBackordersForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentBackordersNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentBackordersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentBackordersServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsShipment|null
      */
@@ -65,6 +69,18 @@ class UpdateShipmentBackorders extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateShipmentBackordersUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateShipmentBackordersForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateShipmentBackordersNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateShipmentBackordersInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateShipmentBackordersServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -54,6 +54,9 @@ class UpdateSecret extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * @throws \Afosto\Sdk\Exception\UpdateSecretBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateSecretUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateSecretNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateSecretForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateSecretInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateSecretServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSecretRead|null
      */
@@ -70,6 +73,15 @@ class UpdateSecret extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateSecretNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateSecretForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateSecretInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateSecretServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

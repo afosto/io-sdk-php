@@ -49,6 +49,10 @@ class GetWarehouse extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\GetWarehouseUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetWarehouseNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsWarehouse|null
      */
@@ -62,6 +66,18 @@ class GetWarehouse extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetWarehouseNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetWarehouseBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetWarehouseForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetWarehouseInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetWarehouseServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -67,6 +67,10 @@ class ListDefinitions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      *
      * @throws \Afosto\Sdk\Exception\ListDefinitionsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListDefinitionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListDefinitionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListDefinitionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListDefinitionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListDefinitionsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntDefinition[]|null
      */
@@ -80,6 +84,18 @@ class ListDefinitions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListDefinitionsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDefinitionsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDefinitionsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDefinitionsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDefinitionsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

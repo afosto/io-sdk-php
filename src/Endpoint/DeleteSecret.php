@@ -52,6 +52,9 @@ class DeleteSecret extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * @throws \Afosto\Sdk\Exception\DeleteSecretBadRequestException
      * @throws \Afosto\Sdk\Exception\DeleteSecretUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteSecretNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteSecretForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteSecretInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteSecretServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSecretRead|null
      */
@@ -68,6 +71,15 @@ class DeleteSecret extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteSecretNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteSecretForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteSecretInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteSecretServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

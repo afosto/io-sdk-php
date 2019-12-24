@@ -37,12 +37,37 @@ class GetBillingInformation extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\GetBillingInformationBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetBillingInformationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetBillingInformationForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetBillingInformationNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetBillingInformationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetBillingInformationServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamCompany|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamCompany', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetBillingInformationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\GetBillingInformationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetBillingInformationForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\GetBillingInformationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetBillingInformationInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetBillingInformationServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

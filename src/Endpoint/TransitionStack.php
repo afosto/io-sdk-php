@@ -47,6 +47,10 @@ class TransitionStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      *
      * @throws \Afosto\Sdk\Exception\TransitionStackUnauthorizedException
      * @throws \Afosto\Sdk\Exception\TransitionStackNotFoundException
+     * @throws \Afosto\Sdk\Exception\TransitionStackBadRequestException
+     * @throws \Afosto\Sdk\Exception\TransitionStackForbiddenException
+     * @throws \Afosto\Sdk\Exception\TransitionStackInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\TransitionStackServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrStack|null
      */
@@ -60,6 +64,18 @@ class TransitionStack extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\TransitionStackNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\TransitionStackBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\TransitionStackForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\TransitionStackInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\TransitionStackServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

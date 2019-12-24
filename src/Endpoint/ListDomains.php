@@ -63,6 +63,10 @@ class ListDomains extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\ListDomainsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListDomainsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListDomainsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListDomainsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListDomainsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListDomainsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesDomain[]|null
      */
@@ -76,6 +80,18 @@ class ListDomains extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListDomainsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDomainsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDomainsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDomainsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDomainsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

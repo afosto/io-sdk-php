@@ -47,6 +47,10 @@ class UpdateRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\UpdateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateRouteNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateRouteForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateRouteInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateRouteServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsRoute|null
      */
@@ -60,6 +64,18 @@ class UpdateRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateRouteNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateRouteBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateRouteForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateRouteInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateRouteServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

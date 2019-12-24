@@ -47,6 +47,10 @@ class CreateProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      *
      * @throws \Afosto\Sdk\Exception\CreateProjectionBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateProjectionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateProjectionForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateProjectionNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateProjectionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateProjectionServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrProjection|null
      */
@@ -60,6 +64,18 @@ class CreateProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateProjectionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateProjectionForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateProjectionNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateProjectionInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateProjectionServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

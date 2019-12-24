@@ -47,6 +47,10 @@ class GeneratePDF extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\GeneratePDFBadRequestException
      * @throws \Afosto\Sdk\Exception\GeneratePDFUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GeneratePDFForbiddenException
+     * @throws \Afosto\Sdk\Exception\GeneratePDFNotFoundException
+     * @throws \Afosto\Sdk\Exception\GeneratePDFInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GeneratePDFServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntFile|null
      */
@@ -60,6 +64,18 @@ class GeneratePDF extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GeneratePDFUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GeneratePDFForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\GeneratePDFNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GeneratePDFInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GeneratePDFServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

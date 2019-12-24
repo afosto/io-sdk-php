@@ -49,6 +49,10 @@ class DeleteOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\DeleteOrderUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteOrderNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteOrderBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteOrderForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteOrderInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteOrderServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrOrder|null
      */
@@ -62,6 +66,18 @@ class DeleteOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteOrderNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteOrderBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteOrderForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteOrderInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteOrderServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -67,6 +67,10 @@ class SearchConversations extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
      *
      * @throws \Afosto\Sdk\Exception\SearchConversationsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchConversationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchConversationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchConversationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchConversationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchConversationsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesConversation[]|null
      */
@@ -80,6 +84,18 @@ class SearchConversations extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\SearchConversationsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchConversationsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchConversationsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchConversationsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchConversationsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

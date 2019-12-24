@@ -49,6 +49,10 @@ class ListMethodsForTransaction extends \Jane\OpenApiRuntime\Client\BaseEndpoint
      *
      * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionBadRequestException
      * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrMethod[]|null
      */
@@ -62,6 +66,18 @@ class ListMethodsForTransaction extends \Jane\OpenApiRuntime\Client\BaseEndpoint
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListMethodsForTransactionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListMethodsForTransactionForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListMethodsForTransactionNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListMethodsForTransactionInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListMethodsForTransactionServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

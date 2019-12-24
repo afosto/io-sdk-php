@@ -39,6 +39,10 @@ class ListAuthorizations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
      *
      * @throws \Afosto\Sdk\Exception\ListAuthorizationsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListAuthorizationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListAuthorizationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListAuthorizationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListAuthorizationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListAuthorizationsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamAuthorization[]|null
      */
@@ -52,6 +56,18 @@ class ListAuthorizations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListAuthorizationsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListAuthorizationsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListAuthorizationsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListAuthorizationsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListAuthorizationsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

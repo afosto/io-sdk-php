@@ -63,6 +63,10 @@ class RevokeTokens extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\RevokeTokensUnauthorizedException
      * @throws \Afosto\Sdk\Exception\RevokeTokensNotFoundException
+     * @throws \Afosto\Sdk\Exception\RevokeTokensBadRequestException
+     * @throws \Afosto\Sdk\Exception\RevokeTokensForbiddenException
+     * @throws \Afosto\Sdk\Exception\RevokeTokensInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RevokeTokensServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamAccessToken|null
      */
@@ -76,6 +80,18 @@ class RevokeTokens extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\RevokeTokensNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\RevokeTokensBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\RevokeTokensForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\RevokeTokensInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\RevokeTokensServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -49,6 +49,10 @@ class CreateClient extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\CreateClientUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateClientNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateClientBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateClientForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateClientInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateClientServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamClient|null
      */
@@ -62,6 +66,18 @@ class CreateClient extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateClientNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateClientBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateClientForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateClientInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateClientServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

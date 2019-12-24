@@ -65,6 +65,10 @@ class ListOrganisations extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      *
      * @throws \Afosto\Sdk\Exception\ListOrganisationsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListOrganisationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListOrganisationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListOrganisationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListOrganisationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListOrganisationsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelOrganisation[]|null
      */
@@ -78,6 +82,18 @@ class ListOrganisations extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListOrganisationsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListOrganisationsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListOrganisationsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListOrganisationsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListOrganisationsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

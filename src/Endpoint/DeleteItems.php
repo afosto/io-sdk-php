@@ -50,6 +50,10 @@ class DeleteItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\DeleteItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteItemsServiceUnavailableException
      *
      * @return null
      */
@@ -63,6 +67,18 @@ class DeleteItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteItemsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteItemsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteItemsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteItemsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteItemsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

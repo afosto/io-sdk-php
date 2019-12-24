@@ -51,6 +51,10 @@ class DeleteMail extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\DeleteMailUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteMailNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteMailBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteMailForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteMailInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteMailServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesMail|null
      */
@@ -64,6 +68,18 @@ class DeleteMail extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteMailNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteMailBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteMailForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteMailInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteMailServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -50,6 +50,10 @@ class UpdateOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
      *
      * @throws \Afosto\Sdk\Exception\UpdateOrganisationBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateOrganisationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateOrganisationForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateOrganisationNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateOrganisationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateOrganisationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelOrganisation|null
      */
@@ -63,6 +67,18 @@ class UpdateOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateOrganisationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateOrganisationForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateOrganisationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateOrganisationInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateOrganisationServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

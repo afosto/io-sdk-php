@@ -39,6 +39,10 @@ class ListPendingAuthorizationInvites extends \Jane\OpenApiRuntime\Client\BaseEn
      *
      * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamPendingAuthorization[]|null
      */
@@ -52,6 +56,18 @@ class ListPendingAuthorizationInvites extends \Jane\OpenApiRuntime\Client\BaseEn
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

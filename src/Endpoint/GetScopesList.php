@@ -39,6 +39,10 @@ class GetScopesList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\GetScopesListUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetScopesListNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetScopesListBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetScopesListForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetScopesListInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetScopesListServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamScope[]|null
      */
@@ -52,6 +56,18 @@ class GetScopesList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetScopesListNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetScopesListBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetScopesListForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetScopesListInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetScopesListServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

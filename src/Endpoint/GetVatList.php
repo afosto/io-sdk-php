@@ -84,6 +84,10 @@ class GetVatList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\GetVatListUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetVatListNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetVatListBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetVatListForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetVatListInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetVatListServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatVatRate[]|null
      */
@@ -97,6 +101,18 @@ class GetVatList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetVatListNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetVatListBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetVatListForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetVatListInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetVatListServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

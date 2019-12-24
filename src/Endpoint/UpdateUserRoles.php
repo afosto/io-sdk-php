@@ -53,6 +53,10 @@ class UpdateUserRoles extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      *
      * @throws \Afosto\Sdk\Exception\UpdateUserRolesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateUserRolesNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateUserRolesBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateUserRolesForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateUserRolesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateUserRolesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUser|null
      */
@@ -66,6 +70,18 @@ class UpdateUserRoles extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateUserRolesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateUserRolesBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateUserRolesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateUserRolesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateUserRolesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

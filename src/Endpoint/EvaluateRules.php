@@ -47,6 +47,10 @@ class EvaluateRules extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\EvaluateRulesBadRequestException
      * @throws \Afosto\Sdk\Exception\EvaluateRulesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\EvaluateRulesForbiddenException
+     * @throws \Afosto\Sdk\Exception\EvaluateRulesNotFoundException
+     * @throws \Afosto\Sdk\Exception\EvaluateRulesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\EvaluateRulesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrPricingRule[]|null
      */
@@ -60,6 +64,18 @@ class EvaluateRules extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\EvaluateRulesUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\EvaluateRulesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\EvaluateRulesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\EvaluateRulesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\EvaluateRulesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

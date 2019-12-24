@@ -54,6 +54,9 @@ class AttachInbox extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\AttachInboxBadRequestException
      * @throws \Afosto\Sdk\Exception\AttachInboxUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AttachInboxNotFoundException
+     * @throws \Afosto\Sdk\Exception\AttachInboxForbiddenException
+     * @throws \Afosto\Sdk\Exception\AttachInboxInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AttachInboxServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplPrinter|null
      */
@@ -70,6 +73,15 @@ class AttachInbox extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\AttachInboxNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\AttachInboxForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\AttachInboxInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\AttachInboxServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

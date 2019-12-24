@@ -53,6 +53,10 @@ class AddHubLog extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\AddHubLogBadRequestException
      * @throws \Afosto\Sdk\Exception\AddHubLogUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AddHubLogForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddHubLogNotFoundException
+     * @throws \Afosto\Sdk\Exception\AddHubLogInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddHubLogServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplHubError|null
      */
@@ -66,6 +70,18 @@ class AddHubLog extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\AddHubLogUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\AddHubLogForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\AddHubLogNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\AddHubLogInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\AddHubLogServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

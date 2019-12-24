@@ -67,6 +67,10 @@ class MarkAsRead extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\MarkAsReadUnauthorizedException
      * @throws \Afosto\Sdk\Exception\MarkAsReadNotFoundException
+     * @throws \Afosto\Sdk\Exception\MarkAsReadBadRequestException
+     * @throws \Afosto\Sdk\Exception\MarkAsReadForbiddenException
+     * @throws \Afosto\Sdk\Exception\MarkAsReadInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\MarkAsReadServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesMail|null
      */
@@ -80,6 +84,18 @@ class MarkAsRead extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\MarkAsReadNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\MarkAsReadBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\MarkAsReadForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\MarkAsReadInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\MarkAsReadServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

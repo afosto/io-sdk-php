@@ -37,12 +37,37 @@ class GetUpcoming extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\GetUpcomingBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetUpcomingUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetUpcomingForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetUpcomingNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetUpcomingInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetUpcomingServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamInvoice|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamInvoice', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetUpcomingBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\GetUpcomingUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetUpcomingForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\GetUpcomingNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetUpcomingInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetUpcomingServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

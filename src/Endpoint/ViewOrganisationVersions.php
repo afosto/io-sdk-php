@@ -49,6 +49,10 @@ class ViewOrganisationVersions extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
      *
      * @throws \Afosto\Sdk\Exception\ViewOrganisationVersionsBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewOrganisationVersionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationVersionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationVersionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationVersionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationVersionsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelVersion[]|null
      */
@@ -62,6 +66,18 @@ class ViewOrganisationVersions extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ViewOrganisationVersionsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewOrganisationVersionsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewOrganisationVersionsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewOrganisationVersionsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewOrganisationVersionsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

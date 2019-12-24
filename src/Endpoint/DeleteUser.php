@@ -51,6 +51,10 @@ class DeleteUser extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\DeleteUserUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteUserNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteUserBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteUserForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteUserInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteUserServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUser|null
      */
@@ -64,6 +68,18 @@ class DeleteUser extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteUserNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteUserBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteUserForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteUserInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteUserServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

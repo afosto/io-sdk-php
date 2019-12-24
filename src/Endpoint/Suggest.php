@@ -71,6 +71,10 @@ class Suggest extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\
      *
      * @throws \Afosto\Sdk\Exception\SuggestUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SuggestNotFoundException
+     * @throws \Afosto\Sdk\Exception\SuggestBadRequestException
+     * @throws \Afosto\Sdk\Exception\SuggestForbiddenException
+     * @throws \Afosto\Sdk\Exception\SuggestInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SuggestServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntSuggestResponse|null
      */
@@ -84,6 +88,18 @@ class Suggest extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\SuggestNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\SuggestBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\SuggestForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\SuggestInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\SuggestServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

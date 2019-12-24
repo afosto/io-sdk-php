@@ -39,6 +39,10 @@ class ListProviders extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\ListProvidersBadRequestException
      * @throws \Afosto\Sdk\Exception\ListProvidersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListProvidersForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListProvidersNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListProvidersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListProvidersServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrProvider[]|null
      */
@@ -52,6 +56,18 @@ class ListProviders extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListProvidersUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListProvidersForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListProvidersNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListProvidersInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListProvidersServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

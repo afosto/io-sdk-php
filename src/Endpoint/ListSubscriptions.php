@@ -37,12 +37,37 @@ class ListSubscriptions extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionsServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamSubscription[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamSubscription[]', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListSubscriptionsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\ListSubscriptionsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListSubscriptionsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListSubscriptionsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListSubscriptionsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListSubscriptionsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

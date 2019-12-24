@@ -47,6 +47,10 @@ class CreateProxy extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\CreateProxyBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateProxyUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateProxyForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateProxyNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateProxyInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateProxyServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntProxy|null
      */
@@ -60,6 +64,18 @@ class CreateProxy extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateProxyUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateProxyForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateProxyNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateProxyInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateProxyServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

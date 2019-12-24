@@ -88,6 +88,10 @@ class ListAuditLog extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\ListAuditLogUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListAuditLogNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListAuditLogBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListAuditLogForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListAuditLogInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListAuditLogServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamLog[]|null
      */
@@ -101,6 +105,18 @@ class ListAuditLog extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListAuditLogNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListAuditLogBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListAuditLogForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListAuditLogInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListAuditLogServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

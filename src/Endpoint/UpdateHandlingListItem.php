@@ -52,6 +52,10 @@ class UpdateHandlingListItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint im
      *
      * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsListsIdItemsPutResponse200|null
      */
@@ -65,6 +69,18 @@ class UpdateHandlingListItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint im
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateHandlingListItemUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateHandlingListItemForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateHandlingListItemNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateHandlingListItemInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateHandlingListItemServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

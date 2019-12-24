@@ -49,6 +49,10 @@ class CreateHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\CreateHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateHopNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateHopBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateHopForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateHopInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateHopServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsHop|null
      */
@@ -62,6 +66,18 @@ class CreateHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateHopNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateHopBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateHopForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateHopInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateHopServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

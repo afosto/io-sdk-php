@@ -47,6 +47,10 @@ class UpsertContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\UpsertContactBadRequestException
      * @throws \Afosto\Sdk\Exception\UpsertContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpsertContactForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpsertContactNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpsertContactInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpsertContactServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelContact|null
      */
@@ -60,6 +64,18 @@ class UpsertContact extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpsertContactUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpsertContactForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\UpsertContactNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpsertContactInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpsertContactServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

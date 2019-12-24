@@ -49,6 +49,10 @@ class CreateRole extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\CreateRoleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateRoleNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateRoleBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateRoleForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateRoleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateRoleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamRole|null
      */
@@ -62,6 +66,18 @@ class CreateRole extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateRoleNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateRoleBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateRoleForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateRoleInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateRoleServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -65,6 +65,10 @@ class GetClaims extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\GetClaimsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetClaimsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetClaimsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetClaimsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetClaimsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetClaimsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsClaim[]|null
      */
@@ -78,6 +82,18 @@ class GetClaims extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetClaimsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetClaimsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetClaimsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetClaimsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetClaimsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

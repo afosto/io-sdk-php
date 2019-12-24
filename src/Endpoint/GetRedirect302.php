@@ -67,6 +67,10 @@ class GetRedirect302 extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      *
      * @throws \Afosto\Sdk\Exception\GetRedirect302UnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetRedirect302NotFoundException
+     * @throws \Afosto\Sdk\Exception\GetRedirect302BadRequestException
+     * @throws \Afosto\Sdk\Exception\GetRedirect302ForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetRedirect302InternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetRedirect302ServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamOauthForwardReferenceGetResponse200|null
      */
@@ -83,6 +87,18 @@ class GetRedirect302 extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetRedirect302NotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetRedirect302BadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetRedirect302ForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetRedirect302InternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetRedirect302ServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

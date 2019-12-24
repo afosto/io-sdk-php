@@ -51,6 +51,10 @@ class GetHubByUuid extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\GetHubByUuidUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetHubByUuidNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetHubByUuidBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetHubByUuidForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetHubByUuidInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetHubByUuidServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplHub|null
      */
@@ -64,6 +68,18 @@ class GetHubByUuid extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetHubByUuidNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetHubByUuidBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetHubByUuidForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetHubByUuidInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetHubByUuidServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

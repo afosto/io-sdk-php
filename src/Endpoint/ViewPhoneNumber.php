@@ -49,6 +49,10 @@ class ViewPhoneNumber extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      *
      * @throws \Afosto\Sdk\Exception\ViewPhoneNumberBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewPhoneNumberUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewPhoneNumberForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewPhoneNumberNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewPhoneNumberInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewPhoneNumberServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelPhoneNumber|null
      */
@@ -62,6 +66,18 @@ class ViewPhoneNumber extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ViewPhoneNumberUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewPhoneNumberForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewPhoneNumberNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewPhoneNumberInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewPhoneNumberServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

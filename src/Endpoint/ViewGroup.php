@@ -49,6 +49,10 @@ class ViewGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\ViewGroupUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ViewGroupNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewGroupBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewGroupForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewGroupInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewGroupServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatGroup|null
      */
@@ -62,6 +66,18 @@ class ViewGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ViewGroupNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewGroupBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewGroupForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewGroupInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewGroupServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

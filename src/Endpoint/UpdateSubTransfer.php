@@ -49,6 +49,10 @@ class UpdateSubTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      *
      * @throws \Afosto\Sdk\Exception\UpdateSubTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateSubTransferNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateSubTransferBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateSubTransferForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateSubTransferInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateSubTransferServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsSubTransfer|null
      */
@@ -62,6 +66,18 @@ class UpdateSubTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateSubTransferNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateSubTransferBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateSubTransferForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateSubTransferInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateSubTransferServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

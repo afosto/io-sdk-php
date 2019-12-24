@@ -54,6 +54,9 @@ class UpdateClient extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * @throws \Afosto\Sdk\Exception\UpdateClientBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateClientUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateClientNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateClientForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateClientInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateClientServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamClient|null
      */
@@ -70,6 +73,15 @@ class UpdateClient extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateClientNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateClientForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateClientInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateClientServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

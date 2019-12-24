@@ -52,6 +52,10 @@ class UpdateShipmentOverage extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
      *
      * @throws \Afosto\Sdk\Exception\UpdateShipmentOverageBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateShipmentOverageUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentOverageForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentOverageNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentOverageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentOverageServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsShipment|null
      */
@@ -65,6 +69,18 @@ class UpdateShipmentOverage extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateShipmentOverageUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateShipmentOverageForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateShipmentOverageNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateShipmentOverageInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateShipmentOverageServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

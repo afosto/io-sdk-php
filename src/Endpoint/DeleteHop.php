@@ -49,6 +49,10 @@ class DeleteHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\DeleteHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteHopNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteHopBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteHopForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteHopInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteHopServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsHop|null
      */
@@ -62,6 +66,18 @@ class DeleteHop extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteHopNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteHopBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteHopForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteHopInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteHopServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

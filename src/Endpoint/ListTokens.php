@@ -67,6 +67,10 @@ class ListTokens extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\ListTokensUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListTokensNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListTokensBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListTokensForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListTokensInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListTokensServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUserTokenResponse[]|null
      */
@@ -80,6 +84,18 @@ class ListTokens extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListTokensNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListTokensBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListTokensForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListTokensInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListTokensServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

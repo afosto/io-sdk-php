@@ -49,6 +49,10 @@ class GetFile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\
      *
      * @throws \Afosto\Sdk\Exception\GetFileBadRequestException
      * @throws \Afosto\Sdk\Exception\GetFileUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetFileForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetFileNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetFileInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetFileServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntFile[]|null
      */
@@ -62,6 +66,18 @@ class GetFile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetFileUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetFileForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\GetFileNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetFileInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetFileServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

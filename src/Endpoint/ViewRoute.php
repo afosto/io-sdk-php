@@ -49,6 +49,10 @@ class ViewRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\ViewRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ViewRouteNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewRouteForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewRouteInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewRouteServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsRoute|null
      */
@@ -62,6 +66,18 @@ class ViewRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ViewRouteNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewRouteBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewRouteForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewRouteInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewRouteServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

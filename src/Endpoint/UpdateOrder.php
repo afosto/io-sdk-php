@@ -50,6 +50,10 @@ class UpdateOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\UpdateOrderUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateOrderNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrOrder|null
      */
@@ -63,6 +67,18 @@ class UpdateOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateOrderNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateOrderBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateOrderForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateOrderInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateOrderServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -52,6 +52,10 @@ class AddMessage extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\AddMessageUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AddMessageNotFoundException
+     * @throws \Afosto\Sdk\Exception\AddMessageBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddMessageForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddMessageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddMessageServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesConversation|null
      */
@@ -65,6 +69,18 @@ class AddMessage extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\AddMessageNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\AddMessageBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\AddMessageForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\AddMessageInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\AddMessageServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

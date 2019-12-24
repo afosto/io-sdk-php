@@ -50,6 +50,10 @@ class UpdateInvite extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\UpdateInviteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateInviteNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateInviteBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateInviteForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateInviteInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateInviteServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSubtenant|null
      */
@@ -63,6 +67,18 @@ class UpdateInvite extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateInviteNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateInviteBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateInviteForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateInviteInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateInviteServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

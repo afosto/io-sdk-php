@@ -49,6 +49,10 @@ class ResetPassword extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\ResetPasswordUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ResetPasswordNotFoundException
+     * @throws \Afosto\Sdk\Exception\ResetPasswordBadRequestException
+     * @throws \Afosto\Sdk\Exception\ResetPasswordForbiddenException
+     * @throws \Afosto\Sdk\Exception\ResetPasswordInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ResetPasswordServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUser|null
      */
@@ -62,6 +66,18 @@ class ResetPassword extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ResetPasswordNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ResetPasswordBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ResetPasswordForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ResetPasswordInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ResetPasswordServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

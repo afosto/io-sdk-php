@@ -65,6 +65,10 @@ class ListOrders extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\ListOrdersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListOrdersNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListOrdersBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListOrdersForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListOrdersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListOrdersServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrOrder[]|null
      */
@@ -78,6 +82,18 @@ class ListOrders extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListOrdersNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListOrdersBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListOrdersForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListOrdersInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListOrdersServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -25,6 +25,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListConversationsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListConversationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListConversationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListConversationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListConversationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListConversationsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesConversation[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -41,6 +45,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\StartConversationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\StartConversationNotFoundException
+     * @throws \Afosto\Sdk\Exception\StartConversationBadRequestException
+     * @throws \Afosto\Sdk\Exception\StartConversationForbiddenException
+     * @throws \Afosto\Sdk\Exception\StartConversationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\StartConversationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -63,6 +71,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SearchConversationsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchConversationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchConversationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchConversationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchConversationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchConversationsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesConversation[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -78,6 +90,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetConversationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetConversationNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetConversationBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetConversationForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetConversationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetConversationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -94,6 +110,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\AddMessageUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AddMessageNotFoundException
+     * @throws \Afosto\Sdk\Exception\AddMessageBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddMessageForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddMessageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddMessageServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -110,6 +130,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\AddRegistrationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AddRegistrationNotFoundException
+     * @throws \Afosto\Sdk\Exception\AddRegistrationBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddRegistrationForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddRegistrationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddRegistrationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -126,6 +150,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SubscribeUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SubscribeNotFoundException
+     * @throws \Afosto\Sdk\Exception\SubscribeBadRequestException
+     * @throws \Afosto\Sdk\Exception\SubscribeForbiddenException
+     * @throws \Afosto\Sdk\Exception\SubscribeInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SubscribeServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -142,6 +170,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UnsubscribeUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UnsubscribeNotFoundException
+     * @throws \Afosto\Sdk\Exception\UnsubscribeBadRequestException
+     * @throws \Afosto\Sdk\Exception\UnsubscribeForbiddenException
+     * @throws \Afosto\Sdk\Exception\UnsubscribeInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UnsubscribeServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesConversation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -163,6 +195,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListOrdersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListOrdersNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListOrdersBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListOrdersForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListOrdersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListOrdersServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrOrder[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -178,6 +214,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateOrderUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateOrderNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateOrderBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateOrderForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateOrderInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateOrderServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
      */
@@ -193,6 +233,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DeleteOrderUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteOrderNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteOrderBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteOrderForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteOrderInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteOrderServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
      */
@@ -208,6 +252,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ViewOrderUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ViewOrderNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewOrderBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewOrderForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewOrderInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewOrderServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
      */
@@ -223,6 +271,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateOrderUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateOrderNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
      */
@@ -238,6 +290,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateOrderStateUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateOrderStateNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderStateBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderStateForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderStateInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderStateServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
      */
@@ -258,6 +314,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListDomainsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListDomainsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListDomainsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListDomainsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListDomainsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListDomainsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesDomain[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -274,6 +334,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateDomainUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateDomainNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateDomainBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateDomainForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateDomainInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateDomainServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesDomain|\Psr\Http\Message\ResponseInterface|null
      */
@@ -290,6 +354,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DeleteDomainUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteDomainNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteDomainBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteDomainForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteDomainInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteDomainServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesDomain|\Psr\Http\Message\ResponseInterface|null
      */
@@ -306,6 +374,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetDomainUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetDomainNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetDomainBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetDomainForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetDomainInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetDomainServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesDomain|\Psr\Http\Message\ResponseInterface|null
      */
@@ -327,6 +399,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListInboxesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListInboxesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListInboxesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListInboxesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListInboxesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListInboxesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesInbox[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -343,6 +419,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateInboxUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateInboxNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateInboxBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateInboxForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateInboxInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateInboxServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesInbox|\Psr\Http\Message\ResponseInterface|null
      */
@@ -359,6 +439,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DeleteInboxUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteInboxNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteInboxBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteInboxForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteInboxInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteInboxServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesInbox|\Psr\Http\Message\ResponseInterface|null
      */
@@ -375,6 +459,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetInboxUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetInboxNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetInboxBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetInboxForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetInboxInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetInboxServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesInbox|\Psr\Http\Message\ResponseInterface|null
      */
@@ -392,6 +480,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateInboxUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateInboxNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateInboxBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateInboxForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateInboxInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateInboxServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesInbox|\Psr\Http\Message\ResponseInterface|null
      */
@@ -420,6 +512,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListEmailsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListEmailsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListEmailsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListEmailsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListEmailsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListEmailsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesMail[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -436,6 +532,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateMailUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateMailNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateMailBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateMailForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateMailInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateMailServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesMail|\Psr\Http\Message\ResponseInterface|null
      */
@@ -452,6 +552,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DeleteMailUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteMailNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteMailBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteMailForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteMailInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteMailServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesMail|\Psr\Http\Message\ResponseInterface|null
      */
@@ -473,6 +577,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\MarkAsReadUnauthorizedException
      * @throws \Afosto\Sdk\Exception\MarkAsReadNotFoundException
+     * @throws \Afosto\Sdk\Exception\MarkAsReadBadRequestException
+     * @throws \Afosto\Sdk\Exception\MarkAsReadForbiddenException
+     * @throws \Afosto\Sdk\Exception\MarkAsReadInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\MarkAsReadServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesMail|\Psr\Http\Message\ResponseInterface|null
      */
@@ -490,6 +598,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateEmailUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateEmailNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateEmailBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateEmailForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateEmailInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateEmailServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesMail|\Psr\Http\Message\ResponseInterface|null
      */
@@ -505,6 +617,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateProjectionBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateProjectionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateProjectionForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateProjectionNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateProjectionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateProjectionServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrProjection|\Psr\Http\Message\ResponseInterface|null
      */
@@ -518,6 +634,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListCalculationsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListCalculationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListCalculationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListCalculationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListCalculationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListCalculationsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrCalculationListItem[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -533,6 +653,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateCalculationBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateCalculationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateCalculationForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateCalculationNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateCalculationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateCalculationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrCalculation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -548,6 +672,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetCalculationBadRequestException
      * @throws \Afosto\Sdk\Exception\GetCalculationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetCalculationForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetCalculationNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetCalculationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetCalculationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrCalculation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -563,6 +691,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateCalculationBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateCalculationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateCalculationForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateCalculationNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateCalculationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateCalculationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
      */
@@ -578,6 +710,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateCalculationStateBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateCalculationStateUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateCalculationStateForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateCalculationStateNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateCalculationStateInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateCalculationStateServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrInvoiceListItem|\Psr\Http\Message\ResponseInterface|null
      */
@@ -593,6 +729,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrInvoice[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -606,6 +746,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListInvoicesBadRequestException
      * @throws \Afosto\Sdk\Exception\ListInvoicesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListInvoicesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListInvoicesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListInvoicesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListInvoicesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrInvoiceListItem[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -621,6 +765,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateInvoiceBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateInvoiceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
      */
@@ -642,6 +790,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ViewInvoiceBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewInvoiceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewInvoiceForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewInvoiceNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewInvoiceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewInvoiceServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
      */
@@ -657,6 +809,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateInvoiceBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateInvoiceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
      */
@@ -672,6 +828,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrInvoiceListItem|\Psr\Http\Message\ResponseInterface|null
      */
@@ -693,6 +853,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetPricingRulesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetPricingRulesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetPricingRulesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetPricingRulesForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetPricingRulesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetPricingRulesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrPricingRule[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -708,6 +872,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreatePricingRuleBadRequestException
      * @throws \Afosto\Sdk\Exception\CreatePricingRuleUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreatePricingRuleForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreatePricingRuleNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreatePricingRuleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreatePricingRuleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrPricingRule|\Psr\Http\Message\ResponseInterface|null
      */
@@ -723,6 +891,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetPricingRuleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetPricingRuleNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetPricingRuleBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetPricingRuleForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetPricingRuleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetPricingRuleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrPricingRule|\Psr\Http\Message\ResponseInterface|null
      */
@@ -738,6 +910,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdatePricingRuleBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdatePricingRuleUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdatePricingRuleForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdatePricingRuleNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdatePricingRuleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdatePricingRuleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrPricingRule|\Psr\Http\Message\ResponseInterface|null
      */
@@ -753,6 +929,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\EvaluateRulesBadRequestException
      * @throws \Afosto\Sdk\Exception\EvaluateRulesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\EvaluateRulesForbiddenException
+     * @throws \Afosto\Sdk\Exception\EvaluateRulesNotFoundException
+     * @throws \Afosto\Sdk\Exception\EvaluateRulesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\EvaluateRulesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrPricingRule[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -766,6 +946,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetConstraintOptionsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetConstraintOptionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetConstraintOptionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetConstraintOptionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetConstraintOptionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetConstraintOptionsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrOptionsRulesConstraintsGetResponse200|\Psr\Http\Message\ResponseInterface|null
      */
@@ -783,6 +967,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\DeleteSecretBadRequestException
      * @throws \Afosto\Sdk\Exception\DeleteSecretUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteSecretNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteSecretForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteSecretInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteSecretServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSecretRead|\Psr\Http\Message\ResponseInterface|null
      */
@@ -799,6 +986,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetSecretUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSecretNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSecretBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSecretForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSecretInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSecretServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSecretRead|\Psr\Http\Message\ResponseInterface|null
      */
@@ -817,6 +1008,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\CreateSecretBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateSecretUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateSecretNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateSecretForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateSecretInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateSecretServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSecret|\Psr\Http\Message\ResponseInterface|null
      */
@@ -835,6 +1029,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateSecretBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateSecretUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateSecretNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateSecretForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateSecretInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateSecretServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSecretRead|\Psr\Http\Message\ResponseInterface|null
      */
@@ -853,6 +1050,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\VerifyTokenBadRequestException
      * @throws \Afosto\Sdk\Exception\VerifyTokenUnauthorizedException
      * @throws \Afosto\Sdk\Exception\VerifyTokenNotFoundException
+     * @throws \Afosto\Sdk\Exception\VerifyTokenForbiddenException
+     * @throws \Afosto\Sdk\Exception\VerifyTokenInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\VerifyTokenServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamValidationResponse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -871,6 +1071,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\RequestBackupBadRequestException
      * @throws \Afosto\Sdk\Exception\RequestBackupUnauthorizedException
      * @throws \Afosto\Sdk\Exception\RequestBackupNotFoundException
+     * @throws \Afosto\Sdk\Exception\RequestBackupForbiddenException
+     * @throws \Afosto\Sdk\Exception\RequestBackupInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RequestBackupServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamBackupResponse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -891,6 +1094,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListPrintersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListPrintersBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPrintersForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPrintersNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListPrintersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPrintersServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplPrinter[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -908,6 +1116,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\CreatePrinterUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreatePrinterBadRequestException
      * @throws \Afosto\Sdk\Exception\CreatePrinterNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreatePrinterForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreatePrinterInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreatePrinterServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplPrinter|\Psr\Http\Message\ResponseInterface|null
      */
@@ -925,6 +1136,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\DeletePrinterBadRequestException
      * @throws \Afosto\Sdk\Exception\DeletePrinterUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeletePrinterNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeletePrinterForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeletePrinterInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeletePrinterServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplPrinter|\Psr\Http\Message\ResponseInterface|null
      */
@@ -941,6 +1155,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetPrinterUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetPrinterNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetPrinterBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetPrinterForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetPrinterInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetPrinterServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplPrinter|\Psr\Http\Message\ResponseInterface|null
      */
@@ -959,6 +1177,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdatePrinterBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdatePrinterUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdatePrinterNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdatePrinterForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdatePrinterInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdatePrinterServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplPrinter|\Psr\Http\Message\ResponseInterface|null
      */
@@ -977,6 +1198,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\AttachInboxBadRequestException
      * @throws \Afosto\Sdk\Exception\AttachInboxUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AttachInboxNotFoundException
+     * @throws \Afosto\Sdk\Exception\AttachInboxForbiddenException
+     * @throws \Afosto\Sdk\Exception\AttachInboxInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AttachInboxServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplPrinter|\Psr\Http\Message\ResponseInterface|null
      */
@@ -990,6 +1214,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListProxiesBadRequestException
      * @throws \Afosto\Sdk\Exception\ListProxiesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListProxiesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListProxiesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListProxiesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListProxiesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntProxy[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1005,6 +1233,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateProxyBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateProxyUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateProxyForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateProxyNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateProxyInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateProxyServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntProxy|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1020,6 +1252,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetProxyBadRequestException
      * @throws \Afosto\Sdk\Exception\GetProxyUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetProxyForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetProxyNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetProxyInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetProxyServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntProxy|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1035,6 +1271,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateProxyBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateProxyUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateProxyForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateProxyNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateProxyInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateProxyServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntProxy|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1054,6 +1294,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\AnnounceProfileUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AnnounceProfileForbiddenException
      * @throws \Afosto\Sdk\Exception\AnnounceProfileConflictException
+     * @throws \Afosto\Sdk\Exception\AnnounceProfileNotFoundException
+     * @throws \Afosto\Sdk\Exception\AnnounceProfileInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AnnounceProfileServiceUnavailableException
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
@@ -1071,6 +1314,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsBadRequestException
      * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsForbiddenException
      * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsServiceUnavailableException
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
@@ -1087,6 +1333,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetProfileForbiddenException
      * @throws \Afosto\Sdk\Exception\GetProfileNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetProfileBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetProfileUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetProfileInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetProfileServiceUnavailableException
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
@@ -1106,6 +1356,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateProfileUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateProfileForbiddenException
      * @throws \Afosto\Sdk\Exception\UpdateProfileConflictException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateProfileServiceUnavailableException
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
@@ -1116,6 +1369,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
 
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetBillingInformationBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetBillingInformationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetBillingInformationForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetBillingInformationNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetBillingInformationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetBillingInformationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1130,6 +1390,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\IamCompany $body  Email object
      * @param string                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
+     * @throws \Afosto\Sdk\Exception\UpdateBillingInformationBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateBillingInformationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateBillingInformationForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateBillingInformationNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateBillingInformationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateBillingInformationServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
      */
     public function updateBillingInformation(\Afosto\Sdk\Model\IamCompany $body, string $fetch = self::FETCH_OBJECT)
@@ -1139,6 +1406,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
 
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListPaymentSourcesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPaymentSourcesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListPaymentSourcesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPaymentSourcesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListPaymentSourcesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPaymentSourcesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamPaymentSource[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1152,6 +1426,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
+     * @throws \Afosto\Sdk\Exception\AddPaymentSourceBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddPaymentSourceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AddPaymentSourceForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddPaymentSourceNotFoundException
+     * @throws \Afosto\Sdk\Exception\AddPaymentSourceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddPaymentSourceServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamPaymentSource[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function addPaymentSource(\Afosto\Sdk\Model\IamSourcesPostBody $body, string $fetch = self::FETCH_OBJECT)
@@ -1164,6 +1445,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
+     * @throws \Afosto\Sdk\Exception\RemovePaymentSourceBadRequestException
+     * @throws \Afosto\Sdk\Exception\RemovePaymentSourceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RemovePaymentSourceForbiddenException
+     * @throws \Afosto\Sdk\Exception\RemovePaymentSourceNotFoundException
+     * @throws \Afosto\Sdk\Exception\RemovePaymentSourceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RemovePaymentSourceServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamPaymentSource[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function removePaymentSource(string $id, string $fetch = self::FETCH_OBJECT)
@@ -1174,6 +1462,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
+     * @throws \Afosto\Sdk\Exception\ListProductsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListProductsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListProductsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListProductsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListProductsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListProductsServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamProduct[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listProducts(string $fetch = self::FETCH_OBJECT)
@@ -1183,6 +1478,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
 
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSubscription[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1195,6 +1497,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * Add a product to the subscription.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AddSubscriptionBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddSubscriptionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AddSubscriptionForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddSubscriptionNotFoundException
+     * @throws \Afosto\Sdk\Exception\AddSubscriptionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddSubscriptionServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1214,6 +1523,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionInvoicesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionInvoicesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionInvoicesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionInvoicesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionInvoicesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListSubscriptionInvoicesServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamInvoice[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listSubscriptionInvoices(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
@@ -1224,6 +1540,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
+     * @throws \Afosto\Sdk\Exception\GetUpcomingBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetUpcomingUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetUpcomingForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetUpcomingNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetUpcomingInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetUpcomingServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamInvoice|\Psr\Http\Message\ResponseInterface|null
      */
     public function getUpcoming(string $fetch = self::FETCH_OBJECT)
@@ -1233,6 +1556,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
 
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetTrialBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTrialUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetTrialForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetTrialNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetTrialInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetTrialServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamTrial|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1245,6 +1575,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * List of subscribed products.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetUsagesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetUsagesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetUsagesForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetUsagesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetUsagesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetUsagesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1266,6 +1603,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListRecordsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListRecordsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListRecordsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListRecordsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListRecordsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListRecordsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1288,6 +1629,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\QueryUsageUnauthorizedException
      * @throws \Afosto\Sdk\Exception\QueryUsageNotFoundException
+     * @throws \Afosto\Sdk\Exception\QueryUsageBadRequestException
+     * @throws \Afosto\Sdk\Exception\QueryUsageForbiddenException
+     * @throws \Afosto\Sdk\Exception\QueryUsageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\QueryUsageServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesReport[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1301,6 +1646,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListTypesBadRequestException
      * @throws \Afosto\Sdk\Exception\ListTypesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListTypesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListTypesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListTypesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListTypesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesType[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1313,6 +1662,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListHubsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListHubsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListHubsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListHubsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListHubsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListHubsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplHub[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1329,6 +1683,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateHubBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateHubUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateHubForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateHubNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateHubInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateHubServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplHub|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1343,6 +1701,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DeleteHubUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteHubNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteHubBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteHubForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteHubInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteHubServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplHub|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1359,6 +1721,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetHubUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetHubNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetHubBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetHubForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetHubInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetHubServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplHub|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1377,6 +1743,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateHubBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateHubUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateHubNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateHubForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateHubInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateHubServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplHub|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1393,6 +1762,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetHubStatusUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetHubStatusNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetHubStatusBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetHubStatusForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetHubStatusInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetHubStatusServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplHubStatus|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1408,6 +1781,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListHubNetworkUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListHubNetworkBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListHubNetworkForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListHubNetworkNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListHubNetworkInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListHubNetworkServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplNetworkDevice[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1424,6 +1802,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateHubNetworkUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateHubNetworkBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateHubNetworkForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateHubNetworkNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateHubNetworkInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateHubNetworkServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplNetworkDevice[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1439,6 +1822,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListHubLogsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListHubLogsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListHubLogsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListHubLogsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListHubLogsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListHubLogsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplHubError[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1456,6 +1844,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\AddHubLogBadRequestException
      * @throws \Afosto\Sdk\Exception\AddHubLogUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AddHubLogForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddHubLogNotFoundException
+     * @throws \Afosto\Sdk\Exception\AddHubLogInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddHubLogServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplHubError|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1472,6 +1864,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetHubByUuidUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetHubByUuidNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetHubByUuidBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetHubByUuidForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetHubByUuidInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetHubByUuidServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplHub|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1501,6 +1897,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListAuditLogUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListAuditLogNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListAuditLogBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListAuditLogForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListAuditLogInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListAuditLogServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamLog[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1514,6 +1914,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListAuditLogFiltersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListAuditLogFiltersNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListAuditLogFiltersBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListAuditLogFiltersForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListAuditLogFiltersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListAuditLogFiltersServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamLogsFiltersGetResponse200|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1530,6 +1934,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateTenantUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTenantNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateTenantBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateTenantForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateTenantInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateTenantServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamTenantsPostResponse200|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1546,6 +1954,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetTenantUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetTenantNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetTenantBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTenantForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetTenantInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetTenantServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamTenant|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1562,6 +1974,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateCompanyNameUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateCompanyNameNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateCompanyNameBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateCompanyNameForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateCompanyNameInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateCompanyNameServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamTenant|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1575,6 +1991,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListSubtenantsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListSubtenantsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListSubtenantsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListSubtenantsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListSubtenantsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListSubtenantsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSubtenant[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1595,6 +2015,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListPendingInvitesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListPendingInvitesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListPendingInvitesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPendingInvitesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPendingInvitesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPendingInvitesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSubtenant[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1608,6 +2032,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetDefaultSubtenantUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetDefaultSubtenantNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetDefaultSubtenantBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetDefaultSubtenantForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetDefaultSubtenantInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetDefaultSubtenantServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSubtenant|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1623,6 +2051,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateInviteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateInviteNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateInviteBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateInviteForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateInviteInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateInviteServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSubtenant|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1636,6 +2068,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListPendingSubtenantsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListPendingSubtenantsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListPendingSubtenantsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPendingSubtenantsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPendingSubtenantsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPendingSubtenantsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamPendingRequest[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1651,6 +2087,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SendSubtenantRequestUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SendSubtenantRequestNotFoundException
+     * @throws \Afosto\Sdk\Exception\SendSubtenantRequestBadRequestException
+     * @throws \Afosto\Sdk\Exception\SendSubtenantRequestForbiddenException
+     * @throws \Afosto\Sdk\Exception\SendSubtenantRequestInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SendSubtenantRequestServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamPendingRequest|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1664,6 +2104,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListAuthorizationsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListAuthorizationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListAuthorizationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListAuthorizationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListAuthorizationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListAuthorizationsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamAuthorization[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1684,6 +2128,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationRequestsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationRequestsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationRequestsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationRequestsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationRequestsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationRequestsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamAuthorization[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1699,6 +2147,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateRequestUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateRequestNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateRequestBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateRequestForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateRequestInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateRequestServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamAuthorization|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1712,6 +2164,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPendingAuthorizationInvitesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamPendingAuthorization[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1727,6 +2183,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SendInviteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SendInviteNotFoundException
+     * @throws \Afosto\Sdk\Exception\SendInviteBadRequestException
+     * @throws \Afosto\Sdk\Exception\SendInviteForbiddenException
+     * @throws \Afosto\Sdk\Exception\SendInviteInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SendInviteServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamPendingAuthorization|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1748,6 +2208,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListUsersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListUsersNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListUsersBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListUsersForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListUsersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListUsersServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUser[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1764,6 +2228,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateUserUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateUserNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateUserBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateUserForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateUserInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateUserServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUser|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1780,6 +2248,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DeleteUserUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteUserNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteUserBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteUserForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteUserInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteUserServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUser|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1796,6 +2268,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetUserUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetUserNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetUserBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetUserForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetUserInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetUserServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUser|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1813,6 +2289,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateUserUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateUserNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateUserBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateUserForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateUserInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateUserServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUser|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1834,6 +2314,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListTokensUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListTokensNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListTokensBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListTokensForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListTokensInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListTokensServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUserTokenResponse[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1851,6 +2335,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateUserRolesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateUserRolesNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateUserRolesBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateUserRolesForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateUserRolesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateUserRolesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUser|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1867,6 +2355,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\JoinTenantUnauthorizedException
      * @throws \Afosto\Sdk\Exception\JoinTenantNotFoundException
+     * @throws \Afosto\Sdk\Exception\JoinTenantBadRequestException
+     * @throws \Afosto\Sdk\Exception\JoinTenantForbiddenException
+     * @throws \Afosto\Sdk\Exception\JoinTenantInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\JoinTenantServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUser|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1883,6 +2375,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ResetPasswordUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ResetPasswordNotFoundException
+     * @throws \Afosto\Sdk\Exception\ResetPasswordBadRequestException
+     * @throws \Afosto\Sdk\Exception\ResetPasswordForbiddenException
+     * @throws \Afosto\Sdk\Exception\ResetPasswordInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ResetPasswordServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUser|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1899,6 +2395,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\VerifyUserUnauthorizedException
      * @throws \Afosto\Sdk\Exception\VerifyUserNotFoundException
+     * @throws \Afosto\Sdk\Exception\VerifyUserBadRequestException
+     * @throws \Afosto\Sdk\Exception\VerifyUserForbiddenException
+     * @throws \Afosto\Sdk\Exception\VerifyUserInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\VerifyUserServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUser|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1915,6 +2415,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\RequestTokenUnauthorizedException
      * @throws \Afosto\Sdk\Exception\RequestTokenNotFoundException
+     * @throws \Afosto\Sdk\Exception\RequestTokenBadRequestException
+     * @throws \Afosto\Sdk\Exception\RequestTokenForbiddenException
+     * @throws \Afosto\Sdk\Exception\RequestTokenInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RequestTokenServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUserTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1931,6 +2435,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\InvalidateTokensUnauthorizedException
      * @throws \Afosto\Sdk\Exception\InvalidateTokensNotFoundException
+     * @throws \Afosto\Sdk\Exception\InvalidateTokensBadRequestException
+     * @throws \Afosto\Sdk\Exception\InvalidateTokensForbiddenException
+     * @throws \Afosto\Sdk\Exception\InvalidateTokensInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\InvalidateTokensServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUserTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1944,6 +2452,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListRolesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListRolesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListRolesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListRolesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListRolesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListRolesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamRole[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1960,6 +2472,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateRoleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateRoleNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateRoleBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateRoleForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateRoleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateRoleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamRole|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1975,6 +2491,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DeleteRoleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteRoleNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteRoleBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteRoleForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteRoleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteRoleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamRole|\Psr\Http\Message\ResponseInterface|null
      */
@@ -1990,6 +2510,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetRoleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetRoleNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetRoleBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetRoleForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetRoleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetRoleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamRole|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2006,6 +2530,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateRoleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateRoleNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateRoleBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateRoleForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateRoleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateRoleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamRole|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2026,6 +2554,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListSystemRolesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListSystemRolesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListSystemRolesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListSystemRolesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListSystemRolesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListSystemRolesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSystemRole[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2041,6 +2573,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetSystemRoleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSystemRoleNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSystemRoleBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSystemRoleForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSystemRoleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSystemRoleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSystemRole[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2062,6 +2598,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListClientsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListClientsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListClientsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListClientsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListClientsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListClientsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamClient[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2078,6 +2618,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateClientUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateClientNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateClientBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateClientForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateClientInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateClientServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamClient|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2094,6 +2638,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DeleteClientUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteClientNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteClientBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteClientForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteClientInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteClientServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamClient|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2109,6 +2657,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetClientNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetClientBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetClientUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetClientForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetClientInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetClientServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamClient|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2127,6 +2680,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateClientBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateClientUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateClientNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateClientForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateClientInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateClientServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamClient|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2140,6 +2696,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListOpenClientsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListOpenClientsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListOpenClientsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListOpenClientsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListOpenClientsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListOpenClientsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamClient[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2153,6 +2713,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetScopesListUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetScopesListNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetScopesListBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetScopesListForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetScopesListInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetScopesListServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamScope[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2169,6 +2733,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetScopeUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetScopeNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetScopeBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetScopeForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetScopeInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetScopeServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamScope|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2199,6 +2767,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetRedirectBadRequestException
      * @throws \Afosto\Sdk\Exception\GetRedirectUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetRedirectNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetRedirectForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetRedirectInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetRedirectServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamAuthorizationResponse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2216,6 +2787,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetAccessTokenBadRequestException
      * @throws \Afosto\Sdk\Exception\GetAccessTokenUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetAccessTokenNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetAccessTokenForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetAccessTokenInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetAccessTokenServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamAccessToken|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2237,6 +2811,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetRedirect302UnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetRedirect302NotFoundException
+     * @throws \Afosto\Sdk\Exception\GetRedirect302BadRequestException
+     * @throws \Afosto\Sdk\Exception\GetRedirect302ForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetRedirect302InternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetRedirect302ServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamOauthForwardReferenceGetResponse200|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2250,6 +2828,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\RefreshAccessTokenUnauthorizedException
      * @throws \Afosto\Sdk\Exception\RefreshAccessTokenNotFoundException
+     * @throws \Afosto\Sdk\Exception\RefreshAccessTokenBadRequestException
+     * @throws \Afosto\Sdk\Exception\RefreshAccessTokenForbiddenException
+     * @throws \Afosto\Sdk\Exception\RefreshAccessTokenInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RefreshAccessTokenServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamAccessToken|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2270,6 +2852,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\RevokeTokensUnauthorizedException
      * @throws \Afosto\Sdk\Exception\RevokeTokensNotFoundException
+     * @throws \Afosto\Sdk\Exception\RevokeTokensBadRequestException
+     * @throws \Afosto\Sdk\Exception\RevokeTokensForbiddenException
+     * @throws \Afosto\Sdk\Exception\RevokeTokensInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RevokeTokensServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamAccessToken|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2298,6 +2884,8 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListPickerShipmentsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListPickerShipmentsNotFoundException
      * @throws \Afosto\Sdk\Exception\ListPickerShipmentsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPickerShipmentsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPickerShipmentsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\PkrShipment[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2316,6 +2904,8 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\DownloadShipmentsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DownloadShipmentsNotFoundException
      * @throws \Afosto\Sdk\Exception\DownloadShipmentsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DownloadShipmentsForbiddenException
+     * @throws \Afosto\Sdk\Exception\DownloadShipmentsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\PkrTask|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2334,6 +2924,8 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetShipmentUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetShipmentNotFoundException
      * @throws \Afosto\Sdk\Exception\GetShipmentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetShipmentForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetShipmentServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\PkrShipment|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2347,6 +2939,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListProvidersBadRequestException
      * @throws \Afosto\Sdk\Exception\ListProvidersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListProvidersForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListProvidersNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListProvidersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListProvidersServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrProvider[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2362,6 +2958,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateTransactionBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateTransactionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateTransactionForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateTransactionNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateTransactionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateTransactionServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrTransaction|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2377,6 +2977,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetTransactionBadRequestException
      * @throws \Afosto\Sdk\Exception\GetTransactionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetTransactionForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetTransactionNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetTransactionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetTransactionServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrTransaction|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2392,6 +2996,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreatePaymentBadRequestException
      * @throws \Afosto\Sdk\Exception\CreatePaymentUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreatePaymentForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreatePaymentNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreatePaymentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreatePaymentServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrPayment|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2407,6 +3015,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionBadRequestException
      * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListMethodsForTransactionServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrMethod[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2422,6 +3034,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetPaymentBadRequestException
      * @throws \Afosto\Sdk\Exception\GetPaymentUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetPaymentForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetPaymentNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetPaymentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetPaymentServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrProcess|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2443,6 +3059,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetRoutesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetRoutesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetRoutesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetRoutesForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetRoutesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetRoutesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsRoute[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2458,6 +3078,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateRouteNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateRouteForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateRouteInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateRouteServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsRoute|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2473,6 +3097,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateRouteNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateRouteForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateRouteInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateRouteServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsRoute|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2488,6 +3116,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DeleteRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteRouteNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteRouteForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteRouteInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteRouteServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsRoute|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2503,6 +3135,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ViewRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ViewRouteNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewRouteForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewRouteInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewRouteServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsRoute|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2524,6 +3160,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListLocationsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListLocationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListLocationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListLocationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListLocationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListLocationsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsLocation[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2540,6 +3180,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateLocationForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateLocationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateLocationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsLocation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2555,6 +3199,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateLocationForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateLocationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateLocationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsLocation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2570,6 +3218,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DeleteLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteLocationForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteLocationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteLocationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsLocation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2585,6 +3237,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetLocationForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetLocationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetLocationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsLocation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2606,6 +3262,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListHopsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListHopsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListHopsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListHopsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListHopsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListHopsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsHop[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2622,6 +3282,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateHopNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateHopBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateHopForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateHopInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateHopServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsHop|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2638,6 +3302,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsHop|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2653,6 +3321,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DeleteHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteHopNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteHopBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteHopForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteHopInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteHopServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsHop|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2668,6 +3340,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetHopNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetHopBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetHopForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetHopInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetHopServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsHop|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2694,6 +3370,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListSchedulesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListSchedulesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListSchedulesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListSchedulesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListSchedulesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListSchedulesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsSchedule[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2710,6 +3390,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateScheduleNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateScheduleBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateScheduleForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateScheduleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateScheduleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsSchedule|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2726,6 +3410,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateScheduleNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateScheduleBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateScheduleForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateScheduleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateScheduleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsHop|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2741,6 +3429,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DeleteScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteScheduleNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteScheduleBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteScheduleForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteScheduleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteScheduleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsSchedule|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2756,6 +3448,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetScheduleNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetScheduleBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetScheduleForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetScheduleInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetScheduleServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsSchedule|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2772,6 +3468,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetDurationForRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetDurationForRouteNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetDurationForRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetDurationForRouteForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetDurationForRouteInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetDurationForRouteServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsDuration|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2793,6 +3493,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetWarehousesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetWarehousesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetWarehousesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetWarehousesForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetWarehousesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetWarehousesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsWarehouse[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2809,6 +3513,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateWarehouseUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateWarehouseNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateWarehouseBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateWarehouseForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateWarehouseInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateWarehouseServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsWarehouse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2825,6 +3533,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateWarehouseUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateWarehouseNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateWarehouseBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateWarehouseForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateWarehouseInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateWarehouseServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsWarehouse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2840,6 +3552,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetWarehouseUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetWarehouseNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsWarehouse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2855,6 +3571,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateClaimProjectionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateClaimProjectionNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateClaimProjectionBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateClaimProjectionForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateClaimProjectionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateClaimProjectionServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsProjection|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2876,6 +3596,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetClaimsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetClaimsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetClaimsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetClaimsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetClaimsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetClaimsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsClaim[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2891,6 +3615,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateClaimsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateClaimsNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateClaimsBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateClaimsForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateClaimsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateClaimsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsClaimsPostResponse200|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2906,6 +3634,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetClaimNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetClaimBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetClaimForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetClaimInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetClaimServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsClaim|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2921,6 +3653,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ExtendClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ExtendClaimNotFoundException
+     * @throws \Afosto\Sdk\Exception\ExtendClaimBadRequestException
+     * @throws \Afosto\Sdk\Exception\ExtendClaimForbiddenException
+     * @throws \Afosto\Sdk\Exception\ExtendClaimInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ExtendClaimServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsClaim|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2936,6 +3672,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ConfirmClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ConfirmClaimNotFoundException
+     * @throws \Afosto\Sdk\Exception\ConfirmClaimBadRequestException
+     * @throws \Afosto\Sdk\Exception\ConfirmClaimForbiddenException
+     * @throws \Afosto\Sdk\Exception\ConfirmClaimInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ConfirmClaimServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsClaim|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2951,6 +3691,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateTransferProjectionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTransferProjectionNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateTransferProjectionBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateTransferProjectionForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateTransferProjectionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateTransferProjectionServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsTransfer|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2972,6 +3716,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetTransfersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetTransfersNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetTransfersBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTransfersForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetTransfersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetTransfersServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsTransfer[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -2987,6 +3735,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTransferNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateTransferBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateTransferForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateTransferInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateTransferServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsTransfer|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3002,6 +3754,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetTransferNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetTransferBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTransferForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetTransferInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetTransferServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsTransfer|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3023,6 +3779,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetSubTransfersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSubTransfersNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSubTransfersBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSubTransfersForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSubTransfersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSubTransfersServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsSubTransfer[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3039,6 +3799,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateSubTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateSubTransferNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateSubTransferBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateSubTransferForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateSubTransferInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateSubTransferServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsSubTransfer|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3054,6 +3818,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetSubTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSubTransferNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSubTransferBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSubTransferForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSubTransferInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSubTransferServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsSubTransfer|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3070,6 +3838,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ReportClaimItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ReportClaimItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ReportClaimItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ReportClaimItemsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsWarehouseItem[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3091,6 +3863,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetWarehouseItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetWarehouseItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsWarehouseItem[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3112,6 +3888,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SearchInventoryUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchInventoryNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchInventoryBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchInventoryForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchInventoryInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchInventoryServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsStock[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3127,6 +3907,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SetInventoryUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SetInventoryNotFoundException
+     * @throws \Afosto\Sdk\Exception\SetInventoryBadRequestException
+     * @throws \Afosto\Sdk\Exception\SetInventoryForbiddenException
+     * @throws \Afosto\Sdk\Exception\SetInventoryInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SetInventoryServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsStock[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3142,6 +3926,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetWarehouseItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetWarehouseItemNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetWarehouseItemServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsWarehouseItem|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3157,6 +3945,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateItemNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateItemBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateItemForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateItemInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateItemServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsWarehouseItem|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3170,6 +3962,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListDirectoriesBadRequestException
      * @throws \Afosto\Sdk\Exception\ListDirectoriesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListDirectoriesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListDirectoriesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListDirectoriesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListDirectoriesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntDirectoriesGetResponse200|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3191,6 +3987,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListFilesBadRequestException
      * @throws \Afosto\Sdk\Exception\ListFilesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListFilesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListFilesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListFilesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListFilesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntFile[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3206,6 +4006,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetFileBadRequestException
      * @throws \Afosto\Sdk\Exception\GetFileUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetFileForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetFileNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetFileInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetFileServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntFile[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3221,6 +4025,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateSignedUrlBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateSignedUrlUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateSignedUrlForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateSignedUrlNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateSignedUrlInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateSignedUrlServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntUploadResponse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3241,6 +4049,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UploadFileBadRequestException
      * @throws \Afosto\Sdk\Exception\UploadFileUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UploadFileForbiddenException
+     * @throws \Afosto\Sdk\Exception\UploadFileNotFoundException
+     * @throws \Afosto\Sdk\Exception\UploadFileInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UploadFileServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntFile[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3263,6 +4075,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SearchUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntSimpleSeachResponse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3286,6 +4102,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SearchModelUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchModelNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchModelBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchModelForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchModelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchModelServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntSeachResponse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3310,6 +4130,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SuggestUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SuggestNotFoundException
+     * @throws \Afosto\Sdk\Exception\SuggestBadRequestException
+     * @throws \Afosto\Sdk\Exception\SuggestForbiddenException
+     * @throws \Afosto\Sdk\Exception\SuggestInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SuggestServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntSuggestResponse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3332,6 +4156,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListDefinitionsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListDefinitionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListDefinitionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListDefinitionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListDefinitionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListDefinitionsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntDefinition[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3348,6 +4176,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpsertDefinitionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpsertDefinitionNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpsertDefinitionBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpsertDefinitionForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpsertDefinitionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpsertDefinitionServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntDefinition|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3369,6 +4201,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListHandlingListsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListHandlingListsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListHandlingListsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListHandlingListsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListHandlingListsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListHandlingListsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsListedHandlingList[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3384,6 +4220,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateHandlingListBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateHandlingListUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateHandlingListForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateHandlingListNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateHandlingListInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateHandlingListServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsHandlingListResponse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3405,6 +4245,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SearchListsBadRequestException
      * @throws \Afosto\Sdk\Exception\SearchListsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchListsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchListsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchListsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchListsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsHandlingList[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3420,6 +4264,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DeleteHandlingListBadRequestException
      * @throws \Afosto\Sdk\Exception\DeleteHandlingListUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteHandlingListForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteHandlingListNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteHandlingListInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteHandlingListServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsHandlingList|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3435,6 +4283,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ViewHandlingListBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewHandlingListUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewHandlingListForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewHandlingListNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewHandlingListInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewHandlingListServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsHandlingList|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3451,6 +4303,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsListsIdItemsPutResponse200|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3466,6 +4322,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateListStateBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateListStateUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateListStateForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateListStateNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateListStateInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateListStateServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsListsIdStatePutResponse200|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3487,6 +4347,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListShipmentsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListShipmentsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListShipmentsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListShipmentsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListShipmentsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListShipmentsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsListedShipment[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3502,6 +4366,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateShipmentBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateShipmentUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateShipmentForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateShipmentNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateShipmentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateShipmentServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsShipment[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3523,6 +4391,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SearchShipmentsBadRequestException
      * @throws \Afosto\Sdk\Exception\SearchShipmentsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchShipmentsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchShipmentsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchShipmentsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchShipmentsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsListedShipment[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3538,6 +4410,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ViewShipmentBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewShipmentUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewShipmentForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewShipmentNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewShipmentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewShipmentServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsShipment|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3553,6 +4429,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateShipmentBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateShipmentUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsShipment|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3569,6 +4449,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateShipmentBackordersBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateShipmentBackordersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentBackordersForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentBackordersNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentBackordersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentBackordersServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsShipment|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3585,6 +4469,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateShipmentOverageBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateShipmentOverageUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentOverageForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentOverageNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentOverageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentOverageServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsShipment|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3605,6 +4493,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListMethodsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListMethodsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListMethodsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListMethodsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListMethodsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListMethodsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsMethod|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3626,6 +4518,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListParcelsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListParcelsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListParcelsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListParcelsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListParcelsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListParcelsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsParcel[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3641,6 +4537,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateParcelBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateParcelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateParcelForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateParcelNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateParcelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateParcelServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3656,6 +4556,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\RemoveParcelBadRequestException
      * @throws \Afosto\Sdk\Exception\RemoveParcelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RemoveParcelForbiddenException
+     * @throws \Afosto\Sdk\Exception\RemoveParcelNotFoundException
+     * @throws \Afosto\Sdk\Exception\RemoveParcelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RemoveParcelServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3671,6 +4575,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetParcelBadRequestException
      * @throws \Afosto\Sdk\Exception\GetParcelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetParcelForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetParcelNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetParcelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetParcelServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3686,6 +4594,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateParcelBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateParcelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateParcelForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateParcelNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateParcelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateParcelServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3701,6 +4613,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\RemoveFromParcelBadRequestException
      * @throws \Afosto\Sdk\Exception\RemoveFromParcelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RemoveFromParcelForbiddenException
+     * @throws \Afosto\Sdk\Exception\RemoveFromParcelNotFoundException
+     * @throws \Afosto\Sdk\Exception\RemoveFromParcelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RemoveFromParcelServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3716,6 +4632,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\AddToParcelBadRequestException
      * @throws \Afosto\Sdk\Exception\AddToParcelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AddToParcelForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddToParcelNotFoundException
+     * @throws \Afosto\Sdk\Exception\AddToParcelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddToParcelServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3737,6 +4657,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListFulfilmentLocationsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListFulfilmentLocationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListFulfilmentLocationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListFulfilmentLocationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListFulfilmentLocationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListFulfilmentLocationsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsFulfilmentLocation[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3752,6 +4676,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateFulfilmentLocationBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateFulfilmentLocationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateFulfilmentLocationForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateFulfilmentLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateFulfilmentLocationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateFulfilmentLocationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsFulfilmentLocation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3767,6 +4695,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationBadRequestException
      * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsFulfilmentLocation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3782,6 +4714,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateFulfilmentLocationBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateFulfilmentLocationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateFulfilmentLocationForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateFulfilmentLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateFulfilmentLocationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateFulfilmentLocationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsFulfilmentLocation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3797,6 +4733,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListPositionsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListPositionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListPositionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPositionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListPositionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPositionsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsLocationPosition[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3812,6 +4752,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdatePositionOrderBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdatePositionOrderUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdatePositionOrderForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdatePositionOrderNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdatePositionOrderInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdatePositionOrderServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsLocationsIdPositionsPutResponse200|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3827,6 +4771,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SearchPositionsBadRequestException
      * @throws \Afosto\Sdk\Exception\SearchPositionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchPositionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchPositionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchPositionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchPositionsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsLocationSku|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3842,6 +4790,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListLocationSkusBadRequestException
      * @throws \Afosto\Sdk\Exception\ListLocationSkusUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListLocationSkusForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListLocationSkusNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListLocationSkusInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListLocationSkusServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsLocationSku[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3858,6 +4810,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpsertLocationSkusBadRequestException
      * @throws \Afosto\Sdk\Exception\UpsertLocationSkusUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpsertLocationSkusForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpsertLocationSkusNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpsertLocationSkusInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpsertLocationSkusServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsLocationsIdSkusPutResponse200|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3873,6 +4829,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetLabelBadRequestException
      * @throws \Afosto\Sdk\Exception\GetLabelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetLabelForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetLabelNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetLabelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetLabelServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3901,6 +4861,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListJobsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListJobsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListJobsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListJobsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListJobsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListJobsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplJob[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3916,6 +4880,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\AddJobNotFoundException
      * @throws \Afosto\Sdk\Exception\AddJobUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AddJobBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddJobForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddJobInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddJobServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplJob|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3933,6 +4900,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetJobStatusNotFoundException
      * @throws \Afosto\Sdk\Exception\GetJobStatusUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetJobStatusBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetJobStatusForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetJobStatusInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetJobStatusServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplJob|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3949,6 +4919,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateStatusNotFoundException
      * @throws \Afosto\Sdk\Exception\UpdateStatusUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateStatusBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateStatusForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateStatusInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateStatusServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplJobResult|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3976,6 +4949,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListDisposalsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListDisposalsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListDisposalsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListDisposalsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListDisposalsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListDisposalsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrDisposal[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -3991,6 +4968,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetDisposalUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetDisposalNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetDisposalBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetDisposalForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetDisposalInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetDisposalServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrDisposal|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4018,6 +4999,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListStacksUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListStacksNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListStacksBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListStacksForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListStacksInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListStacksServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrStack[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4033,6 +5018,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateStackUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateStackNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateStackBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateStackForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateStackInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateStackServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4048,6 +5037,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\TransitionStackUnauthorizedException
      * @throws \Afosto\Sdk\Exception\TransitionStackNotFoundException
+     * @throws \Afosto\Sdk\Exception\TransitionStackBadRequestException
+     * @throws \Afosto\Sdk\Exception\TransitionStackForbiddenException
+     * @throws \Afosto\Sdk\Exception\TransitionStackInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\TransitionStackServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4063,6 +5056,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DeleteStackUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteStackNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteStackBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteStackForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteStackInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteStackServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4078,6 +5075,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetStackUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetStackNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetStackBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetStackForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetStackInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetStackServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4099,6 +5100,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListItemsAsGroupUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListItemsAsGroupNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListItemsAsGroupBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListItemsAsGroupForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListItemsAsGroupInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListItemsAsGroupServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrGroup[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4114,6 +5119,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DeleteItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteItemsServiceUnavailableException
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
@@ -4135,6 +5144,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListItemsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4150,6 +5163,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\AddToStackUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AddToStackNotFoundException
+     * @throws \Afosto\Sdk\Exception\AddToStackBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddToStackForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddToStackInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddToStackServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4171,6 +5188,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SearchGroupsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchGroupsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchGroupsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchGroupsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchGroupsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchGroupsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrGroup[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4192,6 +5213,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SearchItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchItemsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrItem[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4208,6 +5233,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\AnnounceSkusUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AnnounceSkusNotFoundException
+     * @throws \Afosto\Sdk\Exception\AnnounceSkusBadRequestException
+     * @throws \Afosto\Sdk\Exception\AnnounceSkusForbiddenException
+     * @throws \Afosto\Sdk\Exception\AnnounceSkusInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AnnounceSkusServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrSkuResult|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4218,6 +5247,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
 
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetFilterSetsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetFilterSetsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetFilterSetsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetFilterSetsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetFilterSetsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetFilterSetsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrFilterSet[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4234,6 +5270,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\AttachFiltersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AttachFiltersNotFoundException
+     * @throws \Afosto\Sdk\Exception\AttachFiltersBadRequestException
+     * @throws \Afosto\Sdk\Exception\AttachFiltersForbiddenException
+     * @throws \Afosto\Sdk\Exception\AttachFiltersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AttachFiltersServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrFiltersPutResponse200|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4244,6 +5284,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
 
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetFilterKeysBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetFilterKeysUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetFilterKeysForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetFilterKeysNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetFilterKeysInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetFilterKeysServiceUnavailableException
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
@@ -4256,6 +5303,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * Returns distinct filter values.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetFilterValuesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetFilterValuesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetFilterValuesForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetFilterValuesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetFilterValuesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetFilterValuesServiceUnavailableException
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
@@ -4271,6 +5325,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GeneratePDFBadRequestException
      * @throws \Afosto\Sdk\Exception\GeneratePDFUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GeneratePDFForbiddenException
+     * @throws \Afosto\Sdk\Exception\GeneratePDFNotFoundException
+     * @throws \Afosto\Sdk\Exception\GeneratePDFInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GeneratePDFServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntFile|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4292,6 +5350,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetPricingGroupsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetPricingGroupsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetPricingGroupsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetPricingGroupsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetPricingGroupsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetPricingGroupsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatGroup[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4307,6 +5369,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreatePricingGroupUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreatePricingGroupNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreatePricingGroupBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreatePricingGroupForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreatePricingGroupInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreatePricingGroupServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatGroup|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4322,6 +5388,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\DisableGroupUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DisableGroupNotFoundException
+     * @throws \Afosto\Sdk\Exception\DisableGroupBadRequestException
+     * @throws \Afosto\Sdk\Exception\DisableGroupForbiddenException
+     * @throws \Afosto\Sdk\Exception\DisableGroupInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DisableGroupServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatGroup|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4337,6 +5407,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ViewGroupUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ViewGroupNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewGroupBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewGroupForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewGroupInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewGroupServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatGroup|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4352,6 +5426,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateGroupUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateGroupNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateGroupBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateGroupForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateGroupInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateGroupServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatGroup|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4379,6 +5457,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetPricingUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetPricingNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetPricingBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetPricingForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetPricingInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetPricingServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatPrice[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4394,6 +5476,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SearchPricesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchPricesNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchPricesBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchPricesForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchPricesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchPricesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatPrice[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4410,6 +5496,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpsertPricesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpsertPricesNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpsertPricesBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpsertPricesForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpsertPricesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpsertPricesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatGroupsIdPricesPutResponse200|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4437,6 +5527,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetVatListUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetVatListNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetVatListBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetVatListForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetVatListInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetVatListServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatVatRate[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4453,6 +5547,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\AttachVatRateUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AttachVatRateNotFoundException
+     * @throws \Afosto\Sdk\Exception\AttachVatRateBadRequestException
+     * @throws \Afosto\Sdk\Exception\AttachVatRateForbiddenException
+     * @throws \Afosto\Sdk\Exception\AttachVatRateInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AttachVatRateServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatVatProductsPutResponse200|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4474,6 +5572,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListContactsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListContactsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListContactsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListContactsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListContactsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListContactsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelContact[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4489,6 +5591,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\SearchContactsBadRequestException
      * @throws \Afosto\Sdk\Exception\SearchContactsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchContactsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchContactsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchContactsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchContactsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelContact[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4504,6 +5610,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpsertContactBadRequestException
      * @throws \Afosto\Sdk\Exception\UpsertContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpsertContactForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpsertContactNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpsertContactInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpsertContactServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelContact|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4524,6 +5634,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetContactBadRequestException
      * @throws \Afosto\Sdk\Exception\GetContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetContactForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetContactNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetContactInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetContactServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelContact|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4539,6 +5653,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ViewContactVersionsBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewContactVersionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewContactVersionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewContactVersionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewContactVersionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewContactVersionsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelVersion[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4554,6 +5672,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateAddressBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateAddressUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateAddressForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateAddressNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateAddressInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateAddressServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelAddress|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4569,6 +5691,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ViewAddressBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewAddressUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewAddressForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewAddressNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewAddressInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewAddressServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelAddress|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4589,6 +5715,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\GetRequiredAddressFieldsBadRequestException
      * @throws \Afosto\Sdk\Exception\GetRequiredAddressFieldsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetRequiredAddressFieldsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetRequiredAddressFieldsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetRequiredAddressFieldsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetRequiredAddressFieldsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelFieldList|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4604,6 +5734,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreatePhonenumberBadRequestException
      * @throws \Afosto\Sdk\Exception\CreatePhonenumberUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreatePhonenumberForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreatePhonenumberNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreatePhonenumberInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreatePhonenumberServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelPhoneNumber|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4619,6 +5753,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ViewPhoneNumberBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewPhoneNumberUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewPhoneNumberForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewPhoneNumberNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewPhoneNumberInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewPhoneNumberServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelPhoneNumber|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4640,6 +5778,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ListOrganisationsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListOrganisationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListOrganisationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListOrganisationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListOrganisationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListOrganisationsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelOrganisation[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4655,6 +5797,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\CreateOrganisationBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateOrganisationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateOrganisationForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateOrganisationNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateOrganisationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateOrganisationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelOrganisation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4675,6 +5821,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ViewOrganisationBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewOrganisationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelOrganisation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4690,6 +5840,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\UpdateOrganisationBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateOrganisationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateOrganisationForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateOrganisationNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateOrganisationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateOrganisationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelOrganisation|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4705,6 +5859,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ViewOrganisationVersionsBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewOrganisationVersionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationVersionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationVersionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationVersionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationVersionsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelVersion[]|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4721,6 +5879,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\CreateIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateIdentityUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateIdentityConflictException
+     * @throws \Afosto\Sdk\Exception\CreateIdentityForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateIdentityNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateIdentityInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateIdentityServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelSignedTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4737,6 +5899,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\AuthorizeIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\AuthorizeIdentityUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AuthorizeIdentityNotFoundException
+     * @throws \Afosto\Sdk\Exception\AuthorizeIdentityForbiddenException
+     * @throws \Afosto\Sdk\Exception\AuthorizeIdentityInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AuthorizeIdentityServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelSignedTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4753,6 +5918,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\CreateTokenIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateTokenIdentityUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTokenIdentityNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateTokenIdentityForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateTokenIdentityInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateTokenIdentityServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4768,6 +5936,10 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @throws \Afosto\Sdk\Exception\ResetIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\ResetIdentityUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ResetIdentityForbiddenException
+     * @throws \Afosto\Sdk\Exception\ResetIdentityNotFoundException
+     * @throws \Afosto\Sdk\Exception\ResetIdentityInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ResetIdentityServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelSignedTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
@@ -4784,6 +5956,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\VerifyIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\VerifyIdentityUnauthorizedException
      * @throws \Afosto\Sdk\Exception\VerifyIdentityNotFoundException
+     * @throws \Afosto\Sdk\Exception\VerifyIdentityForbiddenException
+     * @throws \Afosto\Sdk\Exception\VerifyIdentityInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\VerifyIdentityServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelSignedTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */

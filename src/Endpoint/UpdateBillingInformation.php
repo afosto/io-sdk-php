@@ -47,12 +47,37 @@ class UpdateBillingInformation extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\UpdateBillingInformationBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateBillingInformationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateBillingInformationForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateBillingInformationNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateBillingInformationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateBillingInformationServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamCompany|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamCompany', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateBillingInformationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateBillingInformationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateBillingInformationForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateBillingInformationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateBillingInformationInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateBillingInformationServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

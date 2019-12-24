@@ -63,6 +63,10 @@ class ListSystemRoles extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      *
      * @throws \Afosto\Sdk\Exception\ListSystemRolesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListSystemRolesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListSystemRolesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListSystemRolesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListSystemRolesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListSystemRolesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSystemRole[]|null
      */
@@ -76,6 +80,18 @@ class ListSystemRoles extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListSystemRolesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListSystemRolesBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListSystemRolesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListSystemRolesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListSystemRolesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

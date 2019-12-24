@@ -52,6 +52,10 @@ class UpsertPrices extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\UpsertPricesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpsertPricesNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpsertPricesBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpsertPricesForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpsertPricesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpsertPricesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatGroupsIdPricesPutResponse200|null
      */
@@ -65,6 +69,18 @@ class UpsertPrices extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpsertPricesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UpsertPricesBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpsertPricesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpsertPricesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpsertPricesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

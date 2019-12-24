@@ -45,12 +45,37 @@ class GetUsages extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\GetUsagesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetUsagesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetUsagesForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetUsagesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetUsagesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetUsagesServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamUsageRecord[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamUsageRecord[]', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetUsagesBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\GetUsagesUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetUsagesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\GetUsagesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetUsagesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetUsagesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

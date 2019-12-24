@@ -39,6 +39,10 @@ class ListOpenClients extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      *
      * @throws \Afosto\Sdk\Exception\ListOpenClientsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListOpenClientsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListOpenClientsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListOpenClientsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListOpenClientsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListOpenClientsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamClient[]|null
      */
@@ -52,6 +56,18 @@ class ListOpenClients extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListOpenClientsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListOpenClientsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListOpenClientsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListOpenClientsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListOpenClientsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

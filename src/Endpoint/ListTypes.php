@@ -39,6 +39,10 @@ class ListTypes extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\ListTypesBadRequestException
      * @throws \Afosto\Sdk\Exception\ListTypesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListTypesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListTypesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListTypesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListTypesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesType[]|null
      */
@@ -52,6 +56,18 @@ class ListTypes extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListTypesUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListTypesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListTypesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListTypesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListTypesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

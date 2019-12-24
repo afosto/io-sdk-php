@@ -47,12 +47,37 @@ class RemovePaymentSource extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\RemovePaymentSourceBadRequestException
+     * @throws \Afosto\Sdk\Exception\RemovePaymentSourceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RemovePaymentSourceForbiddenException
+     * @throws \Afosto\Sdk\Exception\RemovePaymentSourceNotFoundException
+     * @throws \Afosto\Sdk\Exception\RemovePaymentSourceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RemovePaymentSourceServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamPaymentSource[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamPaymentSource[]', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\RemovePaymentSourceBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\RemovePaymentSourceUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\RemovePaymentSourceForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\RemovePaymentSourceNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\RemovePaymentSourceInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\RemovePaymentSourceServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

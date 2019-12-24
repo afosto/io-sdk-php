@@ -50,6 +50,10 @@ class UpdateParcel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\UpdateParcelBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateParcelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateParcelForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateParcelNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateParcelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateParcelServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsParcel|null
      */
@@ -63,6 +67,18 @@ class UpdateParcel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateParcelUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateParcelForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateParcelNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateParcelInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateParcelServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

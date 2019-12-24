@@ -51,6 +51,8 @@ class DownloadShipments extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      * @throws \Afosto\Sdk\Exception\DownloadShipmentsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DownloadShipmentsNotFoundException
      * @throws \Afosto\Sdk\Exception\DownloadShipmentsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DownloadShipmentsForbiddenException
+     * @throws \Afosto\Sdk\Exception\DownloadShipmentsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\PkrTask|null
      */
@@ -70,6 +72,12 @@ class DownloadShipments extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
         }
         if (500 === $status) {
             throw new \Afosto\Sdk\Exception\DownloadShipmentsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DownloadShipmentsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DownloadShipmentsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -68,6 +68,10 @@ class ListItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\ListItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListItemsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrItem[]|null
      */
@@ -81,6 +85,18 @@ class ListItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListItemsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListItemsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListItemsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListItemsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListItemsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

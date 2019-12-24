@@ -47,6 +47,10 @@ class CreateOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
      *
      * @throws \Afosto\Sdk\Exception\CreateOrganisationBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateOrganisationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateOrganisationForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateOrganisationNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateOrganisationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateOrganisationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelOrganisation|null
      */
@@ -60,6 +64,18 @@ class CreateOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateOrganisationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateOrganisationForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateOrganisationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateOrganisationInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateOrganisationServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

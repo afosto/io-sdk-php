@@ -84,6 +84,10 @@ class ListDisposals extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\ListDisposalsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListDisposalsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListDisposalsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListDisposalsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListDisposalsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListDisposalsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrDisposal[]|null
      */
@@ -97,6 +101,18 @@ class ListDisposals extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListDisposalsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDisposalsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDisposalsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDisposalsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDisposalsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

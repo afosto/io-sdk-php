@@ -49,6 +49,10 @@ class VerifyUser extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\VerifyUserUnauthorizedException
      * @throws \Afosto\Sdk\Exception\VerifyUserNotFoundException
+     * @throws \Afosto\Sdk\Exception\VerifyUserBadRequestException
+     * @throws \Afosto\Sdk\Exception\VerifyUserForbiddenException
+     * @throws \Afosto\Sdk\Exception\VerifyUserInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\VerifyUserServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamUser|null
      */
@@ -62,6 +66,18 @@ class VerifyUser extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\VerifyUserNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\VerifyUserBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\VerifyUserForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\VerifyUserInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\VerifyUserServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -49,6 +49,10 @@ class ViewContactVersions extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
      *
      * @throws \Afosto\Sdk\Exception\ViewContactVersionsBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewContactVersionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewContactVersionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewContactVersionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewContactVersionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewContactVersionsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelVersion[]|null
      */
@@ -62,6 +66,18 @@ class ViewContactVersions extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ViewContactVersionsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewContactVersionsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewContactVersionsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewContactVersionsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewContactVersionsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

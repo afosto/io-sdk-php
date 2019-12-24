@@ -48,6 +48,9 @@ class AuthorizeIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      * @throws \Afosto\Sdk\Exception\AuthorizeIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\AuthorizeIdentityUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AuthorizeIdentityNotFoundException
+     * @throws \Afosto\Sdk\Exception\AuthorizeIdentityForbiddenException
+     * @throws \Afosto\Sdk\Exception\AuthorizeIdentityInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AuthorizeIdentityServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelSignedTokenResponse|null
      */
@@ -64,6 +67,15 @@ class AuthorizeIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\AuthorizeIdentityNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\AuthorizeIdentityForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\AuthorizeIdentityInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\AuthorizeIdentityServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

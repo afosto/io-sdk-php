@@ -54,6 +54,9 @@ class UpdateHub extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      * @throws \Afosto\Sdk\Exception\UpdateHubBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateHubUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateHubNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateHubForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateHubInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateHubServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplHub|null
      */
@@ -70,6 +73,15 @@ class UpdateHub extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateHubNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateHubForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateHubInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateHubServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

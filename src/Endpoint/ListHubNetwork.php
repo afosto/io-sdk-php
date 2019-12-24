@@ -50,6 +50,11 @@ class ListHubNetwork extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      * {@inheritdoc}
      *
      * @throws \Afosto\Sdk\Exception\ListHubNetworkUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListHubNetworkBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListHubNetworkForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListHubNetworkNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListHubNetworkInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListHubNetworkServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplNetworkDevice[]|null
      */
@@ -60,6 +65,21 @@ class ListHubNetwork extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListHubNetworkUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListHubNetworkBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListHubNetworkForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListHubNetworkNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListHubNetworkInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListHubNetworkServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

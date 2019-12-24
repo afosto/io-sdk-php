@@ -39,6 +39,10 @@ class GetDefaultSubtenant extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
      *
      * @throws \Afosto\Sdk\Exception\GetDefaultSubtenantUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetDefaultSubtenantNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetDefaultSubtenantBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetDefaultSubtenantForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetDefaultSubtenantInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetDefaultSubtenantServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSubtenant|null
      */
@@ -52,6 +56,18 @@ class GetDefaultSubtenant extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetDefaultSubtenantNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetDefaultSubtenantBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetDefaultSubtenantForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetDefaultSubtenantInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetDefaultSubtenantServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

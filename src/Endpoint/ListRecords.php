@@ -65,6 +65,10 @@ class ListRecords extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\ListRecordsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListRecordsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListRecordsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListRecordsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListRecordsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListRecordsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesUsageRecord[]|null
      */
@@ -78,6 +82,18 @@ class ListRecords extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListRecordsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListRecordsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListRecordsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListRecordsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListRecordsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

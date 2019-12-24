@@ -65,6 +65,10 @@ class ListParcels extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\ListParcelsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListParcelsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListParcelsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListParcelsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListParcelsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListParcelsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsParcel[]|null
      */
@@ -78,6 +82,18 @@ class ListParcels extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListParcelsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListParcelsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListParcelsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListParcelsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListParcelsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

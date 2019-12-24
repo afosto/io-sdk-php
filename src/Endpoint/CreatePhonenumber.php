@@ -47,6 +47,10 @@ class CreatePhonenumber extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      *
      * @throws \Afosto\Sdk\Exception\CreatePhonenumberBadRequestException
      * @throws \Afosto\Sdk\Exception\CreatePhonenumberUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreatePhonenumberForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreatePhonenumberNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreatePhonenumberInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreatePhonenumberServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelPhoneNumber|null
      */
@@ -60,6 +64,18 @@ class CreatePhonenumber extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreatePhonenumberUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePhonenumberForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePhonenumberNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePhonenumberInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePhonenumberServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

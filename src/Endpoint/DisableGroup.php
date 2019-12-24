@@ -49,6 +49,10 @@ class DisableGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\DisableGroupUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DisableGroupNotFoundException
+     * @throws \Afosto\Sdk\Exception\DisableGroupBadRequestException
+     * @throws \Afosto\Sdk\Exception\DisableGroupForbiddenException
+     * @throws \Afosto\Sdk\Exception\DisableGroupInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DisableGroupServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatGroup|null
      */
@@ -62,6 +66,18 @@ class DisableGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DisableGroupNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\DisableGroupBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DisableGroupForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\DisableGroupInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DisableGroupServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

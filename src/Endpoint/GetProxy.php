@@ -49,6 +49,10 @@ class GetProxy extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
      *
      * @throws \Afosto\Sdk\Exception\GetProxyBadRequestException
      * @throws \Afosto\Sdk\Exception\GetProxyUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetProxyForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetProxyNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetProxyInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetProxyServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntProxy|null
      */
@@ -62,6 +66,18 @@ class GetProxy extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetProxyUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetProxyForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\GetProxyNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetProxyInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetProxyServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

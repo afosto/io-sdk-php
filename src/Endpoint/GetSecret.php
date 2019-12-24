@@ -51,6 +51,10 @@ class GetSecret extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\GetSecretUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSecretNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSecretBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSecretForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSecretInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSecretServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSecretRead|null
      */
@@ -64,6 +68,18 @@ class GetSecret extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetSecretNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetSecretBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetSecretForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetSecretInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetSecretServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

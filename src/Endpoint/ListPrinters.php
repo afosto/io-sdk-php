@@ -64,6 +64,11 @@ class ListPrinters extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * {@inheritdoc}
      *
      * @throws \Afosto\Sdk\Exception\ListPrintersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListPrintersBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPrintersForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPrintersNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListPrintersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPrintersServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplPrinter[]|null
      */
@@ -74,6 +79,21 @@ class ListPrinters extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListPrintersUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPrintersBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPrintersForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPrintersNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPrintersInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPrintersServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

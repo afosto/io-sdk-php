@@ -49,6 +49,10 @@ class GetDisposal extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\GetDisposalUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetDisposalNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetDisposalBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetDisposalForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetDisposalInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetDisposalServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrDisposal|null
      */
@@ -62,6 +66,18 @@ class GetDisposal extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetDisposalNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetDisposalBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetDisposalForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetDisposalInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetDisposalServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

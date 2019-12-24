@@ -66,6 +66,10 @@ class ViewOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      *
      * @throws \Afosto\Sdk\Exception\ViewOrganisationBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewOrganisationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewOrganisationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelOrganisation|null
      */
@@ -79,6 +83,18 @@ class ViewOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ViewOrganisationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewOrganisationForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewOrganisationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewOrganisationInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewOrganisationServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

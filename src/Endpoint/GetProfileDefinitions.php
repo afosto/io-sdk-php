@@ -52,6 +52,9 @@ class GetProfileDefinitions extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
      * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsBadRequestException
      * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsForbiddenException
      * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetProfileDefinitionsServiceUnavailableException
      *
      * @return null
      */
@@ -68,6 +71,15 @@ class GetProfileDefinitions extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetProfileDefinitionsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\GetProfileDefinitionsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetProfileDefinitionsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetProfileDefinitionsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

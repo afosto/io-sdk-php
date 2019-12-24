@@ -39,6 +39,10 @@ class RefreshAccessToken extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
      *
      * @throws \Afosto\Sdk\Exception\RefreshAccessTokenUnauthorizedException
      * @throws \Afosto\Sdk\Exception\RefreshAccessTokenNotFoundException
+     * @throws \Afosto\Sdk\Exception\RefreshAccessTokenBadRequestException
+     * @throws \Afosto\Sdk\Exception\RefreshAccessTokenForbiddenException
+     * @throws \Afosto\Sdk\Exception\RefreshAccessTokenInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RefreshAccessTokenServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamAccessToken|null
      */
@@ -52,6 +56,18 @@ class RefreshAccessToken extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\RefreshAccessTokenNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\RefreshAccessTokenBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\RefreshAccessTokenForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\RefreshAccessTokenInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\RefreshAccessTokenServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

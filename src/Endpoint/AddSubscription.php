@@ -45,12 +45,37 @@ class AddSubscription extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\AddSubscriptionBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddSubscriptionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AddSubscriptionForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddSubscriptionNotFoundException
+     * @throws \Afosto\Sdk\Exception\AddSubscriptionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddSubscriptionServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamUsageRecord[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamUsageRecord[]', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\AddSubscriptionBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\AddSubscriptionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\AddSubscriptionForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\AddSubscriptionNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\AddSubscriptionInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\AddSubscriptionServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

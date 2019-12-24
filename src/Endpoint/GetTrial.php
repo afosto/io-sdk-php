@@ -37,12 +37,37 @@ class GetTrial extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
     /**
      * {@inheritdoc}
      *
+     * @throws \Afosto\Sdk\Exception\GetTrialBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTrialUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetTrialForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetTrialNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetTrialInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetTrialServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\IamTrial|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamTrial', 'json');
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetTrialBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\GetTrialUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetTrialForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\GetTrialNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetTrialInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetTrialServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

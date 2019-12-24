@@ -54,6 +54,9 @@ class UpdatePrinter extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      * @throws \Afosto\Sdk\Exception\UpdatePrinterBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdatePrinterUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdatePrinterNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdatePrinterForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdatePrinterInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdatePrinterServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplPrinter|null
      */
@@ -70,6 +73,15 @@ class UpdatePrinter extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdatePrinterNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdatePrinterForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdatePrinterInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdatePrinterServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

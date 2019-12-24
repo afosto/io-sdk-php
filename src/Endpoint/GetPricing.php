@@ -87,6 +87,10 @@ class GetPricing extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\GetPricingUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetPricingNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetPricingBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetPricingForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetPricingInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetPricingServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatPrice[]|null
      */
@@ -100,6 +104,18 @@ class GetPricing extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetPricingNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetPricingBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetPricingForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetPricingInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetPricingServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

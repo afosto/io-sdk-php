@@ -51,6 +51,10 @@ class DeleteDomain extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\DeleteDomainUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteDomainNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteDomainBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteDomainForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteDomainInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteDomainServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesDomain|null
      */
@@ -64,6 +68,18 @@ class DeleteDomain extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteDomainNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteDomainBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteDomainForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteDomainInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteDomainServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

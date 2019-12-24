@@ -86,6 +86,10 @@ class ListEmails extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\ListEmailsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListEmailsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListEmailsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListEmailsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListEmailsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListEmailsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesMail[]|null
      */
@@ -99,6 +103,18 @@ class ListEmails extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListEmailsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListEmailsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListEmailsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListEmailsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListEmailsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

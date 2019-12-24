@@ -47,6 +47,10 @@ class CreateSignedUrl extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      *
      * @throws \Afosto\Sdk\Exception\CreateSignedUrlBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateSignedUrlUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateSignedUrlForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateSignedUrlNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateSignedUrlInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateSignedUrlServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntUploadResponse|null
      */
@@ -60,6 +64,18 @@ class CreateSignedUrl extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateSignedUrlUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateSignedUrlForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateSignedUrlNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateSignedUrlInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateSignedUrlServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

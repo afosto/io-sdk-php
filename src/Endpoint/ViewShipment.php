@@ -49,6 +49,10 @@ class ViewShipment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\ViewShipmentBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewShipmentUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewShipmentForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewShipmentNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewShipmentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewShipmentServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsShipment|null
      */
@@ -62,6 +66,18 @@ class ViewShipment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ViewShipmentUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewShipmentForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewShipmentNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewShipmentInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewShipmentServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

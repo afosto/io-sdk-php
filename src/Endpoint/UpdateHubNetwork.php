@@ -52,6 +52,11 @@ class UpdateHubNetwork extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      * {@inheritdoc}
      *
      * @throws \Afosto\Sdk\Exception\UpdateHubNetworkUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateHubNetworkBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateHubNetworkForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateHubNetworkNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateHubNetworkInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateHubNetworkServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplNetworkDevice[]|null
      */
@@ -62,6 +67,21 @@ class UpdateHubNetwork extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateHubNetworkUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateHubNetworkBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateHubNetworkForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateHubNetworkNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateHubNetworkInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateHubNetworkServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

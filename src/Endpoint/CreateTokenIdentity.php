@@ -48,6 +48,9 @@ class CreateTokenIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
      * @throws \Afosto\Sdk\Exception\CreateTokenIdentityBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateTokenIdentityUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTokenIdentityNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateTokenIdentityForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateTokenIdentityInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateTokenIdentityServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelTokenResponse|null
      */
@@ -64,6 +67,15 @@ class CreateTokenIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateTokenIdentityNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateTokenIdentityForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateTokenIdentityInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateTokenIdentityServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

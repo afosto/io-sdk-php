@@ -67,6 +67,10 @@ class QueryUsage extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\QueryUsageUnauthorizedException
      * @throws \Afosto\Sdk\Exception\QueryUsageNotFoundException
+     * @throws \Afosto\Sdk\Exception\QueryUsageBadRequestException
+     * @throws \Afosto\Sdk\Exception\QueryUsageForbiddenException
+     * @throws \Afosto\Sdk\Exception\QueryUsageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\QueryUsageServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\MesReport[]|null
      */
@@ -80,6 +84,18 @@ class QueryUsage extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\QueryUsageNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\QueryUsageBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\QueryUsageForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\QueryUsageInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\QueryUsageServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

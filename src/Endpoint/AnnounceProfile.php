@@ -55,6 +55,9 @@ class AnnounceProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      * @throws \Afosto\Sdk\Exception\AnnounceProfileUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AnnounceProfileForbiddenException
      * @throws \Afosto\Sdk\Exception\AnnounceProfileConflictException
+     * @throws \Afosto\Sdk\Exception\AnnounceProfileNotFoundException
+     * @throws \Afosto\Sdk\Exception\AnnounceProfileInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AnnounceProfileServiceUnavailableException
      *
      * @return null
      */
@@ -74,6 +77,15 @@ class AnnounceProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         }
         if (200 === $status) {
             return json_decode($body);
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\AnnounceProfileNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\AnnounceProfileInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\AnnounceProfileServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

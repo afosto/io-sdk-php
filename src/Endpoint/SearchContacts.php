@@ -47,6 +47,10 @@ class SearchContacts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
      *
      * @throws \Afosto\Sdk\Exception\SearchContactsBadRequestException
      * @throws \Afosto\Sdk\Exception\SearchContactsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchContactsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchContactsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchContactsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchContactsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\RelContact[]|null
      */
@@ -60,6 +64,18 @@ class SearchContacts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\SearchContactsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchContactsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchContactsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchContactsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchContactsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

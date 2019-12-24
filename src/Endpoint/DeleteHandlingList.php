@@ -49,6 +49,10 @@ class DeleteHandlingList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
      *
      * @throws \Afosto\Sdk\Exception\DeleteHandlingListBadRequestException
      * @throws \Afosto\Sdk\Exception\DeleteHandlingListUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteHandlingListForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteHandlingListNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteHandlingListInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteHandlingListServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsHandlingList|null
      */
@@ -62,6 +66,18 @@ class DeleteHandlingList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteHandlingListUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteHandlingListForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteHandlingListNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteHandlingListInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteHandlingListServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

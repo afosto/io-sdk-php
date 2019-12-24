@@ -63,6 +63,10 @@ class ListPendingInvites extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
      *
      * @throws \Afosto\Sdk\Exception\ListPendingInvitesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListPendingInvitesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListPendingInvitesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPendingInvitesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPendingInvitesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPendingInvitesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSubtenant[]|null
      */
@@ -76,6 +80,18 @@ class ListPendingInvites extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListPendingInvitesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPendingInvitesBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPendingInvitesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPendingInvitesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPendingInvitesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

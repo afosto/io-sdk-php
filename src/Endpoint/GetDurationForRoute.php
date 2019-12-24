@@ -49,6 +49,10 @@ class GetDurationForRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
      *
      * @throws \Afosto\Sdk\Exception\GetDurationForRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetDurationForRouteNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetDurationForRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetDurationForRouteForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetDurationForRouteInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetDurationForRouteServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsDuration|null
      */
@@ -62,6 +66,18 @@ class GetDurationForRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetDurationForRouteNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetDurationForRouteBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetDurationForRouteForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetDurationForRouteInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetDurationForRouteServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

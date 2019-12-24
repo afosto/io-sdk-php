@@ -49,6 +49,10 @@ class GetFulfilmentLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
      *
      * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationBadRequestException
      * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetFulfilmentLocationServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsFulfilmentLocation|null
      */
@@ -62,6 +66,18 @@ class GetFulfilmentLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetFulfilmentLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetFulfilmentLocationForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\GetFulfilmentLocationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetFulfilmentLocationInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetFulfilmentLocationServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

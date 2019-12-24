@@ -51,6 +51,10 @@ class GetPrinter extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\GetPrinterUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetPrinterNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetPrinterBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetPrinterForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetPrinterInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetPrinterServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplPrinter|null
      */
@@ -64,6 +68,18 @@ class GetPrinter extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetPrinterNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\GetPrinterBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\GetPrinterForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\GetPrinterInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\GetPrinterServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

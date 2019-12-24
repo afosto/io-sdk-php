@@ -50,6 +50,10 @@ class SearchPrices extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\SearchPricesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchPricesNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchPricesBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchPricesForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchPricesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchPricesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatPrice[]|null
      */
@@ -63,6 +67,18 @@ class SearchPrices extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\SearchPricesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchPricesBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchPricesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchPricesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchPricesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

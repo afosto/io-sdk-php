@@ -39,6 +39,10 @@ class ListPendingSubtenants extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
      *
      * @throws \Afosto\Sdk\Exception\ListPendingSubtenantsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListPendingSubtenantsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListPendingSubtenantsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPendingSubtenantsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPendingSubtenantsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPendingSubtenantsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamPendingRequest[]|null
      */
@@ -52,6 +56,18 @@ class ListPendingSubtenants extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListPendingSubtenantsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPendingSubtenantsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPendingSubtenantsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPendingSubtenantsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPendingSubtenantsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -39,6 +39,10 @@ class ListRoles extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\ListRolesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListRolesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListRolesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListRolesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListRolesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListRolesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamRole[]|null
      */
@@ -52,6 +56,18 @@ class ListRoles extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListRolesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListRolesBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListRolesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListRolesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListRolesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

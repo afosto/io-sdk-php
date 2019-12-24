@@ -66,6 +66,10 @@ class SearchGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\SearchGroupsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchGroupsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchGroupsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchGroupsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchGroupsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchGroupsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrGroup[]|null
      */
@@ -79,6 +83,18 @@ class SearchGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\SearchGroupsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchGroupsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchGroupsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchGroupsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchGroupsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

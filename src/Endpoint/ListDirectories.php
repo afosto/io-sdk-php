@@ -39,6 +39,10 @@ class ListDirectories extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      *
      * @throws \Afosto\Sdk\Exception\ListDirectoriesBadRequestException
      * @throws \Afosto\Sdk\Exception\ListDirectoriesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListDirectoriesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListDirectoriesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListDirectoriesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListDirectoriesServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntDirectoriesGetResponse200|null
      */
@@ -52,6 +56,18 @@ class ListDirectories extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListDirectoriesUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDirectoriesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDirectoriesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDirectoriesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListDirectoriesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

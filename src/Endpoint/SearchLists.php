@@ -66,6 +66,10 @@ class SearchLists extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\SearchListsBadRequestException
      * @throws \Afosto\Sdk\Exception\SearchListsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchListsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchListsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchListsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchListsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsHandlingList[]|null
      */
@@ -79,6 +83,18 @@ class SearchLists extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\SearchListsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchListsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchListsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchListsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchListsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

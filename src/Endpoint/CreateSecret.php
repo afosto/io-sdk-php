@@ -54,6 +54,9 @@ class CreateSecret extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * @throws \Afosto\Sdk\Exception\CreateSecretBadRequestException
      * @throws \Afosto\Sdk\Exception\CreateSecretUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateSecretNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateSecretForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateSecretInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateSecretServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\IamSecret|null
      */
@@ -70,6 +73,15 @@ class CreateSecret extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateSecretNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateSecretForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateSecretInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateSecretServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

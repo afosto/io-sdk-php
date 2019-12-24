@@ -68,6 +68,10 @@ class ListItemsAsGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      *
      * @throws \Afosto\Sdk\Exception\ListItemsAsGroupUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListItemsAsGroupNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListItemsAsGroupBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListItemsAsGroupForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListItemsAsGroupInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListItemsAsGroupServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrGroup[]|null
      */
@@ -81,6 +85,18 @@ class ListItemsAsGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListItemsAsGroupNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListItemsAsGroupBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListItemsAsGroupForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListItemsAsGroupInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListItemsAsGroupServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

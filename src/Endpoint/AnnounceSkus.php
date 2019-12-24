@@ -49,6 +49,10 @@ class AnnounceSkus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      * @throws \Afosto\Sdk\Exception\AnnounceSkusUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AnnounceSkusNotFoundException
+     * @throws \Afosto\Sdk\Exception\AnnounceSkusBadRequestException
+     * @throws \Afosto\Sdk\Exception\AnnounceSkusForbiddenException
+     * @throws \Afosto\Sdk\Exception\AnnounceSkusInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AnnounceSkusServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrSkuResult|null
      */
@@ -62,6 +66,18 @@ class AnnounceSkus extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\AnnounceSkusNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\AnnounceSkusBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\AnnounceSkusForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\AnnounceSkusInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\AnnounceSkusServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

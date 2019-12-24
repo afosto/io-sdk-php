@@ -65,6 +65,10 @@ class ListLocations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\ListLocationsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListLocationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListLocationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListLocationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListLocationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListLocationsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsLocation[]|null
      */
@@ -78,6 +82,18 @@ class ListLocations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListLocationsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListLocationsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListLocationsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListLocationsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListLocationsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -39,6 +39,10 @@ class ListCalculations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      *
      * @throws \Afosto\Sdk\Exception\ListCalculationsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListCalculationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListCalculationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListCalculationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListCalculationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListCalculationsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrCalculationListItem[]|null
      */
@@ -52,6 +56,18 @@ class ListCalculations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListCalculationsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListCalculationsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ListCalculationsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListCalculationsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListCalculationsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

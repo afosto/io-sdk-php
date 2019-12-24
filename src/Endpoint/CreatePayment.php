@@ -50,6 +50,10 @@ class CreatePayment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      *
      * @throws \Afosto\Sdk\Exception\CreatePaymentBadRequestException
      * @throws \Afosto\Sdk\Exception\CreatePaymentUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreatePaymentForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreatePaymentNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreatePaymentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreatePaymentServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrPayment|null
      */
@@ -63,6 +67,18 @@ class CreatePayment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreatePaymentUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePaymentForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePaymentNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePaymentInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\CreatePaymentServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -84,6 +84,10 @@ class ListStacks extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @throws \Afosto\Sdk\Exception\ListStacksUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListStacksNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListStacksBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListStacksForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListStacksInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListStacksServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrStack[]|null
      */
@@ -97,6 +101,18 @@ class ListStacks extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListStacksNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\ListStacksBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ListStacksForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ListStacksInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ListStacksServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

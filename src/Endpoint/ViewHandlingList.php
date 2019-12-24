@@ -49,6 +49,10 @@ class ViewHandlingList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      *
      * @throws \Afosto\Sdk\Exception\ViewHandlingListBadRequestException
      * @throws \Afosto\Sdk\Exception\ViewHandlingListUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewHandlingListForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewHandlingListNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewHandlingListInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewHandlingListServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsHandlingList|null
      */
@@ -62,6 +66,18 @@ class ViewHandlingList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ViewHandlingListUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewHandlingListForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (404 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewHandlingListNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewHandlingListInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\ViewHandlingListServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

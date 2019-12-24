@@ -49,6 +49,10 @@ class DeleteHub extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *
      * @throws \Afosto\Sdk\Exception\DeleteHubUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteHubNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteHubBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteHubForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteHubInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteHubServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\SplHub|null
      */
@@ -62,6 +66,18 @@ class DeleteHub extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteHubNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteHubBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteHubForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteHubInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteHubServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

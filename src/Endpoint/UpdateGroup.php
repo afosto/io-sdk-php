@@ -50,6 +50,10 @@ class UpdateGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *
      * @throws \Afosto\Sdk\Exception\UpdateGroupUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateGroupNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateGroupBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateGroupForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateGroupInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateGroupServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CatGroup|null
      */
@@ -63,6 +67,18 @@ class UpdateGroup extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateGroupNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (400 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateGroupBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (403 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateGroupForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (500 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateGroupInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (503 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateGroupServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }
