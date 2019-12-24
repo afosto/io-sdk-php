@@ -15,14 +15,13 @@ class SearchGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * Returns a list of groups.
      *
-     * @param \Afosto\Sdk\Model\OdrSearch[] $body
-     * @param array                         $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
      * }
      */
-    public function __construct(array $body, array $headerParameters = [])
+    public function __construct(\Afosto\Sdk\Model\OdrSearch $body, array $headerParameters = [])
     {
         $this->body = $body;
         $this->headerParameters = $headerParameters;

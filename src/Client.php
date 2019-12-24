@@ -4161,8 +4161,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a list of groups.
      *
-     * @param \Afosto\Sdk\Model\OdrSearch[] $body
-     * @param array                         $headerParameters {
+     * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
@@ -4175,7 +4174,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrGroup[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function searchGroups(array $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function searchGroups(\Afosto\Sdk\Model\OdrSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchGroups($body, $headerParameters), $fetch);
     }
