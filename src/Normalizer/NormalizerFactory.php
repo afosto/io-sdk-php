@@ -142,17 +142,6 @@ class NormalizerFactory
         $normalizers[] = new IamUserTokenRequestNormalizer();
         $normalizers[] = new IamUserTokenResponseNormalizer();
         $normalizers[] = new IamSignupNormalizer();
-        $normalizers[] = new PkrShipmentNormalizer();
-        $normalizers[] = new PkrShipmentAddressNormalizer();
-        $normalizers[] = new PkrShipmentAddressCountryNormalizer();
-        $normalizers[] = new PkrShipmentItemsItemNormalizer();
-        $normalizers[] = new PkrShipmentItemsItemImageNormalizer();
-        $normalizers[] = new PkrShipmentItemsItemImageThumbnailsNormalizer();
-        $normalizers[] = new PkrShipmentItemsItemProductNormalizer();
-        $normalizers[] = new PkrShipmentSaleNormalizer();
-        $normalizers[] = new PkrShipmentWarehouseNormalizer();
-        $normalizers[] = new PkrShipmentDocumentNormalizer();
-        $normalizers[] = new PkrTaskNormalizer();
         $normalizers[] = new OdrProviderNormalizer();
         $normalizers[] = new OdrProviderMethodNormalizer();
         $normalizers[] = new OdrMethodNormalizer();
