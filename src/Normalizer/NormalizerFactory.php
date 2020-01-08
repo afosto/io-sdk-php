@@ -155,6 +155,14 @@ class NormalizerFactory
         $normalizers[] = new OdrPurchaseNormalizer();
         $normalizers[] = new OdrTransactionModelNormalizer();
         $normalizers[] = new OdrPurchaseItemNormalizer();
+        $normalizers[] = new MesWebhookDelayNormalizer();
+        $normalizers[] = new MesWebhookAttemptNormalizer();
+        $normalizers[] = new MesWebhookTestMessageNormalizer();
+        $normalizers[] = new MesWebhookMessageNormalizer();
+        $normalizers[] = new MesWebhookEventNormalizer();
+        $normalizers[] = new MesTriggerNormalizer();
+        $normalizers[] = new MesSubscriptionModelNormalizer();
+        $normalizers[] = new MesWebhookSubscriptionNormalizer();
         $normalizers[] = new WmsStockNormalizer();
         $normalizers[] = new WmsStockUpRequestNormalizer();
         $normalizers[] = new WmsInventoryConstraintNormalizer();

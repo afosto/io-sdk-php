@@ -2977,6 +2977,256 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListEventsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListEventsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListEventsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListEventsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListEventsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListEventsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesWebhookEvent[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listEvents(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListEvents(), $fetch);
+    }
+
+    /**
+     * List currenty active webhook subscriptions.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var int $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListWebhookSubscriptionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListWebhookSubscriptionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListWebhookSubscriptionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListWebhookSubscriptionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListWebhookSubscriptionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListWebhookSubscriptionsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesWebhookSubscription[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listWebhookSubscriptions(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListWebhookSubscriptions($headerParameters), $fetch);
+    }
+
+    /**
+     * Create a new webhook subscription.
+     *
+     * @param \Afosto\Sdk\Model\MesSubscriptionModel $body  Subscription data
+     * @param string                                 $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateWebhookSubscriptionBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateWebhookSubscriptionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateWebhookSubscriptionForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateWebhookSubscriptionNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateWebhookSubscriptionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateWebhookSubscriptionServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesWebhookSubscription|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createWebhookSubscription(\Afosto\Sdk\Model\MesSubscriptionModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateWebhookSubscription($body), $fetch);
+    }
+
+    /**
+     * Delete a webhook subscription.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteWebhookSubscriptionBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteWebhookSubscriptionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteWebhookSubscriptionForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteWebhookSubscriptionNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteWebhookSubscriptionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteWebhookSubscriptionServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteWebhookSubscription(int $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteWebhookSubscription($id), $fetch);
+    }
+
+    /**
+     * Get an active webhook subscription.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetWebhookSubscriptionBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetWebhookSubscriptionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetWebhookSubscriptionForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetWebhookSubscriptionNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetWebhookSubscriptionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetWebhookSubscriptionServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesWebhookSubscription|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getWebhookSubscription(int $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWebhookSubscription($id), $fetch);
+    }
+
+    /**
+     * Update subscription.
+     *
+     * @param \Afosto\Sdk\Model\MesSubscriptionModel $body  Subscription data
+     * @param string                                 $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateWebhookSubscriptionBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateWebhookSubscriptionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateWebhookSubscriptionForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateWebhookSubscriptionNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateWebhookSubscriptionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateWebhookSubscriptionServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesWebhookSubscription|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateWebhookSubscription(int $id, \Afosto\Sdk\Model\MesSubscriptionModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateWebhookSubscription($id, $body), $fetch);
+    }
+
+    /**
+     * Test a subscription / webhook delivery for an event.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\TriggerEventBadRequestException
+     * @throws \Afosto\Sdk\Exception\TriggerEventUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\TriggerEventForbiddenException
+     * @throws \Afosto\Sdk\Exception\TriggerEventNotFoundException
+     * @throws \Afosto\Sdk\Exception\TriggerEventInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\TriggerEventServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesWebhookTestMessage|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function triggerEvent(int $id, \Afosto\Sdk\Model\MesTrigger $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\TriggerEvent($id, $body), $fetch);
+    }
+
+    /**
+     * List of messages created in the past 30 days.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $is_delivered
+     *     @var string $is_pending
+     * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var int $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListWebhookMessagesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListWebhookMessagesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListWebhookMessagesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListWebhookMessagesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListWebhookMessagesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListWebhookMessagesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesWebhookMessage[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listWebhookMessages(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListWebhookMessages($queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
+     * Get a single message.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetWebhookMessageBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetWebhookMessageUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetWebhookMessageForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetWebhookMessageNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetWebhookMessageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetWebhookMessageServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesWebhookMessage|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getWebhookMessage(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWebhookMessage($id), $fetch);
+    }
+
+    /**
+     * Retry a single message.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\RetryWebhookMessageBadRequestException
+     * @throws \Afosto\Sdk\Exception\RetryWebhookMessageUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RetryWebhookMessageForbiddenException
+     * @throws \Afosto\Sdk\Exception\RetryWebhookMessageNotFoundException
+     * @throws \Afosto\Sdk\Exception\RetryWebhookMessageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RetryWebhookMessageServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesWebhookTestMessage|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function retryWebhookMessage(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RetryWebhookMessage($id), $fetch);
+    }
+
+    /**
+     * List the delivery attempts for a single message.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var int $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetWebhookAttemptsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetWebhookAttemptsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetWebhookAttemptsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetWebhookAttemptsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetWebhookAttemptsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetWebhookAttemptsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesWebhookAttempt[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getWebhookAttempts(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWebhookAttempts($id, $headerParameters), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetDelaysBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetDelaysUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetDelaysForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetDelaysNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetDelaysInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetDelaysServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesWebhookDelay[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getDelays(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetDelays(), $fetch);
+    }
+
+    /**
      * List all routes.
      *
      * @param array $headerParameters {
