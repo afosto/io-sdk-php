@@ -3077,7 +3077,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Update subscription.
+     * Update webhook subscription.
      *
      * @param \Afosto\Sdk\Model\MesSubscriptionModel $body  Subscription data
      * @param string                                 $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -3116,7 +3116,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * List of messages created in the past 30 days.
+     * List of messages created in the past 30 days, both pending or deliverd.
      *
      * @param array $queryParameters {
      *
@@ -3166,7 +3166,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Retry a single message.
+     * Manually retry a single message.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *

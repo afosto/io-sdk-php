@@ -21,7 +21,7 @@ class ListEvents extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     public function getUri(): string
     {
-        return '/mes/events';
+        return '/mes/webhooks/events';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

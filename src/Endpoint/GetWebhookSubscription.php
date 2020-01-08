@@ -31,7 +31,7 @@ class GetWebhookSubscription extends \Jane\OpenApiRuntime\Client\BaseEndpoint im
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/mes/subscriptions/{id}');
+        return str_replace(['{id}'], [$this->id], '/mes/webhooks/subscriptions/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

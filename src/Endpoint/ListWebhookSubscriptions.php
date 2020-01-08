@@ -35,7 +35,7 @@ class ListWebhookSubscriptions extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
 
     public function getUri(): string
     {
-        return '/mes/subscriptions';
+        return '/mes/webhooks/subscriptions';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

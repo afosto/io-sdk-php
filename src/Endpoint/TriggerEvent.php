@@ -32,7 +32,7 @@ class TriggerEvent extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/mes/subscriptions/{id}/trigger');
+        return str_replace(['{id}'], [$this->id], '/mes/webhooks/subscriptions/{id}/trigger');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

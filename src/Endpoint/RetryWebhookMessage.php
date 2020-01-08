@@ -15,7 +15,7 @@ class RetryWebhookMessage extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
     protected $id;
 
     /**
-     * Retry a single message.
+     * Manually retry a single message.
      */
     public function __construct(string $id)
     {
@@ -31,7 +31,7 @@ class RetryWebhookMessage extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/mes/messages/{id}');
+        return str_replace(['{id}'], [$this->id], '/mes/webhooks/messages/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

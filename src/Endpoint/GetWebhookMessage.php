@@ -31,7 +31,7 @@ class GetWebhookMessage extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/mes/messages/{id}');
+        return str_replace(['{id}'], [$this->id], '/mes/webhooks/messages/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

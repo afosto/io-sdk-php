@@ -15,7 +15,7 @@ class UpdateWebhookSubscription extends \Jane\OpenApiRuntime\Client\BaseEndpoint
     protected $id;
 
     /**
-     * Update subscription.
+     * Update webhook subscription.
      *
      * @param \Afosto\Sdk\Model\MesSubscriptionModel $body Subscription data
      */
@@ -34,7 +34,7 @@ class UpdateWebhookSubscription extends \Jane\OpenApiRuntime\Client\BaseEndpoint
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/mes/subscriptions/{id}');
+        return str_replace(['{id}'], [$this->id], '/mes/webhooks/subscriptions/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

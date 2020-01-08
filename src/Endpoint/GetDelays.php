@@ -21,7 +21,7 @@ class GetDelays extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     public function getUri(): string
     {
-        return '/mes/delays';
+        return '/mes/webhooks/delays';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

@@ -38,7 +38,7 @@ class GetWebhookAttempts extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/mes/messages/{id}/attempts');
+        return str_replace(['{id}'], [$this->id], '/mes/webhooks/messages/{id}/attempts');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

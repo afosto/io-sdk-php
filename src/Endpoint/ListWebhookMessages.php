@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Endpoint;
 class ListWebhookMessages extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
-     * List of messages created in the past 30 days.
+     * List of messages created in the past 30 days, both pending or deliverd.
      *
      * @param array $queryParameters {
      *
@@ -42,7 +42,7 @@ class ListWebhookMessages extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
 
     public function getUri(): string
     {
-        return '/mes/messages';
+        return '/mes/webhooks/messages';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
