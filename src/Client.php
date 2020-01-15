@@ -1377,7 +1377,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetBillingInformationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetBillingInformationServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamBillingCompany|\Psr\Http\Message\ResponseInterface|null
      */
     public function getBillingInformation(string $fetch = self::FETCH_OBJECT)
     {
@@ -1387,8 +1387,8 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update customer information regarding billing data.
      *
-     * @param \Afosto\Sdk\Model\IamCompany $body  Email object
-     * @param string                       $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\IamBillingCompany $body  Email object
+     * @param string                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateBillingInformationBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateBillingInformationUnauthorizedException
@@ -1397,9 +1397,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateBillingInformationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateBillingInformationServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\IamCompany|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamBillingCompany|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateBillingInformation(\Afosto\Sdk\Model\IamCompany $body, string $fetch = self::FETCH_OBJECT)
+    public function updateBillingInformation(\Afosto\Sdk\Model\IamBillingCompany $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateBillingInformation($body), $fetch);
     }
@@ -1538,6 +1538,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Get information about the next invoice.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $code cnt
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetUpcomingBadRequestException
@@ -1547,11 +1554,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetUpcomingInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetUpcomingServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\IamInvoice|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamUpcomingInvoice|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getUpcoming(string $fetch = self::FETCH_OBJECT)
+    public function getUpcoming(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUpcoming(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetUpcoming($queryParameters), $fetch);
     }
 
     /**

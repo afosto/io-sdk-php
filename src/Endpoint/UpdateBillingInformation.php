@@ -15,9 +15,9 @@ class UpdateBillingInformation extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
     /**
      * Update customer information regarding billing data.
      *
-     * @param \Afosto\Sdk\Model\IamCompany $body Email object
+     * @param \Afosto\Sdk\Model\IamBillingCompany $body Email object
      */
-    public function __construct(\Afosto\Sdk\Model\IamCompany $body)
+    public function __construct(\Afosto\Sdk\Model\IamBillingCompany $body)
     {
         $this->body = $body;
     }
@@ -54,12 +54,12 @@ class UpdateBillingInformation extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
      * @throws \Afosto\Sdk\Exception\UpdateBillingInformationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateBillingInformationServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\IamCompany|null
+     * @return \Afosto\Sdk\Model\IamBillingCompany|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamCompany', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamBillingCompany', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateBillingInformationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

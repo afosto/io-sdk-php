@@ -12,6 +12,19 @@ namespace Afosto\Sdk\Endpoint;
 
 class GetUpcoming extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
+    /**
+     * Get information about the next invoice.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $code cnt
+     * }
+     */
+    public function __construct(array $queryParameters = [])
+    {
+        $this->queryParameters = $queryParameters;
+    }
+
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
 
     public function getMethod(): string
@@ -34,6 +47,17 @@ class GetUpcoming extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         return ['Accept' => ['application/json']];
     }
 
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['code']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('code', ['string']);
+
+        return $optionsResolver;
+    }
+
     /**
      * {@inheritdoc}
      *
@@ -44,12 +68,12 @@ class GetUpcoming extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\GetUpcomingInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetUpcomingServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\IamInvoice|null
+     * @return \Afosto\Sdk\Model\IamUpcomingInvoice|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamInvoice', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamUpcomingInvoice', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\GetUpcomingBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

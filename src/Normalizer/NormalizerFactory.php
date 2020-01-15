@@ -86,8 +86,9 @@ class NormalizerFactory
         $normalizers[] = new CntProxyModelNormalizer();
         $normalizers[] = new CntProxyUpdateModelNormalizer();
         $normalizers[] = new CntConfigNormalizer();
+        $normalizers[] = new IamUpcomingInvoiceNormalizer();
         $normalizers[] = new IamInvoiceNormalizer();
-        $normalizers[] = new IamCompanyNormalizer();
+        $normalizers[] = new IamBillingCompanyNormalizer();
         $normalizers[] = new IamAddressNormalizer();
         $normalizers[] = new IamPaymentSourceNormalizer();
         $normalizers[] = new IamSubscriptionNormalizer();
@@ -95,6 +96,7 @@ class NormalizerFactory
         $normalizers[] = new IamUsageRequestNormalizer();
         $normalizers[] = new IamTrialNormalizer();
         $normalizers[] = new IamSubscribeNormalizer();
+        $normalizers[] = new IamInvoiceProductNormalizer();
         $normalizers[] = new IamProductNormalizer();
         $normalizers[] = new IamPlanNormalizer();
         $normalizers[] = new IamTierNormalizer();
@@ -139,6 +141,7 @@ class NormalizerFactory
         $normalizers[] = new IamPasswordResetNormalizer();
         $normalizers[] = new IamUserNormalizer();
         $normalizers[] = new IamTenantNormalizer();
+        $normalizers[] = new IamCompanyNormalizer();
         $normalizers[] = new IamUserTokenRequestNormalizer();
         $normalizers[] = new IamUserTokenResponseNormalizer();
         $normalizers[] = new IamSignupNormalizer();
