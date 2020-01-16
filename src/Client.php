@@ -5997,6 +5997,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * delete an existing organisation.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteOrganisationBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteOrganisationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteOrganisationForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteOrganisationNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteOrganisationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteOrganisationServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\RelOrganisation|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteOrganisation(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteOrganisation($id), $fetch);
+    }
+
+    /**
      * Returns a single organisation by id.
      *
      * @param array $queryParameters {
