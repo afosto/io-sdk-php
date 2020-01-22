@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class IamProductNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class IamPhoneNumberNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\IamProduct' === $type;
+        return 'Afosto\\Sdk\\Model\\IamPhoneNumber' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\IamProduct' === get_class($data);
+        return 'Afosto\\Sdk\\Model\\IamPhoneNumber' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,27 +37,24 @@ class IamProductNormalizer implements DenormalizerInterface, NormalizerInterface
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\IamProduct();
+        $object = new \Afosto\Sdk\Model\IamPhoneNumber();
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
-        }
-        if (property_exists($data, 'code') && null !== $data->{'code'}) {
-            $object->setCode($data->{'code'});
         }
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'description') && null !== $data->{'description'}) {
-            $object->setDescription($data->{'description'});
+        if (property_exists($data, 'number') && null !== $data->{'number'}) {
+            $object->setNumber($data->{'number'});
         }
-        if (property_exists($data, 'unit') && null !== $data->{'unit'}) {
-            $object->setUnit($data->{'unit'});
+        if (property_exists($data, 'preferred_agent') && null !== $data->{'preferred_agent'}) {
+            $object->setPreferredAgent($data->{'preferred_agent'});
         }
-        if (property_exists($data, 'plan') && null !== $data->{'plan'}) {
-            $object->setPlan($this->denormalizer->denormalize($data->{'plan'}, 'Afosto\\Sdk\\Model\\IamPlan', 'json', $context));
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
+            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'is_add_on') && null !== $data->{'is_add_on'}) {
-            $object->setIsAddOn($data->{'is_add_on'});
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
+            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 
         return $object;
@@ -69,23 +66,20 @@ class IamProductNormalizer implements DenormalizerInterface, NormalizerInterface
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getCode()) {
-            $data->{'code'} = $object->getCode();
-        }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
         }
-        if (null !== $object->getDescription()) {
-            $data->{'description'} = $object->getDescription();
+        if (null !== $object->getNumber()) {
+            $data->{'number'} = $object->getNumber();
         }
-        if (null !== $object->getUnit()) {
-            $data->{'unit'} = $object->getUnit();
+        if (null !== $object->getPreferredAgent()) {
+            $data->{'preferred_agent'} = $object->getPreferredAgent();
         }
-        if (null !== $object->getPlan()) {
-            $data->{'plan'} = $this->normalizer->normalize($object->getPlan(), 'json', $context);
+        if (null !== $object->getCreatedAt()) {
+            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
         }
-        if (null !== $object->getIsAddOn()) {
-            $data->{'is_add_on'} = $object->getIsAddOn();
+        if (null !== $object->getUpdatedAt()) {
+            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

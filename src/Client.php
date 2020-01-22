@@ -1513,6 +1513,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Add an add on to a subscription.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AddAddOnBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddAddOnUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AddAddOnForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddAddOnNotFoundException
+     * @throws \Afosto\Sdk\Exception\AddAddOnInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddAddOnServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\IamUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function addAddOn(\Afosto\Sdk\Model\IamAddOn $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddAddOn($body), $fetch);
+    }
+
+    /**
      * List of the invoices.
      *
      * @param array $headerParameters {
@@ -2869,6 +2888,40 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function revokeTokens(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RevokeTokens($queryParameters), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListNumbersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListNumbersNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListNumbersBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListNumbersForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListNumbersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListNumbersServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\IamPhoneNumber[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listNumbers(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListNumbers(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateNumberUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateNumberNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateNumberBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateNumberForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateNumberInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateNumberServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\IamPhoneNumber|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createNumber(\Afosto\Sdk\Model\IamPhoneNumberModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateNumber($body), $fetch);
     }
 
     /**

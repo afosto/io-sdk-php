@@ -40,6 +40,10 @@ class IamProduct
      * @var IamPlan
      */
     protected $plan;
+    /**
+     * @var bool
+     */
+    protected $isAddOn;
 
     /**
      * The stripe id.
@@ -121,6 +125,18 @@ class IamProduct
     public function setPlan(?IamPlan $plan): self
     {
         $this->plan = $plan;
+
+        return $this;
+    }
+
+    public function getIsAddOn(): ?bool
+    {
+        return $this->isAddOn;
+    }
+
+    public function setIsAddOn(?bool $isAddOn): self
+    {
+        $this->isAddOn = $isAddOn;
 
         return $this;
     }

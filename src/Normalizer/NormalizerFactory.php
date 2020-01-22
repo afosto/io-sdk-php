@@ -96,6 +96,7 @@ class NormalizerFactory
         $normalizers[] = new IamUsageRequestNormalizer();
         $normalizers[] = new IamTrialNormalizer();
         $normalizers[] = new IamSubscribeNormalizer();
+        $normalizers[] = new IamAddOnNormalizer();
         $normalizers[] = new IamInvoiceProductNormalizer();
         $normalizers[] = new IamProductNormalizer();
         $normalizers[] = new IamPlanNormalizer();
@@ -120,6 +121,8 @@ class NormalizerFactory
         $normalizers[] = new SplNetworkDeviceNormalizer();
         $normalizers[] = new SplCreateNetworkDeviceNormalizer();
         $normalizers[] = new IamLogNormalizer();
+        $normalizers[] = new IamPhoneNumberNormalizer();
+        $normalizers[] = new IamPhoneNumberModelNormalizer();
         $normalizers[] = new IamSubtenantNormalizer();
         $normalizers[] = new IamPendingRequestNormalizer();
         $normalizers[] = new IamPendingAuthorizationNormalizer();
