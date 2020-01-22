@@ -42,7 +42,15 @@ class OdrFilterSetNormalizer implements DenormalizerInterface, NormalizerInterfa
             $object->setSku($data->{'sku'});
         }
         if (property_exists($data, 'filters') && null !== $data->{'filters'}) {
-            $object->setFilters($data->{'filters'});
+            $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data->{'filters'} as $key => $value) {
+                $values_1 = [];
+                foreach ($value as $value_1) {
+                    $values_1[] = $value_1;
+                }
+                $values[$key] = $values_1;
+            }
+            $object->setFilters($values);
         }
 
         return $object;
@@ -55,7 +63,15 @@ class OdrFilterSetNormalizer implements DenormalizerInterface, NormalizerInterfa
             $data->{'sku'} = $object->getSku();
         }
         if (null !== $object->getFilters()) {
-            $data->{'filters'} = $object->getFilters();
+            $values = new \stdClass();
+            foreach ($object->getFilters() as $key => $value) {
+                $values_1 = [];
+                foreach ($value as $value_1) {
+                    $values_1[] = $value_1;
+                }
+                $values->{$key} = $values_1;
+            }
+            $data->{'filters'} = $values;
         }
 
         return $data;

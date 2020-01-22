@@ -17,7 +17,7 @@ class OdrFilterSet
      */
     protected $sku;
     /**
-     * @var mixed
+     * @var string[][]
      */
     protected $filters;
 
@@ -34,17 +34,17 @@ class OdrFilterSet
     }
 
     /**
-     * @return mixed
+     * @return string[][]|null
      */
-    public function getFilters()
+    public function getFilters(): ?\ArrayObject
     {
         return $this->filters;
     }
 
     /**
-     * @param mixed $filters
+     * @param string[][]|null $filters
      */
-    public function setFilters($filters): self
+    public function setFilters(?\ArrayObject $filters): self
     {
         $this->filters = $filters;
 
