@@ -25,6 +25,8 @@ class MesInboxModel
      */
     protected $prefix;
     /**
+     * ID of the user; only allowed for non to.afosto.io domains.
+     *
      * @var string
      */
     protected $userId;
@@ -65,11 +67,17 @@ class MesInboxModel
         return $this;
     }
 
+    /**
+     * ID of the user; only allowed for non to.afosto.io domains.
+     */
     public function getUserId(): ?string
     {
         return $this->userId;
     }
 
+    /**
+     * ID of the user; only allowed for non to.afosto.io domains.
+     */
     public function setUserId(?string $userId): self
     {
         $this->userId = $userId;
