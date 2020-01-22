@@ -354,6 +354,8 @@ class NormalizerFactory
         $normalizers[] = new CntDirectoriesGetResponse200Normalizer();
         $normalizers[] = new LcsListsIdItemsPutResponse200Normalizer();
         $normalizers[] = new LcsListsIdStatePutResponse200Normalizer();
+        $normalizers[] = new LcsParcelsIdItemsDeleteResponse200Normalizer();
+        $normalizers[] = new LcsParcelsIdItemsPostResponse200Normalizer();
         $normalizers[] = new LcsLocationsIdPositionsPutResponse200Normalizer();
         $normalizers[] = new LcsLocationsIdSkusPutResponse200Normalizer();
         $normalizers[] = new OdrFiltersPutResponse200Normalizer();

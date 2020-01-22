@@ -55,12 +55,12 @@ class AddToParcel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\AddToParcelInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\AddToParcelServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsParcel|null
+     * @return \Afosto\Sdk\Model\LcsParcelsIdItemsPostResponse200|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsParcel', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsParcelsIdItemsPostResponse200', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\AddToParcelBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

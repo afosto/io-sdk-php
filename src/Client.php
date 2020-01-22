@@ -4858,7 +4858,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\RemoveFromParcelInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\RemoveFromParcelServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsParcelsIdItemsDeleteResponse200|\Psr\Http\Message\ResponseInterface|null
      */
     public function removeFromParcel(string $id, \Afosto\Sdk\Model\LcsPlace $body, string $fetch = self::FETCH_OBJECT)
     {
@@ -4877,7 +4877,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\AddToParcelInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\AddToParcelServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsParcelsIdItemsPostResponse200|\Psr\Http\Message\ResponseInterface|null
      */
     public function addToParcel(string $id, \Afosto\Sdk\Model\LcsPlace $body, string $fetch = self::FETCH_OBJECT)
     {
