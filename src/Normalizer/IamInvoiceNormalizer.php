@@ -47,6 +47,9 @@ class IamInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'is_paid') && null !== $data->{'is_paid'}) {
             $object->setIsPaid($data->{'is_paid'});
         }
+        if (property_exists($data, 'is_pending') && null !== $data->{'is_pending'}) {
+            $object->setIsPending($data->{'is_pending'});
+        }
         if (property_exists($data, 'is_cancelled') && null !== $data->{'is_cancelled'}) {
             $object->setIsCancelled($data->{'is_cancelled'});
         }
@@ -90,6 +93,9 @@ class IamInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (null !== $object->getIsPaid()) {
             $data->{'is_paid'} = $object->getIsPaid();
+        }
+        if (null !== $object->getIsPending()) {
+            $data->{'is_pending'} = $object->getIsPending();
         }
         if (null !== $object->getIsCancelled()) {
             $data->{'is_cancelled'} = $object->getIsCancelled();

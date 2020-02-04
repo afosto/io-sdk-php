@@ -27,6 +27,10 @@ class IamInvoice
     /**
      * @var bool
      */
+    protected $isPending;
+    /**
+     * @var bool
+     */
     protected $isCancelled;
     /**
      * @var \DateTime
@@ -89,6 +93,18 @@ class IamInvoice
     public function setIsPaid(?bool $isPaid): self
     {
         $this->isPaid = $isPaid;
+
+        return $this;
+    }
+
+    public function getIsPending(): ?bool
+    {
+        return $this->isPending;
+    }
+
+    public function setIsPending(?bool $isPending): self
+    {
+        $this->isPending = $isPending;
 
         return $this;
     }
