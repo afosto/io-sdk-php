@@ -47,12 +47,26 @@ class RelOrganisationUpdateModelNormalizer implements DenormalizerInterface, Nor
         if (property_exists($data, 'account_manager') && null !== $data->{'account_manager'}) {
             $object->setAccountManager($data->{'account_manager'});
         }
-        if (property_exists($data, 'registrations') && null !== $data->{'registrations'}) {
+        if (property_exists($data, 'tags') && null !== $data->{'tags'}) {
             $values = [];
-            foreach ($data->{'registrations'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\RelVatRegistrationModel', 'json', $context);
+            foreach ($data->{'tags'} as $value) {
+                $values[] = $value;
             }
-            $object->setRegistrations($values);
+            $object->setTags($values);
+        }
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
+            $values_1 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data->{'metadata'} as $key => $value_1) {
+                $values_1[$key] = $value_1;
+            }
+            $object->setMetadata($values_1);
+        }
+        if (property_exists($data, 'registrations') && null !== $data->{'registrations'}) {
+            $values_2 = [];
+            foreach ($data->{'registrations'} as $value_2) {
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\RelVatRegistrationModel', 'json', $context);
+            }
+            $object->setRegistrations($values_2);
         }
         if (property_exists($data, 'payment_settings') && null !== $data->{'payment_settings'}) {
             $object->setPaymentSettings($this->denormalizer->denormalize($data->{'payment_settings'}, 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettings', 'json', $context));
@@ -79,12 +93,26 @@ class RelOrganisationUpdateModelNormalizer implements DenormalizerInterface, Nor
         if (null !== $object->getAccountManager()) {
             $data->{'account_manager'} = $object->getAccountManager();
         }
-        if (null !== $object->getRegistrations()) {
+        if (null !== $object->getTags()) {
             $values = [];
-            foreach ($object->getRegistrations() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            foreach ($object->getTags() as $value) {
+                $values[] = $value;
             }
-            $data->{'registrations'} = $values;
+            $data->{'tags'} = $values;
+        }
+        if (null !== $object->getMetadata()) {
+            $values_1 = new \stdClass();
+            foreach ($object->getMetadata() as $key => $value_1) {
+                $values_1->{$key} = $value_1;
+            }
+            $data->{'metadata'} = $values_1;
+        }
+        if (null !== $object->getRegistrations()) {
+            $values_2 = [];
+            foreach ($object->getRegistrations() as $value_2) {
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
+            }
+            $data->{'registrations'} = $values_2;
         }
         if (null !== $object->getPaymentSettings()) {
             $data->{'payment_settings'} = $this->normalizer->normalize($object->getPaymentSettings(), 'json', $context);

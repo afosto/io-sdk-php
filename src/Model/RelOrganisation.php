@@ -27,6 +27,24 @@ class RelOrganisation
      */
     protected $name;
     /**
+     * @var string
+     */
+    protected $cocNumber;
+    /**
+     * @var string
+     */
+    protected $accountManager;
+    /**
+     * @var string[]
+     */
+    protected $tags;
+    /**
+     * additional metadata that applies to the item.
+     *
+     * @var string[]
+     */
+    protected $metadata;
+    /**
      * @var RelVatRegistration[]
      */
     protected $registrations;
@@ -42,14 +60,6 @@ class RelOrganisation
      * @var RelAddressList
      */
     protected $addresses;
-    /**
-     * @var string
-     */
-    protected $cocNumber;
-    /**
-     * @var string
-     */
-    protected $accountManager;
 
     public function getId(): ?string
     {
@@ -89,6 +99,70 @@ class RelOrganisation
     public function setName(?string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getCocNumber(): ?string
+    {
+        return $this->cocNumber;
+    }
+
+    public function setCocNumber(?string $cocNumber): self
+    {
+        $this->cocNumber = $cocNumber;
+
+        return $this;
+    }
+
+    public function getAccountManager(): ?string
+    {
+        return $this->accountManager;
+    }
+
+    public function setAccountManager(?string $accountManager): self
+    {
+        $this->accountManager = $accountManager;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getTags(): ?array
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param string[]|null $tags
+     */
+    public function setTags(?array $tags): self
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * additional metadata that applies to the item.
+     *
+     * @return string[]|null
+     */
+    public function getMetadata(): ?\ArrayObject
+    {
+        return $this->metadata;
+    }
+
+    /**
+     * additional metadata that applies to the item.
+     *
+     * @param string[]|null $metadata
+     */
+    public function setMetadata(?\ArrayObject $metadata): self
+    {
+        $this->metadata = $metadata;
 
         return $this;
     }
@@ -143,30 +217,6 @@ class RelOrganisation
     public function setAddresses(?RelAddressList $addresses): self
     {
         $this->addresses = $addresses;
-
-        return $this;
-    }
-
-    public function getCocNumber(): ?string
-    {
-        return $this->cocNumber;
-    }
-
-    public function setCocNumber(?string $cocNumber): self
-    {
-        $this->cocNumber = $cocNumber;
-
-        return $this;
-    }
-
-    public function getAccountManager(): ?string
-    {
-        return $this->accountManager;
-    }
-
-    public function setAccountManager(?string $accountManager): self
-    {
-        $this->accountManager = $accountManager;
 
         return $this;
     }

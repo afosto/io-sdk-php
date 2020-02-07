@@ -27,6 +27,16 @@ class RelOrganisationUpdateModel
      */
     protected $accountManager;
     /**
+     * @var string[]
+     */
+    protected $tags;
+    /**
+     * additional metadata that applies to the item.
+     *
+     * @var string[]
+     */
+    protected $metadata;
+    /**
      * @var RelVatRegistrationModel[]
      */
     protected $registrations;
@@ -81,6 +91,46 @@ class RelOrganisationUpdateModel
     public function setAccountManager(?string $accountManager): self
     {
         $this->accountManager = $accountManager;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getTags(): ?array
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param string[]|null $tags
+     */
+    public function setTags(?array $tags): self
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * additional metadata that applies to the item.
+     *
+     * @return string[]|null
+     */
+    public function getMetadata(): ?\ArrayObject
+    {
+        return $this->metadata;
+    }
+
+    /**
+     * additional metadata that applies to the item.
+     *
+     * @param string[]|null $metadata
+     */
+    public function setMetadata(?\ArrayObject $metadata): self
+    {
+        $this->metadata = $metadata;
 
         return $this;
     }
