@@ -27,6 +27,10 @@ class CntProxy
     /**
      * @var string
      */
+    protected $secret;
+    /**
+     * @var string
+     */
     protected $tenantId;
     /**
      * @var \DateTime
@@ -69,6 +73,18 @@ class CntProxy
     public function setConfig(?CntConfig $config): self
     {
         $this->config = $config;
+
+        return $this;
+    }
+
+    public function getSecret(): ?string
+    {
+        return $this->secret;
+    }
+
+    public function setSecret(?string $secret): self
+    {
+        $this->secret = $secret;
 
         return $this;
     }

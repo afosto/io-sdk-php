@@ -47,6 +47,9 @@ class CntProxyNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'config') && null !== $data->{'config'}) {
             $object->setConfig($this->denormalizer->denormalize($data->{'config'}, 'Afosto\\Sdk\\Model\\CntConfig', 'json', $context));
         }
+        if (property_exists($data, 'secret') && null !== $data->{'secret'}) {
+            $object->setSecret($data->{'secret'});
+        }
         if (property_exists($data, 'tenant_id') && null !== $data->{'tenant_id'}) {
             $object->setTenantId($data->{'tenant_id'});
         }
@@ -71,6 +74,9 @@ class CntProxyNormalizer implements DenormalizerInterface, NormalizerInterface, 
         }
         if (null !== $object->getConfig()) {
             $data->{'config'} = $this->normalizer->normalize($object->getConfig(), 'json', $context);
+        }
+        if (null !== $object->getSecret()) {
+            $data->{'secret'} = $object->getSecret();
         }
         if (null !== $object->getTenantId()) {
             $data->{'tenant_id'} = $object->getTenantId();
