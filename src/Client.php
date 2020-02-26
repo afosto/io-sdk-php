@@ -4223,6 +4223,12 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *     @var string $is_public
      * }
      *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListFilesBadRequestException
@@ -4234,9 +4240,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntFile[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listFiles(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listFiles(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListFiles($queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListFiles($queryParameters, $headerParameters), $fetch);
     }
 
     /**

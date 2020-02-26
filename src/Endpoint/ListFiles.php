@@ -20,10 +20,17 @@ class ListFiles extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      *     @var string $dir
      *     @var string $is_public
      * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
      */
-    public function __construct(array $queryParameters = [])
+    public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
         $this->queryParameters = $queryParameters;
+        $this->headerParameters = $headerParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -56,6 +63,18 @@ class ListFiles extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('dir', ['string']);
         $optionsResolver->setAllowedTypes('is_public', ['string']);
+
+        return $optionsResolver;
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['x-page', 'x-page-size']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('x-page', ['string']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
 
         return $optionsResolver;
     }
