@@ -6157,6 +6157,26 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a 204 if the there exists an identity.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\IdentityExistsBadRequestException
+     * @throws \Afosto\Sdk\Exception\IdentityExistsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\IdentityExistsConflictException
+     * @throws \Afosto\Sdk\Exception\IdentityExistsForbiddenException
+     * @throws \Afosto\Sdk\Exception\IdentityExistsNotFoundException
+     * @throws \Afosto\Sdk\Exception\IdentityExistsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\IdentityExistsServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function identityExists(\Afosto\Sdk\Model\RelIdentityExistsRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\IdentityExists($body), $fetch);
+    }
+
+    /**
      * Returns a  signed id token.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

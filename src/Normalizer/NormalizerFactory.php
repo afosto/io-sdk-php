@@ -303,6 +303,7 @@ class NormalizerFactory
         $normalizers[] = new CatVatModelNormalizer();
         $normalizers[] = new CatVatNormalizer();
         $normalizers[] = new CatVatRateNormalizer();
+        $normalizers[] = new RelIdentityExistsRequestNormalizer();
         $normalizers[] = new RelCreateIdentityRequestNormalizer();
         $normalizers[] = new RelCreateTokenRequestNormalizer();
         $normalizers[] = new RelCreateResetRequestNormalizer();
