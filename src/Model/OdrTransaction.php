@@ -21,6 +21,10 @@ class OdrTransaction
      */
     protected $reference;
     /**
+     * @var string
+     */
+    protected $number;
+    /**
      * @var int
      */
     protected $amountDue;
@@ -85,6 +89,18 @@ class OdrTransaction
     public function setReference(?OdrReference $reference): self
     {
         $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getNumber(): ?string
+    {
+        return $this->number;
+    }
+
+    public function setNumber(?string $number): self
+    {
+        $this->number = $number;
 
         return $this;
     }
