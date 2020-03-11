@@ -210,6 +210,7 @@ class NormalizerFactory
         $normalizers[] = new WmsSubTransferSummaryNormalizer();
         $normalizers[] = new WmsSubTransferNormalizer();
         $normalizers[] = new WmsSubTransferItemNormalizer();
+        $normalizers[] = new CntDirectoryRequestNormalizer();
         $normalizers[] = new CntUploadRequestNormalizer();
         $normalizers[] = new CntUploadResponseNormalizer();
         $normalizers[] = new CntFileNormalizer();

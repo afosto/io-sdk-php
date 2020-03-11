@@ -4198,6 +4198,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Deletes a direcotry.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteDirectoryBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteDirectoryUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteDirectoryForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteDirectoryNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteDirectoryInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteDirectoryServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteDirectory(\Afosto\Sdk\Model\CntDirectoryRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteDirectory($body), $fetch);
+    }
+
+    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListDirectoriesBadRequestException
@@ -4212,6 +4231,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function listDirectories(string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListDirectories(), $fetch);
+    }
+
+    /**
+     * Add a directory.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateDirectoryBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateDirectoryUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateDirectoryForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateDirectoryNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateDirectoryInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateDirectoryServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function createDirectory(\Afosto\Sdk\Model\CntDirectoryRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateDirectory($body), $fetch);
     }
 
     /**
@@ -4243,6 +4281,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function listFiles(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListFiles($queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
+     * Deletes a file.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteFileBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteFileUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteFileForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteFileNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteFileInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteFileServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntFile|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteFile(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteFile($id), $fetch);
     }
 
     /**
