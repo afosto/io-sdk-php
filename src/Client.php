@@ -959,6 +959,441 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * start a checkout session.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\StartSessionBadRequestException
+     * @throws \Afosto\Sdk\Exception\StartSessionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\StartSessionForbiddenException
+     * @throws \Afosto\Sdk\Exception\StartSessionNotFoundException
+     * @throws \Afosto\Sdk\Exception\StartSessionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\StartSessionServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrStartSessionResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function startSession(\Afosto\Sdk\Model\OdrStartSessionRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\StartSession($body), $fetch);
+    }
+
+    /**
+     * Returns the current state of the checkout session.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSessionBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSessionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSessionForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSessionNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSessionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSessionServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrGetSessionResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSession(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSession($secret), $fetch);
+    }
+
+    /**
+     * Authenticate a cusotmer that will be used for the session.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AuthenticateSessionBadRequestException
+     * @throws \Afosto\Sdk\Exception\AuthenticateSessionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AuthenticateSessionForbiddenException
+     * @throws \Afosto\Sdk\Exception\AuthenticateSessionNotFoundException
+     * @throws \Afosto\Sdk\Exception\AuthenticateSessionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AuthenticateSessionServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrSessionsSecretAuthenticatePostResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function authenticateSession(string $secret, \Afosto\Sdk\Model\OdrAuthenticationRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AuthenticateSession($secret, $body), $fetch);
+    }
+
+    /**
+     * Returns a 204 when the identity exists.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SessionIdentityExistsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SessionIdentityExistsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SessionIdentityExistsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SessionIdentityExistsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SessionIdentityExistsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SessionIdentityExistsServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function sessionIdentityExists(string $secret, \Afosto\Sdk\Model\OdrIdentityExistsRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SessionIdentityExists($secret, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of known shipping addresses.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingAddressesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingAddressesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingAddressesForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingAddressesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingAddressesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingAddressesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrGetSessionAddressesResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSessionShippingAddresses(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSessionShippingAddresses($secret), $fetch);
+    }
+
+    /**
+     * Returns a list of applicable shipping methods.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingMethodsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingMethodsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingMethodsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingMethodsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingMethodsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingMethodsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrGetSessionShippingMethodResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSessionShippingMethods(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSessionShippingMethods($secret), $fetch);
+    }
+
+    /**
+     * Returns a list of applicable shipping methods.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $zipcode prefiled with the zipcode of the primary address
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSessionPickupPointsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSessionPickupPointsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSessionPickupPointsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSessionPickupPointsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSessionPickupPointsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSessionPickupPointsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrGetSessionPickupPointResponseItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSessionPickupPoints(string $secret, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSessionPickupPoints($secret, $queryParameters), $fetch);
+    }
+
+    /**
+     * Returns a list of applicable shipping methods.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $zipcode prefiled with the zipcode of the primary address
+     *     @var string $carrier the carrier to filter for
+     *     @var string $from from what timestamp to gather shipping windows
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingWindowBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingWindowUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingWindowForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingWindowNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingWindowInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingWindowServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrGetSessionDeliveryWindow[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSessionShippingWindow(string $secret, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSessionShippingWindow($secret, $queryParameters), $fetch);
+    }
+
+    /**
+     * Select a shipping option used for the session.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SelectSessionShippingOptionBadRequestException
+     * @throws \Afosto\Sdk\Exception\SelectSessionShippingOptionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SelectSessionShippingOptionForbiddenException
+     * @throws \Afosto\Sdk\Exception\SelectSessionShippingOptionNotFoundException
+     * @throws \Afosto\Sdk\Exception\SelectSessionShippingOptionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SelectSessionShippingOptionServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrSelectSessionServicePointRequest|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function selectSessionShippingOption(string $secret, \Afosto\Sdk\Model\OdrSelectSessionServicePointRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SelectSessionShippingOption($secret, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of applicable shipping methods.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingAddressesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingAddressesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingAddressesForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingAddressesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingAddressesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingAddressesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrGetSessionAddressesResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSessionBillingAddresses(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSessionBillingAddresses($secret), $fetch);
+    }
+
+    /**
+     * Returns a list of applicable shipping methods.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingMethodsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingMethodsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingMethodsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingMethodsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingMethodsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingMethodsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrGetSessionAddressesResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSessionBillingMethods(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSessionBillingMethods($secret), $fetch);
+    }
+
+    /**
+     * Returns a list of applicable shipping methods.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingProvidersBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingProvidersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingProvidersForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingProvidersNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingProvidersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSessionBillingProvidersServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrProvider[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSessionBillingProviders(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSessionBillingProviders($secret), $fetch);
+    }
+
+    /**
+     * Returns a list of applicable shipping methods.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $zipcode prefiled with the zipcode of the primary address
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSessionAllocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSessionAllocationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSessionAllocationForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSessionAllocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSessionAllocationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSessionAllocationServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrGetSessionAddressesResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSessionAllocation(string $secret, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSessionAllocation($secret, $queryParameters), $fetch);
+    }
+
+    /**
+     * Returns payment instructions.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateSessionPaymentRequestBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateSessionPaymentRequestUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateSessionPaymentRequestForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateSessionPaymentRequestNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateSessionPaymentRequestInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateSessionPaymentRequestServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function createSessionPaymentRequest(string $secret, \Afosto\Sdk\Model\OdrCreateSessionPaymentRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateSessionPaymentRequest($secret, $body), $fetch);
+    }
+
+    /**
+     * Add a new contact.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateSessionContactBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateSessionContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateSessionContactForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateSessionContactNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateSessionContactInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateSessionContactServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrContact|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createSessionContact(string $secret, \Afosto\Sdk\Model\OdrNewContact $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateSessionContact($secret, $body), $fetch);
+    }
+
+    /**
+     * Add a new contact.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateSessionAddressBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateSessionAddressUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateSessionAddressForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateSessionAddressNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateSessionAddressInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateSessionAddressServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrAddress|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createSessionAddress(string $secret, \Afosto\Sdk\Model\OdrNewAddress $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateSessionAddress($secret, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of suggested billing addresses.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSessionContactBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSessionContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSessionContactForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSessionContactNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSessionContactInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSessionContactServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrContact|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSessionContact(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSessionContact($secret), $fetch);
+    }
+
+    /**
+     * Returns a list of suggested billing addresses.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SelectSessionBillingContactBadRequestException
+     * @throws \Afosto\Sdk\Exception\SelectSessionBillingContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SelectSessionBillingContactForbiddenException
+     * @throws \Afosto\Sdk\Exception\SelectSessionBillingContactNotFoundException
+     * @throws \Afosto\Sdk\Exception\SelectSessionBillingContactInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SelectSessionBillingContactServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function selectSessionBillingContact(string $secret, \Afosto\Sdk\Model\OdrSelectSessionContactRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SelectSessionBillingContact($secret, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of suggested billing addresses.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingContactBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingContactForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingContactNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingContactInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSessionShippingContactServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrContact|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSessionShippingContact(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSessionShippingContact($secret), $fetch);
+    }
+
+    /**
+     * Returns the selected contact information.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SelectSessionShippingContactBadRequestException
+     * @throws \Afosto\Sdk\Exception\SelectSessionShippingContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SelectSessionShippingContactForbiddenException
+     * @throws \Afosto\Sdk\Exception\SelectSessionShippingContactNotFoundException
+     * @throws \Afosto\Sdk\Exception\SelectSessionShippingContactInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SelectSessionShippingContactServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function selectSessionShippingContact(string $secret, \Afosto\Sdk\Model\OdrSelectSessionContactRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SelectSessionShippingContact($secret, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of suggested billing addresses.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSessionProjectionBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSessionProjectionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSessionProjectionForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSessionProjectionNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSessionProjectionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSessionProjectionServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrProjection|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSessionProjection(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSessionProjection($secret), $fetch);
+    }
+
+    /**
+     * Returns a list of suggested billing addresses.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSessionItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSessionItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSessionItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSessionItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSessionItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSessionItemsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrItemModel[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSessionItems(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSessionItems($secret), $fetch);
+    }
+
+    /**
      * Delete the secret and disable 2FA.
      *
      * @param string $type  Type that needs to be deleted

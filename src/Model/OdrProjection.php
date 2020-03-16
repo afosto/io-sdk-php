@@ -33,10 +33,6 @@ class OdrProjection
      */
     protected $vat;
     /**
-     * @var OdrContact
-     */
-    protected $vendor;
-    /**
      * @var string
      */
     protected $currency;
@@ -127,18 +123,6 @@ class OdrProjection
     public function setVat(?array $vat): self
     {
         $this->vat = $vat;
-
-        return $this;
-    }
-
-    public function getVendor(): ?OdrContact
-    {
-        return $this->vendor;
-    }
-
-    public function setVendor(?OdrContact $vendor): self
-    {
-        $this->vendor = $vendor;
 
         return $this;
     }

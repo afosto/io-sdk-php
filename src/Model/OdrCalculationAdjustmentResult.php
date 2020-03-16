@@ -19,7 +19,7 @@ class OdrCalculationAdjustmentResult
     /**
      * @var string
      */
-    protected $ruleId;
+    protected $rule;
     /**
      * The result of the rule. Will be negative in case of a discount.
      *
@@ -39,14 +39,14 @@ class OdrCalculationAdjustmentResult
         return $this;
     }
 
-    public function getRuleId(): ?string
+    public function getRule(): ?string
     {
-        return $this->ruleId;
+        return $this->rule;
     }
 
-    public function setRuleId(?string $ruleId): self
+    public function setRule(?string $rule): self
     {
-        $this->ruleId = $ruleId;
+        $this->rule = $rule;
 
         return $this;
     }

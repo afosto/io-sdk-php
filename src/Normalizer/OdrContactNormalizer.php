@@ -38,11 +38,36 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrContact();
-        if (property_exists($data, 'vat_country_code') && null !== $data->{'vat_country_code'}) {
-            $object->setVatCountryCode($data->{'vat_country_code'});
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
+            $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'contact') && null !== $data->{'contact'}) {
-            $object->setContact($this->denormalizer->denormalize($data->{'contact'}, 'Afosto\\Sdk\\Model\\OdrContactContact', 'json', $context));
+        if (property_exists($data, 'version') && null !== $data->{'version'}) {
+            $object->setVersion($data->{'version'});
+        }
+        if (property_exists($data, 'email') && null !== $data->{'email'}) {
+            $object->setEmail($data->{'email'});
+        }
+        if (property_exists($data, 'tags') && null !== $data->{'tags'}) {
+            $values = [];
+            foreach ($data->{'tags'} as $value) {
+                $values[] = $value;
+            }
+            $object->setTags($values);
+        }
+        if (property_exists($data, 'given_name') && null !== $data->{'given_name'}) {
+            $object->setGivenName($data->{'given_name'});
+        }
+        if (property_exists($data, 'additional_name') && null !== $data->{'additional_name'}) {
+            $object->setAdditionalName($data->{'additional_name'});
+        }
+        if (property_exists($data, 'family_name') && null !== $data->{'family_name'}) {
+            $object->setFamilyName($data->{'family_name'});
+        }
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
+            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
+        }
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
+            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 
         return $object;
@@ -51,11 +76,36 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getVatCountryCode()) {
-            $data->{'vat_country_code'} = $object->getVatCountryCode();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getContact()) {
-            $data->{'contact'} = $this->normalizer->normalize($object->getContact(), 'json', $context);
+        if (null !== $object->getVersion()) {
+            $data->{'version'} = $object->getVersion();
+        }
+        if (null !== $object->getEmail()) {
+            $data->{'email'} = $object->getEmail();
+        }
+        if (null !== $object->getTags()) {
+            $values = [];
+            foreach ($object->getTags() as $value) {
+                $values[] = $value;
+            }
+            $data->{'tags'} = $values;
+        }
+        if (null !== $object->getGivenName()) {
+            $data->{'given_name'} = $object->getGivenName();
+        }
+        if (null !== $object->getAdditionalName()) {
+            $data->{'additional_name'} = $object->getAdditionalName();
+        }
+        if (null !== $object->getFamilyName()) {
+            $data->{'family_name'} = $object->getFamilyName();
+        }
+        if (null !== $object->getCreatedAt()) {
+            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getUpdatedAt()) {
+            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

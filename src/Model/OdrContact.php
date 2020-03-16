@@ -15,32 +15,174 @@ class OdrContact
     /**
      * @var string
      */
-    protected $vatCountryCode = 'NL';
+    protected $id;
     /**
-     * @var OdrContactContact
+     * @var string
      */
-    protected $contact;
+    protected $version;
+    /**
+     * @var string
+     */
+    protected $email;
+    /**
+     * @var string[]
+     */
+    protected $tags;
+    /**
+     * First name.
+     *
+     * @var string
+     */
+    protected $givenName;
+    /**
+     * Patronymic.
+     *
+     * @var string
+     */
+    protected $additionalName;
+    /**
+     * Last name.
+     *
+     * @var string
+     */
+    protected $familyName;
+    /**
+     * @var \DateTime
+     */
+    protected $createdAt;
+    /**
+     * @var \DateTime
+     */
+    protected $updatedAt;
 
-    public function getVatCountryCode(): ?string
+    public function getId(): ?string
     {
-        return $this->vatCountryCode;
+        return $this->id;
     }
 
-    public function setVatCountryCode(?string $vatCountryCode): self
+    public function setId(?string $id): self
     {
-        $this->vatCountryCode = $vatCountryCode;
+        $this->id = $id;
 
         return $this;
     }
 
-    public function getContact(): ?OdrContactContact
+    public function getVersion(): ?string
     {
-        return $this->contact;
+        return $this->version;
     }
 
-    public function setContact(?OdrContactContact $contact): self
+    public function setVersion(?string $version): self
     {
-        $this->contact = $contact;
+        $this->version = $version;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getTags(): ?array
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param string[]|null $tags
+     */
+    public function setTags(?array $tags): self
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * First name.
+     */
+    public function getGivenName(): ?string
+    {
+        return $this->givenName;
+    }
+
+    /**
+     * First name.
+     */
+    public function setGivenName(?string $givenName): self
+    {
+        $this->givenName = $givenName;
+
+        return $this;
+    }
+
+    /**
+     * Patronymic.
+     */
+    public function getAdditionalName(): ?string
+    {
+        return $this->additionalName;
+    }
+
+    /**
+     * Patronymic.
+     */
+    public function setAdditionalName(?string $additionalName): self
+    {
+        $this->additionalName = $additionalName;
+
+        return $this;
+    }
+
+    /**
+     * Last name.
+     */
+    public function getFamilyName(): ?string
+    {
+        return $this->familyName;
+    }
+
+    /**
+     * Last name.
+     */
+    public function setFamilyName(?string $familyName): self
+    {
+        $this->familyName = $familyName;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?\DateTime $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
