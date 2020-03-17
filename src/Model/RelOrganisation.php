@@ -27,6 +27,12 @@ class RelOrganisation
      */
     protected $name;
     /**
+     * The file_id ( logo ) of the organisation.
+     *
+     * @var string
+     */
+    protected $fileId;
+    /**
      * @var string
      */
     protected $cocNumber;
@@ -99,6 +105,24 @@ class RelOrganisation
     public function setName(?string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * The file_id ( logo ) of the organisation.
+     */
+    public function getFileId(): ?string
+    {
+        return $this->fileId;
+    }
+
+    /**
+     * The file_id ( logo ) of the organisation.
+     */
+    public function setFileId(?string $fileId): self
+    {
+        $this->fileId = $fileId;
 
         return $this;
     }

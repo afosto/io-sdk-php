@@ -41,6 +41,9 @@ class RelOrganisationUpdateModelNormalizer implements DenormalizerInterface, Nor
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
+        if (property_exists($data, 'file_id') && null !== $data->{'file_id'}) {
+            $object->setFileId($data->{'file_id'});
+        }
         if (property_exists($data, 'coc_number') && null !== $data->{'coc_number'}) {
             $object->setCocNumber($data->{'coc_number'});
         }
@@ -86,6 +89,9 @@ class RelOrganisationUpdateModelNormalizer implements DenormalizerInterface, Nor
         $data = new \stdClass();
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
+        }
+        if (null !== $object->getFileId()) {
+            $data->{'file_id'} = $object->getFileId();
         }
         if (null !== $object->getCocNumber()) {
             $data->{'coc_number'} = $object->getCocNumber();
