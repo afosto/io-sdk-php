@@ -23,6 +23,10 @@ class OdrTransaction
     /**
      * @var string
      */
+    protected $description;
+    /**
+     * @var string
+     */
     protected $number;
     /**
      * @var int
@@ -89,6 +93,18 @@ class OdrTransaction
     public function setReference(?OdrReference $reference): self
     {
         $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

@@ -44,6 +44,9 @@ class OdrTransactionNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($this->denormalizer->denormalize($data->{'reference'}, 'Afosto\\Sdk\\Model\\OdrReference', 'json', $context));
         }
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
+            $object->setDescription($data->{'description'});
+        }
         if (property_exists($data, 'number') && null !== $data->{'number'}) {
             $object->setNumber($data->{'number'});
         }
@@ -96,6 +99,9 @@ class OdrTransactionNormalizer implements DenormalizerInterface, NormalizerInter
         }
         if (null !== $object->getReference()) {
             $data->{'reference'} = $this->normalizer->normalize($object->getReference(), 'json', $context);
+        }
+        if (null !== $object->getDescription()) {
+            $data->{'description'} = $object->getDescription();
         }
         if (null !== $object->getNumber()) {
             $data->{'number'} = $object->getNumber();
