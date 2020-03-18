@@ -6247,6 +6247,36 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * View a historic or planned list of prices for a sku.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $is_planned Use to query only future / planned prices
+     * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewPricingUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewPricingNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewPricingBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewPricingForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewPricingInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewPricingServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CatPrice[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewPricing(string $id, string $sku, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewPricing($id, $sku, $queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
      * Get a listing of vat rates per country.
      *
      * @param array $queryParameters {
