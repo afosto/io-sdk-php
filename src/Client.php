@@ -6328,6 +6328,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Get a single price by its ID.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewPriceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewPriceNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewPriceBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewPriceForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewPriceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewPriceServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CatPrice|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewPrice(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewPrice($id), $fetch);
+    }
+
+    /**
      * Returns a list of contact information.
      *
      * @param array $headerParameters {

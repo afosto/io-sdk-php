@@ -15,6 +15,10 @@ class CatPrice
     /**
      * @var string
      */
+    protected $id;
+    /**
+     * @var string
+     */
     protected $sku;
     /**
      * @var int
@@ -29,6 +33,10 @@ class CatPrice
      */
     protected $vat;
     /**
+     * @var string
+     */
+    protected $priceGroupId;
+    /**
      * @var \DateTime
      */
     protected $activeAt;
@@ -36,6 +44,18 @@ class CatPrice
      * @var \DateTime
      */
     protected $createdAt;
+
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    public function setId(?string $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     public function getSku(): ?string
     {
@@ -87,6 +107,18 @@ class CatPrice
     public function setVat(?array $vat): self
     {
         $this->vat = $vat;
+
+        return $this;
+    }
+
+    public function getPriceGroupId(): ?string
+    {
+        return $this->priceGroupId;
+    }
+
+    public function setPriceGroupId(?string $priceGroupId): self
+    {
+        $this->priceGroupId = $priceGroupId;
 
         return $this;
     }

@@ -38,6 +38,9 @@ class CatPriceNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\CatPrice();
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
+            $object->setId($data->{'id'});
+        }
         if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
@@ -54,6 +57,9 @@ class CatPriceNormalizer implements DenormalizerInterface, NormalizerInterface, 
             }
             $object->setVat($values);
         }
+        if (property_exists($data, 'price_group_id') && null !== $data->{'price_group_id'}) {
+            $object->setPriceGroupId($data->{'price_group_id'});
+        }
         if (property_exists($data, 'active_at') && null !== $data->{'active_at'}) {
             $object->setActiveAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'active_at'}));
         }
@@ -67,6 +73,9 @@ class CatPriceNormalizer implements DenormalizerInterface, NormalizerInterface, 
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
+        }
         if (null !== $object->getSku()) {
             $data->{'sku'} = $object->getSku();
         }
@@ -82,6 +91,9 @@ class CatPriceNormalizer implements DenormalizerInterface, NormalizerInterface, 
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'vat'} = $values;
+        }
+        if (null !== $object->getPriceGroupId()) {
+            $data->{'price_group_id'} = $object->getPriceGroupId();
         }
         if (null !== $object->getActiveAt()) {
             $data->{'active_at'} = $object->getActiveAt()->format("Y-m-d\TH:i:sP");
