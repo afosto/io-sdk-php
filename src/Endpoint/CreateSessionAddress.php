@@ -15,7 +15,7 @@ class CreateSessionAddress extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
     protected $secret;
 
     /**
-     * Add a new contact.
+     * Create a address.
      */
     public function __construct(string $secret, \Afosto\Sdk\Model\OdrNewAddress $body)
     {

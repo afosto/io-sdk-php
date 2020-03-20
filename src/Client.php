@@ -1261,7 +1261,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Add a new contact.
+     * Create a address.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
