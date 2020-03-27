@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrTask
+class MesTask
 {
     /**
      * @var string
@@ -29,7 +29,7 @@ class OdrTask
      */
     protected $progress;
     /**
-     * @var mixed
+     * @var string
      */
     protected $result;
     /**
@@ -93,18 +93,12 @@ class OdrTask
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getResult()
+    public function getResult(): ?string
     {
         return $this->result;
     }
 
-    /**
-     * @param mixed $result
-     */
-    public function setResult($result): self
+    public function setResult(?string $result): self
     {
         $this->result = $result;
 

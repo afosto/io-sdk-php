@@ -5725,7 +5725,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetTaskInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetTaskServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrTask|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\MesTask|\Psr\Http\Message\ResponseInterface|null
      */
     public function getTask(string $id, string $fetch = self::FETCH_OBJECT)
     {

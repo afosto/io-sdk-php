@@ -31,7 +31,7 @@ class GetTask extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/tasks/{id}');
+        return str_replace(['{id}'], [$this->id], '/mes/tasks/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -54,12 +54,12 @@ class GetTask extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\
      * @throws \Afosto\Sdk\Exception\GetTaskInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetTaskServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrTask|null
+     * @return \Afosto\Sdk\Model\MesTask|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrTask', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\MesTask', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\GetTaskBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
