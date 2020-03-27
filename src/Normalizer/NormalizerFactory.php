@@ -293,6 +293,7 @@ class NormalizerFactory
         $normalizers[] = new SplJobModelNormalizer();
         $normalizers[] = new SplJobResultNormalizer();
         $normalizers[] = new SplStatusNormalizer();
+        $normalizers[] = new OdrTaskNormalizer();
         $normalizers[] = new OdrFilterSetNormalizer();
         $normalizers[] = new OdrDisposalNormalizer();
         $normalizers[] = new OdrLogNormalizer();

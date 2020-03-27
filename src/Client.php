@@ -5714,6 +5714,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Get a single task.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetTaskBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTaskUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetTaskForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetTaskNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetTaskInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetTaskServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrTask|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getTask(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTask($id), $fetch);
+    }
+
+    /**
      * Returns a list of disposals.
      *
      * @param array $queryParameters {
