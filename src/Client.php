@@ -1144,6 +1144,51 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a list of applicable shipping methods.
      *
+     * @param array $queryParameters {
+     *
+     *     @var string $zipcode prefiled with the zipcode of the primary address
+     *     @var string $carrier the carrier to filter for
+     *     @var string $from from what timestamp to gather shipping windows
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetBillingOptionBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetBillingOptionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetBillingOptionForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetBillingOptionNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetBillingOptionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetBillingOptionServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrGetSessionDeliveryWindow[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getBillingOption(string $secret, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBillingOption($secret, $queryParameters), $fetch);
+    }
+
+    /**
+     * Select a shipping option used for the session.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SelectBillingOptionBadRequestException
+     * @throws \Afosto\Sdk\Exception\SelectBillingOptionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SelectBillingOptionForbiddenException
+     * @throws \Afosto\Sdk\Exception\SelectBillingOptionNotFoundException
+     * @throws \Afosto\Sdk\Exception\SelectBillingOptionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SelectBillingOptionServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrSelectSessionBillingRequest|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function selectBillingOption(string $secret, \Afosto\Sdk\Model\OdrSelectSessionBillingRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SelectBillingOption($secret, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of applicable shipping methods.
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetSessionBillingAddressesBadRequestException

@@ -74,6 +74,7 @@ class NormalizerFactory
         $normalizers[] = new OdrGetSessionResponseNormalizer();
         $normalizers[] = new OdrGetSessionAddressesResponseNormalizer();
         $normalizers[] = new OdrAuthenticationRequestNormalizer();
+        $normalizers[] = new OdrSelectSessionBillingRequestNormalizer();
         $normalizers[] = new OdrCreateSessionPaymentRequestNormalizer();
         $normalizers[] = new OdrGetSessionPickupPointResponseItemNormalizer();
         $normalizers[] = new OdrGetSessionPickupPointResponseItemGeoNormalizer();
