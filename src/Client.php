@@ -959,6 +959,292 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetActionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetActionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetActionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetActionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetActionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetActionsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntAction[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getActions(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetActions(), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetBatchesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetBatchesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetBatchesForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetBatchesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetBatchesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetBatchesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntBatch[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getBatches(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBatches(), $fetch);
+    }
+
+    /**
+     * Create a new batch.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateBatchBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateBatchUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateBatchForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateBatchNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateBatchInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateBatchServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntBatch|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createBatch(\Afosto\Sdk\Model\CntBatchRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateBatch($body), $fetch);
+    }
+
+    /**
+     * Delete an unconfirmed batch.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteBatchBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteBatchUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteBatchForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteBatchNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteBatchInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteBatchServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntBatch[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteBatch(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteBatch($id), $fetch);
+    }
+
+    /**
+     * Get a single batch.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetBatchBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetBatchUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetBatchForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetBatchNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetBatchInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetBatchServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntBatch[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getBatch(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBatch($id), $fetch);
+    }
+
+    /**
+     * Update a batch config or reference.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateBatchBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateBatchUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateBatchForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateBatchNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateBatchInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateBatchServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntBatch[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateBatch(string $id, \Afosto\Sdk\Model\CntBatchRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateBatch($id, $body), $fetch);
+    }
+
+    /**
+     * Request validation for the batch and the dataset. The dataaset and the batch will be locked. When invalid, lock will be lifted. If batch is valid, is_accepted will become true.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ValidateBatchBadRequestException
+     * @throws \Afosto\Sdk\Exception\ValidateBatchUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ValidateBatchForbiddenException
+     * @throws \Afosto\Sdk\Exception\ValidateBatchNotFoundException
+     * @throws \Afosto\Sdk\Exception\ValidateBatchInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ValidateBatchServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function validateBatch(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ValidateBatch($id), $fetch);
+    }
+
+    /**
+     * Confirm a batch for processing; processing will start. Only possible when batch is accepted.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ConfirmBatchBadRequestException
+     * @throws \Afosto\Sdk\Exception\ConfirmBatchUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ConfirmBatchForbiddenException
+     * @throws \Afosto\Sdk\Exception\ConfirmBatchNotFoundException
+     * @throws \Afosto\Sdk\Exception\ConfirmBatchInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ConfirmBatchServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function confirmBatch(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ConfirmBatch($id), $fetch);
+    }
+
+    /**
+     * Get a list of errors for a batch.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetBatchErrorsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetBatchErrorsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetBatchErrorsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetBatchErrorsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetBatchErrorsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetBatchErrorsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntLineError[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getBatchErrors(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBatchErrors($id, $headerParameters), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListDatasetsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListDatasetsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListDatasetsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListDatasetsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListDatasetsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListDatasetsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntDataset[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listDatasets(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListDatasets(), $fetch);
+    }
+
+    /**
+     * Add a new dataset container.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateDatasetBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateDatasetUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateDatasetForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateDatasetNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateDatasetInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateDatasetServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntDataset|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createDataset(\Afosto\Sdk\Model\CntDatasetRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateDataset($body), $fetch);
+    }
+
+    /**
+     * Get a set of rows.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetDatasetBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetDatasetUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetDatasetForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetDatasetNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetDatasetInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetDatasetServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntDataset|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getDataset(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetDataset($id), $fetch);
+    }
+
+    /**
+     * Select a file and read it to be used as input.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AttachFileBadRequestException
+     * @throws \Afosto\Sdk\Exception\AttachFileUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AttachFileForbiddenException
+     * @throws \Afosto\Sdk\Exception\AttachFileNotFoundException
+     * @throws \Afosto\Sdk\Exception\AttachFileInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AttachFileServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function attachFile(string $id, \Afosto\Sdk\Model\CntFile $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachFile($id, $body), $fetch);
+    }
+
+    /**
+     * Upload data as lines to the dataset.
+     *
+     * @param \Afosto\Sdk\Model\CntLine[] $body
+     * @param string                      $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AttachDataBadRequestException
+     * @throws \Afosto\Sdk\Exception\AttachDataUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AttachDataForbiddenException
+     * @throws \Afosto\Sdk\Exception\AttachDataNotFoundException
+     * @throws \Afosto\Sdk\Exception\AttachDataInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AttachDataServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function attachData(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachData($id, $body), $fetch);
+    }
+
+    /**
+     * Browse all dataset lines.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetLinesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetLinesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetLinesForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetLinesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetLinesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetLinesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntLine[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getLines(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetLines($id), $fetch);
+    }
+
+    /**
      * start a checkout session.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
