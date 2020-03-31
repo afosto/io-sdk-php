@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class GetSessionBillingMethodsForbiddenException extends \RuntimeException implements ClientException
+class RemoveSessionBillingContactForbiddenException extends \RuntimeException implements ClientException
 {
     private $error;
 

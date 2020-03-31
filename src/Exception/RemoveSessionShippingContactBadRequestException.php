@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class GetSessionBillingMethodsNotFoundException extends \RuntimeException implements ClientException
+class RemoveSessionShippingContactBadRequestException extends \RuntimeException implements ClientException
 {
     private $error;
 
     public function __construct(\Afosto\Sdk\Model\Error $error)
     {
-        parent::__construct('Not found', 404);
+        parent::__construct('Bad request', 400);
         $this->error = $error;
     }
 

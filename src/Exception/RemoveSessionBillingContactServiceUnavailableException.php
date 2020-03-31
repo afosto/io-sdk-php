@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class GetSessionBillingMethodsInternalServerErrorException extends \RuntimeException implements ServerException
+class RemoveSessionBillingContactServiceUnavailableException extends \RuntimeException implements ServerException
 {
     private $error;
 
     public function __construct(\Afosto\Sdk\Model\Error $error)
     {
-        parent::__construct('Internal Server Error', 500);
+        parent::__construct('Service Unavailable', 503);
         $this->error = $error;
     }
 

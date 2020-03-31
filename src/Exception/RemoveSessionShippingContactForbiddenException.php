@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class GetSessionBillingMethodsUnauthorizedException extends \RuntimeException implements ClientException
+class RemoveSessionShippingContactForbiddenException extends \RuntimeException implements ClientException
 {
     private $error;
 
     public function __construct(\Afosto\Sdk\Model\Error $error)
     {
-        parent::__construct('Unauthorized', 401);
+        parent::__construct('Forbidden', 403);
         $this->error = $error;
     }
 

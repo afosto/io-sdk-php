@@ -1496,25 +1496,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetSessionBillingMethodsBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetSessionBillingMethodsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetSessionBillingMethodsForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetSessionBillingMethodsNotFoundException
-     * @throws \Afosto\Sdk\Exception\GetSessionBillingMethodsInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\GetSessionBillingMethodsServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\OdrGetSessionAddressesResponse|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getSessionBillingMethods(string $secret, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSessionBillingMethods($secret), $fetch);
-    }
-
-    /**
-     * Returns a list of applicable shipping methods.
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
      * @throws \Afosto\Sdk\Exception\GetSessionBillingProvidersBadRequestException
      * @throws \Afosto\Sdk\Exception\GetSessionBillingProvidersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSessionBillingProvidersForbiddenException
@@ -1611,6 +1592,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * removes the selected contact for billing.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\RemoveSessionBillingContactBadRequestException
+     * @throws \Afosto\Sdk\Exception\RemoveSessionBillingContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RemoveSessionBillingContactForbiddenException
+     * @throws \Afosto\Sdk\Exception\RemoveSessionBillingContactNotFoundException
+     * @throws \Afosto\Sdk\Exception\RemoveSessionBillingContactInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RemoveSessionBillingContactServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function removeSessionBillingContact(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RemoveSessionBillingContact($secret), $fetch);
+    }
+
+    /**
      * Returns a list of suggested billing addresses.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -1646,6 +1646,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function selectSessionBillingContact(string $secret, \Afosto\Sdk\Model\OdrSelectSessionContactRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SelectSessionBillingContact($secret, $body), $fetch);
+    }
+
+    /**
+     * removes the selected contact for shipping.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\RemoveSessionShippingContactBadRequestException
+     * @throws \Afosto\Sdk\Exception\RemoveSessionShippingContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RemoveSessionShippingContactForbiddenException
+     * @throws \Afosto\Sdk\Exception\RemoveSessionShippingContactNotFoundException
+     * @throws \Afosto\Sdk\Exception\RemoveSessionShippingContactInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RemoveSessionShippingContactServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function removeSessionShippingContact(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RemoveSessionShippingContact($secret), $fetch);
     }
 
     /**
