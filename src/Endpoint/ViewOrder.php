@@ -31,7 +31,7 @@ class ViewOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/orders/{id}');
+        return str_replace(['{id}'], [$this->id], '/orders/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -54,12 +54,12 @@ class ViewOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      * @throws \Afosto\Sdk\Exception\ViewOrderInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ViewOrderServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrOrder|null
+     * @return \Afosto\Sdk\Model\Order|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrOrder', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Order', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ViewOrderUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

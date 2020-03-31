@@ -17,7 +17,7 @@ class UpdateOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * Update the customer parameters for the order.
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\OdrOrderUpdateModel $body)
+    public function __construct(string $id, \Afosto\Sdk\Model\OrderUpdateModel $body)
     {
         $this->id = $id;
         $this->body = $body;
@@ -32,7 +32,7 @@ class UpdateOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/orders/{id}');
+        return str_replace(['{id}'], [$this->id], '/orders/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -55,12 +55,12 @@ class UpdateOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\UpdateOrderInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateOrderServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrOrder|null
+     * @return \Afosto\Sdk\Model\Order|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrOrder', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Order', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateOrderUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
