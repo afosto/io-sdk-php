@@ -41,8 +41,8 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'carrier') && null !== $data->{'carrier'}) {
-            $object->setCarrier($data->{'carrier'});
+        if (property_exists($data, 'carrier_code') && null !== $data->{'carrier_code'}) {
+            $object->setCarrierCode($data->{'carrier_code'});
         }
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
@@ -91,8 +91,8 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getCarrier()) {
-            $data->{'carrier'} = $object->getCarrier();
+        if (null !== $object->getCarrierCode()) {
+            $data->{'carrier_code'} = $object->getCarrierCode();
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();

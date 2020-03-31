@@ -19,7 +19,7 @@ class LcsMethod
     /**
      * @var string
      */
-    protected $carrier;
+    protected $carrierCode;
     /**
      * @var string
      */
@@ -77,14 +77,14 @@ class LcsMethod
         return $this;
     }
 
-    public function getCarrier(): ?string
+    public function getCarrierCode(): ?string
     {
-        return $this->carrier;
+        return $this->carrierCode;
     }
 
-    public function setCarrier(?string $carrier): self
+    public function setCarrierCode(?string $carrierCode): self
     {
-        $this->carrier = $carrier;
+        $this->carrierCode = $carrierCode;
 
         return $this;
     }
