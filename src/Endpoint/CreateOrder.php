@@ -15,7 +15,7 @@ class CreateOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * Create a new order.
      */
-    public function __construct(\Afosto\Sdk\Model\OrderModel $body)
+    public function __construct(\Afosto\Sdk\Model\OdrOrderModel $body)
     {
         $this->body = $body;
     }
@@ -29,7 +29,7 @@ class CreateOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return '/orders';
+        return '/odr/orders';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -52,12 +52,12 @@ class CreateOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\CreateOrderInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateOrderServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\Order|null
+     * @return \Afosto\Sdk\Model\OdrOrder|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Order', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrOrder', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateOrderUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

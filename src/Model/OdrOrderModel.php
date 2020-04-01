@@ -10,16 +10,8 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class Order
+class OdrOrderModel
 {
-    /**
-     * @var string
-     */
-    protected $id;
-    /**
-     * @var string
-     */
-    protected $number;
     /**
      * @var string
      */
@@ -33,9 +25,13 @@ class Order
      */
     protected $organisationId;
     /**
-     * @var State
+     * @var bool
      */
-    protected $state;
+    protected $isConfirmed;
+    /**
+     * @var string
+     */
+    protected $stack;
     /**
      * @var string
      */
@@ -52,42 +48,6 @@ class Order
      * @var \DateTime
      */
     protected $dueAt;
-    /**
-     * @var \DateTime
-     */
-    protected $deletedAt;
-    /**
-     * @var \DateTime
-     */
-    protected $createdAt;
-    /**
-     * @var \DateTime
-     */
-    protected $updatedAt;
-
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    public function setId(?string $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    public function getNumber(): ?string
-    {
-        return $this->number;
-    }
-
-    public function setNumber(?string $number): self
-    {
-        $this->number = $number;
-
-        return $this;
-    }
 
     public function getClientId(): ?string
     {
@@ -125,14 +85,26 @@ class Order
         return $this;
     }
 
-    public function getState(): ?State
+    public function getIsConfirmed(): ?bool
     {
-        return $this->state;
+        return $this->isConfirmed;
     }
 
-    public function setState(?State $state): self
+    public function setIsConfirmed(?bool $isConfirmed): self
     {
-        $this->state = $state;
+        $this->isConfirmed = $isConfirmed;
+
+        return $this;
+    }
+
+    public function getStack(): ?string
+    {
+        return $this->stack;
+    }
+
+    public function setStack(?string $stack): self
+    {
+        $this->stack = $stack;
 
         return $this;
     }
@@ -187,42 +159,6 @@ class Order
     public function setDueAt(?\DateTime $dueAt): self
     {
         $this->dueAt = $dueAt;
-
-        return $this;
-    }
-
-    public function getDeletedAt(): ?\DateTime
-    {
-        return $this->deletedAt;
-    }
-
-    public function setDeletedAt(?\DateTime $deletedAt): self
-    {
-        $this->deletedAt = $deletedAt;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTime
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(?\DateTime $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getUpdatedAt(): ?\DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(?\DateTime $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
 
         return $this;
     }

@@ -35,7 +35,7 @@ class ListOrders extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     public function getUri(): string
     {
-        return '/orders';
+        return '/odr/orders';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -70,12 +70,12 @@ class ListOrders extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      * @throws \Afosto\Sdk\Exception\ListOrdersInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListOrdersServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\Order[]|null
+     * @return \Afosto\Sdk\Model\OdrOrder[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Order[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrOrder[]', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListOrdersUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

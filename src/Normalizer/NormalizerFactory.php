@@ -28,10 +28,10 @@ class NormalizerFactory
         $normalizers[] = new MesParticipantCreateNormalizer();
         $normalizers[] = new MesSubscriptionNormalizer();
         $normalizers[] = new MesCancelNormalizer();
-        $normalizers[] = new OrderNormalizer();
-        $normalizers[] = new OrderModelNormalizer();
-        $normalizers[] = new OrderUpdateModelNormalizer();
-        $normalizers[] = new StateNormalizer();
+        $normalizers[] = new OdrOrderNormalizer();
+        $normalizers[] = new OdrOrderModelNormalizer();
+        $normalizers[] = new OdrOrderUpdateModelNormalizer();
+        $normalizers[] = new OdrStateNormalizer();
         $normalizers[] = new MesMailModelNormalizer();
         $normalizers[] = new MesContactModelNormalizer();
         $normalizers[] = new MesMailNormalizer();

@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OrderNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\Order' === $type;
+        return 'Afosto\\Sdk\\Model\\OdrOrder' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\Order' === get_class($data);
+        return 'Afosto\\Sdk\\Model\\OdrOrder' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class OrderNormalizer implements DenormalizerInterface, NormalizerInterface, Den
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\Order();
+        $object = new \Afosto\Sdk\Model\OdrOrder();
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
@@ -54,7 +54,7 @@ class OrderNormalizer implements DenormalizerInterface, NormalizerInterface, Den
             $object->setOrganisationId($data->{'organisation_id'});
         }
         if (property_exists($data, 'state') && null !== $data->{'state'}) {
-            $object->setState($this->denormalizer->denormalize($data->{'state'}, 'Afosto\\Sdk\\Model\\State', 'json', $context));
+            $object->setState($this->denormalizer->denormalize($data->{'state'}, 'Afosto\\Sdk\\Model\\OdrState', 'json', $context));
         }
         if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
             $object->setAddressId($data->{'address_id'});

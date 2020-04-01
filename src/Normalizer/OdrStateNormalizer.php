@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class StateNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrStateNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\State' === $type;
+        return 'Afosto\\Sdk\\Model\\OdrState' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\State' === get_class($data);
+        return 'Afosto\\Sdk\\Model\\OdrState' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class StateNormalizer implements DenormalizerInterface, NormalizerInterface, Den
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\State();
+        $object = new \Afosto\Sdk\Model\OdrState();
         if (property_exists($data, 'is_confirmed') && null !== $data->{'is_confirmed'}) {
             $object->setIsConfirmed($data->{'is_confirmed'});
         }

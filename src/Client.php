@@ -200,7 +200,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListOrdersInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListOrdersServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\Order[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrOrder[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listOrders(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -219,9 +219,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\CreateOrderInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateOrderServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\Order|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createOrder(\Afosto\Sdk\Model\OrderModel $body, string $fetch = self::FETCH_OBJECT)
+    public function createOrder(\Afosto\Sdk\Model\OdrOrderModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateOrder($body), $fetch);
     }
@@ -238,7 +238,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\DeleteOrderInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\DeleteOrderServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\Order|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
      */
     public function deleteOrder(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -257,7 +257,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ViewOrderInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ViewOrderServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\Order|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
      */
     public function viewOrder(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -276,9 +276,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateOrderInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateOrderServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\Order|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateOrder(string $id, \Afosto\Sdk\Model\OrderUpdateModel $body, string $fetch = self::FETCH_OBJECT)
+    public function updateOrder(string $id, \Afosto\Sdk\Model\OdrOrderUpdateModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateOrder($id, $body), $fetch);
     }
@@ -295,9 +295,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateOrderStateInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateOrderStateServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\Order|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrOrder|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateOrderState(string $id, \Afosto\Sdk\Model\State $body, string $fetch = self::FETCH_OBJECT)
+    public function updateOrderState(string $id, \Afosto\Sdk\Model\OdrState $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateOrderState($id, $body), $fetch);
     }

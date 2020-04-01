@@ -31,7 +31,7 @@ class DeleteOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/orders/{id}');
+        return str_replace(['{id}'], [$this->id], '/odr/orders/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -54,12 +54,12 @@ class DeleteOrder extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\DeleteOrderInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\DeleteOrderServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\Order|null
+     * @return \Afosto\Sdk\Model\OdrOrder|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Order', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrOrder', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteOrderUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
