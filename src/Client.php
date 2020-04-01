@@ -704,6 +704,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns all data for the calculation.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetCalculationDataBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetCalculationDataUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetCalculationDataForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetCalculationDataNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetCalculationDataInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetCalculationDataServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function getCalculationData(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetCalculationData($id), $fetch);
+    }
+
+    /**
      * Update a calculation state.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -819,6 +838,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function updateInvoice(string $id, \Afosto\Sdk\Model\OdrBillRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInvoice($id, $body), $fetch);
+    }
+
+    /**
+     * Returns all data for the invoice.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetInvoiceDataBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetInvoiceDataUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetInvoiceDataForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetInvoiceDataNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetInvoiceDataInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetInvoiceDataServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function getInvoiceData(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInvoiceData($id), $fetch);
     }
 
     /**
