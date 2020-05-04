@@ -3513,6 +3513,31 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns list of transactions.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $entity_type
+     *     @var string $entity_id
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListTransactionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListTransactionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListTransactionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListTransactionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListTransactionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListTransactionsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrTransaction[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listTransactions(\Afosto\Sdk\Model\OdrTransactionModel $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListTransactions($body, $queryParameters), $fetch);
+    }
+
+    /**
      * Returns a new signed upload url.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
