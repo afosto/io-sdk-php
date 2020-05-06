@@ -38,9 +38,6 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrOrderModel();
-        if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
-            $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
-        }
         if (property_exists($data, 'processing') && null !== $data->{'processing'}) {
             $object->setProcessing($this->denormalizer->denormalize($data->{'processing'}, 'Afosto\\Sdk\\Model\\OdrProcessing', 'json', $context));
         }
@@ -60,9 +57,6 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getExpiresAt()) {
-            $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");
-        }
         if (null !== $object->getProcessing()) {
             $data->{'processing'} = $this->normalizer->normalize($object->getProcessing(), 'json', $context);
         }

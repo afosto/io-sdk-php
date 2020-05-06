@@ -13,10 +13,6 @@ namespace Afosto\Sdk\Model;
 class OdrOrderModel
 {
     /**
-     * @var \DateTime
-     */
-    protected $expiresAt;
-    /**
      * @var OdrProcessing
      */
     protected $processing;
@@ -32,18 +28,6 @@ class OdrOrderModel
      * @var mixed
      */
     protected $metadata;
-
-    public function getExpiresAt(): ?\DateTime
-    {
-        return $this->expiresAt;
-    }
-
-    public function setExpiresAt(?\DateTime $expiresAt): self
-    {
-        $this->expiresAt = $expiresAt;
-
-        return $this;
-    }
 
     public function getProcessing(): ?OdrProcessing
     {
