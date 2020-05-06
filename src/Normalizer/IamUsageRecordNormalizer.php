@@ -29,7 +29,7 @@ class IamUsageRecordNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\IamUsageRecord' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\IamUsageRecord' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

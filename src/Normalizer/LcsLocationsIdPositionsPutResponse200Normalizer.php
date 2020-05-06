@@ -29,7 +29,7 @@ class LcsLocationsIdPositionsPutResponse200Normalizer implements DenormalizerInt
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsLocationsIdPositionsPutResponse200' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsLocationsIdPositionsPutResponse200' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

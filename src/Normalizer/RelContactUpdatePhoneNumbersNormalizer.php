@@ -29,7 +29,7 @@ class RelContactUpdatePhoneNumbersNormalizer implements DenormalizerInterface, N
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\RelContactUpdatePhoneNumbers' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\RelContactUpdatePhoneNumbers' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

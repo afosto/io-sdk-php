@@ -29,7 +29,7 @@ class RelCreateConfirmRequestNormalizer implements DenormalizerInterface, Normal
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\RelCreateConfirmRequest' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\RelCreateConfirmRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

@@ -29,7 +29,7 @@ class WmsBackorderNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\WmsBackorder' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsBackorder' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

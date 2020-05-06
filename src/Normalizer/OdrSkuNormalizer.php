@@ -29,7 +29,7 @@ class OdrSkuNormalizer implements DenormalizerInterface, NormalizerInterface, De
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\OdrSku' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrSku' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

@@ -29,7 +29,7 @@ class IamBillingCompanyNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\IamBillingCompany' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\IamBillingCompany' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

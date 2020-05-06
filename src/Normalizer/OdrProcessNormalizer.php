@@ -29,7 +29,7 @@ class OdrProcessNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\OdrProcess' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrProcess' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

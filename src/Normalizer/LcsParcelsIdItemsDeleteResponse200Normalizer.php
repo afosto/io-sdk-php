@@ -29,7 +29,7 @@ class LcsParcelsIdItemsDeleteResponse200Normalizer implements DenormalizerInterf
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsParcelsIdItemsDeleteResponse200' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsParcelsIdItemsDeleteResponse200' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

@@ -29,7 +29,7 @@ class OdrNewPhonenumberNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\OdrNewPhonenumber' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrNewPhonenumber' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

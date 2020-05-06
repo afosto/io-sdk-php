@@ -29,7 +29,7 @@ class SplHubErrorModelNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\SplHubErrorModel' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\SplHubErrorModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

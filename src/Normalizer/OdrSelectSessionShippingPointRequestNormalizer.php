@@ -29,7 +29,7 @@ class OdrSelectSessionShippingPointRequestNormalizer implements DenormalizerInte
 
     public function supportsNormalization($data, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\OdrSelectSessionShippingPointRequest' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrSelectSessionShippingPointRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
