@@ -21,6 +21,18 @@ class OdrOrderCalculationsItem
      */
     protected $reference;
     /**
+     * @var bool
+     */
+    protected $isValid;
+    /**
+     * @var bool
+     */
+    protected $isAccepted;
+    /**
+     * @var string
+     */
+    protected $transactionSecret;
+    /**
      * @var \DateTime
      */
     protected $expiresAt;
@@ -45,6 +57,42 @@ class OdrOrderCalculationsItem
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getIsValid(): ?bool
+    {
+        return $this->isValid;
+    }
+
+    public function setIsValid(?bool $isValid): self
+    {
+        $this->isValid = $isValid;
+
+        return $this;
+    }
+
+    public function getIsAccepted(): ?bool
+    {
+        return $this->isAccepted;
+    }
+
+    public function setIsAccepted(?bool $isAccepted): self
+    {
+        $this->isAccepted = $isAccepted;
+
+        return $this;
+    }
+
+    public function getTransactionSecret(): ?string
+    {
+        return $this->transactionSecret;
+    }
+
+    public function setTransactionSecret(?string $transactionSecret): self
+    {
+        $this->transactionSecret = $transactionSecret;
 
         return $this;
     }

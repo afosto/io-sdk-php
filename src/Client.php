@@ -432,6 +432,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Update the order state.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateStateUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateStateNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateStateBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateStateForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateStateInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateStateServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateState(string $id, \Afosto\Sdk\Model\OdrOrdersIdFlowPutBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateState($id, $body), $fetch);
+    }
+
+    /**
      * Delete items by ID.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

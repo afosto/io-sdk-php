@@ -420,6 +420,8 @@ class NormalizerFactory
         $normalizers[] = new RelAddressNormalizer();
         $normalizers[] = new RelVersionNormalizer();
         $normalizers[] = new OdrOrdersIdAuthorizePostBodyNormalizer();
+        $normalizers[] = new OdrOrdersIdFlowPutBodyNormalizer();
+        $normalizers[] = new OdrOrdersIdFlowPutBodyActionsItemNormalizer();
         $normalizers[] = new OdrFiltersPutResponse200Normalizer();
         $normalizers[] = new OdrOptionsRulesConstraintsGetResponse200Normalizer();
         $normalizers[] = new IamSourcesPostBodyNormalizer();
