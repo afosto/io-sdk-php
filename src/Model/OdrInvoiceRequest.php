@@ -10,24 +10,12 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrProjectionModel
+class OdrInvoiceRequest
 {
     /**
      * @var string
      */
     protected $clientId;
-    /**
-     * @var string
-     */
-    protected $currency;
-    /**
-     * @var OdrItemModel[]
-     */
-    protected $items;
-    /**
-     * @var OdrAdjustment[]
-     */
-    protected $adjustments;
     /**
      * @var string
      */
@@ -37,13 +25,29 @@ class OdrProjectionModel
      */
     protected $organisationId;
     /**
+     * @var string
+     */
+    protected $addressId;
+    /**
+     * @var OdrInvoiceItemModel[]
+     */
+    protected $items;
+    /**
+     * @var OdrAdjustment[]
+     */
+    protected $adjustments;
+    /**
+     * @var string
+     */
+    protected $currency;
+    /**
      * @var \DateTime
      */
     protected $pricingAt;
     /**
-     * @var string[]
+     * @var mixed
      */
-    protected $coupons;
+    protected $metadata;
 
     public function getClientId(): ?string
     {
@@ -53,54 +57,6 @@ class OdrProjectionModel
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
-
-        return $this;
-    }
-
-    public function getCurrency(): ?string
-    {
-        return $this->currency;
-    }
-
-    public function setCurrency(?string $currency): self
-    {
-        $this->currency = $currency;
-
-        return $this;
-    }
-
-    /**
-     * @return OdrItemModel[]|null
-     */
-    public function getItems(): ?array
-    {
-        return $this->items;
-    }
-
-    /**
-     * @param OdrItemModel[]|null $items
-     */
-    public function setItems(?array $items): self
-    {
-        $this->items = $items;
-
-        return $this;
-    }
-
-    /**
-     * @return OdrAdjustment[]|null
-     */
-    public function getAdjustments(): ?array
-    {
-        return $this->adjustments;
-    }
-
-    /**
-     * @param OdrAdjustment[]|null $adjustments
-     */
-    public function setAdjustments(?array $adjustments): self
-    {
-        $this->adjustments = $adjustments;
 
         return $this;
     }
@@ -129,6 +85,66 @@ class OdrProjectionModel
         return $this;
     }
 
+    public function getAddressId(): ?string
+    {
+        return $this->addressId;
+    }
+
+    public function setAddressId(?string $addressId): self
+    {
+        $this->addressId = $addressId;
+
+        return $this;
+    }
+
+    /**
+     * @return OdrInvoiceItemModel[]|null
+     */
+    public function getItems(): ?array
+    {
+        return $this->items;
+    }
+
+    /**
+     * @param OdrInvoiceItemModel[]|null $items
+     */
+    public function setItems(?array $items): self
+    {
+        $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * @return OdrAdjustment[]|null
+     */
+    public function getAdjustments(): ?array
+    {
+        return $this->adjustments;
+    }
+
+    /**
+     * @param OdrAdjustment[]|null $adjustments
+     */
+    public function setAdjustments(?array $adjustments): self
+    {
+        $this->adjustments = $adjustments;
+
+        return $this;
+    }
+
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency(?string $currency): self
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
     public function getPricingAt(): ?\DateTime
     {
         return $this->pricingAt;
@@ -142,19 +158,19 @@ class OdrProjectionModel
     }
 
     /**
-     * @return string[]|null
+     * @return mixed
      */
-    public function getCoupons(): ?array
+    public function getMetadata()
     {
-        return $this->coupons;
+        return $this->metadata;
     }
 
     /**
-     * @param string[]|null $coupons
+     * @param mixed $metadata
      */
-    public function setCoupons(?array $coupons): self
+    public function setMetadata($metadata): self
     {
-        $this->coupons = $coupons;
+        $this->metadata = $metadata;
 
         return $this;
     }

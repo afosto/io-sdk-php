@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class UpdateInvoiceStateBadRequestException extends \RuntimeException implements ClientException
+class CreateInvoiceForCalculationBadRequestException extends \RuntimeException implements ClientException
 {
     private $error;
 

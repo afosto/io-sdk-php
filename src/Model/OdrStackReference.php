@@ -24,14 +24,6 @@ class OdrStackReference
      * @var OdrStackReferenceState
      */
     protected $state;
-    /**
-     * @var bool
-     */
-    protected $isInbound = false;
-    /**
-     * @var string
-     */
-    protected $orderId;
 
     public function getId(): ?string
     {
@@ -65,30 +57,6 @@ class OdrStackReference
     public function setState(?OdrStackReferenceState $state): self
     {
         $this->state = $state;
-
-        return $this;
-    }
-
-    public function getIsInbound(): ?bool
-    {
-        return $this->isInbound;
-    }
-
-    public function setIsInbound(?bool $isInbound): self
-    {
-        $this->isInbound = $isInbound;
-
-        return $this;
-    }
-
-    public function getOrderId(): ?string
-    {
-        return $this->orderId;
-    }
-
-    public function setOrderId(?string $orderId): self
-    {
-        $this->orderId = $orderId;
 
         return $this;
     }

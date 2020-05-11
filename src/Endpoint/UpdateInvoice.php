@@ -15,9 +15,9 @@ class UpdateInvoice extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     protected $id;
 
     /**
-     * Update an concept / proforma invoice.
+     * Update an invoice, while in concept status.
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\OdrBillRequest $body)
+    public function __construct(string $id, \Afosto\Sdk\Model\OdrInvoiceRequest $body)
     {
         $this->id = $id;
         $this->body = $body;

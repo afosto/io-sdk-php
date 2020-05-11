@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrOrderItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrItemModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\OdrOrderItem' === $type;
+        return 'Afosto\\Sdk\\Model\\OdrItemModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrOrderItem' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrItemModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,10 +37,7 @@ class OdrOrderItemNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrOrderItem();
-        if (property_exists($data, 'id') && null !== $data->{'id'}) {
-            $object->setId($data->{'id'});
-        }
+        $object = new \Afosto\Sdk\Model\OdrItemModel();
         if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
@@ -50,22 +47,24 @@ class OdrOrderItemNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'is_inbound') && null !== $data->{'is_inbound'}) {
-            $object->setIsInbound($data->{'is_inbound'});
+        if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
+            $object->setAmount($data->{'amount'});
         }
-        if (property_exists($data, 'stacks') && null !== $data->{'stacks'}) {
+        if (property_exists($data, 'is_discounted') && null !== $data->{'is_discounted'}) {
+            $object->setIsDiscounted($data->{'is_discounted'});
+        }
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
+            $object->setQuantity($data->{'quantity'});
+        }
+        if (property_exists($data, 'adjustments') && null !== $data->{'adjustments'}) {
             $values = [];
-            foreach ($data->{'stacks'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context);
+            foreach ($data->{'adjustments'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrAdjustment', 'json', $context);
             }
-            $object->setStacks($values);
+            $object->setAdjustments($values);
         }
-        if (property_exists($data, 'filters') && null !== $data->{'filters'}) {
-            $values_1 = [];
-            foreach ($data->{'filters'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrFilter', 'json', $context);
-            }
-            $object->setFilters($values_1);
+        if (property_exists($data, 'vat_percentage') && null !== $data->{'vat_percentage'}) {
+            $object->setVatPercentage($data->{'vat_percentage'});
         }
 
         return $object;
@@ -74,9 +73,6 @@ class OdrOrderItemNormalizer implements DenormalizerInterface, NormalizerInterfa
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
-        }
         if (null !== $object->getReference()) {
             $data->{'reference'} = $object->getReference();
         }
@@ -86,22 +82,24 @@ class OdrOrderItemNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (null !== $object->getDescription()) {
             $data->{'description'} = $object->getDescription();
         }
-        if (null !== $object->getIsInbound()) {
-            $data->{'is_inbound'} = $object->getIsInbound();
+        if (null !== $object->getAmount()) {
+            $data->{'amount'} = $object->getAmount();
         }
-        if (null !== $object->getStacks()) {
+        if (null !== $object->getIsDiscounted()) {
+            $data->{'is_discounted'} = $object->getIsDiscounted();
+        }
+        if (null !== $object->getQuantity()) {
+            $data->{'quantity'} = $object->getQuantity();
+        }
+        if (null !== $object->getAdjustments()) {
             $values = [];
-            foreach ($object->getStacks() as $value) {
+            foreach ($object->getAdjustments() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
-            $data->{'stacks'} = $values;
+            $data->{'adjustments'} = $values;
         }
-        if (null !== $object->getFilters()) {
-            $values_1 = [];
-            foreach ($object->getFilters() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-            }
-            $data->{'filters'} = $values_1;
+        if (null !== $object->getVatPercentage()) {
+            $data->{'vat_percentage'} = $object->getVatPercentage();
         }
 
         return $data;

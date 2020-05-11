@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class GetInvoiceDataServiceUnavailableException extends \RuntimeException implements ServerException
+class MarkPaymentAsPaidUnauthorizedException extends \RuntimeException implements ClientException
 {
     private $error;
 
     public function __construct(\Afosto\Sdk\Model\Error $error)
     {
-        parent::__construct('Service Unavailable', 503);
+        parent::__construct('Unauthorized', 401);
         $this->error = $error;
     }
 

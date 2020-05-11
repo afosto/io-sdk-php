@@ -47,7 +47,7 @@ class OdrProjectionModelNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrInvoiceItemModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrItemModel', 'json', $context);
             }
             $object->setItems($values);
         }

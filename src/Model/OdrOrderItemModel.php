@@ -35,7 +35,7 @@ class OdrOrderItemModel
     /**
      * @var string[]
      */
-    protected $stackItemIds;
+    protected $itemIds;
 
     public function getSku(): ?string
     {
@@ -100,17 +100,17 @@ class OdrOrderItemModel
     /**
      * @return string[]|null
      */
-    public function getStackItemIds(): ?array
+    public function getItemIds(): ?array
     {
-        return $this->stackItemIds;
+        return $this->itemIds;
     }
 
     /**
-     * @param string[]|null $stackItemIds
+     * @param string[]|null $itemIds
      */
-    public function setStackItemIds(?array $stackItemIds): self
+    public function setItemIds(?array $itemIds): self
     {
-        $this->stackItemIds = $stackItemIds;
+        $this->itemIds = $itemIds;
 
         return $this;
     }

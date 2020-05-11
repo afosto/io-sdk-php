@@ -73,12 +73,12 @@ class AddItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
      * @throws \Afosto\Sdk\Exception\AddItemsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\AddItemsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrOrderItem|null
+     * @return \Afosto\Sdk\Model\OdrSimpleOrderItem|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrOrderItem', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrSimpleOrderItem', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\AddItemsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

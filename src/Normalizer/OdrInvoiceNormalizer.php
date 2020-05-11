@@ -41,9 +41,6 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'version') && null !== $data->{'version'}) {
-            $object->setVersion($data->{'version'});
-        }
         if (property_exists($data, 'number') && null !== $data->{'number'}) {
             $object->setNumber($data->{'number'});
         }
@@ -89,9 +86,6 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'is_vat_shifted') && null !== $data->{'is_vat_shifted'}) {
             $object->setIsVatShifted($data->{'is_vat_shifted'});
         }
-        if (property_exists($data, 'is_concept') && null !== $data->{'is_concept'}) {
-            $object->setIsConcept($data->{'is_concept'});
-        }
         if (property_exists($data, 'is_paid') && null !== $data->{'is_paid'}) {
             $object->setIsPaid($data->{'is_paid'});
         }
@@ -128,9 +122,6 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         $data = new \stdClass();
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
-        }
-        if (null !== $object->getVersion()) {
-            $data->{'version'} = $object->getVersion();
         }
         if (null !== $object->getNumber()) {
             $data->{'number'} = $object->getNumber();
@@ -176,9 +167,6 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (null !== $object->getIsVatShifted()) {
             $data->{'is_vat_shifted'} = $object->getIsVatShifted();
-        }
-        if (null !== $object->getIsConcept()) {
-            $data->{'is_concept'} = $object->getIsConcept();
         }
         if (null !== $object->getIsPaid()) {
             $data->{'is_paid'} = $object->getIsPaid();

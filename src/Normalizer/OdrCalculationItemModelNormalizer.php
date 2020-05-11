@@ -38,8 +38,15 @@ class OdrCalculationItemModelNormalizer implements DenormalizerInterface, Normal
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrCalculationItemModel();
-        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
-            $object->setSku($data->{'sku'});
+        if (property_exists($data, 'order_item_ids') && null !== $data->{'order_item_ids'}) {
+            $values = [];
+            foreach ($data->{'order_item_ids'} as $value) {
+                $values[] = $value;
+            }
+            $object->setOrderItemIds($values);
+        }
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
+            $object->setDescription($data->{'description'});
         }
         if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
@@ -47,15 +54,12 @@ class OdrCalculationItemModelNormalizer implements DenormalizerInterface, Normal
         if (property_exists($data, 'is_discounted') && null !== $data->{'is_discounted'}) {
             $object->setIsDiscounted($data->{'is_discounted'});
         }
-        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
-            $object->setQuantity($data->{'quantity'});
-        }
         if (property_exists($data, 'adjustments') && null !== $data->{'adjustments'}) {
-            $values = [];
-            foreach ($data->{'adjustments'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrAdjustment', 'json', $context);
+            $values_1 = [];
+            foreach ($data->{'adjustments'} as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrAdjustment', 'json', $context);
             }
-            $object->setAdjustments($values);
+            $object->setAdjustments($values_1);
         }
         if (property_exists($data, 'vat_percentage') && null !== $data->{'vat_percentage'}) {
             $object->setVatPercentage($data->{'vat_percentage'});
@@ -67,8 +71,15 @@ class OdrCalculationItemModelNormalizer implements DenormalizerInterface, Normal
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getSku()) {
-            $data->{'sku'} = $object->getSku();
+        if (null !== $object->getOrderItemIds()) {
+            $values = [];
+            foreach ($object->getOrderItemIds() as $value) {
+                $values[] = $value;
+            }
+            $data->{'order_item_ids'} = $values;
+        }
+        if (null !== $object->getDescription()) {
+            $data->{'description'} = $object->getDescription();
         }
         if (null !== $object->getAmount()) {
             $data->{'amount'} = $object->getAmount();
@@ -76,15 +87,12 @@ class OdrCalculationItemModelNormalizer implements DenormalizerInterface, Normal
         if (null !== $object->getIsDiscounted()) {
             $data->{'is_discounted'} = $object->getIsDiscounted();
         }
-        if (null !== $object->getQuantity()) {
-            $data->{'quantity'} = $object->getQuantity();
-        }
         if (null !== $object->getAdjustments()) {
-            $values = [];
-            foreach ($object->getAdjustments() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            $values_1 = [];
+            foreach ($object->getAdjustments() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
-            $data->{'adjustments'} = $values;
+            $data->{'adjustments'} = $values_1;
         }
         if (null !== $object->getVatPercentage()) {
             $data->{'vat_percentage'} = $object->getVatPercentage();

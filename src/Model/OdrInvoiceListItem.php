@@ -19,10 +19,6 @@ class OdrInvoiceListItem
     /**
      * @var string
      */
-    protected $version;
-    /**
-     * @var string
-     */
     protected $number;
     /**
      * @var int
@@ -64,10 +60,6 @@ class OdrInvoiceListItem
      * @var bool
      */
     protected $isVatShifted;
-    /**
-     * @var bool
-     */
-    protected $isConcept;
     /**
      * @var bool
      */
@@ -113,18 +105,6 @@ class OdrInvoiceListItem
     public function setId(?string $id): self
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    public function getVersion(): ?string
-    {
-        return $this->version;
-    }
-
-    public function setVersion(?string $version): self
-    {
-        $this->version = $version;
 
         return $this;
     }
@@ -269,18 +249,6 @@ class OdrInvoiceListItem
     public function setIsVatShifted(?bool $isVatShifted): self
     {
         $this->isVatShifted = $isVatShifted;
-
-        return $this;
-    }
-
-    public function getIsConcept(): ?bool
-    {
-        return $this->isConcept;
-    }
-
-    public function setIsConcept(?bool $isConcept): self
-    {
-        $this->isConcept = $isConcept;
 
         return $this;
     }

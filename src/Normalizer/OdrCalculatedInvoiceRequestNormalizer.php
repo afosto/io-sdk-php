@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrInvoiceStateNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrCalculatedInvoiceRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\OdrInvoiceState' === $type;
+        return 'Afosto\\Sdk\\Model\\OdrCalculatedInvoiceRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrInvoiceState' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrCalculatedInvoiceRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,9 +37,13 @@ class OdrInvoiceStateNormalizer implements DenormalizerInterface, NormalizerInte
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrInvoiceState();
-        if (property_exists($data, 'paid_at') && null !== $data->{'paid_at'}) {
-            $object->setPaidAt($data->{'paid_at'});
+        $object = new \Afosto\Sdk\Model\OdrCalculatedInvoiceRequest();
+        if (property_exists($data, 'order_item_ids') && null !== $data->{'order_item_ids'}) {
+            $values = [];
+            foreach ($data->{'order_item_ids'} as $value) {
+                $values[] = $value;
+            }
+            $object->setOrderItemIds($values);
         }
 
         return $object;
@@ -48,8 +52,12 @@ class OdrInvoiceStateNormalizer implements DenormalizerInterface, NormalizerInte
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getPaidAt()) {
-            $data->{'paid_at'} = $object->getPaidAt();
+        if (null !== $object->getOrderItemIds()) {
+            $values = [];
+            foreach ($object->getOrderItemIds() as $value) {
+                $values[] = $value;
+            }
+            $data->{'order_item_ids'} = $values;
         }
 
         return $data;

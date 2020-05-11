@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class UpdateInvoiceStateForbiddenException extends \RuntimeException implements ClientException
+class MarkPaymentAsPaidForbiddenException extends \RuntimeException implements ClientException
 {
     private $error;
 

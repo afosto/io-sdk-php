@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrOrderItemModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrSimpleOrderItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\OdrOrderItemModel' === $type;
+        return 'Afosto\\Sdk\\Model\\OdrSimpleOrderItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrOrderItemModel' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrSimpleOrderItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,28 +37,21 @@ class OdrOrderItemModelNormalizer implements DenormalizerInterface, NormalizerIn
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrOrderItemModel();
-        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
-            $object->setSku($data->{'sku'});
+        $object = new \Afosto\Sdk\Model\OdrSimpleOrderItem();
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
+            $object->setId($data->{'id'});
         }
         if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
+            $object->setSku($data->{'sku'});
+        }
         if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
-            $object->setQuantity($data->{'quantity'});
-        }
         if (property_exists($data, 'is_inbound') && null !== $data->{'is_inbound'}) {
             $object->setIsInbound($data->{'is_inbound'});
-        }
-        if (property_exists($data, 'item_ids') && null !== $data->{'item_ids'}) {
-            $values = [];
-            foreach ($data->{'item_ids'} as $value) {
-                $values[] = $value;
-            }
-            $object->setItemIds($values);
         }
 
         return $object;
@@ -67,27 +60,20 @@ class OdrOrderItemModelNormalizer implements DenormalizerInterface, NormalizerIn
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getSku()) {
-            $data->{'sku'} = $object->getSku();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
         }
         if (null !== $object->getReference()) {
             $data->{'reference'} = $object->getReference();
         }
+        if (null !== $object->getSku()) {
+            $data->{'sku'} = $object->getSku();
+        }
         if (null !== $object->getDescription()) {
             $data->{'description'} = $object->getDescription();
         }
-        if (null !== $object->getQuantity()) {
-            $data->{'quantity'} = $object->getQuantity();
-        }
         if (null !== $object->getIsInbound()) {
             $data->{'is_inbound'} = $object->getIsInbound();
-        }
-        if (null !== $object->getItemIds()) {
-            $values = [];
-            foreach ($object->getItemIds() as $value) {
-                $values[] = $value;
-            }
-            $data->{'item_ids'} = $values;
         }
 
         return $data;

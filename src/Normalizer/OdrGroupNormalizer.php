@@ -41,6 +41,9 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
+            $object->setReference($data->{'reference'});
+        }
         if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
@@ -50,6 +53,9 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'is_inbound') && null !== $data->{'is_inbound'}) {
             $object->setIsInbound($data->{'is_inbound'});
         }
+        if (property_exists($data, 'order_id') && null !== $data->{'order_id'}) {
+            $object->setOrderId($data->{'order_id'});
+        }
         if (property_exists($data, 'ids') && null !== $data->{'ids'}) {
             $values = [];
             foreach ($data->{'ids'} as $value) {
@@ -57,19 +63,15 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
             }
             $object->setIds($values);
         }
-        if (property_exists($data, 'stacks') && null !== $data->{'stacks'}) {
-            $values_1 = [];
-            foreach ($data->{'stacks'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context);
-            }
-            $object->setStacks($values_1);
+        if (property_exists($data, 'references') && null !== $data->{'references'}) {
+            $object->setReferences($this->denormalizer->denormalize($data->{'references'}, 'Afosto\\Sdk\\Model\\OdrGroupReferences', 'json', $context));
         }
         if (property_exists($data, 'filters') && null !== $data->{'filters'}) {
-            $values_2 = [];
-            foreach ($data->{'filters'} as $value_2) {
-                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\OdrFilter', 'json', $context);
+            $values_1 = [];
+            foreach ($data->{'filters'} as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrFilter', 'json', $context);
             }
-            $object->setFilters($values_2);
+            $object->setFilters($values_1);
         }
 
         return $object;
@@ -81,6 +83,9 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (null !== $object->getSku()) {
             $data->{'sku'} = $object->getSku();
         }
+        if (null !== $object->getReference()) {
+            $data->{'reference'} = $object->getReference();
+        }
         if (null !== $object->getDescription()) {
             $data->{'description'} = $object->getDescription();
         }
@@ -90,6 +95,9 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (null !== $object->getIsInbound()) {
             $data->{'is_inbound'} = $object->getIsInbound();
         }
+        if (null !== $object->getOrderId()) {
+            $data->{'order_id'} = $object->getOrderId();
+        }
         if (null !== $object->getIds()) {
             $values = [];
             foreach ($object->getIds() as $value) {
@@ -97,19 +105,15 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
             }
             $data->{'ids'} = $values;
         }
-        if (null !== $object->getStacks()) {
-            $values_1 = [];
-            foreach ($object->getStacks() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-            }
-            $data->{'stacks'} = $values_1;
+        if (null !== $object->getReferences()) {
+            $data->{'references'} = $this->normalizer->normalize($object->getReferences(), 'json', $context);
         }
         if (null !== $object->getFilters()) {
-            $values_2 = [];
-            foreach ($object->getFilters() as $value_2) {
-                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
+            $values_1 = [];
+            foreach ($object->getFilters() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
-            $data->{'filters'} = $values_2;
+            $data->{'filters'} = $values_1;
         }
 
         return $data;

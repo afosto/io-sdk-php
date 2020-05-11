@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class UpdateInvoiceStateInternalServerErrorException extends \RuntimeException implements ServerException
+class MarkPaidInternalServerErrorException extends \RuntimeException implements ServerException
 {
     private $error;
 

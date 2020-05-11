@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrOrderItem
+class OdrSimpleOrderItem
 {
     /**
      * @var string
@@ -32,14 +32,6 @@ class OdrOrderItem
      * @var bool
      */
     protected $isInbound = false;
-    /**
-     * @var OdrStackReference[]
-     */
-    protected $stacks;
-    /**
-     * @var OdrFilter[]
-     */
-    protected $filters;
 
     public function getId(): ?string
     {
@@ -97,42 +89,6 @@ class OdrOrderItem
     public function setIsInbound(?bool $isInbound): self
     {
         $this->isInbound = $isInbound;
-
-        return $this;
-    }
-
-    /**
-     * @return OdrStackReference[]|null
-     */
-    public function getStacks(): ?array
-    {
-        return $this->stacks;
-    }
-
-    /**
-     * @param OdrStackReference[]|null $stacks
-     */
-    public function setStacks(?array $stacks): self
-    {
-        $this->stacks = $stacks;
-
-        return $this;
-    }
-
-    /**
-     * @return OdrFilter[]|null
-     */
-    public function getFilters(): ?array
-    {
-        return $this->filters;
-    }
-
-    /**
-     * @param OdrFilter[]|null $filters
-     */
-    public function setFilters(?array $filters): self
-    {
-        $this->filters = $filters;
 
         return $this;
     }

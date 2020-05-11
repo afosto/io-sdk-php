@@ -498,7 +498,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\AddItemsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\AddItemsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrOrderItem|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrSimpleOrderItem|\Psr\Http\Message\ResponseInterface|null
      */
     public function addItems(string $id, array $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -525,9 +525,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrGroup[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function searchGroups(string $id, \Afosto\Sdk\Model\OdrSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function searchGroups(\Afosto\Sdk\Model\OdrSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchGroups($id, $body, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchGroups($body, $headerParameters), $fetch);
     }
 
     /**
@@ -970,6 +970,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Creates the invoice.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateInvoiceForCalculationServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrInvoice[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createInvoiceForCalculation(string $id, \Afosto\Sdk\Model\OdrCalculatedInvoiceRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateInvoiceForCalculation($id, $body), $fetch);
+    }
+
+    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListInvoicesBadRequestException
@@ -1000,7 +1019,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createInvoice(\Afosto\Sdk\Model\OdrBillRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function createInvoice(\Afosto\Sdk\Model\OdrInvoiceRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateInvoice($body), $fetch);
     }
@@ -1031,7 +1050,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Update an concept / proforma invoice.
+     * Update an invoice, while in concept status.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -1044,47 +1063,28 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateInvoice(string $id, \Afosto\Sdk\Model\OdrBillRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function updateInvoice(string $id, \Afosto\Sdk\Model\OdrInvoiceRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInvoice($id, $body), $fetch);
     }
 
     /**
-     * Returns all data for the invoice.
+     * Mark invoice as paid.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetInvoiceDataBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetInvoiceDataUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetInvoiceDataForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetInvoiceDataNotFoundException
-     * @throws \Afosto\Sdk\Exception\GetInvoiceDataInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\GetInvoiceDataServiceUnavailableException
-     *
-     * @return \Psr\Http\Message\ResponseInterface|null
-     */
-    public function getInvoiceData(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInvoiceData($id), $fetch);
-    }
-
-    /**
-     * Update an invoice.
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateForbiddenException
-     * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateNotFoundException
-     * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\UpdateInvoiceStateServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\MarkPaidBadRequestException
+     * @throws \Afosto\Sdk\Exception\MarkPaidUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\MarkPaidForbiddenException
+     * @throws \Afosto\Sdk\Exception\MarkPaidNotFoundException
+     * @throws \Afosto\Sdk\Exception\MarkPaidInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\MarkPaidServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\OdrInvoiceListItem|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateInvoiceState(string $id, \Afosto\Sdk\Model\OdrInvoiceState $body, string $fetch = self::FETCH_OBJECT)
+    public function markPaid(string $id, \Afosto\Sdk\Model\OdrInvoiceState $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInvoiceState($id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\MarkPaid($id, $body), $fetch);
     }
 
     /**
@@ -3532,9 +3532,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrTransaction[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listTransactions(\Afosto\Sdk\Model\OdrTransactionModel $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listTransactions(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListTransactions($body, $queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListTransactions($queryParameters), $fetch);
     }
 
     /**
@@ -3554,6 +3554,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function createTransaction(\Afosto\Sdk\Model\OdrTransactionModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateTransaction($body), $fetch);
+    }
+
+    /**
+     * Marks a payment as paid.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\MarkPaymentAsPaidBadRequestException
+     * @throws \Afosto\Sdk\Exception\MarkPaymentAsPaidUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\MarkPaymentAsPaidForbiddenException
+     * @throws \Afosto\Sdk\Exception\MarkPaymentAsPaidNotFoundException
+     * @throws \Afosto\Sdk\Exception\MarkPaymentAsPaidInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\MarkPaymentAsPaidServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrPayment|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function markPaymentAsPaid(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\MarkPaymentAsPaid($secret), $fetch);
     }
 
     /**

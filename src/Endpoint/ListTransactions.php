@@ -21,9 +21,8 @@ class ListTransactions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      *     @var string $entity_id
      * }
      */
-    public function __construct(\Afosto\Sdk\Model\OdrTransactionModel $body, array $queryParameters = [])
+    public function __construct(array $queryParameters = [])
     {
-        $this->body = $body;
         $this->queryParameters = $queryParameters;
     }
 
@@ -41,7 +40,7 @@ class ListTransactions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return $this->getSerializedBody($serializer);
+        return [[], null];
     }
 
     public function getExtraHeaders(): array

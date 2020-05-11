@@ -19,6 +19,10 @@ class OdrGroup
     /**
      * @var string
      */
+    protected $reference;
+    /**
+     * @var string
+     */
     protected $description;
     /**
      * @var int
@@ -29,13 +33,17 @@ class OdrGroup
      */
     protected $isInbound = false;
     /**
+     * @var string
+     */
+    protected $orderId;
+    /**
      * @var string[]
      */
     protected $ids;
     /**
-     * @var OdrStackReference[]
+     * @var OdrGroupReferences
      */
-    protected $stacks;
+    protected $references;
     /**
      * @var OdrFilter[]
      */
@@ -49,6 +57,18 @@ class OdrGroup
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(?string $reference): self
+    {
+        $this->reference = $reference;
 
         return $this;
     }
@@ -89,6 +109,18 @@ class OdrGroup
         return $this;
     }
 
+    public function getOrderId(): ?string
+    {
+        return $this->orderId;
+    }
+
+    public function setOrderId(?string $orderId): self
+    {
+        $this->orderId = $orderId;
+
+        return $this;
+    }
+
     /**
      * @return string[]|null
      */
@@ -107,20 +139,14 @@ class OdrGroup
         return $this;
     }
 
-    /**
-     * @return OdrStackReference[]|null
-     */
-    public function getStacks(): ?array
+    public function getReferences(): ?OdrGroupReferences
     {
-        return $this->stacks;
+        return $this->references;
     }
 
-    /**
-     * @param OdrStackReference[]|null $stacks
-     */
-    public function setStacks(?array $stacks): self
+    public function setReferences(?OdrGroupReferences $references): self
     {
-        $this->stacks = $stacks;
+        $this->references = $references;
 
         return $this;
     }

@@ -36,7 +36,7 @@ class SearchShipments extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 
     public function getUri(): string
     {
-        return '/lcs/shipments/search';
+        return '/lcs/search/shipments';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

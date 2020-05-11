@@ -13,41 +13,9 @@ namespace Afosto\Sdk\Model;
 class OdrInvoiceState
 {
     /**
-     * @var bool
-     */
-    protected $isConcept;
-    /**
-     * @var bool
-     */
-    protected $isPaid;
-    /**
      * @var string
      */
     protected $paidAt;
-
-    public function getIsConcept(): ?bool
-    {
-        return $this->isConcept;
-    }
-
-    public function setIsConcept(?bool $isConcept): self
-    {
-        $this->isConcept = $isConcept;
-
-        return $this;
-    }
-
-    public function getIsPaid(): ?bool
-    {
-        return $this->isPaid;
-    }
-
-    public function setIsPaid(?bool $isPaid): self
-    {
-        $this->isPaid = $isPaid;
-
-        return $this;
-    }
 
     public function getPaidAt(): ?string
     {

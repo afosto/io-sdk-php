@@ -12,8 +12,6 @@ namespace Afosto\Sdk\Endpoint;
 
 class SearchGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $id;
-
     /**
      * Returns a list items.
      *
@@ -23,9 +21,8 @@ class SearchGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *     @var string $x-page-size the requested page size
      * }
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\OdrSearch $body, array $headerParameters = [])
+    public function __construct(\Afosto\Sdk\Model\OdrSearch $body, array $headerParameters = [])
     {
-        $this->id = $id;
         $this->body = $body;
         $this->headerParameters = $headerParameters;
     }
@@ -39,7 +36,7 @@ class SearchGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/orders/{id}/search');
+        return '/odr/orders/search';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

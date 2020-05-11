@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class GetInvoiceDataInternalServerErrorException extends \RuntimeException implements ServerException
+class MarkPaidNotFoundException extends \RuntimeException implements ClientException
 {
     private $error;
 
     public function __construct(\Afosto\Sdk\Model\Error $error)
     {
-        parent::__construct('Internal Server Error', 500);
+        parent::__construct('Not found', 404);
         $this->error = $error;
     }
 

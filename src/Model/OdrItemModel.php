@@ -10,12 +10,16 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrCalculationItemModel
+class OdrItemModel
 {
     /**
-     * @var string[]
+     * @var string
      */
-    protected $orderItemIds;
+    protected $reference;
+    /**
+     * @var string
+     */
+    protected $sku;
     /**
      * @var string
      */
@@ -29,6 +33,10 @@ class OdrCalculationItemModel
      */
     protected $isDiscounted;
     /**
+     * @var int
+     */
+    protected $quantity;
+    /**
      * @var OdrAdjustment[]
      */
     protected $adjustments;
@@ -37,20 +45,26 @@ class OdrCalculationItemModel
      */
     protected $vatPercentage;
 
-    /**
-     * @return string[]|null
-     */
-    public function getOrderItemIds(): ?array
+    public function getReference(): ?string
     {
-        return $this->orderItemIds;
+        return $this->reference;
     }
 
-    /**
-     * @param string[]|null $orderItemIds
-     */
-    public function setOrderItemIds(?array $orderItemIds): self
+    public function setReference(?string $reference): self
     {
-        $this->orderItemIds = $orderItemIds;
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getSku(): ?string
+    {
+        return $this->sku;
+    }
+
+    public function setSku(?string $sku): self
+    {
+        $this->sku = $sku;
 
         return $this;
     }
@@ -87,6 +101,18 @@ class OdrCalculationItemModel
     public function setIsDiscounted(?bool $isDiscounted): self
     {
         $this->isDiscounted = $isDiscounted;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(?int $quantity): self
+    {
+        $this->quantity = $quantity;
 
         return $this;
     }

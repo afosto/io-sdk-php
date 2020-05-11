@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class UpdateInvoiceStateNotFoundException extends \RuntimeException implements ClientException
+class CreateInvoiceForCalculationInternalServerErrorException extends \RuntimeException implements ServerException
 {
     private $error;
 
     public function __construct(\Afosto\Sdk\Model\Error $error)
     {
-        parent::__construct('Not found', 404);
+        parent::__construct('Internal Server Error', 500);
         $this->error = $error;
     }
 
