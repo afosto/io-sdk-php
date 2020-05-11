@@ -36,7 +36,7 @@ class SearchGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getUri(): string
     {
-        return '/odr/orders/search';
+        return '/odr/search/orders';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
