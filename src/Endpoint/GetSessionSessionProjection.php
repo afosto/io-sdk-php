@@ -31,7 +31,7 @@ class GetSessionSessionProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoi
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/sessions/{id}/SessionProjection');
+        return str_replace(['{id}'], [$this->id], '/odr/sessions/{id}/projection');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

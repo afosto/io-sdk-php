@@ -5022,6 +5022,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a list of suggested billing addresses.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSessionSessionCalculationBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSessionSessionCalculationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSessionSessionCalculationForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSessionSessionCalculationNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSessionSessionCalculationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSessionSessionCalculationServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrSessionCalculation|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSessionSessionCalculation(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSessionSessionCalculation($id), $fetch);
+    }
+
+    /**
      * authorize session and continue to payment.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

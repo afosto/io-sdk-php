@@ -286,6 +286,7 @@ class NormalizerFactory
         $normalizers[] = new OdrPointOpeningsItemWindowsItemNormalizer();
         $normalizers[] = new OdrAddressNormalizer();
         $normalizers[] = new OdrSessionProjectionNormalizer();
+        $normalizers[] = new OdrSessionCalculationNormalizer();
         $normalizers[] = new OdrSessionProjectionItemNormalizer();
         $normalizers[] = new OdrSessionCalculationAdjustmentNormalizer();
         $normalizers[] = new OdrSessionCalculationAdjustmentResultNormalizer();
