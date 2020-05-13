@@ -61,6 +61,10 @@ class OdrTransaction
      */
     protected $clientId;
     /**
+     * @var string
+     */
+    protected $returnUrl;
+    /**
      * @var \DateTime
      */
     protected $createdAt;
@@ -221,6 +225,18 @@ class OdrTransaction
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
+
+        return $this;
+    }
+
+    public function getReturnUrl(): ?string
+    {
+        return $this->returnUrl;
+    }
+
+    public function setReturnUrl(?string $returnUrl): self
+    {
+        $this->returnUrl = $returnUrl;
 
         return $this;
     }

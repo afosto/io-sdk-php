@@ -78,6 +78,9 @@ class OdrTransactionNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
+        if (property_exists($data, 'return_url') && null !== $data->{'return_url'}) {
+            $object->setReturnUrl($data->{'return_url'});
+        }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
@@ -130,6 +133,9 @@ class OdrTransactionNormalizer implements DenormalizerInterface, NormalizerInter
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
+        }
+        if (null !== $object->getReturnUrl()) {
+            $data->{'return_url'} = $object->getReturnUrl();
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

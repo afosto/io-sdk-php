@@ -38,12 +38,12 @@ class OdrCalculationItemModelNormalizer implements DenormalizerInterface, Normal
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrCalculationItemModel();
-        if (property_exists($data, 'order_item_ids') && null !== $data->{'order_item_ids'}) {
+        if (property_exists($data, 'item_ids') && null !== $data->{'item_ids'}) {
             $values = [];
-            foreach ($data->{'order_item_ids'} as $value) {
+            foreach ($data->{'item_ids'} as $value) {
                 $values[] = $value;
             }
-            $object->setOrderItemIds($values);
+            $object->setItemIds($values);
         }
         if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
@@ -71,12 +71,12 @@ class OdrCalculationItemModelNormalizer implements DenormalizerInterface, Normal
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getOrderItemIds()) {
+        if (null !== $object->getItemIds()) {
             $values = [];
-            foreach ($object->getOrderItemIds() as $value) {
+            foreach ($object->getItemIds() as $value) {
                 $values[] = $value;
             }
-            $data->{'order_item_ids'} = $values;
+            $data->{'item_ids'} = $values;
         }
         if (null !== $object->getDescription()) {
             $data->{'description'} = $object->getDescription();

@@ -39,6 +39,10 @@ class OdrTransactionModel
     /**
      * @var string
      */
+    protected $returnUrl;
+    /**
+     * @var string
+     */
     protected $clientId;
 
     public function getReference(): ?OdrReference
@@ -115,6 +119,18 @@ class OdrTransactionModel
     public function setPurchase(?OdrPurchase $purchase): self
     {
         $this->purchase = $purchase;
+
+        return $this;
+    }
+
+    public function getReturnUrl(): ?string
+    {
+        return $this->returnUrl;
+    }
+
+    public function setReturnUrl(?string $returnUrl): self
+    {
+        $this->returnUrl = $returnUrl;
 
         return $this;
     }

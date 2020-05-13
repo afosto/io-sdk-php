@@ -56,6 +56,9 @@ class OdrTransactionModelNormalizer implements DenormalizerInterface, Normalizer
         if (property_exists($data, 'purchase') && null !== $data->{'purchase'}) {
             $object->setPurchase($this->denormalizer->denormalize($data->{'purchase'}, 'Afosto\\Sdk\\Model\\OdrPurchase', 'json', $context));
         }
+        if (property_exists($data, 'return_url') && null !== $data->{'return_url'}) {
+            $object->setReturnUrl($data->{'return_url'});
+        }
         if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
@@ -83,6 +86,9 @@ class OdrTransactionModelNormalizer implements DenormalizerInterface, Normalizer
         }
         if (null !== $object->getPurchase()) {
             $data->{'purchase'} = $this->normalizer->normalize($object->getPurchase(), 'json', $context);
+        }
+        if (null !== $object->getReturnUrl()) {
+            $data->{'return_url'} = $object->getReturnUrl();
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();

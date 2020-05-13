@@ -15,7 +15,7 @@ class OdrCalculationItemModel
     /**
      * @var string[]
      */
-    protected $orderItemIds;
+    protected $itemIds;
     /**
      * @var string
      */
@@ -40,17 +40,17 @@ class OdrCalculationItemModel
     /**
      * @return string[]|null
      */
-    public function getOrderItemIds(): ?array
+    public function getItemIds(): ?array
     {
-        return $this->orderItemIds;
+        return $this->itemIds;
     }
 
     /**
-     * @param string[]|null $orderItemIds
+     * @param string[]|null $itemIds
      */
-    public function setOrderItemIds(?array $orderItemIds): self
+    public function setItemIds(?array $itemIds): self
     {
-        $this->orderItemIds = $orderItemIds;
+        $this->itemIds = $itemIds;
 
         return $this;
     }

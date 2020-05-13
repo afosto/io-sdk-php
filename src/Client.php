@@ -1069,25 +1069,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Update an invoice, while in concept status.
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateInvoiceBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdateInvoiceUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateInvoiceForbiddenException
-     * @throws \Afosto\Sdk\Exception\UpdateInvoiceNotFoundException
-     * @throws \Afosto\Sdk\Exception\UpdateInvoiceInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\UpdateInvoiceServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateInvoice(string $id, \Afosto\Sdk\Model\OdrInvoiceRequest $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInvoice($id, $body), $fetch);
-    }
-
-    /**
      * Mark invoice as paid.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
