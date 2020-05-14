@@ -72,6 +72,9 @@ class OdrTransactionNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'purchase') && null !== $data->{'purchase'}) {
             $object->setPurchase($this->denormalizer->denormalize($data->{'purchase'}, 'Afosto\\Sdk\\Model\\OdrPurchase', 'json', $context));
         }
+        if (property_exists($data, 'preset') && null !== $data->{'preset'}) {
+            $object->setPreset($this->denormalizer->denormalize($data->{'preset'}, 'Afosto\\Sdk\\Model\\OdrPreset', 'json', $context));
+        }
         if (property_exists($data, 'secret') && null !== $data->{'secret'}) {
             $object->setSecret($data->{'secret'});
         }
@@ -127,6 +130,9 @@ class OdrTransactionNormalizer implements DenormalizerInterface, NormalizerInter
         }
         if (null !== $object->getPurchase()) {
             $data->{'purchase'} = $this->normalizer->normalize($object->getPurchase(), 'json', $context);
+        }
+        if (null !== $object->getPreset()) {
+            $data->{'preset'} = $this->normalizer->normalize($object->getPreset(), 'json', $context);
         }
         if (null !== $object->getSecret()) {
             $data->{'secret'} = $object->getSecret();

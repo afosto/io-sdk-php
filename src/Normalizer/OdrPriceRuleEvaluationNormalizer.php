@@ -57,8 +57,8 @@ class OdrPriceRuleEvaluationNormalizer implements DenormalizerInterface, Normali
             }
             $object->setTags($values);
         }
-        if (property_exists($data, 'shipment_method') && null !== $data->{'shipment_method'}) {
-            $object->setShipmentMethod($data->{'shipment_method'});
+        if (property_exists($data, 'shipping_method') && null !== $data->{'shipping_method'}) {
+            $object->setShippingMethod($data->{'shipping_method'});
         }
         if (property_exists($data, 'payment_method') && null !== $data->{'payment_method'}) {
             $object->setPaymentMethod($data->{'payment_method'});
@@ -103,8 +103,8 @@ class OdrPriceRuleEvaluationNormalizer implements DenormalizerInterface, Normali
             }
             $data->{'tags'} = $values;
         }
-        if (null !== $object->getShipmentMethod()) {
-            $data->{'shipment_method'} = $object->getShipmentMethod();
+        if (null !== $object->getShippingMethod()) {
+            $data->{'shipping_method'} = $object->getShippingMethod();
         }
         if (null !== $object->getPaymentMethod()) {
             $data->{'payment_method'} = $object->getPaymentMethod();

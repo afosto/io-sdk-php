@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrSettingsBillingNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrPresetNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\OdrSettingsBilling' === $type;
+        return 'Afosto\\Sdk\\Model\\OdrPreset' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrSettingsBilling' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrPreset' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,10 +37,7 @@ class OdrSettingsBillingNormalizer implements DenormalizerInterface, NormalizerI
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrSettingsBilling();
-        if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
-            $object->setAddressId($data->{'address_id'});
-        }
+        $object = new \Afosto\Sdk\Model\OdrPreset();
         if (property_exists($data, 'method_code') && null !== $data->{'method_code'}) {
             $object->setMethodCode($data->{'method_code'});
         }
@@ -57,9 +54,6 @@ class OdrSettingsBillingNormalizer implements DenormalizerInterface, NormalizerI
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getAddressId()) {
-            $data->{'address_id'} = $object->getAddressId();
-        }
         if (null !== $object->getMethodCode()) {
             $data->{'method_code'} = $object->getMethodCode();
         }

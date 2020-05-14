@@ -56,9 +56,6 @@ class OdrContactContactNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
             $object->setAddressId($data->{'address_id'});
         }
-        if (property_exists($data, 'shipment_address_id') && null !== $data->{'shipment_address_id'}) {
-            $object->setShipmentAddressId($data->{'shipment_address_id'});
-        }
         if (property_exists($data, 'phone_number_id') && null !== $data->{'phone_number_id'}) {
             $object->setPhoneNumberId($data->{'phone_number_id'});
         }
@@ -92,9 +89,6 @@ class OdrContactContactNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (null !== $object->getAddressId()) {
             $data->{'address_id'} = $object->getAddressId();
-        }
-        if (null !== $object->getShipmentAddressId()) {
-            $data->{'shipment_address_id'} = $object->getShipmentAddressId();
         }
         if (null !== $object->getPhoneNumberId()) {
             $data->{'phone_number_id'} = $object->getPhoneNumberId();

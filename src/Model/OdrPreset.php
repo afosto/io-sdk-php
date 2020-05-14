@@ -10,12 +10,8 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrOrderSettingsBilling
+class OdrPreset
 {
-    /**
-     * @var string
-     */
-    protected $addressId;
     /**
      * @var string
      */
@@ -28,18 +24,6 @@ class OdrOrderSettingsBilling
      * @var string
      */
     protected $providerCode;
-
-    public function getAddressId(): ?string
-    {
-        return $this->addressId;
-    }
-
-    public function setAddressId(?string $addressId): self
-    {
-        $this->addressId = $addressId;
-
-        return $this;
-    }
 
     public function getMethodCode(): ?string
     {

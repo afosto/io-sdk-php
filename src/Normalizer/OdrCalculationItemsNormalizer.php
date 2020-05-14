@@ -81,12 +81,12 @@ class OdrCalculationItemsNormalizer implements DenormalizerInterface, Normalizer
         if (property_exists($data, 'total_revenue') && null !== $data->{'total_revenue'}) {
             $object->setTotalRevenue($data->{'total_revenue'});
         }
-        if (property_exists($data, 'stack_items') && null !== $data->{'stack_items'}) {
+        if (property_exists($data, 'order_items') && null !== $data->{'order_items'}) {
             $values_1 = [];
-            foreach ($data->{'stack_items'} as $value_1) {
+            foreach ($data->{'order_items'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrCalculationStackItem', 'json', $context);
             }
-            $object->setStackItems($values_1);
+            $object->setOrderItems($values_1);
         }
 
         return $object;
@@ -138,12 +138,12 @@ class OdrCalculationItemsNormalizer implements DenormalizerInterface, Normalizer
         if (null !== $object->getTotalRevenue()) {
             $data->{'total_revenue'} = $object->getTotalRevenue();
         }
-        if (null !== $object->getStackItems()) {
+        if (null !== $object->getOrderItems()) {
             $values_1 = [];
-            foreach ($object->getStackItems() as $value_1) {
+            foreach ($object->getOrderItems() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
-            $data->{'stack_items'} = $values_1;
+            $data->{'order_items'} = $values_1;
         }
 
         return $data;

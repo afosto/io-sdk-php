@@ -41,8 +41,14 @@ class OdrOrderSettingsBillingNormalizer implements DenormalizerInterface, Normal
         if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
             $object->setAddressId($data->{'address_id'});
         }
-        if (property_exists($data, 'method_id') && null !== $data->{'method_id'}) {
-            $object->setMethodId($data->{'method_id'});
+        if (property_exists($data, 'method_code') && null !== $data->{'method_code'}) {
+            $object->setMethodCode($data->{'method_code'});
+        }
+        if (property_exists($data, 'issuer_code') && null !== $data->{'issuer_code'}) {
+            $object->setIssuerCode($data->{'issuer_code'});
+        }
+        if (property_exists($data, 'provider_code') && null !== $data->{'provider_code'}) {
+            $object->setProviderCode($data->{'provider_code'});
         }
 
         return $object;
@@ -54,8 +60,14 @@ class OdrOrderSettingsBillingNormalizer implements DenormalizerInterface, Normal
         if (null !== $object->getAddressId()) {
             $data->{'address_id'} = $object->getAddressId();
         }
-        if (null !== $object->getMethodId()) {
-            $data->{'method_id'} = $object->getMethodId();
+        if (null !== $object->getMethodCode()) {
+            $data->{'method_code'} = $object->getMethodCode();
+        }
+        if (null !== $object->getIssuerCode()) {
+            $data->{'issuer_code'} = $object->getIssuerCode();
+        }
+        if (null !== $object->getProviderCode()) {
+            $data->{'provider_code'} = $object->getProviderCode();
         }
 
         return $data;

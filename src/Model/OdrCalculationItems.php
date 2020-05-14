@@ -67,7 +67,7 @@ class OdrCalculationItems
     /**
      * @var OdrCalculationStackItem[]
      */
-    protected $stackItems;
+    protected $orderItems;
 
     public function getId(): ?string
     {
@@ -234,17 +234,17 @@ class OdrCalculationItems
     /**
      * @return OdrCalculationStackItem[]|null
      */
-    public function getStackItems(): ?array
+    public function getOrderItems(): ?array
     {
-        return $this->stackItems;
+        return $this->orderItems;
     }
 
     /**
-     * @param OdrCalculationStackItem[]|null $stackItems
+     * @param OdrCalculationStackItem[]|null $orderItems
      */
-    public function setStackItems(?array $stackItems): self
+    public function setOrderItems(?array $orderItems): self
     {
-        $this->stackItems = $stackItems;
+        $this->orderItems = $orderItems;
 
         return $this;
     }

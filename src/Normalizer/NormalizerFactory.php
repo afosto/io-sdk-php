@@ -211,6 +211,7 @@ class NormalizerFactory
         $normalizers[] = new OdrTransactionNormalizer();
         $normalizers[] = new OdrPurchaseNormalizer();
         $normalizers[] = new OdrTransactionModelNormalizer();
+        $normalizers[] = new OdrPresetNormalizer();
         $normalizers[] = new OdrPurchaseItemNormalizer();
         $normalizers[] = new MesWebhookDelayNormalizer();
         $normalizers[] = new MesWebhookAttemptNormalizer();

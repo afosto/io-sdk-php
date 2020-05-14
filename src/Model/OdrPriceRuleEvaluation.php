@@ -41,11 +41,11 @@ class OdrPriceRuleEvaluation
      */
     protected $tags;
     /**
-     * Id of shipment method that should be used.
+     * Id of shipping method that should be used.
      *
      * @var string
      */
-    protected $shipmentMethod;
+    protected $shippingMethod;
     /**
      * Id of payment method that should be used.
      *
@@ -152,19 +152,19 @@ class OdrPriceRuleEvaluation
     }
 
     /**
-     * Id of shipment method that should be used.
+     * Id of shipping method that should be used.
      */
-    public function getShipmentMethod(): ?string
+    public function getShippingMethod(): ?string
     {
-        return $this->shipmentMethod;
+        return $this->shippingMethod;
     }
 
     /**
-     * Id of shipment method that should be used.
+     * Id of shipping method that should be used.
      */
-    public function setShipmentMethod(?string $shipmentMethod): self
+    public function setShippingMethod(?string $shippingMethod): self
     {
-        $this->shipmentMethod = $shipmentMethod;
+        $this->shippingMethod = $shippingMethod;
 
         return $this;
     }

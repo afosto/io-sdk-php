@@ -39,10 +39,6 @@ class OdrContactContact
     /**
      * @var string
      */
-    protected $shipmentAddressId;
-    /**
-     * @var string
-     */
     protected $phoneNumberId;
     /**
      * @var string
@@ -121,18 +117,6 @@ class OdrContactContact
     public function setAddressId(?string $addressId): self
     {
         $this->addressId = $addressId;
-
-        return $this;
-    }
-
-    public function getShipmentAddressId(): ?string
-    {
-        return $this->shipmentAddressId;
-    }
-
-    public function setShipmentAddressId(?string $shipmentAddressId): self
-    {
-        $this->shipmentAddressId = $shipmentAddressId;
 
         return $this;
     }

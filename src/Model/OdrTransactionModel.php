@@ -37,6 +37,10 @@ class OdrTransactionModel
      */
     protected $purchase;
     /**
+     * @var OdrPreset
+     */
+    protected $preset;
+    /**
      * @var string
      */
     protected $returnUrl;
@@ -119,6 +123,18 @@ class OdrTransactionModel
     public function setPurchase(?OdrPurchase $purchase): self
     {
         $this->purchase = $purchase;
+
+        return $this;
+    }
+
+    public function getPreset(): ?OdrPreset
+    {
+        return $this->preset;
+    }
+
+    public function setPreset(?OdrPreset $preset): self
+    {
+        $this->preset = $preset;
 
         return $this;
     }

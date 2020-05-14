@@ -19,7 +19,15 @@ class OdrSettingsBilling
     /**
      * @var string
      */
-    protected $methodId;
+    protected $methodCode;
+    /**
+     * @var string
+     */
+    protected $issuerCode;
+    /**
+     * @var string
+     */
+    protected $providerCode;
 
     public function getAddressId(): ?string
     {
@@ -33,14 +41,38 @@ class OdrSettingsBilling
         return $this;
     }
 
-    public function getMethodId(): ?string
+    public function getMethodCode(): ?string
     {
-        return $this->methodId;
+        return $this->methodCode;
     }
 
-    public function setMethodId(?string $methodId): self
+    public function setMethodCode(?string $methodCode): self
     {
-        $this->methodId = $methodId;
+        $this->methodCode = $methodCode;
+
+        return $this;
+    }
+
+    public function getIssuerCode(): ?string
+    {
+        return $this->issuerCode;
+    }
+
+    public function setIssuerCode(?string $issuerCode): self
+    {
+        $this->issuerCode = $issuerCode;
+
+        return $this;
+    }
+
+    public function getProviderCode(): ?string
+    {
+        return $this->providerCode;
+    }
+
+    public function setProviderCode(?string $providerCode): self
+    {
+        $this->providerCode = $providerCode;
 
         return $this;
     }
