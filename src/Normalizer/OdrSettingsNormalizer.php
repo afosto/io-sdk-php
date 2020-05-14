@@ -54,11 +54,8 @@ class OdrSettingsNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'due_at') && null !== $data->{'due_at'}) {
             $object->setDueAt($data->{'due_at'});
         }
-        if (property_exists($data, 'success_uri') && null !== $data->{'success_uri'}) {
-            $object->setSuccessUri($data->{'success_uri'});
-        }
-        if (property_exists($data, 'failure_uri') && null !== $data->{'failure_uri'}) {
-            $object->setFailureUri($data->{'failure_uri'});
+        if (property_exists($data, 'return_url') && null !== $data->{'return_url'}) {
+            $object->setReturnUrl($data->{'return_url'});
         }
         if (property_exists($data, 'billing') && null !== $data->{'billing'}) {
             $object->setBilling($this->denormalizer->denormalize($data->{'billing'}, 'Afosto\\Sdk\\Model\\OdrSettingsBilling', 'json', $context));
@@ -89,11 +86,8 @@ class OdrSettingsNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (null !== $object->getDueAt()) {
             $data->{'due_at'} = $object->getDueAt();
         }
-        if (null !== $object->getSuccessUri()) {
-            $data->{'success_uri'} = $object->getSuccessUri();
-        }
-        if (null !== $object->getFailureUri()) {
-            $data->{'failure_uri'} = $object->getFailureUri();
+        if (null !== $object->getReturnUrl()) {
+            $data->{'return_url'} = $object->getReturnUrl();
         }
         if (null !== $object->getBilling()) {
             $data->{'billing'} = $this->normalizer->normalize($object->getBilling(), 'json', $context);

@@ -25,7 +25,7 @@ class OdrOrderCalculationRequest
      */
     protected $currency;
     /**
-     * @var OdrCalculationItemModels[]
+     * @var OdrCalculationItemModel[]
      */
     protected $items;
     /**
@@ -78,7 +78,7 @@ class OdrOrderCalculationRequest
     }
 
     /**
-     * @return OdrCalculationItemModels[]|null
+     * @return OdrCalculationItemModel[]|null
      */
     public function getItems(): ?array
     {
@@ -86,7 +86,7 @@ class OdrOrderCalculationRequest
     }
 
     /**
-     * @param OdrCalculationItemModels[]|null $items
+     * @param OdrCalculationItemModel[]|null $items
      */
     public function setItems(?array $items): self
     {

@@ -41,14 +41,11 @@ class OdrStackNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'type') && null !== $data->{'type'}) {
-            $object->setType($data->{'type'});
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
+            $object->setReference($this->denormalizer->denormalize($data->{'reference'}, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context));
         }
         if (property_exists($data, 'state') && null !== $data->{'state'}) {
             $object->setState($this->denormalizer->denormalize($data->{'state'}, 'Afosto\\Sdk\\Model\\OdrStackState', 'json', $context));
-        }
-        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
-            $object->setMetadata($data->{'metadata'});
         }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -66,14 +63,11 @@ class OdrStackNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getType()) {
-            $data->{'type'} = $object->getType();
+        if (null !== $object->getReference()) {
+            $data->{'reference'} = $this->normalizer->normalize($object->getReference(), 'json', $context);
         }
         if (null !== $object->getState()) {
             $data->{'state'} = $this->normalizer->normalize($object->getState(), 'json', $context);
-        }
-        if (null !== $object->getMetadata()) {
-            $data->{'metadata'} = $object->getMetadata();
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

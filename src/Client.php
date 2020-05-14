@@ -308,6 +308,30 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Creates and returns the new stack.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-idempotency-key
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\TransitionStackUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\TransitionStackNotFoundException
+     * @throws \Afosto\Sdk\Exception\TransitionStackBadRequestException
+     * @throws \Afosto\Sdk\Exception\TransitionStackForbiddenException
+     * @throws \Afosto\Sdk\Exception\TransitionStackInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\TransitionStackServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrStack|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function transitionStack(string $id, \Afosto\Sdk\Model\OdrReferenceModel $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\TransitionStack($id, $body, $headerParameters), $fetch);
+    }
+
+    /**
      * Returns an order's projection.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

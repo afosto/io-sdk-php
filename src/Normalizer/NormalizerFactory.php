@@ -36,7 +36,7 @@ class NormalizerFactory
         $normalizers[] = new OdrProjectionItemNormalizer();
         $normalizers[] = new OdrOrderCalculationRequestNormalizer();
         $normalizers[] = new OdrAdjustmentNormalizer();
-        $normalizers[] = new OdrCalculationItemModelsNormalizer();
+        $normalizers[] = new OdrCalculationItemModelNormalizer();
         $normalizers[] = new OdrCalculationsNormalizer();
         $normalizers[] = new OdrCalculationItemsNormalizer();
         $normalizers[] = new OdrCalculationStackItemNormalizer();
@@ -61,9 +61,11 @@ class NormalizerFactory
         $normalizers[] = new OdrOrderCalculationsItemNormalizer();
         $normalizers[] = new OdrProcessingNormalizer();
         $normalizers[] = new OdrStackNormalizer();
+        $normalizers[] = new OdrStackReferenceNormalizer();
         $normalizers[] = new OdrStackStateNormalizer();
         $normalizers[] = new OdrOrderModelNormalizer();
         $normalizers[] = new OdrOrderAuthorizationResponseNormalizer();
+        $normalizers[] = new OdrReferenceModelNormalizer();
         $normalizers[] = new OdrSimpleOrderItemNormalizer();
         $normalizers[] = new OdrFilterNormalizer();
         $normalizers[] = new OdrOrderItemModelNormalizer();
@@ -95,7 +97,6 @@ class NormalizerFactory
         $normalizers[] = new OdrInvoiceListItemNormalizer();
         $normalizers[] = new OdrInvoiceRequestNormalizer();
         $normalizers[] = new OdrInvoiceItemModelNormalizer();
-        $normalizers[] = new OdrCalculationItemModelNormalizer();
         $normalizers[] = new OdrItemModelNormalizer();
         $normalizers[] = new OdrProjectionModelNormalizer();
         $normalizers[] = new OdrInvoiceAdjustmentResponseNormalizer();

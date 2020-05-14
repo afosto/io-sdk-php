@@ -50,7 +50,7 @@ class OdrOrderCalculationRequestNormalizer implements DenormalizerInterface, Nor
         if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrCalculationItemModels', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrCalculationItemModel', 'json', $context);
             }
             $object->setItems($values);
         }

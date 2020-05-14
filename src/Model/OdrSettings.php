@@ -31,11 +31,7 @@ class OdrSettings
     /**
      * @var string
      */
-    protected $successUri;
-    /**
-     * @var string
-     */
-    protected $failureUri;
+    protected $returnUrl;
     /**
      * @var OdrSettingsBilling
      */
@@ -99,26 +95,14 @@ class OdrSettings
         return $this;
     }
 
-    public function getSuccessUri(): ?string
+    public function getReturnUrl(): ?string
     {
-        return $this->successUri;
+        return $this->returnUrl;
     }
 
-    public function setSuccessUri(?string $successUri): self
+    public function setReturnUrl(?string $returnUrl): self
     {
-        $this->successUri = $successUri;
-
-        return $this;
-    }
-
-    public function getFailureUri(): ?string
-    {
-        return $this->failureUri;
-    }
-
-    public function setFailureUri(?string $failureUri): self
-    {
-        $this->failureUri = $failureUri;
+        $this->returnUrl = $returnUrl;
 
         return $this;
     }

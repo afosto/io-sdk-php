@@ -17,17 +17,13 @@ class OdrStack
      */
     protected $id;
     /**
-     * @var string
+     * @var OdrStackReference
      */
-    protected $type;
+    protected $reference;
     /**
      * @var OdrStackState
      */
     protected $state;
-    /**
-     * @var mixed
-     */
-    protected $metadata;
     /**
      * @var \DateTime
      */
@@ -49,14 +45,14 @@ class OdrStack
         return $this;
     }
 
-    public function getType(): ?string
+    public function getReference(): ?OdrStackReference
     {
-        return $this->type;
+        return $this->reference;
     }
 
-    public function setType(?string $type): self
+    public function setReference(?OdrStackReference $reference): self
     {
-        $this->type = $type;
+        $this->reference = $reference;
 
         return $this;
     }
@@ -69,24 +65,6 @@ class OdrStack
     public function setState(?OdrStackState $state): self
     {
         $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMetadata()
-    {
-        return $this->metadata;
-    }
-
-    /**
-     * @param mixed $metadata
-     */
-    public function setMetadata($metadata): self
-    {
-        $this->metadata = $metadata;
 
         return $this;
     }
