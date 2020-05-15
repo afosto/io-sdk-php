@@ -44,11 +44,7 @@ class OdrSessionsIdShippingPointGetResponse200Normalizer implements Denormalizer
         if (property_exists($data, 'options') && null !== $data->{'options'}) {
             $values = [];
             foreach ($data->{'options'} as $value) {
-                $values_1 = [];
-                foreach ($value as $value_1) {
-                    $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrGetSessionShippingResponseItem', 'json', $context);
-                }
-                $values[] = $values_1;
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrGetSessionShippingResponseItem', 'json', $context);
             }
             $object->setOptions($values);
         }
@@ -65,11 +61,7 @@ class OdrSessionsIdShippingPointGetResponse200Normalizer implements Denormalizer
         if (null !== $object->getOptions()) {
             $values = [];
             foreach ($object->getOptions() as $value) {
-                $values_1 = [];
-                foreach ($value as $value_1) {
-                    $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-                }
-                $values[] = $values_1;
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'options'} = $values;
         }

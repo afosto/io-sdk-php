@@ -17,7 +17,7 @@ class OdrSessionsIdShippingPointGetResponse200
      */
     protected $active;
     /**
-     * @var OdrGetSessionShippingResponseItem[][]
+     * @var OdrGetSessionShippingResponseItem[]
      */
     protected $options;
 
@@ -34,7 +34,7 @@ class OdrSessionsIdShippingPointGetResponse200
     }
 
     /**
-     * @return OdrGetSessionShippingResponseItem[][]|null
+     * @return OdrGetSessionShippingResponseItem[]|null
      */
     public function getOptions(): ?array
     {
@@ -42,7 +42,7 @@ class OdrSessionsIdShippingPointGetResponse200
     }
 
     /**
-     * @param OdrGetSessionShippingResponseItem[][]|null $options
+     * @param OdrGetSessionShippingResponseItem[]|null $options
      */
     public function setOptions(?array $options): self
     {
