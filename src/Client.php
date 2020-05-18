@@ -7007,6 +7007,44 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Get lat long parameters for party address.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetAddressGeocodeBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetAddressGeocodeUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetAddressGeocodeForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetAddressGeocodeNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetAddressGeocodeInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetAddressGeocodeServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\RelGeocodeResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getAddressGeocode(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetAddressGeocode($id), $fetch);
+    }
+
+    /**
+     * Get lat long parameters for party address.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetGeocodeBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetGeocodeUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetGeocodeForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetGeocodeNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetGeocodeInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetGeocodeServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\RelGeocodeResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getGeocode(\Afosto\Sdk\Model\RelGeocodeRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetGeocode($body), $fetch);
+    }
+
+    /**
      * List required fields.
      *
      * @param array $queryParameters {
