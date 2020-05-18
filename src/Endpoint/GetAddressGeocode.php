@@ -54,12 +54,12 @@ class GetAddressGeocode extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      * @throws \Afosto\Sdk\Exception\GetAddressGeocodeInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetAddressGeocodeServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\RelGeocodeResponse|null
+     * @return \Afosto\Sdk\Model\RelGeoLocation|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelGeocodeResponse', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\RelGeoLocation', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\GetAddressGeocodeBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

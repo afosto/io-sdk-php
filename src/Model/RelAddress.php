@@ -100,6 +100,14 @@ class RelAddress
      * @var string
      */
     protected $familyName;
+    /**
+     * @var RelGeoLocation
+     */
+    protected $geoLocation;
+    /**
+     * @var \DateTime
+     */
+    protected $createdAt;
 
     public function getId(): ?string
     {
@@ -361,6 +369,30 @@ class RelAddress
     public function setFamilyName(?string $familyName): self
     {
         $this->familyName = $familyName;
+
+        return $this;
+    }
+
+    public function getGeoLocation(): ?RelGeoLocation
+    {
+        return $this->geoLocation;
+    }
+
+    public function setGeoLocation(?RelGeoLocation $geoLocation): self
+    {
+        $this->geoLocation = $geoLocation;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?\DateTime $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

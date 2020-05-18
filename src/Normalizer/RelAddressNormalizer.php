@@ -86,6 +86,12 @@ class RelAddressNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'family_name') && null !== $data->{'family_name'}) {
             $object->setFamilyName($data->{'family_name'});
         }
+        if (property_exists($data, 'geo_location') && null !== $data->{'geo_location'}) {
+            $object->setGeoLocation($this->denormalizer->denormalize($data->{'geo_location'}, 'Afosto\\Sdk\\Model\\RelGeoLocation', 'json', $context));
+        }
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
+            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
+        }
 
         return $object;
     }
@@ -140,6 +146,12 @@ class RelAddressNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (null !== $object->getFamilyName()) {
             $data->{'family_name'} = $object->getFamilyName();
+        }
+        if (null !== $object->getGeoLocation()) {
+            $data->{'geo_location'} = $this->normalizer->normalize($object->getGeoLocation(), 'json', $context);
+        }
+        if (null !== $object->getCreatedAt()) {
+            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

@@ -10,35 +10,35 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class RelGeocodeResponseBox
+class RelGeoLocationBox
 {
     /**
-     * @var RelGeocodeResponseBoxNorthEast
+     * @var RelGeoLocationBoxNorthEast
      */
     protected $northEast;
     /**
-     * @var RelGeocodeResponseBoxSouthWest
+     * @var RelGeoLocationBoxSouthWest
      */
     protected $southWest;
 
-    public function getNorthEast(): ?RelGeocodeResponseBoxNorthEast
+    public function getNorthEast(): ?RelGeoLocationBoxNorthEast
     {
         return $this->northEast;
     }
 
-    public function setNorthEast(?RelGeocodeResponseBoxNorthEast $northEast): self
+    public function setNorthEast(?RelGeoLocationBoxNorthEast $northEast): self
     {
         $this->northEast = $northEast;
 
         return $this;
     }
 
-    public function getSouthWest(): ?RelGeocodeResponseBoxSouthWest
+    public function getSouthWest(): ?RelGeoLocationBoxSouthWest
     {
         return $this->southWest;
     }
 
-    public function setSouthWest(?RelGeocodeResponseBoxSouthWest $southWest): self
+    public function setSouthWest(?RelGeoLocationBoxSouthWest $southWest): self
     {
         $this->southWest = $southWest;
 

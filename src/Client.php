@@ -7018,7 +7018,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetAddressGeocodeInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetAddressGeocodeServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\RelGeocodeResponse|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\RelGeoLocation|\Psr\Http\Message\ResponseInterface|null
      */
     public function getAddressGeocode(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -7037,7 +7037,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetGeocodeInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetGeocodeServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\RelGeocodeResponse|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\RelGeoLocation|\Psr\Http\Message\ResponseInterface|null
      */
     public function getGeocode(\Afosto\Sdk\Model\RelGeocodeRequest $body, string $fetch = self::FETCH_OBJECT)
     {

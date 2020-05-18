@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class RelGeocodeResponseBoxSouthWestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class RelGeoLocationNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\RelGeocodeResponseBoxSouthWest' === $type;
+        return 'Afosto\\Sdk\\Model\\RelGeoLocation' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\RelGeocodeResponseBoxSouthWest' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\RelGeoLocation' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,21 @@ class RelGeocodeResponseBoxSouthWestNormalizer implements DenormalizerInterface,
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\RelGeocodeResponseBoxSouthWest();
+        $object = new \Afosto\Sdk\Model\RelGeoLocation();
         if (property_exists($data, 'lat') && null !== $data->{'lat'}) {
             $object->setLat($data->{'lat'});
         }
         if (property_exists($data, 'long') && null !== $data->{'long'}) {
             $object->setLong($data->{'long'});
+        }
+        if (property_exists($data, 'box') && null !== $data->{'box'}) {
+            $object->setBox($this->denormalizer->denormalize($data->{'box'}, 'Afosto\\Sdk\\Model\\RelGeoLocationBox', 'json', $context));
+        }
+        if (property_exists($data, 'is_precise') && null !== $data->{'is_precise'}) {
+            $object->setIsPrecise($data->{'is_precise'});
+        }
+        if (property_exists($data, 'address') && null !== $data->{'address'}) {
+            $object->setAddress($this->denormalizer->denormalize($data->{'address'}, 'Afosto\\Sdk\\Model\\RelGeoLocationAddress', 'json', $context));
         }
 
         return $object;
@@ -56,6 +65,15 @@ class RelGeocodeResponseBoxSouthWestNormalizer implements DenormalizerInterface,
         }
         if (null !== $object->getLong()) {
             $data->{'long'} = $object->getLong();
+        }
+        if (null !== $object->getBox()) {
+            $data->{'box'} = $this->normalizer->normalize($object->getBox(), 'json', $context);
+        }
+        if (null !== $object->getIsPrecise()) {
+            $data->{'is_precise'} = $object->getIsPrecise();
+        }
+        if (null !== $object->getAddress()) {
+            $data->{'address'} = $this->normalizer->normalize($object->getAddress(), 'json', $context);
         }
 
         return $data;

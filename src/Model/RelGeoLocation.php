@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class RelGeocodeResponse
+class RelGeoLocation
 {
     /**
      * @var float
@@ -21,7 +21,7 @@ class RelGeocodeResponse
      */
     protected $long;
     /**
-     * @var RelGeocodeResponseBox
+     * @var RelGeoLocationBox
      */
     protected $box;
     /**
@@ -29,7 +29,7 @@ class RelGeocodeResponse
      */
     protected $isPrecise;
     /**
-     * @var RelGeocodeResponseAddress
+     * @var RelGeoLocationAddress
      */
     protected $address;
 
@@ -57,12 +57,12 @@ class RelGeocodeResponse
         return $this;
     }
 
-    public function getBox(): ?RelGeocodeResponseBox
+    public function getBox(): ?RelGeoLocationBox
     {
         return $this->box;
     }
 
-    public function setBox(?RelGeocodeResponseBox $box): self
+    public function setBox(?RelGeoLocationBox $box): self
     {
         $this->box = $box;
 
@@ -81,12 +81,12 @@ class RelGeocodeResponse
         return $this;
     }
 
-    public function getAddress(): ?RelGeocodeResponseAddress
+    public function getAddress(): ?RelGeoLocationAddress
     {
         return $this->address;
     }
 
-    public function setAddress(?RelGeocodeResponseAddress $address): self
+    public function setAddress(?RelGeoLocationAddress $address): self
     {
         $this->address = $address;
 

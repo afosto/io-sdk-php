@@ -387,11 +387,11 @@ class NormalizerFactory
         $normalizers[] = new CatVatNormalizer();
         $normalizers[] = new CatVatRateNormalizer();
         $normalizers[] = new RelGeocodeRequestNormalizer();
-        $normalizers[] = new RelGeocodeResponseNormalizer();
-        $normalizers[] = new RelGeocodeResponseBoxNormalizer();
-        $normalizers[] = new RelGeocodeResponseBoxNorthEastNormalizer();
-        $normalizers[] = new RelGeocodeResponseBoxSouthWestNormalizer();
-        $normalizers[] = new RelGeocodeResponseAddressNormalizer();
+        $normalizers[] = new RelGeoLocationNormalizer();
+        $normalizers[] = new RelGeoLocationBoxNormalizer();
+        $normalizers[] = new RelGeoLocationBoxNorthEastNormalizer();
+        $normalizers[] = new RelGeoLocationBoxSouthWestNormalizer();
+        $normalizers[] = new RelGeoLocationAddressNormalizer();
         $normalizers[] = new RelIdentityExistsRequestNormalizer();
         $normalizers[] = new RelCreateIdentityRequestNormalizer();
         $normalizers[] = new RelCreateTokenRequestNormalizer();

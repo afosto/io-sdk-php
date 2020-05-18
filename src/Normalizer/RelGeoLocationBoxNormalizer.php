@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class RelGeocodeResponseBoxNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class RelGeoLocationBoxNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\RelGeocodeResponseBox' === $type;
+        return 'Afosto\\Sdk\\Model\\RelGeoLocationBox' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\RelGeocodeResponseBox' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\RelGeoLocationBox' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,12 @@ class RelGeocodeResponseBoxNormalizer implements DenormalizerInterface, Normaliz
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\RelGeocodeResponseBox();
+        $object = new \Afosto\Sdk\Model\RelGeoLocationBox();
         if (property_exists($data, 'north_east') && null !== $data->{'north_east'}) {
-            $object->setNorthEast($this->denormalizer->denormalize($data->{'north_east'}, 'Afosto\\Sdk\\Model\\RelGeocodeResponseBoxNorthEast', 'json', $context));
+            $object->setNorthEast($this->denormalizer->denormalize($data->{'north_east'}, 'Afosto\\Sdk\\Model\\RelGeoLocationBoxNorthEast', 'json', $context));
         }
         if (property_exists($data, 'south_west') && null !== $data->{'south_west'}) {
-            $object->setSouthWest($this->denormalizer->denormalize($data->{'south_west'}, 'Afosto\\Sdk\\Model\\RelGeocodeResponseBoxSouthWest', 'json', $context));
+            $object->setSouthWest($this->denormalizer->denormalize($data->{'south_west'}, 'Afosto\\Sdk\\Model\\RelGeoLocationBoxSouthWest', 'json', $context));
         }
 
         return $object;
