@@ -6592,6 +6592,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Transform HTML into a PDF and return PDF as string.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GenerateInlinePDFBadRequestException
+     * @throws \Afosto\Sdk\Exception\GenerateInlinePDFUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GenerateInlinePDFForbiddenException
+     * @throws \Afosto\Sdk\Exception\GenerateInlinePDFNotFoundException
+     * @throws \Afosto\Sdk\Exception\GenerateInlinePDFInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GenerateInlinePDFServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function generateInlinePDF(\Afosto\Sdk\Model\CntHtmlToInlinePdfRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GenerateInlinePDF($body), $fetch);
+    }
+
+    /**
      * Get a listing of available pricing groups.
      *
      * @param array $headerParameters {

@@ -371,6 +371,9 @@ class NormalizerFactory
         $normalizers[] = new SplJobResultNormalizer();
         $normalizers[] = new SplStatusNormalizer();
         $normalizers[] = new MesTaskNormalizer();
+        $normalizers[] = new CntHtmlToInlinePdfRequestNormalizer();
+        $normalizers[] = new CntHtmlToInlinePdfRequestSizeNormalizer();
+        $normalizers[] = new CntHtmlToInlinePdfRequestMarginNormalizer();
         $normalizers[] = new CntHtmlToPdfRequestNormalizer();
         $normalizers[] = new CntHtmlToPdfRequestSizeNormalizer();
         $normalizers[] = new CntHtmlToPdfRequestMarginNormalizer();
