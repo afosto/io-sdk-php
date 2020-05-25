@@ -289,6 +289,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns affiliated orders.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetOrderReferencesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetOrderReferencesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetOrderReferencesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetOrderReferencesForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetOrderReferencesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetOrderReferencesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getOrderReferences(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetOrderReferences($id), $fetch);
+    }
+
+    /**
      * Returns all affiliated line sets that orginate from the order. For example inventory allocation, shipment or parcel data.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
