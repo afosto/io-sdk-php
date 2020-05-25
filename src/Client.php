@@ -1554,6 +1554,31 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Return DPD's servicepoints.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $country_code
+     *     @var string $postal_code
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetTypesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetTypesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetTypesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTypesForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetTypesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetTypesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\LcsDPDServicePointResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getTypes(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTypes($queryParameters), $fetch);
+    }
+
+    /**
      * Delete the secret and disable 2FA.
      *
      * @param string $type  Type that needs to be deleted
