@@ -48,7 +48,11 @@ class RelOrganisationPaymentSettingsPostPaymentNormalizer implements Denormalize
             $object->setDueAfter($data->{'due_after'});
         }
         if (property_exists($data, 'iban') && null !== $data->{'iban'}) {
-            $object->setIban($data->{'iban'});
+            $values = [];
+            foreach ($data->{'iban'} as $value) {
+                $values[] = $value;
+            }
+            $object->setIban($values);
         }
 
         return $object;
@@ -67,7 +71,11 @@ class RelOrganisationPaymentSettingsPostPaymentNormalizer implements Denormalize
             $data->{'due_after'} = $object->getDueAfter();
         }
         if (null !== $object->getIban()) {
-            $data->{'iban'} = $object->getIban();
+            $values = [];
+            foreach ($object->getIban() as $value) {
+                $values[] = $value;
+            }
+            $data->{'iban'} = $values;
         }
 
         return $data;

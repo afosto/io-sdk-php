@@ -1051,6 +1051,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a list of invoices.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $order_id
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListInvoicesBadRequestException
@@ -1062,9 +1069,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrInvoiceListItem[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listInvoices(string $fetch = self::FETCH_OBJECT)
+    public function listInvoices(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInvoices(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInvoices($queryParameters), $fetch);
     }
 
     /**

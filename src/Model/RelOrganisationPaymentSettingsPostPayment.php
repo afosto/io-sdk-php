@@ -25,7 +25,7 @@ class RelOrganisationPaymentSettingsPostPayment
      */
     protected $dueAfter;
     /**
-     * @var string
+     * @var string[]
      */
     protected $iban;
 
@@ -65,12 +65,18 @@ class RelOrganisationPaymentSettingsPostPayment
         return $this;
     }
 
-    public function getIban(): ?string
+    /**
+     * @return string[]|null
+     */
+    public function getIban(): ?array
     {
         return $this->iban;
     }
 
-    public function setIban(?string $iban): self
+    /**
+     * @param string[]|null $iban
+     */
+    public function setIban(?array $iban): self
     {
         $this->iban = $iban;
 

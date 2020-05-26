@@ -12,6 +12,19 @@ namespace Afosto\Sdk\Endpoint;
 
 class ListInvoices extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
+    /**
+     * Returns a list of invoices.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $order_id
+     * }
+     */
+    public function __construct(array $queryParameters = [])
+    {
+        $this->queryParameters = $queryParameters;
+    }
+
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
 
     public function getMethod(): string
@@ -32,6 +45,17 @@ class ListInvoices extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['order_id']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('order_id', ['string']);
+
+        return $optionsResolver;
     }
 
     /**
