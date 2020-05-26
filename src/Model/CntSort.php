@@ -15,20 +15,20 @@ class CntSort
     /**
      * @var string
      */
-    protected $filterKey;
+    protected $key;
     /**
      * @var string
      */
     protected $order;
 
-    public function getFilterKey(): ?string
+    public function getKey(): ?string
     {
-        return $this->filterKey;
+        return $this->key;
     }
 
-    public function setFilterKey(?string $filterKey): self
+    public function setKey(?string $key): self
     {
-        $this->filterKey = $filterKey;
+        $this->key = $key;
 
         return $this;
     }

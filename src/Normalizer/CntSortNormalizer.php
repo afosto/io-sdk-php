@@ -38,8 +38,8 @@ class CntSortNormalizer implements DenormalizerInterface, NormalizerInterface, D
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntSort();
-        if (property_exists($data, 'filter_key') && null !== $data->{'filter_key'}) {
-            $object->setFilterKey($data->{'filter_key'});
+        if (property_exists($data, 'key') && null !== $data->{'key'}) {
+            $object->setKey($data->{'key'});
         }
         if (property_exists($data, 'order') && null !== $data->{'order'}) {
             $object->setOrder($data->{'order'});
@@ -51,8 +51,8 @@ class CntSortNormalizer implements DenormalizerInterface, NormalizerInterface, D
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getFilterKey()) {
-            $data->{'filter_key'} = $object->getFilterKey();
+        if (null !== $object->getKey()) {
+            $data->{'key'} = $object->getKey();
         }
         if (null !== $object->getOrder()) {
             $data->{'order'} = $object->getOrder();
