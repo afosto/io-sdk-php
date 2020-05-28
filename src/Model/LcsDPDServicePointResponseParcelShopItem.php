@@ -105,7 +105,7 @@ class LcsDPDServicePointResponseParcelShopItem
      */
     protected $openingHours;
     /**
-     * @var LcsDPDServicePointResponseParcelShopItemServices
+     * @var mixed[]
      */
     protected $services;
 
@@ -391,12 +391,18 @@ class LcsDPDServicePointResponseParcelShopItem
         return $this;
     }
 
-    public function getServices(): ?LcsDPDServicePointResponseParcelShopItemServices
+    /**
+     * @return mixed[]|null
+     */
+    public function getServices(): ?array
     {
         return $this->services;
     }
 
-    public function setServices(?LcsDPDServicePointResponseParcelShopItemServices $services): self
+    /**
+     * @param mixed[]|null $services
+     */
+    public function setServices(?array $services): self
     {
         $this->services = $services;
 

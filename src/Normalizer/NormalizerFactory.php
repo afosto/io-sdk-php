@@ -124,7 +124,6 @@ class NormalizerFactory
         $normalizers[] = new LcsDPDServicePointResponseNormalizer();
         $normalizers[] = new LcsDPDServicePointResponseParcelShopItemNormalizer();
         $normalizers[] = new LcsDPDServicePointResponseParcelShopItemOpeningHoursItemNormalizer();
-        $normalizers[] = new LcsDPDServicePointResponseParcelShopItemServicesNormalizer();
         $normalizers[] = new IamSecretRequestNormalizer();
         $normalizers[] = new IamSecretUpdateNormalizer();
         $normalizers[] = new IamBackupNormalizer();

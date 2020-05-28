@@ -112,7 +112,11 @@ class LcsDPDServicePointResponseParcelShopItemNormalizer implements Denormalizer
             $object->setOpeningHours($values);
         }
         if (property_exists($data, 'services') && null !== $data->{'services'}) {
-            $object->setServices($this->denormalizer->denormalize($data->{'services'}, 'Afosto\\Sdk\\Model\\LcsDPDServicePointResponseParcelShopItemServices', 'json', $context));
+            $values_1 = [];
+            foreach ($data->{'services'} as $value_1) {
+                $values_1[] = $value_1;
+            }
+            $object->setServices($values_1);
         }
 
         return $object;
@@ -195,7 +199,11 @@ class LcsDPDServicePointResponseParcelShopItemNormalizer implements Denormalizer
             $data->{'openingHours'} = $values;
         }
         if (null !== $object->getServices()) {
-            $data->{'services'} = $this->normalizer->normalize($object->getServices(), 'json', $context);
+            $values_1 = [];
+            foreach ($object->getServices() as $value_1) {
+                $values_1[] = $value_1;
+            }
+            $data->{'services'} = $values_1;
         }
 
         return $data;
