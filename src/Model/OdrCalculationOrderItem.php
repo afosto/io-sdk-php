@@ -20,6 +20,10 @@ class OdrCalculationOrderItem
      * @var bool
      */
     protected $isInvoiced;
+    /**
+     * @var string
+     */
+    protected $invoiceId;
 
     public function getId(): ?string
     {
@@ -41,6 +45,18 @@ class OdrCalculationOrderItem
     public function setIsInvoiced(?bool $isInvoiced): self
     {
         $this->isInvoiced = $isInvoiced;
+
+        return $this;
+    }
+
+    public function getInvoiceId(): ?string
+    {
+        return $this->invoiceId;
+    }
+
+    public function setInvoiceId(?string $invoiceId): self
+    {
+        $this->invoiceId = $invoiceId;
 
         return $this;
     }
