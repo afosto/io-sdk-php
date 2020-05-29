@@ -43,27 +43,37 @@ class LcsShipment
     /**
      * @var bool
      */
-    protected $isEditable;
-    /**
-     * @var bool
-     */
     protected $isOutbound;
     /**
+     * False in case listed items does not match packaged items.
+     *
+     * @var bool
+     */
+    protected $isComplete;
+    /**
+     * True in case no further actions are required for this shipment.
+     *
+     * @var bool
+     */
+    protected $isDone;
+    /**
+     * True whe shipment is placed on handling list.
+     *
      * @var bool
      */
     protected $isListed;
     /**
+     * True in case shipment was picked (outbound) or sorted (inbound).
+     *
      * @var bool
      */
-    protected $isFinished;
+    protected $isHandled;
     /**
+     * If true, items are beeing shipped and have not yet arrived.
+     *
      * @var bool
      */
     protected $isInTransit;
-    /**
-     * @var bool
-     */
-    protected $isDelivered;
     /**
      * @var LcsShipmentItem[]
      */
@@ -181,18 +191,6 @@ class LcsShipment
         return $this;
     }
 
-    public function getIsEditable(): ?bool
-    {
-        return $this->isEditable;
-    }
-
-    public function setIsEditable(?bool $isEditable): self
-    {
-        $this->isEditable = $isEditable;
-
-        return $this;
-    }
-
     public function getIsOutbound(): ?bool
     {
         return $this->isOutbound;
@@ -205,11 +203,53 @@ class LcsShipment
         return $this;
     }
 
+    /**
+     * False in case listed items does not match packaged items.
+     */
+    public function getIsComplete(): ?bool
+    {
+        return $this->isComplete;
+    }
+
+    /**
+     * False in case listed items does not match packaged items.
+     */
+    public function setIsComplete(?bool $isComplete): self
+    {
+        $this->isComplete = $isComplete;
+
+        return $this;
+    }
+
+    /**
+     * True in case no further actions are required for this shipment.
+     */
+    public function getIsDone(): ?bool
+    {
+        return $this->isDone;
+    }
+
+    /**
+     * True in case no further actions are required for this shipment.
+     */
+    public function setIsDone(?bool $isDone): self
+    {
+        $this->isDone = $isDone;
+
+        return $this;
+    }
+
+    /**
+     * True whe shipment is placed on handling list.
+     */
     public function getIsListed(): ?bool
     {
         return $this->isListed;
     }
 
+    /**
+     * True whe shipment is placed on handling list.
+     */
     public function setIsListed(?bool $isListed): self
     {
         $this->isListed = $isListed;
@@ -217,38 +257,38 @@ class LcsShipment
         return $this;
     }
 
-    public function getIsFinished(): ?bool
+    /**
+     * True in case shipment was picked (outbound) or sorted (inbound).
+     */
+    public function getIsHandled(): ?bool
     {
-        return $this->isFinished;
+        return $this->isHandled;
     }
 
-    public function setIsFinished(?bool $isFinished): self
+    /**
+     * True in case shipment was picked (outbound) or sorted (inbound).
+     */
+    public function setIsHandled(?bool $isHandled): self
     {
-        $this->isFinished = $isFinished;
+        $this->isHandled = $isHandled;
 
         return $this;
     }
 
+    /**
+     * If true, items are beeing shipped and have not yet arrived.
+     */
     public function getIsInTransit(): ?bool
     {
         return $this->isInTransit;
     }
 
+    /**
+     * If true, items are beeing shipped and have not yet arrived.
+     */
     public function setIsInTransit(?bool $isInTransit): self
     {
         $this->isInTransit = $isInTransit;
-
-        return $this;
-    }
-
-    public function getIsDelivered(): ?bool
-    {
-        return $this->isDelivered;
-    }
-
-    public function setIsDelivered(?bool $isDelivered): self
-    {
-        $this->isDelivered = $isDelivered;
 
         return $this;
     }

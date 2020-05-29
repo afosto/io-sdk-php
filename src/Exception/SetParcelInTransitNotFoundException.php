@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class GetLabelBadRequestException extends \RuntimeException implements ClientException
+class SetParcelInTransitNotFoundException extends \RuntimeException implements ClientException
 {
     private $error;
 
     public function __construct(\Afosto\Sdk\Model\Error $error)
     {
-        parent::__construct('Bad request', 400);
+        parent::__construct('Not found', 404);
         $this->error = $error;
     }
 

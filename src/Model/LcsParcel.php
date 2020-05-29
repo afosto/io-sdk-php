@@ -49,13 +49,13 @@ class LcsParcel
      */
     protected $label;
     /**
-     * @var string
-     */
-    protected $stackId;
-    /**
      * @var LcsParcelItem[]
      */
     protected $items;
+    /**
+     * @var bool
+     */
+    protected $isInTransit;
     /**
      * @var bool
      */
@@ -177,18 +177,6 @@ class LcsParcel
         return $this;
     }
 
-    public function getStackId(): ?string
-    {
-        return $this->stackId;
-    }
-
-    public function setStackId(?string $stackId): self
-    {
-        $this->stackId = $stackId;
-
-        return $this;
-    }
-
     /**
      * @return LcsParcelItem[]|null
      */
@@ -203,6 +191,18 @@ class LcsParcel
     public function setItems(?array $items): self
     {
         $this->items = $items;
+
+        return $this;
+    }
+
+    public function getIsInTransit(): ?bool
+    {
+        return $this->isInTransit;
+    }
+
+    public function setIsInTransit(?bool $isInTransit): self
+    {
+        $this->isInTransit = $isInTransit;
 
         return $this;
     }

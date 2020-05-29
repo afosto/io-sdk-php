@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsListsIdItemsPutResponse200Normalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LcsListsIdItemsPutResponse204Normalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsListsIdItemsPutResponse200' === $type;
+        return 'Afosto\\Sdk\\Model\\LcsListsIdItemsPutResponse204' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsListsIdItemsPutResponse200' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsListsIdItemsPutResponse204' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class LcsListsIdItemsPutResponse200Normalizer implements DenormalizerInterface, 
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsListsIdItemsPutResponse200();
+        $object = new \Afosto\Sdk\Model\LcsListsIdItemsPutResponse204();
         if (property_exists($data, 'success') && null !== $data->{'success'}) {
             $object->setSuccess($data->{'success'});
         }

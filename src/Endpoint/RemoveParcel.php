@@ -54,12 +54,12 @@ class RemoveParcel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * @throws \Afosto\Sdk\Exception\RemoveParcelInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\RemoveParcelServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsParcel|null
+     * @return null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
-        if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsParcel', 'json');
+        if (204 === $status) {
+            return null;
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\RemoveParcelBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

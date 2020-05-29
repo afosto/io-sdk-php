@@ -55,12 +55,12 @@ class UpdateListState extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      * @throws \Afosto\Sdk\Exception\UpdateListStateInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateListStateServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsListsIdStatePutResponse200|null
+     * @return null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
-        if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsListsIdStatePutResponse200', 'json');
+        if (204 === $status) {
+            return null;
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateListStateBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

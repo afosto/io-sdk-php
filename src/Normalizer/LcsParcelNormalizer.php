@@ -65,15 +65,15 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'label') && null !== $data->{'label'}) {
             $object->setLabel($this->denormalizer->denormalize($data->{'label'}, 'Afosto\\Sdk\\Model\\LcsParcelLabel', 'json', $context));
         }
-        if (property_exists($data, 'stack_id') && null !== $data->{'stack_id'}) {
-            $object->setStackId($data->{'stack_id'});
-        }
         if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
                 $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsParcelItem', 'json', $context);
             }
             $object->setItems($values);
+        }
+        if (property_exists($data, 'is_in_transit') && null !== $data->{'is_in_transit'}) {
+            $object->setIsInTransit($data->{'is_in_transit'});
         }
         if (property_exists($data, 'is_delivered') && null !== $data->{'is_delivered'}) {
             $object->setIsDelivered($data->{'is_delivered'});
@@ -118,15 +118,15 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (null !== $object->getLabel()) {
             $data->{'label'} = $this->normalizer->normalize($object->getLabel(), 'json', $context);
         }
-        if (null !== $object->getStackId()) {
-            $data->{'stack_id'} = $object->getStackId();
-        }
         if (null !== $object->getItems()) {
             $values = [];
             foreach ($object->getItems() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'items'} = $values;
+        }
+        if (null !== $object->getIsInTransit()) {
+            $data->{'is_in_transit'} = $object->getIsInTransit();
         }
         if (null !== $object->getIsDelivered()) {
             $data->{'is_delivered'} = $object->getIsDelivered();

@@ -35,11 +35,23 @@ class LcsShipmentItem
     /**
      * @var bool
      */
+    protected $isListed;
+    /**
+     * @var bool
+     */
+    protected $isHandled;
+    /**
+     * @var bool
+     */
     protected $isBoxed;
     /**
      * @var bool
      */
-    protected $isListed;
+    protected $isInTransit;
+    /**
+     * @var bool
+     */
+    protected $isFinished;
     /**
      * @var string
      */
@@ -109,6 +121,30 @@ class LcsShipmentItem
         return $this;
     }
 
+    public function getIsListed(): ?bool
+    {
+        return $this->isListed;
+    }
+
+    public function setIsListed(?bool $isListed): self
+    {
+        $this->isListed = $isListed;
+
+        return $this;
+    }
+
+    public function getIsHandled(): ?bool
+    {
+        return $this->isHandled;
+    }
+
+    public function setIsHandled(?bool $isHandled): self
+    {
+        $this->isHandled = $isHandled;
+
+        return $this;
+    }
+
     public function getIsBoxed(): ?bool
     {
         return $this->isBoxed;
@@ -121,14 +157,26 @@ class LcsShipmentItem
         return $this;
     }
 
-    public function getIsListed(): ?bool
+    public function getIsInTransit(): ?bool
     {
-        return $this->isListed;
+        return $this->isInTransit;
     }
 
-    public function setIsListed(?bool $isListed): self
+    public function setIsInTransit(?bool $isInTransit): self
     {
-        $this->isListed = $isListed;
+        $this->isInTransit = $isInTransit;
+
+        return $this;
+    }
+
+    public function getIsFinished(): ?bool
+    {
+        return $this->isFinished;
+    }
+
+    public function setIsFinished(?bool $isFinished): self
+    {
+        $this->isFinished = $isFinished;
 
         return $this;
     }

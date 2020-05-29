@@ -53,11 +53,20 @@ class LcsShipmentItemNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
+        if (property_exists($data, 'is_listed') && null !== $data->{'is_listed'}) {
+            $object->setIsListed($data->{'is_listed'});
+        }
+        if (property_exists($data, 'is_handled') && null !== $data->{'is_handled'}) {
+            $object->setIsHandled($data->{'is_handled'});
+        }
         if (property_exists($data, 'is_boxed') && null !== $data->{'is_boxed'}) {
             $object->setIsBoxed($data->{'is_boxed'});
         }
-        if (property_exists($data, 'is_listed') && null !== $data->{'is_listed'}) {
-            $object->setIsListed($data->{'is_listed'});
+        if (property_exists($data, 'is_in_transit') && null !== $data->{'is_in_transit'}) {
+            $object->setIsInTransit($data->{'is_in_transit'});
+        }
+        if (property_exists($data, 'is_finished') && null !== $data->{'is_finished'}) {
+            $object->setIsFinished($data->{'is_finished'});
         }
         if (property_exists($data, 'hs_code') && null !== $data->{'hs_code'}) {
             $object->setHsCode($data->{'hs_code'});
@@ -91,11 +100,20 @@ class LcsShipmentItemNormalizer implements DenormalizerInterface, NormalizerInte
         if (null !== $object->getDescription()) {
             $data->{'description'} = $object->getDescription();
         }
+        if (null !== $object->getIsListed()) {
+            $data->{'is_listed'} = $object->getIsListed();
+        }
+        if (null !== $object->getIsHandled()) {
+            $data->{'is_handled'} = $object->getIsHandled();
+        }
         if (null !== $object->getIsBoxed()) {
             $data->{'is_boxed'} = $object->getIsBoxed();
         }
-        if (null !== $object->getIsListed()) {
-            $data->{'is_listed'} = $object->getIsListed();
+        if (null !== $object->getIsInTransit()) {
+            $data->{'is_in_transit'} = $object->getIsInTransit();
+        }
+        if (null !== $object->getIsFinished()) {
+            $data->{'is_finished'} = $object->getIsFinished();
         }
         if (null !== $object->getHsCode()) {
             $data->{'hs_code'} = $object->getHsCode();

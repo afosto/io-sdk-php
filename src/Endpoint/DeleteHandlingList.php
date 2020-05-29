@@ -54,12 +54,12 @@ class DeleteHandlingList extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
      * @throws \Afosto\Sdk\Exception\DeleteHandlingListInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\DeleteHandlingListServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsHandlingList|null
+     * @return null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
-        if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsHandlingList', 'json');
+        if (204 === $status) {
+            return null;
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteHandlingListBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

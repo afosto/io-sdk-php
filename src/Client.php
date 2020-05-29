@@ -5854,7 +5854,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\DeleteHandlingListInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\DeleteHandlingListServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsHandlingList|\Psr\Http\Message\ResponseInterface|null
+     * @return \Psr\Http\Message\ResponseInterface|null
      */
     public function deleteHandlingList(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -5893,7 +5893,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsListsIdItemsPutResponse200|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsListsIdItemsPutResponse204|\Psr\Http\Message\ResponseInterface|null
      */
     public function updateHandlingListItem(string $id, array $body, string $fetch = self::FETCH_OBJECT)
     {
@@ -5912,7 +5912,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateListStateInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateListStateServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsListsIdStatePutResponse200|\Psr\Http\Message\ResponseInterface|null
+     * @return \Psr\Http\Message\ResponseInterface|null
      */
     public function updateListState(string $id, \Afosto\Sdk\Model\LcsHandlingListUpdate $body, string $fetch = self::FETCH_OBJECT)
     {
@@ -6234,7 +6234,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\RemoveParcelInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\RemoveParcelServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
+     * @return \Psr\Http\Message\ResponseInterface|null
      */
     public function removeParcel(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -6272,7 +6272,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateParcelInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateParcelServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
+     * @return \Psr\Http\Message\ResponseInterface|null
      */
     public function updateParcel(string $id, \Afosto\Sdk\Model\LcsParcelModel $body, string $fetch = self::FETCH_OBJECT)
     {
@@ -6315,6 +6315,44 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function addToParcel(string $id, \Afosto\Sdk\Model\LcsPlace $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddToParcel($id, $body), $fetch);
+    }
+
+    /**
+     * Mark parcel as in-transit.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SetParcelInTransitBadRequestException
+     * @throws \Afosto\Sdk\Exception\SetParcelInTransitUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SetParcelInTransitForbiddenException
+     * @throws \Afosto\Sdk\Exception\SetParcelInTransitNotFoundException
+     * @throws \Afosto\Sdk\Exception\SetParcelInTransitInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SetParcelInTransitServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function setParcelInTransit(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SetParcelInTransit($id), $fetch);
+    }
+
+    /**
+     * Mark parcel as finished.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SetParcelFinishedBadRequestException
+     * @throws \Afosto\Sdk\Exception\SetParcelFinishedUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SetParcelFinishedForbiddenException
+     * @throws \Afosto\Sdk\Exception\SetParcelFinishedNotFoundException
+     * @throws \Afosto\Sdk\Exception\SetParcelFinishedInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SetParcelFinishedServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function setParcelFinished(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SetParcelFinished($id), $fetch);
     }
 
     /**
@@ -6496,22 +6534,22 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Returns a file reference to a label.
+     * Requests a label for the parcel.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetLabelBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetLabelUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetLabelForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetLabelNotFoundException
-     * @throws \Afosto\Sdk\Exception\GetLabelInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\GetLabelServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\RequestLabelBadRequestException
+     * @throws \Afosto\Sdk\Exception\RequestLabelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RequestLabelForbiddenException
+     * @throws \Afosto\Sdk\Exception\RequestLabelNotFoundException
+     * @throws \Afosto\Sdk\Exception\RequestLabelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RequestLabelServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsParcel|\Psr\Http\Message\ResponseInterface|null
+     * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function getLabel(string $id, string $fetch = self::FETCH_OBJECT)
+    public function requestLabel(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetLabel($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RequestLabel($id), $fetch);
     }
 
     /**

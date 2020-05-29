@@ -57,12 +57,12 @@ class UpdateHandlingListItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint im
      * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsListsIdItemsPutResponse200|null
+     * @return \Afosto\Sdk\Model\LcsListsIdItemsPutResponse204|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
-        if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsListsIdItemsPutResponse200', 'json');
+        if (204 === $status) {
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsListsIdItemsPutResponse204', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateHandlingListItemBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
