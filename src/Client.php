@@ -2599,6 +2599,54 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns information regarding the GIF.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $url the requested URL
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetGifInfoNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetGifInfoBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetGifInfoUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetGifInfoForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetGifInfoInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetGifInfoServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntGifInfo|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getGifInfo(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetGifInfo($queryParameters), $fetch);
+    }
+
+    /**
+     * Returns information regarding the GIF.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $url the requested URL
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\TransformGifNotFoundException
+     * @throws \Afosto\Sdk\Exception\TransformGifBadRequestException
+     * @throws \Afosto\Sdk\Exception\TransformGifUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\TransformGifForbiddenException
+     * @throws \Afosto\Sdk\Exception\TransformGifInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\TransformGifServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function transformGif(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\TransformGif($queryParameters), $fetch);
+    }
+
+    /**
      * Returns a new authorization response.
      *
      * @param \Afosto\Sdk\Model\IamSignup $body  Signup object

@@ -175,6 +175,7 @@ class NormalizerFactory
         $normalizers[] = new SplNetworkDeviceNormalizer();
         $normalizers[] = new SplCreateNetworkDeviceNormalizer();
         $normalizers[] = new IamLogNormalizer();
+        $normalizers[] = new CntGifInfoNormalizer();
         $normalizers[] = new IamPhoneNumberNormalizer();
         $normalizers[] = new IamPhoneNumberModelNormalizer();
         $normalizers[] = new IamSubtenantNormalizer();
