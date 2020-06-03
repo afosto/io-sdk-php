@@ -33,6 +33,10 @@ class OdrGroup
      */
     protected $isInbound = false;
     /**
+     * @var bool
+     */
+    protected $isBackorder = false;
+    /**
      * @var string
      */
     protected $orderId;
@@ -105,6 +109,18 @@ class OdrGroup
     public function setIsInbound(?bool $isInbound): self
     {
         $this->isInbound = $isInbound;
+
+        return $this;
+    }
+
+    public function getIsBackorder(): ?bool
+    {
+        return $this->isBackorder;
+    }
+
+    public function setIsBackorder(?bool $isBackorder): self
+    {
+        $this->isBackorder = $isBackorder;
 
         return $this;
     }

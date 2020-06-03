@@ -76,6 +76,7 @@ class NormalizerFactory
         $normalizers[] = new OdrStackReferenceStateNormalizer();
         $normalizers[] = new OdrSearchNormalizer();
         $normalizers[] = new OdrSearchConstraintNormalizer();
+        $normalizers[] = new OdrSearchFilterNormalizer();
         $normalizers[] = new OdrSkuNormalizer();
         $normalizers[] = new OdrSkuResultNormalizer();
         $normalizers[] = new MesMailModelNormalizer();

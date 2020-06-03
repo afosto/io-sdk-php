@@ -24,6 +24,10 @@ class OdrSearchConstraint
      * @var string[]
      */
     protected $values;
+    /**
+     * @var OdrSearchFilter[]
+     */
+    protected $filters;
 
     public function getKey(): ?string
     {
@@ -63,6 +67,24 @@ class OdrSearchConstraint
     public function setValues(?array $values): self
     {
         $this->values = $values;
+
+        return $this;
+    }
+
+    /**
+     * @return OdrSearchFilter[]|null
+     */
+    public function getFilters(): ?array
+    {
+        return $this->filters;
+    }
+
+    /**
+     * @param OdrSearchFilter[]|null $filters
+     */
+    public function setFilters(?array $filters): self
+    {
+        $this->filters = $filters;
 
         return $this;
     }
