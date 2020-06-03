@@ -78,6 +78,9 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'is_delivered') && null !== $data->{'is_delivered'}) {
             $object->setIsDelivered($data->{'is_delivered'});
         }
+        if (property_exists($data, 'file_id') && null !== $data->{'file_id'}) {
+            $object->setFileId($data->{'file_id'});
+        }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
@@ -130,6 +133,9 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         }
         if (null !== $object->getIsDelivered()) {
             $data->{'is_delivered'} = $object->getIsDelivered();
+        }
+        if (null !== $object->getFileId()) {
+            $data->{'file_id'} = $object->getFileId();
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

@@ -61,6 +61,10 @@ class LcsParcel
      */
     protected $isDelivered;
     /**
+     * @var string
+     */
+    protected $fileId;
+    /**
      * @var \DateTime
      */
     protected $createdAt;
@@ -215,6 +219,18 @@ class LcsParcel
     public function setIsDelivered(?bool $isDelivered): self
     {
         $this->isDelivered = $isDelivered;
+
+        return $this;
+    }
+
+    public function getFileId(): ?string
+    {
+        return $this->fileId;
+    }
+
+    public function setFileId(?string $fileId): self
+    {
+        $this->fileId = $fileId;
 
         return $this;
     }
