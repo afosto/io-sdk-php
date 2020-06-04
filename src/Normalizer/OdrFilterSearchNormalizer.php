@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrSearchFilterNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrFilterSearchNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\OdrSearchFilter' === $type;
+        return 'Afosto\\Sdk\\Model\\OdrFilterSearch' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrSearchFilter' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrFilterSearch' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,16 +37,13 @@ class OdrSearchFilterNormalizer implements DenormalizerInterface, NormalizerInte
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrSearchFilter();
-        if (property_exists($data, 'key') && null !== $data->{'key'}) {
-            $object->setKey($data->{'key'});
-        }
-        if (property_exists($data, 'values') && null !== $data->{'values'}) {
+        $object = new \Afosto\Sdk\Model\OdrFilterSearch();
+        if (property_exists($data, 'constraints') && null !== $data->{'constraints'}) {
             $values = [];
-            foreach ($data->{'values'} as $value) {
-                $values[] = $value;
+            foreach ($data->{'constraints'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrFilterSearchConstraint', 'json', $context);
             }
-            $object->setValues($values);
+            $object->setConstraints($values);
         }
 
         return $object;
@@ -55,15 +52,12 @@ class OdrSearchFilterNormalizer implements DenormalizerInterface, NormalizerInte
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getKey()) {
-            $data->{'key'} = $object->getKey();
-        }
-        if (null !== $object->getValues()) {
+        if (null !== $object->getConstraints()) {
             $values = [];
-            foreach ($object->getValues() as $value) {
-                $values[] = $value;
+            foreach ($object->getConstraints() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
-            $data->{'values'} = $values;
+            $data->{'constraints'} = $values;
         }
 
         return $data;

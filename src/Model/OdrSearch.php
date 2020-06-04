@@ -16,6 +16,10 @@ class OdrSearch
      * @var OdrSearchConstraint[]
      */
     protected $constraints;
+    /**
+     * @var OdrSearchFilter[]
+     */
+    protected $filters;
 
     /**
      * @return OdrSearchConstraint[]|null
@@ -31,6 +35,24 @@ class OdrSearch
     public function setConstraints(?array $constraints): self
     {
         $this->constraints = $constraints;
+
+        return $this;
+    }
+
+    /**
+     * @return OdrSearchFilter[]|null
+     */
+    public function getFilters(): ?array
+    {
+        return $this->filters;
+    }
+
+    /**
+     * @param OdrSearchFilter[]|null $filters
+     */
+    public function setFilters(?array $filters): self
+    {
+        $this->filters = $filters;
 
         return $this;
     }

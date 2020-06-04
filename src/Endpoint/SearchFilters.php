@@ -10,10 +10,10 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class SearchGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class SearchFilters extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
-     * Returns a list items.
+     * Returns a list of filters.
      *
      * @param array $headerParameters {
      *
@@ -21,7 +21,7 @@ class SearchGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *     @var string $x-page-size the requested page size
      * }
      */
-    public function __construct(\Afosto\Sdk\Model\OdrSearch $body, array $headerParameters = [])
+    public function __construct(\Afosto\Sdk\Model\OdrFilterSearch $body, array $headerParameters = [])
     {
         $this->body = $body;
         $this->headerParameters = $headerParameters;
@@ -36,7 +36,7 @@ class SearchGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getUri(): string
     {
-        return '/odr/search/orders/items';
+        return '/odr/search/filters';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -64,37 +64,37 @@ class SearchGroups extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\SearchGroupsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\SearchGroupsNotFoundException
-     * @throws \Afosto\Sdk\Exception\SearchGroupsBadRequestException
-     * @throws \Afosto\Sdk\Exception\SearchGroupsForbiddenException
-     * @throws \Afosto\Sdk\Exception\SearchGroupsInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\SearchGroupsServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\SearchFiltersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchFiltersNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchFiltersBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchFiltersForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchFiltersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchFiltersServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrGroup[]|null
+     * @return \Afosto\Sdk\Model\OdrFilterSet[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrGroup[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrFilterSet[]', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\SearchGroupsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchFiltersUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\SearchGroupsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchFiltersNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\SearchGroupsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchFiltersBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
-            throw new \Afosto\Sdk\Exception\SearchGroupsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchFiltersForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (500 === $status) {
-            throw new \Afosto\Sdk\Exception\SearchGroupsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchFiltersInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (503 === $status) {
-            throw new \Afosto\Sdk\Exception\SearchGroupsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchFiltersServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

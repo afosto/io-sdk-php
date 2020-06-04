@@ -45,6 +45,13 @@ class OdrSearchNormalizer implements DenormalizerInterface, NormalizerInterface,
             }
             $object->setConstraints($values);
         }
+        if (property_exists($data, 'filters') && null !== $data->{'filters'}) {
+            $values_1 = [];
+            foreach ($data->{'filters'} as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrSearchFilter', 'json', $context);
+            }
+            $object->setFilters($values_1);
+        }
 
         return $object;
     }
@@ -58,6 +65,13 @@ class OdrSearchNormalizer implements DenormalizerInterface, NormalizerInterface,
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'constraints'} = $values;
+        }
+        if (null !== $object->getFilters()) {
+            $values_1 = [];
+            foreach ($object->getFilters() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            }
+            $data->{'filters'} = $values_1;
         }
 
         return $data;

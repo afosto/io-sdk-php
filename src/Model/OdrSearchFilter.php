@@ -17,9 +17,9 @@ class OdrSearchFilter
      */
     protected $key;
     /**
-     * @var string
+     * @var string[]
      */
-    protected $value;
+    protected $values;
 
     public function getKey(): ?string
     {
@@ -33,14 +33,20 @@ class OdrSearchFilter
         return $this;
     }
 
-    public function getValue(): ?string
+    /**
+     * @return string[]|null
+     */
+    public function getValues(): ?array
     {
-        return $this->value;
+        return $this->values;
     }
 
-    public function setValue(?string $value): self
+    /**
+     * @param string[]|null $values
+     */
+    public function setValues(?array $values): self
     {
-        $this->value = $value;
+        $this->values = $values;
 
         return $this;
     }

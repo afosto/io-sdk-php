@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrSearchFilterNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrFilterSearchConstraintNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\OdrSearchFilter' === $type;
+        return 'Afosto\\Sdk\\Model\\OdrFilterSearchConstraint' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrSearchFilter' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrFilterSearchConstraint' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,9 +37,12 @@ class OdrSearchFilterNormalizer implements DenormalizerInterface, NormalizerInte
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrSearchFilter();
+        $object = new \Afosto\Sdk\Model\OdrFilterSearchConstraint();
         if (property_exists($data, 'key') && null !== $data->{'key'}) {
             $object->setKey($data->{'key'});
+        }
+        if (property_exists($data, 'operator') && null !== $data->{'operator'}) {
+            $object->setOperator($data->{'operator'});
         }
         if (property_exists($data, 'values') && null !== $data->{'values'}) {
             $values = [];
@@ -57,6 +60,9 @@ class OdrSearchFilterNormalizer implements DenormalizerInterface, NormalizerInte
         $data = new \stdClass();
         if (null !== $object->getKey()) {
             $data->{'key'} = $object->getKey();
+        }
+        if (null !== $object->getOperator()) {
+            $data->{'operator'} = $object->getOperator();
         }
         if (null !== $object->getValues()) {
             $values = [];

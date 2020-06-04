@@ -613,6 +613,31 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a list of filters.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchFiltersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchFiltersNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchFiltersBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchFiltersForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchFiltersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchFiltersServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrFilterSet[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchFilters(\Afosto\Sdk\Model\OdrFilterSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchFilters($body, $headerParameters), $fetch);
+    }
+
+    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetFilterSetsBadRequestException
