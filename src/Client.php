@@ -3669,6 +3669,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *     @var string $entity_id
      * }
      *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListTransactionsBadRequestException
@@ -3680,9 +3685,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrTransaction[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listTransactions(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listTransactions(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListTransactions($queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListTransactions($queryParameters, $headerParameters), $fetch);
     }
 
     /**

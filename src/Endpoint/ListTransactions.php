@@ -20,10 +20,16 @@ class ListTransactions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      *     @var string $entity_type
      *     @var string $entity_id
      * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     * }
      */
-    public function __construct(array $queryParameters = [])
+    public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
         $this->queryParameters = $queryParameters;
+        $this->headerParameters = $headerParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -56,6 +62,17 @@ class ListTransactions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('entity_type', ['string']);
         $optionsResolver->setAllowedTypes('entity_id', ['string']);
+
+        return $optionsResolver;
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['x-page']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('x-page', ['string']);
 
         return $optionsResolver;
     }
