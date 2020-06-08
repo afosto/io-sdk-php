@@ -53,8 +53,11 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'is_inbound') && null !== $data->{'is_inbound'}) {
             $object->setIsInbound($data->{'is_inbound'});
         }
-        if (property_exists($data, 'is_backorder') && null !== $data->{'is_backorder'}) {
-            $object->setIsBackorder($data->{'is_backorder'});
+        if (property_exists($data, 'is_unavailable') && null !== $data->{'is_unavailable'}) {
+            $object->setIsUnavailable($data->{'is_unavailable'});
+        }
+        if (property_exists($data, 'is_backordered') && null !== $data->{'is_backordered'}) {
+            $object->setIsBackordered($data->{'is_backordered'});
         }
         if (property_exists($data, 'order_id') && null !== $data->{'order_id'}) {
             $object->setOrderId($data->{'order_id'});
@@ -98,8 +101,11 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (null !== $object->getIsInbound()) {
             $data->{'is_inbound'} = $object->getIsInbound();
         }
-        if (null !== $object->getIsBackorder()) {
-            $data->{'is_backorder'} = $object->getIsBackorder();
+        if (null !== $object->getIsUnavailable()) {
+            $data->{'is_unavailable'} = $object->getIsUnavailable();
+        }
+        if (null !== $object->getIsBackordered()) {
+            $data->{'is_backordered'} = $object->getIsBackordered();
         }
         if (null !== $object->getOrderId()) {
             $data->{'order_id'} = $object->getOrderId();

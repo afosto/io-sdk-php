@@ -35,7 +35,11 @@ class OdrGroup
     /**
      * @var bool
      */
-    protected $isBackorder = false;
+    protected $isUnavailable = false;
+    /**
+     * @var bool
+     */
+    protected $isBackordered = false;
     /**
      * @var string
      */
@@ -113,14 +117,26 @@ class OdrGroup
         return $this;
     }
 
-    public function getIsBackorder(): ?bool
+    public function getIsUnavailable(): ?bool
     {
-        return $this->isBackorder;
+        return $this->isUnavailable;
     }
 
-    public function setIsBackorder(?bool $isBackorder): self
+    public function setIsUnavailable(?bool $isUnavailable): self
     {
-        $this->isBackorder = $isBackorder;
+        $this->isUnavailable = $isUnavailable;
+
+        return $this;
+    }
+
+    public function getIsBackordered(): ?bool
+    {
+        return $this->isBackordered;
+    }
+
+    public function setIsBackordered(?bool $isBackordered): self
+    {
+        $this->isBackordered = $isBackordered;
 
         return $this;
     }
