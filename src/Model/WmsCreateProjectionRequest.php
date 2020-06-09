@@ -13,46 +13,22 @@ namespace Afosto\Sdk\Model;
 class WmsCreateProjectionRequest
 {
     /**
-     * Location id.
-     *
      * @var string
      */
-    protected $target;
-    /**
-     * @var WmsStackReference
-     */
-    protected $stack;
+    protected $orderId;
     /**
      * @var WmsConstraint[]
      */
     protected $constraints;
 
-    /**
-     * Location id.
-     */
-    public function getTarget(): ?string
+    public function getOrderId(): ?string
     {
-        return $this->target;
+        return $this->orderId;
     }
 
-    /**
-     * Location id.
-     */
-    public function setTarget(?string $target): self
+    public function setOrderId(?string $orderId): self
     {
-        $this->target = $target;
-
-        return $this;
-    }
-
-    public function getStack(): ?WmsStackReference
-    {
-        return $this->stack;
-    }
-
-    public function setStack(?WmsStackReference $stack): self
-    {
-        $this->stack = $stack;
+        $this->orderId = $orderId;
 
         return $this;
     }

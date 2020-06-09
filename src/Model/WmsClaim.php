@@ -19,14 +19,6 @@ class WmsClaim
     /**
      * @var string
      */
-    protected $type;
-    /**
-     * @var string
-     */
-    protected $stackId;
-    /**
-     * @var string
-     */
     protected $locationId;
     /**
      * @var string
@@ -57,30 +49,6 @@ class WmsClaim
     public function setId(?string $id): self
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    public function getStackId(): ?string
-    {
-        return $this->stackId;
-    }
-
-    public function setStackId(?string $stackId): self
-    {
-        $this->stackId = $stackId;
 
         return $this;
     }

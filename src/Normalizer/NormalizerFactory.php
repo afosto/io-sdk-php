@@ -248,6 +248,7 @@ class NormalizerFactory
         $normalizers[] = new WmsAvailableProjectionItemNormalizer();
         $normalizers[] = new WmsUnavailableProjectionItemNormalizer();
         $normalizers[] = new WmsCreateClaimRequestNormalizer();
+        $normalizers[] = new WmsConfirmClaimRequestNormalizer();
         $normalizers[] = new WmsCreateTransferRequestNormalizer();
         $normalizers[] = new WmsWarehouseItemNormalizer();
         $normalizers[] = new WmsRouteNormalizer();
@@ -255,11 +256,9 @@ class NormalizerFactory
         $normalizers[] = new WmsLocationNormalizer();
         $normalizers[] = new WmsScheduleNormalizer();
         $normalizers[] = new WmsDurationNormalizer();
-        $normalizers[] = new WmsStackReferenceNormalizer();
         $normalizers[] = new WmsWarehouseNormalizer();
         $normalizers[] = new WmsTransferReportNormalizer();
         $normalizers[] = new WmsProjectionNormalizer();
-        $normalizers[] = new WmsAvailableRouteNormalizer();
         $normalizers[] = new WmsConstraintNormalizer();
         $normalizers[] = new WmsSortNormalizer();
         $normalizers[] = new WmsBackorderNormalizer();

@@ -44,12 +44,12 @@ class WmsInventoryConstraintNormalizer implements DenormalizerInterface, Normali
         if (property_exists($data, 'operator') && null !== $data->{'operator'}) {
             $object->setOperator($data->{'operator'});
         }
-        if (property_exists($data, 'value') && null !== $data->{'value'}) {
+        if (property_exists($data, 'values') && null !== $data->{'values'}) {
             $values = [];
-            foreach ($data->{'value'} as $value) {
+            foreach ($data->{'values'} as $value) {
                 $values[] = $value;
             }
-            $object->setValue($values);
+            $object->setValues($values);
         }
 
         return $object;
@@ -64,12 +64,12 @@ class WmsInventoryConstraintNormalizer implements DenormalizerInterface, Normali
         if (null !== $object->getOperator()) {
             $data->{'operator'} = $object->getOperator();
         }
-        if (null !== $object->getValue()) {
+        if (null !== $object->getValues()) {
             $values = [];
-            foreach ($object->getValue() as $value) {
+            foreach ($object->getValues() as $value) {
                 $values[] = $value;
             }
-            $data->{'value'} = $values;
+            $data->{'values'} = $values;
         }
 
         return $data;

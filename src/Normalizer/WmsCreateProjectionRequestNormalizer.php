@@ -38,11 +38,8 @@ class WmsCreateProjectionRequestNormalizer implements DenormalizerInterface, Nor
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsCreateProjectionRequest();
-        if (property_exists($data, 'target') && null !== $data->{'target'}) {
-            $object->setTarget($data->{'target'});
-        }
-        if (property_exists($data, 'stack') && null !== $data->{'stack'}) {
-            $object->setStack($this->denormalizer->denormalize($data->{'stack'}, 'Afosto\\Sdk\\Model\\WmsStackReference', 'json', $context));
+        if (property_exists($data, 'order_id') && null !== $data->{'order_id'}) {
+            $object->setOrderId($data->{'order_id'});
         }
         if (property_exists($data, 'constraints') && null !== $data->{'constraints'}) {
             $values = [];
@@ -58,11 +55,8 @@ class WmsCreateProjectionRequestNormalizer implements DenormalizerInterface, Nor
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getTarget()) {
-            $data->{'target'} = $object->getTarget();
-        }
-        if (null !== $object->getStack()) {
-            $data->{'stack'} = $this->normalizer->normalize($object->getStack(), 'json', $context);
+        if (null !== $object->getOrderId()) {
+            $data->{'order_id'} = $object->getOrderId();
         }
         if (null !== $object->getConstraints()) {
             $values = [];

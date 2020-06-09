@@ -45,10 +45,6 @@ class WmsTransfer
      */
     protected $isCollectionPending;
     /**
-     * @var string
-     */
-    protected $stackId;
-    /**
      * @var \DateTime
      */
     protected $createdAt;
@@ -159,18 +155,6 @@ class WmsTransfer
     public function setIsCollectionPending(?bool $isCollectionPending): self
     {
         $this->isCollectionPending = $isCollectionPending;
-
-        return $this;
-    }
-
-    public function getStackId(): ?string
-    {
-        return $this->stackId;
-    }
-
-    public function setStackId(?string $stackId): self
-    {
-        $this->stackId = $stackId;
 
         return $this;
     }

@@ -38,8 +38,14 @@ class WmsUnavailableProjectionItemNormalizer implements DenormalizerInterface, N
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsUnavailableProjectionItem();
-        if (property_exists($data, 'stack_item_id') && null !== $data->{'stack_item_id'}) {
-            $object->setStackItemId($data->{'stack_item_id'});
+        if (property_exists($data, 'location_id') && null !== $data->{'location_id'}) {
+            $object->setLocationId($data->{'location_id'});
+        }
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
+            $object->setSku($data->{'sku'});
+        }
+        if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
+            $object->setAmount($data->{'amount'});
         }
 
         return $object;
@@ -48,8 +54,14 @@ class WmsUnavailableProjectionItemNormalizer implements DenormalizerInterface, N
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getStackItemId()) {
-            $data->{'stack_item_id'} = $object->getStackItemId();
+        if (null !== $object->getLocationId()) {
+            $data->{'location_id'} = $object->getLocationId();
+        }
+        if (null !== $object->getSku()) {
+            $data->{'sku'} = $object->getSku();
+        }
+        if (null !== $object->getAmount()) {
+            $data->{'amount'} = $object->getAmount();
         }
 
         return $data;

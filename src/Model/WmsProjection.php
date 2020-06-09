@@ -13,9 +13,9 @@ namespace Afosto\Sdk\Model;
 class WmsProjection
 {
     /**
-     * @var WmsAvailableRoute[]
+     * @var mixed[]
      */
-    protected $routes;
+    protected $locations;
     /**
      * @var WmsAvailableProjectionItem[]
      */
@@ -26,19 +26,19 @@ class WmsProjection
     protected $unavailable;
 
     /**
-     * @return WmsAvailableRoute[]|null
+     * @return mixed[]|null
      */
-    public function getRoutes(): ?array
+    public function getLocations(): ?array
     {
-        return $this->routes;
+        return $this->locations;
     }
 
     /**
-     * @param WmsAvailableRoute[]|null $routes
+     * @param mixed[]|null $locations
      */
-    public function setRoutes(?array $routes): self
+    public function setLocations(?array $locations): self
     {
-        $this->routes = $routes;
+        $this->locations = $locations;
 
         return $this;
     }

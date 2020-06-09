@@ -23,7 +23,7 @@ class WmsInventoryConstraint
     /**
      * @var string[]
      */
-    protected $value;
+    protected $values;
 
     public function getKey(): ?string
     {
@@ -52,17 +52,17 @@ class WmsInventoryConstraint
     /**
      * @return string[]|null
      */
-    public function getValue(): ?array
+    public function getValues(): ?array
     {
-        return $this->value;
+        return $this->values;
     }
 
     /**
-     * @param string[]|null $value
+     * @param string[]|null $values
      */
-    public function setValue(?array $value): self
+    public function setValues(?array $values): self
     {
-        $this->value = $value;
+        $this->values = $values;
 
         return $this;
     }

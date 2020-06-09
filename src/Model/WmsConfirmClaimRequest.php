@@ -10,21 +10,21 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class WmsStackReference
+class WmsConfirmClaimRequest
 {
     /**
      * @var string
      */
-    protected $id;
+    protected $targetId;
 
-    public function getId(): ?string
+    public function getTargetId(): ?string
     {
-        return $this->id;
+        return $this->targetId;
     }
 
-    public function setId(?string $id): self
+    public function setTargetId(?string $targetId): self
     {
-        $this->id = $id;
+        $this->targetId = $targetId;
 
         return $this;
     }

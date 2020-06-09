@@ -17,7 +17,7 @@ class ConfirmClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * Confirm a reservation claim and make it an actual claim.
      */
-    public function __construct(string $id, \stdClass $body)
+    public function __construct(string $id, \Afosto\Sdk\Model\WmsConfirmClaimRequest $body)
     {
         $this->id = $id;
         $this->body = $body;
@@ -37,7 +37,7 @@ class ConfirmClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return [[], $this->body];
+        return $this->getSerializedBody($serializer);
     }
 
     public function getExtraHeaders(): array

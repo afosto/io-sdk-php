@@ -16,10 +16,6 @@ class WmsStockUpRequest
      * @var string
      */
     protected $locationId;
-    /**
-     * @var WmsStackReference
-     */
-    protected $stack;
 
     public function getLocationId(): ?string
     {
@@ -29,18 +25,6 @@ class WmsStockUpRequest
     public function setLocationId(?string $locationId): self
     {
         $this->locationId = $locationId;
-
-        return $this;
-    }
-
-    public function getStack(): ?WmsStackReference
-    {
-        return $this->stack;
-    }
-
-    public function setStack(?WmsStackReference $stack): self
-    {
-        $this->stack = $stack;
 
         return $this;
     }

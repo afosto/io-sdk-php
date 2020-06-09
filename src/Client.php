@@ -4713,7 +4713,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\WmsClaim|\Psr\Http\Message\ResponseInterface|null
      */
-    public function confirmClaim(string $id, \stdClass $body, string $fetch = self::FETCH_OBJECT)
+    public function confirmClaim(string $id, \Afosto\Sdk\Model\WmsConfirmClaimRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ConfirmClaim($id, $body), $fetch);
     }

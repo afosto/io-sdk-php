@@ -33,10 +33,6 @@ class WmsSubTransferSummary
     /**
      * @var string
      */
-    protected $stackId;
-    /**
-     * @var string
-     */
     protected $routeId;
     /**
      * @var \DateTime
@@ -101,18 +97,6 @@ class WmsSubTransferSummary
     public function setStatus(?string $status): self
     {
         $this->status = $status;
-
-        return $this;
-    }
-
-    public function getStackId(): ?string
-    {
-        return $this->stackId;
-    }
-
-    public function setStackId(?string $stackId): self
-    {
-        $this->stackId = $stackId;
 
         return $this;
     }

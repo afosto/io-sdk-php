@@ -38,14 +38,8 @@ class WmsCreateClaimRequestNormalizer implements DenormalizerInterface, Normaliz
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsCreateClaimRequest();
-        if (property_exists($data, 'type') && null !== $data->{'type'}) {
-            $object->setType($data->{'type'});
-        }
-        if (property_exists($data, 'target') && null !== $data->{'target'}) {
-            $object->setTarget($data->{'target'});
-        }
-        if (property_exists($data, 'stack') && null !== $data->{'stack'}) {
-            $object->setStack($this->denormalizer->denormalize($data->{'stack'}, 'Afosto\\Sdk\\Model\\WmsStackReference', 'json', $context));
+        if (property_exists($data, 'order_id') && null !== $data->{'order_id'}) {
+            $object->setOrderId($data->{'order_id'});
         }
         if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
@@ -71,14 +65,8 @@ class WmsCreateClaimRequestNormalizer implements DenormalizerInterface, Normaliz
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getType()) {
-            $data->{'type'} = $object->getType();
-        }
-        if (null !== $object->getTarget()) {
-            $data->{'target'} = $object->getTarget();
-        }
-        if (null !== $object->getStack()) {
-            $data->{'stack'} = $this->normalizer->normalize($object->getStack(), 'json', $context);
+        if (null !== $object->getOrderId()) {
+            $data->{'order_id'} = $object->getOrderId();
         }
         if (null !== $object->getExpiresAt()) {
             $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");

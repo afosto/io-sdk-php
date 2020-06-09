@@ -15,16 +15,48 @@ class WmsUnavailableProjectionItem
     /**
      * @var string
      */
-    protected $stackItemId;
+    protected $locationId;
+    /**
+     * @var string
+     */
+    protected $sku;
+    /**
+     * @var int
+     */
+    protected $amount;
 
-    public function getStackItemId(): ?string
+    public function getLocationId(): ?string
     {
-        return $this->stackItemId;
+        return $this->locationId;
     }
 
-    public function setStackItemId(?string $stackItemId): self
+    public function setLocationId(?string $locationId): self
     {
-        $this->stackItemId = $stackItemId;
+        $this->locationId = $locationId;
+
+        return $this;
+    }
+
+    public function getSku(): ?string
+    {
+        return $this->sku;
+    }
+
+    public function setSku(?string $sku): self
+    {
+        $this->sku = $sku;
+
+        return $this;
+    }
+
+    public function getAmount(): ?int
+    {
+        return $this->amount;
+    }
+
+    public function setAmount(?int $amount): self
+    {
+        $this->amount = $amount;
 
         return $this;
     }

@@ -15,17 +15,7 @@ class WmsCreateClaimRequest
     /**
      * @var string
      */
-    protected $type;
-    /**
-     * Location id.
-     *
-     * @var string
-     */
-    protected $target;
-    /**
-     * @var WmsStackReference
-     */
-    protected $stack;
+    protected $orderId;
     /**
      * Only allowed for reservations.
      *
@@ -41,44 +31,14 @@ class WmsCreateClaimRequest
      */
     protected $sorts;
 
-    public function getType(): ?string
+    public function getOrderId(): ?string
     {
-        return $this->type;
+        return $this->orderId;
     }
 
-    public function setType(?string $type): self
+    public function setOrderId(?string $orderId): self
     {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Location id.
-     */
-    public function getTarget(): ?string
-    {
-        return $this->target;
-    }
-
-    /**
-     * Location id.
-     */
-    public function setTarget(?string $target): self
-    {
-        $this->target = $target;
-
-        return $this;
-    }
-
-    public function getStack(): ?WmsStackReference
-    {
-        return $this->stack;
-    }
-
-    public function setStack(?WmsStackReference $stack): self
-    {
-        $this->stack = $stack;
+        $this->orderId = $orderId;
 
         return $this;
     }

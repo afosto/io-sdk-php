@@ -38,12 +38,12 @@ class WmsProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsProjection();
-        if (property_exists($data, 'routes') && null !== $data->{'routes'}) {
+        if (property_exists($data, 'locations') && null !== $data->{'locations'}) {
             $values = [];
-            foreach ($data->{'routes'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsAvailableRoute', 'json', $context);
+            foreach ($data->{'locations'} as $value) {
+                $values[] = $value;
             }
-            $object->setRoutes($values);
+            $object->setLocations($values);
         }
         if (property_exists($data, 'available') && null !== $data->{'available'}) {
             $values_1 = [];
@@ -66,12 +66,12 @@ class WmsProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getRoutes()) {
+        if (null !== $object->getLocations()) {
             $values = [];
-            foreach ($object->getRoutes() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            foreach ($object->getLocations() as $value) {
+                $values[] = $value;
             }
-            $data->{'routes'} = $values;
+            $data->{'locations'} = $values;
         }
         if (null !== $object->getAvailable()) {
             $values_1 = [];

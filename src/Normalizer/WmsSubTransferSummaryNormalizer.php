@@ -50,9 +50,6 @@ class WmsSubTransferSummaryNormalizer implements DenormalizerInterface, Normaliz
         if (property_exists($data, 'status') && null !== $data->{'status'}) {
             $object->setStatus($data->{'status'});
         }
-        if (property_exists($data, 'stack_id') && null !== $data->{'stack_id'}) {
-            $object->setStackId($data->{'stack_id'});
-        }
         if (property_exists($data, 'route_id') && null !== $data->{'route_id'}) {
             $object->setRouteId($data->{'route_id'});
         }
@@ -83,9 +80,6 @@ class WmsSubTransferSummaryNormalizer implements DenormalizerInterface, Normaliz
         }
         if (null !== $object->getStatus()) {
             $data->{'status'} = $object->getStatus();
-        }
-        if (null !== $object->getStackId()) {
-            $data->{'stack_id'} = $object->getStackId();
         }
         if (null !== $object->getRouteId()) {
             $data->{'route_id'} = $object->getRouteId();

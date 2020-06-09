@@ -41,9 +41,6 @@ class WmsStockUpRequestNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'location_id') && null !== $data->{'location_id'}) {
             $object->setLocationId($data->{'location_id'});
         }
-        if (property_exists($data, 'stack') && null !== $data->{'stack'}) {
-            $object->setStack($this->denormalizer->denormalize($data->{'stack'}, 'Afosto\\Sdk\\Model\\WmsStackReference', 'json', $context));
-        }
 
         return $object;
     }
@@ -53,9 +50,6 @@ class WmsStockUpRequestNormalizer implements DenormalizerInterface, NormalizerIn
         $data = new \stdClass();
         if (null !== $object->getLocationId()) {
             $data->{'location_id'} = $object->getLocationId();
-        }
-        if (null !== $object->getStack()) {
-            $data->{'stack'} = $this->normalizer->normalize($object->getStack(), 'json', $context);
         }
 
         return $data;
