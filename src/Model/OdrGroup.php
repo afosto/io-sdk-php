@@ -41,6 +41,10 @@ class OdrGroup
      */
     protected $isBackordered = false;
     /**
+     * @var bool
+     */
+    protected $isProcessed = false;
+    /**
      * @var string
      */
     protected $orderId;
@@ -137,6 +141,18 @@ class OdrGroup
     public function setIsBackordered(?bool $isBackordered): self
     {
         $this->isBackordered = $isBackordered;
+
+        return $this;
+    }
+
+    public function getIsProcessed(): ?bool
+    {
+        return $this->isProcessed;
+    }
+
+    public function setIsProcessed(?bool $isProcessed): self
+    {
+        $this->isProcessed = $isProcessed;
 
         return $this;
     }

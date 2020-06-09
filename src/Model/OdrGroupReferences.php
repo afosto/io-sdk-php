@@ -20,6 +20,10 @@ class OdrGroupReferences
      * @var OdrStackReference[]
      */
     protected $stacks;
+    /**
+     * @var string[]
+     */
+    protected $backorders;
 
     /**
      * @return OdrGroupReferencesOrdersItem[]|null
@@ -53,6 +57,24 @@ class OdrGroupReferences
     public function setStacks(?array $stacks): self
     {
         $this->stacks = $stacks;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getBackorders(): ?array
+    {
+        return $this->backorders;
+    }
+
+    /**
+     * @param string[]|null $backorders
+     */
+    public function setBackorders(?array $backorders): self
+    {
+        $this->backorders = $backorders;
 
         return $this;
     }

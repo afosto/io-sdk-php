@@ -289,6 +289,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns all backorders for current order.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetBackordersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetBackordersNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetBackordersBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetBackordersForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetBackordersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetBackordersServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getBackorders(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBackorders($id), $fetch);
+    }
+
+    /**
      * Returns affiliated orders.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

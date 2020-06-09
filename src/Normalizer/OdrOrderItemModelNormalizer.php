@@ -53,6 +53,9 @@ class OdrOrderItemModelNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'is_inbound') && null !== $data->{'is_inbound'}) {
             $object->setIsInbound($data->{'is_inbound'});
         }
+        if (property_exists($data, 'is_backorder') && null !== $data->{'is_backorder'}) {
+            $object->setIsBackorder($data->{'is_backorder'});
+        }
         if (property_exists($data, 'item_ids') && null !== $data->{'item_ids'}) {
             $values = [];
             foreach ($data->{'item_ids'} as $value) {
@@ -81,6 +84,9 @@ class OdrOrderItemModelNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (null !== $object->getIsInbound()) {
             $data->{'is_inbound'} = $object->getIsInbound();
+        }
+        if (null !== $object->getIsBackorder()) {
+            $data->{'is_backorder'} = $object->getIsBackorder();
         }
         if (null !== $object->getItemIds()) {
             $values = [];

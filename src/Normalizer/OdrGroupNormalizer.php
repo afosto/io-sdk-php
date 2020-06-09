@@ -59,6 +59,9 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'is_backordered') && null !== $data->{'is_backordered'}) {
             $object->setIsBackordered($data->{'is_backordered'});
         }
+        if (property_exists($data, 'is_processed') && null !== $data->{'is_processed'}) {
+            $object->setIsProcessed($data->{'is_processed'});
+        }
         if (property_exists($data, 'order_id') && null !== $data->{'order_id'}) {
             $object->setOrderId($data->{'order_id'});
         }
@@ -106,6 +109,9 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         }
         if (null !== $object->getIsBackordered()) {
             $data->{'is_backordered'} = $object->getIsBackordered();
+        }
+        if (null !== $object->getIsProcessed()) {
+            $data->{'is_processed'} = $object->getIsProcessed();
         }
         if (null !== $object->getOrderId()) {
             $data->{'order_id'} = $object->getOrderId();

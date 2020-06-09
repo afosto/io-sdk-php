@@ -52,6 +52,13 @@ class OdrGroupReferencesNormalizer implements DenormalizerInterface, NormalizerI
             }
             $object->setStacks($values_1);
         }
+        if (property_exists($data, 'backorders') && null !== $data->{'backorders'}) {
+            $values_2 = [];
+            foreach ($data->{'backorders'} as $value_2) {
+                $values_2[] = $value_2;
+            }
+            $object->setBackorders($values_2);
+        }
 
         return $object;
     }
@@ -72,6 +79,13 @@ class OdrGroupReferencesNormalizer implements DenormalizerInterface, NormalizerI
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'stacks'} = $values_1;
+        }
+        if (null !== $object->getBackorders()) {
+            $values_2 = [];
+            foreach ($object->getBackorders() as $value_2) {
+                $values_2[] = $value_2;
+            }
+            $data->{'backorders'} = $values_2;
         }
 
         return $data;
