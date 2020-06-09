@@ -6496,6 +6496,12 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a list of fulfilment locations.
      *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var int $x-page-size
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListPositionsBadRequestException
@@ -6507,9 +6513,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\LcsLocationPosition[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listPositions(string $id, string $fetch = self::FETCH_OBJECT)
+    public function listPositions(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListPositions($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListPositions($id, $headerParameters), $fetch);
     }
 
     /**

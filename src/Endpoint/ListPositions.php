@@ -16,10 +16,17 @@ class ListPositions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     /**
      * Returns a list of fulfilment locations.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var int $x-page-size
+     * }
      */
-    public function __construct(string $id)
+    public function __construct(string $id, array $headerParameters = [])
     {
         $this->id = $id;
+        $this->headerParameters = $headerParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -42,6 +49,18 @@ class ListPositions extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['x-page', 'x-page-size']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('x-page', ['string']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['int']);
+
+        return $optionsResolver;
     }
 
     /**
