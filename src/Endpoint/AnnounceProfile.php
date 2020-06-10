@@ -40,7 +40,7 @@ class AnnounceProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return [[], $this->body];
+        return ['Content-Type' => ['application/json'], json_encode($this->body)];
     }
 
     public function getExtraHeaders(): array
