@@ -5370,7 +5370,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      *     @var string $country_code the country used to select shipping points
      *     @var string $method_id method_id
-     *     @var string $zipcode prefiled with the zipcode of the primary address
+     *     @var string $postal_code prefiled with the postal_code of the primary address
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

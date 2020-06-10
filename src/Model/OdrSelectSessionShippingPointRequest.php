@@ -16,6 +16,10 @@ class OdrSelectSessionShippingPointRequest
      * @var string
      */
     protected $spid;
+    /**
+     * @var string
+     */
+    protected $countryCode;
 
     public function getSpid(): ?string
     {
@@ -25,6 +29,18 @@ class OdrSelectSessionShippingPointRequest
     public function setSpid(?string $spid): self
     {
         $this->spid = $spid;
+
+        return $this;
+    }
+
+    public function getCountryCode(): ?string
+    {
+        return $this->countryCode;
+    }
+
+    public function setCountryCode(?string $countryCode): self
+    {
+        $this->countryCode = $countryCode;
 
         return $this;
     }

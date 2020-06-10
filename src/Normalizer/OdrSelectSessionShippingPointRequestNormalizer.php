@@ -41,6 +41,9 @@ class OdrSelectSessionShippingPointRequestNormalizer implements DenormalizerInte
         if (property_exists($data, 'spid') && null !== $data->{'spid'}) {
             $object->setSpid($data->{'spid'});
         }
+        if (property_exists($data, 'country_code') && null !== $data->{'country_code'}) {
+            $object->setCountryCode($data->{'country_code'});
+        }
 
         return $object;
     }
@@ -50,6 +53,9 @@ class OdrSelectSessionShippingPointRequestNormalizer implements DenormalizerInte
         $data = new \stdClass();
         if (null !== $object->getSpid()) {
             $data->{'spid'} = $object->getSpid();
+        }
+        if (null !== $object->getCountryCode()) {
+            $data->{'country_code'} = $object->getCountryCode();
         }
 
         return $data;

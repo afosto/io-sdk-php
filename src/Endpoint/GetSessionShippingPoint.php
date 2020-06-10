@@ -21,7 +21,7 @@ class GetSessionShippingPoint extends \Jane\OpenApiRuntime\Client\BaseEndpoint i
      *
      *     @var string $country_code the country used to select shipping points
      *     @var string $method_id method_id
-     *     @var string $zipcode prefiled with the zipcode of the primary address
+     *     @var string $postal_code prefiled with the postal_code of the primary address
      * }
      */
     public function __construct(string $id, array $queryParameters = [])
@@ -55,12 +55,12 @@ class GetSessionShippingPoint extends \Jane\OpenApiRuntime\Client\BaseEndpoint i
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['country_code', 'method_id', 'zipcode']);
+        $optionsResolver->setDefined(['country_code', 'method_id', 'postal_code']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('country_code', ['string']);
         $optionsResolver->setAllowedTypes('method_id', ['string']);
-        $optionsResolver->setAllowedTypes('zipcode', ['string']);
+        $optionsResolver->setAllowedTypes('postal_code', ['string']);
 
         return $optionsResolver;
     }
