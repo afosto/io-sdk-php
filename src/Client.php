@@ -2541,7 +2541,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns the hub log list.
      *
-     * @param int    $id    ID of hub to add a token for
+     * @param int   $id               ID of hub to add a token for
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var int $x-page-size
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListHubLogsUnauthorizedException
@@ -2553,9 +2559,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\SplHubError[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listHubLogs(int $id, string $fetch = self::FETCH_OBJECT)
+    public function listHubLogs(int $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListHubLogs($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListHubLogs($id, $headerParameters), $fetch);
     }
 
     /**

@@ -17,11 +17,17 @@ class ListHubLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * Returns the hub log list.
      *
-     * @param int $id ID of hub to add a token for
+     * @param int   $id               ID of hub to add a token for
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var int $x-page-size
+     * }
      */
-    public function __construct(int $id)
+    public function __construct(int $id, array $headerParameters = [])
     {
         $this->id = $id;
+        $this->headerParameters = $headerParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -44,6 +50,18 @@ class ListHubLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['x-page', 'x-page-size']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('x-page', ['string']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['int']);
+
+        return $optionsResolver;
     }
 
     /**
