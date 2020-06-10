@@ -26,7 +26,7 @@ class RequestLabel extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getMethod(): string
     {
-        return 'PUT';
+        return 'POST';
     }
 
     public function getUri(): string

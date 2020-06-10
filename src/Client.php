@@ -6615,6 +6615,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Requests packing slip.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\RequestSlipBadRequestException
+     * @throws \Afosto\Sdk\Exception\RequestSlipUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RequestSlipForbiddenException
+     * @throws \Afosto\Sdk\Exception\RequestSlipNotFoundException
+     * @throws \Afosto\Sdk\Exception\RequestSlipInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RequestSlipServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function requestSlip(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RequestSlip($id), $fetch);
+    }
+
+    /**
      * List all service points.
      *
      * @param array $queryParameters {
