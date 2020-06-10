@@ -125,8 +125,8 @@ class NormalizerFactory
         $normalizers[] = new CntLineErrorNormalizer();
         $normalizers[] = new CntColumnErrorNormalizer();
         $normalizers[] = new LcsDPDServicePointResponseNormalizer();
-        $normalizers[] = new LcsDPDServicePointResponseParcelShopItemNormalizer();
-        $normalizers[] = new LcsDPDServicePointResponseParcelShopItemOpeningHoursItemNormalizer();
+        $normalizers[] = new LcsDPDServicePointNormalizer();
+        $normalizers[] = new LcsDPDServicePointOpeningHoursItemNormalizer();
         $normalizers[] = new IamSecretRequestNormalizer();
         $normalizers[] = new IamSecretUpdateNormalizer();
         $normalizers[] = new IamBackupNormalizer();

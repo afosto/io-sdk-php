@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsDPDServicePointResponseParcelShopItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LcsDPDServicePointNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsDPDServicePointResponseParcelShopItem' === $type;
+        return 'Afosto\\Sdk\\Model\\LcsDPDServicePoint' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsDPDServicePointResponseParcelShopItem' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsDPDServicePoint' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class LcsDPDServicePointResponseParcelShopItemNormalizer implements Denormalizer
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsDPDServicePointResponseParcelShopItem();
+        $object = new \Afosto\Sdk\Model\LcsDPDServicePoint();
         if (property_exists($data, 'parcelShopId') && null !== $data->{'parcelShopId'}) {
             $object->setParcelShopId($data->{'parcelShopId'});
         }
@@ -107,7 +107,7 @@ class LcsDPDServicePointResponseParcelShopItemNormalizer implements Denormalizer
         if (property_exists($data, 'openingHours') && null !== $data->{'openingHours'}) {
             $values = [];
             foreach ($data->{'openingHours'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsDPDServicePointResponseParcelShopItemOpeningHoursItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsDPDServicePointOpeningHoursItem', 'json', $context);
             }
             $object->setOpeningHours($values);
         }

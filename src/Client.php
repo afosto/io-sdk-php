@@ -1641,18 +1641,37 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetTypesUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetTypesNotFoundException
-     * @throws \Afosto\Sdk\Exception\GetTypesBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetTypesForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetTypesInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\GetTypesServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\SearchDPDServicePointsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchDPDServicePointsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchDPDServicePointsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchDPDServicePointsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchDPDServicePointsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchDPDServicePointsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsDPDServicePointResponse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getTypes(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function searchDPDServicePoints(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTypes($queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchDPDServicePoints($queryParameters), $fetch);
+    }
+
+    /**
+     * Return a DPD servicepoint by ID.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetDPDParcelPointUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetDPDParcelPointNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetDPDParcelPointBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetDPDParcelPointForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetDPDParcelPointInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetDPDParcelPointServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\LcsDPDServicePointResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getDPDParcelPoint(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetDPDParcelPoint($id), $fetch);
     }
 
     /**

@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class GetTypesForbiddenException extends \RuntimeException implements ClientException
+class SearchDPDServicePointsBadRequestException extends \RuntimeException implements ClientException
 {
     private $error;
 
     public function __construct(\Afosto\Sdk\Model\Error $error)
     {
-        parent::__construct('Forbidden', 403);
+        parent::__construct('Bad Request', 400);
         $this->error = $error;
     }
 

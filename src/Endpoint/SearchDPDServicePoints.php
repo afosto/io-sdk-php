@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class GetTypes extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class SearchDPDServicePoints extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
      * Return DPD's servicepoints.
@@ -63,12 +63,12 @@ class GetTypes extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\GetTypesUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetTypesNotFoundException
-     * @throws \Afosto\Sdk\Exception\GetTypesBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetTypesForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetTypesInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\GetTypesServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\SearchDPDServicePointsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchDPDServicePointsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchDPDServicePointsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchDPDServicePointsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchDPDServicePointsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchDPDServicePointsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsDPDServicePointResponse|null
      */
@@ -78,22 +78,22 @@ class GetTypes extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsDPDServicePointResponse', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\GetTypesUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchDPDServicePointsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\GetTypesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchDPDServicePointsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\GetTypesBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchDPDServicePointsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
-            throw new \Afosto\Sdk\Exception\GetTypesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchDPDServicePointsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (500 === $status) {
-            throw new \Afosto\Sdk\Exception\GetTypesInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchDPDServicePointsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (503 === $status) {
-            throw new \Afosto\Sdk\Exception\GetTypesServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchDPDServicePointsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

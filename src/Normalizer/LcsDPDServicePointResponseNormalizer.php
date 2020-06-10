@@ -41,7 +41,7 @@ class LcsDPDServicePointResponseNormalizer implements DenormalizerInterface, Nor
         if (property_exists($data, 'parcelShop') && null !== $data->{'parcelShop'}) {
             $values = [];
             foreach ($data->{'parcelShop'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsDPDServicePointResponseParcelShopItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsDPDServicePoint', 'json', $context);
             }
             $object->setParcelShop($values);
         }

@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsDPDServicePointResponseParcelShopItemOpeningHoursItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LcsDPDServicePointOpeningHoursItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsDPDServicePointResponseParcelShopItemOpeningHoursItem' === $type;
+        return 'Afosto\\Sdk\\Model\\LcsDPDServicePointOpeningHoursItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsDPDServicePointResponseParcelShopItemOpeningHoursItem' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsDPDServicePointOpeningHoursItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class LcsDPDServicePointResponseParcelShopItemOpeningHoursItemNormalizer impleme
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsDPDServicePointResponseParcelShopItemOpeningHoursItem();
+        $object = new \Afosto\Sdk\Model\LcsDPDServicePointOpeningHoursItem();
         if (property_exists($data, 'weekday') && null !== $data->{'weekday'}) {
             $object->setWeekday($data->{'weekday'});
         }

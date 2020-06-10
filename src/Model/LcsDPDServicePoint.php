@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class LcsDPDServicePointResponseParcelShopItem
+class LcsDPDServicePoint
 {
     /**
      * @var float
@@ -101,7 +101,7 @@ class LcsDPDServicePointResponseParcelShopItem
      */
     protected $extraInfo;
     /**
-     * @var LcsDPDServicePointResponseParcelShopItemOpeningHoursItem[]
+     * @var LcsDPDServicePointOpeningHoursItem[]
      */
     protected $openingHours;
     /**
@@ -374,7 +374,7 @@ class LcsDPDServicePointResponseParcelShopItem
     }
 
     /**
-     * @return LcsDPDServicePointResponseParcelShopItemOpeningHoursItem[]|null
+     * @return LcsDPDServicePointOpeningHoursItem[]|null
      */
     public function getOpeningHours(): ?array
     {
@@ -382,7 +382,7 @@ class LcsDPDServicePointResponseParcelShopItem
     }
 
     /**
-     * @param LcsDPDServicePointResponseParcelShopItemOpeningHoursItem[]|null $openingHours
+     * @param LcsDPDServicePointOpeningHoursItem[]|null $openingHours
      */
     public function setOpeningHours(?array $openingHours): self
     {

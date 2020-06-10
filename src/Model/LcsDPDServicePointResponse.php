@@ -13,12 +13,12 @@ namespace Afosto\Sdk\Model;
 class LcsDPDServicePointResponse
 {
     /**
-     * @var LcsDPDServicePointResponseParcelShopItem[]
+     * @var LcsDPDServicePoint[]
      */
     protected $parcelShop;
 
     /**
-     * @return LcsDPDServicePointResponseParcelShopItem[]|null
+     * @return LcsDPDServicePoint[]|null
      */
     public function getParcelShop(): ?array
     {
@@ -26,7 +26,7 @@ class LcsDPDServicePointResponse
     }
 
     /**
-     * @param LcsDPDServicePointResponseParcelShopItem[]|null $parcelShop
+     * @param LcsDPDServicePoint[]|null $parcelShop
      */
     public function setParcelShop(?array $parcelShop): self
     {
