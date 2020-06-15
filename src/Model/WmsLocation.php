@@ -27,11 +27,23 @@ class WmsLocation
     /**
      * @var bool
      */
+    protected $isSupplier;
+    /**
+     * @var bool
+     */
+    protected $isManaged;
+    /**
+     * @var bool
+     */
     protected $isCustomer;
     /**
      * @var bool
      */
     protected $isTrackingInventory;
+    /**
+     * @var string
+     */
+    protected $addressId;
     /**
      * @var string
      */
@@ -81,6 +93,30 @@ class WmsLocation
         return $this;
     }
 
+    public function getIsSupplier(): ?bool
+    {
+        return $this->isSupplier;
+    }
+
+    public function setIsSupplier(?bool $isSupplier): self
+    {
+        $this->isSupplier = $isSupplier;
+
+        return $this;
+    }
+
+    public function getIsManaged(): ?bool
+    {
+        return $this->isManaged;
+    }
+
+    public function setIsManaged(?bool $isManaged): self
+    {
+        $this->isManaged = $isManaged;
+
+        return $this;
+    }
+
     public function getIsCustomer(): ?bool
     {
         return $this->isCustomer;
@@ -101,6 +137,18 @@ class WmsLocation
     public function setIsTrackingInventory(?bool $isTrackingInventory): self
     {
         $this->isTrackingInventory = $isTrackingInventory;
+
+        return $this;
+    }
+
+    public function getAddressId(): ?string
+    {
+        return $this->addressId;
+    }
+
+    public function setAddressId(?string $addressId): self
+    {
+        $this->addressId = $addressId;
 
         return $this;
     }

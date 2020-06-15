@@ -16,6 +16,10 @@ class WmsStockUpRequest
      * @var string
      */
     protected $locationId;
+    /**
+     * @var WmsStockUpItem[]
+     */
+    protected $items;
 
     public function getLocationId(): ?string
     {
@@ -25,6 +29,24 @@ class WmsStockUpRequest
     public function setLocationId(?string $locationId): self
     {
         $this->locationId = $locationId;
+
+        return $this;
+    }
+
+    /**
+     * @return WmsStockUpItem[]|null
+     */
+    public function getItems(): ?array
+    {
+        return $this->items;
+    }
+
+    /**
+     * @param WmsStockUpItem[]|null $items
+     */
+    public function setItems(?array $items): self
+    {
+        $this->items = $items;
 
         return $this;
     }

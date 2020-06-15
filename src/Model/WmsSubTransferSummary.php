@@ -17,10 +17,6 @@ class WmsSubTransferSummary
      */
     protected $id;
     /**
-     * @var string
-     */
-    protected $transferId;
-    /**
      * Location id.
      *
      * @var string
@@ -55,18 +51,6 @@ class WmsSubTransferSummary
     public function setId(?string $id): self
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    public function getTransferId(): ?string
-    {
-        return $this->transferId;
-    }
-
-    public function setTransferId(?string $transferId): self
-    {
-        $this->transferId = $transferId;
 
         return $this;
     }

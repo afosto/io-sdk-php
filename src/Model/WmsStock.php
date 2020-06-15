@@ -35,6 +35,10 @@ class WmsStock
     /**
      * @var int
      */
+    protected $missing;
+    /**
+     * @var int
+     */
     protected $total;
 
     public function getWarehouseId(): ?string
@@ -93,6 +97,18 @@ class WmsStock
     public function setTransit(?int $transit): self
     {
         $this->transit = $transit;
+
+        return $this;
+    }
+
+    public function getMissing(): ?int
+    {
+        return $this->missing;
+    }
+
+    public function setMissing(?int $missing): self
+    {
+        $this->missing = $missing;
 
         return $this;
     }

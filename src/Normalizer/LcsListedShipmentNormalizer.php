@@ -53,6 +53,9 @@ class LcsListedShipmentNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'addressing') && null !== $data->{'addressing'}) {
             $object->setAddressing($this->denormalizer->denormalize($data->{'addressing'}, 'Afosto\\Sdk\\Model\\LcsListedShipmentAddressing', 'json', $context));
         }
+        if (property_exists($data, 'ship_at') && null !== $data->{'ship_at'}) {
+            $object->setShipAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'ship_at'}));
+        }
         if (property_exists($data, 'expected_at') && null !== $data->{'expected_at'}) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
         }
@@ -110,6 +113,9 @@ class LcsListedShipmentNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (null !== $object->getAddressing()) {
             $data->{'addressing'} = $this->normalizer->normalize($object->getAddressing(), 'json', $context);
+        }
+        if (null !== $object->getShipAt()) {
+            $data->{'ship_at'} = $object->getShipAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getExpectedAt()) {
             $data->{'expected_at'} = $object->getExpectedAt()->format("Y-m-d\TH:i:sP");

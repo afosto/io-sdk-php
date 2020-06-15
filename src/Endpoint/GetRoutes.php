@@ -15,14 +15,20 @@ class GetRoutes extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     /**
      * List all routes.
      *
+     * @param array $queryParameters {
+     *
+     *     @var int $deleted_at the timestamp to compare against
+     * }
+     *
      * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
      * }
      */
-    public function __construct(array $headerParameters = [])
+    public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
+        $this->queryParameters = $queryParameters;
         $this->headerParameters = $headerParameters;
     }
 
@@ -46,6 +52,17 @@ class GetRoutes extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['deleted_at']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('deleted_at', ['int']);
+
+        return $optionsResolver;
     }
 
     protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver

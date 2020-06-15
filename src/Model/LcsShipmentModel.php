@@ -17,6 +17,10 @@ class LcsShipmentModel
      */
     protected $addressing;
     /**
+     * @var bool
+     */
+    protected $isOutbound;
+    /**
      * @var LcsShipmentItemModel[]
      */
     protected $items;
@@ -33,6 +37,10 @@ class LcsShipmentModel
      */
     protected $expectedAt;
     /**
+     * @var \DateTime
+     */
+    protected $shipAt;
+    /**
      * @var string
      */
     protected $methodId;
@@ -41,9 +49,9 @@ class LcsShipmentModel
      */
     protected $contactId;
     /**
-     * @var LcsShipmentModelStack
+     * @var string
      */
-    protected $stack;
+    protected $orderId;
 
     public function getAddressing(): ?LcsShipmentModelAddressing
     {
@@ -53,6 +61,18 @@ class LcsShipmentModel
     public function setAddressing(?LcsShipmentModelAddressing $addressing): self
     {
         $this->addressing = $addressing;
+
+        return $this;
+    }
+
+    public function getIsOutbound(): ?bool
+    {
+        return $this->isOutbound;
+    }
+
+    public function setIsOutbound(?bool $isOutbound): self
+    {
+        $this->isOutbound = $isOutbound;
 
         return $this;
     }
@@ -123,6 +143,18 @@ class LcsShipmentModel
         return $this;
     }
 
+    public function getShipAt(): ?\DateTime
+    {
+        return $this->shipAt;
+    }
+
+    public function setShipAt(?\DateTime $shipAt): self
+    {
+        $this->shipAt = $shipAt;
+
+        return $this;
+    }
+
     public function getMethodId(): ?string
     {
         return $this->methodId;
@@ -147,14 +179,14 @@ class LcsShipmentModel
         return $this;
     }
 
-    public function getStack(): ?LcsShipmentModelStack
+    public function getOrderId(): ?string
     {
-        return $this->stack;
+        return $this->orderId;
     }
 
-    public function setStack(?LcsShipmentModelStack $stack): self
+    public function setOrderId(?string $orderId): self
     {
-        $this->stack = $stack;
+        $this->orderId = $orderId;
 
         return $this;
     }

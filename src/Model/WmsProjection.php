@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Model;
 class WmsProjection
 {
     /**
-     * @var mixed[]
+     * @var string[]
      */
     protected $locations;
     /**
@@ -26,7 +26,7 @@ class WmsProjection
     protected $unavailable;
 
     /**
-     * @return mixed[]|null
+     * @return string[]|null
      */
     public function getLocations(): ?array
     {
@@ -34,7 +34,7 @@ class WmsProjection
     }
 
     /**
-     * @param mixed[]|null $locations
+     * @param string[]|null $locations
      */
     public function setLocations(?array $locations): self
     {

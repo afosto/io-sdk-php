@@ -15,14 +15,20 @@ class ListLocations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * List existing locations.
      *
+     * @param array $queryParameters {
+     *
+     *     @var int $deleted_at the timestamp to compare against
+     * }
+     *
      * @param array $headerParameters {
      *
      *     @var int $X-Page-Size
      *     @var int $X-Page
      * }
      */
-    public function __construct(array $headerParameters = [])
+    public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
+        $this->queryParameters = $queryParameters;
         $this->headerParameters = $headerParameters;
     }
 
@@ -46,6 +52,17 @@ class ListLocations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['deleted_at']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('deleted_at', ['int']);
+
+        return $optionsResolver;
     }
 
     protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver

@@ -36,6 +36,10 @@ class LcsParcelModel
      * @var string
      */
     protected $trackingUrl;
+    /**
+     * @var string
+     */
+    protected $position;
 
     public function getWeight(): ?int
     {
@@ -105,6 +109,18 @@ class LcsParcelModel
     public function setTrackingUrl(?string $trackingUrl): self
     {
         $this->trackingUrl = $trackingUrl;
+
+        return $this;
+    }
+
+    public function getPosition(): ?string
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?string $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }

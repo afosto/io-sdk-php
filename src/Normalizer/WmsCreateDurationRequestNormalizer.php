@@ -41,8 +41,11 @@ class WmsCreateDurationRequestNormalizer implements DenormalizerInterface, Norma
         if (property_exists($data, 'route_id') && null !== $data->{'route_id'}) {
             $object->setRouteId($data->{'route_id'});
         }
-        if (property_exists($data, 'location_id') && null !== $data->{'location_id'}) {
-            $object->setLocationId($data->{'location_id'});
+        if (property_exists($data, 'from_location_id') && null !== $data->{'from_location_id'}) {
+            $object->setFromLocationId($data->{'from_location_id'});
+        }
+        if (property_exists($data, 'to_location_id') && null !== $data->{'to_location_id'}) {
+            $object->setToLocationId($data->{'to_location_id'});
         }
         if (property_exists($data, 'calculate_at') && null !== $data->{'calculate_at'}) {
             $object->setCalculateAt($data->{'calculate_at'});
@@ -57,8 +60,11 @@ class WmsCreateDurationRequestNormalizer implements DenormalizerInterface, Norma
         if (null !== $object->getRouteId()) {
             $data->{'route_id'} = $object->getRouteId();
         }
-        if (null !== $object->getLocationId()) {
-            $data->{'location_id'} = $object->getLocationId();
+        if (null !== $object->getFromLocationId()) {
+            $data->{'from_location_id'} = $object->getFromLocationId();
+        }
+        if (null !== $object->getToLocationId()) {
+            $data->{'to_location_id'} = $object->getToLocationId();
         }
         if (null !== $object->getCalculateAt()) {
             $data->{'calculate_at'} = $object->getCalculateAt();

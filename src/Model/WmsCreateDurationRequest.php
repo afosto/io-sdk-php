@@ -19,7 +19,11 @@ class WmsCreateDurationRequest
     /**
      * @var string
      */
-    protected $locationId;
+    protected $fromLocationId;
+    /**
+     * @var string
+     */
+    protected $toLocationId;
     /**
      * @var string
      */
@@ -37,14 +41,26 @@ class WmsCreateDurationRequest
         return $this;
     }
 
-    public function getLocationId(): ?string
+    public function getFromLocationId(): ?string
     {
-        return $this->locationId;
+        return $this->fromLocationId;
     }
 
-    public function setLocationId(?string $locationId): self
+    public function setFromLocationId(?string $fromLocationId): self
     {
-        $this->locationId = $locationId;
+        $this->fromLocationId = $fromLocationId;
+
+        return $this;
+    }
+
+    public function getToLocationId(): ?string
+    {
+        return $this->toLocationId;
+    }
+
+    public function setToLocationId(?string $toLocationId): self
+    {
+        $this->toLocationId = $toLocationId;
 
         return $this;
     }

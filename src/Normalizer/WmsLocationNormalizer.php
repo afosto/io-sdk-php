@@ -47,11 +47,20 @@ class WmsLocationNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'country_iso') && null !== $data->{'country_iso'}) {
             $object->setCountryIso($data->{'country_iso'});
         }
+        if (property_exists($data, 'is_supplier') && null !== $data->{'is_supplier'}) {
+            $object->setIsSupplier($data->{'is_supplier'});
+        }
+        if (property_exists($data, 'is_managed') && null !== $data->{'is_managed'}) {
+            $object->setIsManaged($data->{'is_managed'});
+        }
         if (property_exists($data, 'is_customer') && null !== $data->{'is_customer'}) {
             $object->setIsCustomer($data->{'is_customer'});
         }
         if (property_exists($data, 'is_tracking_inventory') && null !== $data->{'is_tracking_inventory'}) {
             $object->setIsTrackingInventory($data->{'is_tracking_inventory'});
+        }
+        if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
+            $object->setAddressId($data->{'address_id'});
         }
         if (property_exists($data, 'warehouse_id') && null !== $data->{'warehouse_id'}) {
             $object->setWarehouseId($data->{'warehouse_id'});
@@ -78,11 +87,20 @@ class WmsLocationNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (null !== $object->getCountryIso()) {
             $data->{'country_iso'} = $object->getCountryIso();
         }
+        if (null !== $object->getIsSupplier()) {
+            $data->{'is_supplier'} = $object->getIsSupplier();
+        }
+        if (null !== $object->getIsManaged()) {
+            $data->{'is_managed'} = $object->getIsManaged();
+        }
         if (null !== $object->getIsCustomer()) {
             $data->{'is_customer'} = $object->getIsCustomer();
         }
         if (null !== $object->getIsTrackingInventory()) {
             $data->{'is_tracking_inventory'} = $object->getIsTrackingInventory();
+        }
+        if (null !== $object->getAddressId()) {
+            $data->{'address_id'} = $object->getAddressId();
         }
         if (null !== $object->getWarehouseId()) {
             $data->{'warehouse_id'} = $object->getWarehouseId();

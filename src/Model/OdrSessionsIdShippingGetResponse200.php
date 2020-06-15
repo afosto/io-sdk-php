@@ -17,7 +17,7 @@ class OdrSessionsIdShippingGetResponse200
      */
     protected $active;
     /**
-     * @var OdrAddressSet
+     * @var OdrCombinedAddressSet
      */
     protected $options;
 
@@ -33,12 +33,12 @@ class OdrSessionsIdShippingGetResponse200
         return $this;
     }
 
-    public function getOptions(): ?OdrAddressSet
+    public function getOptions(): ?OdrCombinedAddressSet
     {
         return $this->options;
     }
 
-    public function setOptions(?OdrAddressSet $options): self
+    public function setOptions(?OdrCombinedAddressSet $options): self
     {
         $this->options = $options;
 

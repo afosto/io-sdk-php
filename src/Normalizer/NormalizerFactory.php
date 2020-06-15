@@ -230,9 +230,9 @@ class NormalizerFactory
         $normalizers[] = new MesWebhookSubscriptionNormalizer();
         $normalizers[] = new WmsStockNormalizer();
         $normalizers[] = new WmsStockUpRequestNormalizer();
+        $normalizers[] = new WmsStockUpItemNormalizer();
         $normalizers[] = new WmsInventoryConstraintNormalizer();
         $normalizers[] = new WmsUpdateWarehouseItemRequestNormalizer();
-        $normalizers[] = new WmsUpdateTransferRequestNormalizer();
         $normalizers[] = new WmsCreateRouteRequestNormalizer();
         $normalizers[] = new WmsUpdateRouteRequestNormalizer();
         $normalizers[] = new WmsCreateHopRequestNormalizer();
@@ -250,6 +250,8 @@ class NormalizerFactory
         $normalizers[] = new WmsCreateClaimRequestNormalizer();
         $normalizers[] = new WmsConfirmClaimRequestNormalizer();
         $normalizers[] = new WmsCreateTransferRequestNormalizer();
+        $normalizers[] = new WmsPositionLogResponseNormalizer();
+        $normalizers[] = new WmsPositionVerificationRequestNormalizer();
         $normalizers[] = new WmsWarehouseItemNormalizer();
         $normalizers[] = new WmsRouteNormalizer();
         $normalizers[] = new WmsHopNormalizer();
@@ -288,6 +290,7 @@ class NormalizerFactory
         $normalizers[] = new OdrAuthenticationResponseNormalizer();
         $normalizers[] = new OdrAuthorizationRequestNormalizer();
         $normalizers[] = new OdrAuthorizationResponseNormalizer();
+        $normalizers[] = new OdrCombinedAddressSetNormalizer();
         $normalizers[] = new OdrAddressSetNormalizer();
         $normalizers[] = new OdrPointNormalizer();
         $normalizers[] = new OdrPointOpeningsItemNormalizer();
@@ -366,7 +369,6 @@ class NormalizerFactory
         $normalizers[] = new LcsShipmentUpdateModelAddressingNormalizer();
         $normalizers[] = new LcsShipmentModelNormalizer();
         $normalizers[] = new LcsShipmentModelAddressingNormalizer();
-        $normalizers[] = new LcsShipmentModelStackNormalizer();
         $normalizers[] = new LcsAddressNormalizer();
         $normalizers[] = new LcsPointsItemNormalizer();
         $normalizers[] = new LcsPointNormalizer();

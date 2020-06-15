@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class WmsUpdateTransferRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class WmsStockUpItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\WmsUpdateTransferRequest' === $type;
+        return 'Afosto\\Sdk\\Model\\WmsStockUpItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsUpdateTransferRequest' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsStockUpItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,12 @@ class WmsUpdateTransferRequestNormalizer implements DenormalizerInterface, Norma
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\WmsUpdateTransferRequest();
-        if (property_exists($data, 'id') && null !== $data->{'id'}) {
-            $object->setId($data->{'id'});
+        $object = new \Afosto\Sdk\Model\WmsStockUpItem();
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
+            $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'route_id') && null !== $data->{'route_id'}) {
-            $object->setRouteId($data->{'route_id'});
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
+            $object->setQuantity($data->{'quantity'});
         }
 
         return $object;
@@ -51,11 +51,11 @@ class WmsUpdateTransferRequestNormalizer implements DenormalizerInterface, Norma
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
+        if (null !== $object->getSku()) {
+            $data->{'sku'} = $object->getSku();
         }
-        if (null !== $object->getRouteId()) {
-            $data->{'route_id'} = $object->getRouteId();
+        if (null !== $object->getQuantity()) {
+            $data->{'quantity'} = $object->getQuantity();
         }
 
         return $data;

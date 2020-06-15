@@ -41,6 +41,9 @@ class LcsShipmentModelNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'addressing') && null !== $data->{'addressing'}) {
             $object->setAddressing($this->denormalizer->denormalize($data->{'addressing'}, 'Afosto\\Sdk\\Model\\LcsShipmentModelAddressing', 'json', $context));
         }
+        if (property_exists($data, 'is_outbound') && null !== $data->{'is_outbound'}) {
+            $object->setIsOutbound($data->{'is_outbound'});
+        }
         if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
@@ -65,14 +68,17 @@ class LcsShipmentModelNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'expected_at') && null !== $data->{'expected_at'}) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
         }
+        if (property_exists($data, 'ship_at') && null !== $data->{'ship_at'}) {
+            $object->setShipAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'ship_at'}));
+        }
         if (property_exists($data, 'method_id') && null !== $data->{'method_id'}) {
             $object->setMethodId($data->{'method_id'});
         }
         if (property_exists($data, 'contact_id') && null !== $data->{'contact_id'}) {
             $object->setContactId($data->{'contact_id'});
         }
-        if (property_exists($data, 'stack') && null !== $data->{'stack'}) {
-            $object->setStack($this->denormalizer->denormalize($data->{'stack'}, 'Afosto\\Sdk\\Model\\LcsShipmentModelStack', 'json', $context));
+        if (property_exists($data, 'order_id') && null !== $data->{'order_id'}) {
+            $object->setOrderId($data->{'order_id'});
         }
 
         return $object;
@@ -83,6 +89,9 @@ class LcsShipmentModelNormalizer implements DenormalizerInterface, NormalizerInt
         $data = new \stdClass();
         if (null !== $object->getAddressing()) {
             $data->{'addressing'} = $this->normalizer->normalize($object->getAddressing(), 'json', $context);
+        }
+        if (null !== $object->getIsOutbound()) {
+            $data->{'is_outbound'} = $object->getIsOutbound();
         }
         if (null !== $object->getItems()) {
             $values = [];
@@ -108,14 +117,17 @@ class LcsShipmentModelNormalizer implements DenormalizerInterface, NormalizerInt
         if (null !== $object->getExpectedAt()) {
             $data->{'expected_at'} = $object->getExpectedAt()->format("Y-m-d\TH:i:sP");
         }
+        if (null !== $object->getShipAt()) {
+            $data->{'ship_at'} = $object->getShipAt()->format("Y-m-d\TH:i:sP");
+        }
         if (null !== $object->getMethodId()) {
             $data->{'method_id'} = $object->getMethodId();
         }
         if (null !== $object->getContactId()) {
             $data->{'contact_id'} = $object->getContactId();
         }
-        if (null !== $object->getStack()) {
-            $data->{'stack'} = $this->normalizer->normalize($object->getStack(), 'json', $context);
+        if (null !== $object->getOrderId()) {
+            $data->{'order_id'} = $object->getOrderId();
         }
 
         return $data;

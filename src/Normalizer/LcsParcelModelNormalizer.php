@@ -56,6 +56,9 @@ class LcsParcelModelNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'tracking_url') && null !== $data->{'tracking_url'}) {
             $object->setTrackingUrl($data->{'tracking_url'});
         }
+        if (property_exists($data, 'position') && null !== $data->{'position'}) {
+            $object->setPosition($data->{'position'});
+        }
 
         return $object;
     }
@@ -80,6 +83,9 @@ class LcsParcelModelNormalizer implements DenormalizerInterface, NormalizerInter
         }
         if (null !== $object->getTrackingUrl()) {
             $data->{'tracking_url'} = $object->getTrackingUrl();
+        }
+        if (null !== $object->getPosition()) {
+            $data->{'position'} = $object->getPosition();
         }
 
         return $data;

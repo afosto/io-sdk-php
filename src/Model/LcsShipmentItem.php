@@ -31,6 +31,10 @@ class LcsShipmentItem
     /**
      * @var string
      */
+    protected $orderItemId;
+    /**
+     * @var string
+     */
     protected $description;
     /**
      * @var bool
@@ -105,6 +109,18 @@ class LcsShipmentItem
     public function setPosition(?string $position): self
     {
         $this->position = $position;
+
+        return $this;
+    }
+
+    public function getOrderItemId(): ?string
+    {
+        return $this->orderItemId;
+    }
+
+    public function setOrderItemId(?string $orderItemId): self
+    {
+        $this->orderItemId = $orderItemId;
 
         return $this;
     }

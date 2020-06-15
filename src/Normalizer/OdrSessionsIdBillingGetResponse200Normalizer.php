@@ -42,7 +42,7 @@ class OdrSessionsIdBillingGetResponse200Normalizer implements DenormalizerInterf
             $object->setActive($this->denormalizer->denormalize($data->{'active'}, 'Afosto\\Sdk\\Model\\OdrAddress', 'json', $context));
         }
         if (property_exists($data, 'options') && null !== $data->{'options'}) {
-            $object->setOptions($this->denormalizer->denormalize($data->{'options'}, 'Afosto\\Sdk\\Model\\OdrAddressSet', 'json', $context));
+            $object->setOptions($this->denormalizer->denormalize($data->{'options'}, 'Afosto\\Sdk\\Model\\OdrCombinedAddressSet', 'json', $context));
         }
 
         return $object;

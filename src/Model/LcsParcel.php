@@ -45,6 +45,10 @@ class LcsParcel
      */
     protected $trackingUrl;
     /**
+     * @var string
+     */
+    protected $position;
+    /**
      * @var LcsParcelLabel
      */
     protected $label;
@@ -165,6 +169,18 @@ class LcsParcel
     public function setTrackingUrl(?string $trackingUrl): self
     {
         $this->trackingUrl = $trackingUrl;
+
+        return $this;
+    }
+
+    public function getPosition(): ?string
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?string $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }

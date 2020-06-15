@@ -18,6 +18,7 @@ class ListSchedules extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      * @param array $queryParameters {
      *
      *     @var string $hop_id
+     *     @var int $deleted_at the timestamp to compare against
      * }
      *
      * @param array $headerParameters {
@@ -57,10 +58,11 @@ class ListSchedules extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['hop_id']);
+        $optionsResolver->setDefined(['hop_id', 'deleted_at']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('hop_id', ['string']);
+        $optionsResolver->setAllowedTypes('deleted_at', ['int']);
 
         return $optionsResolver;
     }

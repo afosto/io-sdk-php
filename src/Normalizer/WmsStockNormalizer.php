@@ -53,6 +53,9 @@ class WmsStockNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'transit') && null !== $data->{'transit'}) {
             $object->setTransit($data->{'transit'});
         }
+        if (property_exists($data, 'missing') && null !== $data->{'missing'}) {
+            $object->setMissing($data->{'missing'});
+        }
         if (property_exists($data, 'total') && null !== $data->{'total'}) {
             $object->setTotal($data->{'total'});
         }
@@ -77,6 +80,9 @@ class WmsStockNormalizer implements DenormalizerInterface, NormalizerInterface, 
         }
         if (null !== $object->getTransit()) {
             $data->{'transit'} = $object->getTransit();
+        }
+        if (null !== $object->getMissing()) {
+            $data->{'missing'} = $object->getMissing();
         }
         if (null !== $object->getTotal()) {
             $data->{'total'} = $object->getTotal();

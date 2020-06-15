@@ -29,9 +29,17 @@ class LcsShipment
      */
     protected $contactId;
     /**
+     * @var string
+     */
+    protected $orderId;
+    /**
      * @var LcsShipmentAddressing
      */
     protected $addressing;
+    /**
+     * @var \DateTime
+     */
+    protected $shipAt;
     /**
      * @var \DateTime
      */
@@ -155,6 +163,18 @@ class LcsShipment
         return $this;
     }
 
+    public function getOrderId(): ?string
+    {
+        return $this->orderId;
+    }
+
+    public function setOrderId(?string $orderId): self
+    {
+        $this->orderId = $orderId;
+
+        return $this;
+    }
+
     public function getAddressing(): ?LcsShipmentAddressing
     {
         return $this->addressing;
@@ -163,6 +183,18 @@ class LcsShipment
     public function setAddressing(?LcsShipmentAddressing $addressing): self
     {
         $this->addressing = $addressing;
+
+        return $this;
+    }
+
+    public function getShipAt(): ?\DateTime
+    {
+        return $this->shipAt;
+    }
+
+    public function setShipAt(?\DateTime $shipAt): self
+    {
+        $this->shipAt = $shipAt;
 
         return $this;
     }

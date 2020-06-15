@@ -4108,6 +4108,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * List all routes.
      *
+     * @param array $queryParameters {
+     *
+     *     @var int $deleted_at the timestamp to compare against
+     * }
+     *
      * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
@@ -4125,9 +4130,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\WmsRoute[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getRoutes(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function getRoutes(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetRoutes($headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetRoutes($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -4209,6 +4214,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * List existing locations.
      *
+     * @param array $queryParameters {
+     *
+     *     @var int $deleted_at the timestamp to compare against
+     * }
+     *
      * @param array $headerParameters {
      *
      *     @var int $X-Page-Size
@@ -4226,9 +4236,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\WmsLocation[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listLocations(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listLocations(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListLocations($headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListLocations($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -4306,6 +4316,73 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function getLocation(string $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetLocation($id), $fetch);
+    }
+
+    /**
+     * Get positions for a warehouse.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListInventoryPositionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListInventoryPositionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListInventoryPositionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListInventoryPositionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListInventoryPositionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListInventoryPositionsServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function listInventoryPositions(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInventoryPositions($id, $headerParameters), $fetch);
+    }
+
+    /**
+     * Get logs for a position in a warehouse.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListPositionLogsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListPositionLogsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListPositionLogsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPositionLogsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPositionLogsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPositionLogsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\WmsPositionLogResponse[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listPositionLogs(string $id, string $position, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListPositionLogs($id, $position, $headerParameters), $fetch);
+    }
+
+    /**
+     * Verify position count in a warehouse.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\VerifyPositionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\VerifyPositionNotFoundException
+     * @throws \Afosto\Sdk\Exception\VerifyPositionBadRequestException
+     * @throws \Afosto\Sdk\Exception\VerifyPositionForbiddenException
+     * @throws \Afosto\Sdk\Exception\VerifyPositionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\VerifyPositionServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function verifyPosition(string $id, string $position, \Afosto\Sdk\Model\WmsPositionVerificationRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\VerifyPosition($id, $position, $body), $fetch);
     }
 
     /**
@@ -4417,6 +4494,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param array $queryParameters {
      *
      *     @var string $hop_id
+     *     @var int $deleted_at the timestamp to compare against
      * }
      *
      * @param array $headerParameters {
@@ -4542,6 +4620,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Get a list of warehouses.
      *
+     * @param array $queryParameters {
+     *
+     *     @var int $deleted_at the timestamp to compare against
+     * }
+     *
      * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
@@ -4559,9 +4642,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\WmsWarehouse[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getWarehouses(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function getWarehouses(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWarehouses($headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWarehouses($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -4848,26 +4931,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function getSubTransfers(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSubTransfers($headerParameters), $fetch);
-    }
-
-    /**
-     * Update items' last known location.
-     *
-     * @param \Afosto\Sdk\Model\WmsUpdateTransferRequest $body  Transfer request object
-     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateSubTransferUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateSubTransferNotFoundException
-     * @throws \Afosto\Sdk\Exception\UpdateSubTransferBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdateSubTransferForbiddenException
-     * @throws \Afosto\Sdk\Exception\UpdateSubTransferInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\UpdateSubTransferServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\WmsSubTransfer|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateSubTransfer(\Afosto\Sdk\Model\WmsUpdateTransferRequest $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateSubTransfer($body), $fetch);
     }
 
     /**
@@ -6037,7 +6100,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\CreateShipmentInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateShipmentServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsShipment[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsShipment|\Psr\Http\Message\ResponseInterface|null
      */
     public function createShipment(\Afosto\Sdk\Model\LcsShipmentModel $body, string $fetch = self::FETCH_OBJECT)
     {

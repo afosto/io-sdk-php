@@ -62,6 +62,9 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'tracking_url') && null !== $data->{'tracking_url'}) {
             $object->setTrackingUrl($data->{'tracking_url'});
         }
+        if (property_exists($data, 'position') && null !== $data->{'position'}) {
+            $object->setPosition($data->{'position'});
+        }
         if (property_exists($data, 'label') && null !== $data->{'label'}) {
             $object->setLabel($this->denormalizer->denormalize($data->{'label'}, 'Afosto\\Sdk\\Model\\LcsParcelLabel', 'json', $context));
         }
@@ -117,6 +120,9 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         }
         if (null !== $object->getTrackingUrl()) {
             $data->{'tracking_url'} = $object->getTrackingUrl();
+        }
+        if (null !== $object->getPosition()) {
+            $data->{'position'} = $object->getPosition();
         }
         if (null !== $object->getLabel()) {
             $data->{'label'} = $this->normalizer->normalize($object->getLabel(), 'json', $context);

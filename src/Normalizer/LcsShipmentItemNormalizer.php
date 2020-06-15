@@ -50,6 +50,9 @@ class LcsShipmentItemNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'position') && null !== $data->{'position'}) {
             $object->setPosition($data->{'position'});
         }
+        if (property_exists($data, 'order_item_id') && null !== $data->{'order_item_id'}) {
+            $object->setOrderItemId($data->{'order_item_id'});
+        }
         if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
@@ -96,6 +99,9 @@ class LcsShipmentItemNormalizer implements DenormalizerInterface, NormalizerInte
         }
         if (null !== $object->getPosition()) {
             $data->{'position'} = $object->getPosition();
+        }
+        if (null !== $object->getOrderItemId()) {
+            $data->{'order_item_id'} = $object->getOrderItemId();
         }
         if (null !== $object->getDescription()) {
             $data->{'description'} = $object->getDescription();

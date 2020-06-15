@@ -35,6 +35,10 @@ class LcsListedShipment
     /**
      * @var \DateTime
      */
+    protected $shipAt;
+    /**
+     * @var \DateTime
+     */
     protected $expectedAt;
     /**
      * @var string
@@ -137,6 +141,18 @@ class LcsListedShipment
     public function setAddressing(?LcsListedShipmentAddressing $addressing): self
     {
         $this->addressing = $addressing;
+
+        return $this;
+    }
+
+    public function getShipAt(): ?\DateTime
+    {
+        return $this->shipAt;
+    }
+
+    public function setShipAt(?\DateTime $shipAt): self
+    {
+        $this->shipAt = $shipAt;
 
         return $this;
     }

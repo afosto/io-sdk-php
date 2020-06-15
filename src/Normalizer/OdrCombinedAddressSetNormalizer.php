@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsShipmentModelStackNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrCombinedAddressSetNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsShipmentModelStack' === $type;
+        return 'Afosto\\Sdk\\Model\\OdrCombinedAddressSet' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsShipmentModelStack' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrCombinedAddressSet' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,12 @@ class LcsShipmentModelStackNormalizer implements DenormalizerInterface, Normaliz
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsShipmentModelStack();
-        if (property_exists($data, 'id') && null !== $data->{'id'}) {
-            $object->setId($data->{'id'});
+        $object = new \Afosto\Sdk\Model\OdrCombinedAddressSet();
+        if (property_exists($data, 'contact') && null !== $data->{'contact'}) {
+            $object->setContact($this->denormalizer->denormalize($data->{'contact'}, 'Afosto\\Sdk\\Model\\OdrAddressSet', 'json', $context));
         }
-        if (property_exists($data, 'type') && null !== $data->{'type'}) {
-            $object->setType($data->{'type'});
+        if (property_exists($data, 'organisation') && null !== $data->{'organisation'}) {
+            $object->setOrganisation($this->denormalizer->denormalize($data->{'organisation'}, 'Afosto\\Sdk\\Model\\OdrAddressSet', 'json', $context));
         }
 
         return $object;
@@ -51,11 +51,11 @@ class LcsShipmentModelStackNormalizer implements DenormalizerInterface, Normaliz
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
+        if (null !== $object->getContact()) {
+            $data->{'contact'} = $this->normalizer->normalize($object->getContact(), 'json', $context);
         }
-        if (null !== $object->getType()) {
-            $data->{'type'} = $object->getType();
+        if (null !== $object->getOrganisation()) {
+            $data->{'organisation'} = $this->normalizer->normalize($object->getOrganisation(), 'json', $context);
         }
 
         return $data;
