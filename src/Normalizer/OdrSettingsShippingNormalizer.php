@@ -41,6 +41,9 @@ class OdrSettingsShippingNormalizer implements DenormalizerInterface, Normalizer
         if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
             $object->setAddressId($data->{'address_id'});
         }
+        if (property_exists($data, 'source_address_id') && null !== $data->{'source_address_id'}) {
+            $object->setSourceAddressId($data->{'source_address_id'});
+        }
         if (property_exists($data, 'method_id') && null !== $data->{'method_id'}) {
             $object->setMethodId($data->{'method_id'});
         }
@@ -62,6 +65,9 @@ class OdrSettingsShippingNormalizer implements DenormalizerInterface, Normalizer
         $data = new \stdClass();
         if (null !== $object->getAddressId()) {
             $data->{'address_id'} = $object->getAddressId();
+        }
+        if (null !== $object->getSourceAddressId()) {
+            $data->{'source_address_id'} = $object->getSourceAddressId();
         }
         if (null !== $object->getMethodId()) {
             $data->{'method_id'} = $object->getMethodId();

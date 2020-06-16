@@ -29,22 +29,6 @@ class OdrGroup
      */
     protected $quantity;
     /**
-     * @var bool
-     */
-    protected $isInbound = false;
-    /**
-     * @var bool
-     */
-    protected $isUnavailable = false;
-    /**
-     * @var bool
-     */
-    protected $isBackordered = false;
-    /**
-     * @var bool
-     */
-    protected $isProcessed = false;
-    /**
      * @var string
      */
     protected $orderId;
@@ -105,54 +89,6 @@ class OdrGroup
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    public function getIsInbound(): ?bool
-    {
-        return $this->isInbound;
-    }
-
-    public function setIsInbound(?bool $isInbound): self
-    {
-        $this->isInbound = $isInbound;
-
-        return $this;
-    }
-
-    public function getIsUnavailable(): ?bool
-    {
-        return $this->isUnavailable;
-    }
-
-    public function setIsUnavailable(?bool $isUnavailable): self
-    {
-        $this->isUnavailable = $isUnavailable;
-
-        return $this;
-    }
-
-    public function getIsBackordered(): ?bool
-    {
-        return $this->isBackordered;
-    }
-
-    public function setIsBackordered(?bool $isBackordered): self
-    {
-        $this->isBackordered = $isBackordered;
-
-        return $this;
-    }
-
-    public function getIsProcessed(): ?bool
-    {
-        return $this->isProcessed;
-    }
-
-    public function setIsProcessed(?bool $isProcessed): self
-    {
-        $this->isProcessed = $isProcessed;
 
         return $this;
     }

@@ -44,6 +44,22 @@ class OdrGroupReferencesOrdersItemNormalizer implements DenormalizerInterface, N
         if (property_exists($data, 'is_inbound') && null !== $data->{'is_inbound'}) {
             $object->setIsInbound($data->{'is_inbound'});
         }
+        if (property_exists($data, 'is_backordered') && null !== $data->{'is_backordered'}) {
+            $object->setIsBackordered($data->{'is_backordered'});
+        }
+        if (property_exists($data, 'is_unavailable') && null !== $data->{'is_unavailable'}) {
+            $object->setIsUnavailable($data->{'is_unavailable'});
+        }
+        if (property_exists($data, 'warehouse') && null !== $data->{'warehouse'}) {
+            $object->setWarehouse($this->denormalizer->denormalize($data->{'warehouse'}, 'Afosto\\Sdk\\Model\\OdrGroupReferencesOrdersItemWarehouse', 'json', $context));
+        }
+        if (property_exists($data, 'shipments') && null !== $data->{'shipments'}) {
+            $values = [];
+            foreach ($data->{'shipments'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrGroupReferencesOrdersItemShipmentsItem', 'json', $context);
+            }
+            $object->setShipments($values);
+        }
 
         return $object;
     }
@@ -56,6 +72,22 @@ class OdrGroupReferencesOrdersItemNormalizer implements DenormalizerInterface, N
         }
         if (null !== $object->getIsInbound()) {
             $data->{'is_inbound'} = $object->getIsInbound();
+        }
+        if (null !== $object->getIsBackordered()) {
+            $data->{'is_backordered'} = $object->getIsBackordered();
+        }
+        if (null !== $object->getIsUnavailable()) {
+            $data->{'is_unavailable'} = $object->getIsUnavailable();
+        }
+        if (null !== $object->getWarehouse()) {
+            $data->{'warehouse'} = $this->normalizer->normalize($object->getWarehouse(), 'json', $context);
+        }
+        if (null !== $object->getShipments()) {
+            $values = [];
+            foreach ($object->getShipments() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $data->{'shipments'} = $values;
         }
 
         return $data;

@@ -45,19 +45,12 @@ class OdrGroupReferencesNormalizer implements DenormalizerInterface, NormalizerI
             }
             $object->setOrders($values);
         }
-        if (property_exists($data, 'stacks') && null !== $data->{'stacks'}) {
-            $values_1 = [];
-            foreach ($data->{'stacks'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context);
-            }
-            $object->setStacks($values_1);
-        }
         if (property_exists($data, 'backorders') && null !== $data->{'backorders'}) {
-            $values_2 = [];
-            foreach ($data->{'backorders'} as $value_2) {
-                $values_2[] = $value_2;
+            $values_1 = [];
+            foreach ($data->{'backorders'} as $value_1) {
+                $values_1[] = $value_1;
             }
-            $object->setBackorders($values_2);
+            $object->setBackorders($values_1);
         }
 
         return $object;
@@ -73,19 +66,12 @@ class OdrGroupReferencesNormalizer implements DenormalizerInterface, NormalizerI
             }
             $data->{'orders'} = $values;
         }
-        if (null !== $object->getStacks()) {
-            $values_1 = [];
-            foreach ($object->getStacks() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-            }
-            $data->{'stacks'} = $values_1;
-        }
         if (null !== $object->getBackorders()) {
-            $values_2 = [];
-            foreach ($object->getBackorders() as $value_2) {
-                $values_2[] = $value_2;
+            $values_1 = [];
+            foreach ($object->getBackorders() as $value_1) {
+                $values_1[] = $value_1;
             }
-            $data->{'backorders'} = $values_2;
+            $data->{'backorders'} = $values_1;
         }
 
         return $data;

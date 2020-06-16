@@ -19,6 +19,10 @@ class OdrOrderSettingsShipping
     /**
      * @var string
      */
+    protected $sourceAddressId;
+    /**
+     * @var string
+     */
     protected $methodId;
     /**
      * @var string
@@ -41,6 +45,18 @@ class OdrOrderSettingsShipping
     public function setAddressId(?string $addressId): self
     {
         $this->addressId = $addressId;
+
+        return $this;
+    }
+
+    public function getSourceAddressId(): ?string
+    {
+        return $this->sourceAddressId;
+    }
+
+    public function setSourceAddressId(?string $sourceAddressId): self
+    {
+        $this->sourceAddressId = $sourceAddressId;
 
         return $this;
     }
