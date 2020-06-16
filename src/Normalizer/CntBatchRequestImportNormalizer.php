@@ -39,7 +39,11 @@ class CntBatchRequestImportNormalizer implements DenormalizerInterface, Normaliz
         }
         $object = new \Afosto\Sdk\Model\CntBatchRequestImport();
         if (property_exists($data, 'mapping') && null !== $data->{'mapping'}) {
-            $object->setMapping($data->{'mapping'});
+            $values = [];
+            foreach ($data->{'mapping'} as $value) {
+                $values[] = $value;
+            }
+            $object->setMapping($values);
         }
 
         return $object;
@@ -49,7 +53,11 @@ class CntBatchRequestImportNormalizer implements DenormalizerInterface, Normaliz
     {
         $data = new \stdClass();
         if (null !== $object->getMapping()) {
-            $data->{'mapping'} = $object->getMapping();
+            $values = [];
+            foreach ($object->getMapping() as $value) {
+                $values[] = $value;
+            }
+            $data->{'mapping'} = $values;
         }
 
         return $data;

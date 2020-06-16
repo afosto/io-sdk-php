@@ -13,22 +13,22 @@ namespace Afosto\Sdk\Model;
 class CntBatchRequestImport
 {
     /**
-     * @var mixed
+     * @var mixed[]
      */
     protected $mapping;
 
     /**
-     * @return mixed
+     * @return mixed[]|null
      */
-    public function getMapping()
+    public function getMapping(): ?array
     {
         return $this->mapping;
     }
 
     /**
-     * @param mixed $mapping
+     * @param mixed[]|null $mapping
      */
-    public function setMapping($mapping): self
+    public function setMapping(?array $mapping): self
     {
         $this->mapping = $mapping;
 
