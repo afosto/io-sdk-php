@@ -60,6 +60,9 @@ class WmsSubTransferNormalizer implements DenormalizerInterface, NormalizerInter
             }
             $object->setItems($values);
         }
+        if (property_exists($data, 'ship_at') && null !== $data->{'ship_at'}) {
+            $object->setShipAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'ship_at'}));
+        }
         if (property_exists($data, 'expected_at') && null !== $data->{'expected_at'}) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
         }
@@ -97,6 +100,9 @@ class WmsSubTransferNormalizer implements DenormalizerInterface, NormalizerInter
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'items'} = $values;
+        }
+        if (null !== $object->getShipAt()) {
+            $data->{'ship_at'} = $object->getShipAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getExpectedAt()) {
             $data->{'expected_at'} = $object->getExpectedAt()->format("Y-m-d\TH:i:sP");

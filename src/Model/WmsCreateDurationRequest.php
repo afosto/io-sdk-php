@@ -25,7 +25,7 @@ class WmsCreateDurationRequest
      */
     protected $toLocationId;
     /**
-     * @var string
+     * @var \DateTime
      */
     protected $calculateAt;
 
@@ -65,12 +65,12 @@ class WmsCreateDurationRequest
         return $this;
     }
 
-    public function getCalculateAt(): ?string
+    public function getCalculateAt(): ?\DateTime
     {
         return $this->calculateAt;
     }
 
-    public function setCalculateAt(?string $calculateAt): self
+    public function setCalculateAt(?\DateTime $calculateAt): self
     {
         $this->calculateAt = $calculateAt;
 

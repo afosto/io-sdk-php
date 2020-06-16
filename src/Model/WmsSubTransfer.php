@@ -41,6 +41,10 @@ class WmsSubTransfer
     /**
      * @var \DateTime
      */
+    protected $shipAt;
+    /**
+     * @var \DateTime
+     */
     protected $expectedAt;
     /**
      * @var \DateTime
@@ -131,6 +135,18 @@ class WmsSubTransfer
     public function setItems(?array $items): self
     {
         $this->items = $items;
+
+        return $this;
+    }
+
+    public function getShipAt(): ?\DateTime
+    {
+        return $this->shipAt;
+    }
+
+    public function setShipAt(?\DateTime $shipAt): self
+    {
+        $this->shipAt = $shipAt;
 
         return $this;
     }

@@ -4610,7 +4610,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetDurationForRouteInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetDurationForRouteServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\WmsDuration|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsDurationResponse|\Psr\Http\Message\ResponseInterface|null
      */
     public function getDurationForRoute(\Afosto\Sdk\Model\WmsCreateDurationRequest $body, string $fetch = self::FETCH_OBJECT)
     {

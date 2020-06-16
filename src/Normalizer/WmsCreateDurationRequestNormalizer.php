@@ -48,7 +48,7 @@ class WmsCreateDurationRequestNormalizer implements DenormalizerInterface, Norma
             $object->setToLocationId($data->{'to_location_id'});
         }
         if (property_exists($data, 'calculate_at') && null !== $data->{'calculate_at'}) {
-            $object->setCalculateAt($data->{'calculate_at'});
+            $object->setCalculateAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'calculate_at'}));
         }
 
         return $object;
@@ -67,7 +67,7 @@ class WmsCreateDurationRequestNormalizer implements DenormalizerInterface, Norma
             $data->{'to_location_id'} = $object->getToLocationId();
         }
         if (null !== $object->getCalculateAt()) {
-            $data->{'calculate_at'} = $object->getCalculateAt();
+            $data->{'calculate_at'} = $object->getCalculateAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

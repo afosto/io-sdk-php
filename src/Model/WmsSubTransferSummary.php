@@ -33,6 +33,10 @@ class WmsSubTransferSummary
     /**
      * @var \DateTime
      */
+    protected $shipAt;
+    /**
+     * @var \DateTime
+     */
     protected $expectedAt;
     /**
      * @var \DateTime
@@ -93,6 +97,18 @@ class WmsSubTransferSummary
     public function setRouteId(?string $routeId): self
     {
         $this->routeId = $routeId;
+
+        return $this;
+    }
+
+    public function getShipAt(): ?\DateTime
+    {
+        return $this->shipAt;
+    }
+
+    public function setShipAt(?\DateTime $shipAt): self
+    {
+        $this->shipAt = $shipAt;
 
         return $this;
     }

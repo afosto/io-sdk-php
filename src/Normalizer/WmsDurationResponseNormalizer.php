@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class WmsDurationNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class WmsDurationResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\WmsDuration' === $type;
+        return 'Afosto\\Sdk\\Model\\WmsDurationResponse' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsDuration' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsDurationResponse' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,9 +37,12 @@ class WmsDurationNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\WmsDuration();
-        if (property_exists($data, 'duration') && null !== $data->{'duration'}) {
-            $object->setDuration($data->{'duration'});
+        $object = new \Afosto\Sdk\Model\WmsDurationResponse();
+        if (property_exists($data, 'arrival_at') && null !== $data->{'arrival_at'}) {
+            $object->setArrivalAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'arrival_at'}));
+        }
+        if (property_exists($data, 'ship_at') && null !== $data->{'ship_at'}) {
+            $object->setShipAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'ship_at'}));
         }
 
         return $object;
@@ -48,8 +51,11 @@ class WmsDurationNormalizer implements DenormalizerInterface, NormalizerInterfac
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getDuration()) {
-            $data->{'duration'} = $object->getDuration();
+        if (null !== $object->getArrivalAt()) {
+            $data->{'arrival_at'} = $object->getArrivalAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getShipAt()) {
+            $data->{'ship_at'} = $object->getShipAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

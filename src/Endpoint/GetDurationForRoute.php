@@ -54,12 +54,12 @@ class GetDurationForRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
      * @throws \Afosto\Sdk\Exception\GetDurationForRouteInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetDurationForRouteServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\WmsDuration|null
+     * @return \Afosto\Sdk\Model\WmsDurationResponse|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsDuration', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsDurationResponse', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetDurationForRouteUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

@@ -50,6 +50,9 @@ class WmsSubTransferSummaryNormalizer implements DenormalizerInterface, Normaliz
         if (property_exists($data, 'route_id') && null !== $data->{'route_id'}) {
             $object->setRouteId($data->{'route_id'});
         }
+        if (property_exists($data, 'ship_at') && null !== $data->{'ship_at'}) {
+            $object->setShipAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'ship_at'}));
+        }
         if (property_exists($data, 'expected_at') && null !== $data->{'expected_at'}) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
         }
@@ -77,6 +80,9 @@ class WmsSubTransferSummaryNormalizer implements DenormalizerInterface, Normaliz
         }
         if (null !== $object->getRouteId()) {
             $data->{'route_id'} = $object->getRouteId();
+        }
+        if (null !== $object->getShipAt()) {
+            $data->{'ship_at'} = $object->getShipAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getExpectedAt()) {
             $data->{'expected_at'} = $object->getExpectedAt()->format("Y-m-d\TH:i:sP");

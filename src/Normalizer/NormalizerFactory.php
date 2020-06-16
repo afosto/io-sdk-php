@@ -259,7 +259,6 @@ class NormalizerFactory
         $normalizers[] = new WmsHopNormalizer();
         $normalizers[] = new WmsLocationNormalizer();
         $normalizers[] = new WmsScheduleNormalizer();
-        $normalizers[] = new WmsDurationNormalizer();
         $normalizers[] = new WmsWarehouseNormalizer();
         $normalizers[] = new WmsTransferReportNormalizer();
         $normalizers[] = new WmsProjectionNormalizer();
@@ -270,6 +269,7 @@ class NormalizerFactory
         $normalizers[] = new WmsClaimItemNormalizer();
         $normalizers[] = new WmsTransferNormalizer();
         $normalizers[] = new WmsSubTransferSummaryNormalizer();
+        $normalizers[] = new WmsDurationResponseNormalizer();
         $normalizers[] = new WmsSubTransferNormalizer();
         $normalizers[] = new WmsSubTransferItemNormalizer();
         $normalizers[] = new OdrStartSessionRequestNormalizer();
