@@ -1338,6 +1338,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Get a list of batches.
      *
+     * @param array $queryParameters {
+     *
+     *     @var string $action_id
+     * }
+     *
      * @param array $headerParameters {
      *
      *     @var string $x-page
@@ -1354,9 +1359,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntBatch[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getBatches(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function getBatches(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBatches($headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBatches($queryParameters, $headerParameters), $fetch);
     }
 
     /**

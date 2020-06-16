@@ -15,13 +15,19 @@ class GetBatches extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
      * Get a list of batches.
      *
+     * @param array $queryParameters {
+     *
+     *     @var string $action_id
+     * }
+     *
      * @param array $headerParameters {
      *
      *     @var string $x-page
      * }
      */
-    public function __construct(array $headerParameters = [])
+    public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
+        $this->queryParameters = $queryParameters;
         $this->headerParameters = $headerParameters;
     }
 
@@ -45,6 +51,17 @@ class GetBatches extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['action_id']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('action_id', ['string']);
+
+        return $optionsResolver;
     }
 
     protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
