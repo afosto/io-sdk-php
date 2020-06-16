@@ -17,7 +17,7 @@ class GetBatches extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *
      * @param array $queryParameters {
      *
-     *     @var string $action_id
+     *     @var string $code
      * }
      *
      * @param array $headerParameters {
@@ -56,10 +56,10 @@ class GetBatches extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['action_id']);
+        $optionsResolver->setDefined(['code']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
-        $optionsResolver->setAllowedTypes('action_id', ['string']);
+        $optionsResolver->setAllowedTypes('code', ['string']);
 
         return $optionsResolver;
     }

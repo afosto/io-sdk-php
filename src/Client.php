@@ -1340,7 +1340,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param array $queryParameters {
      *
-     *     @var string $action_id
+     *     @var string $code
      * }
      *
      * @param array $headerParameters {
