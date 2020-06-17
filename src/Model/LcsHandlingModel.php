@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Model;
 class LcsHandlingModel
 {
     /**
-     * @var string[]
+     * @var LcsHandlingModelShipmentsItem[]
      */
     protected $shipments;
     /**
@@ -22,7 +22,7 @@ class LcsHandlingModel
     protected $isDueAt;
 
     /**
-     * @return string[]|null
+     * @return LcsHandlingModelShipmentsItem[]|null
      */
     public function getShipments(): ?array
     {
@@ -30,7 +30,7 @@ class LcsHandlingModel
     }
 
     /**
-     * @param string[]|null $shipments
+     * @param LcsHandlingModelShipmentsItem[]|null $shipments
      */
     public function setShipments(?array $shipments): self
     {

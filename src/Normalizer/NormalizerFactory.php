@@ -342,6 +342,7 @@ class NormalizerFactory
         $normalizers[] = new LcsHandlingListItemUpdateNormalizer();
         $normalizers[] = new LcsHandlingListItemNormalizer();
         $normalizers[] = new LcsHandlingModelNormalizer();
+        $normalizers[] = new LcsHandlingModelShipmentsItemNormalizer();
         $normalizers[] = new LcsHandlingListResponseNormalizer();
         $normalizers[] = new LcsHandlingListNormalizer();
         $normalizers[] = new LcsListedHandlingListNormalizer();

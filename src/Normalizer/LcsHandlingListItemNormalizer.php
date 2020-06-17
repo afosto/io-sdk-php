@@ -67,6 +67,9 @@ class LcsHandlingListItemNormalizer implements DenormalizerInterface, Normalizer
         if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
         }
+        if (property_exists($data, 'sorting_label') && null !== $data->{'sorting_label'}) {
+            $object->setSortingLabel($data->{'sorting_label'});
+        }
 
         return $object;
     }
@@ -102,6 +105,9 @@ class LcsHandlingListItemNormalizer implements DenormalizerInterface, Normalizer
         }
         if (null !== $object->getQuantity()) {
             $data->{'quantity'} = $object->getQuantity();
+        }
+        if (null !== $object->getSortingLabel()) {
+            $data->{'sorting_label'} = $object->getSortingLabel();
         }
 
         return $data;

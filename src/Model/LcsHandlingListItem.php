@@ -40,6 +40,10 @@ class LcsHandlingListItem
      * @var int
      */
     protected $quantity;
+    /**
+     * @var string
+     */
+    protected $sortingLabel;
 
     /**
      * @return string[]|null
@@ -133,6 +137,18 @@ class LcsHandlingListItem
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    public function getSortingLabel(): ?string
+    {
+        return $this->sortingLabel;
+    }
+
+    public function setSortingLabel(?string $sortingLabel): self
+    {
+        $this->sortingLabel = $sortingLabel;
 
         return $this;
     }
