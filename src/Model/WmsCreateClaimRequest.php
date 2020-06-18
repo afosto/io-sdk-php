@@ -17,6 +17,10 @@ class WmsCreateClaimRequest
      */
     protected $orderId;
     /**
+     * @var bool
+     */
+    protected $isOutbound = true;
+    /**
      * Only allowed for reservations.
      *
      * @var \DateTime
@@ -39,6 +43,18 @@ class WmsCreateClaimRequest
     public function setOrderId(?string $orderId): self
     {
         $this->orderId = $orderId;
+
+        return $this;
+    }
+
+    public function getIsOutbound(): ?bool
+    {
+        return $this->isOutbound;
+    }
+
+    public function setIsOutbound(?bool $isOutbound): self
+    {
+        $this->isOutbound = $isOutbound;
 
         return $this;
     }

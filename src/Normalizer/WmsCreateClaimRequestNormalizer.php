@@ -41,6 +41,9 @@ class WmsCreateClaimRequestNormalizer implements DenormalizerInterface, Normaliz
         if (property_exists($data, 'order_id') && null !== $data->{'order_id'}) {
             $object->setOrderId($data->{'order_id'});
         }
+        if (property_exists($data, 'is_outbound') && null !== $data->{'is_outbound'}) {
+            $object->setIsOutbound($data->{'is_outbound'});
+        }
         if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
@@ -67,6 +70,9 @@ class WmsCreateClaimRequestNormalizer implements DenormalizerInterface, Normaliz
         $data = new \stdClass();
         if (null !== $object->getOrderId()) {
             $data->{'order_id'} = $object->getOrderId();
+        }
+        if (null !== $object->getIsOutbound()) {
+            $data->{'is_outbound'} = $object->getIsOutbound();
         }
         if (null !== $object->getExpiresAt()) {
             $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");
