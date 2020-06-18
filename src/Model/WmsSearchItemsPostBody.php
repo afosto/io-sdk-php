@@ -10,15 +10,15 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class WmsInventoryPostBody
+class WmsSearchItemsPostBody
 {
     /**
-     * @var WmsInventorySummaryConstraint[]
+     * @var WmsInventoryConstraint[]
      */
     protected $constraints;
 
     /**
-     * @return WmsInventorySummaryConstraint[]|null
+     * @return WmsInventoryConstraint[]|null
      */
     public function getConstraints(): ?array
     {
@@ -26,7 +26,7 @@ class WmsInventoryPostBody
     }
 
     /**
-     * @param WmsInventorySummaryConstraint[]|null $constraints
+     * @param WmsInventoryConstraint[]|null $constraints
      */
     public function setConstraints(?array $constraints): self
     {

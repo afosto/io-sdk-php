@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class WmsInventoryPostBodyNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class WmsSearchItemsPostBodyNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\WmsInventoryPostBody' === $type;
+        return 'Afosto\\Sdk\\Model\\WmsSearchItemsPostBody' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsInventoryPostBody' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsSearchItemsPostBody' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,11 +37,11 @@ class WmsInventoryPostBodyNormalizer implements DenormalizerInterface, Normalize
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\WmsInventoryPostBody();
+        $object = new \Afosto\Sdk\Model\WmsSearchItemsPostBody();
         if (property_exists($data, 'constraints') && null !== $data->{'constraints'}) {
             $values = [];
             foreach ($data->{'constraints'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsInventorySummaryConstraint', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsInventoryConstraint', 'json', $context);
             }
             $object->setConstraints($values);
         }

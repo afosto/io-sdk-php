@@ -233,6 +233,7 @@ class NormalizerFactory
         $normalizers[] = new WmsStockNormalizer();
         $normalizers[] = new WmsStockUpRequestNormalizer();
         $normalizers[] = new WmsStockUpItemNormalizer();
+        $normalizers[] = new WmsInventorySummaryConstraintNormalizer();
         $normalizers[] = new WmsInventoryConstraintNormalizer();
         $normalizers[] = new WmsUpdateWarehouseItemRequestNormalizer();
         $normalizers[] = new WmsCreateRouteRequestNormalizer();
@@ -459,6 +460,7 @@ class NormalizerFactory
         $normalizers[] = new WmsClaimsPostResponse200Normalizer();
         $normalizers[] = new WmsClaimsIdExtendPutBodyNormalizer();
         $normalizers[] = new WmsInventoryPostBodyNormalizer();
+        $normalizers[] = new WmsSearchItemsPostBodyNormalizer();
         $normalizers[] = new OdrSessionsIdBillingGetResponse200Normalizer();
         $normalizers[] = new OdrSessionsIdShippingMethodsGetResponse200Normalizer();
         $normalizers[] = new OdrSessionsIdShippingWindowGetResponse200Normalizer();

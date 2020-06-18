@@ -5013,18 +5013,18 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\SearchInventoryUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\SearchInventoryNotFoundException
-     * @throws \Afosto\Sdk\Exception\SearchInventoryBadRequestException
-     * @throws \Afosto\Sdk\Exception\SearchInventoryForbiddenException
-     * @throws \Afosto\Sdk\Exception\SearchInventoryInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\SearchInventoryServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\SearchInventorySummaryUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchInventorySummaryNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchInventorySummaryBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchInventorySummaryForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchInventorySummaryInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchInventorySummaryServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\WmsStock[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function searchInventory(\Afosto\Sdk\Model\WmsInventoryPostBody $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function searchInventorySummary(\Afosto\Sdk\Model\WmsInventoryPostBody $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchInventory($body, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchInventorySummary($body, $headerParameters), $fetch);
     }
 
     /**
@@ -5044,6 +5044,31 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function setInventory(\Afosto\Sdk\Model\WmsStockUpRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SetInventory($body), $fetch);
+    }
+
+    /**
+     * Get a list of inventory items.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchInventoryUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchInventoryNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchInventoryBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchInventoryForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchInventoryInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchInventoryServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\WmsWarehouseItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchInventory(\Afosto\Sdk\Model\WmsSearchItemsPostBody $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchInventory($body, $headerParameters), $fetch);
     }
 
     /**
