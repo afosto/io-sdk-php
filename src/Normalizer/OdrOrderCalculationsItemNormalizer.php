@@ -44,14 +44,11 @@ class OdrOrderCalculationsItemNormalizer implements DenormalizerInterface, Norma
         if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
+        if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
+            $object->setAmount($data->{'amount'});
+        }
         if (property_exists($data, 'is_valid') && null !== $data->{'is_valid'}) {
             $object->setIsValid($data->{'is_valid'});
-        }
-        if (property_exists($data, 'is_accepted') && null !== $data->{'is_accepted'}) {
-            $object->setIsAccepted($data->{'is_accepted'});
-        }
-        if (property_exists($data, 'transaction_secret') && null !== $data->{'transaction_secret'}) {
-            $object->setTransactionSecret($data->{'transaction_secret'});
         }
         if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
@@ -69,14 +66,11 @@ class OdrOrderCalculationsItemNormalizer implements DenormalizerInterface, Norma
         if (null !== $object->getReference()) {
             $data->{'reference'} = $object->getReference();
         }
+        if (null !== $object->getAmount()) {
+            $data->{'amount'} = $object->getAmount();
+        }
         if (null !== $object->getIsValid()) {
             $data->{'is_valid'} = $object->getIsValid();
-        }
-        if (null !== $object->getIsAccepted()) {
-            $data->{'is_accepted'} = $object->getIsAccepted();
-        }
-        if (null !== $object->getTransactionSecret()) {
-            $data->{'transaction_secret'} = $object->getTransactionSecret();
         }
         if (null !== $object->getExpiresAt()) {
             $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");

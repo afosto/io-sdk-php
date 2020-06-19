@@ -53,12 +53,19 @@ class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'processing') && null !== $data->{'processing'}) {
             $object->setProcessing($this->denormalizer->denormalize($data->{'processing'}, 'Afosto\\Sdk\\Model\\OdrProcessing', 'json', $context));
         }
-        if (property_exists($data, 'calculations') && null !== $data->{'calculations'}) {
+        if (property_exists($data, 'acceptances') && null !== $data->{'acceptances'}) {
             $values = [];
-            foreach ($data->{'calculations'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrOrderCalculationsItem', 'json', $context);
+            foreach ($data->{'acceptances'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrOrderAcceptancesItem', 'json', $context);
             }
-            $object->setCalculations($values);
+            $object->setAcceptances($values);
+        }
+        if (property_exists($data, 'calculations') && null !== $data->{'calculations'}) {
+            $values_1 = [];
+            foreach ($data->{'calculations'} as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrOrderCalculationsItem', 'json', $context);
+            }
+            $object->setCalculations($values_1);
         }
         if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
@@ -91,12 +98,19 @@ class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (null !== $object->getProcessing()) {
             $data->{'processing'} = $this->normalizer->normalize($object->getProcessing(), 'json', $context);
         }
-        if (null !== $object->getCalculations()) {
+        if (null !== $object->getAcceptances()) {
             $values = [];
-            foreach ($object->getCalculations() as $value) {
+            foreach ($object->getAcceptances() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
-            $data->{'calculations'} = $values;
+            $data->{'acceptances'} = $values;
+        }
+        if (null !== $object->getCalculations()) {
+            $values_1 = [];
+            foreach ($object->getCalculations() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            }
+            $data->{'calculations'} = $values_1;
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();

@@ -21,17 +21,13 @@ class OdrOrderCalculationsItem
      */
     protected $reference;
     /**
+     * @var int
+     */
+    protected $amount;
+    /**
      * @var bool
      */
     protected $isValid;
-    /**
-     * @var bool
-     */
-    protected $isAccepted;
-    /**
-     * @var string
-     */
-    protected $transactionSecret;
     /**
      * @var \DateTime
      */
@@ -61,6 +57,18 @@ class OdrOrderCalculationsItem
         return $this;
     }
 
+    public function getAmount(): ?int
+    {
+        return $this->amount;
+    }
+
+    public function setAmount(?int $amount): self
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
     public function getIsValid(): ?bool
     {
         return $this->isValid;
@@ -69,30 +77,6 @@ class OdrOrderCalculationsItem
     public function setIsValid(?bool $isValid): self
     {
         $this->isValid = $isValid;
-
-        return $this;
-    }
-
-    public function getIsAccepted(): ?bool
-    {
-        return $this->isAccepted;
-    }
-
-    public function setIsAccepted(?bool $isAccepted): self
-    {
-        $this->isAccepted = $isAccepted;
-
-        return $this;
-    }
-
-    public function getTransactionSecret(): ?string
-    {
-        return $this->transactionSecret;
-    }
-
-    public function setTransactionSecret(?string $transactionSecret): self
-    {
-        $this->transactionSecret = $transactionSecret;
 
         return $this;
     }

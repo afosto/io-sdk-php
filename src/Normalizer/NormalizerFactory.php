@@ -58,6 +58,7 @@ class NormalizerFactory
         $normalizers[] = new OdrStepActionNormalizer();
         $normalizers[] = new OdrOrderNormalizer();
         $normalizers[] = new OdrOrderStateNormalizer();
+        $normalizers[] = new OdrOrderAcceptancesItemNormalizer();
         $normalizers[] = new OdrOrderCalculationsItemNormalizer();
         $normalizers[] = new OdrProcessingNormalizer();
         $normalizers[] = new OdrStackNormalizer();

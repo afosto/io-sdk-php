@@ -33,6 +33,10 @@ class OdrOrder
      */
     protected $processing;
     /**
+     * @var OdrOrderAcceptancesItem[]
+     */
+    protected $acceptances;
+    /**
      * @var OdrOrderCalculationsItem[]
      */
     protected $calculations;
@@ -105,6 +109,24 @@ class OdrOrder
     public function setProcessing(?OdrProcessing $processing): self
     {
         $this->processing = $processing;
+
+        return $this;
+    }
+
+    /**
+     * @return OdrOrderAcceptancesItem[]|null
+     */
+    public function getAcceptances(): ?array
+    {
+        return $this->acceptances;
+    }
+
+    /**
+     * @param OdrOrderAcceptancesItem[]|null $acceptances
+     */
+    public function setAcceptances(?array $acceptances): self
+    {
+        $this->acceptances = $acceptances;
 
         return $this;
     }
