@@ -1804,6 +1804,86 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Apply balance to the credit reference.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-idempotency-key
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ApplyCreditForbiddenException
+     * @throws \Afosto\Sdk\Exception\ApplyCreditBadRequestException
+     * @throws \Afosto\Sdk\Exception\ApplyCreditUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ApplyCreditNotFoundException
+     * @throws \Afosto\Sdk\Exception\ApplyCreditInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ApplyCreditServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrBalance|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function applyCredit(\Afosto\Sdk\Model\OdrBalanceRequest $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ApplyCredit($body, $headerParameters), $fetch);
+    }
+
+    /**
+     * Returns balance data.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $type
+     *     @var string $id
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetBalanceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetBalanceBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetBalanceForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetBalanceNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetBalanceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetBalanceServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrBalance|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getBalance(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBalance($queryParameters), $fetch);
+    }
+
+    /**
+     * Returns a list of records.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $key_type
+     *     @var string $key_id
+     * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListCreditRecordsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListCreditRecordsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListCreditRecordsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListCreditRecordsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListCreditRecordsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListCreditRecordsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrRecord[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listCreditRecords(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCreditRecords($queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
      * Returns a list of active printers.
      *
      * @param array $queryParameters {

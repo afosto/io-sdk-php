@@ -138,6 +138,10 @@ class NormalizerFactory
         $normalizers[] = new IamValidationResponseNormalizer();
         $normalizers[] = new IamSecretReadNormalizer();
         $normalizers[] = new IamSecretNormalizer();
+        $normalizers[] = new OdrKeyNormalizer();
+        $normalizers[] = new OdrBalanceRequestNormalizer();
+        $normalizers[] = new OdrBalanceNormalizer();
+        $normalizers[] = new OdrRecordNormalizer();
         $normalizers[] = new SplPrinterNormalizer();
         $normalizers[] = new SplPrinterModelNormalizer();
         $normalizers[] = new SplConnectionNormalizer();
