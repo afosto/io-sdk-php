@@ -25,6 +25,10 @@ class OdrOrderModel
      */
     protected $clientId;
     /**
+     * @var string[]
+     */
+    protected $tags;
+    /**
      * @var mixed
      */
     protected $metadata;
@@ -61,6 +65,24 @@ class OdrOrderModel
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getTags(): ?array
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param string[]|null $tags
+     */
+    public function setTags(?array $tags): self
+    {
+        $this->tags = $tags;
 
         return $this;
     }
