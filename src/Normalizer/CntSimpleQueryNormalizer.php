@@ -60,7 +60,11 @@ class CntSimpleQueryNormalizer implements DenormalizerInterface, NormalizerInter
             $object->setNamespaces($values_2);
         }
         if (property_exists($data, 'q') && null !== $data->{'q'}) {
-            $object->setQ($data->{'q'});
+            $values_3 = [];
+            foreach ($data->{'q'} as $value_3) {
+                $values_3[] = $value_3;
+            }
+            $object->setQ($values_3);
         }
         if (property_exists($data, 'is_fuzzy') && null !== $data->{'is_fuzzy'}) {
             $object->setIsFuzzy($data->{'is_fuzzy'});
@@ -103,7 +107,11 @@ class CntSimpleQueryNormalizer implements DenormalizerInterface, NormalizerInter
             $data->{'namespaces'} = $values_2;
         }
         if (null !== $object->getQ()) {
-            $data->{'q'} = $object->getQ();
+            $values_3 = [];
+            foreach ($object->getQ() as $value_3) {
+                $values_3[] = $value_3;
+            }
+            $data->{'q'} = $values_3;
         }
         if (null !== $object->getIsFuzzy()) {
             $data->{'is_fuzzy'} = $object->getIsFuzzy();

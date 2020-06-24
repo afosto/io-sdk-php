@@ -39,24 +39,28 @@ class CntSearchQueryNormalizer implements DenormalizerInterface, NormalizerInter
         }
         $object = new \Afosto\Sdk\Model\CntSearchQuery();
         if (property_exists($data, 'q') && null !== $data->{'q'}) {
-            $object->setQ($data->{'q'});
+            $values = [];
+            foreach ($data->{'q'} as $value) {
+                $values[] = $value;
+            }
+            $object->setQ($values);
         }
         if (property_exists($data, 'is_fuzzy') && null !== $data->{'is_fuzzy'}) {
             $object->setIsFuzzy($data->{'is_fuzzy'});
         }
         if (property_exists($data, 'filter') && null !== $data->{'filter'}) {
-            $values = [];
-            foreach ($data->{'filter'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CntFilter', 'json', $context);
+            $values_1 = [];
+            foreach ($data->{'filter'} as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\CntFilter', 'json', $context);
             }
-            $object->setFilter($values);
+            $object->setFilter($values_1);
         }
         if (property_exists($data, 'facets') && null !== $data->{'facets'}) {
-            $values_1 = [];
-            foreach ($data->{'facets'} as $value_1) {
-                $values_1[] = $value_1;
+            $values_2 = [];
+            foreach ($data->{'facets'} as $value_2) {
+                $values_2[] = $value_2;
             }
-            $object->setFacets($values_1);
+            $object->setFacets($values_2);
         }
         if (property_exists($data, 'limit') && null !== $data->{'limit'}) {
             $object->setLimit($data->{'limit'});
@@ -68,11 +72,11 @@ class CntSearchQueryNormalizer implements DenormalizerInterface, NormalizerInter
             $object->setPageCursor($data->{'page_cursor'});
         }
         if (property_exists($data, 'sort') && null !== $data->{'sort'}) {
-            $values_2 = [];
-            foreach ($data->{'sort'} as $value_2) {
-                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\CntSort', 'json', $context);
+            $values_3 = [];
+            foreach ($data->{'sort'} as $value_3) {
+                $values_3[] = $this->denormalizer->denormalize($value_3, 'Afosto\\Sdk\\Model\\CntSort', 'json', $context);
             }
-            $object->setSort($values_2);
+            $object->setSort($values_3);
         }
 
         return $object;
@@ -82,24 +86,28 @@ class CntSearchQueryNormalizer implements DenormalizerInterface, NormalizerInter
     {
         $data = new \stdClass();
         if (null !== $object->getQ()) {
-            $data->{'q'} = $object->getQ();
+            $values = [];
+            foreach ($object->getQ() as $value) {
+                $values[] = $value;
+            }
+            $data->{'q'} = $values;
         }
         if (null !== $object->getIsFuzzy()) {
             $data->{'is_fuzzy'} = $object->getIsFuzzy();
         }
         if (null !== $object->getFilter()) {
-            $values = [];
-            foreach ($object->getFilter() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            $values_1 = [];
+            foreach ($object->getFilter() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
-            $data->{'filter'} = $values;
+            $data->{'filter'} = $values_1;
         }
         if (null !== $object->getFacets()) {
-            $values_1 = [];
-            foreach ($object->getFacets() as $value_1) {
-                $values_1[] = $value_1;
+            $values_2 = [];
+            foreach ($object->getFacets() as $value_2) {
+                $values_2[] = $value_2;
             }
-            $data->{'facets'} = $values_1;
+            $data->{'facets'} = $values_2;
         }
         if (null !== $object->getLimit()) {
             $data->{'limit'} = $object->getLimit();
@@ -111,11 +119,11 @@ class CntSearchQueryNormalizer implements DenormalizerInterface, NormalizerInter
             $data->{'page_cursor'} = $object->getPageCursor();
         }
         if (null !== $object->getSort()) {
-            $values_2 = [];
-            foreach ($object->getSort() as $value_2) {
-                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
+            $values_3 = [];
+            foreach ($object->getSort() as $value_3) {
+                $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
-            $data->{'sort'} = $values_2;
+            $data->{'sort'} = $values_3;
         }
 
         return $data;

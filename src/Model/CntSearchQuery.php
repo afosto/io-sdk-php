@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Model;
 class CntSearchQuery
 {
     /**
-     * @var string
+     * @var string[]
      */
     protected $q;
     /**
@@ -45,12 +45,18 @@ class CntSearchQuery
      */
     protected $sort;
 
-    public function getQ(): ?string
+    /**
+     * @return string[]|null
+     */
+    public function getQ(): ?array
     {
         return $this->q;
     }
 
-    public function setQ(?string $q): self
+    /**
+     * @param string[]|null $q
+     */
+    public function setQ(?array $q): self
     {
         $this->q = $q;
 

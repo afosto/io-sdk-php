@@ -25,7 +25,7 @@ class CntSimpleQuery
      */
     protected $namespaces;
     /**
-     * @var string
+     * @var string[]
      */
     protected $q;
     /**
@@ -99,12 +99,18 @@ class CntSimpleQuery
         return $this;
     }
 
-    public function getQ(): ?string
+    /**
+     * @return string[]|null
+     */
+    public function getQ(): ?array
     {
         return $this->q;
     }
 
-    public function setQ(?string $q): self
+    /**
+     * @param string[]|null $q
+     */
+    public function setQ(?array $q): self
     {
         $this->q = $q;
 
