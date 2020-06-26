@@ -24,6 +24,10 @@ class LcsShipmentUpdateModel
      * @var \DateTime
      */
     protected $expectedAt;
+    /**
+     * @var \DateTime
+     */
+    protected $shipAt;
 
     public function getMethodId(): ?string
     {
@@ -57,6 +61,18 @@ class LcsShipmentUpdateModel
     public function setExpectedAt(?\DateTime $expectedAt): self
     {
         $this->expectedAt = $expectedAt;
+
+        return $this;
+    }
+
+    public function getShipAt(): ?\DateTime
+    {
+        return $this->shipAt;
+    }
+
+    public function setShipAt(?\DateTime $shipAt): self
+    {
+        $this->shipAt = $shipAt;
 
         return $this;
     }
