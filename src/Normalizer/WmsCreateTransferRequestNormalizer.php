@@ -44,12 +44,12 @@ class WmsCreateTransferRequestNormalizer implements DenormalizerInterface, Norma
         if (property_exists($data, 'collect_at') && null !== $data->{'collect_at'}) {
             $object->setCollectAt($data->{'collect_at'});
         }
-        if (property_exists($data, 'claims') && null !== $data->{'claims'}) {
+        if (property_exists($data, 'routing') && null !== $data->{'routing'}) {
             $values = [];
-            foreach ($data->{'claims'} as $value) {
-                $values[] = $value;
+            foreach ($data->{'routing'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsCreateTransferRequestRoutingItem', 'json', $context);
             }
-            $object->setClaims($values);
+            $object->setRouting($values);
         }
 
         return $object;
@@ -64,12 +64,12 @@ class WmsCreateTransferRequestNormalizer implements DenormalizerInterface, Norma
         if (null !== $object->getCollectAt()) {
             $data->{'collect_at'} = $object->getCollectAt();
         }
-        if (null !== $object->getClaims()) {
+        if (null !== $object->getRouting()) {
             $values = [];
-            foreach ($object->getClaims() as $value) {
-                $values[] = $value;
+            foreach ($object->getRouting() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
-            $data->{'claims'} = $values;
+            $data->{'routing'} = $values;
         }
 
         return $data;

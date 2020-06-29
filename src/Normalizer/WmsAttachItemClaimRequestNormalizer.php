@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class WmsClaimItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class WmsAttachItemClaimRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\WmsClaimItem' === $type;
+        return 'Afosto\\Sdk\\Model\\WmsAttachItemClaimRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsClaimItem' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsAttachItemClaimRequest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,18 +37,15 @@ class WmsClaimItemNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\WmsClaimItem();
-        if (property_exists($data, 'id') && null !== $data->{'id'}) {
-            $object->setId($data->{'id'});
+        $object = new \Afosto\Sdk\Model\WmsAttachItemClaimRequest();
+        if (property_exists($data, 'entity_type') && null !== $data->{'entity_type'}) {
+            $object->setEntityType($data->{'entity_type'});
         }
-        if (property_exists($data, 'warehouse_item_id') && null !== $data->{'warehouse_item_id'}) {
-            $object->setWarehouseItemId($data->{'warehouse_item_id'});
+        if (property_exists($data, 'entity_id') && null !== $data->{'entity_id'}) {
+            $object->setEntityId($data->{'entity_id'});
         }
         if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
-        }
-        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
-            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 
         return $object;
@@ -57,17 +54,14 @@ class WmsClaimItemNormalizer implements DenormalizerInterface, NormalizerInterfa
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
+        if (null !== $object->getEntityType()) {
+            $data->{'entity_type'} = $object->getEntityType();
         }
-        if (null !== $object->getWarehouseItemId()) {
-            $data->{'warehouse_item_id'} = $object->getWarehouseItemId();
+        if (null !== $object->getEntityId()) {
+            $data->{'entity_id'} = $object->getEntityId();
         }
         if (null !== $object->getReference()) {
             $data->{'reference'} = $object->getReference();
-        }
-        if (null !== $object->getUpdatedAt()) {
-            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

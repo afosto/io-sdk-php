@@ -13,22 +13,28 @@ namespace Afosto\Sdk\Model;
 class WmsCreateProjectionRequest
 {
     /**
-     * @var string
+     * @var WmsCreateProjectionRequestItemsItem[]
      */
-    protected $orderId;
+    protected $items;
     /**
      * @var WmsConstraint[]
      */
     protected $constraints;
 
-    public function getOrderId(): ?string
+    /**
+     * @return WmsCreateProjectionRequestItemsItem[]|null
+     */
+    public function getItems(): ?array
     {
-        return $this->orderId;
+        return $this->items;
     }
 
-    public function setOrderId(?string $orderId): self
+    /**
+     * @param WmsCreateProjectionRequestItemsItem[]|null $items
+     */
+    public function setItems(?array $items): self
     {
-        $this->orderId = $orderId;
+        $this->items = $items;
 
         return $this;
     }

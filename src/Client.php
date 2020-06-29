@@ -4875,11 +4875,75 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\CreateClaimsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateClaimsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\WmsClaimsPostResponse200|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsCreateClaimResponse|\Psr\Http\Message\ResponseInterface|null
      */
     public function createClaims(\Afosto\Sdk\Model\WmsCreateClaimRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateClaims($body), $fetch);
+    }
+
+    /**
+     * Returns a list for the search quert.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchClaimsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchClaimsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchClaimsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchClaimsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchClaimsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchClaimsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\WmsWarehouseItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchClaims(\Afosto\Sdk\Model\WmsSearchClaimsPostBody $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchClaims($body, $headerParameters), $fetch);
+    }
+
+    /**
+     * Create an optimized set of claims.
+     *
+     * @param \Afosto\Sdk\Model\WmsAttachItemClaimRequest[] $body
+     * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AttachItemsToClaimUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AttachItemsToClaimNotFoundException
+     * @throws \Afosto\Sdk\Exception\AttachItemsToClaimBadRequestException
+     * @throws \Afosto\Sdk\Exception\AttachItemsToClaimForbiddenException
+     * @throws \Afosto\Sdk\Exception\AttachItemsToClaimInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AttachItemsToClaimServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\WmsClaimItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function attachItemsToClaim(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachItemsToClaim($id, $body), $fetch);
+    }
+
+    /**
+     * Create an optimized set of claims.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\RemoveClaimItemUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RemoveClaimItemNotFoundException
+     * @throws \Afosto\Sdk\Exception\RemoveClaimItemBadRequestException
+     * @throws \Afosto\Sdk\Exception\RemoveClaimItemForbiddenException
+     * @throws \Afosto\Sdk\Exception\RemoveClaimItemInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RemoveClaimItemServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function removeClaimItem(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RemoveClaimItem($id, $body), $fetch);
     }
 
     /**
@@ -5063,6 +5127,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function getSubTransfer(string $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSubTransfer($id), $fetch);
+    }
+
+    /**
+     * Returns a sub transfer.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSubTransferItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSubTransferItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSubTransferItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSubTransferItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSubTransferItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSubTransferItemsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\WmsSubTransferItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSubTransferItems(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSubTransferItems($id), $fetch);
     }
 
     /**

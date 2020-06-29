@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class WmsClaimsPostResponse200Normalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class WmsSearchClaimsPostBodyNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\WmsClaimsPostResponse200' === $type;
+        return 'Afosto\\Sdk\\Model\\WmsSearchClaimsPostBody' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsClaimsPostResponse200' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsSearchClaimsPostBody' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,16 +37,13 @@ class WmsClaimsPostResponse200Normalizer implements DenormalizerInterface, Norma
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\WmsClaimsPostResponse200();
-        if (property_exists($data, 'claims') && null !== $data->{'claims'}) {
+        $object = new \Afosto\Sdk\Model\WmsSearchClaimsPostBody();
+        if (property_exists($data, 'constraints') && null !== $data->{'constraints'}) {
             $values = [];
-            foreach ($data->{'claims'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsClaim', 'json', $context);
+            foreach ($data->{'constraints'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsInventoryConstraint', 'json', $context);
             }
-            $object->setClaims($values);
-        }
-        if (property_exists($data, 'backorder') && null !== $data->{'backorder'}) {
-            $object->setBackorder($this->denormalizer->denormalize($data->{'backorder'}, 'Afosto\\Sdk\\Model\\WmsBackorder', 'json', $context));
+            $object->setConstraints($values);
         }
 
         return $object;
@@ -55,15 +52,12 @@ class WmsClaimsPostResponse200Normalizer implements DenormalizerInterface, Norma
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getClaims()) {
+        if (null !== $object->getConstraints()) {
             $values = [];
-            foreach ($object->getClaims() as $value) {
+            foreach ($object->getConstraints() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
-            $data->{'claims'} = $values;
-        }
-        if (null !== $object->getBackorder()) {
-            $data->{'backorder'} = $this->normalizer->normalize($object->getBackorder(), 'json', $context);
+            $data->{'constraints'} = $values;
         }
 
         return $data;

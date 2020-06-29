@@ -243,6 +243,7 @@ class NormalizerFactory
         $normalizers[] = new WmsUpdateWarehouseItemRequestNormalizer();
         $normalizers[] = new WmsCreateRouteRequestNormalizer();
         $normalizers[] = new WmsUpdateRouteRequestNormalizer();
+        $normalizers[] = new WmsAttachItemClaimRequestNormalizer();
         $normalizers[] = new WmsCreateHopRequestNormalizer();
         $normalizers[] = new WmsCreateHopScheduleRequestNormalizer();
         $normalizers[] = new WmsCreateLocationRequestNormalizer();
@@ -253,11 +254,14 @@ class NormalizerFactory
         $normalizers[] = new WmsCreateWarehouseRequestNormalizer();
         $normalizers[] = new WmsUpdateWarehouseRequestNormalizer();
         $normalizers[] = new WmsCreateProjectionRequestNormalizer();
+        $normalizers[] = new WmsCreateProjectionRequestItemsItemNormalizer();
         $normalizers[] = new WmsAvailableProjectionItemNormalizer();
         $normalizers[] = new WmsUnavailableProjectionItemNormalizer();
         $normalizers[] = new WmsCreateClaimRequestNormalizer();
+        $normalizers[] = new WmsCreateClaimResponseNormalizer();
         $normalizers[] = new WmsConfirmClaimRequestNormalizer();
         $normalizers[] = new WmsCreateTransferRequestNormalizer();
+        $normalizers[] = new WmsCreateTransferRequestRoutingItemNormalizer();
         $normalizers[] = new WmsPositionLogResponseNormalizer();
         $normalizers[] = new WmsPositionVerificationRequestNormalizer();
         $normalizers[] = new WmsWarehouseItemNormalizer();
@@ -269,8 +273,6 @@ class NormalizerFactory
         $normalizers[] = new WmsTransferReportNormalizer();
         $normalizers[] = new WmsProjectionNormalizer();
         $normalizers[] = new WmsConstraintNormalizer();
-        $normalizers[] = new WmsSortNormalizer();
-        $normalizers[] = new WmsBackorderNormalizer();
         $normalizers[] = new WmsClaimNormalizer();
         $normalizers[] = new WmsClaimItemNormalizer();
         $normalizers[] = new WmsTransferNormalizer();
@@ -462,7 +464,7 @@ class NormalizerFactory
         $normalizers[] = new IamSubtenantsAuthorizationsRequestsIdPutBodyNormalizer();
         $normalizers[] = new IamSubtenantsAuthorizationsInvitesPostBodyNormalizer();
         $normalizers[] = new IamOauthForwardReferenceGetResponse200Normalizer();
-        $normalizers[] = new WmsClaimsPostResponse200Normalizer();
+        $normalizers[] = new WmsSearchClaimsPostBodyNormalizer();
         $normalizers[] = new WmsClaimsIdExtendPutBodyNormalizer();
         $normalizers[] = new WmsInventoryPostBodyNormalizer();
         $normalizers[] = new WmsSearchItemsPostBodyNormalizer();

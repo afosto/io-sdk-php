@@ -38,15 +38,19 @@ class WmsCreateProjectionRequestNormalizer implements DenormalizerInterface, Nor
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsCreateProjectionRequest();
-        if (property_exists($data, 'order_id') && null !== $data->{'order_id'}) {
-            $object->setOrderId($data->{'order_id'});
+        if (property_exists($data, 'items') && null !== $data->{'items'}) {
+            $values = [];
+            foreach ($data->{'items'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsCreateProjectionRequestItemsItem', 'json', $context);
+            }
+            $object->setItems($values);
         }
         if (property_exists($data, 'constraints') && null !== $data->{'constraints'}) {
-            $values = [];
-            foreach ($data->{'constraints'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsConstraint', 'json', $context);
+            $values_1 = [];
+            foreach ($data->{'constraints'} as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\WmsConstraint', 'json', $context);
             }
-            $object->setConstraints($values);
+            $object->setConstraints($values_1);
         }
 
         return $object;
@@ -55,15 +59,19 @@ class WmsCreateProjectionRequestNormalizer implements DenormalizerInterface, Nor
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getOrderId()) {
-            $data->{'order_id'} = $object->getOrderId();
-        }
-        if (null !== $object->getConstraints()) {
+        if (null !== $object->getItems()) {
             $values = [];
-            foreach ($object->getConstraints() as $value) {
+            foreach ($object->getItems() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
-            $data->{'constraints'} = $values;
+            $data->{'items'} = $values;
+        }
+        if (null !== $object->getConstraints()) {
+            $values_1 = [];
+            foreach ($object->getConstraints() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            }
+            $data->{'constraints'} = $values_1;
         }
 
         return $data;

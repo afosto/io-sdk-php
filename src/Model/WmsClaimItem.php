@@ -23,7 +23,7 @@ class WmsClaimItem
     /**
      * @var string
      */
-    protected $stackItemId;
+    protected $reference;
     /**
      * @var \DateTime
      */
@@ -53,14 +53,14 @@ class WmsClaimItem
         return $this;
     }
 
-    public function getStackItemId(): ?string
+    public function getReference(): ?string
     {
-        return $this->stackItemId;
+        return $this->reference;
     }
 
-    public function setStackItemId(?string $stackItemId): self
+    public function setReference(?string $reference): self
     {
-        $this->stackItemId = $stackItemId;
+        $this->reference = $reference;
 
         return $this;
     }

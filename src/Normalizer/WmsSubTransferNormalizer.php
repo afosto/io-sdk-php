@@ -53,13 +53,6 @@ class WmsSubTransferNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'route_id') && null !== $data->{'route_id'}) {
             $object->setRouteId($data->{'route_id'});
         }
-        if (property_exists($data, 'items') && null !== $data->{'items'}) {
-            $values = [];
-            foreach ($data->{'items'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsSubTransferItem', 'json', $context);
-            }
-            $object->setItems($values);
-        }
         if (property_exists($data, 'ship_at') && null !== $data->{'ship_at'}) {
             $object->setShipAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'ship_at'}));
         }
@@ -93,13 +86,6 @@ class WmsSubTransferNormalizer implements DenormalizerInterface, NormalizerInter
         }
         if (null !== $object->getRouteId()) {
             $data->{'route_id'} = $object->getRouteId();
-        }
-        if (null !== $object->getItems()) {
-            $values = [];
-            foreach ($object->getItems() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data->{'items'} = $values;
         }
         if (null !== $object->getShipAt()) {
             $data->{'ship_at'} = $object->getShipAt()->format("Y-m-d\TH:i:sP");

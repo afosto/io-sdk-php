@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class WmsBackorderNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class WmsCreateProjectionRequestItemsItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\WmsBackorder' === $type;
+        return 'Afosto\\Sdk\\Model\\WmsCreateProjectionRequestItemsItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsBackorder' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsCreateProjectionRequestItemsItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,12 @@ class WmsBackorderNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\WmsBackorder();
-        if (property_exists($data, 'item_count') && null !== $data->{'item_count'}) {
-            $object->setItemCount($data->{'item_count'});
+        $object = new \Afosto\Sdk\Model\WmsCreateProjectionRequestItemsItem();
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
+            $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'stack_id') && null !== $data->{'stack_id'}) {
-            $object->setStackId($data->{'stack_id'});
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
+            $object->setQuantity($data->{'quantity'});
         }
 
         return $object;
@@ -51,11 +51,11 @@ class WmsBackorderNormalizer implements DenormalizerInterface, NormalizerInterfa
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getItemCount()) {
-            $data->{'item_count'} = $object->getItemCount();
+        if (null !== $object->getSku()) {
+            $data->{'sku'} = $object->getSku();
         }
-        if (null !== $object->getStackId()) {
-            $data->{'stack_id'} = $object->getStackId();
+        if (null !== $object->getQuantity()) {
+            $data->{'quantity'} = $object->getQuantity();
         }
 
         return $data;

@@ -35,10 +35,6 @@ class WmsSubTransfer
      */
     protected $routeId;
     /**
-     * @var WmsSubTransferItem[]
-     */
-    protected $items;
-    /**
      * @var \DateTime
      */
     protected $shipAt;
@@ -117,24 +113,6 @@ class WmsSubTransfer
     public function setRouteId(?string $routeId): self
     {
         $this->routeId = $routeId;
-
-        return $this;
-    }
-
-    /**
-     * @return WmsSubTransferItem[]|null
-     */
-    public function getItems(): ?array
-    {
-        return $this->items;
-    }
-
-    /**
-     * @param WmsSubTransferItem[]|null $items
-     */
-    public function setItems(?array $items): self
-    {
-        $this->items = $items;
 
         return $this;
     }

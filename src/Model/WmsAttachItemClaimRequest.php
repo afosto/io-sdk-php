@@ -10,41 +10,41 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class WmsCreateClaimRequest
+class WmsAttachItemClaimRequest
 {
     /**
      * @var string
      */
-    protected $locationId;
+    protected $entityType;
     /**
-     * @var \DateTime
+     * @var string
      */
-    protected $expiresAt;
+    protected $entityId;
     /**
      * @var string
      */
     protected $reference;
 
-    public function getLocationId(): ?string
+    public function getEntityType(): ?string
     {
-        return $this->locationId;
+        return $this->entityType;
     }
 
-    public function setLocationId(?string $locationId): self
+    public function setEntityType(?string $entityType): self
     {
-        $this->locationId = $locationId;
+        $this->entityType = $entityType;
 
         return $this;
     }
 
-    public function getExpiresAt(): ?\DateTime
+    public function getEntityId(): ?string
     {
-        return $this->expiresAt;
+        return $this->entityId;
     }
 
-    public function setExpiresAt(?\DateTime $expiresAt): self
+    public function setEntityId(?string $entityId): self
     {
-        $this->expiresAt = $expiresAt;
+        $this->entityId = $entityId;
 
         return $this;
     }

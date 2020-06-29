@@ -10,8 +10,12 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class WmsCreateClaimRequest
+class WmsCreateClaimResponse
 {
+    /**
+     * @var string
+     */
+    protected $id;
     /**
      * @var string
      */
@@ -24,6 +28,18 @@ class WmsCreateClaimRequest
      * @var string
      */
     protected $reference;
+
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    public function setId(?string $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     public function getLocationId(): ?string
     {

@@ -38,28 +38,14 @@ class WmsCreateClaimRequestNormalizer implements DenormalizerInterface, Normaliz
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsCreateClaimRequest();
-        if (property_exists($data, 'order_id') && null !== $data->{'order_id'}) {
-            $object->setOrderId($data->{'order_id'});
-        }
-        if (property_exists($data, 'is_outbound') && null !== $data->{'is_outbound'}) {
-            $object->setIsOutbound($data->{'is_outbound'});
+        if (property_exists($data, 'location_id') && null !== $data->{'location_id'}) {
+            $object->setLocationId($data->{'location_id'});
         }
         if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
-        if (property_exists($data, 'constraints') && null !== $data->{'constraints'}) {
-            $values = [];
-            foreach ($data->{'constraints'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsConstraint', 'json', $context);
-            }
-            $object->setConstraints($values);
-        }
-        if (property_exists($data, 'sorts') && null !== $data->{'sorts'}) {
-            $values_1 = [];
-            foreach ($data->{'sorts'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\WmsSort', 'json', $context);
-            }
-            $object->setSorts($values_1);
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
+            $object->setReference($data->{'reference'});
         }
 
         return $object;
@@ -68,28 +54,14 @@ class WmsCreateClaimRequestNormalizer implements DenormalizerInterface, Normaliz
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getOrderId()) {
-            $data->{'order_id'} = $object->getOrderId();
-        }
-        if (null !== $object->getIsOutbound()) {
-            $data->{'is_outbound'} = $object->getIsOutbound();
+        if (null !== $object->getLocationId()) {
+            $data->{'location_id'} = $object->getLocationId();
         }
         if (null !== $object->getExpiresAt()) {
             $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");
         }
-        if (null !== $object->getConstraints()) {
-            $values = [];
-            foreach ($object->getConstraints() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data->{'constraints'} = $values;
-        }
-        if (null !== $object->getSorts()) {
-            $values_1 = [];
-            foreach ($object->getSorts() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
-            }
-            $data->{'sorts'} = $values_1;
+        if (null !== $object->getReference()) {
+            $data->{'reference'} = $object->getReference();
         }
 
         return $data;

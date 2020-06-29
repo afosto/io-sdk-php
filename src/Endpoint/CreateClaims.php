@@ -52,12 +52,12 @@ class CreateClaims extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * @throws \Afosto\Sdk\Exception\CreateClaimsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateClaimsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\WmsClaimsPostResponse200|null
+     * @return \Afosto\Sdk\Model\WmsCreateClaimResponse|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsClaimsPostResponse200', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsCreateClaimResponse', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\CreateClaimsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

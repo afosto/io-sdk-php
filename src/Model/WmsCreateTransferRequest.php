@@ -25,9 +25,9 @@ class WmsCreateTransferRequest
      */
     protected $collectAt;
     /**
-     * @var string[]
+     * @var WmsCreateTransferRequestRoutingItem[]
      */
-    protected $claims;
+    protected $routing;
 
     /**
      * Target location.
@@ -66,19 +66,19 @@ class WmsCreateTransferRequest
     }
 
     /**
-     * @return string[]|null
+     * @return WmsCreateTransferRequestRoutingItem[]|null
      */
-    public function getClaims(): ?array
+    public function getRouting(): ?array
     {
-        return $this->claims;
+        return $this->routing;
     }
 
     /**
-     * @param string[]|null $claims
+     * @param WmsCreateTransferRequestRoutingItem[]|null $routing
      */
-    public function setClaims(?array $claims): self
+    public function setRouting(?array $routing): self
     {
-        $this->claims = $claims;
+        $this->routing = $routing;
 
         return $this;
     }
