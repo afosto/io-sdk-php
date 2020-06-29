@@ -730,6 +730,33 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Render a barcode.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $t Type of barcode
+     *     @var string $v Value of the barcode
+     *     @var int $w Width of the barcode in pixels
+     *     @var int $h Height of the barcode in pixels
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetBarcodeBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetBarcodeUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetBarcodeForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetBarcodeNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetBarcodeInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetBarcodeServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function getBarcode(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBarcode($queryParameters), $fetch);
+    }
+
+    /**
      * Returns a list of domains.
      *
      * @param array $queryParameters {
