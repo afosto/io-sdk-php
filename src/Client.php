@@ -738,6 +738,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *     @var string $v Value of the barcode
      *     @var int $w Width of the barcode in pixels
      *     @var int $h Height of the barcode in pixels
+     *     @var string $f Fallback for failing (invalid) EAN barcodes
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

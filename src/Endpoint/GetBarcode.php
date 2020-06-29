@@ -21,6 +21,7 @@ class GetBarcode extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      *     @var string $v Value of the barcode
      *     @var int $w Width of the barcode in pixels
      *     @var int $h Height of the barcode in pixels
+     *     @var string $f Fallback for failing (invalid) EAN barcodes
      * }
      */
     public function __construct(array $queryParameters = [])
@@ -53,13 +54,14 @@ class GetBarcode extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['t', 'v', 'w', 'h']);
+        $optionsResolver->setDefined(['t', 'v', 'w', 'h', 'f']);
         $optionsResolver->setRequired(['t', 'v']);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('t', ['string']);
         $optionsResolver->setAllowedTypes('v', ['string']);
         $optionsResolver->setAllowedTypes('w', ['int']);
         $optionsResolver->setAllowedTypes('h', ['int']);
+        $optionsResolver->setAllowedTypes('f', ['string']);
 
         return $optionsResolver;
     }
