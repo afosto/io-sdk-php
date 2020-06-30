@@ -16,6 +16,14 @@ class OdrSelectSessionBillingRequest
      * @var string
      */
     protected $addressId;
+    /**
+     * @var OdrSelectSessionBillingRequestContact
+     */
+    protected $contact;
+    /**
+     * @var OdrSelectSessionBillingRequestOrganisation
+     */
+    protected $organisation;
 
     public function getAddressId(): ?string
     {
@@ -25,6 +33,30 @@ class OdrSelectSessionBillingRequest
     public function setAddressId(?string $addressId): self
     {
         $this->addressId = $addressId;
+
+        return $this;
+    }
+
+    public function getContact(): ?OdrSelectSessionBillingRequestContact
+    {
+        return $this->contact;
+    }
+
+    public function setContact(?OdrSelectSessionBillingRequestContact $contact): self
+    {
+        $this->contact = $contact;
+
+        return $this;
+    }
+
+    public function getOrganisation(): ?OdrSelectSessionBillingRequestOrganisation
+    {
+        return $this->organisation;
+    }
+
+    public function setOrganisation(?OdrSelectSessionBillingRequestOrganisation $organisation): self
+    {
+        $this->organisation = $organisation;
 
         return $this;
     }

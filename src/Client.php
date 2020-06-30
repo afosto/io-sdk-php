@@ -6159,6 +6159,26 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Test how a relative date is parsed.
+     *
+     * @param \Afosto\Sdk\Model\CntRelativeDate $body  Query object
+     * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\TestDateUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\TestDateNotFoundException
+     * @throws \Afosto\Sdk\Exception\TestDateBadRequestException
+     * @throws \Afosto\Sdk\Exception\TestDateForbiddenException
+     * @throws \Afosto\Sdk\Exception\TestDateInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\TestDateServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntDatePostResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function testDate(\Afosto\Sdk\Model\CntRelativeDate $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\TestDate($body), $fetch);
+    }
+
+    /**
      * Returns a list of handling lists.
      *
      * @param array $headerParameters {

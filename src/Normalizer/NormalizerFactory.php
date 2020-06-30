@@ -288,9 +288,13 @@ class NormalizerFactory
         $normalizers[] = new OdrStartSessionResponseNormalizer();
         $normalizers[] = new OdrSelectSessionBillingMethodRequestNormalizer();
         $normalizers[] = new OdrSelectSessionBillingRequestNormalizer();
+        $normalizers[] = new OdrSelectSessionBillingRequestContactNormalizer();
+        $normalizers[] = new OdrSelectSessionBillingRequestOrganisationNormalizer();
         $normalizers[] = new OdrSelectSessionOrganisationRequestNormalizer();
         $normalizers[] = new OdrSelectSessionShippingMethodRequestNormalizer();
         $normalizers[] = new OdrSelectSessionShippingRequestNormalizer();
+        $normalizers[] = new OdrSelectSessionShippingRequestContactNormalizer();
+        $normalizers[] = new OdrSelectSessionShippingRequestOrganisationNormalizer();
         $normalizers[] = new OdrGetSessionShippingResponseItemNormalizer();
         $normalizers[] = new OdrGetSessionShippingMethodResponseNormalizer();
         $normalizers[] = new OdrSelectSessionShippingPointRequestNormalizer();
@@ -330,6 +334,8 @@ class NormalizerFactory
         $normalizers[] = new CntFileNormalizer();
         $normalizers[] = new CntSimpleQueryNormalizer();
         $normalizers[] = new CntFilterNormalizer();
+        $normalizers[] = new CntRelativeDateNormalizer();
+        $normalizers[] = new CntRelativeDateAtNormalizer();
         $normalizers[] = new CntSearchQueryNormalizer();
         $normalizers[] = new CntSimpleSeachResponseNormalizer();
         $normalizers[] = new CntSeachResponseNormalizer();
@@ -480,6 +486,7 @@ class NormalizerFactory
         $normalizers[] = new OdrSessionsIdBillingMethodsGetResponse200Normalizer();
         $normalizers[] = new OdrSessionsIdOrganisationsGetResponse200Normalizer();
         $normalizers[] = new CntDirectoriesGetResponse200Normalizer();
+        $normalizers[] = new CntDatePostResponse200Normalizer();
         $normalizers[] = new LcsListsIdItemsPutResponse204Normalizer();
         $normalizers[] = new LcsParcelsIdItemsDeleteResponse200Normalizer();
         $normalizers[] = new LcsParcelsIdItemsPostResponse200Normalizer();

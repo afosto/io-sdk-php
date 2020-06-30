@@ -16,6 +16,14 @@ class OdrSelectSessionShippingRequest
      * @var string
      */
     protected $addressId;
+    /**
+     * @var OdrSelectSessionShippingRequestContact
+     */
+    protected $contact;
+    /**
+     * @var OdrSelectSessionShippingRequestOrganisation
+     */
+    protected $organisation;
 
     public function getAddressId(): ?string
     {
@@ -25,6 +33,30 @@ class OdrSelectSessionShippingRequest
     public function setAddressId(?string $addressId): self
     {
         $this->addressId = $addressId;
+
+        return $this;
+    }
+
+    public function getContact(): ?OdrSelectSessionShippingRequestContact
+    {
+        return $this->contact;
+    }
+
+    public function setContact(?OdrSelectSessionShippingRequestContact $contact): self
+    {
+        $this->contact = $contact;
+
+        return $this;
+    }
+
+    public function getOrganisation(): ?OdrSelectSessionShippingRequestOrganisation
+    {
+        return $this->organisation;
+    }
+
+    public function setOrganisation(?OdrSelectSessionShippingRequestOrganisation $organisation): self
+    {
+        $this->organisation = $organisation;
 
         return $this;
     }

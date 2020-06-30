@@ -41,6 +41,12 @@ class OdrSelectSessionBillingRequestNormalizer implements DenormalizerInterface,
         if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
             $object->setAddressId($data->{'address_id'});
         }
+        if (property_exists($data, 'contact') && null !== $data->{'contact'}) {
+            $object->setContact($this->denormalizer->denormalize($data->{'contact'}, 'Afosto\\Sdk\\Model\\OdrSelectSessionBillingRequestContact', 'json', $context));
+        }
+        if (property_exists($data, 'organisation') && null !== $data->{'organisation'}) {
+            $object->setOrganisation($this->denormalizer->denormalize($data->{'organisation'}, 'Afosto\\Sdk\\Model\\OdrSelectSessionBillingRequestOrganisation', 'json', $context));
+        }
 
         return $object;
     }
@@ -50,6 +56,12 @@ class OdrSelectSessionBillingRequestNormalizer implements DenormalizerInterface,
         $data = new \stdClass();
         if (null !== $object->getAddressId()) {
             $data->{'address_id'} = $object->getAddressId();
+        }
+        if (null !== $object->getContact()) {
+            $data->{'contact'} = $this->normalizer->normalize($object->getContact(), 'json', $context);
+        }
+        if (null !== $object->getOrganisation()) {
+            $data->{'organisation'} = $this->normalizer->normalize($object->getOrganisation(), 'json', $context);
         }
 
         return $data;
