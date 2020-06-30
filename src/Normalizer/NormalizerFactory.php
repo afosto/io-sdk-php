@@ -462,6 +462,7 @@ class NormalizerFactory
         $normalizers[] = new OdrOrdersIdAuthorizePostBodyNormalizer();
         $normalizers[] = new OdrOrdersIdFlowPutBodyNormalizer();
         $normalizers[] = new OdrOrdersIdFlowPutBodyActionsItemNormalizer();
+        $normalizers[] = new OdrOrdersIdItemsSearchPostBodyNormalizer();
         $normalizers[] = new OdrOrdersIdWarehousingPutBodyItemNormalizer();
         $normalizers[] = new OdrFiltersPutResponse200Normalizer();
         $normalizers[] = new OdrOptionsRulesConstraintsGetResponse200Normalizer();

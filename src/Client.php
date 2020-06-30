@@ -587,6 +587,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Add items to order based on item search.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ConfirmItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ConfirmItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ConfirmItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ConfirmItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ConfirmItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ConfirmItemsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrderItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function confirmItems(string $id, \Afosto\Sdk\Model\OdrOrdersIdItemsSearchPostBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ConfirmItems($id, $body), $fetch);
+    }
+
+    /**
      * Define a WMS route for a set of order items.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
