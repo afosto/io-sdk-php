@@ -38,6 +38,9 @@ class CntRelativeDateAtNormalizer implements DenormalizerInterface, NormalizerIn
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntRelativeDateAt();
+        if (property_exists($data, 'timezone') && null !== $data->{'timezone'}) {
+            $object->setTimezone($data->{'timezone'});
+        }
         if (property_exists($data, 'hour') && null !== $data->{'hour'}) {
             $object->setHour($data->{'hour'});
         }
@@ -57,6 +60,9 @@ class CntRelativeDateAtNormalizer implements DenormalizerInterface, NormalizerIn
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getTimezone()) {
+            $data->{'timezone'} = $object->getTimezone();
+        }
         if (null !== $object->getHour()) {
             $data->{'hour'} = $object->getHour();
         }

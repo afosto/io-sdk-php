@@ -15,6 +15,10 @@ class CntRelativeDateAt
     /**
      * @var string
      */
+    protected $timezone;
+    /**
+     * @var string
+     */
     protected $hour;
     /**
      * @var string
@@ -28,6 +32,18 @@ class CntRelativeDateAt
      * @var string
      */
     protected $dayOfMonth;
+
+    public function getTimezone(): ?string
+    {
+        return $this->timezone;
+    }
+
+    public function setTimezone(?string $timezone): self
+    {
+        $this->timezone = $timezone;
+
+        return $this;
+    }
 
     public function getHour(): ?string
     {
