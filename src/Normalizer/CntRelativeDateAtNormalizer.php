@@ -38,11 +38,17 @@ class CntRelativeDateAtNormalizer implements DenormalizerInterface, NormalizerIn
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntRelativeDateAt();
-        if (property_exists($data, 'hours') && null !== $data->{'hours'}) {
-            $object->setHours($data->{'hours'});
+        if (property_exists($data, 'hour') && null !== $data->{'hour'}) {
+            $object->setHour($data->{'hour'});
         }
-        if (property_exists($data, 'minutes') && null !== $data->{'minutes'}) {
-            $object->setMinutes($data->{'minutes'});
+        if (property_exists($data, 'minute') && null !== $data->{'minute'}) {
+            $object->setMinute($data->{'minute'});
+        }
+        if (property_exists($data, 'day_of_week') && null !== $data->{'day_of_week'}) {
+            $object->setDayOfWeek($data->{'day_of_week'});
+        }
+        if (property_exists($data, 'day_of_month') && null !== $data->{'day_of_month'}) {
+            $object->setDayOfMonth($data->{'day_of_month'});
         }
 
         return $object;
@@ -51,11 +57,17 @@ class CntRelativeDateAtNormalizer implements DenormalizerInterface, NormalizerIn
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getHours()) {
-            $data->{'hours'} = $object->getHours();
+        if (null !== $object->getHour()) {
+            $data->{'hour'} = $object->getHour();
         }
-        if (null !== $object->getMinutes()) {
-            $data->{'minutes'} = $object->getMinutes();
+        if (null !== $object->getMinute()) {
+            $data->{'minute'} = $object->getMinute();
+        }
+        if (null !== $object->getDayOfWeek()) {
+            $data->{'day_of_week'} = $object->getDayOfWeek();
+        }
+        if (null !== $object->getDayOfMonth()) {
+            $data->{'day_of_month'} = $object->getDayOfMonth();
         }
 
         return $data;

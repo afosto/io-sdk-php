@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class TestDateForbiddenException extends \RuntimeException implements ClientException
+class DecodeDateFilterBadRequestException extends \RuntimeException implements ClientException
 {
     private $error;
 
     public function __construct(\Afosto\Sdk\Model\Error $error)
     {
-        parent::__construct('Forbidden', 403);
+        parent::__construct('Bad Request', 400);
         $this->error = $error;
     }
 

@@ -44,6 +44,9 @@ class OdrProjectionItemNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
+            $object->setDescription($data->{'description'});
+        }
         if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
@@ -84,6 +87,9 @@ class OdrProjectionItemNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (null !== $object->getSku()) {
             $data->{'sku'} = $object->getSku();
+        }
+        if (null !== $object->getDescription()) {
+            $data->{'description'} = $object->getDescription();
         }
         if (null !== $object->getType()) {
             $data->{'type'} = $object->getType();

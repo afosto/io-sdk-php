@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class CntDatePostResponse200Normalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class CntFilterDatePostResponse200Normalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\CntDatePostResponse200' === $type;
+        return 'Afosto\\Sdk\\Model\\CntFilterDatePostResponse200' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\CntDatePostResponse200' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\CntFilterDatePostResponse200' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,15 @@ class CntDatePostResponse200Normalizer implements DenormalizerInterface, Normali
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\CntDatePostResponse200();
+        $object = new \Afosto\Sdk\Model\CntFilterDatePostResponse200();
         if (property_exists($data, 'epoch') && null !== $data->{'epoch'}) {
             $object->setEpoch($data->{'epoch'});
         }
         if (property_exists($data, 'formatted') && null !== $data->{'formatted'}) {
             $object->setFormatted(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'formatted'}));
+        }
+        if (property_exists($data, 'filter') && null !== $data->{'filter'}) {
+            $object->setFilter($data->{'filter'});
         }
 
         return $object;
@@ -56,6 +59,9 @@ class CntDatePostResponse200Normalizer implements DenormalizerInterface, Normali
         }
         if (null !== $object->getFormatted()) {
             $data->{'formatted'} = $object->getFormatted()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getFilter()) {
+            $data->{'filter'} = $object->getFilter();
         }
 
         return $data;

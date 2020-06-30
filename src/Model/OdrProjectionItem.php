@@ -23,6 +23,10 @@ class OdrProjectionItem
     /**
      * @var string
      */
+    protected $description;
+    /**
+     * @var string
+     */
     protected $type;
     /**
      * @var int
@@ -73,6 +77,18 @@ class OdrProjectionItem
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

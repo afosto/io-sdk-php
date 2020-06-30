@@ -3132,6 +3132,12 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *     @var int $is_deleted
      * }
      *
+     * @param array $headerParameters {
+     *
+     *     @var int $x-page-size
+     *     @var string $x-page
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListUsersUnauthorizedException
@@ -3143,9 +3149,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\IamUser[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listUsers(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listUsers(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListUsers($queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListUsers($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -6159,23 +6165,47 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Test how a relative date is parsed.
+     * Decode a relative date filter.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $input
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DecodeDateFilterUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DecodeDateFilterNotFoundException
+     * @throws \Afosto\Sdk\Exception\DecodeDateFilterBadRequestException
+     * @throws \Afosto\Sdk\Exception\DecodeDateFilterForbiddenException
+     * @throws \Afosto\Sdk\Exception\DecodeDateFilterInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DecodeDateFilterServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntRelativeDate|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function decodeDateFilter(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DecodeDateFilter($queryParameters), $fetch);
+    }
+
+    /**
+     * Generate a relative date filter.
      *
      * @param \Afosto\Sdk\Model\CntRelativeDate $body  Query object
      * @param string                            $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\TestDateUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\TestDateNotFoundException
-     * @throws \Afosto\Sdk\Exception\TestDateBadRequestException
-     * @throws \Afosto\Sdk\Exception\TestDateForbiddenException
-     * @throws \Afosto\Sdk\Exception\TestDateInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\TestDateServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\GenerateDateFilterUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GenerateDateFilterNotFoundException
+     * @throws \Afosto\Sdk\Exception\GenerateDateFilterBadRequestException
+     * @throws \Afosto\Sdk\Exception\GenerateDateFilterForbiddenException
+     * @throws \Afosto\Sdk\Exception\GenerateDateFilterInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GenerateDateFilterServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\CntDatePostResponse200|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\CntFilterDatePostResponse200|\Psr\Http\Message\ResponseInterface|null
      */
-    public function testDate(\Afosto\Sdk\Model\CntRelativeDate $body, string $fetch = self::FETCH_OBJECT)
+    public function generateDateFilter(\Afosto\Sdk\Model\CntRelativeDate $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\TestDate($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GenerateDateFilter($body), $fetch);
     }
 
     /**

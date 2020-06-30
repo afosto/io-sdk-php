@@ -15,32 +15,64 @@ class CntRelativeDateAt
     /**
      * @var string
      */
-    protected $hours;
+    protected $hour;
     /**
      * @var string
      */
-    protected $minutes;
+    protected $minute;
+    /**
+     * @var string
+     */
+    protected $dayOfWeek;
+    /**
+     * @var string
+     */
+    protected $dayOfMonth;
 
-    public function getHours(): ?string
+    public function getHour(): ?string
     {
-        return $this->hours;
+        return $this->hour;
     }
 
-    public function setHours(?string $hours): self
+    public function setHour(?string $hour): self
     {
-        $this->hours = $hours;
+        $this->hour = $hour;
 
         return $this;
     }
 
-    public function getMinutes(): ?string
+    public function getMinute(): ?string
     {
-        return $this->minutes;
+        return $this->minute;
     }
 
-    public function setMinutes(?string $minutes): self
+    public function setMinute(?string $minute): self
     {
-        $this->minutes = $minutes;
+        $this->minute = $minute;
+
+        return $this;
+    }
+
+    public function getDayOfWeek(): ?string
+    {
+        return $this->dayOfWeek;
+    }
+
+    public function setDayOfWeek(?string $dayOfWeek): self
+    {
+        $this->dayOfWeek = $dayOfWeek;
+
+        return $this;
+    }
+
+    public function getDayOfMonth(): ?string
+    {
+        return $this->dayOfMonth;
+    }
+
+    public function setDayOfMonth(?string $dayOfMonth): self
+    {
+        $this->dayOfMonth = $dayOfMonth;
 
         return $this;
     }

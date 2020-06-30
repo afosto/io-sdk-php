@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class CntDatePostResponse200
+class CntFilterDatePostResponse200
 {
     /**
      * @var int
@@ -20,6 +20,10 @@ class CntDatePostResponse200
      * @var \DateTime
      */
     protected $formatted;
+    /**
+     * @var string
+     */
+    protected $filter;
 
     public function getEpoch(): ?int
     {
@@ -41,6 +45,18 @@ class CntDatePostResponse200
     public function setFormatted(?\DateTime $formatted): self
     {
         $this->formatted = $formatted;
+
+        return $this;
+    }
+
+    public function getFilter(): ?string
+    {
+        return $this->filter;
+    }
+
+    public function setFilter(?string $filter): self
+    {
+        $this->filter = $filter;
 
         return $this;
     }
