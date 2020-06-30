@@ -53,9 +53,6 @@ class OdrOrderAcceptancesItemNormalizer implements DenormalizerInterface, Normal
         if (property_exists($data, 'is_accepted') && null !== $data->{'is_accepted'}) {
             $object->setIsAccepted($data->{'is_accepted'});
         }
-        if (property_exists($data, 'is_confirmed') && null !== $data->{'is_confirmed'}) {
-            $object->setIsConfirmed($data->{'is_confirmed'});
-        }
         if (property_exists($data, 'calculation_id') && null !== $data->{'calculation_id'}) {
             $object->setCalculationId($data->{'calculation_id'});
         }
@@ -89,9 +86,6 @@ class OdrOrderAcceptancesItemNormalizer implements DenormalizerInterface, Normal
         }
         if (null !== $object->getIsAccepted()) {
             $data->{'is_accepted'} = $object->getIsAccepted();
-        }
-        if (null !== $object->getIsConfirmed()) {
-            $data->{'is_confirmed'} = $object->getIsConfirmed();
         }
         if (null !== $object->getCalculationId()) {
             $data->{'calculation_id'} = $object->getCalculationId();

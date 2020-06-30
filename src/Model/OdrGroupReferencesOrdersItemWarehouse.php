@@ -19,7 +19,19 @@ class OdrGroupReferencesOrdersItemWarehouse
     /**
      * @var string
      */
+    protected $claimId;
+    /**
+     * @var string
+     */
     protected $claimItemId;
+    /**
+     * @var string
+     */
+    protected $deliveryRouteId;
+    /**
+     * @var string
+     */
+    protected $collectRouteId;
     /**
      * @var bool
      */
@@ -41,6 +53,18 @@ class OdrGroupReferencesOrdersItemWarehouse
         return $this;
     }
 
+    public function getClaimId(): ?string
+    {
+        return $this->claimId;
+    }
+
+    public function setClaimId(?string $claimId): self
+    {
+        $this->claimId = $claimId;
+
+        return $this;
+    }
+
     public function getClaimItemId(): ?string
     {
         return $this->claimItemId;
@@ -49,6 +73,30 @@ class OdrGroupReferencesOrdersItemWarehouse
     public function setClaimItemId(?string $claimItemId): self
     {
         $this->claimItemId = $claimItemId;
+
+        return $this;
+    }
+
+    public function getDeliveryRouteId(): ?string
+    {
+        return $this->deliveryRouteId;
+    }
+
+    public function setDeliveryRouteId(?string $deliveryRouteId): self
+    {
+        $this->deliveryRouteId = $deliveryRouteId;
+
+        return $this;
+    }
+
+    public function getCollectRouteId(): ?string
+    {
+        return $this->collectRouteId;
+    }
+
+    public function setCollectRouteId(?string $collectRouteId): self
+    {
+        $this->collectRouteId = $collectRouteId;
 
         return $this;
     }

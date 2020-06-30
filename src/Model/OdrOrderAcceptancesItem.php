@@ -33,10 +33,6 @@ class OdrOrderAcceptancesItem
      */
     protected $isAccepted;
     /**
-     * @var bool
-     */
-    protected $isConfirmed;
-    /**
      * @var string
      */
     protected $calculationId;
@@ -109,18 +105,6 @@ class OdrOrderAcceptancesItem
     public function setIsAccepted(?bool $isAccepted): self
     {
         $this->isAccepted = $isAccepted;
-
-        return $this;
-    }
-
-    public function getIsConfirmed(): ?bool
-    {
-        return $this->isConfirmed;
-    }
-
-    public function setIsConfirmed(?bool $isConfirmed): self
-    {
-        $this->isConfirmed = $isConfirmed;
 
         return $this;
     }

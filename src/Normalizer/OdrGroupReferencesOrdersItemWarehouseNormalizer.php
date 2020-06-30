@@ -41,8 +41,17 @@ class OdrGroupReferencesOrdersItemWarehouseNormalizer implements DenormalizerInt
         if (property_exists($data, 'claimed_at') && null !== $data->{'claimed_at'}) {
             $object->setClaimedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'claimed_at'}));
         }
+        if (property_exists($data, 'claim_id') && null !== $data->{'claim_id'}) {
+            $object->setClaimId($data->{'claim_id'});
+        }
         if (property_exists($data, 'claim_item_id') && null !== $data->{'claim_item_id'}) {
             $object->setClaimItemId($data->{'claim_item_id'});
+        }
+        if (property_exists($data, 'delivery_route_id') && null !== $data->{'delivery_route_id'}) {
+            $object->setDeliveryRouteId($data->{'delivery_route_id'});
+        }
+        if (property_exists($data, 'collect_route_id') && null !== $data->{'collect_route_id'}) {
+            $object->setCollectRouteId($data->{'collect_route_id'});
         }
         if (property_exists($data, 'is_reservation') && null !== $data->{'is_reservation'}) {
             $object->setIsReservation($data->{'is_reservation'});
@@ -60,8 +69,17 @@ class OdrGroupReferencesOrdersItemWarehouseNormalizer implements DenormalizerInt
         if (null !== $object->getClaimedAt()) {
             $data->{'claimed_at'} = $object->getClaimedAt()->format("Y-m-d\TH:i:sP");
         }
+        if (null !== $object->getClaimId()) {
+            $data->{'claim_id'} = $object->getClaimId();
+        }
         if (null !== $object->getClaimItemId()) {
             $data->{'claim_item_id'} = $object->getClaimItemId();
+        }
+        if (null !== $object->getDeliveryRouteId()) {
+            $data->{'delivery_route_id'} = $object->getDeliveryRouteId();
+        }
+        if (null !== $object->getCollectRouteId()) {
+            $data->{'collect_route_id'} = $object->getCollectRouteId();
         }
         if (null !== $object->getIsReservation()) {
             $data->{'is_reservation'} = $object->getIsReservation();

@@ -587,6 +587,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Define a WMS route for a set of order items.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SetRouteUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SetRouteNotFoundException
+     * @throws \Afosto\Sdk\Exception\SetRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\SetRouteForbiddenException
+     * @throws \Afosto\Sdk\Exception\SetRouteInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SetRouteServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrderItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function setRoute(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SetRoute($id, $body), $fetch);
+    }
+
+    /**
      * Returns a list items.
      *
      * @param array $headerParameters {

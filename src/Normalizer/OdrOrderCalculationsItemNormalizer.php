@@ -50,6 +50,9 @@ class OdrOrderCalculationsItemNormalizer implements DenormalizerInterface, Norma
         if (property_exists($data, 'is_valid') && null !== $data->{'is_valid'}) {
             $object->setIsValid($data->{'is_valid'});
         }
+        if (property_exists($data, 'is_accepted') && null !== $data->{'is_accepted'}) {
+            $object->setIsAccepted($data->{'is_accepted'});
+        }
         if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
@@ -71,6 +74,9 @@ class OdrOrderCalculationsItemNormalizer implements DenormalizerInterface, Norma
         }
         if (null !== $object->getIsValid()) {
             $data->{'is_valid'} = $object->getIsValid();
+        }
+        if (null !== $object->getIsAccepted()) {
+            $data->{'is_accepted'} = $object->getIsAccepted();
         }
         if (null !== $object->getExpiresAt()) {
             $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");

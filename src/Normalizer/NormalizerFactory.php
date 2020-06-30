@@ -68,6 +68,9 @@ class NormalizerFactory
         $normalizers[] = new OdrOrderAuthorizationResponseNormalizer();
         $normalizers[] = new OdrReferenceModelNormalizer();
         $normalizers[] = new OdrSimpleOrderItemNormalizer();
+        $normalizers[] = new OdrOrderItemNormalizer();
+        $normalizers[] = new OdrOrderItemReferencesNormalizer();
+        $normalizers[] = new OdrOrderItemReferencesOrdersItemNormalizer();
         $normalizers[] = new OdrFilterNormalizer();
         $normalizers[] = new OdrOrderItemModelNormalizer();
         $normalizers[] = new OdrGroupNormalizer();
@@ -453,6 +456,7 @@ class NormalizerFactory
         $normalizers[] = new OdrOrdersIdAuthorizePostBodyNormalizer();
         $normalizers[] = new OdrOrdersIdFlowPutBodyNormalizer();
         $normalizers[] = new OdrOrdersIdFlowPutBodyActionsItemNormalizer();
+        $normalizers[] = new OdrOrdersIdWarehousingPutBodyItemNormalizer();
         $normalizers[] = new OdrFiltersPutResponse200Normalizer();
         $normalizers[] = new OdrOptionsRulesConstraintsGetResponse200Normalizer();
         $normalizers[] = new IamSourcesPostBodyNormalizer();

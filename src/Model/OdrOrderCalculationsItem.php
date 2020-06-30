@@ -29,6 +29,10 @@ class OdrOrderCalculationsItem
      */
     protected $isValid;
     /**
+     * @var bool
+     */
+    protected $isAccepted;
+    /**
      * @var \DateTime
      */
     protected $expiresAt;
@@ -77,6 +81,18 @@ class OdrOrderCalculationsItem
     public function setIsValid(?bool $isValid): self
     {
         $this->isValid = $isValid;
+
+        return $this;
+    }
+
+    public function getIsAccepted(): ?bool
+    {
+        return $this->isAccepted;
+    }
+
+    public function setIsAccepted(?bool $isAccepted): self
+    {
+        $this->isAccepted = $isAccepted;
 
         return $this;
     }
