@@ -47,6 +47,9 @@ class OdrMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
+        if (property_exists($data, 'is_prepaid') && null !== $data->{'is_prepaid'}) {
+            $object->setIsPrepaid($data->{'is_prepaid'});
+        }
         if (property_exists($data, 'issuers') && null !== $data->{'issuers'}) {
             $values = [];
             foreach ($data->{'issuers'} as $value) {
@@ -69,6 +72,9 @@ class OdrMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
+        }
+        if (null !== $object->getIsPrepaid()) {
+            $data->{'is_prepaid'} = $object->getIsPrepaid();
         }
         if (null !== $object->getIssuers()) {
             $values = [];

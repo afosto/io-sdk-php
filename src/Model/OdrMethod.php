@@ -25,6 +25,10 @@ class OdrMethod
      */
     protected $name;
     /**
+     * @var bool
+     */
+    protected $isPrepaid;
+    /**
      * @var OdrIssuer[]
      */
     protected $issuers;
@@ -61,6 +65,18 @@ class OdrMethod
     public function setName(?string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getIsPrepaid(): ?bool
+    {
+        return $this->isPrepaid;
+    }
+
+    public function setIsPrepaid(?bool $isPrepaid): self
+    {
+        $this->isPrepaid = $isPrepaid;
 
         return $this;
     }

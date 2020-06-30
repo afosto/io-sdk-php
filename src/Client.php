@@ -3918,6 +3918,23 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListPaymentMethodsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPaymentMethodsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListPaymentMethodsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListPaymentMethodsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListPaymentMethodsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListPaymentMethodsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrMethod[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listPaymentMethods(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListPaymentMethods(), $fetch);
+    }
+
+    /**
      * Marks a payment as paid.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
