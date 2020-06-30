@@ -487,6 +487,7 @@ class NormalizerFactory
         $normalizers[] = new OdrSessionsIdBillingMethodsGetResponse200Normalizer();
         $normalizers[] = new OdrSessionsIdOrganisationsGetResponse200Normalizer();
         $normalizers[] = new CntDirectoriesGetResponse200Normalizer();
+        $normalizers[] = new CntFiltersDateGetResponse200Normalizer();
         $normalizers[] = new CntFiltersDatePostResponse200Normalizer();
         $normalizers[] = new LcsListsIdItemsPutResponse204Normalizer();
         $normalizers[] = new LcsParcelsIdItemsDeleteResponse200Normalizer();

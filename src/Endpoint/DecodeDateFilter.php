@@ -68,12 +68,12 @@ class DecodeDateFilter extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      * @throws \Afosto\Sdk\Exception\DecodeDateFilterInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\DecodeDateFilterServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\CntRelativeDate|null
+     * @return \Afosto\Sdk\Model\CntFiltersDateGetResponse200|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\CntRelativeDate', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\CntFiltersDateGetResponse200', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\DecodeDateFilterUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

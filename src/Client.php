@@ -6217,7 +6217,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\DecodeDateFilterInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\DecodeDateFilterServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\CntRelativeDate|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\CntFiltersDateGetResponse200|\Psr\Http\Message\ResponseInterface|null
      */
     public function decodeDateFilter(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
