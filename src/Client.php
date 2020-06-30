@@ -4755,6 +4755,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param array $queryParameters {
      *
      *     @var int $deleted_at the timestamp to compare against
+     *     @var bool $is_active filter on active warehouses
      * }
      *
      * @param array $headerParameters {

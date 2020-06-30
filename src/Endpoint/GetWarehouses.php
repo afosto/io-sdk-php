@@ -18,6 +18,7 @@ class GetWarehouses extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      * @param array $queryParameters {
      *
      *     @var int $deleted_at the timestamp to compare against
+     *     @var bool $is_active filter on active warehouses
      * }
      *
      * @param array $headerParameters {
@@ -57,10 +58,11 @@ class GetWarehouses extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['deleted_at']);
+        $optionsResolver->setDefined(['deleted_at', 'is_active']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('deleted_at', ['int']);
+        $optionsResolver->setAllowedTypes('is_active', ['bool']);
 
         return $optionsResolver;
     }
