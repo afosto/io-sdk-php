@@ -31,7 +31,7 @@ class GenerateDateFilter extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 
     public function getUri(): string
     {
-        return '/cnt/filter/date';
+        return '/cnt/filters/date';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -54,12 +54,12 @@ class GenerateDateFilter extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
      * @throws \Afosto\Sdk\Exception\GenerateDateFilterInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GenerateDateFilterServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\CntFilterDatePostResponse200|null
+     * @return \Afosto\Sdk\Model\CntFiltersDatePostResponse200|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\CntFilterDatePostResponse200', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\CntFiltersDatePostResponse200', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GenerateDateFilterUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class CntFilterDatePostResponse200Normalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class CntFiltersDatePostResponse200Normalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\CntFilterDatePostResponse200' === $type;
+        return 'Afosto\\Sdk\\Model\\CntFiltersDatePostResponse200' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\CntFilterDatePostResponse200' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\CntFiltersDatePostResponse200' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class CntFilterDatePostResponse200Normalizer implements DenormalizerInterface, N
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\CntFilterDatePostResponse200();
+        $object = new \Afosto\Sdk\Model\CntFiltersDatePostResponse200();
         if (property_exists($data, 'epoch') && null !== $data->{'epoch'}) {
             $object->setEpoch($data->{'epoch'});
         }

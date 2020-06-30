@@ -34,7 +34,7 @@ class DecodeDateFilter extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     public function getUri(): string
     {
-        return '/cnt/filter/date';
+        return '/cnt/filters/date';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

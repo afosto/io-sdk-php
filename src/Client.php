@@ -6237,7 +6237,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GenerateDateFilterInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GenerateDateFilterServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\CntFilterDatePostResponse200|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\CntFiltersDatePostResponse200|\Psr\Http\Message\ResponseInterface|null
      */
     public function generateDateFilter(\Afosto\Sdk\Model\CntRelativeDate $body, string $fetch = self::FETCH_OBJECT)
     {
