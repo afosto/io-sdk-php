@@ -71,6 +71,9 @@ class LcsShipmentItemNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'is_finished') && null !== $data->{'is_finished'}) {
             $object->setIsFinished($data->{'is_finished'});
         }
+        if (property_exists($data, 'is_missing') && null !== $data->{'is_missing'}) {
+            $object->setIsMissing($data->{'is_missing'});
+        }
         if (property_exists($data, 'hs_code') && null !== $data->{'hs_code'}) {
             $object->setHsCode($data->{'hs_code'});
         }
@@ -120,6 +123,9 @@ class LcsShipmentItemNormalizer implements DenormalizerInterface, NormalizerInte
         }
         if (null !== $object->getIsFinished()) {
             $data->{'is_finished'} = $object->getIsFinished();
+        }
+        if (null !== $object->getIsMissing()) {
+            $data->{'is_missing'} = $object->getIsMissing();
         }
         if (null !== $object->getHsCode()) {
             $data->{'hs_code'} = $object->getHsCode();

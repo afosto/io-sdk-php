@@ -349,6 +349,7 @@ class NormalizerFactory
         $normalizers[] = new CntDefinitionModelNormalizer();
         $normalizers[] = new CntDefinitionNormalizer();
         $normalizers[] = new CntPaginationNormalizer();
+        $normalizers[] = new LcsShipmentItemMissingNormalizer();
         $normalizers[] = new LcsShipmentItemCorrectionNormalizer();
         $normalizers[] = new LcsListSearchNormalizer();
         $normalizers[] = new LcsListSearchConstraintNormalizer();

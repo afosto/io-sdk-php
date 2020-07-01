@@ -57,6 +57,10 @@ class LcsShipmentItem
      */
     protected $isFinished;
     /**
+     * @var bool
+     */
+    protected $isMissing;
+    /**
      * @var string
      */
     protected $hsCode;
@@ -193,6 +197,18 @@ class LcsShipmentItem
     public function setIsFinished(?bool $isFinished): self
     {
         $this->isFinished = $isFinished;
+
+        return $this;
+    }
+
+    public function getIsMissing(): ?bool
+    {
+        return $this->isMissing;
+    }
+
+    public function setIsMissing(?bool $isMissing): self
+    {
+        $this->isMissing = $isMissing;
 
         return $this;
     }
