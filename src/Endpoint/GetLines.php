@@ -20,7 +20,7 @@ class GetLines extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
      * @param array $headerParameters {
      *
      *     @var string $x-page
-     *     @var string $x-size-page
+     *     @var string $x-page-size
      * }
      */
     public function __construct(string $id, array $headerParameters = [])
@@ -54,11 +54,11 @@ class GetLines extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
     protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getHeadersOptionsResolver();
-        $optionsResolver->setDefined(['x-page', 'x-size-page']);
+        $optionsResolver->setDefined(['x-page', 'x-page-size']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('x-page', ['string']);
-        $optionsResolver->setAllowedTypes('x-size-page', ['string']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
 
         return $optionsResolver;
     }

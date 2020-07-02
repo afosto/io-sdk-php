@@ -1688,7 +1688,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param array $headerParameters {
      *
      *     @var string $x-page
-     *     @var string $x-size-page
+     *     @var string $x-page-size
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
