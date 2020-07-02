@@ -1685,6 +1685,12 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Browse all dataset lines.
      *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-size-page
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetLinesBadRequestException
@@ -1696,9 +1702,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntLine[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getLines(string $id, string $fetch = self::FETCH_OBJECT)
+    public function getLines(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetLines($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetLines($id, $headerParameters), $fetch);
     }
 
     /**
