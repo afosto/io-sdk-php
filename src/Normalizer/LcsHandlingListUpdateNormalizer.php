@@ -38,9 +38,6 @@ class LcsHandlingListUpdateNormalizer implements DenormalizerInterface, Normaliz
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsHandlingListUpdate();
-        if (property_exists($data, 'is_in_progress') && null !== $data->{'is_in_progress'}) {
-            $object->setIsInProgress($data->{'is_in_progress'});
-        }
         if (property_exists($data, 'is_on_hold') && null !== $data->{'is_on_hold'}) {
             $object->setIsOnHold($data->{'is_on_hold'});
         }
@@ -54,9 +51,6 @@ class LcsHandlingListUpdateNormalizer implements DenormalizerInterface, Normaliz
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getIsInProgress()) {
-            $data->{'is_in_progress'} = $object->getIsInProgress();
-        }
         if (null !== $object->getIsOnHold()) {
             $data->{'is_on_hold'} = $object->getIsOnHold();
         }

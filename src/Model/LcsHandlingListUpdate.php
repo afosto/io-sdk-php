@@ -15,27 +15,11 @@ class LcsHandlingListUpdate
     /**
      * @var bool
      */
-    protected $isInProgress;
-    /**
-     * @var bool
-     */
     protected $isOnHold;
     /**
      * @var string
      */
     protected $sub;
-
-    public function getIsInProgress(): ?bool
-    {
-        return $this->isInProgress;
-    }
-
-    public function setIsInProgress(?bool $isInProgress): self
-    {
-        $this->isInProgress = $isInProgress;
-
-        return $this;
-    }
 
     public function getIsOnHold(): ?bool
     {
