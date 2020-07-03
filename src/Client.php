@@ -4461,6 +4461,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * search a location for an address.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchALocationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchALocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchALocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchALocationForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchALocationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchALocationServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\WmsLocation|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchALocation(\Afosto\Sdk\Model\WmsSearchLocationsPostBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchALocation($body), $fetch);
+    }
+
+    /**
      * Mark a location as deleted.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

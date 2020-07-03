@@ -476,6 +476,7 @@ class NormalizerFactory
         $normalizers[] = new IamSubtenantsAuthorizationsRequestsIdPutBodyNormalizer();
         $normalizers[] = new IamSubtenantsAuthorizationsInvitesPostBodyNormalizer();
         $normalizers[] = new IamOauthForwardReferenceGetResponse200Normalizer();
+        $normalizers[] = new WmsSearchLocationsPostBodyNormalizer();
         $normalizers[] = new WmsSearchClaimsPostBodyNormalizer();
         $normalizers[] = new WmsClaimsIdExtendPutBodyNormalizer();
         $normalizers[] = new WmsInventoryPostBodyNormalizer();
