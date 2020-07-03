@@ -5464,6 +5464,44 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * get the order reference.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetSessionReferenceBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSessionReferenceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetSessionReferenceForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetSessionReferenceNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetSessionReferenceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetSessionReferenceServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrSetSessionReferenceRequest|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getSessionReference(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSessionReference($id), $fetch);
+    }
+
+    /**
+     * set an reference on the order.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SetSessionReferenceBadRequestException
+     * @throws \Afosto\Sdk\Exception\SetSessionReferenceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SetSessionReferenceForbiddenException
+     * @throws \Afosto\Sdk\Exception\SetSessionReferenceNotFoundException
+     * @throws \Afosto\Sdk\Exception\SetSessionReferenceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SetSessionReferenceServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrSetSessionReferenceRequest|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function setSessionReference(string $id, \Afosto\Sdk\Model\OdrSetSessionReferenceRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SetSessionReference($id, $body), $fetch);
+    }
+
+    /**
      * Returns a 204 when the identity exists.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

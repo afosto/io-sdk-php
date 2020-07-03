@@ -54,6 +54,9 @@ class OdrSettingsNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'due_at') && null !== $data->{'due_at'}) {
             $object->setDueAt($data->{'due_at'});
         }
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
+            $object->setReference($data->{'reference'});
+        }
         if (property_exists($data, 'return_url') && null !== $data->{'return_url'}) {
             $object->setReturnUrl($data->{'return_url'});
         }
@@ -85,6 +88,9 @@ class OdrSettingsNormalizer implements DenormalizerInterface, NormalizerInterfac
         }
         if (null !== $object->getDueAt()) {
             $data->{'due_at'} = $object->getDueAt();
+        }
+        if (null !== $object->getReference()) {
+            $data->{'reference'} = $object->getReference();
         }
         if (null !== $object->getReturnUrl()) {
             $data->{'return_url'} = $object->getReturnUrl();

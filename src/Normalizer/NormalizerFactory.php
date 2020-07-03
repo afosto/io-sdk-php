@@ -285,6 +285,7 @@ class NormalizerFactory
         $normalizers[] = new WmsSubTransferItemNormalizer();
         $normalizers[] = new OdrStartSessionRequestNormalizer();
         $normalizers[] = new OdrAttachSessionRequestNormalizer();
+        $normalizers[] = new OdrSetSessionReferenceRequestNormalizer();
         $normalizers[] = new OdrStartSessionResponseNormalizer();
         $normalizers[] = new OdrSelectSessionBillingMethodRequestNormalizer();
         $normalizers[] = new OdrSelectSessionBillingRequestNormalizer();

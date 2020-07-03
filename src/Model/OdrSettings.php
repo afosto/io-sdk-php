@@ -31,6 +31,10 @@ class OdrSettings
     /**
      * @var string
      */
+    protected $reference;
+    /**
+     * @var string
+     */
     protected $returnUrl;
     /**
      * @var OdrSettingsBilling
@@ -91,6 +95,18 @@ class OdrSettings
     public function setDueAt(?string $dueAt): self
     {
         $this->dueAt = $dueAt;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(?string $reference): self
+    {
+        $this->reference = $reference;
 
         return $this;
     }
