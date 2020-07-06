@@ -23,6 +23,7 @@ class GetBatches extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      * @param array $headerParameters {
      *
      *     @var string $x-page
+     *     @var string $x-page-size
      * }
      */
     public function __construct(array $queryParameters = [], array $headerParameters = [])
@@ -67,10 +68,11 @@ class GetBatches extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getHeadersOptionsResolver();
-        $optionsResolver->setDefined(['x-page']);
+        $optionsResolver->setDefined(['x-page', 'x-page-size']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('x-page', ['string']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
 
         return $optionsResolver;
     }

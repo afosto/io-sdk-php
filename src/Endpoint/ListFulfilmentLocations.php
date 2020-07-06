@@ -15,14 +15,20 @@ class ListFulfilmentLocations extends \Jane\OpenApiRuntime\Client\BaseEndpoint i
     /**
      * Returns a list of fulfilment locations.
      *
+     * @param array $queryParameters {
+     *
+     *     @var string $address_id
+     * }
+     *
      * @param array $headerParameters {
      *
      *     @var string $x-page
      *     @var string $x-page-size
      * }
      */
-    public function __construct(array $headerParameters = [])
+    public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
+        $this->queryParameters = $queryParameters;
         $this->headerParameters = $headerParameters;
     }
 
@@ -46,6 +52,17 @@ class ListFulfilmentLocations extends \Jane\OpenApiRuntime\Client\BaseEndpoint i
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['address_id']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('address_id', ['string']);
+
+        return $optionsResolver;
     }
 
     protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver

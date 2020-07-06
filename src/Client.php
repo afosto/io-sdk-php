@@ -1412,6 +1412,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param array $headerParameters {
      *
      *     @var string $x-page
+     *     @var string $x-page-size
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -1570,6 +1571,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Get a set of rows.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListDatasetsBadRequestException
@@ -1581,9 +1590,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntDataset[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listDatasets(string $fetch = self::FETCH_OBJECT)
+    public function listDatasets(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListDatasets(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListDatasets($headerParameters), $fetch);
     }
 
     /**
@@ -6912,6 +6921,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a list of fulfilment locations.
      *
+     * @param array $queryParameters {
+     *
+     *     @var string $address_id
+     * }
+     *
      * @param array $headerParameters {
      *
      *     @var string $x-page
@@ -6929,9 +6943,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\LcsFulfilmentLocation[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listFulfilmentLocations(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listFulfilmentLocations(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListFulfilmentLocations($headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListFulfilmentLocations($queryParameters, $headerParameters), $fetch);
     }
 
     /**
