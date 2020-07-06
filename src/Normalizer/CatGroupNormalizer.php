@@ -53,6 +53,9 @@ class CatGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
+        if (property_exists($data, 'deleted_at') && null !== $data->{'deleted_at'}) {
+            $object->setDeletedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'deleted_at'}));
+        }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
@@ -80,6 +83,9 @@ class CatGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();
+        }
+        if (null !== $object->getDeletedAt()) {
+            $data->{'deleted_at'} = $object->getDeletedAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

@@ -37,6 +37,10 @@ class CatGroup
     /**
      * @var \DateTime
      */
+    protected $deletedAt;
+    /**
+     * @var \DateTime
+     */
     protected $createdAt;
     /**
      * @var \DateTime
@@ -111,6 +115,18 @@ class CatGroup
     public function setMetadata($metadata): self
     {
         $this->metadata = $metadata;
+
+        return $this;
+    }
+
+    public function getDeletedAt(): ?\DateTime
+    {
+        return $this->deletedAt;
+    }
+
+    public function setDeletedAt(?\DateTime $deletedAt): self
+    {
+        $this->deletedAt = $deletedAt;
 
         return $this;
     }
