@@ -21,6 +21,14 @@ class OdrOrderCalculationsItem
      */
     protected $reference;
     /**
+     * @var string
+     */
+    protected $currency;
+    /**
+     * @var string
+     */
+    protected $clientId;
+    /**
      * @var int
      */
     protected $amount;
@@ -32,6 +40,10 @@ class OdrOrderCalculationsItem
      * @var bool
      */
     protected $isAccepted;
+    /**
+     * @var bool
+     */
+    protected $isConfirmed;
     /**
      * @var \DateTime
      */
@@ -57,6 +69,30 @@ class OdrOrderCalculationsItem
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency(?string $currency): self
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    public function getClientId(): ?string
+    {
+        return $this->clientId;
+    }
+
+    public function setClientId(?string $clientId): self
+    {
+        $this->clientId = $clientId;
 
         return $this;
     }
@@ -93,6 +129,18 @@ class OdrOrderCalculationsItem
     public function setIsAccepted(?bool $isAccepted): self
     {
         $this->isAccepted = $isAccepted;
+
+        return $this;
+    }
+
+    public function getIsConfirmed(): ?bool
+    {
+        return $this->isConfirmed;
+    }
+
+    public function setIsConfirmed(?bool $isConfirmed): self
+    {
+        $this->isConfirmed = $isConfirmed;
 
         return $this;
     }

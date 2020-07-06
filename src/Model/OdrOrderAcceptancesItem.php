@@ -31,7 +31,7 @@ class OdrOrderAcceptancesItem
     /**
      * @var bool
      */
-    protected $isAccepted;
+    protected $isPaid;
     /**
      * @var string
      */
@@ -97,14 +97,14 @@ class OdrOrderAcceptancesItem
         return $this;
     }
 
-    public function getIsAccepted(): ?bool
+    public function getIsPaid(): ?bool
     {
-        return $this->isAccepted;
+        return $this->isPaid;
     }
 
-    public function setIsAccepted(?bool $isAccepted): self
+    public function setIsPaid(?bool $isPaid): self
     {
-        $this->isAccepted = $isAccepted;
+        $this->isPaid = $isPaid;
 
         return $this;
     }

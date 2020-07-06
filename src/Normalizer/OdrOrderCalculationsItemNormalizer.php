@@ -44,6 +44,12 @@ class OdrOrderCalculationsItemNormalizer implements DenormalizerInterface, Norma
         if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
+        if (property_exists($data, 'currency') && null !== $data->{'currency'}) {
+            $object->setCurrency($data->{'currency'});
+        }
+        if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
+            $object->setClientId($data->{'client_id'});
+        }
         if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
         }
@@ -52,6 +58,9 @@ class OdrOrderCalculationsItemNormalizer implements DenormalizerInterface, Norma
         }
         if (property_exists($data, 'is_accepted') && null !== $data->{'is_accepted'}) {
             $object->setIsAccepted($data->{'is_accepted'});
+        }
+        if (property_exists($data, 'is_confirmed') && null !== $data->{'is_confirmed'}) {
+            $object->setIsConfirmed($data->{'is_confirmed'});
         }
         if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
@@ -69,6 +78,12 @@ class OdrOrderCalculationsItemNormalizer implements DenormalizerInterface, Norma
         if (null !== $object->getReference()) {
             $data->{'reference'} = $object->getReference();
         }
+        if (null !== $object->getCurrency()) {
+            $data->{'currency'} = $object->getCurrency();
+        }
+        if (null !== $object->getClientId()) {
+            $data->{'client_id'} = $object->getClientId();
+        }
         if (null !== $object->getAmount()) {
             $data->{'amount'} = $object->getAmount();
         }
@@ -77,6 +92,9 @@ class OdrOrderCalculationsItemNormalizer implements DenormalizerInterface, Norma
         }
         if (null !== $object->getIsAccepted()) {
             $data->{'is_accepted'} = $object->getIsAccepted();
+        }
+        if (null !== $object->getIsConfirmed()) {
+            $data->{'is_confirmed'} = $object->getIsConfirmed();
         }
         if (null !== $object->getExpiresAt()) {
             $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");
