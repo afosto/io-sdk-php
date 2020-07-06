@@ -41,12 +41,12 @@ class WmsTransferReportNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'target') && null !== $data->{'target'}) {
             $object->setTarget($data->{'target'});
         }
-        if (property_exists($data, 'claim_item_ids') && null !== $data->{'claim_item_ids'}) {
+        if (property_exists($data, 'item_claims') && null !== $data->{'item_claims'}) {
             $values = [];
-            foreach ($data->{'claim_item_ids'} as $value) {
-                $values[] = $value;
+            foreach ($data->{'item_claims'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsTransferReportItemClaimsItem', 'json', $context);
             }
-            $object->setClaimItemIds($values);
+            $object->setItemClaims($values);
         }
 
         return $object;
@@ -58,12 +58,12 @@ class WmsTransferReportNormalizer implements DenormalizerInterface, NormalizerIn
         if (null !== $object->getTarget()) {
             $data->{'target'} = $object->getTarget();
         }
-        if (null !== $object->getClaimItemIds()) {
+        if (null !== $object->getItemClaims()) {
             $values = [];
-            foreach ($object->getClaimItemIds() as $value) {
-                $values[] = $value;
+            foreach ($object->getItemClaims() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
-            $data->{'claim_item_ids'} = $values;
+            $data->{'item_claims'} = $values;
         }
 
         return $data;

@@ -17,9 +17,9 @@ class WmsTransferReport
      */
     protected $target;
     /**
-     * @var string[]
+     * @var WmsTransferReportItemClaimsItem[]
      */
-    protected $claimItemIds;
+    protected $itemClaims;
 
     public function getTarget(): ?string
     {
@@ -34,19 +34,19 @@ class WmsTransferReport
     }
 
     /**
-     * @return string[]|null
+     * @return WmsTransferReportItemClaimsItem[]|null
      */
-    public function getClaimItemIds(): ?array
+    public function getItemClaims(): ?array
     {
-        return $this->claimItemIds;
+        return $this->itemClaims;
     }
 
     /**
-     * @param string[]|null $claimItemIds
+     * @param WmsTransferReportItemClaimsItem[]|null $itemClaims
      */
-    public function setClaimItemIds(?array $claimItemIds): self
+    public function setItemClaims(?array $itemClaims): self
     {
-        $this->claimItemIds = $claimItemIds;
+        $this->itemClaims = $itemClaims;
 
         return $this;
     }

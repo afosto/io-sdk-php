@@ -274,6 +274,7 @@ class NormalizerFactory
         $normalizers[] = new WmsScheduleNormalizer();
         $normalizers[] = new WmsWarehouseNormalizer();
         $normalizers[] = new WmsTransferReportNormalizer();
+        $normalizers[] = new WmsTransferReportItemClaimsItemNormalizer();
         $normalizers[] = new WmsProjectionNormalizer();
         $normalizers[] = new WmsConstraintNormalizer();
         $normalizers[] = new WmsClaimNormalizer();

@@ -45,6 +45,10 @@ class OdrProjection
      */
     protected $isIncludingVat;
     /**
+     * @var bool
+     */
+    protected $isVatShifted;
+    /**
      * @var string
      */
     protected $clientId;
@@ -163,6 +167,18 @@ class OdrProjection
     public function setIsIncludingVat(?bool $isIncludingVat): self
     {
         $this->isIncludingVat = $isIncludingVat;
+
+        return $this;
+    }
+
+    public function getIsVatShifted(): ?bool
+    {
+        return $this->isVatShifted;
+    }
+
+    public function setIsVatShifted(?bool $isVatShifted): self
+    {
+        $this->isVatShifted = $isVatShifted;
 
         return $this;
     }
