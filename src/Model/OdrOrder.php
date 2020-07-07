@@ -45,6 +45,14 @@ class OdrOrder
      */
     protected $clientId;
     /**
+     * @var string[]
+     */
+    protected $tags;
+    /**
+     * @var string
+     */
+    protected $type;
+    /**
      * @var \DateTime
      */
     protected $createdAt;
@@ -157,6 +165,36 @@ class OdrOrder
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getTags(): ?array
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param string[]|null $tags
+     */
+    public function setTags(?array $tags): self
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

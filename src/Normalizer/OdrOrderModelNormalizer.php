@@ -54,6 +54,9 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
             }
             $object->setTags($values);
         }
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
+            $object->setType($data->{'type'});
+        }
         if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
@@ -79,6 +82,9 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
                 $values[] = $value;
             }
             $data->{'tags'} = $values;
+        }
+        if (null !== $object->getType()) {
+            $data->{'type'} = $object->getType();
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();

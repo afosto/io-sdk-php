@@ -29,6 +29,10 @@ class OdrOrderModel
      */
     protected $tags;
     /**
+     * @var string
+     */
+    protected $type;
+    /**
      * @var mixed
      */
     protected $metadata;
@@ -83,6 +87,18 @@ class OdrOrderModel
     public function setTags(?array $tags): self
     {
         $this->tags = $tags;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

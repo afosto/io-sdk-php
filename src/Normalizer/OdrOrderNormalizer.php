@@ -70,6 +70,16 @@ class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
+        if (property_exists($data, 'tags') && null !== $data->{'tags'}) {
+            $values_2 = [];
+            foreach ($data->{'tags'} as $value_2) {
+                $values_2[] = $value_2;
+            }
+            $object->setTags($values_2);
+        }
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
+            $object->setType($data->{'type'});
+        }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
@@ -114,6 +124,16 @@ class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, 
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
+        }
+        if (null !== $object->getTags()) {
+            $values_2 = [];
+            foreach ($object->getTags() as $value_2) {
+                $values_2[] = $value_2;
+            }
+            $data->{'tags'} = $values_2;
+        }
+        if (null !== $object->getType()) {
+            $data->{'type'} = $object->getType();
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
