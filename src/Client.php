@@ -3950,6 +3950,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a list of payment methods available for the transaction.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetPaymentMethodBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetPaymentMethodUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetPaymentMethodForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetPaymentMethodNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetPaymentMethodInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetPaymentMethodServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrMethod|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getPaymentMethod(string $providerCode, string $code, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetPaymentMethod($providerCode, $code), $fetch);
+    }
+
+    /**
      * Marks a payment as paid.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
