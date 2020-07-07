@@ -12,6 +12,19 @@ namespace Afosto\Sdk\Endpoint;
 
 class ListDirectories extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
+    /**
+     * Returns a list of directories.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $dir
+     * }
+     */
+    public function __construct(array $queryParameters = [])
+    {
+        $this->queryParameters = $queryParameters;
+    }
+
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
 
     public function getMethod(): string
@@ -32,6 +45,17 @@ class ListDirectories extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['dir']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('dir', ['string']);
+
+        return $optionsResolver;
     }
 
     /**
