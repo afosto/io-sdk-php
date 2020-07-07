@@ -13,25 +13,13 @@ namespace Afosto\Sdk\Model;
 class OdrGroupReferencesOrdersItemWarehouse
 {
     /**
-     * @var \DateTime
-     */
-    protected $claimedAt;
-    /**
      * @var string
      */
     protected $claimId;
     /**
      * @var string
      */
-    protected $claimItemId;
-    /**
-     * @var string
-     */
-    protected $deliveryRouteId;
-    /**
-     * @var string
-     */
-    protected $collectRouteId;
+    protected $routeId;
     /**
      * @var bool
      */
@@ -40,18 +28,6 @@ class OdrGroupReferencesOrdersItemWarehouse
      * @var string
      */
     protected $transferId;
-
-    public function getClaimedAt(): ?\DateTime
-    {
-        return $this->claimedAt;
-    }
-
-    public function setClaimedAt(?\DateTime $claimedAt): self
-    {
-        $this->claimedAt = $claimedAt;
-
-        return $this;
-    }
 
     public function getClaimId(): ?string
     {
@@ -65,38 +41,14 @@ class OdrGroupReferencesOrdersItemWarehouse
         return $this;
     }
 
-    public function getClaimItemId(): ?string
+    public function getRouteId(): ?string
     {
-        return $this->claimItemId;
+        return $this->routeId;
     }
 
-    public function setClaimItemId(?string $claimItemId): self
+    public function setRouteId(?string $routeId): self
     {
-        $this->claimItemId = $claimItemId;
-
-        return $this;
-    }
-
-    public function getDeliveryRouteId(): ?string
-    {
-        return $this->deliveryRouteId;
-    }
-
-    public function setDeliveryRouteId(?string $deliveryRouteId): self
-    {
-        $this->deliveryRouteId = $deliveryRouteId;
-
-        return $this;
-    }
-
-    public function getCollectRouteId(): ?string
-    {
-        return $this->collectRouteId;
-    }
-
-    public function setCollectRouteId(?string $collectRouteId): self
-    {
-        $this->collectRouteId = $collectRouteId;
+        $this->routeId = $routeId;
 
         return $this;
     }
