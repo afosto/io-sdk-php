@@ -78,8 +78,8 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'is_in_transit') && null !== $data->{'is_in_transit'}) {
             $object->setIsInTransit($data->{'is_in_transit'});
         }
-        if (property_exists($data, 'is_delivered') && null !== $data->{'is_delivered'}) {
-            $object->setIsDelivered($data->{'is_delivered'});
+        if (property_exists($data, 'is_finished') && null !== $data->{'is_finished'}) {
+            $object->setIsFinished($data->{'is_finished'});
         }
         if (property_exists($data, 'file_id') && null !== $data->{'file_id'}) {
             $object->setFileId($data->{'file_id'});
@@ -137,8 +137,8 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (null !== $object->getIsInTransit()) {
             $data->{'is_in_transit'} = $object->getIsInTransit();
         }
-        if (null !== $object->getIsDelivered()) {
-            $data->{'is_delivered'} = $object->getIsDelivered();
+        if (null !== $object->getIsFinished()) {
+            $data->{'is_finished'} = $object->getIsFinished();
         }
         if (null !== $object->getFileId()) {
             $data->{'file_id'} = $object->getFileId();

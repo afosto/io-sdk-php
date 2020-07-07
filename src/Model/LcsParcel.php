@@ -63,7 +63,7 @@ class LcsParcel
     /**
      * @var bool
      */
-    protected $isDelivered;
+    protected $isFinished;
     /**
      * @var string
      */
@@ -227,14 +227,14 @@ class LcsParcel
         return $this;
     }
 
-    public function getIsDelivered(): ?bool
+    public function getIsFinished(): ?bool
     {
-        return $this->isDelivered;
+        return $this->isFinished;
     }
 
-    public function setIsDelivered(?bool $isDelivered): self
+    public function setIsFinished(?bool $isFinished): self
     {
-        $this->isDelivered = $isDelivered;
+        $this->isFinished = $isFinished;
 
         return $this;
     }
