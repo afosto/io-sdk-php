@@ -27,7 +27,19 @@ class OdrOrderItemReferencesOrdersItem
     /**
      * @var bool
      */
-    protected $isBackordered = false;
+    protected $isBackorder = false;
+    /**
+     * @var OdrOrderItemReferencesOrdersItemWarehouse
+     */
+    protected $warehouse;
+    /**
+     * @var OdrOrderItemReferencesOrdersItemShipmentsItem[]
+     */
+    protected $shipments;
+    /**
+     * @var string[]
+     */
+    protected $backorders;
 
     public function getId(): ?string
     {
@@ -65,14 +77,62 @@ class OdrOrderItemReferencesOrdersItem
         return $this;
     }
 
-    public function getIsBackordered(): ?bool
+    public function getIsBackorder(): ?bool
     {
-        return $this->isBackordered;
+        return $this->isBackorder;
     }
 
-    public function setIsBackordered(?bool $isBackordered): self
+    public function setIsBackorder(?bool $isBackorder): self
     {
-        $this->isBackordered = $isBackordered;
+        $this->isBackorder = $isBackorder;
+
+        return $this;
+    }
+
+    public function getWarehouse(): ?OdrOrderItemReferencesOrdersItemWarehouse
+    {
+        return $this->warehouse;
+    }
+
+    public function setWarehouse(?OdrOrderItemReferencesOrdersItemWarehouse $warehouse): self
+    {
+        $this->warehouse = $warehouse;
+
+        return $this;
+    }
+
+    /**
+     * @return OdrOrderItemReferencesOrdersItemShipmentsItem[]|null
+     */
+    public function getShipments(): ?array
+    {
+        return $this->shipments;
+    }
+
+    /**
+     * @param OdrOrderItemReferencesOrdersItemShipmentsItem[]|null $shipments
+     */
+    public function setShipments(?array $shipments): self
+    {
+        $this->shipments = $shipments;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getBackorders(): ?array
+    {
+        return $this->backorders;
+    }
+
+    /**
+     * @param string[]|null $backorders
+     */
+    public function setBackorders(?array $backorders): self
+    {
+        $this->backorders = $backorders;
 
         return $this;
     }

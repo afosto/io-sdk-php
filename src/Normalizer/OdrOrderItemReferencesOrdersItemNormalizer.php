@@ -47,8 +47,25 @@ class OdrOrderItemReferencesOrdersItemNormalizer implements DenormalizerInterfac
         if (property_exists($data, 'is_available') && null !== $data->{'is_available'}) {
             $object->setIsAvailable($data->{'is_available'});
         }
-        if (property_exists($data, 'is_backordered') && null !== $data->{'is_backordered'}) {
-            $object->setIsBackordered($data->{'is_backordered'});
+        if (property_exists($data, 'is_backorder') && null !== $data->{'is_backorder'}) {
+            $object->setIsBackorder($data->{'is_backorder'});
+        }
+        if (property_exists($data, 'warehouse') && null !== $data->{'warehouse'}) {
+            $object->setWarehouse($this->denormalizer->denormalize($data->{'warehouse'}, 'Afosto\\Sdk\\Model\\OdrOrderItemReferencesOrdersItemWarehouse', 'json', $context));
+        }
+        if (property_exists($data, 'shipments') && null !== $data->{'shipments'}) {
+            $values = [];
+            foreach ($data->{'shipments'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrOrderItemReferencesOrdersItemShipmentsItem', 'json', $context);
+            }
+            $object->setShipments($values);
+        }
+        if (property_exists($data, 'backorders') && null !== $data->{'backorders'}) {
+            $values_1 = [];
+            foreach ($data->{'backorders'} as $value_1) {
+                $values_1[] = $value_1;
+            }
+            $object->setBackorders($values_1);
         }
 
         return $object;
@@ -66,8 +83,25 @@ class OdrOrderItemReferencesOrdersItemNormalizer implements DenormalizerInterfac
         if (null !== $object->getIsAvailable()) {
             $data->{'is_available'} = $object->getIsAvailable();
         }
-        if (null !== $object->getIsBackordered()) {
-            $data->{'is_backordered'} = $object->getIsBackordered();
+        if (null !== $object->getIsBackorder()) {
+            $data->{'is_backorder'} = $object->getIsBackorder();
+        }
+        if (null !== $object->getWarehouse()) {
+            $data->{'warehouse'} = $this->normalizer->normalize($object->getWarehouse(), 'json', $context);
+        }
+        if (null !== $object->getShipments()) {
+            $values = [];
+            foreach ($object->getShipments() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $data->{'shipments'} = $values;
+        }
+        if (null !== $object->getBackorders()) {
+            $values_1 = [];
+            foreach ($object->getBackorders() as $value_1) {
+                $values_1[] = $value_1;
+            }
+            $data->{'backorders'} = $values_1;
         }
 
         return $data;

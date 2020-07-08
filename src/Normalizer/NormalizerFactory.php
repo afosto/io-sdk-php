@@ -71,6 +71,8 @@ class NormalizerFactory
         $normalizers[] = new OdrOrderItemNormalizer();
         $normalizers[] = new OdrOrderItemReferencesNormalizer();
         $normalizers[] = new OdrOrderItemReferencesOrdersItemNormalizer();
+        $normalizers[] = new OdrOrderItemReferencesOrdersItemWarehouseNormalizer();
+        $normalizers[] = new OdrOrderItemReferencesOrdersItemShipmentsItemNormalizer();
         $normalizers[] = new OdrFilterNormalizer();
         $normalizers[] = new OdrOrderItemModelNormalizer();
         $normalizers[] = new OdrGroupNormalizer();
