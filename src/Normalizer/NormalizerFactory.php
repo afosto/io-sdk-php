@@ -171,6 +171,13 @@ class NormalizerFactory
         $normalizers[] = new IamPlanNormalizer();
         $normalizers[] = new IamTierNormalizer();
         $normalizers[] = new IamUsageRecordNormalizer();
+        $normalizers[] = new CntWatcherNormalizer();
+        $normalizers[] = new CntWatcherSourceNormalizer();
+        $normalizers[] = new CntWatcherModelNormalizer();
+        $normalizers[] = new CntFilesystemNormalizer();
+        $normalizers[] = new CntFilesystemModelNormalizer();
+        $normalizers[] = new CntFilesystemSyncRequestNormalizer();
+        $normalizers[] = new CntFileNormalizer();
         $normalizers[] = new MesUsageRecordNormalizer();
         $normalizers[] = new MesReportRequestNormalizer();
         $normalizers[] = new MesReportNormalizer();
@@ -335,7 +342,6 @@ class NormalizerFactory
         $normalizers[] = new CntDirectoryRequestNormalizer();
         $normalizers[] = new CntUploadRequestNormalizer();
         $normalizers[] = new CntUploadResponseNormalizer();
-        $normalizers[] = new CntFileNormalizer();
         $normalizers[] = new CntSimpleQueryNormalizer();
         $normalizers[] = new CntFilterNormalizer();
         $normalizers[] = new CntRelativeDateNormalizer();
