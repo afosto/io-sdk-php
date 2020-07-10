@@ -16,7 +16,7 @@ class GetPaymentMethod extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
     protected $code;
 
     /**
-     * Returns a list of payment methods available for the transaction.
+     * Get single payment method.
      */
     public function __construct(string $providerCode, string $code)
     {

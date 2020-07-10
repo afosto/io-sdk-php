@@ -4155,7 +4155,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Returns a list of payment methods available for the transaction.
+     * Get single payment method.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
