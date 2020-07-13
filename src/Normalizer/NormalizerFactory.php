@@ -458,7 +458,8 @@ class NormalizerFactory
         $normalizers[] = new RelOrganisationPaymentSettingsPostPaymentNormalizer();
         $normalizers[] = new RelOrganisationPaymentSettingsInvoiceNormalizer();
         $normalizers[] = new RelOrganisationUpdateModelNormalizer();
-        $normalizers[] = new RelOrganisationUpdateModelAddressesNormalizer();
+        $normalizers[] = new RelOrganisationUpdateModelBillingNormalizer();
+        $normalizers[] = new RelOrganisationUpdateModelShippingNormalizer();
         $normalizers[] = new RelOrganisationUpdateModelPhoneNumbersNormalizer();
         $normalizers[] = new RelVatRegistrationModelNormalizer();
         $normalizers[] = new RelVatRegistrationNormalizer();

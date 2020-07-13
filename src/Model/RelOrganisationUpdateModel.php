@@ -51,9 +51,13 @@ class RelOrganisationUpdateModel
      */
     protected $paymentSettings;
     /**
-     * @var RelOrganisationUpdateModelAddresses
+     * @var RelOrganisationUpdateModelBilling
      */
-    protected $addresses;
+    protected $billing;
+    /**
+     * @var RelOrganisationUpdateModelShipping
+     */
+    protected $shipping;
     /**
      * @var RelOrganisationUpdateModelPhoneNumbers
      */
@@ -189,14 +193,26 @@ class RelOrganisationUpdateModel
         return $this;
     }
 
-    public function getAddresses(): ?RelOrganisationUpdateModelAddresses
+    public function getBilling(): ?RelOrganisationUpdateModelBilling
     {
-        return $this->addresses;
+        return $this->billing;
     }
 
-    public function setAddresses(?RelOrganisationUpdateModelAddresses $addresses): self
+    public function setBilling(?RelOrganisationUpdateModelBilling $billing): self
     {
-        $this->addresses = $addresses;
+        $this->billing = $billing;
+
+        return $this;
+    }
+
+    public function getShipping(): ?RelOrganisationUpdateModelShipping
+    {
+        return $this->shipping;
+    }
+
+    public function setShipping(?RelOrganisationUpdateModelShipping $shipping): self
+    {
+        $this->shipping = $shipping;
 
         return $this;
     }

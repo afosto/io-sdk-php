@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class RelOrganisationUpdateModelAddressesNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class RelOrganisationUpdateModelBillingNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelAddresses' === $type;
+        return 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelBilling' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelAddresses' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelBilling' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class RelOrganisationUpdateModelAddressesNormalizer implements DenormalizerInter
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\RelOrganisationUpdateModelAddresses();
+        $object = new \Afosto\Sdk\Model\RelOrganisationUpdateModelBilling();
         if (property_exists($data, 'primary') && null !== $data->{'primary'}) {
             $object->setPrimary($data->{'primary'});
         }

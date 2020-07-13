@@ -65,7 +65,11 @@ class RelOrganisation
     /**
      * @var RelAddressList
      */
-    protected $addresses;
+    protected $billing;
+    /**
+     * @var RelAddressList
+     */
+    protected $shipping;
 
     public function getId(): ?string
     {
@@ -233,14 +237,26 @@ class RelOrganisation
         return $this;
     }
 
-    public function getAddresses(): ?RelAddressList
+    public function getBilling(): ?RelAddressList
     {
-        return $this->addresses;
+        return $this->billing;
     }
 
-    public function setAddresses(?RelAddressList $addresses): self
+    public function setBilling(?RelAddressList $billing): self
     {
-        $this->addresses = $addresses;
+        $this->billing = $billing;
+
+        return $this;
+    }
+
+    public function getShipping(): ?RelAddressList
+    {
+        return $this->shipping;
+    }
+
+    public function setShipping(?RelAddressList $shipping): self
+    {
+        $this->shipping = $shipping;
 
         return $this;
     }

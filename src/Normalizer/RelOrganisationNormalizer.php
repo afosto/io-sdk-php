@@ -83,8 +83,11 @@ class RelOrganisationNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'phone_numbers') && null !== $data->{'phone_numbers'}) {
             $object->setPhoneNumbers($this->denormalizer->denormalize($data->{'phone_numbers'}, 'Afosto\\Sdk\\Model\\RelPhoneNumberList', 'json', $context));
         }
-        if (property_exists($data, 'addresses') && null !== $data->{'addresses'}) {
-            $object->setAddresses($this->denormalizer->denormalize($data->{'addresses'}, 'Afosto\\Sdk\\Model\\RelAddressList', 'json', $context));
+        if (property_exists($data, 'billing') && null !== $data->{'billing'}) {
+            $object->setBilling($this->denormalizer->denormalize($data->{'billing'}, 'Afosto\\Sdk\\Model\\RelAddressList', 'json', $context));
+        }
+        if (property_exists($data, 'shipping') && null !== $data->{'shipping'}) {
+            $object->setShipping($this->denormalizer->denormalize($data->{'shipping'}, 'Afosto\\Sdk\\Model\\RelAddressList', 'json', $context));
         }
 
         return $object;
@@ -138,8 +141,11 @@ class RelOrganisationNormalizer implements DenormalizerInterface, NormalizerInte
         if (null !== $object->getPhoneNumbers()) {
             $data->{'phone_numbers'} = $this->normalizer->normalize($object->getPhoneNumbers(), 'json', $context);
         }
-        if (null !== $object->getAddresses()) {
-            $data->{'addresses'} = $this->normalizer->normalize($object->getAddresses(), 'json', $context);
+        if (null !== $object->getBilling()) {
+            $data->{'billing'} = $this->normalizer->normalize($object->getBilling(), 'json', $context);
+        }
+        if (null !== $object->getShipping()) {
+            $data->{'shipping'} = $this->normalizer->normalize($object->getShipping(), 'json', $context);
         }
 
         return $data;

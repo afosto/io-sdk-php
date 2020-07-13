@@ -74,8 +74,11 @@ class RelOrganisationUpdateModelNormalizer implements DenormalizerInterface, Nor
         if (property_exists($data, 'payment_settings') && null !== $data->{'payment_settings'}) {
             $object->setPaymentSettings($this->denormalizer->denormalize($data->{'payment_settings'}, 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettings', 'json', $context));
         }
-        if (property_exists($data, 'addresses') && null !== $data->{'addresses'}) {
-            $object->setAddresses($this->denormalizer->denormalize($data->{'addresses'}, 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelAddresses', 'json', $context));
+        if (property_exists($data, 'billing') && null !== $data->{'billing'}) {
+            $object->setBilling($this->denormalizer->denormalize($data->{'billing'}, 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelBilling', 'json', $context));
+        }
+        if (property_exists($data, 'shipping') && null !== $data->{'shipping'}) {
+            $object->setShipping($this->denormalizer->denormalize($data->{'shipping'}, 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelShipping', 'json', $context));
         }
         if (property_exists($data, 'phone_numbers') && null !== $data->{'phone_numbers'}) {
             $object->setPhoneNumbers($this->denormalizer->denormalize($data->{'phone_numbers'}, 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelPhoneNumbers', 'json', $context));
@@ -123,8 +126,11 @@ class RelOrganisationUpdateModelNormalizer implements DenormalizerInterface, Nor
         if (null !== $object->getPaymentSettings()) {
             $data->{'payment_settings'} = $this->normalizer->normalize($object->getPaymentSettings(), 'json', $context);
         }
-        if (null !== $object->getAddresses()) {
-            $data->{'addresses'} = $this->normalizer->normalize($object->getAddresses(), 'json', $context);
+        if (null !== $object->getBilling()) {
+            $data->{'billing'} = $this->normalizer->normalize($object->getBilling(), 'json', $context);
+        }
+        if (null !== $object->getShipping()) {
+            $data->{'shipping'} = $this->normalizer->normalize($object->getShipping(), 'json', $context);
         }
         if (null !== $object->getPhoneNumbers()) {
             $data->{'phone_numbers'} = $this->normalizer->normalize($object->getPhoneNumbers(), 'json', $context);
