@@ -45,6 +45,10 @@ class OdrPricingRule
      */
     protected $priority;
     /**
+     * @var string
+     */
+    protected $evaluateAt;
+    /**
      * @var bool
      */
     protected $isLastRule;
@@ -179,6 +183,18 @@ class OdrPricingRule
     public function setPriority(?int $priority): self
     {
         $this->priority = $priority;
+
+        return $this;
+    }
+
+    public function getEvaluateAt(): ?string
+    {
+        return $this->evaluateAt;
+    }
+
+    public function setEvaluateAt(?string $evaluateAt): self
+    {
+        $this->evaluateAt = $evaluateAt;
 
         return $this;
     }

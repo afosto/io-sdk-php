@@ -74,6 +74,9 @@ class OdrPricingRuleModelNormalizer implements DenormalizerInterface, Normalizer
         if (property_exists($data, 'is_last_rule') && null !== $data->{'is_last_rule'}) {
             $object->setIsLastRule($data->{'is_last_rule'});
         }
+        if (property_exists($data, 'evaluate_at') && null !== $data->{'evaluate_at'}) {
+            $object->setEvaluateAt($data->{'evaluate_at'});
+        }
         if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
@@ -125,6 +128,9 @@ class OdrPricingRuleModelNormalizer implements DenormalizerInterface, Normalizer
         }
         if (null !== $object->getIsLastRule()) {
             $data->{'is_last_rule'} = $object->getIsLastRule();
+        }
+        if (null !== $object->getEvaluateAt()) {
+            $data->{'evaluate_at'} = $object->getEvaluateAt();
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();

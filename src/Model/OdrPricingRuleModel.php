@@ -45,6 +45,10 @@ class OdrPricingRuleModel
      */
     protected $isLastRule;
     /**
+     * @var string
+     */
+    protected $evaluateAt;
+    /**
      * @var mixed
      */
     protected $metadata;
@@ -167,6 +171,18 @@ class OdrPricingRuleModel
     public function setIsLastRule(?bool $isLastRule): self
     {
         $this->isLastRule = $isLastRule;
+
+        return $this;
+    }
+
+    public function getEvaluateAt(): ?string
+    {
+        return $this->evaluateAt;
+    }
+
+    public function setEvaluateAt(?string $evaluateAt): self
+    {
+        $this->evaluateAt = $evaluateAt;
 
         return $this;
     }
