@@ -77,6 +77,9 @@ class OdrSessionCalculationNormalizer implements DenormalizerInterface, Normaliz
         if (property_exists($data, 'is_including_vat') && null !== $data->{'is_including_vat'}) {
             $object->setIsIncludingVat($data->{'is_including_vat'});
         }
+        if (property_exists($data, 'is_vat_shifted') && null !== $data->{'is_vat_shifted'}) {
+            $object->setIsVatShifted($data->{'is_vat_shifted'});
+        }
         if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
@@ -128,6 +131,9 @@ class OdrSessionCalculationNormalizer implements DenormalizerInterface, Normaliz
         }
         if (null !== $object->getIsIncludingVat()) {
             $data->{'is_including_vat'} = $object->getIsIncludingVat();
+        }
+        if (null !== $object->getIsVatShifted()) {
+            $data->{'is_vat_shifted'} = $object->getIsVatShifted();
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
