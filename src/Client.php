@@ -3046,6 +3046,126 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Get a list of flows.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var int $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListDataFlowsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListDataFlowsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListDataFlowsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListDataFlowsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListDataFlowsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListDataFlowsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntDataflow[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listDataFlows(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListDataFlows($headerParameters), $fetch);
+    }
+
+    /**
+     * Add a new dataflow.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateStreamBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateStreamUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateStreamForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateStreamNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateStreamInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateStreamServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntDataflow|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createStream(\Afosto\Sdk\Model\CntDataflowModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateStream($body), $fetch);
+    }
+
+    /**
+     * Delete a single dataflow.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteDataflowBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteDataflowUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteDataflowForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteDataflowNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteDataflowInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteDataflowServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteDataflow(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteDataflow($id), $fetch);
+    }
+
+    /**
+     * Get a single dataflow.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetDataflowBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetDataflowUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetDataflowForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetDataflowNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetDataflowInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetDataflowServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntDataflow|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getDataflow(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetDataflow($id), $fetch);
+    }
+
+    /**
+     * Update a single dataflow.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateDataflowBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateDataflowUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateDataflowForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateDataflowNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateDataflowInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateDataflowServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntDataflow|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateDataflow(string $id, \Afosto\Sdk\Model\CntDataflowModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateDataflow($id, $body), $fetch);
+    }
+
+    /**
+     * Get logs of a dataflow.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetDataflowLogsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetDataflowLogsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetDataflowLogsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetDataflowLogsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetDataflowLogsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetDataflowLogsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntDataflowLog[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getDataflowLogs(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetDataflowLogs($id), $fetch);
+    }
+
+    /**
      * Returns information regarding the GIF.
      *
      * @param array $queryParameters {
