@@ -33,7 +33,7 @@ class CntDocumentResponse
      */
     protected $metadata;
     /**
-     * @var string[][]
+     * @var mixed[]
      */
     protected $filters;
 
@@ -104,7 +104,7 @@ class CntDocumentResponse
     }
 
     /**
-     * @return string[][]|null
+     * @return mixed[]|null
      */
     public function getFilters(): ?\ArrayObject
     {
@@ -112,7 +112,7 @@ class CntDocumentResponse
     }
 
     /**
-     * @param string[][]|null $filters
+     * @param mixed[]|null $filters
      */
     public function setFilters(?\ArrayObject $filters): self
     {
