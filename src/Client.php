@@ -185,6 +185,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a list of orders.
      *
+     * @param array $queryParameters {
+     *
+     *     @var string $authorization_id
+     * }
+     *
      * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
@@ -202,9 +207,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrOrder[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listOrders(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listOrders(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListOrders($headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListOrders($queryParameters, $headerParameters), $fetch);
     }
 
     /**
