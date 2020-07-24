@@ -56,6 +56,9 @@ class IamUserNormalizer implements DenormalizerInterface, NormalizerInterface, D
         if (property_exists($data, 'is_pending_invite') && null !== $data->{'is_pending_invite'}) {
             $object->setIsPendingInvite($data->{'is_pending_invite'});
         }
+        if (property_exists($data, 'is_primary') && null !== $data->{'is_primary'}) {
+            $object->setIsPrimary($data->{'is_primary'});
+        }
         if (property_exists($data, 'is_deleted') && null !== $data->{'is_deleted'}) {
             $object->setIsDeleted($data->{'is_deleted'});
         }
@@ -102,6 +105,9 @@ class IamUserNormalizer implements DenormalizerInterface, NormalizerInterface, D
         }
         if (null !== $object->getIsPendingInvite()) {
             $data->{'is_pending_invite'} = $object->getIsPendingInvite();
+        }
+        if (null !== $object->getIsPrimary()) {
+            $data->{'is_primary'} = $object->getIsPrimary();
         }
         if (null !== $object->getIsDeleted()) {
             $data->{'is_deleted'} = $object->getIsDeleted();

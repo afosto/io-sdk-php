@@ -3279,6 +3279,64 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Requests a purge token.
+     *
+     * @param \Afosto\Sdk\Model\IamPurgesPostBody $body  Purge request
+     * @param string                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\RequestPurgeTokenUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RequestPurgeTokenNotFoundException
+     * @throws \Afosto\Sdk\Exception\RequestPurgeTokenBadRequestException
+     * @throws \Afosto\Sdk\Exception\RequestPurgeTokenForbiddenException
+     * @throws \Afosto\Sdk\Exception\RequestPurgeTokenInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RequestPurgeTokenServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\IamPurgesPostResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function requestPurgeToken(\Afosto\Sdk\Model\IamPurgesPostBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RequestPurgeToken($body), $fetch);
+    }
+
+    /**
+     * View a purge token.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewPurgeTokenUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewPurgeTokenNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewPurgeTokenBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewPurgeTokenForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewPurgeTokenInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewPurgeTokenServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\IamPurgeToken|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewPurgeToken(string $token, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewPurgeToken($token), $fetch);
+    }
+
+    /**
+     * Start purge for token.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\StartPurgeUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\StartPurgeNotFoundException
+     * @throws \Afosto\Sdk\Exception\StartPurgeBadRequestException
+     * @throws \Afosto\Sdk\Exception\StartPurgeForbiddenException
+     * @throws \Afosto\Sdk\Exception\StartPurgeInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\StartPurgeServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\IamPurgeToken|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function startPurge(string $token, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\StartPurge($token), $fetch);
+    }
+
+    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListSubtenantsUnauthorizedException

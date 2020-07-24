@@ -39,6 +39,10 @@ class IamUser
     /**
      * @var bool
      */
+    protected $isPrimary;
+    /**
+     * @var bool
+     */
     protected $isDeleted;
     /**
      * @var string
@@ -129,6 +133,18 @@ class IamUser
     public function setIsPendingInvite(?bool $isPendingInvite): self
     {
         $this->isPendingInvite = $isPendingInvite;
+
+        return $this;
+    }
+
+    public function getIsPrimary(): ?bool
+    {
+        return $this->isPrimary;
+    }
+
+    public function setIsPrimary(?bool $isPrimary): self
+    {
+        $this->isPrimary = $isPrimary;
 
         return $this;
     }

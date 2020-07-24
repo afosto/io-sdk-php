@@ -206,6 +206,7 @@ class NormalizerFactory
         $normalizers[] = new IamPhoneNumberModelNormalizer();
         $normalizers[] = new IamSubtenantNormalizer();
         $normalizers[] = new IamPendingRequestNormalizer();
+        $normalizers[] = new IamPurgeTokenNormalizer();
         $normalizers[] = new IamPendingAuthorizationNormalizer();
         $normalizers[] = new IamAuthorizationNormalizer();
         $normalizers[] = new IamSubtenantUserNormalizer();
@@ -486,6 +487,8 @@ class NormalizerFactory
         $normalizers[] = new IamLogsFiltersGetResponse200Normalizer();
         $normalizers[] = new IamTenantsPostResponse200Normalizer();
         $normalizers[] = new IamTenantsIdPutBodyNormalizer();
+        $normalizers[] = new IamPurgesPostBodyNormalizer();
+        $normalizers[] = new IamPurgesPostResponse200Normalizer();
         $normalizers[] = new IamSubtenantsInvitesIdPutBodyNormalizer();
         $normalizers[] = new IamSubtenantsRequestsPostBodyNormalizer();
         $normalizers[] = new IamSubtenantsAuthorizationsRequestsIdPutBodyNormalizer();
