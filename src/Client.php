@@ -2633,7 +2633,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Get a filesystem.
+     * Delete a filesystem.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -2690,7 +2690,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Get a filesystem.
+     * Update a filesystem.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *

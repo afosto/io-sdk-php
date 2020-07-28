@@ -15,7 +15,7 @@ class DeleteFilesystem extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
     protected $id;
 
     /**
-     * Get a filesystem.
+     * Delete a filesystem.
      */
     public function __construct(string $id)
     {

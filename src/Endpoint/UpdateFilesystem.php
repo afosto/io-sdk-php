@@ -15,7 +15,7 @@ class UpdateFilesystem extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
     protected $id;
 
     /**
-     * Get a filesystem.
+     * Update a filesystem.
      */
     public function __construct(string $id, \Afosto\Sdk\Model\CntFilesystemModel $body)
     {
