@@ -1130,6 +1130,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a calculation.
      *
+     * @param array $queryParameters {
+     *
+     *     @var string $x-page cursor
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetCalculationBadRequestException
@@ -1141,9 +1146,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrCalculation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getCalculation(string $id, string $fetch = self::FETCH_OBJECT)
+    public function getCalculation(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetCalculation($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetCalculation($id, $queryParameters), $fetch);
     }
 
     /**

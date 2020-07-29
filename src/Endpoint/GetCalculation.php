@@ -16,10 +16,16 @@ class GetCalculation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 
     /**
      * Returns a calculation.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $x-page cursor
+     * }
      */
-    public function __construct(string $id)
+    public function __construct(string $id, array $queryParameters = [])
     {
         $this->id = $id;
+        $this->queryParameters = $queryParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -42,6 +48,17 @@ class GetCalculation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['x-page']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('x-page', ['string']);
+
+        return $optionsResolver;
     }
 
     /**
