@@ -5640,12 +5640,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a sub transfer.
      *
-     * @param array $headerParameters {
-     *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
-     * }
-     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetSubTransferItemsUnauthorizedException
@@ -5657,9 +5651,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\WmsSubTransferItem[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getSubTransferItems(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function getSubTransferItems(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSubTransferItems($id, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetSubTransferItems($id), $fetch);
     }
 
     /**

@@ -16,17 +16,10 @@ class GetSubTransferItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
 
     /**
      * Returns a sub transfer.
-     *
-     * @param array $headerParameters {
-     *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
-     * }
      */
-    public function __construct(string $id, array $headerParameters = [])
+    public function __construct(string $id)
     {
         $this->id = $id;
-        $this->headerParameters = $headerParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -49,18 +42,6 @@ class GetSubTransferItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
-    }
-
-    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
-    {
-        $optionsResolver = parent::getHeadersOptionsResolver();
-        $optionsResolver->setDefined(['x-page', 'x-page-size']);
-        $optionsResolver->setRequired([]);
-        $optionsResolver->setDefaults([]);
-        $optionsResolver->setAllowedTypes('x-page', ['string']);
-        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
-
-        return $optionsResolver;
     }
 
     /**
