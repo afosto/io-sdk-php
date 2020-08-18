@@ -39,11 +39,11 @@ class CntHtmlToPdfRequest
     /**
      * @var int
      */
-    protected $waitDelay = 200;
+    protected $waitDelay = 2;
     /**
      * @var int
      */
-    protected $waitTimeout = 10000;
+    protected $waitTimeout = 10;
 
     public function getPath(): ?string
     {
