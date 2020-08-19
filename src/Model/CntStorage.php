@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class CntWatcher
+class CntStorage
 {
     /**
      * @var int
@@ -19,15 +19,15 @@ class CntWatcher
     /**
      * @var string
      */
-    protected $description;
+    protected $name;
     /**
-     * @var int
+     * @var string
      */
-    protected $storageId;
+    protected $type;
     /**
-     * @var CntWatcherSource
+     * @var mixed
      */
-    protected $source;
+    protected $configuration;
     /**
      * @var \DateTime
      */
@@ -49,38 +49,44 @@ class CntWatcher
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getName(): ?string
     {
-        return $this->description;
+        return $this->name;
     }
 
-    public function setDescription(?string $description): self
+    public function setName(?string $name): self
     {
-        $this->description = $description;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getStorageId(): ?int
+    public function getType(): ?string
     {
-        return $this->storageId;
+        return $this->type;
     }
 
-    public function setStorageId(?int $storageId): self
+    public function setType(?string $type): self
     {
-        $this->storageId = $storageId;
+        $this->type = $type;
 
         return $this;
     }
 
-    public function getSource(): ?CntWatcherSource
+    /**
+     * @return mixed
+     */
+    public function getConfiguration()
     {
-        return $this->source;
+        return $this->configuration;
     }
 
-    public function setSource(?CntWatcherSource $source): self
+    /**
+     * @param mixed $configuration
+     */
+    public function setConfiguration($configuration): self
     {
-        $this->source = $source;
+        $this->configuration = $configuration;
 
         return $this;
     }

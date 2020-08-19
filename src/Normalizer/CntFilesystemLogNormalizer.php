@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class CntWatcherNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class CntFilesystemLogNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\CntWatcher' === $type;
+        return 'Afosto\\Sdk\\Model\\CntFilesystemLog' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\CntWatcher' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\CntFilesystemLog' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,24 +37,24 @@ class CntWatcherNormalizer implements DenormalizerInterface, NormalizerInterface
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\CntWatcher();
+        $object = new \Afosto\Sdk\Model\CntFilesystemLog();
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'description') && null !== $data->{'description'}) {
-            $object->setDescription($data->{'description'});
+        if (property_exists($data, 'file_id') && null !== $data->{'file_id'}) {
+            $object->setFileId($data->{'file_id'});
         }
         if (property_exists($data, 'storage_id') && null !== $data->{'storage_id'}) {
             $object->setStorageId($data->{'storage_id'});
         }
-        if (property_exists($data, 'source') && null !== $data->{'source'}) {
-            $object->setSource($this->denormalizer->denormalize($data->{'source'}, 'Afosto\\Sdk\\Model\\CntWatcherSource', 'json', $context));
+        if (property_exists($data, 'is_success') && null !== $data->{'is_success'}) {
+            $object->setIsSuccess($data->{'is_success'});
+        }
+        if (property_exists($data, 'message') && null !== $data->{'message'}) {
+            $object->setMessage($data->{'message'});
         }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
-        }
-        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
-            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 
         return $object;
@@ -66,20 +66,20 @@ class CntWatcherNormalizer implements DenormalizerInterface, NormalizerInterface
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getDescription()) {
-            $data->{'description'} = $object->getDescription();
+        if (null !== $object->getFileId()) {
+            $data->{'file_id'} = $object->getFileId();
         }
         if (null !== $object->getStorageId()) {
             $data->{'storage_id'} = $object->getStorageId();
         }
-        if (null !== $object->getSource()) {
-            $data->{'source'} = $this->normalizer->normalize($object->getSource(), 'json', $context);
+        if (null !== $object->getIsSuccess()) {
+            $data->{'is_success'} = $object->getIsSuccess();
+        }
+        if (null !== $object->getMessage()) {
+            $data->{'message'} = $object->getMessage();
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
-        }
-        if (null !== $object->getUpdatedAt()) {
-            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

@@ -41,8 +41,8 @@ class CntWatcherModelNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'filesystem_id') && null !== $data->{'filesystem_id'}) {
-            $object->setFilesystemId($data->{'filesystem_id'});
+        if (property_exists($data, 'storage_id') && null !== $data->{'storage_id'}) {
+            $object->setStorageId($data->{'storage_id'});
         }
         if (property_exists($data, 'source') && null !== $data->{'source'}) {
             $object->setSource($this->denormalizer->denormalize($data->{'source'}, 'Afosto\\Sdk\\Model\\CntWatcherSource', 'json', $context));
@@ -57,8 +57,8 @@ class CntWatcherModelNormalizer implements DenormalizerInterface, NormalizerInte
         if (null !== $object->getDescription()) {
             $data->{'description'} = $object->getDescription();
         }
-        if (null !== $object->getFilesystemId()) {
-            $data->{'filesystem_id'} = $object->getFilesystemId();
+        if (null !== $object->getStorageId()) {
+            $data->{'storage_id'} = $object->getStorageId();
         }
         if (null !== $object->getSource()) {
             $data->{'source'} = $this->normalizer->normalize($object->getSource(), 'json', $context);

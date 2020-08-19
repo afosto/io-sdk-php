@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class CntWatcherNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class CntStorageNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\CntWatcher' === $type;
+        return 'Afosto\\Sdk\\Model\\CntStorage' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\CntWatcher' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\CntStorage' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,18 +37,18 @@ class CntWatcherNormalizer implements DenormalizerInterface, NormalizerInterface
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\CntWatcher();
+        $object = new \Afosto\Sdk\Model\CntStorage();
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'description') && null !== $data->{'description'}) {
-            $object->setDescription($data->{'description'});
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
+            $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'storage_id') && null !== $data->{'storage_id'}) {
-            $object->setStorageId($data->{'storage_id'});
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
+            $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'source') && null !== $data->{'source'}) {
-            $object->setSource($this->denormalizer->denormalize($data->{'source'}, 'Afosto\\Sdk\\Model\\CntWatcherSource', 'json', $context));
+        if (property_exists($data, 'configuration') && null !== $data->{'configuration'}) {
+            $object->setConfiguration($data->{'configuration'});
         }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -66,14 +66,14 @@ class CntWatcherNormalizer implements DenormalizerInterface, NormalizerInterface
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getDescription()) {
-            $data->{'description'} = $object->getDescription();
+        if (null !== $object->getName()) {
+            $data->{'name'} = $object->getName();
         }
-        if (null !== $object->getStorageId()) {
-            $data->{'storage_id'} = $object->getStorageId();
+        if (null !== $object->getType()) {
+            $data->{'type'} = $object->getType();
         }
-        if (null !== $object->getSource()) {
-            $data->{'source'} = $this->normalizer->normalize($object->getSource(), 'json', $context);
+        if (null !== $object->getConfiguration()) {
+            $data->{'configuration'} = $object->getConfiguration();
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

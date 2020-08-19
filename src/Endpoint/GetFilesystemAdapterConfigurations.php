@@ -21,7 +21,7 @@ class GetFilesystemAdapterConfigurations extends \Jane\OpenApiRuntime\Client\Bas
 
     public function getUri(): string
     {
-        return '/cnt/adapters/configurations';
+        return '/cnt/filesystems/configurations';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -44,12 +44,12 @@ class GetFilesystemAdapterConfigurations extends \Jane\OpenApiRuntime\Client\Bas
      * @throws \Afosto\Sdk\Exception\GetFilesystemAdapterConfigurationsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetFilesystemAdapterConfigurationsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\CntAdaptersConfigurationsGetResponse200Item[]|null
+     * @return \Afosto\Sdk\Model\CntFilesystemsConfigurationsGetResponse200Item[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\CntAdaptersConfigurationsGetResponse200Item[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\CntFilesystemsConfigurationsGetResponse200Item[]', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\GetFilesystemAdapterConfigurationsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

@@ -29,7 +29,7 @@ class CreateFileWatcher extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 
     public function getUri(): string
     {
-        return '/cnt/watchers';
+        return '/cnt/filesystems/watchers';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

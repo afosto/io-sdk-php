@@ -171,12 +171,13 @@ class NormalizerFactory
         $normalizers[] = new IamPlanNormalizer();
         $normalizers[] = new IamTierNormalizer();
         $normalizers[] = new IamUsageRecordNormalizer();
+        $normalizers[] = new CntFilesystemLogNormalizer();
         $normalizers[] = new CntWatcherNormalizer();
         $normalizers[] = new CntWatcherSourceNormalizer();
         $normalizers[] = new CntWatcherModelNormalizer();
-        $normalizers[] = new CntFilesystemNormalizer();
-        $normalizers[] = new CntFilesystemModelNormalizer();
-        $normalizers[] = new CntFilesystemSyncRequestNormalizer();
+        $normalizers[] = new CntStorageNormalizer();
+        $normalizers[] = new CntStorageModelNormalizer();
+        $normalizers[] = new CntStorageSyncRequestNormalizer();
         $normalizers[] = new CntFileNormalizer();
         $normalizers[] = new MesUsageRecordNormalizer();
         $normalizers[] = new MesReportRequestNormalizer();
@@ -484,7 +485,7 @@ class NormalizerFactory
         $normalizers[] = new OdrFiltersPutResponse200Normalizer();
         $normalizers[] = new OdrOptionsRulesConstraintsGetResponse200Normalizer();
         $normalizers[] = new IamSourcesPostBodyNormalizer();
-        $normalizers[] = new CntAdaptersConfigurationsGetResponse200ItemNormalizer();
+        $normalizers[] = new CntFilesystemsConfigurationsGetResponse200ItemNormalizer();
         $normalizers[] = new IamLogsFiltersGetResponse200Normalizer();
         $normalizers[] = new IamTenantsPostResponse200Normalizer();
         $normalizers[] = new IamTenantsIdPutBodyNormalizer();

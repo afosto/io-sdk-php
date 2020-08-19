@@ -2604,113 +2604,113 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ListFilesystemsBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListFilesystemsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListFilesystemsForbiddenException
-     * @throws \Afosto\Sdk\Exception\ListFilesystemsNotFoundException
-     * @throws \Afosto\Sdk\Exception\ListFilesystemsInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\ListFilesystemsServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\ListFilesystemStoragesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListFilesystemStoragesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListFilesystemStoragesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListFilesystemStoragesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListFilesystemStoragesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListFilesystemStoragesServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\CntFilesystem[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\CntStorage[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listFilesystems(string $fetch = self::FETCH_OBJECT)
+    public function listFilesystemStorages(string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListFilesystems(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListFilesystemStorages(), $fetch);
     }
 
     /**
-     * Add a new external filesystem.
+     * Add new external storage.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\CreateFilesystemBadRequestException
-     * @throws \Afosto\Sdk\Exception\CreateFilesystemUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateFilesystemForbiddenException
-     * @throws \Afosto\Sdk\Exception\CreateFilesystemNotFoundException
-     * @throws \Afosto\Sdk\Exception\CreateFilesystemInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\CreateFilesystemServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\CreateStorageBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateStorageUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateStorageForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateStorageNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateStorageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateStorageServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\CntFilesystem|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\CntStorage|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createFilesystem(\Afosto\Sdk\Model\CntFilesystemModel $body, string $fetch = self::FETCH_OBJECT)
+    public function createStorage(\Afosto\Sdk\Model\CntStorageModel $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateFilesystem($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateStorage($body), $fetch);
     }
 
     /**
-     * Delete a filesystem.
+     * Delete a storage.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\DeleteFilesystemBadRequestException
-     * @throws \Afosto\Sdk\Exception\DeleteFilesystemUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteFilesystemForbiddenException
-     * @throws \Afosto\Sdk\Exception\DeleteFilesystemNotFoundException
-     * @throws \Afosto\Sdk\Exception\DeleteFilesystemInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\DeleteFilesystemServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\CntFilesystem|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function deleteFilesystem(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteFilesystem($id), $fetch);
-    }
-
-    /**
-     * Get a filesystem.
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetFilesystemBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetFilesystemUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetFilesystemForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetFilesystemNotFoundException
-     * @throws \Afosto\Sdk\Exception\GetFilesystemInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\GetFilesystemServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\CntFilesystem|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getFilesystem(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFilesystem($id), $fetch);
-    }
-
-    /**
-     * Send a file to a filesystem.
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\SendFileToFilesystemBadRequestException
-     * @throws \Afosto\Sdk\Exception\SendFileToFilesystemUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\SendFileToFilesystemForbiddenException
-     * @throws \Afosto\Sdk\Exception\SendFileToFilesystemNotFoundException
-     * @throws \Afosto\Sdk\Exception\SendFileToFilesystemInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\SendFileToFilesystemServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\DeleteStorageBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteStorageUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteStorageForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteStorageNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteStorageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteStorageServiceUnavailableException
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function sendFileToFilesystem(string $id, \Afosto\Sdk\Model\CntFilesystemSyncRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function deleteStorage(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SendFileToFilesystem($id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteStorage($id), $fetch);
     }
 
     /**
-     * Update a filesystem.
+     * Get a filesystem storage.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\UpdateFilesystemBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdateFilesystemUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateFilesystemForbiddenException
-     * @throws \Afosto\Sdk\Exception\UpdateFilesystemNotFoundException
-     * @throws \Afosto\Sdk\Exception\UpdateFilesystemInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\UpdateFilesystemServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\GetFilesystemStorageBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetFilesystemStorageUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetFilesystemStorageForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetFilesystemStorageNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetFilesystemStorageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetFilesystemStorageServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\CntFilesystem|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\CntStorage|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateFilesystem(string $id, \Afosto\Sdk\Model\CntFilesystemModel $body, string $fetch = self::FETCH_OBJECT)
+    public function getFilesystemStorage(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateFilesystem($id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFilesystemStorage($id), $fetch);
+    }
+
+    /**
+     * Send a file to a storage.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SyncFileBadRequestException
+     * @throws \Afosto\Sdk\Exception\SyncFileUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SyncFileForbiddenException
+     * @throws \Afosto\Sdk\Exception\SyncFileNotFoundException
+     * @throws \Afosto\Sdk\Exception\SyncFileInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SyncFileServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function syncFile(string $id, \Afosto\Sdk\Model\CntStorageSyncRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SyncFile($id, $body), $fetch);
+    }
+
+    /**
+     * Update storage.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateStorageBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateStorageUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateStorageForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateStorageNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateStorageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateStorageServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntStorage|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateStorage(string $id, \Afosto\Sdk\Model\CntStorageModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateStorage($id, $body), $fetch);
     }
 
     /**
@@ -2723,11 +2723,36 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetFilesystemAdapterConfigurationsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetFilesystemAdapterConfigurationsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\CntAdaptersConfigurationsGetResponse200Item[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\CntFilesystemsConfigurationsGetResponse200Item[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function getFilesystemAdapterConfigurations(string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFilesystemAdapterConfigurations(), $fetch);
+    }
+
+    /**
+     * List all logs of sync calls.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $file_id
+     *     @var string $storage_id
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetFilesystemLogsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetFilesystemLogsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetFilesystemLogsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetFilesystemLogsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetFilesystemLogsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetFilesystemLogsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntFilesystemLog[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getFilesystemLogs(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFilesystemLogs($queryParameters), $fetch);
     }
 
     /**

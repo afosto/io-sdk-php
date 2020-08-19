@@ -19,7 +19,7 @@ class CntWatcherModel
     /**
      * @var int
      */
-    protected $filesystemId;
+    protected $storageId;
     /**
      * @var CntWatcherSource
      */
@@ -37,14 +37,14 @@ class CntWatcherModel
         return $this;
     }
 
-    public function getFilesystemId(): ?int
+    public function getStorageId(): ?int
     {
-        return $this->filesystemId;
+        return $this->storageId;
     }
 
-    public function setFilesystemId(?int $filesystemId): self
+    public function setStorageId(?int $storageId): self
     {
-        $this->filesystemId = $filesystemId;
+        $this->storageId = $storageId;
 
         return $this;
     }

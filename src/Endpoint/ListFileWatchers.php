@@ -21,7 +21,7 @@ class ListFileWatchers extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     public function getUri(): string
     {
-        return '/cnt/watchers';
+        return '/cnt/filesystems/watchers';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

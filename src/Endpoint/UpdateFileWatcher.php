@@ -32,7 +32,7 @@ class UpdateFileWatcher extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/cnt/watchers/{id}');
+        return str_replace(['{id}'], [$this->id], '/cnt/filesystems/watchers/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
