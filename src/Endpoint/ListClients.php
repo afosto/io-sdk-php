@@ -20,10 +20,17 @@ class ListClients extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      *     @var int $is_deleted
      *     @var string $scope
      * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $x-page-size
+     *     @var string $x-page
+     * }
      */
-    public function __construct(array $queryParameters = [])
+    public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
         $this->queryParameters = $queryParameters;
+        $this->headerParameters = $headerParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -56,6 +63,18 @@ class ListClients extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         $optionsResolver->setDefaults(['is_deleted' => 0]);
         $optionsResolver->setAllowedTypes('is_deleted', ['int']);
         $optionsResolver->setAllowedTypes('scope', ['string']);
+
+        return $optionsResolver;
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['x-page-size', 'x-page']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('x-page-size', ['int']);
+        $optionsResolver->setAllowedTypes('x-page', ['string']);
 
         return $optionsResolver;
     }
