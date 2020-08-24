@@ -2737,6 +2737,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      *     @var string $file_id
      *     @var string $storage_id
+     *     @var string $is_success
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

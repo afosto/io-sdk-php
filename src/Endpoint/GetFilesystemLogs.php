@@ -19,6 +19,7 @@ class GetFilesystemLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      *
      *     @var string $file_id
      *     @var string $storage_id
+     *     @var string $is_success
      * }
      */
     public function __construct(array $queryParameters = [])
@@ -51,11 +52,12 @@ class GetFilesystemLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['file_id', 'storage_id']);
+        $optionsResolver->setDefined(['file_id', 'storage_id', 'is_success']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('file_id', ['string']);
         $optionsResolver->setAllowedTypes('storage_id', ['string']);
+        $optionsResolver->setAllowedTypes('is_success', ['string']);
 
         return $optionsResolver;
     }
