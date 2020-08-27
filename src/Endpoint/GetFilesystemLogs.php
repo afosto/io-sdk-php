@@ -18,7 +18,7 @@ class GetFilesystemLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      * @param array $queryParameters {
      *
      *     @var string $file_id
-     *     @var string $storage_id
+     *     @var int $storage_id
      *     @var string $is_success
      * }
      */
@@ -56,7 +56,7 @@ class GetFilesystemLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('file_id', ['string']);
-        $optionsResolver->setAllowedTypes('storage_id', ['string']);
+        $optionsResolver->setAllowedTypes('storage_id', ['int']);
         $optionsResolver->setAllowedTypes('is_success', ['string']);
 
         return $optionsResolver;

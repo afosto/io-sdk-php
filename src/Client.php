@@ -2736,7 +2736,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param array $queryParameters {
      *
      *     @var string $file_id
-     *     @var string $storage_id
+     *     @var int $storage_id
      *     @var string $is_success
      * }
      *
