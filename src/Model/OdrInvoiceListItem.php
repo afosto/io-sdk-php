@@ -21,6 +21,10 @@ class OdrInvoiceListItem
      */
     protected $number;
     /**
+     * @var string
+     */
+    protected $reference;
+    /**
      * @var int
      */
     protected $count;
@@ -117,6 +121,18 @@ class OdrInvoiceListItem
     public function setNumber(?string $number): self
     {
         $this->number = $number;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(?string $reference): self
+    {
+        $this->reference = $reference;
 
         return $this;
     }

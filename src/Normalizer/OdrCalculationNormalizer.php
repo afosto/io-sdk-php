@@ -44,6 +44,9 @@ class OdrCalculationNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'number') && null !== $data->{'number'}) {
             $object->setNumber($data->{'number'});
         }
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
+            $object->setReference($data->{'reference'});
+        }
         if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
@@ -122,6 +125,9 @@ class OdrCalculationNormalizer implements DenormalizerInterface, NormalizerInter
         }
         if (null !== $object->getNumber()) {
             $data->{'number'} = $object->getNumber();
+        }
+        if (null !== $object->getReference()) {
+            $data->{'reference'} = $object->getReference();
         }
         if (null !== $object->getItems()) {
             $values = [];

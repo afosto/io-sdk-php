@@ -21,6 +21,10 @@ class OdrCalculation
      */
     protected $number;
     /**
+     * @var string
+     */
+    protected $reference;
+    /**
      * @var OdrCalculationItem[]
      */
     protected $items;
@@ -113,6 +117,18 @@ class OdrCalculation
     public function setNumber(?string $number): self
     {
         $this->number = $number;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(?string $reference): self
+    {
+        $this->reference = $reference;
 
         return $this;
     }

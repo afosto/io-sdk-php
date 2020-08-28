@@ -44,6 +44,9 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'number') && null !== $data->{'number'}) {
             $object->setNumber($data->{'number'});
         }
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
+            $object->setReference($data->{'reference'});
+        }
         if (property_exists($data, 'count') && null !== $data->{'count'}) {
             $object->setCount($data->{'count'});
         }
@@ -121,6 +124,9 @@ class OdrInvoiceListItemNormalizer implements DenormalizerInterface, NormalizerI
         }
         if (null !== $object->getNumber()) {
             $data->{'number'} = $object->getNumber();
+        }
+        if (null !== $object->getReference()) {
+            $data->{'reference'} = $object->getReference();
         }
         if (null !== $object->getCount()) {
             $data->{'count'} = $object->getCount();

@@ -38,6 +38,9 @@ class OdrInvoiceRequestNormalizer implements DenormalizerInterface, NormalizerIn
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrInvoiceRequest();
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
+            $object->setReference($data->{'reference'});
+        }
         if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
@@ -80,6 +83,9 @@ class OdrInvoiceRequestNormalizer implements DenormalizerInterface, NormalizerIn
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getReference()) {
+            $data->{'reference'} = $object->getReference();
+        }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
         }

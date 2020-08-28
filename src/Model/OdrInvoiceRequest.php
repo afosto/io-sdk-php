@@ -15,6 +15,10 @@ class OdrInvoiceRequest
     /**
      * @var string
      */
+    protected $reference;
+    /**
+     * @var string
+     */
     protected $clientId;
     /**
      * @var string
@@ -48,6 +52,18 @@ class OdrInvoiceRequest
      * @var mixed
      */
     protected $metadata;
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(?string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
 
     public function getClientId(): ?string
     {
