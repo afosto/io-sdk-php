@@ -32,7 +32,7 @@ class SetRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/odr/orders/{id}/warehousing');
+        return str_replace(['{id}'], [$this->id], '/odr/orders/{id}/items/routing');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -55,12 +55,12 @@ class SetRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
      * @throws \Afosto\Sdk\Exception\SetRouteInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\SetRouteServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrOrderItem[]|null
+     * @return \Afosto\Sdk\Model\OdrSimpleOrderItem[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrOrderItem[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrSimpleOrderItem[]', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\SetRouteUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

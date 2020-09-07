@@ -499,6 +499,44 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * allocate the order.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AllocateOrderUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AllocateOrderNotFoundException
+     * @throws \Afosto\Sdk\Exception\AllocateOrderBadRequestException
+     * @throws \Afosto\Sdk\Exception\AllocateOrderForbiddenException
+     * @throws \Afosto\Sdk\Exception\AllocateOrderInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AllocateOrderServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function allocateOrder(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AllocateOrder($id), $fetch);
+    }
+
+    /**
+     * fulfil the order.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\FulfilOrderUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\FulfilOrderNotFoundException
+     * @throws \Afosto\Sdk\Exception\FulfilOrderBadRequestException
+     * @throws \Afosto\Sdk\Exception\FulfilOrderForbiddenException
+     * @throws \Afosto\Sdk\Exception\FulfilOrderInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\FulfilOrderServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function fulfilOrder(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\FulfilOrder($id), $fetch);
+    }
+
+    /**
      * Update the order state.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -611,6 +649,50 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * set the warehouse item on a product.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AttachWarehouseItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AttachWarehouseItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\AttachWarehouseItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\AttachWarehouseItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\AttachWarehouseItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AttachWarehouseItemsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrderItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function attachWarehouseItems(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AttachWarehouseItems($id, $body), $fetch);
+    }
+
+    /**
+     * Returns a list of items.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListItemsRoutingUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListItemsRoutingNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListItemsRoutingBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListItemsRoutingForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListItemsRoutingInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListItemsRoutingServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrGroupRoute[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listItemsRouting(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListItemsRouting($id, $headerParameters), $fetch);
+    }
+
+    /**
      * Define a WMS route for a set of order items.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -622,11 +704,30 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\SetRouteInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\SetRouteServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrOrderItem[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrSimpleOrderItem[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function setRoute(string $id, array $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SetRoute($id, $body), $fetch);
+    }
+
+    /**
+     * set an claim on a order item.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SetClaimUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SetClaimNotFoundException
+     * @throws \Afosto\Sdk\Exception\SetClaimBadRequestException
+     * @throws \Afosto\Sdk\Exception\SetClaimForbiddenException
+     * @throws \Afosto\Sdk\Exception\SetClaimInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SetClaimServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrderItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function setClaim(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SetClaim($id, $body), $fetch);
     }
 
     /**

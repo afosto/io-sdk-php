@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrOrdersIdWarehousingPutBodyItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrOrdersIdItemsRoutingPutBodyItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\OdrOrdersIdWarehousingPutBodyItem' === $type;
+        return 'Afosto\\Sdk\\Model\\OdrOrdersIdItemsRoutingPutBodyItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrOrdersIdWarehousingPutBodyItem' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrOrdersIdItemsRoutingPutBodyItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class OdrOrdersIdWarehousingPutBodyItemNormalizer implements DenormalizerInterfa
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrOrdersIdWarehousingPutBodyItem();
+        $object = new \Afosto\Sdk\Model\OdrOrdersIdItemsRoutingPutBodyItem();
         if (property_exists($data, 'item_ids') && null !== $data->{'item_ids'}) {
             $values = [];
             foreach ($data->{'item_ids'} as $value) {
