@@ -17,7 +17,7 @@ class GetFilesystemStorage extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
     /**
      * Get a filesystem storage.
      */
-    public function __construct(string $id)
+    public function __construct(int $id)
     {
         $this->id = $id;
     }

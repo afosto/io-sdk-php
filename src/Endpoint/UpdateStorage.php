@@ -17,7 +17,7 @@ class UpdateStorage extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * Update storage.
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\CntStorageModel $body)
+    public function __construct(int $id, \Afosto\Sdk\Model\CntStorageModel $body)
     {
         $this->id = $id;
         $this->body = $body;

@@ -17,7 +17,7 @@ class DeleteStorage extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * Delete a storage.
      */
-    public function __construct(string $id)
+    public function __construct(int $id)
     {
         $this->id = $id;
     }

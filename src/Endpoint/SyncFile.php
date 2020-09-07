@@ -17,7 +17,7 @@ class SyncFile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
     /**
      * Send a file to a storage.
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\CntStorageSyncRequest $body)
+    public function __construct(int $id, \Afosto\Sdk\Model\CntStorageSyncRequest $body)
     {
         $this->id = $id;
         $this->body = $body;

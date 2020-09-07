@@ -2752,7 +2752,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function deleteStorage(string $id, string $fetch = self::FETCH_OBJECT)
+    public function deleteStorage(int $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteStorage($id), $fetch);
     }
@@ -2771,7 +2771,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntStorage|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getFilesystemStorage(string $id, string $fetch = self::FETCH_OBJECT)
+    public function getFilesystemStorage(int $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetFilesystemStorage($id), $fetch);
     }
@@ -2790,7 +2790,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function syncFile(string $id, \Afosto\Sdk\Model\CntStorageSyncRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function syncFile(int $id, \Afosto\Sdk\Model\CntStorageSyncRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SyncFile($id, $body), $fetch);
     }
@@ -2809,7 +2809,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntStorage|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateStorage(string $id, \Afosto\Sdk\Model\CntStorageModel $body, string $fetch = self::FETCH_OBJECT)
+    public function updateStorage(int $id, \Afosto\Sdk\Model\CntStorageModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateStorage($id, $body), $fetch);
     }
