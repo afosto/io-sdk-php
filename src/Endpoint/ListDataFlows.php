@@ -35,7 +35,7 @@ class ListDataFlows extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getUri(): string
     {
-        return '/cnt/dataflows';
+        return '/cnt/dataflow/flows';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

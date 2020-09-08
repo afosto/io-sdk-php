@@ -3225,6 +3225,66 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Get a list of flow types.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $code
+     * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var int $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListDataFlowTypesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListDataFlowTypesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListDataFlowTypesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListDataFlowTypesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListDataFlowTypesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListDataFlowTypesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntDataflowType[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listDataFlowTypes(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListDataFlowTypes($queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
+     * View a dataflow type.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $code
+     * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var int $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewDataflowTypeBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewDataflowTypeUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewDataflowTypeForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewDataflowTypeNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewDataflowTypeInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewDataflowTypeServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntDataflowType[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewDataflowType(string $type, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewDataflowType($type, $queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
      * Get a list of flows.
      *
      * @param array $headerParameters {
@@ -3342,6 +3402,63 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function getDataflowLogs(string $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetDataflowLogs($id), $fetch);
+    }
+
+    /**
+     * Get the data-model as it is applied.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetDataflowModelBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetDataflowModelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetDataflowModelForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetDataflowModelNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetDataflowModelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetDataflowModelServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function getDataflowModel(string $model, string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetDataflowModel($model, $id), $fetch);
+    }
+
+    /**
+     * Test if a flow matches the data.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\MatchTesterBadRequestException
+     * @throws \Afosto\Sdk\Exception\MatchTesterUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\MatchTesterForbiddenException
+     * @throws \Afosto\Sdk\Exception\MatchTesterNotFoundException
+     * @throws \Afosto\Sdk\Exception\MatchTesterInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\MatchTesterServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntDataflowMatcherModelIdPostResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function matchTester(string $model, string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\MatchTester($model, $id), $fetch);
+    }
+
+    /**
+     * Trigger an existing flow.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\TriggerFlowBadRequestException
+     * @throws \Afosto\Sdk\Exception\TriggerFlowUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\TriggerFlowForbiddenException
+     * @throws \Afosto\Sdk\Exception\TriggerFlowNotFoundException
+     * @throws \Afosto\Sdk\Exception\TriggerFlowInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\TriggerFlowServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function triggerFlow(string $id, \Afosto\Sdk\Model\CntDataflowFlowsIdTriggerPostBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\TriggerFlow($id, $body), $fetch);
     }
 
     /**
@@ -5198,6 +5315,31 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function deleteAvailableSkuToLocation(string $id, array $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteAvailableSkuToLocation($id, $body), $fetch);
+    }
+
+    /**
+     * List sku's for location.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function getAvailableSkuForLocation(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetAvailableSkuForLocation($id, $headerParameters), $fetch);
     }
 
     /**

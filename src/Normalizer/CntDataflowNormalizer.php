@@ -47,25 +47,21 @@ class CntDataflowNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'source') && null !== $data->{'source'}) {
             $object->setSource($data->{'source'});
         }
-        if (property_exists($data, 'flow') && null !== $data->{'flow'}) {
-            $object->setFlow($data->{'flow'});
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
+            $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'events') && null !== $data->{'events'}) {
-            $values = [];
-            foreach ($data->{'events'} as $value) {
-                $values[] = $value;
-            }
-            $object->setEvents($values);
+        if (property_exists($data, 'trigger') && null !== $data->{'trigger'}) {
+            $object->setTrigger($this->denormalizer->denormalize($data->{'trigger'}, 'Afosto\\Sdk\\Model\\CntDataflowTrigger', 'json', $context));
         }
         if (property_exists($data, 'config') && null !== $data->{'config'}) {
             $object->setConfig($data->{'config'});
         }
         if (property_exists($data, 'filter') && null !== $data->{'filter'}) {
-            $values_1 = [];
-            foreach ($data->{'filter'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\CntDataflowFilter', 'json', $context);
+            $values = [];
+            foreach ($data->{'filter'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CntDataflowFilter', 'json', $context);
             }
-            $object->setFilter($values_1);
+            $object->setFilter($values);
         }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -89,25 +85,21 @@ class CntDataflowNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (null !== $object->getSource()) {
             $data->{'source'} = $object->getSource();
         }
-        if (null !== $object->getFlow()) {
-            $data->{'flow'} = $object->getFlow();
+        if (null !== $object->getType()) {
+            $data->{'type'} = $object->getType();
         }
-        if (null !== $object->getEvents()) {
-            $values = [];
-            foreach ($object->getEvents() as $value) {
-                $values[] = $value;
-            }
-            $data->{'events'} = $values;
+        if (null !== $object->getTrigger()) {
+            $data->{'trigger'} = $this->normalizer->normalize($object->getTrigger(), 'json', $context);
         }
         if (null !== $object->getConfig()) {
             $data->{'config'} = $object->getConfig();
         }
         if (null !== $object->getFilter()) {
-            $values_1 = [];
-            foreach ($object->getFilter() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            $values = [];
+            foreach ($object->getFilter() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
-            $data->{'filter'} = $values_1;
+            $data->{'filter'} = $values;
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

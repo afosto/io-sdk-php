@@ -31,7 +31,7 @@ class GetDataflowLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/cnt/dataflows/{id}/logs');
+        return str_replace(['{id}'], [$this->id], '/cnt/dataflow/flows/{id}/logs');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

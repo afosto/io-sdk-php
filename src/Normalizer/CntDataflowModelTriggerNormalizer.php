@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class CntDataflowFilterNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class CntDataflowModelTriggerNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\CntDataflowFilter' === $type;
+        return 'Afosto\\Sdk\\Model\\CntDataflowModelTrigger' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\CntDataflowFilter' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\CntDataflowModelTrigger' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,19 +37,19 @@ class CntDataflowFilterNormalizer implements DenormalizerInterface, NormalizerIn
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\CntDataflowFilter();
-        if (property_exists($data, 'key') && null !== $data->{'key'}) {
-            $object->setKey($data->{'key'});
+        $object = new \Afosto\Sdk\Model\CntDataflowModelTrigger();
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
+            $object->setType($data->{'type'});
         }
-        if (property_exists($data, 'operator') && null !== $data->{'operator'}) {
-            $object->setOperator($data->{'operator'});
-        }
-        if (property_exists($data, 'values') && null !== $data->{'values'}) {
+        if (property_exists($data, 'events') && null !== $data->{'events'}) {
             $values = [];
-            foreach ($data->{'values'} as $value) {
+            foreach ($data->{'events'} as $value) {
                 $values[] = $value;
             }
-            $object->setValues($values);
+            $object->setEvents($values);
+        }
+        if (property_exists($data, 'crontab') && null !== $data->{'crontab'}) {
+            $object->setCrontab($data->{'crontab'});
         }
 
         return $object;
@@ -58,18 +58,18 @@ class CntDataflowFilterNormalizer implements DenormalizerInterface, NormalizerIn
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getKey()) {
-            $data->{'key'} = $object->getKey();
+        if (null !== $object->getType()) {
+            $data->{'type'} = $object->getType();
         }
-        if (null !== $object->getOperator()) {
-            $data->{'operator'} = $object->getOperator();
-        }
-        if (null !== $object->getValues()) {
+        if (null !== $object->getEvents()) {
             $values = [];
-            foreach ($object->getValues() as $value) {
+            foreach ($object->getEvents() as $value) {
                 $values[] = $value;
             }
-            $data->{'values'} = $values;
+            $data->{'events'} = $values;
+        }
+        if (null !== $object->getCrontab()) {
+            $data->{'crontab'} = $object->getCrontab();
         }
 
         return $data;

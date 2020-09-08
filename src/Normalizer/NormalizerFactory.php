@@ -205,9 +205,12 @@ class NormalizerFactory
         $normalizers[] = new SplNetworkDeviceNormalizer();
         $normalizers[] = new SplCreateNetworkDeviceNormalizer();
         $normalizers[] = new IamLogNormalizer();
+        $normalizers[] = new CntDataflowTypeNormalizer();
         $normalizers[] = new CntDataflowNormalizer();
-        $normalizers[] = new CntDataflowModelNormalizer();
+        $normalizers[] = new CntDataflowTriggerNormalizer();
         $normalizers[] = new CntDataflowFilterNormalizer();
+        $normalizers[] = new CntDataflowModelNormalizer();
+        $normalizers[] = new CntDataflowModelTriggerNormalizer();
         $normalizers[] = new CntDataflowLogNormalizer();
         $normalizers[] = new CntGifInfoNormalizer();
         $normalizers[] = new IamPhoneNumberNormalizer();
@@ -496,6 +499,10 @@ class NormalizerFactory
         $normalizers[] = new IamSourcesPostBodyNormalizer();
         $normalizers[] = new CntFilesystemsConfigurationsGetResponse200ItemNormalizer();
         $normalizers[] = new IamLogsFiltersGetResponse200Normalizer();
+        $normalizers[] = new CntDataflowMatcherModelIdPostResponse200Normalizer();
+        $normalizers[] = new CntDataflowMatcherModelIdPostResponse200ResultNormalizer();
+        $normalizers[] = new CntDataflowMatcherModelIdPostResponse200ResultMissesNormalizer();
+        $normalizers[] = new CntDataflowFlowsIdTriggerPostBodyNormalizer();
         $normalizers[] = new IamTenantsPostResponse200Normalizer();
         $normalizers[] = new IamTenantsIdPutBodyNormalizer();
         $normalizers[] = new IamPurgesPostBodyNormalizer();

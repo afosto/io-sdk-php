@@ -27,11 +27,11 @@ class CntDataflow
     /**
      * @var string
      */
-    protected $flow;
+    protected $type;
     /**
-     * @var string[]
+     * @var CntDataflowTrigger
      */
-    protected $events;
+    protected $trigger;
     /**
      * @var mixed
      */
@@ -85,32 +85,26 @@ class CntDataflow
         return $this;
     }
 
-    public function getFlow(): ?string
+    public function getType(): ?string
     {
-        return $this->flow;
+        return $this->type;
     }
 
-    public function setFlow(?string $flow): self
+    public function setType(?string $type): self
     {
-        $this->flow = $flow;
+        $this->type = $type;
 
         return $this;
     }
 
-    /**
-     * @return string[]|null
-     */
-    public function getEvents(): ?array
+    public function getTrigger(): ?CntDataflowTrigger
     {
-        return $this->events;
+        return $this->trigger;
     }
 
-    /**
-     * @param string[]|null $events
-     */
-    public function setEvents(?array $events): self
+    public function setTrigger(?CntDataflowTrigger $trigger): self
     {
-        $this->events = $events;
+        $this->trigger = $trigger;
 
         return $this;
     }

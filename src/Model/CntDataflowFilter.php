@@ -15,32 +15,54 @@ class CntDataflowFilter
     /**
      * @var string
      */
-    protected $path;
+    protected $key;
     /**
      * @var string
      */
-    protected $value;
+    protected $operator;
+    /**
+     * @var string[]
+     */
+    protected $values;
 
-    public function getPath(): ?string
+    public function getKey(): ?string
     {
-        return $this->path;
+        return $this->key;
     }
 
-    public function setPath(?string $path): self
+    public function setKey(?string $key): self
     {
-        $this->path = $path;
+        $this->key = $key;
 
         return $this;
     }
 
-    public function getValue(): ?string
+    public function getOperator(): ?string
     {
-        return $this->value;
+        return $this->operator;
     }
 
-    public function setValue(?string $value): self
+    public function setOperator(?string $operator): self
     {
-        $this->value = $value;
+        $this->operator = $operator;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getValues(): ?array
+    {
+        return $this->values;
+    }
+
+    /**
+     * @param string[]|null $values
+     */
+    public function setValues(?array $values): self
+    {
+        $this->values = $values;
 
         return $this;
     }
