@@ -411,7 +411,7 @@ class NormalizerFactory
         $normalizers[] = new LcsParcelCreateModelNormalizer();
         $normalizers[] = new LcsParcelModelNormalizer();
         $normalizers[] = new LcsFulfilmentLocationNormalizer();
-        $normalizers[] = new LcsFulfilmentLocationCreateNormalizer();
+        $normalizers[] = new LcsFulfilmentLocationModelNormalizer();
         $normalizers[] = new LcsShipmentUpdateModelNormalizer();
         $normalizers[] = new LcsShipmentUpdateModelAddressingNormalizer();
         $normalizers[] = new LcsShipmentModelNormalizer();

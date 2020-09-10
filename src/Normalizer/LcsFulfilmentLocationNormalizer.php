@@ -47,6 +47,9 @@ class LcsFulfilmentLocationNormalizer implements DenormalizerInterface, Normaliz
         if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
             $object->setAddressId($data->{'address_id'});
         }
+        if (property_exists($data, 'is_disabled') && null !== $data->{'is_disabled'}) {
+            $object->setIsDisabled($data->{'is_disabled'});
+        }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
@@ -68,6 +71,9 @@ class LcsFulfilmentLocationNormalizer implements DenormalizerInterface, Normaliz
         }
         if (null !== $object->getAddressId()) {
             $data->{'address_id'} = $object->getAddressId();
+        }
+        if (null !== $object->getIsDisabled()) {
+            $data->{'is_disabled'} = $object->getIsDisabled();
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

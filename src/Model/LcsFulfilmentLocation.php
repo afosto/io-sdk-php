@@ -25,6 +25,10 @@ class LcsFulfilmentLocation
      */
     protected $addressId;
     /**
+     * @var bool
+     */
+    protected $isDisabled;
+    /**
      * @var \DateTime
      */
     protected $createdAt;
@@ -65,6 +69,18 @@ class LcsFulfilmentLocation
     public function setAddressId(?string $addressId): self
     {
         $this->addressId = $addressId;
+
+        return $this;
+    }
+
+    public function getIsDisabled(): ?bool
+    {
+        return $this->isDisabled;
+    }
+
+    public function setIsDisabled(?bool $isDisabled): self
+    {
+        $this->isDisabled = $isDisabled;
 
         return $this;
     }

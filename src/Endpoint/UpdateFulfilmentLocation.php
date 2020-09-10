@@ -17,7 +17,7 @@ class UpdateFulfilmentLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
     /**
      * Updates a location.
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\LcsFulfilmentLocationCreate $body)
+    public function __construct(string $id, \Afosto\Sdk\Model\LcsFulfilmentLocationModel $body)
     {
         $this->id = $id;
         $this->body = $body;

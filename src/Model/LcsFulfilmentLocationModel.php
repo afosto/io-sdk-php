@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class LcsFulfilmentLocationCreate
+class LcsFulfilmentLocationModel
 {
     /**
      * @var string
@@ -20,6 +20,10 @@ class LcsFulfilmentLocationCreate
      * @var string
      */
     protected $addressId;
+    /**
+     * @var bool
+     */
+    protected $isDisabled = false;
 
     public function getName(): ?string
     {
@@ -41,6 +45,18 @@ class LcsFulfilmentLocationCreate
     public function setAddressId(?string $addressId): self
     {
         $this->addressId = $addressId;
+
+        return $this;
+    }
+
+    public function getIsDisabled(): ?bool
+    {
+        return $this->isDisabled;
+    }
+
+    public function setIsDisabled(?bool $isDisabled): self
+    {
+        $this->isDisabled = $isDisabled;
 
         return $this;
     }

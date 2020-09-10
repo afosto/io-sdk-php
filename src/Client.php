@@ -7706,6 +7706,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param array $queryParameters {
      *
      *     @var string $address_id
+     *     @var string $is_disabled
      * }
      *
      * @param array $headerParameters {
@@ -7744,7 +7745,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\LcsFulfilmentLocation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createFulfilmentLocation(\Afosto\Sdk\Model\LcsFulfilmentLocationCreate $body, string $fetch = self::FETCH_OBJECT)
+    public function createFulfilmentLocation(\Afosto\Sdk\Model\LcsFulfilmentLocationModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateFulfilmentLocation($body), $fetch);
     }
@@ -7782,7 +7783,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\LcsFulfilmentLocation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateFulfilmentLocation(string $id, \Afosto\Sdk\Model\LcsFulfilmentLocationCreate $body, string $fetch = self::FETCH_OBJECT)
+    public function updateFulfilmentLocation(string $id, \Afosto\Sdk\Model\LcsFulfilmentLocationModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateFulfilmentLocation($id, $body), $fetch);
     }

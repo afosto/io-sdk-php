@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsFulfilmentLocationCreateNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LcsFulfilmentLocationModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsFulfilmentLocationCreate' === $type;
+        return 'Afosto\\Sdk\\Model\\LcsFulfilmentLocationModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsFulfilmentLocationCreate' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsFulfilmentLocationModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,15 @@ class LcsFulfilmentLocationCreateNormalizer implements DenormalizerInterface, No
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsFulfilmentLocationCreate();
+        $object = new \Afosto\Sdk\Model\LcsFulfilmentLocationModel();
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
         if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
             $object->setAddressId($data->{'address_id'});
+        }
+        if (property_exists($data, 'is_disabled') && null !== $data->{'is_disabled'}) {
+            $object->setIsDisabled($data->{'is_disabled'});
         }
 
         return $object;
@@ -56,6 +59,9 @@ class LcsFulfilmentLocationCreateNormalizer implements DenormalizerInterface, No
         }
         if (null !== $object->getAddressId()) {
             $data->{'address_id'} = $object->getAddressId();
+        }
+        if (null !== $object->getIsDisabled()) {
+            $data->{'is_disabled'} = $object->getIsDisabled();
         }
 
         return $data;

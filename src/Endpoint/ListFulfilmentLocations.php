@@ -18,6 +18,7 @@ class ListFulfilmentLocations extends \Jane\OpenApiRuntime\Client\BaseEndpoint i
      * @param array $queryParameters {
      *
      *     @var string $address_id
+     *     @var string $is_disabled
      * }
      *
      * @param array $headerParameters {
@@ -57,10 +58,11 @@ class ListFulfilmentLocations extends \Jane\OpenApiRuntime\Client\BaseEndpoint i
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['address_id']);
+        $optionsResolver->setDefined(['address_id', 'is_disabled']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('address_id', ['string']);
+        $optionsResolver->setAllowedTypes('is_disabled', ['string']);
 
         return $optionsResolver;
     }
