@@ -41,8 +41,8 @@ class OdrOrdersIdItemsAttachPostBodyItemNormalizer implements DenormalizerInterf
         if (property_exists($data, 'order_item_id') && null !== $data->{'order_item_id'}) {
             $object->setOrderItemId($data->{'order_item_id'});
         }
-        if (property_exists($data, 'warehouse_item_id') && null !== $data->{'warehouse_item_id'}) {
-            $object->setWarehouseItemId($data->{'warehouse_item_id'});
+        if (property_exists($data, 'inventory_item_id') && null !== $data->{'inventory_item_id'}) {
+            $object->setInventoryItemId($data->{'inventory_item_id'});
         }
 
         return $object;
@@ -54,8 +54,8 @@ class OdrOrdersIdItemsAttachPostBodyItemNormalizer implements DenormalizerInterf
         if (null !== $object->getOrderItemId()) {
             $data->{'order_item_id'} = $object->getOrderItemId();
         }
-        if (null !== $object->getWarehouseItemId()) {
-            $data->{'warehouse_item_id'} = $object->getWarehouseItemId();
+        if (null !== $object->getInventoryItemId()) {
+            $data->{'inventory_item_id'} = $object->getInventoryItemId();
         }
 
         return $data;

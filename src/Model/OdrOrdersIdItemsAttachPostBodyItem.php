@@ -19,7 +19,7 @@ class OdrOrdersIdItemsAttachPostBodyItem
     /**
      * @var string
      */
-    protected $warehouseItemId;
+    protected $inventoryItemId;
 
     public function getOrderItemId(): ?string
     {
@@ -33,14 +33,14 @@ class OdrOrdersIdItemsAttachPostBodyItem
         return $this;
     }
 
-    public function getWarehouseItemId(): ?string
+    public function getInventoryItemId(): ?string
     {
-        return $this->warehouseItemId;
+        return $this->inventoryItemId;
     }
 
-    public function setWarehouseItemId(?string $warehouseItemId): self
+    public function setInventoryItemId(?string $inventoryItemId): self
     {
-        $this->warehouseItemId = $warehouseItemId;
+        $this->inventoryItemId = $inventoryItemId;
 
         return $this;
     }
