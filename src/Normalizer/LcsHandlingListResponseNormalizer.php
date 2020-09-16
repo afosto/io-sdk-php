@@ -75,8 +75,8 @@ class LcsHandlingListResponseNormalizer implements DenormalizerInterface, Normal
         if (property_exists($data, 'finished_at') && null !== $data->{'finished_at'}) {
             $object->setFinishedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'finished_at'}));
         }
-        if (property_exists($data, 'is_due_at') && null !== $data->{'is_due_at'}) {
-            $object->setIsDueAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'is_due_at'}));
+        if (property_exists($data, 'due_at') && null !== $data->{'due_at'}) {
+            $object->setDueAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'due_at'}));
         }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -128,8 +128,8 @@ class LcsHandlingListResponseNormalizer implements DenormalizerInterface, Normal
         if (null !== $object->getFinishedAt()) {
             $data->{'finished_at'} = $object->getFinishedAt()->format("Y-m-d\TH:i:sP");
         }
-        if (null !== $object->getIsDueAt()) {
-            $data->{'is_due_at'} = $object->getIsDueAt()->format("Y-m-d\TH:i:sP");
+        if (null !== $object->getDueAt()) {
+            $data->{'due_at'} = $object->getDueAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

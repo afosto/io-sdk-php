@@ -45,8 +45,8 @@ class LcsHandlingModelNormalizer implements DenormalizerInterface, NormalizerInt
             }
             $object->setShipments($values);
         }
-        if (property_exists($data, 'is_due_at') && null !== $data->{'is_due_at'}) {
-            $object->setIsDueAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'is_due_at'}));
+        if (property_exists($data, 'due_at') && null !== $data->{'due_at'}) {
+            $object->setDueAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'due_at'}));
         }
 
         return $object;
@@ -62,8 +62,8 @@ class LcsHandlingModelNormalizer implements DenormalizerInterface, NormalizerInt
             }
             $data->{'shipments'} = $values;
         }
-        if (null !== $object->getIsDueAt()) {
-            $data->{'is_due_at'} = $object->getIsDueAt()->format("Y-m-d\TH:i:sP");
+        if (null !== $object->getDueAt()) {
+            $data->{'due_at'} = $object->getDueAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

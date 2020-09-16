@@ -19,7 +19,7 @@ class LcsHandlingModel
     /**
      * @var \DateTime
      */
-    protected $isDueAt;
+    protected $dueAt;
 
     /**
      * @return LcsHandlingModelShipmentsItem[]|null
@@ -39,14 +39,14 @@ class LcsHandlingModel
         return $this;
     }
 
-    public function getIsDueAt(): ?\DateTime
+    public function getDueAt(): ?\DateTime
     {
-        return $this->isDueAt;
+        return $this->dueAt;
     }
 
-    public function setIsDueAt(?\DateTime $isDueAt): self
+    public function setDueAt(?\DateTime $dueAt): self
     {
-        $this->isDueAt = $isDueAt;
+        $this->dueAt = $dueAt;
 
         return $this;
     }
