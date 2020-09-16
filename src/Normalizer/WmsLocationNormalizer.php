@@ -62,9 +62,6 @@ class WmsLocationNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
             $object->setAddressId($data->{'address_id'});
         }
-        if (property_exists($data, 'warehouse_id') && null !== $data->{'warehouse_id'}) {
-            $object->setWarehouseId($data->{'warehouse_id'});
-        }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
@@ -101,9 +98,6 @@ class WmsLocationNormalizer implements DenormalizerInterface, NormalizerInterfac
         }
         if (null !== $object->getAddressId()) {
             $data->{'address_id'} = $object->getAddressId();
-        }
-        if (null !== $object->getWarehouseId()) {
-            $data->{'warehouse_id'} = $object->getWarehouseId();
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

@@ -47,13 +47,6 @@ class WmsClaimNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'target') && null !== $data->{'target'}) {
             $object->setTarget($data->{'target'});
         }
-        if (property_exists($data, 'items') && null !== $data->{'items'}) {
-            $values = [];
-            foreach ($data->{'items'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsClaimItem', 'json', $context);
-            }
-            $object->setItems($values);
-        }
         if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
             $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
@@ -78,13 +71,6 @@ class WmsClaimNormalizer implements DenormalizerInterface, NormalizerInterface, 
         }
         if (null !== $object->getTarget()) {
             $data->{'target'} = $object->getTarget();
-        }
-        if (null !== $object->getItems()) {
-            $values = [];
-            foreach ($object->getItems() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data->{'items'} = $values;
         }
         if (null !== $object->getExpiresAt()) {
             $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");

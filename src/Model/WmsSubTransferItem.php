@@ -27,11 +27,11 @@ class WmsSubTransferItem
     /**
      * @var string
      */
-    protected $warehouseItemId;
+    protected $inventoryItemId;
     /**
      * @var string
      */
-    protected $stackItemId;
+    protected $reference;
     /**
      * @var string
      */
@@ -81,26 +81,26 @@ class WmsSubTransferItem
         return $this;
     }
 
-    public function getWarehouseItemId(): ?string
+    public function getInventoryItemId(): ?string
     {
-        return $this->warehouseItemId;
+        return $this->inventoryItemId;
     }
 
-    public function setWarehouseItemId(?string $warehouseItemId): self
+    public function setInventoryItemId(?string $inventoryItemId): self
     {
-        $this->warehouseItemId = $warehouseItemId;
+        $this->inventoryItemId = $inventoryItemId;
 
         return $this;
     }
 
-    public function getStackItemId(): ?string
+    public function getReference(): ?string
     {
-        return $this->stackItemId;
+        return $this->reference;
     }
 
-    public function setStackItemId(?string $stackItemId): self
+    public function setReference(?string $reference): self
     {
-        $this->stackItemId = $stackItemId;
+        $this->reference = $reference;
 
         return $this;
     }

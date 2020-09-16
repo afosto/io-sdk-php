@@ -38,11 +38,14 @@ class WmsStockNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsStock();
-        if (property_exists($data, 'warehouse_id') && null !== $data->{'warehouse_id'}) {
-            $object->setWarehouseId($data->{'warehouse_id'});
+        if (property_exists($data, 'location_id') && null !== $data->{'location_id'}) {
+            $object->setLocationId($data->{'location_id'});
         }
         if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
+        }
+        if (property_exists($data, 'position') && null !== $data->{'position'}) {
+            $object->setPosition($data->{'position'});
         }
         if (property_exists($data, 'available') && null !== $data->{'available'}) {
             $object->setAvailable($data->{'available'});
@@ -56,6 +59,9 @@ class WmsStockNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'missing') && null !== $data->{'missing'}) {
             $object->setMissing($data->{'missing'});
         }
+        if (property_exists($data, 'backordered') && null !== $data->{'backordered'}) {
+            $object->setBackordered($data->{'backordered'});
+        }
         if (property_exists($data, 'total') && null !== $data->{'total'}) {
             $object->setTotal($data->{'total'});
         }
@@ -66,11 +72,14 @@ class WmsStockNormalizer implements DenormalizerInterface, NormalizerInterface, 
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getWarehouseId()) {
-            $data->{'warehouse_id'} = $object->getWarehouseId();
+        if (null !== $object->getLocationId()) {
+            $data->{'location_id'} = $object->getLocationId();
         }
         if (null !== $object->getSku()) {
             $data->{'sku'} = $object->getSku();
+        }
+        if (null !== $object->getPosition()) {
+            $data->{'position'} = $object->getPosition();
         }
         if (null !== $object->getAvailable()) {
             $data->{'available'} = $object->getAvailable();
@@ -83,6 +92,9 @@ class WmsStockNormalizer implements DenormalizerInterface, NormalizerInterface, 
         }
         if (null !== $object->getMissing()) {
             $data->{'missing'} = $object->getMissing();
+        }
+        if (null !== $object->getBackordered()) {
+            $data->{'backordered'} = $object->getBackordered();
         }
         if (null !== $object->getTotal()) {
             $data->{'total'} = $object->getTotal();

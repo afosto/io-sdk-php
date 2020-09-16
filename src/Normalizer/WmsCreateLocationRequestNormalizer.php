@@ -62,9 +62,6 @@ class WmsCreateLocationRequestNormalizer implements DenormalizerInterface, Norma
         if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
             $object->setAddressId($data->{'address_id'});
         }
-        if (property_exists($data, 'warehouse_id') && null !== $data->{'warehouse_id'}) {
-            $object->setWarehouseId($data->{'warehouse_id'});
-        }
 
         return $object;
     }
@@ -95,9 +92,6 @@ class WmsCreateLocationRequestNormalizer implements DenormalizerInterface, Norma
         }
         if (null !== $object->getAddressId()) {
             $data->{'address_id'} = $object->getAddressId();
-        }
-        if (null !== $object->getWarehouseId()) {
-            $data->{'warehouse_id'} = $object->getWarehouseId();
         }
 
         return $data;

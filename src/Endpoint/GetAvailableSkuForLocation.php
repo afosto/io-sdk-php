@@ -73,12 +73,12 @@ class GetAvailableSkuForLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoin
      * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationServiceUnavailableException
      *
-     * @return null
+     * @return \Afosto\Sdk\Model\WmsAddAvailableSkuResponse[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return json_decode($body);
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsAddAvailableSkuResponse[]', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetAvailableSkuForLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

@@ -17,7 +17,7 @@ class UpdateItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
      * Update the warehouse item.
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\WmsUpdateWarehouseItemRequest $body)
+    public function __construct(string $id, \Afosto\Sdk\Model\WmsUpdateInventoryItemRequest $body)
     {
         $this->id = $id;
         $this->body = $body;
@@ -55,12 +55,12 @@ class UpdateItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      * @throws \Afosto\Sdk\Exception\UpdateItemInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateItemServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\WmsWarehouseItem|null
+     * @return \Afosto\Sdk\Model\WmsInventoryItem|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsWarehouseItem', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsInventoryItem', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateItemUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

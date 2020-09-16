@@ -25,10 +25,6 @@ class WmsClaim
      */
     protected $target;
     /**
-     * @var WmsClaimItem[]
-     */
-    protected $items;
-    /**
      * @var \DateTime
      */
     protected $expiresAt;
@@ -73,24 +69,6 @@ class WmsClaim
     public function setTarget(?string $target): self
     {
         $this->target = $target;
-
-        return $this;
-    }
-
-    /**
-     * @return WmsClaimItem[]|null
-     */
-    public function getItems(): ?array
-    {
-        return $this->items;
-    }
-
-    /**
-     * @param WmsClaimItem[]|null $items
-     */
-    public function setItems(?array $items): self
-    {
-        $this->items = $items;
 
         return $this;
     }

@@ -5300,8 +5300,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * remove sku's that can be claimed on the location that is not tracking inventory.
      *
-     * @param \Afosto\Sdk\Model\WmsAddAvailableSkuRequest[] $body
-     * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationNotFoundException
@@ -5335,7 +5334,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationServiceUnavailableException
      *
-     * @return \Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsAddAvailableSkuResponse[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function getAvailableSkuForLocation(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -5345,8 +5344,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Add sku's that can be claimed on the location that is not tracking inventory.
      *
-     * @param \Afosto\Sdk\Model\WmsAddAvailableSkuRequest[] $body
-     * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\AddAvailableSkuToLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AddAvailableSkuToLocationNotFoundException
@@ -5355,7 +5353,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\AddAvailableSkuToLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\AddAvailableSkuToLocationServiceUnavailableException
      *
-     * @return \Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsAddAvailableSkuResponse[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function addAvailableSkuToLocation(string $id, array $body, string $fetch = self::FETCH_OBJECT)
     {
@@ -5595,96 +5593,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Get a list of warehouses.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var int $deleted_at the timestamp to compare against
-     *     @var bool $is_active filter on active warehouses
-     * }
-     *
-     * @param array $headerParameters {
-     *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetWarehousesUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetWarehousesNotFoundException
-     * @throws \Afosto\Sdk\Exception\GetWarehousesBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetWarehousesForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetWarehousesInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\GetWarehousesServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\WmsWarehouse[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getWarehouses(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWarehouses($queryParameters, $headerParameters), $fetch);
-    }
-
-    /**
-     * Add a warehouse.
-     *
-     * @param \Afosto\Sdk\Model\WmsCreateWarehouseRequest $body  The new warehouse
-     * @param string                                      $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\CreateWarehouseUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\CreateWarehouseNotFoundException
-     * @throws \Afosto\Sdk\Exception\CreateWarehouseBadRequestException
-     * @throws \Afosto\Sdk\Exception\CreateWarehouseForbiddenException
-     * @throws \Afosto\Sdk\Exception\CreateWarehouseInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\CreateWarehouseServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\WmsWarehouse|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function createWarehouse(\Afosto\Sdk\Model\WmsCreateWarehouseRequest $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateWarehouse($body), $fetch);
-    }
-
-    /**
-     * Add a warehouse.
-     *
-     * @param \Afosto\Sdk\Model\WmsUpdateWarehouseRequest $body  The new warehouse
-     * @param string                                      $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateWarehouseUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateWarehouseNotFoundException
-     * @throws \Afosto\Sdk\Exception\UpdateWarehouseBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdateWarehouseForbiddenException
-     * @throws \Afosto\Sdk\Exception\UpdateWarehouseInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\UpdateWarehouseServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\WmsWarehouse|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateWarehouse(\Afosto\Sdk\Model\WmsUpdateWarehouseRequest $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateWarehouse($body), $fetch);
-    }
-
-    /**
-     * Get a warehouse.
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetWarehouseUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseNotFoundException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\WmsWarehouse|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getWarehouse(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWarehouse($id), $fetch);
-    }
-
-    /**
      * Create a Projection to generate the available allocation options.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -5740,7 +5648,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\CreateClaimsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateClaimsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\WmsCreateClaimResponse|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsClaim|\Psr\Http\Message\ResponseInterface|null
      */
     public function createClaims(\Afosto\Sdk\Model\WmsCreateClaimRequest $body, string $fetch = self::FETCH_OBJECT)
     {
@@ -5765,7 +5673,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\SearchClaimsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\SearchClaimsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\WmsWarehouseItem[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsClaim[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function searchClaims(\Afosto\Sdk\Model\WmsSearchClaimsPostBody $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -5828,6 +5736,31 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function getClaim(string $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetClaim($id), $fetch);
+    }
+
+    /**
+     * Get a claim and it's status.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetClaimItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetClaimItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetClaimItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetClaimItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetClaimItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetClaimItemsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\WmsClaimItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getClaimItems(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetClaimItems($id, $headerParameters), $fetch);
     }
 
     /**
@@ -6032,7 +5965,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\WmsWarehouseItem[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsInventoryItem[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function reportClaimItems(\Afosto\Sdk\Model\WmsTransferReport $body, string $fetch = self::FETCH_OBJECT)
     {
@@ -6050,18 +5983,18 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetWarehouseItemsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseItemsNotFoundException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseItemsBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseItemsForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseItemsInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseItemsServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\GetInventoryItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetInventoryItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetInventoryItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetInventoryItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetInventoryItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetInventoryItemsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\WmsWarehouseItem[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsInventoryItem[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getWarehouseItems(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function getInventoryItems(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWarehouseItems($headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInventoryItems($headerParameters), $fetch);
     }
 
     /**
@@ -6126,7 +6059,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\SearchInventoryInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\SearchInventoryServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\WmsWarehouseItem[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsInventoryItem[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function searchInventory(\Afosto\Sdk\Model\WmsSearchItemsPostBody $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -6138,18 +6071,18 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetWarehouseItemUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseItemNotFoundException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseItemBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseItemForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseItemInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseItemServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\GetInventoryItemUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetInventoryItemNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetInventoryItemBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetInventoryItemForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetInventoryItemInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetInventoryItemServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\WmsWarehouseItem|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsInventoryItem|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getWarehouseItem(string $id, string $fetch = self::FETCH_OBJECT)
+    public function getInventoryItem(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWarehouseItem($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInventoryItem($id), $fetch);
     }
 
     /**
@@ -6164,9 +6097,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateItemInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateItemServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\WmsWarehouseItem|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsInventoryItem|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateItem(string $id, \Afosto\Sdk\Model\WmsUpdateWarehouseItemRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function updateItem(string $id, \Afosto\Sdk\Model\WmsUpdateInventoryItemRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateItem($id, $body), $fetch);
     }

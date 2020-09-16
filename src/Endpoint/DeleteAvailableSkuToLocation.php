@@ -16,8 +16,6 @@ class DeleteAvailableSkuToLocation extends \Jane\OpenApiRuntime\Client\BaseEndpo
 
     /**
      * remove sku's that can be claimed on the location that is not tracking inventory.
-     *
-     * @param \Afosto\Sdk\Model\WmsAddAvailableSkuRequest[] $body
      */
     public function __construct(string $id, array $body)
     {
@@ -39,7 +37,7 @@ class DeleteAvailableSkuToLocation extends \Jane\OpenApiRuntime\Client\BaseEndpo
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return $this->getSerializedBody($serializer);
+        return [['Content-Type' => ['application/json']], json_encode($this->body)];
     }
 
     public function getExtraHeaders(): array

@@ -44,10 +44,6 @@ class WmsCreateLocationRequest
      * @var string
      */
     protected $addressId;
-    /**
-     * @var string
-     */
-    protected $warehouseId;
 
     public function getId(): ?string
     {
@@ -141,18 +137,6 @@ class WmsCreateLocationRequest
     public function setAddressId(?string $addressId): self
     {
         $this->addressId = $addressId;
-
-        return $this;
-    }
-
-    public function getWarehouseId(): ?string
-    {
-        return $this->warehouseId;
-    }
-
-    public function setWarehouseId(?string $warehouseId): self
-    {
-        $this->warehouseId = $warehouseId;
 
         return $this;
     }

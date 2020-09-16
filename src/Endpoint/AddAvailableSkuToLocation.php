@@ -16,8 +16,6 @@ class AddAvailableSkuToLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint
 
     /**
      * Add sku's that can be claimed on the location that is not tracking inventory.
-     *
-     * @param \Afosto\Sdk\Model\WmsAddAvailableSkuRequest[] $body
      */
     public function __construct(string $id, array $body)
     {
@@ -39,7 +37,7 @@ class AddAvailableSkuToLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return $this->getSerializedBody($serializer);
+        return [['Content-Type' => ['application/json']], json_encode($this->body)];
     }
 
     public function getExtraHeaders(): array
@@ -57,12 +55,12 @@ class AddAvailableSkuToLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint
      * @throws \Afosto\Sdk\Exception\AddAvailableSkuToLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\AddAvailableSkuToLocationServiceUnavailableException
      *
-     * @return null
+     * @return \Afosto\Sdk\Model\WmsAddAvailableSkuResponse[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
-        if (204 === $status) {
-            return null;
+        if (200 === $status) {
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsAddAvailableSkuResponse[]', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\AddAvailableSkuToLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

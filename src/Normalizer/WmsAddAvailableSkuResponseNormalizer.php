@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class WmsStockUpItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class WmsAddAvailableSkuResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\WmsStockUpItem' === $type;
+        return 'Afosto\\Sdk\\Model\\WmsAddAvailableSkuResponse' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsStockUpItem' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsAddAvailableSkuResponse' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,15 +37,18 @@ class WmsStockUpItemNormalizer implements DenormalizerInterface, NormalizerInter
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\WmsStockUpItem();
+        $object = new \Afosto\Sdk\Model\WmsAddAvailableSkuResponse();
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
+            $object->setId($data->{'id'});
+        }
         if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
-            $object->setQuantity($data->{'quantity'});
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
+            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
-        if (property_exists($data, 'position') && null !== $data->{'position'}) {
-            $object->setPosition($data->{'position'});
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
+            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 
         return $object;
@@ -54,14 +57,17 @@ class WmsStockUpItemNormalizer implements DenormalizerInterface, NormalizerInter
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
+        }
         if (null !== $object->getSku()) {
             $data->{'sku'} = $object->getSku();
         }
-        if (null !== $object->getQuantity()) {
-            $data->{'quantity'} = $object->getQuantity();
+        if (null !== $object->getCreatedAt()) {
+            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
         }
-        if (null !== $object->getPosition()) {
-            $data->{'position'} = $object->getPosition();
+        if (null !== $object->getUpdatedAt()) {
+            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

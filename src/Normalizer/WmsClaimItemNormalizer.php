@@ -41,8 +41,11 @@ class WmsClaimItemNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'warehouse_item_id') && null !== $data->{'warehouse_item_id'}) {
-            $object->setWarehouseItemId($data->{'warehouse_item_id'});
+        if (property_exists($data, 'inventory_item_id') && null !== $data->{'inventory_item_id'}) {
+            $object->setInventoryItemId($data->{'inventory_item_id'});
+        }
+        if (property_exists($data, 'position') && null !== $data->{'position'}) {
+            $object->setPosition($data->{'position'});
         }
         if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
@@ -60,8 +63,11 @@ class WmsClaimItemNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getWarehouseItemId()) {
-            $data->{'warehouse_item_id'} = $object->getWarehouseItemId();
+        if (null !== $object->getInventoryItemId()) {
+            $data->{'inventory_item_id'} = $object->getInventoryItemId();
+        }
+        if (null !== $object->getPosition()) {
+            $data->{'position'} = $object->getPosition();
         }
         if (null !== $object->getReference()) {
             $data->{'reference'} = $object->getReference();

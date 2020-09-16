@@ -20,6 +20,10 @@ class WmsStockUpItem
      * @var int
      */
     protected $quantity;
+    /**
+     * @var string
+     */
+    protected $position;
 
     public function getSku(): ?string
     {
@@ -41,6 +45,18 @@ class WmsStockUpItem
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    public function getPosition(): ?string
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?string $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }

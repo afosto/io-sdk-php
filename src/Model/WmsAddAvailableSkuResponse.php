@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class WmsClaimItem
+class WmsAddAvailableSkuResponse
 {
     /**
      * @var string
@@ -19,15 +19,11 @@ class WmsClaimItem
     /**
      * @var string
      */
-    protected $inventoryItemId;
+    protected $sku;
     /**
-     * @var string
+     * @var \DateTime
      */
-    protected $position;
-    /**
-     * @var string
-     */
-    protected $reference;
+    protected $createdAt;
     /**
      * @var \DateTime
      */
@@ -45,38 +41,26 @@ class WmsClaimItem
         return $this;
     }
 
-    public function getInventoryItemId(): ?string
+    public function getSku(): ?string
     {
-        return $this->inventoryItemId;
+        return $this->sku;
     }
 
-    public function setInventoryItemId(?string $inventoryItemId): self
+    public function setSku(?string $sku): self
     {
-        $this->inventoryItemId = $inventoryItemId;
+        $this->sku = $sku;
 
         return $this;
     }
 
-    public function getPosition(): ?string
+    public function getCreatedAt(): ?\DateTime
     {
-        return $this->position;
+        return $this->createdAt;
     }
 
-    public function setPosition(?string $position): self
+    public function setCreatedAt(?\DateTime $createdAt): self
     {
-        $this->position = $position;
-
-        return $this;
-    }
-
-    public function getReference(): ?string
-    {
-        return $this->reference;
-    }
-
-    public function setReference(?string $reference): self
-    {
-        $this->reference = $reference;
+        $this->createdAt = $createdAt;
 
         return $this;
     }

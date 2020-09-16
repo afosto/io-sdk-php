@@ -15,11 +15,15 @@ class WmsStock
     /**
      * @var string
      */
-    protected $warehouseId;
+    protected $locationId;
     /**
      * @var string
      */
     protected $sku;
+    /**
+     * @var string
+     */
+    protected $position;
     /**
      * @var int
      */
@@ -39,16 +43,20 @@ class WmsStock
     /**
      * @var int
      */
+    protected $backordered;
+    /**
+     * @var int
+     */
     protected $total;
 
-    public function getWarehouseId(): ?string
+    public function getLocationId(): ?string
     {
-        return $this->warehouseId;
+        return $this->locationId;
     }
 
-    public function setWarehouseId(?string $warehouseId): self
+    public function setLocationId(?string $locationId): self
     {
-        $this->warehouseId = $warehouseId;
+        $this->locationId = $locationId;
 
         return $this;
     }
@@ -61,6 +69,18 @@ class WmsStock
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
+
+        return $this;
+    }
+
+    public function getPosition(): ?string
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?string $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }
@@ -109,6 +129,18 @@ class WmsStock
     public function setMissing(?int $missing): self
     {
         $this->missing = $missing;
+
+        return $this;
+    }
+
+    public function getBackordered(): ?int
+    {
+        return $this->backordered;
+    }
+
+    public function setBackordered(?int $backordered): self
+    {
+        $this->backordered = $backordered;
 
         return $this;
     }

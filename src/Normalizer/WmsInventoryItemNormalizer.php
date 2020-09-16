@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class WmsSubTransferItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class WmsInventoryItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\WmsSubTransferItem' === $type;
+        return 'Afosto\\Sdk\\Model\\WmsInventoryItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsSubTransferItem' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\WmsInventoryItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,30 +37,34 @@ class WmsSubTransferItemNormalizer implements DenormalizerInterface, NormalizerI
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\WmsSubTransferItem();
+        $object = new \Afosto\Sdk\Model\WmsInventoryItem();
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'status') && null !== $data->{'status'}) {
-            $object->setStatus($data->{'status'});
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
+            $object->setSku($data->{'sku'});
         }
-        if (property_exists($data, 'claim_item_id') && null !== $data->{'claim_item_id'}) {
-            $object->setClaimItemId($data->{'claim_item_id'});
-        }
-        if (property_exists($data, 'inventory_item_id') && null !== $data->{'inventory_item_id'}) {
-            $object->setInventoryItemId($data->{'inventory_item_id'});
-        }
-        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
-            $object->setReference($data->{'reference'});
+        if (property_exists($data, 'claim_id') && null !== $data->{'claim_id'}) {
+            $object->setClaimId($data->{'claim_id'});
         }
         if (property_exists($data, 'location_id') && null !== $data->{'location_id'}) {
             $object->setLocationId($data->{'location_id'});
         }
+        if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
+            $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
+            foreach ($data->{'metadata'} as $key => $value) {
+                $values[$key] = $value;
+            }
+            $object->setMetadata($values);
+        }
+        if (property_exists($data, 'state') && null !== $data->{'state'}) {
+            $object->setState($data->{'state'});
+        }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
-            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
+            $object->setCreatedAt($data->{'created_at'});
         }
         if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
-            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
+            $object->setUpdatedAt($data->{'updated_at'});
         }
 
         return $object;
@@ -72,26 +76,30 @@ class WmsSubTransferItemNormalizer implements DenormalizerInterface, NormalizerI
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getStatus()) {
-            $data->{'status'} = $object->getStatus();
+        if (null !== $object->getSku()) {
+            $data->{'sku'} = $object->getSku();
         }
-        if (null !== $object->getClaimItemId()) {
-            $data->{'claim_item_id'} = $object->getClaimItemId();
-        }
-        if (null !== $object->getInventoryItemId()) {
-            $data->{'inventory_item_id'} = $object->getInventoryItemId();
-        }
-        if (null !== $object->getReference()) {
-            $data->{'reference'} = $object->getReference();
+        if (null !== $object->getClaimId()) {
+            $data->{'claim_id'} = $object->getClaimId();
         }
         if (null !== $object->getLocationId()) {
             $data->{'location_id'} = $object->getLocationId();
         }
+        if (null !== $object->getMetadata()) {
+            $values = new \stdClass();
+            foreach ($object->getMetadata() as $key => $value) {
+                $values->{$key} = $value;
+            }
+            $data->{'metadata'} = $values;
+        }
+        if (null !== $object->getState()) {
+            $data->{'state'} = $object->getState();
+        }
         if (null !== $object->getCreatedAt()) {
-            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
+            $data->{'created_at'} = $object->getCreatedAt();
         }
         if (null !== $object->getUpdatedAt()) {
-            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
+            $data->{'updated_at'} = $object->getUpdatedAt();
         }
 
         return $data;
