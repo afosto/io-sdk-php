@@ -44,7 +44,7 @@ class WmsTransferReportNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'item_claims') && null !== $data->{'item_claims'}) {
             $values = [];
             foreach ($data->{'item_claims'} as $value) {
-                $values[] = $value;
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\WmsTransferReportItem', 'json', $context);
             }
             $object->setItemClaims($values);
         }
@@ -61,7 +61,7 @@ class WmsTransferReportNormalizer implements DenormalizerInterface, NormalizerIn
         if (null !== $object->getItemClaims()) {
             $values = [];
             foreach ($object->getItemClaims() as $value) {
-                $values[] = $value;
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'item_claims'} = $values;
         }

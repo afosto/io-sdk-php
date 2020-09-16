@@ -263,12 +263,14 @@ class NormalizerFactory
         $normalizers[] = new MesTriggerNormalizer();
         $normalizers[] = new MesSubscriptionModelNormalizer();
         $normalizers[] = new MesWebhookSubscriptionNormalizer();
+        $normalizers[] = new WmsMetricNormalizer();
         $normalizers[] = new WmsStockNormalizer();
         $normalizers[] = new WmsStockUpRequestNormalizer();
         $normalizers[] = new WmsStockUpItemNormalizer();
         $normalizers[] = new WmsInventorySummaryConstraintNormalizer();
         $normalizers[] = new WmsInventoryConstraintNormalizer();
         $normalizers[] = new WmsUpdateInventoryItemRequestNormalizer();
+        $normalizers[] = new WmsUpdateTransferRequestNormalizer();
         $normalizers[] = new WmsCreateRouteRequestNormalizer();
         $normalizers[] = new WmsUpdateRouteRequestNormalizer();
         $normalizers[] = new WmsAttachItemClaimRequestNormalizer();
@@ -295,6 +297,7 @@ class NormalizerFactory
         $normalizers[] = new WmsLocationNormalizer();
         $normalizers[] = new WmsScheduleNormalizer();
         $normalizers[] = new WmsTransferReportNormalizer();
+        $normalizers[] = new WmsTransferReportItemNormalizer();
         $normalizers[] = new WmsProjectionNormalizer();
         $normalizers[] = new WmsConstraintNormalizer();
         $normalizers[] = new WmsClaimNormalizer();
@@ -303,6 +306,8 @@ class NormalizerFactory
         $normalizers[] = new WmsSubTransferSummaryNormalizer();
         $normalizers[] = new WmsDurationResponseNormalizer();
         $normalizers[] = new WmsSubTransferNormalizer();
+        $normalizers[] = new WmsLocationBackorderNormalizer();
+        $normalizers[] = new WmsCreateLocationBackorderNormalizer();
         $normalizers[] = new WmsSubTransferItemNormalizer();
         $normalizers[] = new WmsAddAvailableSkuResponseNormalizer();
         $normalizers[] = new OdrStartSessionRequestNormalizer();
