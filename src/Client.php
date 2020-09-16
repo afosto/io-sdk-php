@@ -5231,81 +5231,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DeleteBackorderedUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteBackorderedNotFoundException
-     * @throws \Afosto\Sdk\Exception\DeleteBackorderedBadRequestException
-     * @throws \Afosto\Sdk\Exception\DeleteBackorderedForbiddenException
-     * @throws \Afosto\Sdk\Exception\DeleteBackorderedInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\DeleteBackorderedServiceUnavailableException
-     *
-     * @return \Psr\Http\Message\ResponseInterface|null
-     */
-    public function deleteBackordered(string $locationId, string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteBackordered($locationId, $id), $fetch);
-    }
-
-    /**
-     * returns the backordered item for that location.
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetBackorderedUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetBackorderedNotFoundException
-     * @throws \Afosto\Sdk\Exception\GetBackorderedBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetBackorderedForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetBackorderedInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\GetBackorderedServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\WmsLocationBackorder|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getBackordered(string $locationId, string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetBackordered($locationId, $id), $fetch);
-    }
-
-    /**
-     * returns the backordered item for that location.
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListBackordersUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListBackordersNotFoundException
-     * @throws \Afosto\Sdk\Exception\ListBackordersBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListBackordersForbiddenException
-     * @throws \Afosto\Sdk\Exception\ListBackordersInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\ListBackordersServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\WmsLocationBackorder[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listBackorders(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListBackorders($id), $fetch);
-    }
-
-    /**
-     * Get positions for a warehouse.
-     *
-     * @param \Afosto\Sdk\Model\WmsCreateLocationBackorder[] $body
-     * @param string                                         $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\AddBackorderUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AddBackorderNotFoundException
-     * @throws \Afosto\Sdk\Exception\AddBackorderBadRequestException
-     * @throws \Afosto\Sdk\Exception\AddBackorderForbiddenException
-     * @throws \Afosto\Sdk\Exception\AddBackorderInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\AddBackorderServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\WmsLocationBackorder[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function addBackorder(string $id, array $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddBackorder($id, $body), $fetch);
-    }
-
-    /**
      * Get positions for a warehouse.
      *
      * @param array $headerParameters {
@@ -5984,26 +5909,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Update items' last known location.
-     *
-     * @param \Afosto\Sdk\Model\WmsUpdateTransferRequest $body  Transfer request object
-     * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\UpdateSubTransferUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\UpdateSubTransferNotFoundException
-     * @throws \Afosto\Sdk\Exception\UpdateSubTransferBadRequestException
-     * @throws \Afosto\Sdk\Exception\UpdateSubTransferForbiddenException
-     * @throws \Afosto\Sdk\Exception\UpdateSubTransferInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\UpdateSubTransferServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\WmsSubTransfer|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function updateSubTransfer(\Afosto\Sdk\Model\WmsUpdateTransferRequest $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateSubTransfer($body), $fetch);
-    }
-
-    /**
      * Returns a sub transfer.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -6197,23 +6102,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function updateItem(string $id, \Afosto\Sdk\Model\WmsUpdateInventoryItemRequest $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateItem($id, $body), $fetch);
-    }
-
-    /**
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetWarehouseMetricsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseMetricsNotFoundException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseMetricsBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseMetricsForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseMetricsInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\GetWarehouseMetricsServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\WmsMetric[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getWarehouseMetrics(string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetWarehouseMetrics(), $fetch);
     }
 
     /**
