@@ -44,6 +44,13 @@ class OdrGroupRouteCollectRoutesItemNormalizer implements DenormalizerInterface,
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
+        if (property_exists($data, 'delivery_routes') && null !== $data->{'delivery_routes'}) {
+            $values = [];
+            foreach ($data->{'delivery_routes'} as $value) {
+                $values[] = $value;
+            }
+            $object->setDeliveryRoutes($values);
+        }
 
         return $object;
     }
@@ -56,6 +63,13 @@ class OdrGroupRouteCollectRoutesItemNormalizer implements DenormalizerInterface,
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
+        }
+        if (null !== $object->getDeliveryRoutes()) {
+            $values = [];
+            foreach ($object->getDeliveryRoutes() as $value) {
+                $values[] = $value;
+            }
+            $data->{'delivery_routes'} = $values;
         }
 
         return $data;

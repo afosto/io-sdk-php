@@ -20,6 +20,12 @@ class OdrGroupRouteCollectRoutesItem
      * @var string
      */
     protected $name;
+    /**
+     * delivery routes that originate from the collect route.
+     *
+     * @var string[]
+     */
+    protected $deliveryRoutes;
 
     public function getId(): ?string
     {
@@ -41,6 +47,28 @@ class OdrGroupRouteCollectRoutesItem
     public function setName(?string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * delivery routes that originate from the collect route.
+     *
+     * @return string[]|null
+     */
+    public function getDeliveryRoutes(): ?array
+    {
+        return $this->deliveryRoutes;
+    }
+
+    /**
+     * delivery routes that originate from the collect route.
+     *
+     * @param string[]|null $deliveryRoutes
+     */
+    public function setDeliveryRoutes(?array $deliveryRoutes): self
+    {
+        $this->deliveryRoutes = $deliveryRoutes;
 
         return $this;
     }
