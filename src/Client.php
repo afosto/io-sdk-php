@@ -1256,11 +1256,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a calculation.
      *
-     * @param array $headerParameters {
-     *
-     *     @var string $x-page cursor
-     * }
-     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetCalculationBadRequestException
@@ -1272,9 +1267,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrCalculation|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getCalculation(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function getCalculation(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetCalculation($id, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetCalculation($id), $fetch);
     }
 
     /**
@@ -1342,12 +1337,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a single invoice by id.
      *
-     * @param array $headerParameters {
-     *
-     *     @var string $x-page the requested page id
-     *     @var string $x-page-size the requested page size
-     * }
-     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ViewInvoiceBadRequestException
@@ -1359,9 +1348,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrInvoice|\Psr\Http\Message\ResponseInterface|null
      */
-    public function viewInvoice(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function viewInvoice(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewInvoice($id, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewInvoice($id), $fetch);
     }
 
     /**
