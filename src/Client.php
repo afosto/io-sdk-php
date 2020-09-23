@@ -8046,6 +8046,31 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Runs a serach.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchQuicqBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchQuicqUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchQuicqForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchQuicqNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchQuicqInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchQuicqServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchQuicq(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchQuicq($headerParameters), $fetch);
+    }
+
+    /**
      * Get a listing of available pricing groups.
      *
      * @param array $headerParameters {
