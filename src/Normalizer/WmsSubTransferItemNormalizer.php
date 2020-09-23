@@ -38,8 +38,8 @@ class WmsSubTransferItemNormalizer implements DenormalizerInterface, NormalizerI
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsSubTransferItem();
-        if (property_exists($data, 'id') && null !== $data->{'id'}) {
-            $object->setId($data->{'id'});
+        if (property_exists($data, 'transfer_item_id') && null !== $data->{'transfer_item_id'}) {
+            $object->setTransferItemId($data->{'transfer_item_id'});
         }
         if (property_exists($data, 'status') && null !== $data->{'status'}) {
             $object->setStatus($data->{'status'});
@@ -52,6 +52,9 @@ class WmsSubTransferItemNormalizer implements DenormalizerInterface, NormalizerI
         }
         if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
+        }
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
+            $object->setSku($data->{'sku'});
         }
         if (property_exists($data, 'location_id') && null !== $data->{'location_id'}) {
             $object->setLocationId($data->{'location_id'});
@@ -69,8 +72,8 @@ class WmsSubTransferItemNormalizer implements DenormalizerInterface, NormalizerI
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
+        if (null !== $object->getTransferItemId()) {
+            $data->{'transfer_item_id'} = $object->getTransferItemId();
         }
         if (null !== $object->getStatus()) {
             $data->{'status'} = $object->getStatus();
@@ -83,6 +86,9 @@ class WmsSubTransferItemNormalizer implements DenormalizerInterface, NormalizerI
         }
         if (null !== $object->getReference()) {
             $data->{'reference'} = $object->getReference();
+        }
+        if (null !== $object->getSku()) {
+            $data->{'sku'} = $object->getSku();
         }
         if (null !== $object->getLocationId()) {
             $data->{'location_id'} = $object->getLocationId();

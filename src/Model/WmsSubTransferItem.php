@@ -15,7 +15,7 @@ class WmsSubTransferItem
     /**
      * @var string
      */
-    protected $id;
+    protected $transferItemId;
     /**
      * @var string
      */
@@ -35,6 +35,10 @@ class WmsSubTransferItem
     /**
      * @var string
      */
+    protected $sku;
+    /**
+     * @var string
+     */
     protected $locationId;
     /**
      * @var \DateTime
@@ -45,14 +49,14 @@ class WmsSubTransferItem
      */
     protected $updatedAt;
 
-    public function getId(): ?string
+    public function getTransferItemId(): ?string
     {
-        return $this->id;
+        return $this->transferItemId;
     }
 
-    public function setId(?string $id): self
+    public function setTransferItemId(?string $transferItemId): self
     {
-        $this->id = $id;
+        $this->transferItemId = $transferItemId;
 
         return $this;
     }
@@ -101,6 +105,18 @@ class WmsSubTransferItem
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getSku(): ?string
+    {
+        return $this->sku;
+    }
+
+    public function setSku(?string $sku): self
+    {
+        $this->sku = $sku;
 
         return $this;
     }
