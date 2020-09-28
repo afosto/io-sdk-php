@@ -44,6 +44,10 @@ class LcsHandlingListItem
      * @var string
      */
     protected $sortingLabel;
+    /**
+     * @var int
+     */
+    protected $rank;
 
     /**
      * @return string[]|null
@@ -149,6 +153,18 @@ class LcsHandlingListItem
     public function setSortingLabel(?string $sortingLabel): self
     {
         $this->sortingLabel = $sortingLabel;
+
+        return $this;
+    }
+
+    public function getRank(): ?int
+    {
+        return $this->rank;
+    }
+
+    public function setRank(?int $rank): self
+    {
+        $this->rank = $rank;
 
         return $this;
     }
