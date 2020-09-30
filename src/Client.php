@@ -2889,7 +2889,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListRecordsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListRecordsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\MesUsageRecord[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamTrackedRecord[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listRecords(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -2899,7 +2899,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a set of usage records for given query.
      *
-     * @param \Afosto\Sdk\Model\MesReportRequest $body            Report request object
+     * @param \Afosto\Sdk\Model\IamReportRequest $body            Report request object
      * @param array                              $queryParameters {
      *
      *     @var int $page_size
@@ -2915,9 +2915,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\QueryUsageInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\QueryUsageServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\MesReport[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamReport[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function queryUsage(\Afosto\Sdk\Model\MesReportRequest $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function queryUsage(\Afosto\Sdk\Model\IamReportRequest $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\QueryUsage($body, $queryParameters), $fetch);
     }
@@ -2932,7 +2932,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListTypesInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListTypesServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\MesType[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamType[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listTypes(string $fetch = self::FETCH_OBJECT)
     {

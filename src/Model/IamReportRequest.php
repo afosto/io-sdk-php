@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class MesReport
+class IamReportRequest
 {
     /**
      * @var string
@@ -33,6 +33,10 @@ class MesReport
      */
     protected $filter;
     /**
+     * @var string[]
+     */
+    protected $keys;
+    /**
      * @var \DateTime
      */
     protected $startAt;
@@ -40,10 +44,6 @@ class MesReport
      * @var \DateTime
      */
     protected $endAt;
-    /**
-     * @var MesBucket[]
-     */
-    protected $buckets;
 
     public function getInterval(): ?string
     {
@@ -105,6 +105,24 @@ class MesReport
         return $this;
     }
 
+    /**
+     * @return string[]|null
+     */
+    public function getKeys(): ?array
+    {
+        return $this->keys;
+    }
+
+    /**
+     * @param string[]|null $keys
+     */
+    public function setKeys(?array $keys): self
+    {
+        $this->keys = $keys;
+
+        return $this;
+    }
+
     public function getStartAt(): ?\DateTime
     {
         return $this->startAt;
@@ -125,24 +143,6 @@ class MesReport
     public function setEndAt(?\DateTime $endAt): self
     {
         $this->endAt = $endAt;
-
-        return $this;
-    }
-
-    /**
-     * @return MesBucket[]|null
-     */
-    public function getBuckets(): ?array
-    {
-        return $this->buckets;
-    }
-
-    /**
-     * @param MesBucket[]|null $buckets
-     */
-    public function setBuckets(?array $buckets): self
-    {
-        $this->buckets = $buckets;
 
         return $this;
     }

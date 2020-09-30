@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class MesTypeNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class IamTrackedRecordNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\MesType' === $type;
+        return 'Afosto\\Sdk\\Model\\IamTrackedRecord' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\MesType' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\IamTrackedRecord' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,18 +37,30 @@ class MesTypeNormalizer implements DenormalizerInterface, NormalizerInterface, D
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\MesType();
+        $object = new \Afosto\Sdk\Model\IamTrackedRecord();
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
+            $object->setId($data->{'id'});
+        }
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
+            $object->setReference($data->{'reference'});
+        }
         if (property_exists($data, 'code') && null !== $data->{'code'}) {
             $object->setCode($data->{'code'});
         }
         if (property_exists($data, 'unit') && null !== $data->{'unit'}) {
             $object->setUnit($data->{'unit'});
         }
+        if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
+            $object->setQuantity($data->{'quantity'});
+        }
         if (property_exists($data, 'processable_as') && null !== $data->{'processable_as'}) {
             $object->setProcessableAs($data->{'processable_as'});
         }
-        if (property_exists($data, 'filter') && null !== $data->{'filter'}) {
-            $object->setFilter($data->{'filter'});
+        if (property_exists($data, 'tracked_at') && null !== $data->{'tracked_at'}) {
+            $object->setTrackedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'tracked_at'}));
+        }
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
+            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
 
         return $object;
@@ -57,17 +69,29 @@ class MesTypeNormalizer implements DenormalizerInterface, NormalizerInterface, D
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
+        }
+        if (null !== $object->getReference()) {
+            $data->{'reference'} = $object->getReference();
+        }
         if (null !== $object->getCode()) {
             $data->{'code'} = $object->getCode();
         }
         if (null !== $object->getUnit()) {
             $data->{'unit'} = $object->getUnit();
         }
+        if (null !== $object->getQuantity()) {
+            $data->{'quantity'} = $object->getQuantity();
+        }
         if (null !== $object->getProcessableAs()) {
             $data->{'processable_as'} = $object->getProcessableAs();
         }
-        if (null !== $object->getFilter()) {
-            $data->{'filter'} = $object->getFilter();
+        if (null !== $object->getTrackedAt()) {
+            $data->{'tracked_at'} = $object->getTrackedAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getCreatedAt()) {
+            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

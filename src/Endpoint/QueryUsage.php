@@ -15,14 +15,14 @@ class QueryUsage extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
      * Returns a set of usage records for given query.
      *
-     * @param \Afosto\Sdk\Model\MesReportRequest $body            Report request object
+     * @param \Afosto\Sdk\Model\IamReportRequest $body            Report request object
      * @param array                              $queryParameters {
      *
      *     @var int $page_size
      *     @var int $page
      * }
      */
-    public function __construct(\Afosto\Sdk\Model\MesReportRequest $body, array $queryParameters = [])
+    public function __construct(\Afosto\Sdk\Model\IamReportRequest $body, array $queryParameters = [])
     {
         $this->body = $body;
         $this->queryParameters = $queryParameters;
@@ -37,7 +37,7 @@ class QueryUsage extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     public function getUri(): string
     {
-        return '/mes/report';
+        return '/iam/report';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -72,12 +72,12 @@ class QueryUsage extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      * @throws \Afosto\Sdk\Exception\QueryUsageInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\QueryUsageServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\MesReport[]|null
+     * @return \Afosto\Sdk\Model\IamReport[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\MesReport[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamReport[]', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\QueryUsageUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

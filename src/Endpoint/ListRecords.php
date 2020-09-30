@@ -35,7 +35,7 @@ class ListRecords extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return '/mes/records';
+        return '/iam/records';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -70,12 +70,12 @@ class ListRecords extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
      * @throws \Afosto\Sdk\Exception\ListRecordsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListRecordsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\MesUsageRecord[]|null
+     * @return \Afosto\Sdk\Model\IamTrackedRecord[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\MesUsageRecord[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamTrackedRecord[]', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ListRecordsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

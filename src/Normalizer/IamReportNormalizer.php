@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class MesReportRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class IamReportNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\MesReportRequest' === $type;
+        return 'Afosto\\Sdk\\Model\\IamReport' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\MesReportRequest' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\IamReport' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class MesReportRequestNormalizer implements DenormalizerInterface, NormalizerInt
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\MesReportRequest();
+        $object = new \Afosto\Sdk\Model\IamReport();
         if (property_exists($data, 'interval') && null !== $data->{'interval'}) {
             $object->setInterval($data->{'interval'});
         }
@@ -53,18 +53,18 @@ class MesReportRequestNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'filter') && null !== $data->{'filter'}) {
             $object->setFilter($data->{'filter'});
         }
-        if (property_exists($data, 'keys') && null !== $data->{'keys'}) {
-            $values = [];
-            foreach ($data->{'keys'} as $value) {
-                $values[] = $value;
-            }
-            $object->setKeys($values);
-        }
         if (property_exists($data, 'start_at') && null !== $data->{'start_at'}) {
             $object->setStartAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'start_at'}));
         }
         if (property_exists($data, 'end_at') && null !== $data->{'end_at'}) {
             $object->setEndAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'end_at'}));
+        }
+        if (property_exists($data, 'buckets') && null !== $data->{'buckets'}) {
+            $values = [];
+            foreach ($data->{'buckets'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\IamBucket', 'json', $context);
+            }
+            $object->setBuckets($values);
         }
 
         return $object;
@@ -88,18 +88,18 @@ class MesReportRequestNormalizer implements DenormalizerInterface, NormalizerInt
         if (null !== $object->getFilter()) {
             $data->{'filter'} = $object->getFilter();
         }
-        if (null !== $object->getKeys()) {
-            $values = [];
-            foreach ($object->getKeys() as $value) {
-                $values[] = $value;
-            }
-            $data->{'keys'} = $values;
-        }
         if (null !== $object->getStartAt()) {
             $data->{'start_at'} = $object->getStartAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getEndAt()) {
             $data->{'end_at'} = $object->getEndAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getBuckets()) {
+            $values = [];
+            foreach ($object->getBuckets() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $data->{'buckets'} = $values;
         }
 
         return $data;

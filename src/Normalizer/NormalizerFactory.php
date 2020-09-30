@@ -186,11 +186,11 @@ class NormalizerFactory
         $normalizers[] = new CntStorageModelNormalizer();
         $normalizers[] = new CntStorageSyncRequestNormalizer();
         $normalizers[] = new CntFileNormalizer();
-        $normalizers[] = new MesUsageRecordNormalizer();
-        $normalizers[] = new MesReportRequestNormalizer();
-        $normalizers[] = new MesReportNormalizer();
-        $normalizers[] = new MesBucketNormalizer();
-        $normalizers[] = new MesTypeNormalizer();
+        $normalizers[] = new IamTrackedRecordNormalizer();
+        $normalizers[] = new IamReportRequestNormalizer();
+        $normalizers[] = new IamReportNormalizer();
+        $normalizers[] = new IamBucketNormalizer();
+        $normalizers[] = new IamTypeNormalizer();
         $normalizers[] = new SplHubNormalizer();
         $normalizers[] = new SplHubModelNormalizer();
         $normalizers[] = new SplPropertyNormalizer();

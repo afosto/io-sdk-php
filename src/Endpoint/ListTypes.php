@@ -21,7 +21,7 @@ class ListTypes extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     public function getUri(): string
     {
-        return '/mes/types';
+        return '/iam/types';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -44,12 +44,12 @@ class ListTypes extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
      * @throws \Afosto\Sdk\Exception\ListTypesInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListTypesServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\MesType[]|null
+     * @return \Afosto\Sdk\Model\IamType[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\MesType[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamType[]', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ListTypesBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
