@@ -1493,6 +1493,80 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
+     * @throws \Afosto\Sdk\Exception\GetServicesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetServicesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetServicesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetServicesForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetServicesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetServicesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrService[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getServices(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetServices(), $fetch);
+    }
+
+    /**
+     * Add a new service.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateServiceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateServiceNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateServiceBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateServiceForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateServiceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateServiceServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrService|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createService(\Afosto\Sdk\Model\OdrServiceModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateService($body), $fetch);
+    }
+
+    /**
+     * Get a single service by ID.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetServiceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetServiceNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetServiceBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetServiceForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetServiceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetServiceServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrService|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getService(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetService($id), $fetch);
+    }
+
+    /**
+     * Get a single service by ID.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateServiceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateServiceNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateServiceBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateServiceForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateServiceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateServiceServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrService|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateService(string $id, \Afosto\Sdk\Model\OdrServiceModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateService($id, $body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
      * @throws \Afosto\Sdk\Exception\ListActionsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListActionsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListActionsForbiddenException

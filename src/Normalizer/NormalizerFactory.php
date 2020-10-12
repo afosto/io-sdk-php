@@ -105,6 +105,9 @@ class NormalizerFactory
         $normalizers[] = new MesDnsRecordNormalizer();
         $normalizers[] = new MesDomainNormalizer();
         $normalizers[] = new MesDomainModelNormalizer();
+        $normalizers[] = new OdrServiceNormalizer();
+        $normalizers[] = new OdrServiceModelNormalizer();
+        $normalizers[] = new OdrServiceVatConfigurationNormalizer();
         $normalizers[] = new OdrCalculatedInvoiceRequestNormalizer();
         $normalizers[] = new OdrCalculationNormalizer();
         $normalizers[] = new OdrCalculationItemNormalizer();
