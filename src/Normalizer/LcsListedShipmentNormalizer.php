@@ -83,6 +83,13 @@ class LcsListedShipmentNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'secret') && null !== $data->{'secret'}) {
             $object->setSecret($data->{'secret'});
         }
+        if (property_exists($data, 'prior_shipments') && null !== $data->{'prior_shipments'}) {
+            $values = [];
+            foreach ($data->{'prior_shipments'} as $value) {
+                $values[] = $value;
+            }
+            $object->setPriorShipments($values);
+        }
         if (property_exists($data, 'list_id') && null !== $data->{'list_id'}) {
             $object->setListId($data->{'list_id'});
         }
@@ -143,6 +150,13 @@ class LcsListedShipmentNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (null !== $object->getSecret()) {
             $data->{'secret'} = $object->getSecret();
+        }
+        if (null !== $object->getPriorShipments()) {
+            $values = [];
+            foreach ($object->getPriorShipments() as $value) {
+                $values[] = $value;
+            }
+            $data->{'prior_shipments'} = $values;
         }
         if (null !== $object->getListId()) {
             $data->{'list_id'} = $object->getListId();

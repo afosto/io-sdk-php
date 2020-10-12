@@ -80,6 +80,13 @@ class LcsShipmentModelNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'order_id') && null !== $data->{'order_id'}) {
             $object->setOrderId($data->{'order_id'});
         }
+        if (property_exists($data, 'prior_shipments') && null !== $data->{'prior_shipments'}) {
+            $values_3 = [];
+            foreach ($data->{'prior_shipments'} as $value_3) {
+                $values_3[] = $value_3;
+            }
+            $object->setPriorShipments($values_3);
+        }
 
         return $object;
     }
@@ -128,6 +135,13 @@ class LcsShipmentModelNormalizer implements DenormalizerInterface, NormalizerInt
         }
         if (null !== $object->getOrderId()) {
             $data->{'order_id'} = $object->getOrderId();
+        }
+        if (null !== $object->getPriorShipments()) {
+            $values_3 = [];
+            foreach ($object->getPriorShipments() as $value_3) {
+                $values_3[] = $value_3;
+            }
+            $data->{'prior_shipments'} = $values_3;
         }
 
         return $data;
