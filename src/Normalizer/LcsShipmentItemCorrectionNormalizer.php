@@ -47,6 +47,9 @@ class LcsShipmentItemCorrectionNormalizer implements DenormalizerInterface, Norm
         if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
+        if (property_exists($data, 'position') && null !== $data->{'position'}) {
+            $object->setPosition($data->{'position'});
+        }
 
         return $object;
     }
@@ -62,6 +65,9 @@ class LcsShipmentItemCorrectionNormalizer implements DenormalizerInterface, Norm
         }
         if (null !== $object->getDescription()) {
             $data->{'description'} = $object->getDescription();
+        }
+        if (null !== $object->getPosition()) {
+            $data->{'position'} = $object->getPosition();
         }
 
         return $data;

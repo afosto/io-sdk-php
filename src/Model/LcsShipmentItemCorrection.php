@@ -24,6 +24,10 @@ class LcsShipmentItemCorrection
      * @var string
      */
     protected $description;
+    /**
+     * @var string
+     */
+    protected $position;
 
     public function getSku(): ?string
     {
@@ -57,6 +61,18 @@ class LcsShipmentItemCorrection
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPosition(): ?string
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?string $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }

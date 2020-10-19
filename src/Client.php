@@ -4814,6 +4814,80 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
+     * @throws \Afosto\Sdk\Exception\ListQuicqProxiesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListQuicqProxiesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListQuicqProxiesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListQuicqProxiesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListQuicqProxiesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListQuicqProxiesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\QcqProxy[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listQuicqProxies(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListQuicqProxies(), $fetch);
+    }
+
+    /**
+     * Add a new proxy configuration.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateQuicqProxyBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateQuicqProxyUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateQuicqProxyForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateQuicqProxyNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateQuicqProxyInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateQuicqProxyServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\QcqProxy|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createQuicqProxy(\Afosto\Sdk\Model\QcqProxyModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateQuicqProxy($body), $fetch);
+    }
+
+    /**
+     * Returns the proxy configuration.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetQuicqProxyBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetQuicqProxyUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetQuicqProxyForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetQuicqProxyNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetQuicqProxyInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetQuicqProxyServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\QcqProxy|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getQuicqProxy(string $key, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetQuicqProxy($key), $fetch);
+    }
+
+    /**
+     * Updates the proxy.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateQuicqProxyBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateQuicqProxyUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateQuicqProxyForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateQuicqProxyNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateQuicqProxyInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateQuicqProxyServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\QcqProxy|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateQuicqProxy(string $key, \Afosto\Sdk\Model\QcqProxyUpdateModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateQuicqProxy($key, $body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
      * @throws \Afosto\Sdk\Exception\ListEventsBadRequestException
      * @throws \Afosto\Sdk\Exception\ListEventsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListEventsForbiddenException
@@ -7095,6 +7169,158 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Lists all relays.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $type
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListRelaysBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListRelaysUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListRelaysForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListRelaysNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListRelaysInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListRelaysServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesRelay[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listRelays(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListRelays($queryParameters), $fetch);
+    }
+
+    /**
+     * Adds a new relay.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateRelayBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateRelayUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateRelayForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateRelayNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateRelayInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateRelayServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesRelay|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createRelay(\Afosto\Sdk\Model\MesRelayModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateRelay($body), $fetch);
+    }
+
+    /**
+     * Deletes a relay.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteRelayBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteRelayUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteRelayForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteRelayNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteRelayInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteRelayServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteRelay(string $type, \Afosto\Sdk\Model\MesRelayModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteRelay($type, $body), $fetch);
+    }
+
+    /**
+     * Returns relay.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewRelayBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewRelayUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewRelayForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewRelayNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewRelayInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewRelayServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesRelay[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewRelay(string $type, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewRelay($type), $fetch);
+    }
+
+    /**
+     * Update relay configuration.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateRelayBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateRelayUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateRelayForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateRelayNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateRelayInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateRelayServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesRelay|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateRelay(string $type, \Afosto\Sdk\Model\MesRelayModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateRelay($type, $body), $fetch);
+    }
+
+    /**
+     * List a relay's received messages.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $is_valid
+     *     @var string $is_relayed
+     *     @var string $is_duplicate
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListRelayMessagesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListRelayMessagesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListRelayMessagesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListRelayMessagesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListRelayMessagesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListRelayMessagesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesRelayMessage[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listRelayMessages(string $type, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListRelayMessages($type, $queryParameters), $fetch);
+    }
+
+    /**
+     * Get a single relay message.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $is_valid
+     *     @var string $is_relayed
+     *     @var string $is_duplicate
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewRelayMessageBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewRelayMessageUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewRelayMessageForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewRelayMessageNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewRelayMessageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewRelayMessageServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesRelayMessage[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewRelayMessage(string $type, string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewRelayMessage($type, $id, $queryParameters), $fetch);
+    }
+
+    /**
      * Returns a list of handling lists.
      *
      * @param array $headerParameters {
@@ -7199,6 +7425,31 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function viewHandlingList(string $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewHandlingList($id), $fetch);
+    }
+
+    /**
+     * List items on handling list.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\LisetItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\LisetItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\LisetItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\LisetItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\LisetItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\LisetItemsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\LcsHandlingListItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function lisetItems(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\LisetItems($id, $headerParameters), $fetch);
     }
 
     /**
@@ -7348,25 +7599,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Delete items from the shipment.
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DeleteShipmentItemsBadRequestException
-     * @throws \Afosto\Sdk\Exception\DeleteShipmentItemsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteShipmentItemsForbiddenException
-     * @throws \Afosto\Sdk\Exception\DeleteShipmentItemsNotFoundException
-     * @throws \Afosto\Sdk\Exception\DeleteShipmentItemsInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\DeleteShipmentItemsServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\LcsShipmentItem|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function deleteShipmentItems(string $id, array $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteShipmentItems($id, $body), $fetch);
-    }
-
-    /**
      * Returns items for a single shipment.
      *
      * @param array $headerParameters {
@@ -7384,31 +7616,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListShipmentItemsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListShipmentItemsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsShipmentItem|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsShipmentItem[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listShipmentItems(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListShipmentItems($id, $headerParameters), $fetch);
-    }
-
-    /**
-     * Add items to the shipment.
-     *
-     * @param \Afosto\Sdk\Model\LcsShipmentItemModel[] $body
-     * @param string                                   $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\AddShipmentItemsBadRequestException
-     * @throws \Afosto\Sdk\Exception\AddShipmentItemsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\AddShipmentItemsForbiddenException
-     * @throws \Afosto\Sdk\Exception\AddShipmentItemsNotFoundException
-     * @throws \Afosto\Sdk\Exception\AddShipmentItemsInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\AddShipmentItemsServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\LcsShipmentItem|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function addShipmentItems(string $id, array $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddShipmentItems($id, $body), $fetch);
     }
 
     /**

@@ -10,12 +10,12 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class ListShipmentItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class LisetItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     protected $id;
 
     /**
-     * Returns items for a single shipment.
+     * List items on handling list.
      *
      * @param array $headerParameters {
      *
@@ -38,7 +38,7 @@ class ListShipmentItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/lcs/shipments/{id}/items');
+        return str_replace(['{id}'], [$this->id], '/lcs/lists/{id}/items');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -66,37 +66,37 @@ class ListShipmentItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ListShipmentItemsBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListShipmentItemsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListShipmentItemsForbiddenException
-     * @throws \Afosto\Sdk\Exception\ListShipmentItemsNotFoundException
-     * @throws \Afosto\Sdk\Exception\ListShipmentItemsInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\ListShipmentItemsServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\LisetItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\LisetItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\LisetItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\LisetItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\LisetItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\LisetItemsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsShipmentItem[]|null
+     * @return \Afosto\Sdk\Model\LcsHandlingListItem[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsShipmentItem[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsHandlingListItem[]', 'json');
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\ListShipmentItemsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\LisetItemsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ListShipmentItemsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\LisetItemsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
-            throw new \Afosto\Sdk\Exception\ListShipmentItemsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\LisetItemsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\ListShipmentItemsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\LisetItemsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (500 === $status) {
-            throw new \Afosto\Sdk\Exception\ListShipmentItemsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\LisetItemsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (503 === $status) {
-            throw new \Afosto\Sdk\Exception\ListShipmentItemsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\LisetItemsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

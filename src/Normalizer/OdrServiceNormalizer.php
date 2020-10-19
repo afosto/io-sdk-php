@@ -60,12 +60,12 @@ class OdrServiceNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'is_percentage') && null !== $data->{'is_percentage'}) {
             $object->setIsPercentage($data->{'is_percentage'});
         }
-        if (property_exists($data, 'vat') && null !== $data->{'vat'}) {
+        if (property_exists($data, 'vat_settings') && null !== $data->{'vat_settings'}) {
             $values_1 = [];
-            foreach ($data->{'vat'} as $value_1) {
+            foreach ($data->{'vat_settings'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrServiceVatConfiguration', 'json', $context);
             }
-            $object->setVat($values_1);
+            $object->setVatSettings($values_1);
         }
         if (property_exists($data, 'priority') && null !== $data->{'priority'}) {
             $object->setPriority($data->{'priority'});
@@ -114,12 +114,12 @@ class OdrServiceNormalizer implements DenormalizerInterface, NormalizerInterface
         if (null !== $object->getIsPercentage()) {
             $data->{'is_percentage'} = $object->getIsPercentage();
         }
-        if (null !== $object->getVat()) {
+        if (null !== $object->getVatSettings()) {
             $values_1 = [];
-            foreach ($object->getVat() as $value_1) {
+            foreach ($object->getVatSettings() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
-            $data->{'vat'} = $values_1;
+            $data->{'vat_settings'} = $values_1;
         }
         if (null !== $object->getPriority()) {
             $data->{'priority'} = $object->getPriority();

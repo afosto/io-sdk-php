@@ -39,7 +39,7 @@ class OdrService
     /**
      * @var OdrServiceVatConfiguration[]
      */
-    protected $vat;
+    protected $vatSettings;
     /**
      * @var int
      */
@@ -146,17 +146,17 @@ class OdrService
     /**
      * @return OdrServiceVatConfiguration[]|null
      */
-    public function getVat(): ?array
+    public function getVatSettings(): ?array
     {
-        return $this->vat;
+        return $this->vatSettings;
     }
 
     /**
-     * @param OdrServiceVatConfiguration[]|null $vat
+     * @param OdrServiceVatConfiguration[]|null $vatSettings
      */
-    public function setVat(?array $vat): self
+    public function setVatSettings(?array $vatSettings): self
     {
-        $this->vat = $vat;
+        $this->vatSettings = $vatSettings;
 
         return $this;
     }
