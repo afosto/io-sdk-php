@@ -38,11 +38,18 @@ class QcqProxyUpdateModelNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\QcqProxyUpdateModel();
-        if (property_exists($data, 'origin') && null !== $data->{'origin'}) {
-            $object->setOrigin($data->{'origin'});
+        if (property_exists($data, 'routes') && null !== $data->{'routes'}) {
+            $values = [];
+            foreach ($data->{'routes'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\QcqRoute', 'json', $context);
+            }
+            $object->setRoutes($values);
         }
-        if (property_exists($data, 'config') && null !== $data->{'config'}) {
-            $object->setConfig($this->denormalizer->denormalize($data->{'config'}, 'Afosto\\Sdk\\Model\\QcqConfig', 'json', $context));
+        if (property_exists($data, 'auth') && null !== $data->{'auth'}) {
+            $object->setAuth($this->denormalizer->denormalize($data->{'auth'}, 'Afosto\\Sdk\\Model\\QcqProxyUpdateModelAuth', 'json', $context));
+        }
+        if (property_exists($data, 'oauth') && null !== $data->{'oauth'}) {
+            $object->setOauth($this->denormalizer->denormalize($data->{'oauth'}, 'Afosto\\Sdk\\Model\\QcqProxyUpdateModelOauth', 'json', $context));
         }
 
         return $object;
@@ -51,11 +58,18 @@ class QcqProxyUpdateModelNormalizer implements DenormalizerInterface, Normalizer
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getOrigin()) {
-            $data->{'origin'} = $object->getOrigin();
+        if (null !== $object->getRoutes()) {
+            $values = [];
+            foreach ($object->getRoutes() as $value) {
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            }
+            $data->{'routes'} = $values;
         }
-        if (null !== $object->getConfig()) {
-            $data->{'config'} = $this->normalizer->normalize($object->getConfig(), 'json', $context);
+        if (null !== $object->getAuth()) {
+            $data->{'auth'} = $this->normalizer->normalize($object->getAuth(), 'json', $context);
+        }
+        if (null !== $object->getOauth()) {
+            $data->{'oauth'} = $this->normalizer->normalize($object->getOauth(), 'json', $context);
         }
 
         return $data;

@@ -17,13 +17,17 @@ class QcqProxyModel
      */
     protected $key;
     /**
-     * @var string
+     * @var QcqRoute[]
      */
-    protected $origin;
+    protected $routes;
     /**
-     * @var QcqConfig
+     * @var QcqProxyModelAuth
      */
-    protected $config;
+    protected $auth;
+    /**
+     * @var QcqProxyModelOauth
+     */
+    protected $oauth;
 
     public function getKey(): ?string
     {
@@ -37,26 +41,44 @@ class QcqProxyModel
         return $this;
     }
 
-    public function getOrigin(): ?string
+    /**
+     * @return QcqRoute[]|null
+     */
+    public function getRoutes(): ?array
     {
-        return $this->origin;
+        return $this->routes;
     }
 
-    public function setOrigin(?string $origin): self
+    /**
+     * @param QcqRoute[]|null $routes
+     */
+    public function setRoutes(?array $routes): self
     {
-        $this->origin = $origin;
+        $this->routes = $routes;
 
         return $this;
     }
 
-    public function getConfig(): ?QcqConfig
+    public function getAuth(): ?QcqProxyModelAuth
     {
-        return $this->config;
+        return $this->auth;
     }
 
-    public function setConfig(?QcqConfig $config): self
+    public function setAuth(?QcqProxyModelAuth $auth): self
     {
-        $this->config = $config;
+        $this->auth = $auth;
+
+        return $this;
+    }
+
+    public function getOauth(): ?QcqProxyModelOauth
+    {
+        return $this->oauth;
+    }
+
+    public function setOauth(?QcqProxyModelOauth $oauth): self
+    {
+        $this->oauth = $oauth;
 
         return $this;
     }

@@ -13,34 +13,56 @@ namespace Afosto\Sdk\Model;
 class QcqProxyUpdateModel
 {
     /**
-     * @var string
+     * @var QcqRoute[]
      */
-    protected $origin;
+    protected $routes;
     /**
-     * @var QcqConfig
+     * @var QcqProxyUpdateModelAuth
      */
-    protected $config;
+    protected $auth;
+    /**
+     * @var QcqProxyUpdateModelOauth
+     */
+    protected $oauth;
 
-    public function getOrigin(): ?string
+    /**
+     * @return QcqRoute[]|null
+     */
+    public function getRoutes(): ?array
     {
-        return $this->origin;
+        return $this->routes;
     }
 
-    public function setOrigin(?string $origin): self
+    /**
+     * @param QcqRoute[]|null $routes
+     */
+    public function setRoutes(?array $routes): self
     {
-        $this->origin = $origin;
+        $this->routes = $routes;
 
         return $this;
     }
 
-    public function getConfig(): ?QcqConfig
+    public function getAuth(): ?QcqProxyUpdateModelAuth
     {
-        return $this->config;
+        return $this->auth;
     }
 
-    public function setConfig(?QcqConfig $config): self
+    public function setAuth(?QcqProxyUpdateModelAuth $auth): self
     {
-        $this->config = $config;
+        $this->auth = $auth;
+
+        return $this;
+    }
+
+    public function getOauth(): ?QcqProxyUpdateModelOauth
+    {
+        return $this->oauth;
+    }
+
+    public function setOauth(?QcqProxyUpdateModelOauth $oauth): self
+    {
+        $this->oauth = $oauth;
 
         return $this;
     }

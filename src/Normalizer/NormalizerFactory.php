@@ -268,8 +268,13 @@ class NormalizerFactory
         $normalizers[] = new QcqAuthConfigNormalizer();
         $normalizers[] = new QcqCacheConfigNormalizer();
         $normalizers[] = new QcqProxyModelNormalizer();
+        $normalizers[] = new QcqProxyModelAuthNormalizer();
+        $normalizers[] = new QcqProxyModelAuthSignatureNormalizer();
+        $normalizers[] = new QcqProxyModelOauthNormalizer();
         $normalizers[] = new QcqProxyUpdateModelNormalizer();
-        $normalizers[] = new QcqConfigNormalizer();
+        $normalizers[] = new QcqProxyUpdateModelAuthNormalizer();
+        $normalizers[] = new QcqProxyUpdateModelAuthSignatureNormalizer();
+        $normalizers[] = new QcqProxyUpdateModelOauthNormalizer();
         $normalizers[] = new MesWebhookDelayNormalizer();
         $normalizers[] = new MesWebhookAttemptNormalizer();
         $normalizers[] = new MesWebhookTestMessageNormalizer();
