@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class LisetItemsNotFoundException extends \RuntimeException implements ClientException
+class ListListItemsNotFoundException extends \RuntimeException implements ClientException
 {
     private $error;
 

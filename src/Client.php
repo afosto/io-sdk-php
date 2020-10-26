@@ -7438,18 +7438,18 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\LisetItemsBadRequestException
-     * @throws \Afosto\Sdk\Exception\LisetItemsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\LisetItemsForbiddenException
-     * @throws \Afosto\Sdk\Exception\LisetItemsNotFoundException
-     * @throws \Afosto\Sdk\Exception\LisetItemsInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\LisetItemsServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\ListListItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListListItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListListItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListListItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListListItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListListItemsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsHandlingListItem[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function lisetItems(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listListItems(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\LisetItems($id, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListListItems($id, $headerParameters), $fetch);
     }
 
     /**
@@ -7681,6 +7681,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function updateShipmentItemMissing(string $id, array $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateShipmentItemMissing($id, $body), $fetch);
+    }
+
+    /**
+     * Refresh a shipment's positions to the latest known defaults.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentPositionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentPositionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentPositionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentPositionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentPositionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateShipmentPositionsServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateShipmentPositions(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateShipmentPositions($id), $fetch);
     }
 
     /**

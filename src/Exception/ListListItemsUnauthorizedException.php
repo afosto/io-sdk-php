@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class LisetItemsInternalServerErrorException extends \RuntimeException implements ServerException
+class ListListItemsUnauthorizedException extends \RuntimeException implements ClientException
 {
     private $error;
 
     public function __construct(\Afosto\Sdk\Model\Error $error)
     {
-        parent::__construct('Internal Server Error', 500);
+        parent::__construct('Unauthorized', 401);
         $this->error = $error;
     }
 

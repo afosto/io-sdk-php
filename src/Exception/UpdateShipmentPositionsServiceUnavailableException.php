@@ -10,13 +10,13 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class LisetItemsUnauthorizedException extends \RuntimeException implements ClientException
+class UpdateShipmentPositionsServiceUnavailableException extends \RuntimeException implements ServerException
 {
     private $error;
 
     public function __construct(\Afosto\Sdk\Model\Error $error)
     {
-        parent::__construct('Unauthorized', 401);
+        parent::__construct('Service Unavailable', 503);
         $this->error = $error;
     }
 

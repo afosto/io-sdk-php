@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class LisetItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class ListListItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     protected $id;
 
@@ -66,12 +66,12 @@ class LisetItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\LisetItemsBadRequestException
-     * @throws \Afosto\Sdk\Exception\LisetItemsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\LisetItemsForbiddenException
-     * @throws \Afosto\Sdk\Exception\LisetItemsNotFoundException
-     * @throws \Afosto\Sdk\Exception\LisetItemsInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\LisetItemsServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\ListListItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListListItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListListItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListListItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListListItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListListItemsServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\LcsHandlingListItem[]|null
      */
@@ -81,22 +81,22 @@ class LisetItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsHandlingListItem[]', 'json');
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\LisetItemsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ListListItemsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\LisetItemsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ListListItemsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
-            throw new \Afosto\Sdk\Exception\LisetItemsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ListListItemsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\LisetItemsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ListListItemsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (500 === $status) {
-            throw new \Afosto\Sdk\Exception\LisetItemsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ListListItemsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (503 === $status) {
-            throw new \Afosto\Sdk\Exception\LisetItemsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\ListListItemsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }
