@@ -12,14 +12,14 @@ namespace Afosto\Sdk\Endpoint;
 
 class ViewRelay extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $type;
+    protected $id;
 
     /**
      * Returns relay.
      */
-    public function __construct(string $type)
+    public function __construct(string $id)
     {
-        $this->type = $type;
+        $this->id = $id;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -31,7 +31,7 @@ class ViewRelay extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
 
     public function getUri(): string
     {
-        return str_replace(['{type}'], [$this->type], '/mes/webhooks/relays/{type}');
+        return str_replace(['{id}'], [$this->id], '/mes/webhooks/relays/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

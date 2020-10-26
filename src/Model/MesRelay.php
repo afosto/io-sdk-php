@@ -15,6 +15,10 @@ class MesRelay
     /**
      * @var string
      */
+    protected $id;
+    /**
+     * @var string
+     */
     protected $name;
     /**
      * @var string
@@ -44,6 +48,18 @@ class MesRelay
      * @var \DateTime
      */
     protected $updatedAt;
+
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    public function setId(?string $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     public function getName(): ?string
     {

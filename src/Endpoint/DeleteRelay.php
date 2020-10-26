@@ -12,14 +12,14 @@ namespace Afosto\Sdk\Endpoint;
 
 class DeleteRelay extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $type;
+    protected $id;
 
     /**
      * Deletes a relay.
      */
-    public function __construct(string $type, \Afosto\Sdk\Model\MesRelayModel $body)
+    public function __construct(string $id, \Afosto\Sdk\Model\MesRelayModel $body)
     {
-        $this->type = $type;
+        $this->id = $id;
         $this->body = $body;
     }
 
@@ -32,7 +32,7 @@ class DeleteRelay extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return str_replace(['{type}'], [$this->type], '/mes/webhooks/relays/{type}');
+        return str_replace(['{id}'], [$this->id], '/mes/webhooks/relays/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

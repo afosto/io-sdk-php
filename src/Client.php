@@ -7225,9 +7225,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function deleteRelay(string $type, \Afosto\Sdk\Model\MesRelayModel $body, string $fetch = self::FETCH_OBJECT)
+    public function deleteRelay(string $id, \Afosto\Sdk\Model\MesRelayModel $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteRelay($type, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteRelay($id, $body), $fetch);
     }
 
     /**
@@ -7244,9 +7244,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\MesRelay[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function viewRelay(string $type, string $fetch = self::FETCH_OBJECT)
+    public function viewRelay(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewRelay($type), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewRelay($id), $fetch);
     }
 
     /**
@@ -7263,9 +7263,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\MesRelay|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateRelay(string $type, \Afosto\Sdk\Model\MesRelayModel $body, string $fetch = self::FETCH_OBJECT)
+    public function updateRelay(string $id, \Afosto\Sdk\Model\MesRelayModel $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateRelay($type, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateRelay($id, $body), $fetch);
     }
 
     /**
@@ -7289,9 +7289,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\MesRelayMessage[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listRelayMessages(string $type, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listRelayMessages(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListRelayMessages($type, $queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListRelayMessages($id, $queryParameters), $fetch);
     }
 
     /**
@@ -7313,11 +7313,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ViewRelayMessageInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ViewRelayMessageServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\MesRelayMessage[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\MesRelayMessage|\Psr\Http\Message\ResponseInterface|null
      */
-    public function viewRelayMessage(string $type, string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function viewRelayMessage(string $id, string $messageId, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewRelayMessage($type, $id, $queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewRelayMessage($id, $messageId, $queryParameters), $fetch);
     }
 
     /**

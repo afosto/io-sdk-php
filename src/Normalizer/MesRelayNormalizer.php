@@ -38,6 +38,9 @@ class MesRelayNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\MesRelay();
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
+            $object->setId($data->{'id'});
+        }
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
@@ -69,6 +72,9 @@ class MesRelayNormalizer implements DenormalizerInterface, NormalizerInterface, 
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
+        }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
         }

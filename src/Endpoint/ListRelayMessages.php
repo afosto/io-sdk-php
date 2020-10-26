@@ -12,7 +12,7 @@ namespace Afosto\Sdk\Endpoint;
 
 class ListRelayMessages extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $type;
+    protected $id;
 
     /**
      * List a relay's received messages.
@@ -24,9 +24,9 @@ class ListRelayMessages extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      *     @var string $is_duplicate
      * }
      */
-    public function __construct(string $type, array $queryParameters = [])
+    public function __construct(string $id, array $queryParameters = [])
     {
-        $this->type = $type;
+        $this->id = $id;
         $this->queryParameters = $queryParameters;
     }
 
@@ -39,7 +39,7 @@ class ListRelayMessages extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 
     public function getUri(): string
     {
-        return str_replace(['{type}'], [$this->type], '/mes/webhooks/relays/{type}/messages');
+        return str_replace(['{id}'], [$this->id], '/mes/webhooks/relays/{id}/messages');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

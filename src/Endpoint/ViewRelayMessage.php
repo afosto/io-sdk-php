@@ -12,8 +12,8 @@ namespace Afosto\Sdk\Endpoint;
 
 class ViewRelayMessage extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $type;
     protected $id;
+    protected $message_id;
 
     /**
      * Get a single relay message.
@@ -25,10 +25,10 @@ class ViewRelayMessage extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      *     @var string $is_duplicate
      * }
      */
-    public function __construct(string $type, string $id, array $queryParameters = [])
+    public function __construct(string $id, string $messageId, array $queryParameters = [])
     {
-        $this->type = $type;
         $this->id = $id;
+        $this->message_id = $messageId;
         $this->queryParameters = $queryParameters;
     }
 
@@ -41,7 +41,7 @@ class ViewRelayMessage extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     public function getUri(): string
     {
-        return str_replace(['{type}', '{id}'], [$this->type, $this->id], '/mes/webhooks/relays/{type}/messages/{id}');
+        return str_replace(['{id}', '{message_id}'], [$this->id, $this->message_id], '/mes/webhooks/relays/{id}/messages/{message_id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -77,12 +77,12 @@ class ViewRelayMessage extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      * @throws \Afosto\Sdk\Exception\ViewRelayMessageInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ViewRelayMessageServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\MesRelayMessage[]|null
+     * @return \Afosto\Sdk\Model\MesRelayMessage|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\MesRelayMessage[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\MesRelayMessage', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ViewRelayMessageBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
