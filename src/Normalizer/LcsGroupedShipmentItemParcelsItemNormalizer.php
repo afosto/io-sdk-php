@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsListsIdItemsPutResponse204Normalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LcsGroupedShipmentItemParcelsItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsListsIdItemsPutResponse204' === $type;
+        return 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemParcelsItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsListsIdItemsPutResponse204' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemParcelsItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,9 +37,16 @@ class LcsListsIdItemsPutResponse204Normalizer implements DenormalizerInterface, 
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsListsIdItemsPutResponse204();
-        if (property_exists($data, 'success') && null !== $data->{'success'}) {
-            $object->setSuccess($data->{'success'});
+        $object = new \Afosto\Sdk\Model\LcsGroupedShipmentItemParcelsItem();
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
+            $object->setId($data->{'id'});
+        }
+        if (property_exists($data, 'item_ids') && null !== $data->{'item_ids'}) {
+            $values = [];
+            foreach ($data->{'item_ids'} as $value) {
+                $values[] = $value;
+            }
+            $object->setItemIds($values);
         }
 
         return $object;
@@ -48,8 +55,15 @@ class LcsListsIdItemsPutResponse204Normalizer implements DenormalizerInterface, 
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getSuccess()) {
-            $data->{'success'} = $object->getSuccess();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
+        }
+        if (null !== $object->getItemIds()) {
+            $values = [];
+            foreach ($object->getItemIds() as $value) {
+                $values[] = $value;
+            }
+            $data->{'item_ids'} = $values;
         }
 
         return $data;

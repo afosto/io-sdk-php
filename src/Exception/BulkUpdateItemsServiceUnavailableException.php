@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class ListShipmentItemsServiceUnavailableException extends \RuntimeException implements ServerException
+class BulkUpdateItemsServiceUnavailableException extends \RuntimeException implements ServerException
 {
     private $error;
 

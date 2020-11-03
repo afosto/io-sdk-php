@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class LcsListsIdItemsPutResponse204
+class LcsListsIdPutResponse204
 {
     /**
      * @var int

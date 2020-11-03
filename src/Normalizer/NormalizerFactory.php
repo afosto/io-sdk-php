@@ -402,6 +402,8 @@ class NormalizerFactory
         $normalizers[] = new LcsListSearchConstraintNormalizer();
         $normalizers[] = new LcsShipmentSearchNormalizer();
         $normalizers[] = new LcsShipmentSearchConstraintNormalizer();
+        $normalizers[] = new LcsItemSearchNormalizer();
+        $normalizers[] = new LcsItemSearchConstraintNormalizer();
         $normalizers[] = new LcsLocationSkuNormalizer();
         $normalizers[] = new LcsHandlingListUpdateNormalizer();
         $normalizers[] = new LcsHandlingListItemUpdateNormalizer();
@@ -422,6 +424,10 @@ class NormalizerFactory
         $normalizers[] = new LcsShipmentAddressingCarrierNormalizer();
         $normalizers[] = new LcsShipmentItemModelNormalizer();
         $normalizers[] = new LcsShipmentItemModelPositionsNormalizer();
+        $normalizers[] = new LcsGroupedShipmentItemNormalizer();
+        $normalizers[] = new LcsGroupedShipmentItemListsItemNormalizer();
+        $normalizers[] = new LcsGroupedShipmentItemParcelsItemNormalizer();
+        $normalizers[] = new LcsGroupedShipmentItemTotalsNormalizer();
         $normalizers[] = new LcsShipmentItemNormalizer();
         $normalizers[] = new LcsParcelItemNormalizer();
         $normalizers[] = new LcsServiceOptionNormalizer();
@@ -548,7 +554,8 @@ class NormalizerFactory
         $normalizers[] = new CntDirectoriesGetResponse200Normalizer();
         $normalizers[] = new CntFiltersDateGetResponse200Normalizer();
         $normalizers[] = new CntFiltersDatePostResponse200Normalizer();
-        $normalizers[] = new LcsListsIdItemsPutResponse204Normalizer();
+        $normalizers[] = new LcsListsIdPutResponse204Normalizer();
+        $normalizers[] = new LcsBulkItemsPutBodyNormalizer();
         $normalizers[] = new LcsParcelsIdItemsDeleteResponse200Normalizer();
         $normalizers[] = new LcsParcelsIdItemsPostResponse200Normalizer();
         $normalizers[] = new LcsLocationsIdPositionsPutResponse200Normalizer();

@@ -7428,31 +7428,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * List items on handling list.
-     *
-     * @param array $headerParameters {
-     *
-     *     @var string $x-page
-     *     @var string $x-page-size
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListListItemsBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListListItemsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListListItemsForbiddenException
-     * @throws \Afosto\Sdk\Exception\ListListItemsNotFoundException
-     * @throws \Afosto\Sdk\Exception\ListListItemsInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\ListListItemsServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\LcsHandlingListItem[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listListItems(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListListItems($id, $headerParameters), $fetch);
-    }
-
-    /**
      * Update items' state on a handling list.
      *
      * @param \Afosto\Sdk\Model\LcsHandlingListItemUpdate[] $body
@@ -7465,7 +7440,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsListsIdItemsPutResponse204|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsListsIdPutResponse204|\Psr\Http\Message\ResponseInterface|null
      */
     public function updateHandlingListItem(string $id, array $body, string $fetch = self::FETCH_OBJECT)
     {
@@ -7561,6 +7536,100 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * List items on handling list.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListListItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListListItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListListItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListListItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListListItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListListItemsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\LcsGroupedShipmentItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listListItems(\Afosto\Sdk\Model\LcsItemSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListListItems($body, $headerParameters), $fetch);
+    }
+
+    /**
+     * Search items on handling list.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchHandlingListItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchHandlingListItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchHandlingListItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchHandlingListItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchHandlingListItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchHandlingListItemsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\LcsHandlingListItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchHandlingListItems(\Afosto\Sdk\Model\LcsItemSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchHandlingListItems($body, $headerParameters), $fetch);
+    }
+
+    /**
+     * Update items in bulk.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\BulkUpdateItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\BulkUpdateItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\BulkUpdateItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\BulkUpdateItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\BulkUpdateItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\BulkUpdateItemsServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function bulkUpdateItems(\Afosto\Sdk\Model\LcsBulkItemsPutBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\BulkUpdateItems($body), $fetch);
+    }
+
+    /**
+     * Search parcel items.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchParcelItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchParcelItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchParcelItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchParcelItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchParcelItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchParcelItemsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\LcsParcelItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchParcelItems(\Afosto\Sdk\Model\LcsItemSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchParcelItems($body, $headerParameters), $fetch);
+    }
+
+    /**
      * Returns a single shipment.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -7596,31 +7665,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function updateShipment(string $id, \Afosto\Sdk\Model\LcsShipmentUpdateModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateShipment($id, $body), $fetch);
-    }
-
-    /**
-     * Returns items for a single shipment.
-     *
-     * @param array $headerParameters {
-     *
-     *     @var string $x-page
-     *     @var string $x-page-size
-     * }
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ListShipmentItemsBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListShipmentItemsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListShipmentItemsForbiddenException
-     * @throws \Afosto\Sdk\Exception\ListShipmentItemsNotFoundException
-     * @throws \Afosto\Sdk\Exception\ListShipmentItemsInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\ListShipmentItemsServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\LcsShipmentItem[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function listShipmentItems(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListShipmentItems($id, $headerParameters), $fetch);
     }
 
     /**

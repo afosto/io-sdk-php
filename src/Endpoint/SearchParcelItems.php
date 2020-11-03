@@ -10,10 +10,10 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class ListListItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class SearchParcelItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
-     * List items on handling list.
+     * Search parcel items.
      *
      * @param array $headerParameters {
      *
@@ -36,7 +36,7 @@ class ListListItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getUri(): string
     {
-        return '/lcs/search/shipments/items';
+        return '/lcs/search/parcels/items';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -64,37 +64,37 @@ class ListListItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ListListItemsBadRequestException
-     * @throws \Afosto\Sdk\Exception\ListListItemsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ListListItemsForbiddenException
-     * @throws \Afosto\Sdk\Exception\ListListItemsNotFoundException
-     * @throws \Afosto\Sdk\Exception\ListListItemsInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\ListListItemsServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\SearchParcelItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchParcelItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchParcelItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchParcelItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchParcelItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchParcelItemsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsGroupedShipmentItem[]|null
+     * @return \Afosto\Sdk\Model\LcsParcelItem[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItem[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsParcelItem[]', 'json');
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\ListListItemsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchParcelItemsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ListListItemsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchParcelItemsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
-            throw new \Afosto\Sdk\Exception\ListListItemsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchParcelItemsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\ListListItemsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchParcelItemsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (500 === $status) {
-            throw new \Afosto\Sdk\Exception\ListListItemsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchParcelItemsInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (503 === $status) {
-            throw new \Afosto\Sdk\Exception\ListListItemsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\SearchParcelItemsServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }
