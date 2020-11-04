@@ -3473,6 +3473,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Multi data loader.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetMultipleDataflowModelsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetMultipleDataflowModelsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetMultipleDataflowModelsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetMultipleDataflowModelsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetMultipleDataflowModelsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetMultipleDataflowModelsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntDataflowLoaderPostResponse200Item[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getMultipleDataflowModels(array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetMultipleDataflowModels($body), $fetch);
+    }
+
+    /**
      * Get the data-model as it is applied.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

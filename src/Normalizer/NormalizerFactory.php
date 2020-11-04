@@ -526,6 +526,8 @@ class NormalizerFactory
         $normalizers[] = new IamSourcesPostBodyNormalizer();
         $normalizers[] = new CntFilesystemsConfigurationsGetResponse200ItemNormalizer();
         $normalizers[] = new IamLogsFiltersGetResponse200Normalizer();
+        $normalizers[] = new CntDataflowLoaderPostBodyItemNormalizer();
+        $normalizers[] = new CntDataflowLoaderPostResponse200ItemNormalizer();
         $normalizers[] = new CntDataflowMatcherModelIdPostResponse200Normalizer();
         $normalizers[] = new CntDataflowMatcherModelIdPostResponse200ResultNormalizer();
         $normalizers[] = new CntDataflowMatcherModelIdPostResponse200ResultMissesNormalizer();
