@@ -1237,6 +1237,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a cost projection.
      *
+     * @param array $queryParameters {
+     *
+     *     @var string $rules
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateProjectionBadRequestException
@@ -1248,9 +1253,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrProjection|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createProjection(\Afosto\Sdk\Model\OdrProjectionModel $body, string $fetch = self::FETCH_OBJECT)
+    public function createProjection(\Afosto\Sdk\Model\OdrProjectionModel $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateProjection($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateProjection($body, $queryParameters), $fetch);
     }
 
     /**

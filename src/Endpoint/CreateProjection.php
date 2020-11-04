@@ -14,10 +14,16 @@ class CreateProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 {
     /**
      * Returns a cost projection.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $rules
+     * }
      */
-    public function __construct(\Afosto\Sdk\Model\OdrProjectionModel $body)
+    public function __construct(\Afosto\Sdk\Model\OdrProjectionModel $body, array $queryParameters = [])
     {
         $this->body = $body;
+        $this->queryParameters = $queryParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -40,6 +46,17 @@ class CreateProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['rules']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['rules' => '1']);
+        $optionsResolver->setAllowedTypes('rules', ['string']);
+
+        return $optionsResolver;
     }
 
     /**
