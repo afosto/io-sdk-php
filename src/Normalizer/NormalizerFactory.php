@@ -250,6 +250,7 @@ class NormalizerFactory
         $normalizers[] = new OdrReferenceNormalizer();
         $normalizers[] = new OdrIssuerNormalizer();
         $normalizers[] = new OdrPaymentIntentNormalizer();
+        $normalizers[] = new OdrRefundIntentNormalizer();
         $normalizers[] = new OdrPaymentNormalizer();
         $normalizers[] = new OdrProcessNormalizer();
         $normalizers[] = new OdrAttemptNormalizer();

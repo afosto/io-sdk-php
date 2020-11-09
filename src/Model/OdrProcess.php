@@ -13,6 +13,8 @@ namespace Afosto\Sdk\Model;
 class OdrProcess
 {
     /**
+     * Start will trigger the transaction, the client can follow the progress via x-task. Follow will send the client to the bank. Execute acutally performs the payment (refund-only). Void means no further actions are possible. Return is the same as [follow] indicating that the payment is complete.
+     *
      * @var string
      */
     protected $action;
@@ -25,11 +27,17 @@ class OdrProcess
      */
     protected $attempts;
 
+    /**
+     * Start will trigger the transaction, the client can follow the progress via x-task. Follow will send the client to the bank. Execute acutally performs the payment (refund-only). Void means no further actions are possible. Return is the same as [follow] indicating that the payment is complete.
+     */
     public function getAction(): ?string
     {
         return $this->action;
     }
 
+    /**
+     * Start will trigger the transaction, the client can follow the progress via x-task. Follow will send the client to the bank. Execute acutally performs the payment (refund-only). Void means no further actions are possible. Return is the same as [follow] indicating that the payment is complete.
+     */
     public function setAction(?string $action): self
     {
         $this->action = $action;

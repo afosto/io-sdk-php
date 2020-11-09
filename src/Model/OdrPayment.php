@@ -61,6 +61,10 @@ class OdrPayment
      */
     protected $returnUrl;
     /**
+     * @var string
+     */
+    protected $sourcePaymentId;
+    /**
      * @var mixed
      */
     protected $metadata;
@@ -217,6 +221,18 @@ class OdrPayment
     public function setReturnUrl(?string $returnUrl): self
     {
         $this->returnUrl = $returnUrl;
+
+        return $this;
+    }
+
+    public function getSourcePaymentId(): ?string
+    {
+        return $this->sourcePaymentId;
+    }
+
+    public function setSourcePaymentId(?string $sourcePaymentId): self
+    {
+        $this->sourcePaymentId = $sourcePaymentId;
 
         return $this;
     }

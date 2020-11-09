@@ -74,6 +74,9 @@ class OdrPaymentNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'return_url') && null !== $data->{'return_url'}) {
             $object->setReturnUrl($data->{'return_url'});
         }
+        if (property_exists($data, 'source_payment_id') && null !== $data->{'source_payment_id'}) {
+            $object->setSourcePaymentId($data->{'source_payment_id'});
+        }
         if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
@@ -128,6 +131,9 @@ class OdrPaymentNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (null !== $object->getReturnUrl()) {
             $data->{'return_url'} = $object->getReturnUrl();
+        }
+        if (null !== $object->getSourcePaymentId()) {
+            $data->{'source_payment_id'} = $object->getSourcePaymentId();
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();

@@ -4798,6 +4798,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Create a refund for the given transaction.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateRefundBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateRefundUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateRefundForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateRefundNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateRefundInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateRefundServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrPayment|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createRefund(string $secret, \Afosto\Sdk\Model\OdrRefundIntent $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateRefund($secret, $body), $fetch);
+    }
+
+    /**
      * Returns a list of payment methods available for the transaction.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
