@@ -38,6 +38,13 @@ class LcsParcelItemNormalizer implements DenormalizerInterface, NormalizerInterf
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsParcelItem();
+        if (property_exists($data, 'ids') && null !== $data->{'ids'}) {
+            $values = [];
+            foreach ($data->{'ids'} as $value) {
+                $values[] = $value;
+            }
+            $object->setIds($values);
+        }
         if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
@@ -54,6 +61,13 @@ class LcsParcelItemNormalizer implements DenormalizerInterface, NormalizerInterf
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getIds()) {
+            $values = [];
+            foreach ($object->getIds() as $value) {
+                $values[] = $value;
+            }
+            $data->{'ids'} = $values;
+        }
         if (null !== $object->getSku()) {
             $data->{'sku'} = $object->getSku();
         }

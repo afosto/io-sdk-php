@@ -13,6 +13,10 @@ namespace Afosto\Sdk\Model;
 class LcsParcelItem
 {
     /**
+     * @var string[]
+     */
+    protected $ids;
+    /**
      * @var string
      */
     protected $sku;
@@ -24,6 +28,24 @@ class LcsParcelItem
      * @var string
      */
     protected $description;
+
+    /**
+     * @return string[]|null
+     */
+    public function getIds(): ?array
+    {
+        return $this->ids;
+    }
+
+    /**
+     * @param string[]|null $ids
+     */
+    public function setIds(?array $ids): self
+    {
+        $this->ids = $ids;
+
+        return $this;
+    }
 
     public function getSku(): ?string
     {

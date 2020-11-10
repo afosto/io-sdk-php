@@ -557,7 +557,7 @@ class NormalizerFactory
         $normalizers[] = new CntDirectoriesGetResponse200Normalizer();
         $normalizers[] = new CntFiltersDateGetResponse200Normalizer();
         $normalizers[] = new CntFiltersDatePostResponse200Normalizer();
-        $normalizers[] = new LcsListsIdPutResponse204Normalizer();
+        $normalizers[] = new LcsListsIdItemsPutResponse204Normalizer();
         $normalizers[] = new LcsBulkItemsPutBodyNormalizer();
         $normalizers[] = new LcsParcelsIdItemsDeleteResponse200Normalizer();
         $normalizers[] = new LcsParcelsIdItemsPostResponse200Normalizer();

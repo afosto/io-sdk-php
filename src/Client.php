@@ -7483,7 +7483,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateHandlingListItemServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsListsIdPutResponse204|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsListsIdItemsPutResponse204|\Psr\Http\Message\ResponseInterface|null
      */
     public function updateHandlingListItem(string $id, array $body, string $fetch = self::FETCH_OBJECT)
     {
@@ -7670,6 +7670,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function searchParcelItems(\Afosto\Sdk\Model\LcsItemSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchParcelItems($body, $headerParameters), $fetch);
+    }
+
+    /**
+     * Cancel a shipment.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CancelShipmentBadRequestException
+     * @throws \Afosto\Sdk\Exception\CancelShipmentUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CancelShipmentForbiddenException
+     * @throws \Afosto\Sdk\Exception\CancelShipmentNotFoundException
+     * @throws \Afosto\Sdk\Exception\CancelShipmentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CancelShipmentServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function cancelShipment(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CancelShipment($id), $fetch);
     }
 
     /**
