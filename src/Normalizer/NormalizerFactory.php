@@ -142,6 +142,9 @@ class NormalizerFactory
         $normalizers[] = new CntBatchFileNormalizer();
         $normalizers[] = new CntLineErrorNormalizer();
         $normalizers[] = new CntColumnErrorNormalizer();
+        $normalizers[] = new CatMapCollectionNormalizer();
+        $normalizers[] = new CatMapCollectionMissNormalizer();
+        $normalizers[] = new CatMapNormalizer();
         $normalizers[] = new LcsDPDServicePointResponseNormalizer();
         $normalizers[] = new LcsDPDServicePointNormalizer();
         $normalizers[] = new LcsDPDServicePointOpeningHoursItemNormalizer();
@@ -524,6 +527,8 @@ class NormalizerFactory
         $normalizers[] = new OdrOrdersIdItemsClaimPutBodyItemNormalizer();
         $normalizers[] = new OdrFiltersPutResponse200Normalizer();
         $normalizers[] = new OdrOptionsRulesConstraintsGetResponse200Normalizer();
+        $normalizers[] = new CatMapsCollectionsIdKeysPutBodyItemNormalizer();
+        $normalizers[] = new CatMapsCollectionsIdSearchPostResponse200Normalizer();
         $normalizers[] = new IamSourcesPostBodyNormalizer();
         $normalizers[] = new CntFilesystemsConfigurationsGetResponse200ItemNormalizer();
         $normalizers[] = new IamLogsFiltersGetResponse200Normalizer();

@@ -1921,6 +1921,138 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * List collections.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListCollectionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListCollectionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListCollectionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListCollectionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListCollectionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListCollectionsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CatMapCollection[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listCollections(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCollections($headerParameters), $fetch);
+    }
+
+    /**
+     * View collection.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewCollectionBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewCollectionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewCollectionForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewCollectionNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewCollectionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewCollectionServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CatMapCollection|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewCollection(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewCollection($id), $fetch);
+    }
+
+    /**
+     * List misses for a collection.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListCollectionMissesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListCollectionMissesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListCollectionMissesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListCollectionMissesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListCollectionMissesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListCollectionMissesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CatMapCollectionMiss[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listCollectionMisses(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCollectionMisses($id, $headerParameters), $fetch);
+    }
+
+    /**
+     * List keys for a category.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListKeysBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListKeysUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListKeysForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListKeysNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListKeysInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListKeysServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CatMap[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listKeys(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListKeys($id, $headerParameters), $fetch);
+    }
+
+    /**
+     * Upsert keys, create or update values.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpsertKeysBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpsertKeysUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpsertKeysForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpsertKeysNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpsertKeysInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpsertKeysServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function upsertKeys(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpsertKeys($id, $body), $fetch);
+    }
+
+    /**
+     * Search keys for values.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchMapBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchMapUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchMapForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchMapNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchMapInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchMapServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CatMapsCollectionsIdSearchPostResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchMap(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchMap($id), $fetch);
+    }
+
+    /**
      * Return DPD's servicepoints.
      *
      * @param array $queryParameters {
