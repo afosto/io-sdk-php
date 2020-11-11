@@ -3040,6 +3040,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Test a connection.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\TestConnectionBadRequestException
+     * @throws \Afosto\Sdk\Exception\TestConnectionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\TestConnectionForbiddenException
+     * @throws \Afosto\Sdk\Exception\TestConnectionNotFoundException
+     * @throws \Afosto\Sdk\Exception\TestConnectionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\TestConnectionServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function testConnection(\Afosto\Sdk\Model\CntStorageTest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\TestConnection($body), $fetch);
+    }
+
+    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetFilesystemAdapterConfigurationsBadRequestException

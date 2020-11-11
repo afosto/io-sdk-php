@@ -190,6 +190,7 @@ class NormalizerFactory
         $normalizers[] = new CntWatcherModelNormalizer();
         $normalizers[] = new CntStorageNormalizer();
         $normalizers[] = new CntStorageModelNormalizer();
+        $normalizers[] = new CntStorageTestNormalizer();
         $normalizers[] = new CntStorageSyncRequestNormalizer();
         $normalizers[] = new CntFileNormalizer();
         $normalizers[] = new IamTrackedRecordNormalizer();
