@@ -5006,6 +5006,44 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Start a payment for a transaction at the provider.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\StartPaymentTransactionBadRequestException
+     * @throws \Afosto\Sdk\Exception\StartPaymentTransactionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\StartPaymentTransactionForbiddenException
+     * @throws \Afosto\Sdk\Exception\StartPaymentTransactionNotFoundException
+     * @throws \Afosto\Sdk\Exception\StartPaymentTransactionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\StartPaymentTransactionServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function startPaymentTransaction(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\StartPaymentTransaction($secret), $fetch);
+    }
+
+    /**
+     * Start a payment for a transaction at the provider.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ExecutePaymentTransactionBadRequestException
+     * @throws \Afosto\Sdk\Exception\ExecutePaymentTransactionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ExecutePaymentTransactionForbiddenException
+     * @throws \Afosto\Sdk\Exception\ExecutePaymentTransactionNotFoundException
+     * @throws \Afosto\Sdk\Exception\ExecutePaymentTransactionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ExecutePaymentTransactionServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function executePaymentTransaction(string $secret, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ExecutePaymentTransaction($secret), $fetch);
+    }
+
+    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListQuicqProxiesBadRequestException
