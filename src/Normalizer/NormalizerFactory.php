@@ -191,7 +191,8 @@ class NormalizerFactory
         $normalizers[] = new CntStorageNormalizer();
         $normalizers[] = new CntStorageModelNormalizer();
         $normalizers[] = new CntStorageTestNormalizer();
-        $normalizers[] = new CntStorageSyncRequestNormalizer();
+        $normalizers[] = new CntStorageObjectNormalizer();
+        $normalizers[] = new CntStorageSyncCommandNormalizer();
         $normalizers[] = new CntFileNormalizer();
         $normalizers[] = new IamTrackedRecordNormalizer();
         $normalizers[] = new IamReportRequestNormalizer();
@@ -531,6 +532,8 @@ class NormalizerFactory
         $normalizers[] = new CatMapsCollectionsIdKeysPutBodyItemNormalizer();
         $normalizers[] = new CatMapsCollectionsIdSearchPostResponse200Normalizer();
         $normalizers[] = new IamSourcesPostBodyNormalizer();
+        $normalizers[] = new CntFilesystemsStoragesIdReadGetBodyNormalizer();
+        $normalizers[] = new CntFilesystemsStoragesIdListGetBodyNormalizer();
         $normalizers[] = new CntFilesystemsConfigurationsGetResponse200ItemNormalizer();
         $normalizers[] = new IamLogsFiltersGetResponse200Normalizer();
         $normalizers[] = new CntDataflowLoaderPostBodyItemNormalizer();

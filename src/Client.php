@@ -3006,18 +3006,18 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\SyncFileBadRequestException
-     * @throws \Afosto\Sdk\Exception\SyncFileUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\SyncFileForbiddenException
-     * @throws \Afosto\Sdk\Exception\SyncFileNotFoundException
-     * @throws \Afosto\Sdk\Exception\SyncFileInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\SyncFileServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\DeprecatedSyncFileBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeprecatedSyncFileUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeprecatedSyncFileForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeprecatedSyncFileNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeprecatedSyncFileInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeprecatedSyncFileServiceUnavailableException
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function syncFile(int $id, \Afosto\Sdk\Model\CntStorageSyncRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function deprecatedSyncFile(int $id, \Afosto\Sdk\Model\CntStorageSyncCommand $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SyncFile($id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeprecatedSyncFile($id, $body), $fetch);
     }
 
     /**
@@ -3037,6 +3037,92 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function updateStorage(int $id, \Afosto\Sdk\Model\CntStorageModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateStorage($id, $body), $fetch);
+    }
+
+    /**
+     * Send a file to a storage.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SyncFileBadRequestException
+     * @throws \Afosto\Sdk\Exception\SyncFileUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SyncFileForbiddenException
+     * @throws \Afosto\Sdk\Exception\SyncFileNotFoundException
+     * @throws \Afosto\Sdk\Exception\SyncFileInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SyncFileServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function syncFile(int $id, \Afosto\Sdk\Model\CntStorageSyncCommand $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SyncFile($id, $body), $fetch);
+    }
+
+    /**
+     * Read data from the storage.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $path path/to/file.csv
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ReadStorageBadRequestException
+     * @throws \Afosto\Sdk\Exception\ReadStorageUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ReadStorageForbiddenException
+     * @throws \Afosto\Sdk\Exception\ReadStorageNotFoundException
+     * @throws \Afosto\Sdk\Exception\ReadStorageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ReadStorageServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function readStorage(int $id, \Afosto\Sdk\Model\CntFilesystemsStoragesIdReadGetBody $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ReadStorage($id, $body, $queryParameters), $fetch);
+    }
+
+    /**
+     * Read data from the storage.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $path path/to/file.csv
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListStorageBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListStorageUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListStorageForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListStorageNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListStorageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListStorageServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntStorageObject[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listStorage(int $id, \Afosto\Sdk\Model\CntFilesystemsStoragesIdListGetBody $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListStorage($id, $body, $queryParameters), $fetch);
+    }
+
+    /**
+     * Test storage connection.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\TestExistingStorageBadRequestException
+     * @throws \Afosto\Sdk\Exception\TestExistingStorageUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\TestExistingStorageForbiddenException
+     * @throws \Afosto\Sdk\Exception\TestExistingStorageNotFoundException
+     * @throws \Afosto\Sdk\Exception\TestExistingStorageInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\TestExistingStorageServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function testExistingStorage(int $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\TestExistingStorage($id), $fetch);
     }
 
     /**

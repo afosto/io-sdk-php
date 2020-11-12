@@ -17,7 +17,7 @@ class SyncFile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
     /**
      * Send a file to a storage.
      */
-    public function __construct(int $id, \Afosto\Sdk\Model\CntStorageSyncRequest $body)
+    public function __construct(int $id, \Afosto\Sdk\Model\CntStorageSyncCommand $body)
     {
         $this->id = $id;
         $this->body = $body;
@@ -32,7 +32,7 @@ class SyncFile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/cnt/filesystems/storages/{id}');
+        return str_replace(['{id}'], [$this->id], '/cnt/filesystems/storages/{id}/sync');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
