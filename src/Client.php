@@ -899,6 +899,135 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListAppsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListAppsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListAppsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListAppsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListAppsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListAppsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\AppApp[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listApps(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListApps(), $fetch);
+    }
+
+    /**
+     * Returns app.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetAppBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetAppUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetAppForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetAppNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetAppInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetAppServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\AppApp|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getApp(string $code, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetApp($code), $fetch);
+    }
+
+    /**
+     * Activate a new app.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\InstallAppBadRequestException
+     * @throws \Afosto\Sdk\Exception\InstallAppUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\InstallAppForbiddenException
+     * @throws \Afosto\Sdk\Exception\InstallAppNotFoundException
+     * @throws \Afosto\Sdk\Exception\InstallAppInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\InstallAppServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\AppInstallResult|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function installApp(string $code, \Afosto\Sdk\Model\AppIntegrationModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\InstallApp($code, $body), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListIntegrationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListIntegrationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListIntegrationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListIntegrationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListIntegrationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListIntegrationsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\AppIntegration[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listIntegrations(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListIntegrations(), $fetch);
+    }
+
+    /**
+     * Update an integrations' configuration.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DisableBadRequestException
+     * @throws \Afosto\Sdk\Exception\DisableUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DisableForbiddenException
+     * @throws \Afosto\Sdk\Exception\DisableNotFoundException
+     * @throws \Afosto\Sdk\Exception\DisableInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DisableServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function disable(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\Disable($id), $fetch);
+    }
+
+    /**
+     * Get information for an integration.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetIntegrationBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetIntegrationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetIntegrationForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetIntegrationNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetIntegrationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetIntegrationServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\AppIntegration|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getIntegration(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetIntegration($id), $fetch);
+    }
+
+    /**
+     * Update an integrations' configuration.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateIntegrationBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateIntegrationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateIntegrationForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateIntegrationNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateIntegrationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateIntegrationServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\AppIntegration|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateIntegration(string $id, \Afosto\Sdk\Model\AppIntegrationModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateIntegration($id, $body), $fetch);
+    }
+
+    /**
      * Render a barcode.
      *
      * @param array $queryParameters {

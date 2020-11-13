@@ -96,6 +96,12 @@ class NormalizerFactory
         $normalizers[] = new OdrFilterSearchConstraintNormalizer();
         $normalizers[] = new OdrSkuNormalizer();
         $normalizers[] = new OdrSkuResultNormalizer();
+        $normalizers[] = new AppAppNormalizer();
+        $normalizers[] = new AppAppAuthenticationNormalizer();
+        $normalizers[] = new AppAuthorNormalizer();
+        $normalizers[] = new AppIntegrationNormalizer();
+        $normalizers[] = new AppIntegrationModelNormalizer();
+        $normalizers[] = new AppInstallResultNormalizer();
         $normalizers[] = new MesMailModelNormalizer();
         $normalizers[] = new MesContactModelNormalizer();
         $normalizers[] = new MesMailNormalizer();
