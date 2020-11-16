@@ -17,6 +17,8 @@ class LcsBulkItemsPutBody
      */
     protected $command;
     /**
+     * possible keys are: [position], [parcel_id], [is_handled], [is_finished], [is_missing].
+     *
      * @var mixed
      */
     protected $parameters;
@@ -38,6 +40,8 @@ class LcsBulkItemsPutBody
     }
 
     /**
+     * possible keys are: [position], [parcel_id], [is_handled], [is_finished], [is_missing].
+     *
      * @return mixed
      */
     public function getParameters()
@@ -46,6 +50,8 @@ class LcsBulkItemsPutBody
     }
 
     /**
+     * possible keys are: [position], [parcel_id], [is_handled], [is_finished], [is_missing].
+     *
      * @param mixed $parameters
      */
     public function setParameters($parameters): self
