@@ -32,7 +32,7 @@ class CreateRefund extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
 
     public function getUri(): string
     {
-        return str_replace(['{secret}'], [$this->secret], '/odr/transactions/{secret}/refund');
+        return str_replace(['{secret}'], [$this->secret], '/odr/transactions/{secret}/refunds');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
