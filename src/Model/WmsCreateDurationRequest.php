@@ -28,6 +28,10 @@ class WmsCreateDurationRequest
      * @var \DateTime
      */
     protected $calculateAt;
+    /**
+     * @var \DateTime
+     */
+    protected $arrivalAt;
 
     public function getRouteId(): ?string
     {
@@ -73,6 +77,18 @@ class WmsCreateDurationRequest
     public function setCalculateAt(?\DateTime $calculateAt): self
     {
         $this->calculateAt = $calculateAt;
+
+        return $this;
+    }
+
+    public function getArrivalAt(): ?\DateTime
+    {
+        return $this->arrivalAt;
+    }
+
+    public function setArrivalAt(?\DateTime $arrivalAt): self
+    {
+        $this->arrivalAt = $arrivalAt;
 
         return $this;
     }
