@@ -63,6 +63,9 @@ class OdrOrderItemModelNormalizer implements DenormalizerInterface, NormalizerIn
             }
             $object->setItemIds($values);
         }
+        if (property_exists($data, 'source_order_id') && null !== $data->{'source_order_id'}) {
+            $object->setSourceOrderId($data->{'source_order_id'});
+        }
 
         return $object;
     }
@@ -94,6 +97,9 @@ class OdrOrderItemModelNormalizer implements DenormalizerInterface, NormalizerIn
                 $values[] = $value;
             }
             $data->{'item_ids'} = $values;
+        }
+        if (null !== $object->getSourceOrderId()) {
+            $data->{'source_order_id'} = $object->getSourceOrderId();
         }
 
         return $data;

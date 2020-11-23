@@ -40,6 +40,10 @@ class OdrOrderItemModel
      * @var string[]
      */
     protected $itemIds;
+    /**
+     * @var string
+     */
+    protected $sourceOrderId;
 
     public function getSku(): ?string
     {
@@ -127,6 +131,18 @@ class OdrOrderItemModel
     public function setItemIds(?array $itemIds): self
     {
         $this->itemIds = $itemIds;
+
+        return $this;
+    }
+
+    public function getSourceOrderId(): ?string
+    {
+        return $this->sourceOrderId;
+    }
+
+    public function setSourceOrderId(?string $sourceOrderId): self
+    {
+        $this->sourceOrderId = $sourceOrderId;
 
         return $this;
     }
