@@ -74,6 +74,9 @@ class OdrProjectionModelNormalizer implements DenormalizerInterface, NormalizerI
             }
             $object->setCoupons($values_2);
         }
+        if (property_exists($data, 'settings') && null !== $data->{'settings'}) {
+            $object->setSettings($this->denormalizer->denormalize($data->{'settings'}, 'Afosto\\Sdk\\Model\\OdrProjectionModelSettings', 'json', $context));
+        }
 
         return $object;
     }
@@ -116,6 +119,9 @@ class OdrProjectionModelNormalizer implements DenormalizerInterface, NormalizerI
                 $values_2[] = $value_2;
             }
             $data->{'coupons'} = $values_2;
+        }
+        if (null !== $object->getSettings()) {
+            $data->{'settings'} = $this->normalizer->normalize($object->getSettings(), 'json', $context);
         }
 
         return $data;

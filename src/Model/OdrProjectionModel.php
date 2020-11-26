@@ -44,6 +44,10 @@ class OdrProjectionModel
      * @var string[]
      */
     protected $coupons;
+    /**
+     * @var OdrProjectionModelSettings
+     */
+    protected $settings;
 
     public function getClientId(): ?string
     {
@@ -155,6 +159,18 @@ class OdrProjectionModel
     public function setCoupons(?array $coupons): self
     {
         $this->coupons = $coupons;
+
+        return $this;
+    }
+
+    public function getSettings(): ?OdrProjectionModelSettings
+    {
+        return $this->settings;
+    }
+
+    public function setSettings(?OdrProjectionModelSettings $settings): self
+    {
+        $this->settings = $settings;
 
         return $this;
     }

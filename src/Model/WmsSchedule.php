@@ -33,7 +33,7 @@ class WmsSchedule
      */
     protected $duration;
     /**
-     * As noted in ISO 8601 weekdays start at monday.
+     * A Weekday specifies a day of the week (Sunday = 0, ...).
      *
      * @var int[]
      */
@@ -104,7 +104,7 @@ class WmsSchedule
     }
 
     /**
-     * As noted in ISO 8601 weekdays start at monday.
+     * A Weekday specifies a day of the week (Sunday = 0, ...).
      *
      * @return int[]|null
      */
@@ -114,7 +114,7 @@ class WmsSchedule
     }
 
     /**
-     * As noted in ISO 8601 weekdays start at monday.
+     * A Weekday specifies a day of the week (Sunday = 0, ...).
      *
      * @param int[]|null $availableWeekdays
      */

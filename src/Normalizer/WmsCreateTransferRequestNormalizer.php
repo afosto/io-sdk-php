@@ -41,6 +41,9 @@ class WmsCreateTransferRequestNormalizer implements DenormalizerInterface, Norma
         if (property_exists($data, 'target') && null !== $data->{'target'}) {
             $object->setTarget($data->{'target'});
         }
+        if (property_exists($data, 'arrival_at') && null !== $data->{'arrival_at'}) {
+            $object->setArrivalAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'arrival_at'}));
+        }
         if (property_exists($data, 'collect_at') && null !== $data->{'collect_at'}) {
             $object->setCollectAt($data->{'collect_at'});
         }
@@ -60,6 +63,9 @@ class WmsCreateTransferRequestNormalizer implements DenormalizerInterface, Norma
         $data = new \stdClass();
         if (null !== $object->getTarget()) {
             $data->{'target'} = $object->getTarget();
+        }
+        if (null !== $object->getArrivalAt()) {
+            $data->{'arrival_at'} = $object->getArrivalAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getCollectAt()) {
             $data->{'collect_at'} = $object->getCollectAt();

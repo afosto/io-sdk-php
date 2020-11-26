@@ -5945,6 +5945,26 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Add sku's that can be claimed on the location that is not tracking inventory.
+     *
+     * @param \Afosto\Sdk\Model\WmsStockUpItem[] $body
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\AddOverageToLocationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\AddOverageToLocationNotFoundException
+     * @throws \Afosto\Sdk\Exception\AddOverageToLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddOverageToLocationForbiddenException
+     * @throws \Afosto\Sdk\Exception\AddOverageToLocationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\AddOverageToLocationServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\WmsInventoryItem[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function addOverageToLocation(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AddOverageToLocation($id, $body), $fetch);
+    }
+
+    /**
      * List all hops.
      *
      * @param array $headerParameters {

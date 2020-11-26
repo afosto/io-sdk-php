@@ -19,6 +19,12 @@ class WmsCreateTransferRequest
      */
     protected $target;
     /**
+     * Optional value: xuse when you want to set a delivery in the feature.
+     *
+     * @var \DateTime
+     */
+    protected $arrivalAt;
+    /**
      * Optional value: use when order should be collected in single location.
      *
      * @var string
@@ -43,6 +49,24 @@ class WmsCreateTransferRequest
     public function setTarget(?string $target): self
     {
         $this->target = $target;
+
+        return $this;
+    }
+
+    /**
+     * Optional value: xuse when you want to set a delivery in the feature.
+     */
+    public function getArrivalAt(): ?\DateTime
+    {
+        return $this->arrivalAt;
+    }
+
+    /**
+     * Optional value: xuse when you want to set a delivery in the feature.
+     */
+    public function setArrivalAt(?\DateTime $arrivalAt): self
+    {
+        $this->arrivalAt = $arrivalAt;
 
         return $this;
     }
