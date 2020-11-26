@@ -52,6 +52,9 @@ class OdrGroupReferencesNormalizer implements DenormalizerInterface, NormalizerI
             }
             $object->setBackorders($values_1);
         }
+        if (property_exists($data, 'target') && null !== $data->{'target'}) {
+            $object->setTarget($data->{'target'});
+        }
 
         return $object;
     }
@@ -72,6 +75,9 @@ class OdrGroupReferencesNormalizer implements DenormalizerInterface, NormalizerI
                 $values_1[] = $value_1;
             }
             $data->{'backorders'} = $values_1;
+        }
+        if (null !== $object->getTarget()) {
+            $data->{'target'} = $object->getTarget();
         }
 
         return $data;

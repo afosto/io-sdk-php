@@ -19,11 +19,19 @@ class OdrGroupReferencesOrdersItemWarehouse
     /**
      * @var string
      */
-    protected $routeId;
+    protected $deliveryRouteId;
+    /**
+     * @var string
+     */
+    protected $collectRouteId;
     /**
      * @var bool
      */
     protected $isReservation = false;
+    /**
+     * @var string
+     */
+    protected $addressId;
     /**
      * @var string
      */
@@ -41,14 +49,26 @@ class OdrGroupReferencesOrdersItemWarehouse
         return $this;
     }
 
-    public function getRouteId(): ?string
+    public function getDeliveryRouteId(): ?string
     {
-        return $this->routeId;
+        return $this->deliveryRouteId;
     }
 
-    public function setRouteId(?string $routeId): self
+    public function setDeliveryRouteId(?string $deliveryRouteId): self
     {
-        $this->routeId = $routeId;
+        $this->deliveryRouteId = $deliveryRouteId;
+
+        return $this;
+    }
+
+    public function getCollectRouteId(): ?string
+    {
+        return $this->collectRouteId;
+    }
+
+    public function setCollectRouteId(?string $collectRouteId): self
+    {
+        $this->collectRouteId = $collectRouteId;
 
         return $this;
     }
@@ -61,6 +81,18 @@ class OdrGroupReferencesOrdersItemWarehouse
     public function setIsReservation(?bool $isReservation): self
     {
         $this->isReservation = $isReservation;
+
+        return $this;
+    }
+
+    public function getAddressId(): ?string
+    {
+        return $this->addressId;
+    }
+
+    public function setAddressId(?string $addressId): self
+    {
+        $this->addressId = $addressId;
 
         return $this;
     }

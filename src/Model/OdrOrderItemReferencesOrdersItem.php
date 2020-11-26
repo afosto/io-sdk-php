@@ -40,6 +40,10 @@ class OdrOrderItemReferencesOrdersItem
      * @var string[]
      */
     protected $backorders;
+    /**
+     * @var string
+     */
+    protected $target;
 
     public function getId(): ?string
     {
@@ -133,6 +137,18 @@ class OdrOrderItemReferencesOrdersItem
     public function setBackorders(?array $backorders): self
     {
         $this->backorders = $backorders;
+
+        return $this;
+    }
+
+    public function getTarget(): ?string
+    {
+        return $this->target;
+    }
+
+    public function setTarget(?string $target): self
+    {
+        $this->target = $target;
 
         return $this;
     }

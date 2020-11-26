@@ -41,11 +41,17 @@ class OdrGroupReferencesOrdersItemWarehouseNormalizer implements DenormalizerInt
         if (property_exists($data, 'claim_id') && null !== $data->{'claim_id'}) {
             $object->setClaimId($data->{'claim_id'});
         }
-        if (property_exists($data, 'route_id') && null !== $data->{'route_id'}) {
-            $object->setRouteId($data->{'route_id'});
+        if (property_exists($data, 'delivery_route_id') && null !== $data->{'delivery_route_id'}) {
+            $object->setDeliveryRouteId($data->{'delivery_route_id'});
+        }
+        if (property_exists($data, 'collect_route_id') && null !== $data->{'collect_route_id'}) {
+            $object->setCollectRouteId($data->{'collect_route_id'});
         }
         if (property_exists($data, 'is_reservation') && null !== $data->{'is_reservation'}) {
             $object->setIsReservation($data->{'is_reservation'});
+        }
+        if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
+            $object->setAddressId($data->{'address_id'});
         }
         if (property_exists($data, 'transfer_id') && null !== $data->{'transfer_id'}) {
             $object->setTransferId($data->{'transfer_id'});
@@ -60,11 +66,17 @@ class OdrGroupReferencesOrdersItemWarehouseNormalizer implements DenormalizerInt
         if (null !== $object->getClaimId()) {
             $data->{'claim_id'} = $object->getClaimId();
         }
-        if (null !== $object->getRouteId()) {
-            $data->{'route_id'} = $object->getRouteId();
+        if (null !== $object->getDeliveryRouteId()) {
+            $data->{'delivery_route_id'} = $object->getDeliveryRouteId();
+        }
+        if (null !== $object->getCollectRouteId()) {
+            $data->{'collect_route_id'} = $object->getCollectRouteId();
         }
         if (null !== $object->getIsReservation()) {
             $data->{'is_reservation'} = $object->getIsReservation();
+        }
+        if (null !== $object->getAddressId()) {
+            $data->{'address_id'} = $object->getAddressId();
         }
         if (null !== $object->getTransferId()) {
             $data->{'transfer_id'} = $object->getTransferId();

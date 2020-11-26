@@ -50,9 +50,6 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
         }
-        if (property_exists($data, 'order_id') && null !== $data->{'order_id'}) {
-            $object->setOrderId($data->{'order_id'});
-        }
         if (property_exists($data, 'ids') && null !== $data->{'ids'}) {
             $values = [];
             foreach ($data->{'ids'} as $value) {
@@ -88,9 +85,6 @@ class OdrGroupNormalizer implements DenormalizerInterface, NormalizerInterface, 
         }
         if (null !== $object->getQuantity()) {
             $data->{'quantity'} = $object->getQuantity();
-        }
-        if (null !== $object->getOrderId()) {
-            $data->{'order_id'} = $object->getOrderId();
         }
         if (null !== $object->getIds()) {
             $values = [];

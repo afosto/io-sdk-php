@@ -29,10 +29,6 @@ class OdrGroup
      */
     protected $quantity;
     /**
-     * @var string
-     */
-    protected $orderId;
-    /**
      * @var string[]
      */
     protected $ids;
@@ -89,18 +85,6 @@ class OdrGroup
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    public function getOrderId(): ?string
-    {
-        return $this->orderId;
-    }
-
-    public function setOrderId(?string $orderId): self
-    {
-        $this->orderId = $orderId;
 
         return $this;
     }
