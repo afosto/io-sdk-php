@@ -35,7 +35,7 @@ class WmsInventoryItem
      */
     protected $metadata;
     /**
-     * @var int
+     * @var string
      */
     protected $state;
     /**
@@ -117,12 +117,12 @@ class WmsInventoryItem
         return $this;
     }
 
-    public function getState(): ?int
+    public function getState(): ?string
     {
         return $this->state;
     }
 
-    public function setState(?int $state): self
+    public function setState(?string $state): self
     {
         $this->state = $state;
 
