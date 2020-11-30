@@ -45,9 +45,9 @@ class CreateTransferProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\CreateTransferProjectionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTransferProjectionNotFoundException
      * @throws \Afosto\Sdk\Exception\CreateTransferProjectionBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateTransferProjectionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTransferProjectionForbiddenException
      * @throws \Afosto\Sdk\Exception\CreateTransferProjectionInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateTransferProjectionServiceUnavailableException
@@ -59,14 +59,14 @@ class CreateTransferProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint 
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsTransfer', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\CreateTransferProjectionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateTransferProjectionNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\CreateTransferProjectionBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateTransferProjectionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\CreateTransferProjectionForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

@@ -47,9 +47,9 @@ class DeleteLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\DeleteLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteLocationNotFoundException
      * @throws \Afosto\Sdk\Exception\DeleteLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteLocationForbiddenException
      * @throws \Afosto\Sdk\Exception\DeleteLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\DeleteLocationServiceUnavailableException
@@ -61,14 +61,14 @@ class DeleteLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsLocation', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\DeleteLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteLocationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteLocationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteLocationForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

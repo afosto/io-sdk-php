@@ -47,9 +47,9 @@ class DeleteSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\DeleteScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteScheduleNotFoundException
      * @throws \Afosto\Sdk\Exception\DeleteScheduleBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteScheduleForbiddenException
      * @throws \Afosto\Sdk\Exception\DeleteScheduleInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\DeleteScheduleServiceUnavailableException
@@ -61,14 +61,14 @@ class DeleteSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsSchedule', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\DeleteScheduleUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteScheduleNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteScheduleBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteScheduleUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteScheduleForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

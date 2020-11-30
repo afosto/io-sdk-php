@@ -45,9 +45,9 @@ class SearchALocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\SearchALocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchALocationNotFoundException
      * @throws \Afosto\Sdk\Exception\SearchALocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchALocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchALocationForbiddenException
      * @throws \Afosto\Sdk\Exception\SearchALocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\SearchALocationServiceUnavailableException
@@ -59,14 +59,14 @@ class SearchALocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsLocation', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\SearchALocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\SearchALocationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\SearchALocationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchALocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\SearchALocationForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

@@ -47,9 +47,9 @@ class UpdateSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\UpdateScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateScheduleNotFoundException
      * @throws \Afosto\Sdk\Exception\UpdateScheduleBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateScheduleForbiddenException
      * @throws \Afosto\Sdk\Exception\UpdateScheduleInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateScheduleServiceUnavailableException
@@ -61,14 +61,14 @@ class UpdateSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsHop', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateScheduleUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateScheduleNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateScheduleBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateScheduleUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateScheduleForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

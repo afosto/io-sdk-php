@@ -64,9 +64,9 @@ class SearchInventorySummary extends \Jane\OpenApiRuntime\Client\BaseEndpoint im
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\SearchInventorySummaryUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchInventorySummaryNotFoundException
      * @throws \Afosto\Sdk\Exception\SearchInventorySummaryBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchInventorySummaryUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchInventorySummaryForbiddenException
      * @throws \Afosto\Sdk\Exception\SearchInventorySummaryInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\SearchInventorySummaryServiceUnavailableException
@@ -78,14 +78,14 @@ class SearchInventorySummary extends \Jane\OpenApiRuntime\Client\BaseEndpoint im
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsStock[]', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\SearchInventorySummaryUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\SearchInventorySummaryNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\SearchInventorySummaryBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchInventorySummaryUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\SearchInventorySummaryForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

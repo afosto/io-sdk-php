@@ -47,9 +47,9 @@ class UpdateHopSchedules extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesNotFoundException
      * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesForbiddenException
      * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesServiceUnavailableException
@@ -61,14 +61,14 @@ class UpdateHopSchedules extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsHop', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateHopSchedulesUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateHopSchedulesNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateHopSchedulesBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateHopSchedulesUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateHopSchedulesForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

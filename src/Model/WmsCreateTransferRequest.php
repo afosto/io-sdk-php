@@ -19,7 +19,7 @@ class WmsCreateTransferRequest
      */
     protected $target;
     /**
-     * Optional value: xuse when you want to set a delivery in the feature.
+     * Optional value: use when you want to set a delivery in the feature.
      *
      * @var \DateTime
      */
@@ -54,7 +54,7 @@ class WmsCreateTransferRequest
     }
 
     /**
-     * Optional value: xuse when you want to set a delivery in the feature.
+     * Optional value: use when you want to set a delivery in the feature.
      */
     public function getArrivalAt(): ?\DateTime
     {
@@ -62,7 +62,7 @@ class WmsCreateTransferRequest
     }
 
     /**
-     * Optional value: xuse when you want to set a delivery in the feature.
+     * Optional value: use when you want to set a delivery in the feature.
      */
     public function setArrivalAt(?\DateTime $arrivalAt): self
     {

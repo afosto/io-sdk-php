@@ -50,9 +50,9 @@ class AttachItemsToClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\AttachItemsToClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AttachItemsToClaimNotFoundException
      * @throws \Afosto\Sdk\Exception\AttachItemsToClaimBadRequestException
+     * @throws \Afosto\Sdk\Exception\AttachItemsToClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AttachItemsToClaimForbiddenException
      * @throws \Afosto\Sdk\Exception\AttachItemsToClaimInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\AttachItemsToClaimServiceUnavailableException
@@ -64,14 +64,14 @@ class AttachItemsToClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsClaimItem[]', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\AttachItemsToClaimUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\AttachItemsToClaimNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\AttachItemsToClaimBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\AttachItemsToClaimUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\AttachItemsToClaimForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

@@ -64,9 +64,9 @@ class SearchClaims extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\SearchClaimsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchClaimsNotFoundException
      * @throws \Afosto\Sdk\Exception\SearchClaimsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchClaimsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchClaimsForbiddenException
      * @throws \Afosto\Sdk\Exception\SearchClaimsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\SearchClaimsServiceUnavailableException
@@ -78,14 +78,14 @@ class SearchClaims extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsClaim[]', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\SearchClaimsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\SearchClaimsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\SearchClaimsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\SearchClaimsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\SearchClaimsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

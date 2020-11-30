@@ -47,9 +47,9 @@ class GetSubTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\GetSubTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSubTransferNotFoundException
      * @throws \Afosto\Sdk\Exception\GetSubTransferBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSubTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSubTransferForbiddenException
      * @throws \Afosto\Sdk\Exception\GetSubTransferInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetSubTransferServiceUnavailableException
@@ -61,14 +61,14 @@ class GetSubTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsSubTransfer', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\GetSubTransferUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetSubTransferNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\GetSubTransferBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\GetSubTransferUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\GetSubTransferForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

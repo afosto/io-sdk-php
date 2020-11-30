@@ -45,9 +45,9 @@ class CreateRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\CreateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateRouteNotFoundException
      * @throws \Afosto\Sdk\Exception\CreateRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateRouteForbiddenException
      * @throws \Afosto\Sdk\Exception\CreateRouteInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateRouteServiceUnavailableException
@@ -59,14 +59,14 @@ class CreateRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsRoute', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\CreateRouteUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateRouteNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\CreateRouteBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateRouteUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\CreateRouteForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

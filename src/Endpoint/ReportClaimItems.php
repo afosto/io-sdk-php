@@ -47,9 +47,9 @@ class ReportClaimItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ReportClaimItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsNotFoundException
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ReportClaimItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsForbiddenException
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsServiceUnavailableException
@@ -61,14 +61,14 @@ class ReportClaimItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsInventoryItem[]', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ReportClaimItemsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ReportClaimItemsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ReportClaimItemsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\ReportClaimItemsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\ReportClaimItemsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

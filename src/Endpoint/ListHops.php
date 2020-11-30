@@ -63,9 +63,9 @@ class ListHops extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ListHopsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListHopsNotFoundException
      * @throws \Afosto\Sdk\Exception\ListHopsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListHopsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListHopsForbiddenException
      * @throws \Afosto\Sdk\Exception\ListHopsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListHopsServiceUnavailableException
@@ -77,14 +77,14 @@ class ListHops extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsHop[]', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ListHopsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListHopsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ListHopsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\ListHopsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\ListHopsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

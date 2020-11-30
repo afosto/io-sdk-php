@@ -50,9 +50,9 @@ class UpdateTransferTransportShipment extends \Jane\OpenApiRuntime\Client\BaseEn
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentNotFoundException
      * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentForbiddenException
      * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentServiceUnavailableException
@@ -64,14 +64,14 @@ class UpdateTransferTransportShipment extends \Jane\OpenApiRuntime\Client\BaseEn
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsTransport', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateTransferTransportShipmentUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateTransferTransportShipmentNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateTransferTransportShipmentBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateTransferTransportShipmentUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateTransferTransportShipmentForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

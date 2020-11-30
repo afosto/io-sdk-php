@@ -48,9 +48,9 @@ class DeleteAvailableSkuToLocation extends \Jane\OpenApiRuntime\Client\BaseEndpo
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationNotFoundException
      * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationForbiddenException
      * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationServiceUnavailableException
@@ -62,14 +62,14 @@ class DeleteAvailableSkuToLocation extends \Jane\OpenApiRuntime\Client\BaseEndpo
         if (204 === $status) {
             return null;
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

@@ -343,6 +343,7 @@ class NormalizerFactory
         $normalizers[] = new WmsTransportNormalizer();
         $normalizers[] = new WmsDescriptiveLocationNormalizer();
         $normalizers[] = new WmsTraveledRouteNormalizer();
+        $normalizers[] = new WmsTraveledRouteSummaryNormalizer();
         $normalizers[] = new WmsAddAvailableSkuResponseNormalizer();
         $normalizers[] = new OdrStartSessionRequestNormalizer();
         $normalizers[] = new OdrAttachSessionRequestNormalizer();

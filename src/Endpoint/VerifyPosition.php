@@ -50,9 +50,9 @@ class VerifyPosition extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\VerifyPositionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\VerifyPositionNotFoundException
      * @throws \Afosto\Sdk\Exception\VerifyPositionBadRequestException
+     * @throws \Afosto\Sdk\Exception\VerifyPositionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\VerifyPositionForbiddenException
      * @throws \Afosto\Sdk\Exception\VerifyPositionInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\VerifyPositionServiceUnavailableException
@@ -64,14 +64,14 @@ class VerifyPosition extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
         if (204 === $status) {
             return null;
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\VerifyPositionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\VerifyPositionNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\VerifyPositionBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\VerifyPositionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\VerifyPositionForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

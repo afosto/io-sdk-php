@@ -45,9 +45,9 @@ class SetInventory extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\SetInventoryUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SetInventoryNotFoundException
      * @throws \Afosto\Sdk\Exception\SetInventoryBadRequestException
+     * @throws \Afosto\Sdk\Exception\SetInventoryUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SetInventoryForbiddenException
      * @throws \Afosto\Sdk\Exception\SetInventoryInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\SetInventoryServiceUnavailableException
@@ -59,14 +59,14 @@ class SetInventory extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsStock[]', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\SetInventoryUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\SetInventoryNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\SetInventoryBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\SetInventoryUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\SetInventoryForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

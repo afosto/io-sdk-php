@@ -45,9 +45,9 @@ class CreateClaimProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\CreateClaimProjectionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateClaimProjectionNotFoundException
      * @throws \Afosto\Sdk\Exception\CreateClaimProjectionBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateClaimProjectionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateClaimProjectionForbiddenException
      * @throws \Afosto\Sdk\Exception\CreateClaimProjectionInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateClaimProjectionServiceUnavailableException
@@ -59,14 +59,14 @@ class CreateClaimProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsProjection', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\CreateClaimProjectionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateClaimProjectionNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\CreateClaimProjectionBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateClaimProjectionUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\CreateClaimProjectionForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

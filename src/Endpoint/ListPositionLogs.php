@@ -66,9 +66,9 @@ class ListPositionLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ListPositionLogsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListPositionLogsNotFoundException
      * @throws \Afosto\Sdk\Exception\ListPositionLogsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPositionLogsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListPositionLogsForbiddenException
      * @throws \Afosto\Sdk\Exception\ListPositionLogsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListPositionLogsServiceUnavailableException
@@ -80,14 +80,14 @@ class ListPositionLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsPositionLogResponse[]', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ListPositionLogsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListPositionLogsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ListPositionLogsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\ListPositionLogsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\ListPositionLogsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

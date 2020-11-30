@@ -64,9 +64,9 @@ class ListInventoryPositions extends \Jane\OpenApiRuntime\Client\BaseEndpoint im
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ListInventoryPositionsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListInventoryPositionsNotFoundException
      * @throws \Afosto\Sdk\Exception\ListInventoryPositionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListInventoryPositionsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListInventoryPositionsForbiddenException
      * @throws \Afosto\Sdk\Exception\ListInventoryPositionsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListInventoryPositionsServiceUnavailableException
@@ -78,14 +78,14 @@ class ListInventoryPositions extends \Jane\OpenApiRuntime\Client\BaseEndpoint im
         if (200 === $status) {
             return json_decode($body);
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ListInventoryPositionsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ListInventoryPositionsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ListInventoryPositionsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\ListInventoryPositionsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\ListInventoryPositionsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

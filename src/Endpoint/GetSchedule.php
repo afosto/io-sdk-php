@@ -47,9 +47,9 @@ class GetSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\GetScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetScheduleNotFoundException
      * @throws \Afosto\Sdk\Exception\GetScheduleBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetScheduleForbiddenException
      * @throws \Afosto\Sdk\Exception\GetScheduleInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetScheduleServiceUnavailableException
@@ -61,14 +61,14 @@ class GetSchedule extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsSchedule', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\GetScheduleUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetScheduleNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\GetScheduleBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\GetScheduleUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\GetScheduleForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

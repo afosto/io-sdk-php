@@ -48,9 +48,9 @@ class ConfirmClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\ConfirmClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ConfirmClaimNotFoundException
      * @throws \Afosto\Sdk\Exception\ConfirmClaimBadRequestException
+     * @throws \Afosto\Sdk\Exception\ConfirmClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ConfirmClaimForbiddenException
      * @throws \Afosto\Sdk\Exception\ConfirmClaimInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ConfirmClaimServiceUnavailableException
@@ -62,14 +62,14 @@ class ConfirmClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsClaim', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\ConfirmClaimUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\ConfirmClaimNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ConfirmClaimBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\ConfirmClaimUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\ConfirmClaimForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

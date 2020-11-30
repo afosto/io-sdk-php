@@ -5598,9 +5598,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetRoutesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetRoutesNotFoundException
      * @throws \Afosto\Sdk\Exception\GetRoutesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetRoutesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetRoutesForbiddenException
      * @throws \Afosto\Sdk\Exception\GetRoutesInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetRoutesServiceUnavailableException
@@ -5617,9 +5617,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\CreateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateRouteNotFoundException
      * @throws \Afosto\Sdk\Exception\CreateRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateRouteForbiddenException
      * @throws \Afosto\Sdk\Exception\CreateRouteInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateRouteServiceUnavailableException
@@ -5636,9 +5636,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\UpdateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateRouteNotFoundException
      * @throws \Afosto\Sdk\Exception\UpdateRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateRouteForbiddenException
      * @throws \Afosto\Sdk\Exception\UpdateRouteInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateRouteServiceUnavailableException
@@ -5655,9 +5655,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\DeleteRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteRouteNotFoundException
      * @throws \Afosto\Sdk\Exception\DeleteRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteRouteForbiddenException
      * @throws \Afosto\Sdk\Exception\DeleteRouteInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\DeleteRouteServiceUnavailableException
@@ -5674,9 +5674,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ViewRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ViewRouteNotFoundException
      * @throws \Afosto\Sdk\Exception\ViewRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ViewRouteForbiddenException
      * @throws \Afosto\Sdk\Exception\ViewRouteInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ViewRouteServiceUnavailableException
@@ -5704,9 +5704,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ListLocationsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListLocationsNotFoundException
      * @throws \Afosto\Sdk\Exception\ListLocationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListLocationsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListLocationsForbiddenException
      * @throws \Afosto\Sdk\Exception\ListLocationsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListLocationsServiceUnavailableException
@@ -5724,9 +5724,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\WmsCreateLocationRequest $body  Location model
      * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\CreateLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateLocationNotFoundException
      * @throws \Afosto\Sdk\Exception\CreateLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateLocationForbiddenException
      * @throws \Afosto\Sdk\Exception\CreateLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateLocationServiceUnavailableException
@@ -5743,9 +5743,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\UpdateLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateLocationNotFoundException
      * @throws \Afosto\Sdk\Exception\UpdateLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateLocationForbiddenException
      * @throws \Afosto\Sdk\Exception\UpdateLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateLocationServiceUnavailableException
@@ -5762,9 +5762,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\SearchALocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchALocationNotFoundException
      * @throws \Afosto\Sdk\Exception\SearchALocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchALocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchALocationForbiddenException
      * @throws \Afosto\Sdk\Exception\SearchALocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\SearchALocationServiceUnavailableException
@@ -5781,9 +5781,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\DeleteLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteLocationNotFoundException
      * @throws \Afosto\Sdk\Exception\DeleteLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteLocationForbiddenException
      * @throws \Afosto\Sdk\Exception\DeleteLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\DeleteLocationServiceUnavailableException
@@ -5800,9 +5800,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetLocationNotFoundException
      * @throws \Afosto\Sdk\Exception\GetLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetLocationForbiddenException
      * @throws \Afosto\Sdk\Exception\GetLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetLocationServiceUnavailableException
@@ -5824,9 +5824,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ListInventoryPositionsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListInventoryPositionsNotFoundException
      * @throws \Afosto\Sdk\Exception\ListInventoryPositionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListInventoryPositionsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListInventoryPositionsForbiddenException
      * @throws \Afosto\Sdk\Exception\ListInventoryPositionsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListInventoryPositionsServiceUnavailableException
@@ -5848,9 +5848,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ListPositionLogsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListPositionLogsNotFoundException
      * @throws \Afosto\Sdk\Exception\ListPositionLogsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListPositionLogsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListPositionLogsForbiddenException
      * @throws \Afosto\Sdk\Exception\ListPositionLogsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListPositionLogsServiceUnavailableException
@@ -5867,9 +5867,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\VerifyPositionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\VerifyPositionNotFoundException
      * @throws \Afosto\Sdk\Exception\VerifyPositionBadRequestException
+     * @throws \Afosto\Sdk\Exception\VerifyPositionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\VerifyPositionForbiddenException
      * @throws \Afosto\Sdk\Exception\VerifyPositionInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\VerifyPositionServiceUnavailableException
@@ -5886,9 +5886,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationNotFoundException
      * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationForbiddenException
      * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\DeleteAvailableSkuToLocationServiceUnavailableException
@@ -5911,9 +5911,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationNotFoundException
      * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationForbiddenException
      * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetAvailableSkuForLocationServiceUnavailableException
@@ -5930,9 +5930,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\AddAvailableSkuToLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AddAvailableSkuToLocationNotFoundException
      * @throws \Afosto\Sdk\Exception\AddAvailableSkuToLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddAvailableSkuToLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AddAvailableSkuToLocationForbiddenException
      * @throws \Afosto\Sdk\Exception\AddAvailableSkuToLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\AddAvailableSkuToLocationServiceUnavailableException
@@ -5950,9 +5950,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\WmsStockUpItem[] $body
      * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\AddOverageToLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AddOverageToLocationNotFoundException
      * @throws \Afosto\Sdk\Exception\AddOverageToLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddOverageToLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AddOverageToLocationForbiddenException
      * @throws \Afosto\Sdk\Exception\AddOverageToLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\AddOverageToLocationServiceUnavailableException
@@ -5975,9 +5975,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ListHopsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListHopsNotFoundException
      * @throws \Afosto\Sdk\Exception\ListHopsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListHopsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListHopsForbiddenException
      * @throws \Afosto\Sdk\Exception\ListHopsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListHopsServiceUnavailableException
@@ -5995,9 +5995,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\WmsCreateHopRequest $body  Hop model
      * @param string                                $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\CreateHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateHopNotFoundException
      * @throws \Afosto\Sdk\Exception\CreateHopBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateHopForbiddenException
      * @throws \Afosto\Sdk\Exception\CreateHopInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateHopServiceUnavailableException
@@ -6015,9 +6015,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\WmsCreateHopScheduleRequest $body  Hop model
      * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesNotFoundException
      * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesForbiddenException
      * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateHopSchedulesServiceUnavailableException
@@ -6034,9 +6034,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\DeleteHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteHopNotFoundException
      * @throws \Afosto\Sdk\Exception\DeleteHopBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteHopForbiddenException
      * @throws \Afosto\Sdk\Exception\DeleteHopInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\DeleteHopServiceUnavailableException
@@ -6053,9 +6053,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetHopNotFoundException
      * @throws \Afosto\Sdk\Exception\GetHopBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetHopUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetHopForbiddenException
      * @throws \Afosto\Sdk\Exception\GetHopInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetHopServiceUnavailableException
@@ -6084,9 +6084,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ListSchedulesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListSchedulesNotFoundException
      * @throws \Afosto\Sdk\Exception\ListSchedulesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListSchedulesUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ListSchedulesForbiddenException
      * @throws \Afosto\Sdk\Exception\ListSchedulesInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListSchedulesServiceUnavailableException
@@ -6104,9 +6104,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\WmsCreateScheduleRequest $body  Hop model
      * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\CreateScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateScheduleNotFoundException
      * @throws \Afosto\Sdk\Exception\CreateScheduleBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateScheduleForbiddenException
      * @throws \Afosto\Sdk\Exception\CreateScheduleInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateScheduleServiceUnavailableException
@@ -6124,9 +6124,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\WmsUpdateScheduleRequest $body  Hop model
      * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\UpdateScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateScheduleNotFoundException
      * @throws \Afosto\Sdk\Exception\UpdateScheduleBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateScheduleForbiddenException
      * @throws \Afosto\Sdk\Exception\UpdateScheduleInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateScheduleServiceUnavailableException
@@ -6143,9 +6143,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\DeleteScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteScheduleNotFoundException
      * @throws \Afosto\Sdk\Exception\DeleteScheduleBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteScheduleForbiddenException
      * @throws \Afosto\Sdk\Exception\DeleteScheduleInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\DeleteScheduleServiceUnavailableException
@@ -6162,9 +6162,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetScheduleNotFoundException
      * @throws \Afosto\Sdk\Exception\GetScheduleBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetScheduleUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetScheduleForbiddenException
      * @throws \Afosto\Sdk\Exception\GetScheduleInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetScheduleServiceUnavailableException
@@ -6182,9 +6182,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\WmsCreateDurationRequest $body  Hop model
      * @param string                                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetDurationForRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetDurationForRouteNotFoundException
      * @throws \Afosto\Sdk\Exception\GetDurationForRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetDurationForRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetDurationForRouteForbiddenException
      * @throws \Afosto\Sdk\Exception\GetDurationForRouteInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetDurationForRouteServiceUnavailableException
@@ -6201,9 +6201,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\CreateClaimProjectionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateClaimProjectionNotFoundException
      * @throws \Afosto\Sdk\Exception\CreateClaimProjectionBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateClaimProjectionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateClaimProjectionForbiddenException
      * @throws \Afosto\Sdk\Exception\CreateClaimProjectionInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateClaimProjectionServiceUnavailableException
@@ -6226,9 +6226,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetClaimsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetClaimsNotFoundException
      * @throws \Afosto\Sdk\Exception\GetClaimsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetClaimsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetClaimsForbiddenException
      * @throws \Afosto\Sdk\Exception\GetClaimsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetClaimsServiceUnavailableException
@@ -6245,9 +6245,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\CreateClaimsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateClaimsNotFoundException
      * @throws \Afosto\Sdk\Exception\CreateClaimsBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateClaimsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateClaimsForbiddenException
      * @throws \Afosto\Sdk\Exception\CreateClaimsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateClaimsServiceUnavailableException
@@ -6270,9 +6270,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\SearchClaimsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchClaimsNotFoundException
      * @throws \Afosto\Sdk\Exception\SearchClaimsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchClaimsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchClaimsForbiddenException
      * @throws \Afosto\Sdk\Exception\SearchClaimsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\SearchClaimsServiceUnavailableException
@@ -6290,9 +6290,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\WmsAttachItemClaimRequest[] $body
      * @param string                                        $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\AttachItemsToClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AttachItemsToClaimNotFoundException
      * @throws \Afosto\Sdk\Exception\AttachItemsToClaimBadRequestException
+     * @throws \Afosto\Sdk\Exception\AttachItemsToClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AttachItemsToClaimForbiddenException
      * @throws \Afosto\Sdk\Exception\AttachItemsToClaimInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\AttachItemsToClaimServiceUnavailableException
@@ -6309,9 +6309,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\RemoveClaimItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\RemoveClaimItemNotFoundException
      * @throws \Afosto\Sdk\Exception\RemoveClaimItemBadRequestException
+     * @throws \Afosto\Sdk\Exception\RemoveClaimItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\RemoveClaimItemForbiddenException
      * @throws \Afosto\Sdk\Exception\RemoveClaimItemInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\RemoveClaimItemServiceUnavailableException
@@ -6328,9 +6328,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetClaimNotFoundException
      * @throws \Afosto\Sdk\Exception\GetClaimBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetClaimForbiddenException
      * @throws \Afosto\Sdk\Exception\GetClaimInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetClaimServiceUnavailableException
@@ -6353,9 +6353,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetClaimItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetClaimItemsNotFoundException
      * @throws \Afosto\Sdk\Exception\GetClaimItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetClaimItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetClaimItemsForbiddenException
      * @throws \Afosto\Sdk\Exception\GetClaimItemsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetClaimItemsServiceUnavailableException
@@ -6372,9 +6372,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ExtendClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ExtendClaimNotFoundException
      * @throws \Afosto\Sdk\Exception\ExtendClaimBadRequestException
+     * @throws \Afosto\Sdk\Exception\ExtendClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ExtendClaimForbiddenException
      * @throws \Afosto\Sdk\Exception\ExtendClaimInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ExtendClaimServiceUnavailableException
@@ -6391,9 +6391,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ConfirmClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ConfirmClaimNotFoundException
      * @throws \Afosto\Sdk\Exception\ConfirmClaimBadRequestException
+     * @throws \Afosto\Sdk\Exception\ConfirmClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ConfirmClaimForbiddenException
      * @throws \Afosto\Sdk\Exception\ConfirmClaimInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ConfirmClaimServiceUnavailableException
@@ -6410,9 +6410,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\CreateTransferProjectionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTransferProjectionNotFoundException
      * @throws \Afosto\Sdk\Exception\CreateTransferProjectionBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateTransferProjectionUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTransferProjectionForbiddenException
      * @throws \Afosto\Sdk\Exception\CreateTransferProjectionInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateTransferProjectionServiceUnavailableException
@@ -6435,9 +6435,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetTransfersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetTransfersNotFoundException
      * @throws \Afosto\Sdk\Exception\GetTransfersBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTransfersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetTransfersForbiddenException
      * @throws \Afosto\Sdk\Exception\GetTransfersInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetTransfersServiceUnavailableException
@@ -6454,9 +6454,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\CreateTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTransferNotFoundException
      * @throws \Afosto\Sdk\Exception\CreateTransferBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTransferForbiddenException
      * @throws \Afosto\Sdk\Exception\CreateTransferInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateTransferServiceUnavailableException
@@ -6473,9 +6473,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetTransferNotFoundException
      * @throws \Afosto\Sdk\Exception\GetTransferBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetTransferForbiddenException
      * @throws \Afosto\Sdk\Exception\GetTransferInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetTransferServiceUnavailableException
@@ -6490,6 +6490,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * returns a describing lsit of transfer items with their route.
      *
+     * @param array $queryParameters {
+     *
+     *     @var string $claim_id filter for a specific claim_id
+     * }
+     *
      * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
@@ -6498,18 +6503,18 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsNotFoundException
      * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsForbiddenException
      * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\WmsTraveledRoute[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\WmsTraveledRouteSummary[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getTransferTransportsItems(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function getTransferTransportsItems(string $id, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTransferTransportsItems($id, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTransferTransportsItems($id, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -6523,9 +6528,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetTransferTransportsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetTransferTransportsNotFoundException
      * @throws \Afosto\Sdk\Exception\GetTransferTransportsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetTransferTransportsForbiddenException
      * @throws \Afosto\Sdk\Exception\GetTransferTransportsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetTransferTransportsServiceUnavailableException
@@ -6542,9 +6547,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportStateUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateTransferTransportStateNotFoundException
      * @throws \Afosto\Sdk\Exception\UpdateTransferTransportStateBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportStateUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateTransferTransportStateForbiddenException
      * @throws \Afosto\Sdk\Exception\UpdateTransferTransportStateInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateTransferTransportStateServiceUnavailableException
@@ -6561,9 +6566,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentNotFoundException
      * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentForbiddenException
      * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentServiceUnavailableException
@@ -6586,9 +6591,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetSubTransfersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSubTransfersNotFoundException
      * @throws \Afosto\Sdk\Exception\GetSubTransfersBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSubTransfersUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSubTransfersForbiddenException
      * @throws \Afosto\Sdk\Exception\GetSubTransfersInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetSubTransfersServiceUnavailableException
@@ -6605,9 +6610,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetSubTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSubTransferNotFoundException
      * @throws \Afosto\Sdk\Exception\GetSubTransferBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSubTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSubTransferForbiddenException
      * @throws \Afosto\Sdk\Exception\GetSubTransferInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetSubTransferServiceUnavailableException
@@ -6630,9 +6635,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetSubTransferItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSubTransferItemsNotFoundException
      * @throws \Afosto\Sdk\Exception\GetSubTransferItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetSubTransferItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetSubTransferItemsForbiddenException
      * @throws \Afosto\Sdk\Exception\GetSubTransferItemsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetSubTransferItemsServiceUnavailableException
@@ -6650,9 +6655,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param \Afosto\Sdk\Model\WmsTransferReport $body  Transfer request object
      * @param string                              $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\ReportClaimItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsNotFoundException
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ReportClaimItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsForbiddenException
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsServiceUnavailableException
@@ -6675,9 +6680,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetInventoryItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetInventoryItemsNotFoundException
      * @throws \Afosto\Sdk\Exception\GetInventoryItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetInventoryItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetInventoryItemsForbiddenException
      * @throws \Afosto\Sdk\Exception\GetInventoryItemsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetInventoryItemsServiceUnavailableException
@@ -6700,9 +6705,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\SearchInventorySummaryUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchInventorySummaryNotFoundException
      * @throws \Afosto\Sdk\Exception\SearchInventorySummaryBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchInventorySummaryUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchInventorySummaryForbiddenException
      * @throws \Afosto\Sdk\Exception\SearchInventorySummaryInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\SearchInventorySummaryServiceUnavailableException
@@ -6719,9 +6724,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\SetInventoryUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SetInventoryNotFoundException
      * @throws \Afosto\Sdk\Exception\SetInventoryBadRequestException
+     * @throws \Afosto\Sdk\Exception\SetInventoryUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SetInventoryForbiddenException
      * @throws \Afosto\Sdk\Exception\SetInventoryInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\SetInventoryServiceUnavailableException
@@ -6744,9 +6749,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\SearchInventoryUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchInventoryNotFoundException
      * @throws \Afosto\Sdk\Exception\SearchInventoryBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchInventoryUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SearchInventoryForbiddenException
      * @throws \Afosto\Sdk\Exception\SearchInventoryInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\SearchInventoryServiceUnavailableException
@@ -6763,9 +6768,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\GetInventoryItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetInventoryItemNotFoundException
      * @throws \Afosto\Sdk\Exception\GetInventoryItemBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetInventoryItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\GetInventoryItemForbiddenException
      * @throws \Afosto\Sdk\Exception\GetInventoryItemInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetInventoryItemServiceUnavailableException
@@ -6782,9 +6787,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\UpdateItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateItemNotFoundException
      * @throws \Afosto\Sdk\Exception\UpdateItemBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateItemForbiddenException
      * @throws \Afosto\Sdk\Exception\UpdateItemInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateItemServiceUnavailableException

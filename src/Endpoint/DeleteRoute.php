@@ -47,9 +47,9 @@ class DeleteRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\DeleteRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteRouteNotFoundException
      * @throws \Afosto\Sdk\Exception\DeleteRouteBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\DeleteRouteForbiddenException
      * @throws \Afosto\Sdk\Exception\DeleteRouteInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\DeleteRouteServiceUnavailableException
@@ -61,14 +61,14 @@ class DeleteRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsRoute', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\DeleteRouteUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteRouteNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteRouteBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\DeleteRouteUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\DeleteRouteForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

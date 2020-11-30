@@ -48,9 +48,9 @@ class UpdateItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\UpdateItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateItemNotFoundException
      * @throws \Afosto\Sdk\Exception\UpdateItemBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\UpdateItemForbiddenException
      * @throws \Afosto\Sdk\Exception\UpdateItemInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateItemServiceUnavailableException
@@ -62,14 +62,14 @@ class UpdateItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsInventoryItem', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\UpdateItemUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateItemNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateItemBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\UpdateItemUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateItemForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

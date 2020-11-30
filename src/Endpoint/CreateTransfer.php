@@ -45,9 +45,9 @@ class CreateTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\CreateTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTransferNotFoundException
      * @throws \Afosto\Sdk\Exception\CreateTransferBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateTransferUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateTransferForbiddenException
      * @throws \Afosto\Sdk\Exception\CreateTransferInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateTransferServiceUnavailableException
@@ -59,14 +59,14 @@ class CreateTransfer extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsTransfer', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\CreateTransferUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateTransferNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\CreateTransferBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateTransferUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\CreateTransferForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

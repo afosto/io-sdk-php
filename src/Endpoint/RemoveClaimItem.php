@@ -48,9 +48,9 @@ class RemoveClaimItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\RemoveClaimItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\RemoveClaimItemNotFoundException
      * @throws \Afosto\Sdk\Exception\RemoveClaimItemBadRequestException
+     * @throws \Afosto\Sdk\Exception\RemoveClaimItemUnauthorizedException
      * @throws \Afosto\Sdk\Exception\RemoveClaimItemForbiddenException
      * @throws \Afosto\Sdk\Exception\RemoveClaimItemInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\RemoveClaimItemServiceUnavailableException
@@ -62,14 +62,14 @@ class RemoveClaimItem extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
         if (204 === $status) {
             return null;
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\RemoveClaimItemUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\RemoveClaimItemNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\RemoveClaimItemBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\RemoveClaimItemUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\RemoveClaimItemForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

@@ -50,9 +50,9 @@ class AddOverageToLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\AddOverageToLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AddOverageToLocationNotFoundException
      * @throws \Afosto\Sdk\Exception\AddOverageToLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\AddOverageToLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AddOverageToLocationForbiddenException
      * @throws \Afosto\Sdk\Exception\AddOverageToLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\AddOverageToLocationServiceUnavailableException
@@ -64,14 +64,14 @@ class AddOverageToLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsInventoryItem[]', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\AddOverageToLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\AddOverageToLocationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\AddOverageToLocationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\AddOverageToLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\AddOverageToLocationForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

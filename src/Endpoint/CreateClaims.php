@@ -45,9 +45,9 @@ class CreateClaims extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\CreateClaimsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateClaimsNotFoundException
      * @throws \Afosto\Sdk\Exception\CreateClaimsBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateClaimsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateClaimsForbiddenException
      * @throws \Afosto\Sdk\Exception\CreateClaimsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateClaimsServiceUnavailableException
@@ -59,14 +59,14 @@ class CreateClaims extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsClaim', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\CreateClaimsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateClaimsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\CreateClaimsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateClaimsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\CreateClaimsForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

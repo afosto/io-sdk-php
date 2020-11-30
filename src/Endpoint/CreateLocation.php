@@ -47,9 +47,9 @@ class CreateLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\CreateLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateLocationNotFoundException
      * @throws \Afosto\Sdk\Exception\CreateLocationBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateLocationUnauthorizedException
      * @throws \Afosto\Sdk\Exception\CreateLocationForbiddenException
      * @throws \Afosto\Sdk\Exception\CreateLocationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateLocationServiceUnavailableException
@@ -61,14 +61,14 @@ class CreateLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
         if (200 === $status) {
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsLocation', 'json');
         }
-        if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\CreateLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
-        }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\CreateLocationNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\CreateLocationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+        }
+        if (401 === $status) {
+            throw new \Afosto\Sdk\Exception\CreateLocationUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
             throw new \Afosto\Sdk\Exception\CreateLocationForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
