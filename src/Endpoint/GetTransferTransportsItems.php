@@ -17,21 +17,15 @@ class GetTransferTransportsItems extends \Jane\OpenApiRuntime\Client\BaseEndpoin
     /**
      * returns a describing lsit of transfer items with their route.
      *
-     * @param array $queryParameters {
-     *
-     *     @var string $claim_id filter for a specific claim_id
-     * }
-     *
      * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
      *     @var string $x-page-size the requested page size
      * }
      */
-    public function __construct(string $id, array $queryParameters = [], array $headerParameters = [])
+    public function __construct(string $id, array $headerParameters = [])
     {
         $this->id = $id;
-        $this->queryParameters = $queryParameters;
         $this->headerParameters = $headerParameters;
     }
 
@@ -44,7 +38,7 @@ class GetTransferTransportsItems extends \Jane\OpenApiRuntime\Client\BaseEndpoin
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/wms/transfers/{id}/summary');
+        return str_replace(['{id}'], [$this->id], '/wms/transfers/{id}/items');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -55,17 +49,6 @@ class GetTransferTransportsItems extends \Jane\OpenApiRuntime\Client\BaseEndpoin
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
-    }
-
-    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
-    {
-        $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['claim_id']);
-        $optionsResolver->setRequired([]);
-        $optionsResolver->setDefaults([]);
-        $optionsResolver->setAllowedTypes('claim_id', ['string']);
-
-        return $optionsResolver;
     }
 
     protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
@@ -90,12 +73,12 @@ class GetTransferTransportsItems extends \Jane\OpenApiRuntime\Client\BaseEndpoin
      * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\WmsTraveledRouteSummary[]|null
+     * @return \Afosto\Sdk\Model\WmsTraveledRoute[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsTraveledRouteSummary[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\WmsTraveledRoute[]', 'json');
         }
         if (404 === $status) {
             throw new \Afosto\Sdk\Exception\GetTransferTransportsItemsNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

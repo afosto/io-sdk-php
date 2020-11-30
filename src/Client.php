@@ -6490,11 +6490,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * returns a describing lsit of transfer items with their route.
      *
-     * @param array $queryParameters {
-     *
-     *     @var string $claim_id filter for a specific claim_id
-     * }
-     *
      * @param array $headerParameters {
      *
      *     @var string $x-page the requested page id
@@ -6510,11 +6505,41 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsServiceUnavailableException
      *
+     * @return \Afosto\Sdk\Model\WmsTraveledRoute[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getTransferTransportsItems(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTransferTransportsItems($id, $headerParameters), $fetch);
+    }
+
+    /**
+     * returns a describing lsit of transfer items with their route.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $claim_id filter for a specific claim_id
+     * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsSummaryNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsSummaryBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsSummaryUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsSummaryForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsSummaryInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsSummaryServiceUnavailableException
+     *
      * @return \Afosto\Sdk\Model\WmsTraveledRouteSummary[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getTransferTransportsItems(string $id, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function getTransferTransportsItemsSummary(string $id, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTransferTransportsItems($id, $queryParameters, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTransferTransportsItemsSummary($id, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
