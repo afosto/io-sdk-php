@@ -340,6 +340,9 @@ class NormalizerFactory
         $normalizers[] = new WmsDurationResponseNormalizer();
         $normalizers[] = new WmsSubTransferNormalizer();
         $normalizers[] = new WmsSubTransferItemNormalizer();
+        $normalizers[] = new WmsTransportNormalizer();
+        $normalizers[] = new WmsDescriptiveLocationNormalizer();
+        $normalizers[] = new WmsTraveledRouteNormalizer();
         $normalizers[] = new WmsAddAvailableSkuResponseNormalizer();
         $normalizers[] = new OdrStartSessionRequestNormalizer();
         $normalizers[] = new OdrAttachSessionRequestNormalizer();
@@ -563,6 +566,8 @@ class NormalizerFactory
         $normalizers[] = new WmsSearchLocationsPostBodyNormalizer();
         $normalizers[] = new WmsSearchClaimsPostBodyNormalizer();
         $normalizers[] = new WmsClaimsIdExtendPutBodyNormalizer();
+        $normalizers[] = new WmsTransfersTransferIdTransportsIdStatePutBodyNormalizer();
+        $normalizers[] = new WmsTransfersTransferIdTransportsIdShipmentPutBodyNormalizer();
         $normalizers[] = new WmsInventoryPostBodyNormalizer();
         $normalizers[] = new WmsSearchItemsPostBodyNormalizer();
         $normalizers[] = new OdrSessionsIdBillingGetResponse200Normalizer();

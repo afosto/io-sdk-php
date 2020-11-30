@@ -6488,6 +6488,94 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * returns a describing lsit of transfer items with their route.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsItemsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\WmsTraveledRoute[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getTransferTransportsItems(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTransferTransportsItems($id, $headerParameters), $fetch);
+    }
+
+    /**
+     * a list of transports for the given transfer.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetTransferTransportsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\WmsTransport[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getTransferTransports(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTransferTransports($id, $headerParameters), $fetch);
+    }
+
+    /**
+     * Create an optimized set of claims.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportStateUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportStateNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportStateBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportStateForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportStateInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportStateServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\WmsTransport|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateTransferTransportState(string $transferId, string $id, \Afosto\Sdk\Model\WmsTransfersTransferIdTransportsIdStatePutBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateTransferTransportState($transferId, $id, $body), $fetch);
+    }
+
+    /**
+     * Create an optimized set of claims.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateTransferTransportShipmentServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\WmsTransport|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateTransferTransportShipment(string $transferId, string $id, \Afosto\Sdk\Model\WmsTransfersTransferIdTransportsIdShipmentPutBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateTransferTransportShipment($transferId, $id, $body), $fetch);
+    }
+
+    /**
      * Create an optimized set of claims.
      *
      * @param array $headerParameters {
