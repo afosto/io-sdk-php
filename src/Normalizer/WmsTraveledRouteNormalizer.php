@@ -41,6 +41,9 @@ class WmsTraveledRouteNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'claim_item_id') && null !== $data->{'claim_item_id'}) {
             $object->setClaimItemId($data->{'claim_item_id'});
         }
+        if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
+            $object->setSku($data->{'sku'});
+        }
         if (property_exists($data, 'claim_id') && null !== $data->{'claim_id'}) {
             $object->setClaimId($data->{'claim_id'});
         }
@@ -67,6 +70,9 @@ class WmsTraveledRouteNormalizer implements DenormalizerInterface, NormalizerInt
         $data = new \stdClass();
         if (null !== $object->getClaimItemId()) {
             $data->{'claim_item_id'} = $object->getClaimItemId();
+        }
+        if (null !== $object->getSku()) {
+            $data->{'sku'} = $object->getSku();
         }
         if (null !== $object->getClaimId()) {
             $data->{'claim_id'} = $object->getClaimId();

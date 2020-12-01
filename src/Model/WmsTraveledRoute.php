@@ -19,6 +19,10 @@ class WmsTraveledRoute
     /**
      * @var string
      */
+    protected $sku;
+    /**
+     * @var string
+     */
     protected $claimId;
     /**
      * @var WmsDescriptiveLocation[]
@@ -37,6 +41,18 @@ class WmsTraveledRoute
     public function setClaimItemId(?string $claimItemId): self
     {
         $this->claimItemId = $claimItemId;
+
+        return $this;
+    }
+
+    public function getSku(): ?string
+    {
+        return $this->sku;
+    }
+
+    public function setSku(?string $sku): self
+    {
+        $this->sku = $sku;
 
         return $this;
     }
