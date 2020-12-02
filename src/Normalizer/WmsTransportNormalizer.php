@@ -59,8 +59,8 @@ class WmsTransportNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (property_exists($data, 'from') && null !== $data->{'from'}) {
             $object->setFrom($data->{'from'});
         }
-        if (property_exists($data, 'depature_at') && null !== $data->{'depature_at'}) {
-            $object->setDepatureAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'depature_at'}));
+        if (property_exists($data, 'departure_at') && null !== $data->{'departure_at'}) {
+            $object->setDepartureAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'departure_at'}));
         }
         if (property_exists($data, 'to') && null !== $data->{'to'}) {
             $object->setTo($data->{'to'});
@@ -96,8 +96,8 @@ class WmsTransportNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (null !== $object->getFrom()) {
             $data->{'from'} = $object->getFrom();
         }
-        if (null !== $object->getDepatureAt()) {
-            $data->{'depature_at'} = $object->getDepatureAt()->format("Y-m-d\TH:i:sP");
+        if (null !== $object->getDepartureAt()) {
+            $data->{'departure_at'} = $object->getDepartureAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getTo()) {
             $data->{'to'} = $object->getTo();

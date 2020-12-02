@@ -43,7 +43,7 @@ class WmsTransport
     /**
      * @var \DateTime
      */
-    protected $depatureAt;
+    protected $departureAt;
     /**
      * @var string
      */
@@ -137,14 +137,14 @@ class WmsTransport
         return $this;
     }
 
-    public function getDepatureAt(): ?\DateTime
+    public function getDepartureAt(): ?\DateTime
     {
-        return $this->depatureAt;
+        return $this->departureAt;
     }
 
-    public function setDepatureAt(?\DateTime $depatureAt): self
+    public function setDepartureAt(?\DateTime $departureAt): self
     {
-        $this->depatureAt = $depatureAt;
+        $this->departureAt = $departureAt;
 
         return $this;
     }
