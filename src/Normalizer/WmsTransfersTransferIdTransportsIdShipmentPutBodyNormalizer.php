@@ -38,8 +38,11 @@ class WmsTransfersTransferIdTransportsIdShipmentPutBodyNormalizer implements Den
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsTransfersTransferIdTransportsIdShipmentPutBody();
-        if (property_exists($data, 'shipment_id') && null !== $data->{'shipment_id'}) {
-            $object->setShipmentId($data->{'shipment_id'});
+        if (property_exists($data, 'inbound_shipment_id') && null !== $data->{'inbound_shipment_id'}) {
+            $object->setInboundShipmentId($data->{'inbound_shipment_id'});
+        }
+        if (property_exists($data, 'outbound_shipment_id') && null !== $data->{'outbound_shipment_id'}) {
+            $object->setOutboundShipmentId($data->{'outbound_shipment_id'});
         }
 
         return $object;
@@ -48,8 +51,11 @@ class WmsTransfersTransferIdTransportsIdShipmentPutBodyNormalizer implements Den
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getShipmentId()) {
-            $data->{'shipment_id'} = $object->getShipmentId();
+        if (null !== $object->getInboundShipmentId()) {
+            $data->{'inbound_shipment_id'} = $object->getInboundShipmentId();
+        }
+        if (null !== $object->getOutboundShipmentId()) {
+            $data->{'outbound_shipment_id'} = $object->getOutboundShipmentId();
         }
 
         return $data;

@@ -50,8 +50,11 @@ class WmsTransportNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (property_exists($data, 'status') && null !== $data->{'status'}) {
             $object->setStatus($data->{'status'});
         }
-        if (property_exists($data, 'shipment_id') && null !== $data->{'shipment_id'}) {
-            $object->setShipmentId($data->{'shipment_id'});
+        if (property_exists($data, 'inbound_shipment_id') && null !== $data->{'inbound_shipment_id'}) {
+            $object->setInboundShipmentId($data->{'inbound_shipment_id'});
+        }
+        if (property_exists($data, 'outbound_shipment_id') && null !== $data->{'outbound_shipment_id'}) {
+            $object->setOutboundShipmentId($data->{'outbound_shipment_id'});
         }
         if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
@@ -87,8 +90,11 @@ class WmsTransportNormalizer implements DenormalizerInterface, NormalizerInterfa
         if (null !== $object->getStatus()) {
             $data->{'status'} = $object->getStatus();
         }
-        if (null !== $object->getShipmentId()) {
-            $data->{'shipment_id'} = $object->getShipmentId();
+        if (null !== $object->getInboundShipmentId()) {
+            $data->{'inbound_shipment_id'} = $object->getInboundShipmentId();
+        }
+        if (null !== $object->getOutboundShipmentId()) {
+            $data->{'outbound_shipment_id'} = $object->getOutboundShipmentId();
         }
         if (null !== $object->getReference()) {
             $data->{'reference'} = $object->getReference();

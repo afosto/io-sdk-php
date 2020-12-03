@@ -15,16 +15,32 @@ class WmsTransfersTransferIdTransportsIdShipmentPutBody
     /**
      * @var string
      */
-    protected $shipmentId;
+    protected $inboundShipmentId;
+    /**
+     * @var string
+     */
+    protected $outboundShipmentId;
 
-    public function getShipmentId(): ?string
+    public function getInboundShipmentId(): ?string
     {
-        return $this->shipmentId;
+        return $this->inboundShipmentId;
     }
 
-    public function setShipmentId(?string $shipmentId): self
+    public function setInboundShipmentId(?string $inboundShipmentId): self
     {
-        $this->shipmentId = $shipmentId;
+        $this->inboundShipmentId = $inboundShipmentId;
+
+        return $this;
+    }
+
+    public function getOutboundShipmentId(): ?string
+    {
+        return $this->outboundShipmentId;
+    }
+
+    public function setOutboundShipmentId(?string $outboundShipmentId): self
+    {
+        $this->outboundShipmentId = $outboundShipmentId;
 
         return $this;
     }
