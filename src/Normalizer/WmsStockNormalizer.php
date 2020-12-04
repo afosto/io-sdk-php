@@ -50,6 +50,9 @@ class WmsStockNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'available') && null !== $data->{'available'}) {
             $object->setAvailable($data->{'available'});
         }
+        if (property_exists($data, 'reserved') && null !== $data->{'reserved'}) {
+            $object->setReserved($data->{'reserved'});
+        }
         if (property_exists($data, 'claimed') && null !== $data->{'claimed'}) {
             $object->setClaimed($data->{'claimed'});
         }
@@ -83,6 +86,9 @@ class WmsStockNormalizer implements DenormalizerInterface, NormalizerInterface, 
         }
         if (null !== $object->getAvailable()) {
             $data->{'available'} = $object->getAvailable();
+        }
+        if (null !== $object->getReserved()) {
+            $data->{'reserved'} = $object->getReserved();
         }
         if (null !== $object->getClaimed()) {
             $data->{'claimed'} = $object->getClaimed();

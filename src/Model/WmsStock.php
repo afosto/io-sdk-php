@@ -31,6 +31,10 @@ class WmsStock
     /**
      * @var int
      */
+    protected $reserved;
+    /**
+     * @var int
+     */
     protected $claimed;
     /**
      * @var int
@@ -93,6 +97,18 @@ class WmsStock
     public function setAvailable(?int $available): self
     {
         $this->available = $available;
+
+        return $this;
+    }
+
+    public function getReserved(): ?int
+    {
+        return $this->reserved;
+    }
+
+    public function setReserved(?int $reserved): self
+    {
+        $this->reserved = $reserved;
 
         return $this;
     }
