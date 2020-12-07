@@ -44,6 +44,13 @@ class LcsShipmentUpdateModelNormalizer implements DenormalizerInterface, Normali
         if (property_exists($data, 'addressing') && null !== $data->{'addressing'}) {
             $object->setAddressing($this->denormalizer->denormalize($data->{'addressing'}, 'Afosto\\Sdk\\Model\\LcsShipmentUpdateModelAddressing', 'json', $context));
         }
+        if (property_exists($data, 'prior_shipments') && null !== $data->{'prior_shipments'}) {
+            $values = [];
+            foreach ($data->{'prior_shipments'} as $value) {
+                $values[] = $value;
+            }
+            $object->setPriorShipments($values);
+        }
         if (property_exists($data, 'expected_at') && null !== $data->{'expected_at'}) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
         }
@@ -62,6 +69,13 @@ class LcsShipmentUpdateModelNormalizer implements DenormalizerInterface, Normali
         }
         if (null !== $object->getAddressing()) {
             $data->{'addressing'} = $this->normalizer->normalize($object->getAddressing(), 'json', $context);
+        }
+        if (null !== $object->getPriorShipments()) {
+            $values = [];
+            foreach ($object->getPriorShipments() as $value) {
+                $values[] = $value;
+            }
+            $data->{'prior_shipments'} = $values;
         }
         if (null !== $object->getExpectedAt()) {
             $data->{'expected_at'} = $object->getExpectedAt()->format("Y-m-d\TH:i:sP");

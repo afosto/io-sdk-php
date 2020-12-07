@@ -21,6 +21,10 @@ class LcsShipmentUpdateModel
      */
     protected $addressing;
     /**
+     * @var string[]
+     */
+    protected $priorShipments;
+    /**
      * @var \DateTime
      */
     protected $expectedAt;
@@ -49,6 +53,24 @@ class LcsShipmentUpdateModel
     public function setAddressing(?LcsShipmentUpdateModelAddressing $addressing): self
     {
         $this->addressing = $addressing;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getPriorShipments(): ?array
+    {
+        return $this->priorShipments;
+    }
+
+    /**
+     * @param string[]|null $priorShipments
+     */
+    public function setPriorShipments(?array $priorShipments): self
+    {
+        $this->priorShipments = $priorShipments;
 
         return $this;
     }
