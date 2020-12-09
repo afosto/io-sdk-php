@@ -41,6 +41,9 @@ class RelGeoLocationAddressNormalizer implements DenormalizerInterface, Normaliz
         if (property_exists($data, 'premise_number') && null !== $data->{'premise_number'}) {
             $object->setPremiseNumber($data->{'premise_number'});
         }
+        if (property_exists($data, 'premise_number_adddition') && null !== $data->{'premise_number_adddition'}) {
+            $object->setPremiseNumberAdddition($data->{'premise_number_adddition'});
+        }
         if (property_exists($data, 'thoroughfare') && null !== $data->{'thoroughfare'}) {
             $object->setThoroughfare($data->{'thoroughfare'});
         }
@@ -65,6 +68,9 @@ class RelGeoLocationAddressNormalizer implements DenormalizerInterface, Normaliz
         $data = new \stdClass();
         if (null !== $object->getPremiseNumber()) {
             $data->{'premise_number'} = $object->getPremiseNumber();
+        }
+        if (null !== $object->getPremiseNumberAdddition()) {
+            $data->{'premise_number_adddition'} = $object->getPremiseNumberAdddition();
         }
         if (null !== $object->getThoroughfare()) {
             $data->{'thoroughfare'} = $object->getThoroughfare();

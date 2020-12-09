@@ -501,6 +501,10 @@ class NormalizerFactory
         $normalizers[] = new CatVatModelNormalizer();
         $normalizers[] = new CatVatNormalizer();
         $normalizers[] = new CatVatRateNormalizer();
+        $normalizers[] = new RelAddressSearchSessionNormalizer();
+        $normalizers[] = new RelAddressQueryNormalizer();
+        $normalizers[] = new RelAddressResultsNormalizer();
+        $normalizers[] = new RelAddressResultsOptionsItemNormalizer();
         $normalizers[] = new RelGeocodeRequestNormalizer();
         $normalizers[] = new RelGeoLocationNormalizer();
         $normalizers[] = new RelGeoLocationBoxNormalizer();

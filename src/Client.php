@@ -9631,6 +9631,50 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Start an search session.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $country_code
+     *     @var string $session_key
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\StartAddressSearchSessionBadRequestException
+     * @throws \Afosto\Sdk\Exception\StartAddressSearchSessionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\StartAddressSearchSessionNotFoundException
+     * @throws \Afosto\Sdk\Exception\StartAddressSearchSessionForbiddenException
+     * @throws \Afosto\Sdk\Exception\StartAddressSearchSessionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\StartAddressSearchSessionServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\RelAddressSearchSession|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function startAddressSearchSession(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\StartAddressSearchSession($queryParameters), $fetch);
+    }
+
+    /**
+     * Search an address.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchAddressBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchAddressUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchAddressNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchAddressForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchAddressInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchAddressServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\RelAddressResults|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchAddress(\Afosto\Sdk\Model\RelAddressQuery $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchAddress($body), $fetch);
+    }
+
+    /**
      * Create a phonenumber.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

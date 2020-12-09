@@ -17,6 +17,12 @@ class RelGeoLocationAddress
      */
     protected $premiseNumber;
     /**
+     * Might be null, depends on source API.
+     *
+     * @var string
+     */
+    protected $premiseNumberAdddition;
+    /**
      * @var string
      */
     protected $thoroughfare;
@@ -45,6 +51,24 @@ class RelGeoLocationAddress
     public function setPremiseNumber(?string $premiseNumber): self
     {
         $this->premiseNumber = $premiseNumber;
+
+        return $this;
+    }
+
+    /**
+     * Might be null, depends on source API.
+     */
+    public function getPremiseNumberAdddition(): ?string
+    {
+        return $this->premiseNumberAdddition;
+    }
+
+    /**
+     * Might be null, depends on source API.
+     */
+    public function setPremiseNumberAdddition(?string $premiseNumberAdddition): self
+    {
+        $this->premiseNumberAdddition = $premiseNumberAdddition;
 
         return $this;
     }
