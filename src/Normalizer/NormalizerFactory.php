@@ -111,6 +111,17 @@ class NormalizerFactory
         $normalizers[] = new MesDnsRecordNormalizer();
         $normalizers[] = new MesDomainNormalizer();
         $normalizers[] = new MesDomainModelNormalizer();
+        $normalizers[] = new OdrCouponNormalizer();
+        $normalizers[] = new OdrCouponUsageNormalizer();
+        $normalizers[] = new OdrCouponClaimsItemNormalizer();
+        $normalizers[] = new OdrCouponModelNormalizer();
+        $normalizers[] = new OdrCouponModelUsageNormalizer();
+        $normalizers[] = new OdrCouponCategoryNormalizer();
+        $normalizers[] = new OdrCouponCategoryDefaultsNormalizer();
+        $normalizers[] = new OdrCouponCategoryDefaultsUsageNormalizer();
+        $normalizers[] = new OdrCouponCategoryModelNormalizer();
+        $normalizers[] = new OdrCouponCategoryModelDefaultsNormalizer();
+        $normalizers[] = new OdrCouponCategoryModelDefaultsUsageNormalizer();
         $normalizers[] = new OdrServiceNormalizer();
         $normalizers[] = new OdrServiceModelNormalizer();
         $normalizers[] = new OdrServiceVatConfigurationNormalizer();

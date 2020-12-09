@@ -1699,6 +1699,161 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Get a listing of available coupons.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $category_id
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetCouponsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetCouponsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetCouponsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetCouponsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetCouponsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetCouponsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrCoupon[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getCoupons(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetCoupons($queryParameters), $fetch);
+    }
+
+    /**
+     * Add a new coupon.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateCouponsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateCouponsNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateCouponsBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateCouponsForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateCouponsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateCouponsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrCoupon|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createCoupons(\Afosto\Sdk\Model\OdrCouponModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateCoupons($body), $fetch);
+    }
+
+    /**
+     * Disable a coupon: it is marked as expired.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DisableCouponUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DisableCouponNotFoundException
+     * @throws \Afosto\Sdk\Exception\DisableCouponBadRequestException
+     * @throws \Afosto\Sdk\Exception\DisableCouponForbiddenException
+     * @throws \Afosto\Sdk\Exception\DisableCouponInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DisableCouponServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function disableCoupon(string $code, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DisableCoupon($code), $fetch);
+    }
+
+    /**
+     * Get a single coupon by ID.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewCouponUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewCouponNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewCouponBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewCouponForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewCouponInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewCouponServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrCoupon|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewCoupon(string $code, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewCoupon($code), $fetch);
+    }
+
+    /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetCouponCategoriesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetCouponCategoriesNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetCouponCategoriesBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetCouponCategoriesForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetCouponCategoriesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetCouponCategoriesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrCouponCategory[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getCouponCategories(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetCouponCategories(), $fetch);
+    }
+
+    /**
+     * Add a new category.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateCouponCategoryUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateCouponCategoryNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateCouponCategoryBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateCouponCategoryForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateCouponCategoryInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateCouponCategoryServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrCouponCategory|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createCouponCategory(\Afosto\Sdk\Model\OdrCouponCategoryModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateCouponCategory($body), $fetch);
+    }
+
+    /**
+     * Get a coupon category by ID.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetCouponCategoryUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetCouponCategoryNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetCouponCategoryBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetCouponCategoryForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetCouponCategoryInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetCouponCategoryServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrCouponCategory|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getCouponCategory(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetCouponCategory($id), $fetch);
+    }
+
+    /**
+     * Update coupon category.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateCouponCategoryUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateCouponCategoryNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateCouponCategoryBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateCouponCategoryForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateCouponCategoryInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateCouponCategoryServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrCouponCategory|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateCouponCategory(string $id, \Afosto\Sdk\Model\OdrCouponCategoryModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateCouponCategory($id, $body), $fetch);
+    }
+
+    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListActionsBadRequestException
