@@ -27,6 +27,10 @@ class CntSearchQuery
     /**
      * @var string[]
      */
+    protected $missing;
+    /**
+     * @var string[]
+     */
     protected $facets;
     /**
      * @var int
@@ -89,6 +93,24 @@ class CntSearchQuery
     public function setFilter(?array $filter): self
     {
         $this->filter = $filter;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getMissing(): ?array
+    {
+        return $this->missing;
+    }
+
+    /**
+     * @param string[]|null $missing
+     */
+    public function setMissing(?array $missing): self
+    {
+        $this->missing = $missing;
 
         return $this;
     }

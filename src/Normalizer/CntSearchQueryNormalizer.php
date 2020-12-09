@@ -55,12 +55,19 @@ class CntSearchQueryNormalizer implements DenormalizerInterface, NormalizerInter
             }
             $object->setFilter($values_1);
         }
-        if (property_exists($data, 'facets') && null !== $data->{'facets'}) {
+        if (property_exists($data, 'missing') && null !== $data->{'missing'}) {
             $values_2 = [];
-            foreach ($data->{'facets'} as $value_2) {
+            foreach ($data->{'missing'} as $value_2) {
                 $values_2[] = $value_2;
             }
-            $object->setFacets($values_2);
+            $object->setMissing($values_2);
+        }
+        if (property_exists($data, 'facets') && null !== $data->{'facets'}) {
+            $values_3 = [];
+            foreach ($data->{'facets'} as $value_3) {
+                $values_3[] = $value_3;
+            }
+            $object->setFacets($values_3);
         }
         if (property_exists($data, 'limit') && null !== $data->{'limit'}) {
             $object->setLimit($data->{'limit'});
@@ -72,11 +79,11 @@ class CntSearchQueryNormalizer implements DenormalizerInterface, NormalizerInter
             $object->setPageCursor($data->{'page_cursor'});
         }
         if (property_exists($data, 'sort') && null !== $data->{'sort'}) {
-            $values_3 = [];
-            foreach ($data->{'sort'} as $value_3) {
-                $values_3[] = $this->denormalizer->denormalize($value_3, 'Afosto\\Sdk\\Model\\CntSort', 'json', $context);
+            $values_4 = [];
+            foreach ($data->{'sort'} as $value_4) {
+                $values_4[] = $this->denormalizer->denormalize($value_4, 'Afosto\\Sdk\\Model\\CntSort', 'json', $context);
             }
-            $object->setSort($values_3);
+            $object->setSort($values_4);
         }
 
         return $object;
@@ -102,12 +109,19 @@ class CntSearchQueryNormalizer implements DenormalizerInterface, NormalizerInter
             }
             $data->{'filter'} = $values_1;
         }
-        if (null !== $object->getFacets()) {
+        if (null !== $object->getMissing()) {
             $values_2 = [];
-            foreach ($object->getFacets() as $value_2) {
+            foreach ($object->getMissing() as $value_2) {
                 $values_2[] = $value_2;
             }
-            $data->{'facets'} = $values_2;
+            $data->{'missing'} = $values_2;
+        }
+        if (null !== $object->getFacets()) {
+            $values_3 = [];
+            foreach ($object->getFacets() as $value_3) {
+                $values_3[] = $value_3;
+            }
+            $data->{'facets'} = $values_3;
         }
         if (null !== $object->getLimit()) {
             $data->{'limit'} = $object->getLimit();
@@ -119,11 +133,11 @@ class CntSearchQueryNormalizer implements DenormalizerInterface, NormalizerInter
             $data->{'page_cursor'} = $object->getPageCursor();
         }
         if (null !== $object->getSort()) {
-            $values_3 = [];
-            foreach ($object->getSort() as $value_3) {
-                $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
+            $values_4 = [];
+            foreach ($object->getSort() as $value_4) {
+                $values_4[] = $this->normalizer->normalize($value_4, 'json', $context);
             }
-            $data->{'sort'} = $values_3;
+            $data->{'sort'} = $values_4;
         }
 
         return $data;
