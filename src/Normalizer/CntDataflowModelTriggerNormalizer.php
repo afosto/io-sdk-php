@@ -49,7 +49,7 @@ class CntDataflowModelTriggerNormalizer implements DenormalizerInterface, Normal
             $object->setEvents($values);
         }
         if (property_exists($data, 'crontab') && null !== $data->{'crontab'}) {
-            $object->setCrontab($data->{'crontab'});
+            $object->setCrontab($this->denormalizer->denormalize($data->{'crontab'}, 'Afosto\\Sdk\\Model\\CntDataflowModelTriggerCrontab', 'json', $context));
         }
 
         return $object;
@@ -69,7 +69,7 @@ class CntDataflowModelTriggerNormalizer implements DenormalizerInterface, Normal
             $data->{'events'} = $values;
         }
         if (null !== $object->getCrontab()) {
-            $data->{'crontab'} = $object->getCrontab();
+            $data->{'crontab'} = $this->normalizer->normalize($object->getCrontab(), 'json', $context);
         }
 
         return $data;

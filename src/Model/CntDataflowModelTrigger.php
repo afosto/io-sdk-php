@@ -21,7 +21,7 @@ class CntDataflowModelTrigger
      */
     protected $events;
     /**
-     * @var string
+     * @var CntDataflowModelTriggerCrontab
      */
     protected $crontab;
 
@@ -55,12 +55,12 @@ class CntDataflowModelTrigger
         return $this;
     }
 
-    public function getCrontab(): ?string
+    public function getCrontab(): ?CntDataflowModelTriggerCrontab
     {
         return $this->crontab;
     }
 
-    public function setCrontab(?string $crontab): self
+    public function setCrontab(?CntDataflowModelTriggerCrontab $crontab): self
     {
         $this->crontab = $crontab;
 

@@ -239,6 +239,7 @@ class NormalizerFactory
         $normalizers[] = new CntDataflowFilterNormalizer();
         $normalizers[] = new CntDataflowModelNormalizer();
         $normalizers[] = new CntDataflowModelTriggerNormalizer();
+        $normalizers[] = new CntDataflowModelTriggerCrontabNormalizer();
         $normalizers[] = new CntDataflowLogNormalizer();
         $normalizers[] = new CntGifInfoNormalizer();
         $normalizers[] = new IamPhoneNumberNormalizer();
