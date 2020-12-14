@@ -25,6 +25,10 @@ class OdrMethod
      */
     protected $name;
     /**
+     * @var string
+     */
+    protected $label;
+    /**
      * @var bool
      */
     protected $isPrepaid;
@@ -32,6 +36,10 @@ class OdrMethod
      * @var OdrIssuer[]
      */
     protected $issuers;
+    /**
+     * @var bool
+     */
+    protected $isEnabled = true;
 
     public function getCode(): ?string
     {
@@ -69,6 +77,18 @@ class OdrMethod
         return $this;
     }
 
+    public function getLabel(): ?string
+    {
+        return $this->label;
+    }
+
+    public function setLabel(?string $label): self
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
     public function getIsPrepaid(): ?bool
     {
         return $this->isPrepaid;
@@ -95,6 +115,18 @@ class OdrMethod
     public function setIssuers(?array $issuers): self
     {
         $this->issuers = $issuers;
+
+        return $this;
+    }
+
+    public function getIsEnabled(): ?bool
+    {
+        return $this->isEnabled;
+    }
+
+    public function setIsEnabled(?bool $isEnabled): self
+    {
+        $this->isEnabled = $isEnabled;
 
         return $this;
     }

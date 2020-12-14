@@ -47,6 +47,9 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
+        if (property_exists($data, 'label') && null !== $data->{'label'}) {
+            $object->setLabel($data->{'label'});
+        }
         if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
@@ -81,6 +84,9 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'provider') && null !== $data->{'provider'}) {
             $object->setProvider($data->{'provider'});
         }
+        if (property_exists($data, 'is_enabled') && null !== $data->{'is_enabled'}) {
+            $object->setIsEnabled($data->{'is_enabled'});
+        }
 
         return $object;
     }
@@ -96,6 +102,9 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
+        }
+        if (null !== $object->getLabel()) {
+            $data->{'label'} = $object->getLabel();
         }
         if (null !== $object->getDescription()) {
             $data->{'description'} = $object->getDescription();
@@ -130,6 +139,9 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         }
         if (null !== $object->getProvider()) {
             $data->{'provider'} = $object->getProvider();
+        }
+        if (null !== $object->getIsEnabled()) {
+            $data->{'is_enabled'} = $object->getIsEnabled();
         }
 
         return $data;

@@ -27,6 +27,10 @@ class LcsMethod
     /**
      * @var string
      */
+    protected $label;
+    /**
+     * @var string
+     */
     protected $description;
     /**
      * @var int
@@ -64,6 +68,10 @@ class LcsMethod
      * @var string
      */
     protected $provider;
+    /**
+     * @var bool
+     */
+    protected $isEnabled = false;
 
     public function getId(): ?string
     {
@@ -97,6 +105,18 @@ class LcsMethod
     public function setName(?string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getLabel(): ?string
+    {
+        return $this->label;
+    }
+
+    public function setLabel(?string $label): self
+    {
+        $this->label = $label;
 
         return $this;
     }
@@ -223,6 +243,18 @@ class LcsMethod
     public function setProvider(?string $provider): self
     {
         $this->provider = $provider;
+
+        return $this;
+    }
+
+    public function getIsEnabled(): ?bool
+    {
+        return $this->isEnabled;
+    }
+
+    public function setIsEnabled(?bool $isEnabled): self
+    {
+        $this->isEnabled = $isEnabled;
 
         return $this;
     }
