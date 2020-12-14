@@ -7507,6 +7507,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * removes the current selected organisation from the session.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\RemoveSessionOrganisationBadRequestException
+     * @throws \Afosto\Sdk\Exception\RemoveSessionOrganisationUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\RemoveSessionOrganisationForbiddenException
+     * @throws \Afosto\Sdk\Exception\RemoveSessionOrganisationNotFoundException
+     * @throws \Afosto\Sdk\Exception\RemoveSessionOrganisationInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\RemoveSessionOrganisationServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function removeSessionOrganisation(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\RemoveSessionOrganisation($id), $fetch);
+    }
+
+    /**
      * get the current organisation information.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
