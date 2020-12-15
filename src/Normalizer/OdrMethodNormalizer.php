@@ -63,6 +63,9 @@ class OdrMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'is_enabled') && null !== $data->{'is_enabled'}) {
             $object->setIsEnabled($data->{'is_enabled'});
         }
+        if (property_exists($data, 'is_deferred') && null !== $data->{'is_deferred'}) {
+            $object->setIsDeferred($data->{'is_deferred'});
+        }
 
         return $object;
     }
@@ -94,6 +97,9 @@ class OdrMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         }
         if (null !== $object->getIsEnabled()) {
             $data->{'is_enabled'} = $object->getIsEnabled();
+        }
+        if (null !== $object->getIsDeferred()) {
+            $data->{'is_deferred'} = $object->getIsDeferred();
         }
 
         return $data;

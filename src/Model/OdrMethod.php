@@ -40,6 +40,10 @@ class OdrMethod
      * @var bool
      */
     protected $isEnabled = true;
+    /**
+     * @var bool
+     */
+    protected $isDeferred = false;
 
     public function getCode(): ?string
     {
@@ -127,6 +131,18 @@ class OdrMethod
     public function setIsEnabled(?bool $isEnabled): self
     {
         $this->isEnabled = $isEnabled;
+
+        return $this;
+    }
+
+    public function getIsDeferred(): ?bool
+    {
+        return $this->isDeferred;
+    }
+
+    public function setIsDeferred(?bool $isDeferred): self
+    {
+        $this->isDeferred = $isDeferred;
 
         return $this;
     }
