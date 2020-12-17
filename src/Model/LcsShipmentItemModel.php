@@ -21,9 +21,9 @@ class LcsShipmentItemModel
      */
     protected $reference;
     /**
-     * @var LcsShipmentItemModelPositions
+     * @var string
      */
-    protected $positions;
+    protected $position;
     /**
      * @var int
      */
@@ -69,14 +69,14 @@ class LcsShipmentItemModel
         return $this;
     }
 
-    public function getPositions(): ?LcsShipmentItemModelPositions
+    public function getPosition(): ?string
     {
-        return $this->positions;
+        return $this->position;
     }
 
-    public function setPositions(?LcsShipmentItemModelPositions $positions): self
+    public function setPosition(?string $position): self
     {
-        $this->positions = $positions;
+        $this->position = $position;
 
         return $this;
     }

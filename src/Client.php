@@ -8882,6 +8882,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a single positino.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewPositionBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewPositionUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewPositionForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewPositionNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewPositionInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewPositionServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\LcsLocationPosition|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewPosition(string $id, string $code, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewPosition($id, $code), $fetch);
+    }
+
+    /**
      * Searches a set of positions based on sku's.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

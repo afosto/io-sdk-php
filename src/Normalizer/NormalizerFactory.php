@@ -460,7 +460,6 @@ class NormalizerFactory
         $normalizers[] = new LcsShipmentAddressingNormalizer();
         $normalizers[] = new LcsShipmentAddressingCarrierNormalizer();
         $normalizers[] = new LcsShipmentItemModelNormalizer();
-        $normalizers[] = new LcsShipmentItemModelPositionsNormalizer();
         $normalizers[] = new LcsGroupedShipmentItemNormalizer();
         $normalizers[] = new LcsGroupedShipmentItemListsItemNormalizer();
         $normalizers[] = new LcsGroupedShipmentItemParcelsItemNormalizer();

@@ -44,8 +44,8 @@ class LcsShipmentItemModelNormalizer implements DenormalizerInterface, Normalize
         if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
-        if (property_exists($data, 'positions') && null !== $data->{'positions'}) {
-            $object->setPositions($this->denormalizer->denormalize($data->{'positions'}, 'Afosto\\Sdk\\Model\\LcsShipmentItemModelPositions', 'json', $context));
+        if (property_exists($data, 'position') && null !== $data->{'position'}) {
+            $object->setPosition($data->{'position'});
         }
         if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
@@ -83,8 +83,8 @@ class LcsShipmentItemModelNormalizer implements DenormalizerInterface, Normalize
         if (null !== $object->getReference()) {
             $data->{'reference'} = $object->getReference();
         }
-        if (null !== $object->getPositions()) {
-            $data->{'positions'} = $this->normalizer->normalize($object->getPositions(), 'json', $context);
+        if (null !== $object->getPosition()) {
+            $data->{'position'} = $object->getPosition();
         }
         if (null !== $object->getQuantity()) {
             $data->{'quantity'} = $object->getQuantity();
