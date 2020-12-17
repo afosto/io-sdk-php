@@ -55,15 +55,22 @@ class OdrProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
             }
             $object->setAdjustments($values_1);
         }
+        if (property_exists($data, 'services') && null !== $data->{'services'}) {
+            $values_2 = [];
+            foreach ($data->{'services'} as $value_2) {
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\OdrServiceItem', 'json', $context);
+            }
+            $object->setServices($values_2);
+        }
         if (property_exists($data, 'total') && null !== $data->{'total'}) {
             $object->setTotal($data->{'total'});
         }
         if (property_exists($data, 'vat') && null !== $data->{'vat'}) {
-            $values_2 = [];
-            foreach ($data->{'vat'} as $value_2) {
-                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\OdrVatResult', 'json', $context);
+            $values_3 = [];
+            foreach ($data->{'vat'} as $value_3) {
+                $values_3[] = $this->denormalizer->denormalize($value_3, 'Afosto\\Sdk\\Model\\OdrVatResult', 'json', $context);
             }
-            $object->setVat($values_2);
+            $object->setVat($values_3);
         }
         if (property_exists($data, 'vendor') && null !== $data->{'vendor'}) {
             $object->setVendor($this->denormalizer->denormalize($data->{'vendor'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
@@ -107,15 +114,22 @@ class OdrProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
             }
             $data->{'adjustments'} = $values_1;
         }
+        if (null !== $object->getServices()) {
+            $values_2 = [];
+            foreach ($object->getServices() as $value_2) {
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
+            }
+            $data->{'services'} = $values_2;
+        }
         if (null !== $object->getTotal()) {
             $data->{'total'} = $object->getTotal();
         }
         if (null !== $object->getVat()) {
-            $values_2 = [];
-            foreach ($object->getVat() as $value_2) {
-                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
+            $values_3 = [];
+            foreach ($object->getVat() as $value_3) {
+                $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
-            $data->{'vat'} = $values_2;
+            $data->{'vat'} = $values_3;
         }
         if (null !== $object->getVendor()) {
             $data->{'vendor'} = $this->normalizer->normalize($object->getVendor(), 'json', $context);

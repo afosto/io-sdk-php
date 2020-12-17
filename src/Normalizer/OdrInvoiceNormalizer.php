@@ -54,25 +54,32 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
             }
             $object->setItems($values);
         }
+        if (property_exists($data, 'services') && null !== $data->{'services'}) {
+            $values_1 = [];
+            foreach ($data->{'services'} as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrServiceItem', 'json', $context);
+            }
+            $object->setServices($values_1);
+        }
         if (property_exists($data, 'subtotal') && null !== $data->{'subtotal'}) {
             $object->setSubtotal($data->{'subtotal'});
         }
         if (property_exists($data, 'adjustments') && null !== $data->{'adjustments'}) {
-            $values_1 = [];
-            foreach ($data->{'adjustments'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrInvoiceAdjustmentResponse', 'json', $context);
+            $values_2 = [];
+            foreach ($data->{'adjustments'} as $value_2) {
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\OdrInvoiceAdjustmentResponse', 'json', $context);
             }
-            $object->setAdjustments($values_1);
+            $object->setAdjustments($values_2);
         }
         if (property_exists($data, 'total') && null !== $data->{'total'}) {
             $object->setTotal($data->{'total'});
         }
         if (property_exists($data, 'vat') && null !== $data->{'vat'}) {
-            $values_2 = [];
-            foreach ($data->{'vat'} as $value_2) {
-                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\OdrVatResult', 'json', $context);
+            $values_3 = [];
+            foreach ($data->{'vat'} as $value_3) {
+                $values_3[] = $this->denormalizer->denormalize($value_3, 'Afosto\\Sdk\\Model\\OdrVatResult', 'json', $context);
             }
-            $object->setVat($values_2);
+            $object->setVat($values_3);
         }
         if (property_exists($data, 'currency') && null !== $data->{'currency'}) {
             $object->setCurrency($data->{'currency'});
@@ -139,25 +146,32 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
             }
             $data->{'items'} = $values;
         }
+        if (null !== $object->getServices()) {
+            $values_1 = [];
+            foreach ($object->getServices() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            }
+            $data->{'services'} = $values_1;
+        }
         if (null !== $object->getSubtotal()) {
             $data->{'subtotal'} = $object->getSubtotal();
         }
         if (null !== $object->getAdjustments()) {
-            $values_1 = [];
-            foreach ($object->getAdjustments() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            $values_2 = [];
+            foreach ($object->getAdjustments() as $value_2) {
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
-            $data->{'adjustments'} = $values_1;
+            $data->{'adjustments'} = $values_2;
         }
         if (null !== $object->getTotal()) {
             $data->{'total'} = $object->getTotal();
         }
         if (null !== $object->getVat()) {
-            $values_2 = [];
-            foreach ($object->getVat() as $value_2) {
-                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
+            $values_3 = [];
+            foreach ($object->getVat() as $value_3) {
+                $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
-            $data->{'vat'} = $values_2;
+            $data->{'vat'} = $values_3;
         }
         if (null !== $object->getCurrency()) {
             $data->{'currency'} = $object->getCurrency();

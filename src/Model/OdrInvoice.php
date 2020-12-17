@@ -29,6 +29,10 @@ class OdrInvoice
      */
     protected $items;
     /**
+     * @var OdrServiceItem[]
+     */
+    protected $services;
+    /**
      * @var int
      */
     protected $subtotal;
@@ -151,6 +155,24 @@ class OdrInvoice
     public function setItems(?array $items): self
     {
         $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * @return OdrServiceItem[]|null
+     */
+    public function getServices(): ?array
+    {
+        return $this->services;
+    }
+
+    /**
+     * @param OdrServiceItem[]|null $services
+     */
+    public function setServices(?array $services): self
+    {
+        $this->services = $services;
 
         return $this;
     }

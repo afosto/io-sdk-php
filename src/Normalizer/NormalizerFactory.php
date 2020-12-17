@@ -34,6 +34,9 @@ class NormalizerFactory
         $normalizers[] = new OdrContactContactNormalizer();
         $normalizers[] = new OdrProjectionNormalizer();
         $normalizers[] = new OdrProjectionItemNormalizer();
+        $normalizers[] = new OdrServiceItemNormalizer();
+        $normalizers[] = new OdrServiceAdjustmentNormalizer();
+        $normalizers[] = new OdrServiceAdjustmentResultNormalizer();
         $normalizers[] = new OdrOrderCalculationRequestNormalizer();
         $normalizers[] = new OdrAdjustmentNormalizer();
         $normalizers[] = new OdrCalculationItemModelNormalizer();
