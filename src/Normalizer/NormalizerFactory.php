@@ -393,6 +393,9 @@ class NormalizerFactory
         $normalizers[] = new OdrAddressNormalizer();
         $normalizers[] = new OdrSessionProjectionNormalizer();
         $normalizers[] = new OdrSessionCalculationNormalizer();
+        $normalizers[] = new OdrSessionCalculationServiceItemNormalizer();
+        $normalizers[] = new OdrSessionCalculationServiceAdjustmentNormalizer();
+        $normalizers[] = new OdrSessionCalculationServiceAdjustmentResultNormalizer();
         $normalizers[] = new OdrSessionProjectionItemNormalizer();
         $normalizers[] = new OdrSessionCalculationAdjustmentNormalizer();
         $normalizers[] = new OdrSessionCalculationAdjustmentResultNormalizer();

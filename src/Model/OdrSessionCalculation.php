@@ -25,6 +25,10 @@ class OdrSessionCalculation
      */
     protected $items;
     /**
+     * @var OdrSessionCalculationServiceItem[]
+     */
+    protected $services;
+    /**
      * @var int
      */
     protected $subtotal;
@@ -99,6 +103,24 @@ class OdrSessionCalculation
     public function setItems(?array $items): self
     {
         $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * @return OdrSessionCalculationServiceItem[]|null
+     */
+    public function getServices(): ?array
+    {
+        return $this->services;
+    }
+
+    /**
+     * @param OdrSessionCalculationServiceItem[]|null $services
+     */
+    public function setServices(?array $services): self
+    {
+        $this->services = $services;
 
         return $this;
     }
