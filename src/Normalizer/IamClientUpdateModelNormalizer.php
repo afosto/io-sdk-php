@@ -41,6 +41,13 @@ class IamClientUpdateModelNormalizer implements DenormalizerInterface, Normalize
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
+        if (property_exists($data, 'scope') && null !== $data->{'scope'}) {
+            $values = [];
+            foreach ($data->{'scope'} as $value) {
+                $values[] = $value;
+            }
+            $object->setScope($values);
+        }
 
         return $object;
     }
@@ -50,6 +57,13 @@ class IamClientUpdateModelNormalizer implements DenormalizerInterface, Normalize
         $data = new \stdClass();
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
+        }
+        if (null !== $object->getScope()) {
+            $values = [];
+            foreach ($object->getScope() as $value) {
+                $values[] = $value;
+            }
+            $data->{'scope'} = $values;
         }
 
         return $data;

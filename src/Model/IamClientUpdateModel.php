@@ -16,6 +16,10 @@ class IamClientUpdateModel
      * @var string
      */
     protected $name;
+    /**
+     * @var string[]
+     */
+    protected $scope;
 
     public function getName(): ?string
     {
@@ -25,6 +29,24 @@ class IamClientUpdateModel
     public function setName(?string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getScope(): ?array
+    {
+        return $this->scope;
+    }
+
+    /**
+     * @param string[]|null $scope
+     */
+    public function setScope(?array $scope): self
+    {
+        $this->scope = $scope;
 
         return $this;
     }
