@@ -17,15 +17,21 @@ class GetAvailableSkuForLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoin
     /**
      * List sku's for location.
      *
+     * @param array $queryParameters {
+     *
+     *     @var string $sku
+     * }
+     *
      * @param array $headerParameters {
      *
      *     @var string $x-page
      *     @var string $x-page-size
      * }
      */
-    public function __construct(string $id, array $headerParameters = [])
+    public function __construct(string $id, array $queryParameters = [], array $headerParameters = [])
     {
         $this->id = $id;
+        $this->queryParameters = $queryParameters;
         $this->headerParameters = $headerParameters;
     }
 
@@ -49,6 +55,17 @@ class GetAvailableSkuForLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoin
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['sku']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('sku', ['string']);
+
+        return $optionsResolver;
     }
 
     protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver

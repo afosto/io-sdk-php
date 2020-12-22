@@ -6058,6 +6058,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * List sku's for location.
      *
+     * @param array $queryParameters {
+     *
+     *     @var string $sku
+     * }
+     *
      * @param array $headerParameters {
      *
      *     @var string $x-page
@@ -6075,9 +6080,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\WmsAddAvailableSkuResponse[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getAvailableSkuForLocation(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function getAvailableSkuForLocation(string $id, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetAvailableSkuForLocation($id, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetAvailableSkuForLocation($id, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
