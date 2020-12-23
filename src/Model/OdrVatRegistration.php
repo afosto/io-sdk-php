@@ -20,6 +20,14 @@ class OdrVatRegistration
      * @var string
      */
     protected $number;
+    /**
+     * @var bool
+     */
+    protected $isValid;
+    /**
+     * @var bool
+     */
+    protected $isPending;
 
     public function getCountryCode(): ?string
     {
@@ -41,6 +49,30 @@ class OdrVatRegistration
     public function setNumber(?string $number): self
     {
         $this->number = $number;
+
+        return $this;
+    }
+
+    public function getIsValid(): ?bool
+    {
+        return $this->isValid;
+    }
+
+    public function setIsValid(?bool $isValid): self
+    {
+        $this->isValid = $isValid;
+
+        return $this;
+    }
+
+    public function getIsPending(): ?bool
+    {
+        return $this->isPending;
+    }
+
+    public function setIsPending(?bool $isPending): self
+    {
+        $this->isPending = $isPending;
 
         return $this;
     }

@@ -7561,7 +7561,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\CreateSessionOrganisationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateSessionOrganisationServiceUnavailableException
      *
-     * @return \Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrOrganisation|\Psr\Http\Message\ResponseInterface|null
      */
     public function createSessionOrganisation(string $id, \Afosto\Sdk\Model\OdrNewOrganisation $body, string $fetch = self::FETCH_OBJECT)
     {

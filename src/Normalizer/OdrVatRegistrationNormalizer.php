@@ -44,6 +44,12 @@ class OdrVatRegistrationNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'number') && null !== $data->{'number'}) {
             $object->setNumber($data->{'number'});
         }
+        if (property_exists($data, 'is_valid') && null !== $data->{'is_valid'}) {
+            $object->setIsValid($data->{'is_valid'});
+        }
+        if (property_exists($data, 'is_pending') && null !== $data->{'is_pending'}) {
+            $object->setIsPending($data->{'is_pending'});
+        }
 
         return $object;
     }
@@ -56,6 +62,12 @@ class OdrVatRegistrationNormalizer implements DenormalizerInterface, NormalizerI
         }
         if (null !== $object->getNumber()) {
             $data->{'number'} = $object->getNumber();
+        }
+        if (null !== $object->getIsValid()) {
+            $data->{'is_valid'} = $object->getIsValid();
+        }
+        if (null !== $object->getIsPending()) {
+            $data->{'is_pending'} = $object->getIsPending();
         }
 
         return $data;

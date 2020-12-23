@@ -55,12 +55,12 @@ class CreateSessionOrganisation extends \Jane\OpenApiRuntime\Client\BaseEndpoint
      * @throws \Afosto\Sdk\Exception\CreateSessionOrganisationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\CreateSessionOrganisationServiceUnavailableException
      *
-     * @return null
+     * @return \Afosto\Sdk\Model\OdrOrganisation|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
-        if (204 === $status) {
-            return null;
+        if (200 === $status) {
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrOrganisation', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\CreateSessionOrganisationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
