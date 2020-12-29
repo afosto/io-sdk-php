@@ -15,7 +15,7 @@ class AddOverageToLocation extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
     protected $id;
 
     /**
-     * Add sku's that can be claimed on the location that is not tracking inventory.
+     * Add overage that is available for location inventory.
      *
      * @param \Afosto\Sdk\Model\WmsStockUpItem[] $body
      */

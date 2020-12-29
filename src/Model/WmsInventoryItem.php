@@ -39,6 +39,16 @@ class WmsInventoryItem
      */
     protected $state;
     /**
+     * the lot number of the inventory item.
+     *
+     * @var string
+     */
+    protected $lotNumber;
+    /**
+     * @var string
+     */
+    protected $expiresAt;
+    /**
      * @var string
      */
     protected $createdAt;
@@ -125,6 +135,36 @@ class WmsInventoryItem
     public function setState(?string $state): self
     {
         $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * the lot number of the inventory item.
+     */
+    public function getLotNumber(): ?string
+    {
+        return $this->lotNumber;
+    }
+
+    /**
+     * the lot number of the inventory item.
+     */
+    public function setLotNumber(?string $lotNumber): self
+    {
+        $this->lotNumber = $lotNumber;
+
+        return $this;
+    }
+
+    public function getExpiresAt(): ?string
+    {
+        return $this->expiresAt;
+    }
+
+    public function setExpiresAt(?string $expiresAt): self
+    {
+        $this->expiresAt = $expiresAt;
 
         return $this;
     }

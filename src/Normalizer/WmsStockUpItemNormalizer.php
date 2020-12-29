@@ -47,6 +47,12 @@ class WmsStockUpItemNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'position') && null !== $data->{'position'}) {
             $object->setPosition($data->{'position'});
         }
+        if (property_exists($data, 'lot_number') && null !== $data->{'lot_number'}) {
+            $object->setLotNumber($data->{'lot_number'});
+        }
+        if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
+            $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
+        }
 
         return $object;
     }
@@ -62,6 +68,12 @@ class WmsStockUpItemNormalizer implements DenormalizerInterface, NormalizerInter
         }
         if (null !== $object->getPosition()) {
             $data->{'position'} = $object->getPosition();
+        }
+        if (null !== $object->getLotNumber()) {
+            $data->{'lot_number'} = $object->getLotNumber();
+        }
+        if (null !== $object->getExpiresAt()) {
+            $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

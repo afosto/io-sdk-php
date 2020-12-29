@@ -13,33 +13,25 @@ namespace Afosto\Sdk\Model;
 class WmsUpdateInventoryItemRequest
 {
     /**
-     * @var string
-     */
-    protected $id;
-    /**
      * refers to the position within the warehouse.
      *
      * @var string
      */
     protected $position;
     /**
+     * @var string
+     */
+    protected $lotNumber;
+    /**
+     * @var \DateTime
+     */
+    protected $expiresAt;
+    /**
      * additional metadata that applies to the item.
      *
      * @var string[]
      */
     protected $metadata;
-
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    public function setId(?string $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 
     /**
      * refers to the position within the warehouse.
@@ -55,6 +47,30 @@ class WmsUpdateInventoryItemRequest
     public function setPosition(?string $position): self
     {
         $this->position = $position;
+
+        return $this;
+    }
+
+    public function getLotNumber(): ?string
+    {
+        return $this->lotNumber;
+    }
+
+    public function setLotNumber(?string $lotNumber): self
+    {
+        $this->lotNumber = $lotNumber;
+
+        return $this;
+    }
+
+    public function getExpiresAt(): ?\DateTime
+    {
+        return $this->expiresAt;
+    }
+
+    public function setExpiresAt(?\DateTime $expiresAt): self
+    {
+        $this->expiresAt = $expiresAt;
 
         return $this;
     }

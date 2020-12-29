@@ -60,6 +60,12 @@ class WmsInventoryItemNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'state') && null !== $data->{'state'}) {
             $object->setState($data->{'state'});
         }
+        if (property_exists($data, 'lot_number') && null !== $data->{'lot_number'}) {
+            $object->setLotNumber($data->{'lot_number'});
+        }
+        if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
+            $object->setExpiresAt($data->{'expires_at'});
+        }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt($data->{'created_at'});
         }
@@ -94,6 +100,12 @@ class WmsInventoryItemNormalizer implements DenormalizerInterface, NormalizerInt
         }
         if (null !== $object->getState()) {
             $data->{'state'} = $object->getState();
+        }
+        if (null !== $object->getLotNumber()) {
+            $data->{'lot_number'} = $object->getLotNumber();
+        }
+        if (null !== $object->getExpiresAt()) {
+            $data->{'expires_at'} = $object->getExpiresAt();
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt();

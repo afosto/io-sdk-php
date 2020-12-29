@@ -6105,7 +6105,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Add sku's that can be claimed on the location that is not tracking inventory.
+     * Add overage that is available for location inventory.
      *
      * @param \Afosto\Sdk\Model\WmsStockUpItem[] $body
      * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)

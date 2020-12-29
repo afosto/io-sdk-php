@@ -38,11 +38,14 @@ class WmsUpdateInventoryItemRequestNormalizer implements DenormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\WmsUpdateInventoryItemRequest();
-        if (property_exists($data, 'id') && null !== $data->{'id'}) {
-            $object->setId($data->{'id'});
-        }
         if (property_exists($data, 'position') && null !== $data->{'position'}) {
             $object->setPosition($data->{'position'});
+        }
+        if (property_exists($data, 'lot_number') && null !== $data->{'lot_number'}) {
+            $object->setLotNumber($data->{'lot_number'});
+        }
+        if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
+            $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
         if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
@@ -58,11 +61,14 @@ class WmsUpdateInventoryItemRequestNormalizer implements DenormalizerInterface, 
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
-        }
         if (null !== $object->getPosition()) {
             $data->{'position'} = $object->getPosition();
+        }
+        if (null !== $object->getLotNumber()) {
+            $data->{'lot_number'} = $object->getLotNumber();
+        }
+        if (null !== $object->getExpiresAt()) {
+            $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getMetadata()) {
             $values = new \stdClass();
