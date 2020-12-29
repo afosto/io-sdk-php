@@ -32,6 +32,14 @@ class LcsHandlingListItemUpdate
      * @var string
      */
     protected $position;
+    /**
+     * @var string
+     */
+    protected $lotNumber;
+    /**
+     * @var \DateTime
+     */
+    protected $expiresAt;
 
     public function getId(): ?string
     {
@@ -89,6 +97,30 @@ class LcsHandlingListItemUpdate
     public function setPosition(?string $position): self
     {
         $this->position = $position;
+
+        return $this;
+    }
+
+    public function getLotNumber(): ?string
+    {
+        return $this->lotNumber;
+    }
+
+    public function setLotNumber(?string $lotNumber): self
+    {
+        $this->lotNumber = $lotNumber;
+
+        return $this;
+    }
+
+    public function getExpiresAt(): ?\DateTime
+    {
+        return $this->expiresAt;
+    }
+
+    public function setExpiresAt(?\DateTime $expiresAt): self
+    {
+        $this->expiresAt = $expiresAt;
 
         return $this;
     }
