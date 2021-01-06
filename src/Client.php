@@ -908,7 +908,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListAppsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListAppsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\AppApp[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IntApp[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listApps(string $fetch = self::FETCH_OBJECT)
     {
@@ -927,7 +927,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetAppInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetAppServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\AppApp|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IntApp|\Psr\Http\Message\ResponseInterface|null
      */
     public function getApp(string $code, string $fetch = self::FETCH_OBJECT)
     {
@@ -946,9 +946,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\InstallAppInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\InstallAppServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\AppInstallResult|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IntInstallResult|\Psr\Http\Message\ResponseInterface|null
      */
-    public function installApp(string $code, \Afosto\Sdk\Model\AppIntegrationModel $body, string $fetch = self::FETCH_OBJECT)
+    public function installApp(string $code, \Afosto\Sdk\Model\IntIntegrationModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\InstallApp($code, $body), $fetch);
     }
@@ -963,7 +963,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListIntegrationsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListIntegrationsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\AppIntegration[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IntIntegration[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listIntegrations(string $fetch = self::FETCH_OBJECT)
     {
@@ -1001,7 +1001,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetIntegrationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetIntegrationServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\AppIntegration|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IntIntegration|\Psr\Http\Message\ResponseInterface|null
      */
     public function getIntegration(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -1020,9 +1020,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\UpdateIntegrationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateIntegrationServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\AppIntegration|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IntIntegration|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateIntegration(string $id, \Afosto\Sdk\Model\AppIntegrationModel $body, string $fetch = self::FETCH_OBJECT)
+    public function updateIntegration(string $id, \Afosto\Sdk\Model\IntIntegrationModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateIntegration($id, $body), $fetch);
     }

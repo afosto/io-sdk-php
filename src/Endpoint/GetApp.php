@@ -31,7 +31,7 @@ class GetApp extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\O
 
     public function getUri(): string
     {
-        return str_replace(['{code}'], [$this->code], '/app/apps/store/{code}');
+        return str_replace(['{code}'], [$this->code], '/int/apps/store/{code}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -54,12 +54,12 @@ class GetApp extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\O
      * @throws \Afosto\Sdk\Exception\GetAppInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetAppServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\AppApp|null
+     * @return \Afosto\Sdk\Model\IntApp|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\AppApp', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IntApp', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\GetAppBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

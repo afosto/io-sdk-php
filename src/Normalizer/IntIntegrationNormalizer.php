@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class AppIntegrationNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class IntIntegrationNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\AppIntegration' === $type;
+        return 'Afosto\\Sdk\\Model\\IntIntegration' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\AppIntegration' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\IntIntegration' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class AppIntegrationNormalizer implements DenormalizerInterface, NormalizerInter
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\AppIntegration();
+        $object = new \Afosto\Sdk\Model\IntIntegration();
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }

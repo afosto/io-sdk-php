@@ -17,7 +17,7 @@ class InstallApp extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
      * Activate a new app.
      */
-    public function __construct(string $code, \Afosto\Sdk\Model\AppIntegrationModel $body)
+    public function __construct(string $code, \Afosto\Sdk\Model\IntIntegrationModel $body)
     {
         $this->code = $code;
         $this->body = $body;
@@ -32,7 +32,7 @@ class InstallApp extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     public function getUri(): string
     {
-        return str_replace(['{code}'], [$this->code], '/app/apps/store/{code}');
+        return str_replace(['{code}'], [$this->code], '/int/apps/store/{code}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -55,12 +55,12 @@ class InstallApp extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      * @throws \Afosto\Sdk\Exception\InstallAppInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\InstallAppServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\AppInstallResult|null
+     * @return \Afosto\Sdk\Model\IntInstallResult|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\AppInstallResult', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IntInstallResult', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\InstallAppBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

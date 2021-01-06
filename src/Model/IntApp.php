@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class AppApp
+class IntApp
 {
     /**
      * @var string
@@ -29,7 +29,7 @@ class AppApp
      */
     protected $tags;
     /**
-     * @var AppAuthor
+     * @var IntAuthor
      */
     protected $author;
     /**
@@ -41,7 +41,7 @@ class AppApp
      */
     protected $isDuplicateAllowed = false;
     /**
-     * @var AppAppAuthentication
+     * @var IntAppAuthentication
      */
     protected $authentication;
     /**
@@ -103,12 +103,12 @@ class AppApp
         return $this;
     }
 
-    public function getAuthor(): ?AppAuthor
+    public function getAuthor(): ?IntAuthor
     {
         return $this->author;
     }
 
-    public function setAuthor(?AppAuthor $author): self
+    public function setAuthor(?IntAuthor $author): self
     {
         $this->author = $author;
 
@@ -139,12 +139,12 @@ class AppApp
         return $this;
     }
 
-    public function getAuthentication(): ?AppAppAuthentication
+    public function getAuthentication(): ?IntAppAuthentication
     {
         return $this->authentication;
     }
 
-    public function setAuthentication(?AppAppAuthentication $authentication): self
+    public function setAuthentication(?IntAppAuthentication $authentication): self
     {
         $this->authentication = $authentication;
 

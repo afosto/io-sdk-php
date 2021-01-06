@@ -21,7 +21,7 @@ class ListIntegrations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
 
     public function getUri(): string
     {
-        return '/app/apps/integrations';
+        return '/int/apps/integrations';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -44,12 +44,12 @@ class ListIntegrations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      * @throws \Afosto\Sdk\Exception\ListIntegrationsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListIntegrationsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\AppIntegration[]|null
+     * @return \Afosto\Sdk\Model\IntIntegration[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\AppIntegration[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IntIntegration[]', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ListIntegrationsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

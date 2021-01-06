@@ -21,7 +21,7 @@ class ListApps extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
 
     public function getUri(): string
     {
-        return '/app/apps/store';
+        return '/int/apps/store';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -44,12 +44,12 @@ class ListApps extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
      * @throws \Afosto\Sdk\Exception\ListAppsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListAppsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\AppApp[]|null
+     * @return \Afosto\Sdk\Model\IntApp[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\AppApp[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IntApp[]', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ListAppsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

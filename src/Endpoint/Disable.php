@@ -31,7 +31,7 @@ class Disable extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/app/apps/integrations/{id}');
+        return str_replace(['{id}'], [$this->id], '/int/apps/integrations/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

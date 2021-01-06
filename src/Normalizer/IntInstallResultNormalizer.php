@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class AppAppAuthenticationNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class IntInstallResultNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\AppAppAuthentication' === $type;
+        return 'Afosto\\Sdk\\Model\\IntInstallResult' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\AppAppAuthentication' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\IntInstallResult' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,12 @@ class AppAppAuthenticationNormalizer implements DenormalizerInterface, Normalize
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\AppAppAuthentication();
-        if (property_exists($data, 'type') && null !== $data->{'type'}) {
-            $object->setType($data->{'type'});
+        $object = new \Afosto\Sdk\Model\IntInstallResult();
+        if (property_exists($data, 'state') && null !== $data->{'state'}) {
+            $object->setState($data->{'state'});
         }
-        if (property_exists($data, 'schema') && null !== $data->{'schema'}) {
-            $object->setSchema($data->{'schema'});
+        if (property_exists($data, 'redirect_url') && null !== $data->{'redirect_url'}) {
+            $object->setRedirectUrl($data->{'redirect_url'});
         }
 
         return $object;
@@ -51,11 +51,11 @@ class AppAppAuthenticationNormalizer implements DenormalizerInterface, Normalize
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getType()) {
-            $data->{'type'} = $object->getType();
+        if (null !== $object->getState()) {
+            $data->{'state'} = $object->getState();
         }
-        if (null !== $object->getSchema()) {
-            $data->{'schema'} = $object->getSchema();
+        if (null !== $object->getRedirectUrl()) {
+            $data->{'redirect_url'} = $object->getRedirectUrl();
         }
 
         return $data;

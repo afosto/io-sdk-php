@@ -17,7 +17,7 @@ class UpdateIntegration extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
     /**
      * Update an integrations' configuration.
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\AppIntegrationModel $body)
+    public function __construct(string $id, \Afosto\Sdk\Model\IntIntegrationModel $body)
     {
         $this->id = $id;
         $this->body = $body;
@@ -32,7 +32,7 @@ class UpdateIntegration extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/app/apps/integrations/{id}');
+        return str_replace(['{id}'], [$this->id], '/int/apps/integrations/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -55,12 +55,12 @@ class UpdateIntegration extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      * @throws \Afosto\Sdk\Exception\UpdateIntegrationInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\UpdateIntegrationServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\AppIntegration|null
+     * @return \Afosto\Sdk\Model\IntIntegration|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\AppIntegration', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IntIntegration', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\UpdateIntegrationBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

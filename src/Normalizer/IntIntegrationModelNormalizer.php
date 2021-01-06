@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class AppInstallResultNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class IntIntegrationModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\AppInstallResult' === $type;
+        return 'Afosto\\Sdk\\Model\\IntIntegrationModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\AppInstallResult' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\IntIntegrationModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,15 @@ class AppInstallResultNormalizer implements DenormalizerInterface, NormalizerInt
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\AppInstallResult();
-        if (property_exists($data, 'state') && null !== $data->{'state'}) {
-            $object->setState($data->{'state'});
+        $object = new \Afosto\Sdk\Model\IntIntegrationModel();
+        if (property_exists($data, 'name') && null !== $data->{'name'}) {
+            $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'redirect_url') && null !== $data->{'redirect_url'}) {
-            $object->setRedirectUrl($data->{'redirect_url'});
+        if (property_exists($data, 'credentials') && null !== $data->{'credentials'}) {
+            $object->setCredentials($data->{'credentials'});
+        }
+        if (property_exists($data, 'configuration') && null !== $data->{'configuration'}) {
+            $object->setConfiguration($data->{'configuration'});
         }
 
         return $object;
@@ -51,11 +54,14 @@ class AppInstallResultNormalizer implements DenormalizerInterface, NormalizerInt
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getState()) {
-            $data->{'state'} = $object->getState();
+        if (null !== $object->getName()) {
+            $data->{'name'} = $object->getName();
         }
-        if (null !== $object->getRedirectUrl()) {
-            $data->{'redirect_url'} = $object->getRedirectUrl();
+        if (null !== $object->getCredentials()) {
+            $data->{'credentials'} = $object->getCredentials();
+        }
+        if (null !== $object->getConfiguration()) {
+            $data->{'configuration'} = $object->getConfiguration();
         }
 
         return $data;

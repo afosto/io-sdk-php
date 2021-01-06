@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class AppAppNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class IntAppNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\AppApp' === $type;
+        return 'Afosto\\Sdk\\Model\\IntApp' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\AppApp' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\IntApp' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class AppAppNormalizer implements DenormalizerInterface, NormalizerInterface, De
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\AppApp();
+        $object = new \Afosto\Sdk\Model\IntApp();
         if (property_exists($data, 'code') && null !== $data->{'code'}) {
             $object->setCode($data->{'code'});
         }
@@ -55,7 +55,7 @@ class AppAppNormalizer implements DenormalizerInterface, NormalizerInterface, De
             $object->setTags($values);
         }
         if (property_exists($data, 'author') && null !== $data->{'author'}) {
-            $object->setAuthor($this->denormalizer->denormalize($data->{'author'}, 'Afosto\\Sdk\\Model\\AppAuthor', 'json', $context));
+            $object->setAuthor($this->denormalizer->denormalize($data->{'author'}, 'Afosto\\Sdk\\Model\\IntAuthor', 'json', $context));
         }
         if (property_exists($data, 'is_published') && null !== $data->{'is_published'}) {
             $object->setIsPublished($data->{'is_published'});
@@ -64,7 +64,7 @@ class AppAppNormalizer implements DenormalizerInterface, NormalizerInterface, De
             $object->setIsDuplicateAllowed($data->{'is_duplicate_allowed'});
         }
         if (property_exists($data, 'authentication') && null !== $data->{'authentication'}) {
-            $object->setAuthentication($this->denormalizer->denormalize($data->{'authentication'}, 'Afosto\\Sdk\\Model\\AppAppAuthentication', 'json', $context));
+            $object->setAuthentication($this->denormalizer->denormalize($data->{'authentication'}, 'Afosto\\Sdk\\Model\\IntAppAuthentication', 'json', $context));
         }
         if (property_exists($data, 'config_schema') && null !== $data->{'config_schema'}) {
             $object->setConfigSchema($data->{'config_schema'});

@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class AppAuthorNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class IntAuthorNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\AppAuthor' === $type;
+        return 'Afosto\\Sdk\\Model\\IntAuthor' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\AppAuthor' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\IntAuthor' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class AppAuthorNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\AppAuthor();
+        $object = new \Afosto\Sdk\Model\IntAuthor();
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
