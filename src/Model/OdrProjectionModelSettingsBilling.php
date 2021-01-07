@@ -24,6 +24,10 @@ class OdrProjectionModelSettingsBilling
      * @var string
      */
     protected $providerCode;
+    /**
+     * @var OdrProjectionModelSettingsBillingVat
+     */
+    protected $vat;
 
     public function getMethodCode(): ?string
     {
@@ -57,6 +61,18 @@ class OdrProjectionModelSettingsBilling
     public function setProviderCode(?string $providerCode): self
     {
         $this->providerCode = $providerCode;
+
+        return $this;
+    }
+
+    public function getVat(): ?OdrProjectionModelSettingsBillingVat
+    {
+        return $this->vat;
+    }
+
+    public function setVat(?OdrProjectionModelSettingsBillingVat $vat): self
+    {
+        $this->vat = $vat;
 
         return $this;
     }

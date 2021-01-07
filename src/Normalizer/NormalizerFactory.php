@@ -143,6 +143,7 @@ class NormalizerFactory
         $normalizers[] = new OdrProjectionModelNormalizer();
         $normalizers[] = new OdrProjectionModelSettingsNormalizer();
         $normalizers[] = new OdrProjectionModelSettingsBillingNormalizer();
+        $normalizers[] = new OdrProjectionModelSettingsBillingVatNormalizer();
         $normalizers[] = new OdrProjectionModelSettingsShippingNormalizer();
         $normalizers[] = new OdrInvoiceAdjustmentResponseNormalizer();
         $normalizers[] = new OdrInvoiceAdjustmentResponseResultNormalizer();
