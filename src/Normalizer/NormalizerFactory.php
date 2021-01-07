@@ -49,6 +49,7 @@ class NormalizerFactory
         $normalizers[] = new OdrSettingsContactNormalizer();
         $normalizers[] = new OdrSettingsOrganisationNormalizer();
         $normalizers[] = new OdrSettingsBillingNormalizer();
+        $normalizers[] = new OdrSettingsBillingVatNormalizer();
         $normalizers[] = new OdrSettingsShippingNormalizer();
         $normalizers[] = new OdrSettingsShippingWindowNormalizer();
         $normalizers[] = new OdrOrderSettingsNormalizer();

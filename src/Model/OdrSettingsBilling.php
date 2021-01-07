@@ -28,6 +28,10 @@ class OdrSettingsBilling
      * @var string
      */
     protected $providerCode;
+    /**
+     * @var OdrSettingsBillingVat
+     */
+    protected $vat;
 
     public function getAddressId(): ?string
     {
@@ -73,6 +77,18 @@ class OdrSettingsBilling
     public function setProviderCode(?string $providerCode): self
     {
         $this->providerCode = $providerCode;
+
+        return $this;
+    }
+
+    public function getVat(): ?OdrSettingsBillingVat
+    {
+        return $this->vat;
+    }
+
+    public function setVat(?OdrSettingsBillingVat $vat): self
+    {
+        $this->vat = $vat;
 
         return $this;
     }

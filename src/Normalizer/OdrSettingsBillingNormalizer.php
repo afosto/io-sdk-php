@@ -50,6 +50,9 @@ class OdrSettingsBillingNormalizer implements DenormalizerInterface, NormalizerI
         if (property_exists($data, 'provider_code') && null !== $data->{'provider_code'}) {
             $object->setProviderCode($data->{'provider_code'});
         }
+        if (property_exists($data, 'vat') && null !== $data->{'vat'}) {
+            $object->setVat($this->denormalizer->denormalize($data->{'vat'}, 'Afosto\\Sdk\\Model\\OdrSettingsBillingVat', 'json', $context));
+        }
 
         return $object;
     }
@@ -68,6 +71,9 @@ class OdrSettingsBillingNormalizer implements DenormalizerInterface, NormalizerI
         }
         if (null !== $object->getProviderCode()) {
             $data->{'provider_code'} = $object->getProviderCode();
+        }
+        if (null !== $object->getVat()) {
+            $data->{'vat'} = $this->normalizer->normalize($object->getVat(), 'json', $context);
         }
 
         return $data;
