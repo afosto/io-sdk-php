@@ -45,6 +45,10 @@ class LcsGroupedShipmentItem
      */
     protected $parcels;
     /**
+     * @var LcsGroupedShipmentItemPositionsItem[]
+     */
+    protected $positions;
+    /**
      * @var string[]
      */
     protected $handledIds;
@@ -189,6 +193,24 @@ class LcsGroupedShipmentItem
     public function setParcels(?array $parcels): self
     {
         $this->parcels = $parcels;
+
+        return $this;
+    }
+
+    /**
+     * @return LcsGroupedShipmentItemPositionsItem[]|null
+     */
+    public function getPositions(): ?array
+    {
+        return $this->positions;
+    }
+
+    /**
+     * @param LcsGroupedShipmentItemPositionsItem[]|null $positions
+     */
+    public function setPositions(?array $positions): self
+    {
+        $this->positions = $positions;
 
         return $this;
     }

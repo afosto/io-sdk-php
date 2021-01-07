@@ -44,6 +44,9 @@ class LcsShipmentModelNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'is_outbound') && null !== $data->{'is_outbound'}) {
             $object->setIsOutbound($data->{'is_outbound'});
         }
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
+            $object->setType($data->{'type'});
+        }
         if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
@@ -99,6 +102,9 @@ class LcsShipmentModelNormalizer implements DenormalizerInterface, NormalizerInt
         }
         if (null !== $object->getIsOutbound()) {
             $data->{'is_outbound'} = $object->getIsOutbound();
+        }
+        if (null !== $object->getType()) {
+            $data->{'type'} = $object->getType();
         }
         if (null !== $object->getItems()) {
             $values = [];

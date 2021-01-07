@@ -15,6 +15,10 @@ class LcsShipmentUpdateModel
     /**
      * @var string
      */
+    protected $type;
+    /**
+     * @var string
+     */
     protected $methodId;
     /**
      * @var LcsShipmentUpdateModelAddressing
@@ -32,6 +36,18 @@ class LcsShipmentUpdateModel
      * @var \DateTime
      */
     protected $shipAt;
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
 
     public function getMethodId(): ?string
     {

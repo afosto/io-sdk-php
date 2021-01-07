@@ -38,6 +38,9 @@ class LcsShipmentUpdateModelNormalizer implements DenormalizerInterface, Normali
             return null;
         }
         $object = new \Afosto\Sdk\Model\LcsShipmentUpdateModel();
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
+            $object->setType($data->{'type'});
+        }
         if (property_exists($data, 'method_id') && null !== $data->{'method_id'}) {
             $object->setMethodId($data->{'method_id'});
         }
@@ -64,6 +67,9 @@ class LcsShipmentUpdateModelNormalizer implements DenormalizerInterface, Normali
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getType()) {
+            $data->{'type'} = $object->getType();
+        }
         if (null !== $object->getMethodId()) {
             $data->{'method_id'} = $object->getMethodId();
         }

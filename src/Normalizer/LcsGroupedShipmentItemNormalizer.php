@@ -78,40 +78,47 @@ class LcsGroupedShipmentItemNormalizer implements DenormalizerInterface, Normali
             }
             $object->setParcels($values_3);
         }
-        if (property_exists($data, 'handled_ids') && null !== $data->{'handled_ids'}) {
+        if (property_exists($data, 'positions') && null !== $data->{'positions'}) {
             $values_4 = [];
-            foreach ($data->{'handled_ids'} as $value_4) {
-                $values_4[] = $value_4;
+            foreach ($data->{'positions'} as $value_4) {
+                $values_4[] = $this->denormalizer->denormalize($value_4, 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemPositionsItem', 'json', $context);
             }
-            $object->setHandledIds($values_4);
+            $object->setPositions($values_4);
         }
-        if (property_exists($data, 'boxed_ids') && null !== $data->{'boxed_ids'}) {
+        if (property_exists($data, 'handled_ids') && null !== $data->{'handled_ids'}) {
             $values_5 = [];
-            foreach ($data->{'boxed_ids'} as $value_5) {
+            foreach ($data->{'handled_ids'} as $value_5) {
                 $values_5[] = $value_5;
             }
-            $object->setBoxedIds($values_5);
+            $object->setHandledIds($values_5);
         }
-        if (property_exists($data, 'listed_ids') && null !== $data->{'listed_ids'}) {
+        if (property_exists($data, 'boxed_ids') && null !== $data->{'boxed_ids'}) {
             $values_6 = [];
-            foreach ($data->{'listed_ids'} as $value_6) {
+            foreach ($data->{'boxed_ids'} as $value_6) {
                 $values_6[] = $value_6;
             }
-            $object->setListedIds($values_6);
+            $object->setBoxedIds($values_6);
         }
-        if (property_exists($data, 'finished_ids') && null !== $data->{'finished_ids'}) {
+        if (property_exists($data, 'listed_ids') && null !== $data->{'listed_ids'}) {
             $values_7 = [];
-            foreach ($data->{'finished_ids'} as $value_7) {
+            foreach ($data->{'listed_ids'} as $value_7) {
                 $values_7[] = $value_7;
             }
-            $object->setFinishedIds($values_7);
+            $object->setListedIds($values_7);
         }
-        if (property_exists($data, 'missing_ids') && null !== $data->{'missing_ids'}) {
+        if (property_exists($data, 'finished_ids') && null !== $data->{'finished_ids'}) {
             $values_8 = [];
-            foreach ($data->{'missing_ids'} as $value_8) {
+            foreach ($data->{'finished_ids'} as $value_8) {
                 $values_8[] = $value_8;
             }
-            $object->setMissingIds($values_8);
+            $object->setFinishedIds($values_8);
+        }
+        if (property_exists($data, 'missing_ids') && null !== $data->{'missing_ids'}) {
+            $values_9 = [];
+            foreach ($data->{'missing_ids'} as $value_9) {
+                $values_9[] = $value_9;
+            }
+            $object->setMissingIds($values_9);
         }
         if (property_exists($data, 'shipment_id') && null !== $data->{'shipment_id'}) {
             $object->setShipmentId($data->{'shipment_id'});
@@ -166,40 +173,47 @@ class LcsGroupedShipmentItemNormalizer implements DenormalizerInterface, Normali
             }
             $data->{'parcels'} = $values_3;
         }
-        if (null !== $object->getHandledIds()) {
+        if (null !== $object->getPositions()) {
             $values_4 = [];
-            foreach ($object->getHandledIds() as $value_4) {
-                $values_4[] = $value_4;
+            foreach ($object->getPositions() as $value_4) {
+                $values_4[] = $this->normalizer->normalize($value_4, 'json', $context);
             }
-            $data->{'handled_ids'} = $values_4;
+            $data->{'positions'} = $values_4;
         }
-        if (null !== $object->getBoxedIds()) {
+        if (null !== $object->getHandledIds()) {
             $values_5 = [];
-            foreach ($object->getBoxedIds() as $value_5) {
+            foreach ($object->getHandledIds() as $value_5) {
                 $values_5[] = $value_5;
             }
-            $data->{'boxed_ids'} = $values_5;
+            $data->{'handled_ids'} = $values_5;
         }
-        if (null !== $object->getListedIds()) {
+        if (null !== $object->getBoxedIds()) {
             $values_6 = [];
-            foreach ($object->getListedIds() as $value_6) {
+            foreach ($object->getBoxedIds() as $value_6) {
                 $values_6[] = $value_6;
             }
-            $data->{'listed_ids'} = $values_6;
+            $data->{'boxed_ids'} = $values_6;
         }
-        if (null !== $object->getFinishedIds()) {
+        if (null !== $object->getListedIds()) {
             $values_7 = [];
-            foreach ($object->getFinishedIds() as $value_7) {
+            foreach ($object->getListedIds() as $value_7) {
                 $values_7[] = $value_7;
             }
-            $data->{'finished_ids'} = $values_7;
+            $data->{'listed_ids'} = $values_7;
         }
-        if (null !== $object->getMissingIds()) {
+        if (null !== $object->getFinishedIds()) {
             $values_8 = [];
-            foreach ($object->getMissingIds() as $value_8) {
+            foreach ($object->getFinishedIds() as $value_8) {
                 $values_8[] = $value_8;
             }
-            $data->{'missing_ids'} = $values_8;
+            $data->{'finished_ids'} = $values_8;
+        }
+        if (null !== $object->getMissingIds()) {
+            $values_9 = [];
+            foreach ($object->getMissingIds() as $value_9) {
+                $values_9[] = $value_9;
+            }
+            $data->{'missing_ids'} = $values_9;
         }
         if (null !== $object->getShipmentId()) {
             $data->{'shipment_id'} = $object->getShipmentId();

@@ -44,6 +44,9 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'number') && null !== $data->{'number'}) {
             $object->setNumber($data->{'number'});
         }
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
+            $object->setType($data->{'type'});
+        }
         if (property_exists($data, 'method_id') && null !== $data->{'method_id'}) {
             $object->setMethodId($data->{'method_id'});
         }
@@ -142,6 +145,9 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
         }
         if (null !== $object->getNumber()) {
             $data->{'number'} = $object->getNumber();
+        }
+        if (null !== $object->getType()) {
+            $data->{'type'} = $object->getType();
         }
         if (null !== $object->getMethodId()) {
             $data->{'method_id'} = $object->getMethodId();

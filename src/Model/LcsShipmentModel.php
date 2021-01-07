@@ -21,6 +21,10 @@ class LcsShipmentModel
      */
     protected $isOutbound;
     /**
+     * @var string
+     */
+    protected $type;
+    /**
      * @var LcsShipmentItemModel[]
      */
     protected $items;
@@ -77,6 +81,18 @@ class LcsShipmentModel
     public function setIsOutbound(?bool $isOutbound): self
     {
         $this->isOutbound = $isOutbound;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

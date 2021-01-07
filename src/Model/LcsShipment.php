@@ -23,6 +23,10 @@ class LcsShipment
     /**
      * @var string
      */
+    protected $type;
+    /**
+     * @var string
+     */
     protected $methodId;
     /**
      * @var string
@@ -139,6 +143,18 @@ class LcsShipment
     public function setNumber(?string $number): self
     {
         $this->number = $number;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }
