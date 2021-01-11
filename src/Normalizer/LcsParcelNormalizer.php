@@ -68,6 +68,9 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'label') && null !== $data->{'label'}) {
             $object->setLabel($this->denormalizer->denormalize($data->{'label'}, 'Afosto\\Sdk\\Model\\LcsParcelLabel', 'json', $context));
         }
+        if (property_exists($data, 'count') && null !== $data->{'count'}) {
+            $object->setCount($data->{'count'});
+        }
         if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
@@ -126,6 +129,9 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         }
         if (null !== $object->getLabel()) {
             $data->{'label'} = $this->normalizer->normalize($object->getLabel(), 'json', $context);
+        }
+        if (null !== $object->getCount()) {
+            $data->{'count'} = $object->getCount();
         }
         if (null !== $object->getItems()) {
             $values = [];

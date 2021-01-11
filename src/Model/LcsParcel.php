@@ -53,6 +53,10 @@ class LcsParcel
      */
     protected $label;
     /**
+     * @var int
+     */
+    protected $count;
+    /**
      * @var LcsParcelItem[]
      */
     protected $items;
@@ -193,6 +197,18 @@ class LcsParcel
     public function setLabel(?LcsParcelLabel $label): self
     {
         $this->label = $label;
+
+        return $this;
+    }
+
+    public function getCount(): ?int
+    {
+        return $this->count;
+    }
+
+    public function setCount(?int $count): self
+    {
+        $this->count = $count;
 
         return $this;
     }
