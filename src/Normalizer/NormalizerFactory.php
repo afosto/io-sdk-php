@@ -609,6 +609,7 @@ class NormalizerFactory
         $normalizers[] = new LcsBulkItemsPutBodyNormalizer();
         $normalizers[] = new LcsParcelsIdItemsDeleteResponse200Normalizer();
         $normalizers[] = new LcsParcelsIdItemsPostResponse200Normalizer();
+        $normalizers[] = new LcsLocationsIdPositionsDeleteResponse200Normalizer();
         $normalizers[] = new LcsLocationsIdPositionsPutResponse200Normalizer();
         $normalizers[] = new LcsLocationsIdSkusPutResponse200Normalizer();
         $normalizers[] = new CatGroupsIdPricesPutResponse200Normalizer();

@@ -8843,6 +8843,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Updates the position order for a location.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeletePositionsBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeletePositionsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeletePositionsForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeletePositionsNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeletePositionsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeletePositionsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\LcsLocationsIdPositionsDeleteResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deletePositions(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeletePositions($id, $body), $fetch);
+    }
+
+    /**
      * Returns a list of fulfilment locations.
      *
      * @param array $headerParameters {
