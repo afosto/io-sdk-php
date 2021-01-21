@@ -99,6 +99,9 @@ class OdrCalculationsNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'is_invoiced') && null !== $data->{'is_invoiced'}) {
             $object->setIsInvoiced($data->{'is_invoiced'});
         }
+        if (property_exists($data, 'is_prepaid') && null !== $data->{'is_prepaid'}) {
+            $object->setIsPrepaid($data->{'is_prepaid'});
+        }
         if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
@@ -184,6 +187,9 @@ class OdrCalculationsNormalizer implements DenormalizerInterface, NormalizerInte
         }
         if (null !== $object->getIsInvoiced()) {
             $data->{'is_invoiced'} = $object->getIsInvoiced();
+        }
+        if (null !== $object->getIsPrepaid()) {
+            $data->{'is_prepaid'} = $object->getIsPrepaid();
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();

@@ -71,7 +71,7 @@ class OdrCalculation
     /**
      * @var bool
      */
-    protected $isAuthorized;
+    protected $isPrepaid;
     /**
      * @var bool
      */
@@ -293,14 +293,14 @@ class OdrCalculation
         return $this;
     }
 
-    public function getIsAuthorized(): ?bool
+    public function getIsPrepaid(): ?bool
     {
-        return $this->isAuthorized;
+        return $this->isPrepaid;
     }
 
-    public function setIsAuthorized(?bool $isAuthorized): self
+    public function setIsPrepaid(?bool $isPrepaid): self
     {
-        $this->isAuthorized = $isAuthorized;
+        $this->isPrepaid = $isPrepaid;
 
         return $this;
     }

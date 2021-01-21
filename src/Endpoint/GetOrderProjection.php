@@ -16,10 +16,16 @@ class GetOrderProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 
     /**
      * Returns an order's projection.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var int $pricing_at Unix timestamp
+     * }
      */
-    public function __construct(string $id)
+    public function __construct(string $id, array $queryParameters = [])
     {
         $this->id = $id;
+        $this->queryParameters = $queryParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -42,6 +48,17 @@ class GetOrderProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['pricing_at']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('pricing_at', ['int']);
+
+        return $optionsResolver;
     }
 
     /**

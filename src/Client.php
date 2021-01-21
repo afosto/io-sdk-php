@@ -377,6 +377,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns an order's projection.
      *
+     * @param array $queryParameters {
+     *
+     *     @var int $pricing_at Unix timestamp
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetOrderProjectionUnauthorizedException
@@ -388,9 +393,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrProjection|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getOrderProjection(string $id, string $fetch = self::FETCH_OBJECT)
+    public function getOrderProjection(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetOrderProjection($id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetOrderProjection($id, $queryParameters), $fetch);
     }
 
     /**

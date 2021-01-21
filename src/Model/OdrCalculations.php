@@ -73,6 +73,10 @@ class OdrCalculations
      */
     protected $isInvoiced;
     /**
+     * @var bool
+     */
+    protected $isPrepaid;
+    /**
      * @var string
      */
     protected $clientId;
@@ -297,6 +301,18 @@ class OdrCalculations
     public function setIsInvoiced(?bool $isInvoiced): self
     {
         $this->isInvoiced = $isInvoiced;
+
+        return $this;
+    }
+
+    public function getIsPrepaid(): ?bool
+    {
+        return $this->isPrepaid;
+    }
+
+    public function setIsPrepaid(?bool $isPrepaid): self
+    {
+        $this->isPrepaid = $isPrepaid;
 
         return $this;
     }

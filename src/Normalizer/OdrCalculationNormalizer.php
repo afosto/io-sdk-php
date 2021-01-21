@@ -96,8 +96,8 @@ class OdrCalculationNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'is_vat_shifted') && null !== $data->{'is_vat_shifted'}) {
             $object->setIsVatShifted($data->{'is_vat_shifted'});
         }
-        if (property_exists($data, 'is_authorized') && null !== $data->{'is_authorized'}) {
-            $object->setIsAuthorized($data->{'is_authorized'});
+        if (property_exists($data, 'is_prepaid') && null !== $data->{'is_prepaid'}) {
+            $object->setIsPrepaid($data->{'is_prepaid'});
         }
         if (property_exists($data, 'is_invoiced') && null !== $data->{'is_invoiced'}) {
             $object->setIsInvoiced($data->{'is_invoiced'});
@@ -185,8 +185,8 @@ class OdrCalculationNormalizer implements DenormalizerInterface, NormalizerInter
         if (null !== $object->getIsVatShifted()) {
             $data->{'is_vat_shifted'} = $object->getIsVatShifted();
         }
-        if (null !== $object->getIsAuthorized()) {
-            $data->{'is_authorized'} = $object->getIsAuthorized();
+        if (null !== $object->getIsPrepaid()) {
+            $data->{'is_prepaid'} = $object->getIsPrepaid();
         }
         if (null !== $object->getIsInvoiced()) {
             $data->{'is_invoiced'} = $object->getIsInvoiced();
