@@ -39,21 +39,25 @@ class WmsInventoryItem
      */
     protected $state;
     /**
+     * @var string
+     */
+    protected $position;
+    /**
      * the lot number of the inventory item.
      *
      * @var string
      */
     protected $lotNumber;
     /**
-     * @var string
+     * @var \DateTime
      */
     protected $expiresAt;
     /**
-     * @var string
+     * @var \DateTime
      */
     protected $createdAt;
     /**
-     * @var string
+     * @var \DateTime
      */
     protected $updatedAt;
 
@@ -139,6 +143,18 @@ class WmsInventoryItem
         return $this;
     }
 
+    public function getPosition(): ?string
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?string $position): self
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
     /**
      * the lot number of the inventory item.
      */
@@ -157,36 +173,36 @@ class WmsInventoryItem
         return $this;
     }
 
-    public function getExpiresAt(): ?string
+    public function getExpiresAt(): ?\DateTime
     {
         return $this->expiresAt;
     }
 
-    public function setExpiresAt(?string $expiresAt): self
+    public function setExpiresAt(?\DateTime $expiresAt): self
     {
         $this->expiresAt = $expiresAt;
 
         return $this;
     }
 
-    public function getCreatedAt(): ?string
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(?string $createdAt): self
+    public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getUpdatedAt(): ?string
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(?string $updatedAt): self
+    public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 

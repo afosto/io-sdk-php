@@ -60,17 +60,20 @@ class WmsInventoryItemNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'state') && null !== $data->{'state'}) {
             $object->setState($data->{'state'});
         }
+        if (property_exists($data, 'position') && null !== $data->{'position'}) {
+            $object->setPosition($data->{'position'});
+        }
         if (property_exists($data, 'lot_number') && null !== $data->{'lot_number'}) {
             $object->setLotNumber($data->{'lot_number'});
         }
         if (property_exists($data, 'expires_at') && null !== $data->{'expires_at'}) {
-            $object->setExpiresAt($data->{'expires_at'});
+            $object->setExpiresAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expires_at'}));
         }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
-            $object->setCreatedAt($data->{'created_at'});
+            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
         if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
-            $object->setUpdatedAt($data->{'updated_at'});
+            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 
         return $object;
@@ -101,17 +104,20 @@ class WmsInventoryItemNormalizer implements DenormalizerInterface, NormalizerInt
         if (null !== $object->getState()) {
             $data->{'state'} = $object->getState();
         }
+        if (null !== $object->getPosition()) {
+            $data->{'position'} = $object->getPosition();
+        }
         if (null !== $object->getLotNumber()) {
             $data->{'lot_number'} = $object->getLotNumber();
         }
         if (null !== $object->getExpiresAt()) {
-            $data->{'expires_at'} = $object->getExpiresAt();
+            $data->{'expires_at'} = $object->getExpiresAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getCreatedAt()) {
-            $data->{'created_at'} = $object->getCreatedAt();
+            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getUpdatedAt()) {
-            $data->{'updated_at'} = $object->getUpdatedAt();
+            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

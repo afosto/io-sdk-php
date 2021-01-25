@@ -6533,6 +6533,44 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * returns the claim status.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ClaimIsCancableNotFoundException
+     * @throws \Afosto\Sdk\Exception\ClaimIsCancableBadRequestException
+     * @throws \Afosto\Sdk\Exception\ClaimIsCancableUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ClaimIsCancableForbiddenException
+     * @throws \Afosto\Sdk\Exception\ClaimIsCancableInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ClaimIsCancableServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\WmsClaimsIdStatusGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function claimIsCancable(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ClaimIsCancable($id), $fetch);
+    }
+
+    /**
+     * cancelClaim.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CancelClaimNotFoundException
+     * @throws \Afosto\Sdk\Exception\CancelClaimBadRequestException
+     * @throws \Afosto\Sdk\Exception\CancelClaimUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CancelClaimForbiddenException
+     * @throws \Afosto\Sdk\Exception\CancelClaimInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CancelClaimServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function cancelClaim(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CancelClaim($id), $fetch);
+    }
+
+    /**
      * Get a claim and it's status.
      *
      * @param array $headerParameters {

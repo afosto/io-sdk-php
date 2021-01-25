@@ -53,7 +53,7 @@ class WmsTransport
      */
     protected $to;
     /**
-     * @var string
+     * @var \DateTime
      */
     protected $arrivalAt;
 
@@ -177,12 +177,12 @@ class WmsTransport
         return $this;
     }
 
-    public function getArrivalAt(): ?string
+    public function getArrivalAt(): ?\DateTime
     {
         return $this->arrivalAt;
     }
 
-    public function setArrivalAt(?string $arrivalAt): self
+    public function setArrivalAt(?\DateTime $arrivalAt): self
     {
         $this->arrivalAt = $arrivalAt;
 

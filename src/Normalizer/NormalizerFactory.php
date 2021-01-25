@@ -595,6 +595,7 @@ class NormalizerFactory
         $normalizers[] = new IamOauthForwardReferenceGetResponse200Normalizer();
         $normalizers[] = new WmsSearchLocationsPostBodyNormalizer();
         $normalizers[] = new WmsSearchClaimsPostBodyNormalizer();
+        $normalizers[] = new WmsClaimsIdStatusGetResponse200Normalizer();
         $normalizers[] = new WmsClaimsIdExtendPutBodyNormalizer();
         $normalizers[] = new WmsTransfersTransferIdTransportsIdStatePutBodyNormalizer();
         $normalizers[] = new WmsTransfersTransferIdTransportsIdShipmentPutBodyNormalizer();

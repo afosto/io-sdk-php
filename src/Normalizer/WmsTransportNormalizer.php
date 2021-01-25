@@ -69,7 +69,7 @@ class WmsTransportNormalizer implements DenormalizerInterface, NormalizerInterfa
             $object->setTo($data->{'to'});
         }
         if (property_exists($data, 'arrival_at') && null !== $data->{'arrival_at'}) {
-            $object->setArrivalAt($data->{'arrival_at'});
+            $object->setArrivalAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'arrival_at'}));
         }
 
         return $object;
@@ -109,7 +109,7 @@ class WmsTransportNormalizer implements DenormalizerInterface, NormalizerInterfa
             $data->{'to'} = $object->getTo();
         }
         if (null !== $object->getArrivalAt()) {
-            $data->{'arrival_at'} = $object->getArrivalAt();
+            $data->{'arrival_at'} = $object->getArrivalAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;
