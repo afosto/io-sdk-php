@@ -50,6 +50,9 @@ class OdrOrderStateNormalizer implements DenormalizerInterface, NormalizerInterf
         if (property_exists($data, 'is_finished') && null !== $data->{'is_finished'}) {
             $object->setIsFinished($data->{'is_finished'});
         }
+        if (property_exists($data, 'is_canceled') && null !== $data->{'is_canceled'}) {
+            $object->setIsCanceled($data->{'is_canceled'});
+        }
         if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
@@ -78,6 +81,9 @@ class OdrOrderStateNormalizer implements DenormalizerInterface, NormalizerInterf
         }
         if (null !== $object->getIsFinished()) {
             $data->{'is_finished'} = $object->getIsFinished();
+        }
+        if (null !== $object->getIsCanceled()) {
+            $data->{'is_canceled'} = $object->getIsCanceled();
         }
         if (null !== $object->getType()) {
             $data->{'type'} = $object->getType();

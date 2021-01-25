@@ -28,6 +28,7 @@ class NormalizerFactory
         $normalizers[] = new MesParticipantCreateNormalizer();
         $normalizers[] = new MesSubscriptionNormalizer();
         $normalizers[] = new MesCancelNormalizer();
+        $normalizers[] = new OdrCancelStateNormalizer();
         $normalizers[] = new OdrCalculationAdjustmentNormalizer();
         $normalizers[] = new OdrCalculationAdjustmentResultNormalizer();
         $normalizers[] = new OdrContactNormalizer();

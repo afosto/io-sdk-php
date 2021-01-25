@@ -188,6 +188,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param array $queryParameters {
      *
      *     @var string $authorization_id
+     *     @var string $number
      * }
      *
      * @param array $headerParameters {
@@ -539,6 +540,30 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function fulfilOrder(string $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\FulfilOrder($id), $fetch);
+    }
+
+    /**
+     * Cancel the order.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $force
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CancelOrderUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CancelOrderNotFoundException
+     * @throws \Afosto\Sdk\Exception\CancelOrderBadRequestException
+     * @throws \Afosto\Sdk\Exception\CancelOrderForbiddenException
+     * @throws \Afosto\Sdk\Exception\CancelOrderInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CancelOrderServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrCancelState|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function cancelOrder(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CancelOrder($id, $queryParameters), $fetch);
     }
 
     /**

@@ -29,6 +29,10 @@ class OdrOrderState
      */
     protected $isFinished;
     /**
+     * @var bool
+     */
+    protected $isCanceled;
+    /**
      * @var string
      */
     protected $type;
@@ -81,6 +85,18 @@ class OdrOrderState
     public function setIsFinished(?bool $isFinished): self
     {
         $this->isFinished = $isFinished;
+
+        return $this;
+    }
+
+    public function getIsCanceled(): ?bool
+    {
+        return $this->isCanceled;
+    }
+
+    public function setIsCanceled(?bool $isCanceled): self
+    {
+        $this->isCanceled = $isCanceled;
 
         return $this;
     }

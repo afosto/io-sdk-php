@@ -18,6 +18,7 @@ class ListOrders extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
      * @param array $queryParameters {
      *
      *     @var string $authorization_id
+     *     @var string $number
      * }
      *
      * @param array $headerParameters {
@@ -57,10 +58,11 @@ class ListOrders extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['authorization_id']);
+        $optionsResolver->setDefined(['authorization_id', 'number']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('authorization_id', ['string']);
+        $optionsResolver->setAllowedTypes('number', ['string']);
 
         return $optionsResolver;
     }
