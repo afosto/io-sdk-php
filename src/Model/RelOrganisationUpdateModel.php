@@ -62,6 +62,10 @@ class RelOrganisationUpdateModel
      * @var RelOrganisationUpdateModelPhoneNumbers
      */
     protected $phoneNumbers;
+    /**
+     * @var RelOrganisationUpdateModelAdministration
+     */
+    protected $administration;
 
     /**
      * The name of the recipient, firm, or company at this address (optional).
@@ -225,6 +229,18 @@ class RelOrganisationUpdateModel
     public function setPhoneNumbers(?RelOrganisationUpdateModelPhoneNumbers $phoneNumbers): self
     {
         $this->phoneNumbers = $phoneNumbers;
+
+        return $this;
+    }
+
+    public function getAdministration(): ?RelOrganisationUpdateModelAdministration
+    {
+        return $this->administration;
+    }
+
+    public function setAdministration(?RelOrganisationUpdateModelAdministration $administration): self
+    {
+        $this->administration = $administration;
 
         return $this;
     }

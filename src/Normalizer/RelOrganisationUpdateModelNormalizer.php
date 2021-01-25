@@ -83,6 +83,9 @@ class RelOrganisationUpdateModelNormalizer implements DenormalizerInterface, Nor
         if (property_exists($data, 'phone_numbers') && null !== $data->{'phone_numbers'}) {
             $object->setPhoneNumbers($this->denormalizer->denormalize($data->{'phone_numbers'}, 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelPhoneNumbers', 'json', $context));
         }
+        if (property_exists($data, 'administration') && null !== $data->{'administration'}) {
+            $object->setAdministration($this->denormalizer->denormalize($data->{'administration'}, 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelAdministration', 'json', $context));
+        }
 
         return $object;
     }
@@ -134,6 +137,9 @@ class RelOrganisationUpdateModelNormalizer implements DenormalizerInterface, Nor
         }
         if (null !== $object->getPhoneNumbers()) {
             $data->{'phone_numbers'} = $this->normalizer->normalize($object->getPhoneNumbers(), 'json', $context);
+        }
+        if (null !== $object->getAdministration()) {
+            $data->{'administration'} = $this->normalizer->normalize($object->getAdministration(), 'json', $context);
         }
 
         return $data;

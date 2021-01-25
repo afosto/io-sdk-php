@@ -41,6 +41,10 @@ class RelOrganisation
      */
     protected $accountManager;
     /**
+     * @var RelOrganisationAdministration
+     */
+    protected $administration;
+    /**
      * @var string[]
      */
     protected $tags;
@@ -151,6 +155,18 @@ class RelOrganisation
     public function setAccountManager(?string $accountManager): self
     {
         $this->accountManager = $accountManager;
+
+        return $this;
+    }
+
+    public function getAdministration(): ?RelOrganisationAdministration
+    {
+        return $this->administration;
+    }
+
+    public function setAdministration(?RelOrganisationAdministration $administration): self
+    {
+        $this->administration = $administration;
 
         return $this;
     }

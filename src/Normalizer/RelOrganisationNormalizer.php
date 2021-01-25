@@ -56,6 +56,9 @@ class RelOrganisationNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'account_manager') && null !== $data->{'account_manager'}) {
             $object->setAccountManager($data->{'account_manager'});
         }
+        if (property_exists($data, 'administration') && null !== $data->{'administration'}) {
+            $object->setAdministration($this->denormalizer->denormalize($data->{'administration'}, 'Afosto\\Sdk\\Model\\RelOrganisationAdministration', 'json', $context));
+        }
         if (property_exists($data, 'tags') && null !== $data->{'tags'}) {
             $values = [];
             foreach ($data->{'tags'} as $value) {
@@ -113,6 +116,9 @@ class RelOrganisationNormalizer implements DenormalizerInterface, NormalizerInte
         }
         if (null !== $object->getAccountManager()) {
             $data->{'account_manager'} = $object->getAccountManager();
+        }
+        if (null !== $object->getAdministration()) {
+            $data->{'administration'} = $this->normalizer->normalize($object->getAdministration(), 'json', $context);
         }
         if (null !== $object->getTags()) {
             $values = [];

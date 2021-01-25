@@ -543,6 +543,7 @@ class NormalizerFactory
         $normalizers[] = new RelContactUpdatePhoneNumbersNormalizer();
         $normalizers[] = new RelOrganisationListNormalizer();
         $normalizers[] = new RelOrganisationNormalizer();
+        $normalizers[] = new RelOrganisationAdministrationNormalizer();
         $normalizers[] = new RelOrganisationPaymentSettingsNormalizer();
         $normalizers[] = new RelOrganisationPaymentSettingsPostPaymentNormalizer();
         $normalizers[] = new RelOrganisationPaymentSettingsInvoiceNormalizer();
@@ -550,6 +551,7 @@ class NormalizerFactory
         $normalizers[] = new RelOrganisationUpdateModelBillingNormalizer();
         $normalizers[] = new RelOrganisationUpdateModelShippingNormalizer();
         $normalizers[] = new RelOrganisationUpdateModelPhoneNumbersNormalizer();
+        $normalizers[] = new RelOrganisationUpdateModelAdministrationNormalizer();
         $normalizers[] = new RelVatRegistrationModelNormalizer();
         $normalizers[] = new RelVatRegistrationNormalizer();
         $normalizers[] = new RelVatRegistrationVerificationNormalizer();
