@@ -63,12 +63,12 @@ class LcsShipmentItemModelNormalizer implements DenormalizerInterface, Normalize
             }
             $object->setService($values);
         }
-        if (property_exists($data, 'order_item_ids') && null !== $data->{'order_item_ids'}) {
+        if (property_exists($data, 'references') && null !== $data->{'references'}) {
             $values_1 = [];
-            foreach ($data->{'order_item_ids'} as $value_1) {
-                $values_1[] = $value_1;
+            foreach ($data->{'references'} as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\LcsShipmentItemModelReferencesItem', 'json', $context);
             }
-            $object->setOrderItemIds($values_1);
+            $object->setReferences($values_1);
         }
 
         return $object;
@@ -102,12 +102,12 @@ class LcsShipmentItemModelNormalizer implements DenormalizerInterface, Normalize
             }
             $data->{'service'} = $values;
         }
-        if (null !== $object->getOrderItemIds()) {
+        if (null !== $object->getReferences()) {
             $values_1 = [];
-            foreach ($object->getOrderItemIds() as $value_1) {
-                $values_1[] = $value_1;
+            foreach ($object->getReferences() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
-            $data->{'order_item_ids'} = $values_1;
+            $data->{'references'} = $values_1;
         }
 
         return $data;

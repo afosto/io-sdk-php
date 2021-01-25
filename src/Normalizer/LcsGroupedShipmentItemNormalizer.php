@@ -57,12 +57,12 @@ class LcsGroupedShipmentItemNormalizer implements DenormalizerInterface, Normali
         if (property_exists($data, 'description') && null !== $data->{'description'}) {
             $object->setDescription($data->{'description'});
         }
-        if (property_exists($data, 'order_item_ids') && null !== $data->{'order_item_ids'}) {
+        if (property_exists($data, 'references') && null !== $data->{'references'}) {
             $values_1 = [];
-            foreach ($data->{'order_item_ids'} as $value_1) {
-                $values_1[] = $value_1;
+            foreach ($data->{'references'} as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemReferencesItem', 'json', $context);
             }
-            $object->setOrderItemIds($values_1);
+            $object->setReferences($values_1);
         }
         if (property_exists($data, 'lists') && null !== $data->{'lists'}) {
             $values_2 = [];
@@ -152,12 +152,12 @@ class LcsGroupedShipmentItemNormalizer implements DenormalizerInterface, Normali
         if (null !== $object->getDescription()) {
             $data->{'description'} = $object->getDescription();
         }
-        if (null !== $object->getOrderItemIds()) {
+        if (null !== $object->getReferences()) {
             $values_1 = [];
-            foreach ($object->getOrderItemIds() as $value_1) {
-                $values_1[] = $value_1;
+            foreach ($object->getReferences() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
-            $data->{'order_item_ids'} = $values_1;
+            $data->{'references'} = $values_1;
         }
         if (null !== $object->getLists()) {
             $values_2 = [];

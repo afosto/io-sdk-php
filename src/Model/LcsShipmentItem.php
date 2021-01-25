@@ -35,6 +35,10 @@ class LcsShipmentItem
     /**
      * @var string
      */
+    protected $claimItemId;
+    /**
+     * @var string
+     */
     protected $description;
     /**
      * @var bool
@@ -125,6 +129,18 @@ class LcsShipmentItem
     public function setOrderItemId(?string $orderItemId): self
     {
         $this->orderItemId = $orderItemId;
+
+        return $this;
+    }
+
+    public function getClaimItemId(): ?string
+    {
+        return $this->claimItemId;
+    }
+
+    public function setClaimItemId(?string $claimItemId): self
+    {
+        $this->claimItemId = $claimItemId;
 
         return $this;
     }

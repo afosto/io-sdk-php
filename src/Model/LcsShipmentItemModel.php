@@ -41,9 +41,9 @@ class LcsShipmentItemModel
      */
     protected $service;
     /**
-     * @var string[]
+     * @var LcsShipmentItemModelReferencesItem[]
      */
-    protected $orderItemIds;
+    protected $references;
 
     public function getSku(): ?string
     {
@@ -136,19 +136,19 @@ class LcsShipmentItemModel
     }
 
     /**
-     * @return string[]|null
+     * @return LcsShipmentItemModelReferencesItem[]|null
      */
-    public function getOrderItemIds(): ?array
+    public function getReferences(): ?array
     {
-        return $this->orderItemIds;
+        return $this->references;
     }
 
     /**
-     * @param string[]|null $orderItemIds
+     * @param LcsShipmentItemModelReferencesItem[]|null $references
      */
-    public function setOrderItemIds(?array $orderItemIds): self
+    public function setReferences(?array $references): self
     {
-        $this->orderItemIds = $orderItemIds;
+        $this->references = $references;
 
         return $this;
     }

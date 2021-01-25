@@ -87,6 +87,10 @@ class LcsShipment
      */
     protected $isInTransit;
     /**
+     * @var bool
+     */
+    protected $isCancelled;
+    /**
      * @var LcsShipmentItem[]
      */
     protected $items;
@@ -341,6 +345,18 @@ class LcsShipment
     public function setIsInTransit(?bool $isInTransit): self
     {
         $this->isInTransit = $isInTransit;
+
+        return $this;
+    }
+
+    public function getIsCancelled(): ?bool
+    {
+        return $this->isCancelled;
+    }
+
+    public function setIsCancelled(?bool $isCancelled): self
+    {
+        $this->isCancelled = $isCancelled;
 
         return $this;
     }

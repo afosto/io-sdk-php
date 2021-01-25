@@ -86,6 +86,9 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'is_in_transit') && null !== $data->{'is_in_transit'}) {
             $object->setIsInTransit($data->{'is_in_transit'});
         }
+        if (property_exists($data, 'is_cancelled') && null !== $data->{'is_cancelled'}) {
+            $object->setIsCancelled($data->{'is_cancelled'});
+        }
         if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
@@ -187,6 +190,9 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
         }
         if (null !== $object->getIsInTransit()) {
             $data->{'is_in_transit'} = $object->getIsInTransit();
+        }
+        if (null !== $object->getIsCancelled()) {
+            $data->{'is_cancelled'} = $object->getIsCancelled();
         }
         if (null !== $object->getItems()) {
             $values = [];

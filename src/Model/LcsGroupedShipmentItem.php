@@ -33,9 +33,9 @@ class LcsGroupedShipmentItem
      */
     protected $description;
     /**
-     * @var string[]
+     * @var LcsGroupedShipmentItemReferencesItem[]
      */
-    protected $orderItemIds;
+    protected $references;
     /**
      * @var LcsGroupedShipmentItemListsItem[]
      */
@@ -144,19 +144,19 @@ class LcsGroupedShipmentItem
     }
 
     /**
-     * @return string[]|null
+     * @return LcsGroupedShipmentItemReferencesItem[]|null
      */
-    public function getOrderItemIds(): ?array
+    public function getReferences(): ?array
     {
-        return $this->orderItemIds;
+        return $this->references;
     }
 
     /**
-     * @param string[]|null $orderItemIds
+     * @param LcsGroupedShipmentItemReferencesItem[]|null $references
      */
-    public function setOrderItemIds(?array $orderItemIds): self
+    public function setReferences(?array $references): self
     {
-        $this->orderItemIds = $orderItemIds;
+        $this->references = $references;
 
         return $this;
     }
