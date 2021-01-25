@@ -29,7 +29,7 @@ class CreateClaimProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
 
     public function getUri(): string
     {
-        return '/wms/claims/projections';
+        return '/wms/projection/claims';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
