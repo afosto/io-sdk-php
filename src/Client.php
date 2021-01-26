@@ -811,6 +811,31 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a list items with routing.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchGroupsWithAttachUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchGroupsWithAttachNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchGroupsWithAttachBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchGroupsWithAttachForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchGroupsWithAttachInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchGroupsWithAttachServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrGroupAttach[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchGroupsWithAttach(\Afosto\Sdk\Model\OdrSearchOrdersItemsAttachPostBody $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchGroupsWithAttach($body, $headerParameters), $fetch);
+    }
+
+    /**
      * Provide the service with a set of valid skus.
      *
      * @param \Afosto\Sdk\Model\OdrSku[] $body

@@ -92,6 +92,11 @@ class NormalizerFactory
         $normalizers[] = new OdrGroupRouteReferencesOrdersItemShipmentsItemNormalizer();
         $normalizers[] = new OdrGroupRouteDeliveryRoutesItemNormalizer();
         $normalizers[] = new OdrGroupRouteCollectRoutesItemNormalizer();
+        $normalizers[] = new OdrGroupAttachNormalizer();
+        $normalizers[] = new OdrGroupAttachReferencesNormalizer();
+        $normalizers[] = new OdrGroupAttachReferencesOrdersItemNormalizer();
+        $normalizers[] = new OdrGroupAttachReferencesOrdersItemWarehouseNormalizer();
+        $normalizers[] = new OdrGroupAttachReferencesOrdersItemShipmentsItemNormalizer();
         $normalizers[] = new OdrStackReferenceNormalizer();
         $normalizers[] = new OdrStackReferenceStateNormalizer();
         $normalizers[] = new OdrSearchNormalizer();
@@ -569,6 +574,9 @@ class NormalizerFactory
         $normalizers[] = new OdrOrdersIdItemsAttachPostBodyItemNormalizer();
         $normalizers[] = new OdrOrdersIdItemsRoutingPutBodyItemNormalizer();
         $normalizers[] = new OdrOrdersIdItemsClaimPutBodyItemNormalizer();
+        $normalizers[] = new OdrSearchOrdersItemsAttachPostBodyNormalizer();
+        $normalizers[] = new OdrSearchOrdersItemsAttachPostBodyWmsNormalizer();
+        $normalizers[] = new OdrSearchOrdersItemsAttachPostBodyWmsConstraintsItemNormalizer();
         $normalizers[] = new OdrFiltersPutResponse200Normalizer();
         $normalizers[] = new OdrOptionsRulesConstraintsGetResponse200Normalizer();
         $normalizers[] = new CatMapsCollectionsIdKeysPutBodyItemNormalizer();
