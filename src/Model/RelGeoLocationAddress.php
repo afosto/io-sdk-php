@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Model;
 class RelGeoLocationAddress
 {
     /**
-     * @var string
+     * @var int
      */
     protected $premiseNumber;
     /**
@@ -21,7 +21,7 @@ class RelGeoLocationAddress
      *
      * @var string
      */
-    protected $premiseNumberAdddition;
+    protected $premiseNumberSuffix;
     /**
      * @var string
      */
@@ -43,12 +43,12 @@ class RelGeoLocationAddress
      */
     protected $countryCode;
 
-    public function getPremiseNumber(): ?string
+    public function getPremiseNumber(): ?int
     {
         return $this->premiseNumber;
     }
 
-    public function setPremiseNumber(?string $premiseNumber): self
+    public function setPremiseNumber(?int $premiseNumber): self
     {
         $this->premiseNumber = $premiseNumber;
 
@@ -58,17 +58,17 @@ class RelGeoLocationAddress
     /**
      * Might be null, depends on source API.
      */
-    public function getPremiseNumberAdddition(): ?string
+    public function getPremiseNumberSuffix(): ?string
     {
-        return $this->premiseNumberAdddition;
+        return $this->premiseNumberSuffix;
     }
 
     /**
      * Might be null, depends on source API.
      */
-    public function setPremiseNumberAdddition(?string $premiseNumberAdddition): self
+    public function setPremiseNumberSuffix(?string $premiseNumberSuffix): self
     {
-        $this->premiseNumberAdddition = $premiseNumberAdddition;
+        $this->premiseNumberSuffix = $premiseNumberSuffix;
 
         return $this;
     }
