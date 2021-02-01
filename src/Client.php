@@ -1562,6 +1562,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Generate PDF invoice.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GeneratePdfInvoiceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GeneratePdfInvoiceNotFoundException
+     * @throws \Afosto\Sdk\Exception\GeneratePdfInvoiceBadRequestException
+     * @throws \Afosto\Sdk\Exception\GeneratePdfInvoiceForbiddenException
+     * @throws \Afosto\Sdk\Exception\GeneratePdfInvoiceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GeneratePdfInvoiceServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function generatePdfInvoice(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GeneratePdfInvoice($id), $fetch);
+    }
+
+    /**
      * Get a listing of available pricing rules.
      *
      * @param array $headerParameters {
