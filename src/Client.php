@@ -13,6 +13,20 @@ namespace Afosto\Sdk;
 class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
 {
     /**
+     * Send a query to the GraphQL server.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\QueryGraphQLUnauthorizedException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function queryGraphQL(\Afosto\Sdk\Model\GraphQLQuery $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\QueryGraphQL($body), $fetch);
+    }
+
+    /**
      * Returns a list of conversations.
      *
      * @param array $headerParameters {

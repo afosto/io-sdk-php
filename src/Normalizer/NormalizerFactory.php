@@ -16,6 +16,7 @@ class NormalizerFactory
     {
         $normalizers = [];
         $normalizers[] = new \Symfony\Component\Serializer\Normalizer\ArrayDenormalizer();
+        $normalizers[] = new GraphQLQueryNormalizer();
         $normalizers[] = new ErrorNormalizer();
         $normalizers[] = new MesParticipantNormalizer();
         $normalizers[] = new MesNotifyNormalizer();
