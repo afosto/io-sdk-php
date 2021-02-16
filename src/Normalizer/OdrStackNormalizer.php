@@ -41,8 +41,11 @@ class OdrStackNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
-            $object->setReference($this->denormalizer->denormalize($data->{'reference'}, 'Afosto\\Sdk\\Model\\OdrStackReference', 'json', $context));
+        if (property_exists($data, 'entity_id') && null !== $data->{'entity_id'}) {
+            $object->setEntityId($data->{'entity_id'});
+        }
+        if (property_exists($data, 'entity_type') && null !== $data->{'entity_type'}) {
+            $object->setEntityType($data->{'entity_type'});
         }
         if (property_exists($data, 'state') && null !== $data->{'state'}) {
             $object->setState($this->denormalizer->denormalize($data->{'state'}, 'Afosto\\Sdk\\Model\\OdrStackState', 'json', $context));
@@ -63,8 +66,11 @@ class OdrStackNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getReference()) {
-            $data->{'reference'} = $this->normalizer->normalize($object->getReference(), 'json', $context);
+        if (null !== $object->getEntityId()) {
+            $data->{'entity_id'} = $object->getEntityId();
+        }
+        if (null !== $object->getEntityType()) {
+            $data->{'entity_type'} = $object->getEntityType();
         }
         if (null !== $object->getState()) {
             $data->{'state'} = $this->normalizer->normalize($object->getState(), 'json', $context);

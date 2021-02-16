@@ -23,6 +23,10 @@ class LcsFulfilmentLocation
     /**
      * @var string
      */
+    protected $reference;
+    /**
+     * @var string
+     */
     protected $addressId;
     /**
      * @var bool
@@ -57,6 +61,18 @@ class LcsFulfilmentLocation
     public function setName(?string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(?string $reference): self
+    {
+        $this->reference = $reference;
 
         return $this;
     }

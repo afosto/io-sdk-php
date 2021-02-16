@@ -111,11 +111,28 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'pricing_at') && null !== $data->{'pricing_at'}) {
             $object->setPricingAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'pricing_at'}));
         }
-        if (property_exists($data, 'invoiced_at') && null !== $data->{'invoiced_at'}) {
-            $object->setInvoicedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'invoiced_at'}));
-        }
         if (property_exists($data, 'paid_at') && null !== $data->{'paid_at'}) {
             $object->setPaidAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'paid_at'}));
+        }
+        if (property_exists($data, 'order_ids') && null !== $data->{'order_ids'}) {
+            $values_4 = [];
+            foreach ($data->{'order_ids'} as $value_4) {
+                $values_4[] = $value_4;
+            }
+            $object->setOrderIds($values_4);
+        }
+        if (property_exists($data, 'coupons') && null !== $data->{'coupons'}) {
+            $values_5 = [];
+            foreach ($data->{'coupons'} as $value_5) {
+                $values_5[] = $value_5;
+            }
+            $object->setCoupons($values_5);
+        }
+        if (property_exists($data, 'calculation_id') && null !== $data->{'calculation_id'}) {
+            $object->setCalculationId($data->{'calculation_id'});
+        }
+        if (property_exists($data, 'shipment_id') && null !== $data->{'shipment_id'}) {
+            $object->setShipmentId($data->{'shipment_id'});
         }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -203,11 +220,28 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         if (null !== $object->getPricingAt()) {
             $data->{'pricing_at'} = $object->getPricingAt()->format("Y-m-d\TH:i:sP");
         }
-        if (null !== $object->getInvoicedAt()) {
-            $data->{'invoiced_at'} = $object->getInvoicedAt()->format("Y-m-d\TH:i:sP");
-        }
         if (null !== $object->getPaidAt()) {
             $data->{'paid_at'} = $object->getPaidAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getOrderIds()) {
+            $values_4 = [];
+            foreach ($object->getOrderIds() as $value_4) {
+                $values_4[] = $value_4;
+            }
+            $data->{'order_ids'} = $values_4;
+        }
+        if (null !== $object->getCoupons()) {
+            $values_5 = [];
+            foreach ($object->getCoupons() as $value_5) {
+                $values_5[] = $value_5;
+            }
+            $data->{'coupons'} = $values_5;
+        }
+        if (null !== $object->getCalculationId()) {
+            $data->{'calculation_id'} = $object->getCalculationId();
+        }
+        if (null !== $object->getShipmentId()) {
+            $data->{'shipment_id'} = $object->getShipmentId();
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

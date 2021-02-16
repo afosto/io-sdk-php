@@ -88,6 +88,13 @@ class LcsHandlingListNormalizer implements DenormalizerInterface, NormalizerInte
             }
             $object->setItems($values_1);
         }
+        if (property_exists($data, 'sorting_labels') && null !== $data->{'sorting_labels'}) {
+            $values_2 = [];
+            foreach ($data->{'sorting_labels'} as $value_2) {
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\LcsHandlingListSortingLabelsItem', 'json', $context);
+            }
+            $object->setSortingLabels($values_2);
+        }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
@@ -150,6 +157,13 @@ class LcsHandlingListNormalizer implements DenormalizerInterface, NormalizerInte
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'items'} = $values_1;
+        }
+        if (null !== $object->getSortingLabels()) {
+            $values_2 = [];
+            foreach ($object->getSortingLabels() as $value_2) {
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
+            }
+            $data->{'sorting_labels'} = $values_2;
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

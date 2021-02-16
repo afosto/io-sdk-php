@@ -17,15 +17,21 @@ class CreateCalculation extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
     /**
      * Request calculation for the order.
      *
+     * @param array $queryParameters {
+     *
+     *     @var int $rules
+     * }
+     *
      * @param array $headerParameters {
      *
      *     @var string $x-idempotency-key
      * }
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\OdrOrderCalculationRequest $body, array $headerParameters = [])
+    public function __construct(string $id, \Afosto\Sdk\Model\OdrOrderCalculationRequest $body, array $queryParameters = [], array $headerParameters = [])
     {
         $this->id = $id;
         $this->body = $body;
+        $this->queryParameters = $queryParameters;
         $this->headerParameters = $headerParameters;
     }
 
@@ -49,6 +55,17 @@ class CreateCalculation extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['rules']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('rules', ['int']);
+
+        return $optionsResolver;
     }
 
     protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver

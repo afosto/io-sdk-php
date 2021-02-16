@@ -435,6 +435,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Request calculation for the order.
      *
+     * @param array $queryParameters {
+     *
+     *     @var int $rules
+     * }
+     *
      * @param array $headerParameters {
      *
      *     @var string $x-idempotency-key
@@ -451,9 +456,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrCalculations|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createCalculation(string $id, \Afosto\Sdk\Model\OdrOrderCalculationRequest $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function createCalculation(string $id, \Afosto\Sdk\Model\OdrOrderCalculationRequest $body, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateCalculation($id, $body, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateCalculation($id, $body, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -8696,7 +8701,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetShippingMethodInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetShippingMethodServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsMethod[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\LcsMethod|\Psr\Http\Message\ResponseInterface|null
      */
     public function getShippingMethod(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -9342,6 +9347,404 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListInstantProxiesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListInstantProxiesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListInstantProxiesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListInstantProxiesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListInstantProxiesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListInstantProxiesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntInstantProxy[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listInstantProxies(string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInstantProxies(), $fetch);
+    }
+
+    /**
+     * Create a new proxy for the tenant.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateInstantProxyUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateInstantProxyBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateInstantProxyForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateInstantProxyNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateInstantProxyInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateInstantProxyServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntInstantProxy|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createInstantProxy(\Afosto\Sdk\Model\CntCreateProxyRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateInstantProxy($body), $fetch);
+    }
+
+    /**
+     * Delete a new proxy for the tenant.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteInstantProxyUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantProxyBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantProxyForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantProxyNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantProxyInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantProxyServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteInstantProxy(string $proxyId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteInstantProxy($proxyId), $fetch);
+    }
+
+    /**
+     * Show a single proxy for the tenant.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetInstantProxyUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetInstantProxyNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetInstantProxyBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetInstantProxyForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetInstantProxyInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetInstantProxyServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntInstantProxy|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getInstantProxy(string $proxyId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInstantProxy($proxyId), $fetch);
+    }
+
+    /**
+     * Update a new proxy for the tenant.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateInstantProxyUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateInstantProxyBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateInstantProxyForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateInstantProxyNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateInstantProxyInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateInstantProxyServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntInstantProxy|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateInstantProxy(string $proxyId, \Afosto\Sdk\Model\CntCreateProxyRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInstantProxy($proxyId, $body), $fetch);
+    }
+
+    /**
+     * List all indexes for the authenticated user.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntListIndex[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listInstantIndexes(string $proxyId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInstantIndexes($proxyId), $fetch);
+    }
+
+    /**
+     * Create a new index.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateInstantIndexBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateInstantIndexUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateInstantIndexForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateInstantIndexNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateInstantIndexInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateInstantIndexServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntIndex|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createInstantIndex(string $proxyId, \Afosto\Sdk\Model\CntCreateIndexRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateInstantIndex($proxyId, $body), $fetch);
+    }
+
+    /**
+     * Delete a single index.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteInstantIndexUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantIndexNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantIndexBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantIndexForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantIndexInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantIndexServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteInstantIndex(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteInstantIndex($proxyId, $id), $fetch);
+    }
+
+    /**
+     * Show a single index for the tenant.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetInstantIndexUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetInstantIndexNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetInstantIndexBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetInstantIndexForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetInstantIndexInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetInstantIndexServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntIndex|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getInstantIndex(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInstantIndex($proxyId, $id), $fetch);
+    }
+
+    /**
+     * Update a single index.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateInstantIndexUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateInstantIndexNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateInstantIndexBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateInstantIndexForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateInstantIndexInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateInstantIndexServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntIndex|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateInstantIndex(string $proxyId, string $id, \Afosto\Sdk\Model\CntInstantProxiesProxyIdIndexesIdPutBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInstantIndex($proxyId, $id, $body), $fetch);
+    }
+
+    /**
+     * Activate a single index.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ActivateInstantIndexUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ActivateInstantIndexNotFoundException
+     * @throws \Afosto\Sdk\Exception\ActivateInstantIndexBadRequestException
+     * @throws \Afosto\Sdk\Exception\ActivateInstantIndexForbiddenException
+     * @throws \Afosto\Sdk\Exception\ActivateInstantIndexInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ActivateInstantIndexServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntListIndex|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function activateInstantIndex(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ActivateInstantIndex($proxyId, $id), $fetch);
+    }
+
+    /**
+     * Deactivate a single index for the tenant.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntListIndex|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function deactivateInsantIndex(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeactivateInsantIndex($proxyId, $id), $fetch);
+    }
+
+    /**
+     * Delete all documents from the specified index.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ClearInstantIndexUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ClearInstantIndexBadRequestException
+     * @throws \Afosto\Sdk\Exception\ClearInstantIndexForbiddenException
+     * @throws \Afosto\Sdk\Exception\ClearInstantIndexNotFoundException
+     * @throws \Afosto\Sdk\Exception\ClearInstantIndexInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ClearInstantIndexServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function clearInstantIndex(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ClearInstantIndex($proxyId, $id), $fetch);
+    }
+
+    /**
+     * Update or insert a list of documents in the specified index. Enter any additional information in the metadata. Data in the metadata key is not searchable, only retrievable.
+     *
+     * @param \Afosto\Sdk\Model\CntInputDocument[] $body
+     * @param string                               $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpsertInstantDocumentUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpsertInstantDocumentNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpsertInstantDocumentBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpsertInstantDocumentForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpsertInstantDocumentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpsertInstantDocumentServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function upsertInstantDocument(string $proxyId, string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpsertInstantDocument($proxyId, $id, $body), $fetch);
+    }
+
+    /**
+     * Delete a list of documents from the specified index. Only those document IDs that were submitted will be removed.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteInstantDocment(string $proxyId, string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteInstantDocment($proxyId, $id, $body), $fetch);
+    }
+
+    /**
+     * Search documents. The proxy_id is a custom key for a tenant, ex: "afosto". The count is the combined count of the results in all selected indices.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchInstantBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchInstantUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchInstantNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchInstantForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchInstantInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchInstantServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntSearchResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchInstant(string $proxyId, \Afosto\Sdk\Model\CntSearchRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchInstant($proxyId, $body), $fetch);
+    }
+
+    /**
+     * Reset the settings of the specified index.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ResetInstantIndexSettingsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ResetInstantIndexSettingsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ResetInstantIndexSettingsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ResetInstantIndexSettingsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ResetInstantIndexSettingsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ResetInstantIndexSettingsServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function resetInstantIndexSettings(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ResetInstantIndexSettings($proxyId, $id), $fetch);
+    }
+
+    /**
+     * List the settings of the specified index.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexSettingsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexSettingsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexSettingsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexSettingsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexSettingsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexSettingsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntIndexSettings|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listInstantIndexSettings(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInstantIndexSettings($proxyId, $id), $fetch);
+    }
+
+    /**
+     * Update the settings of the specified index.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateInstantIndexSettingsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateInstantIndexSettingsBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateInstantIndexSettingsForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateInstantIndexSettingsNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateInstantIndexSettingsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateInstantIndexSettingsServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateInstantIndexSettings(string $proxyId, string $id, \Afosto\Sdk\Model\CntIndexSettings $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInstantIndexSettings($proxyId, $id, $body), $fetch);
+    }
+
+    /**
+     * List the updates of the specified index.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexUpdatesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexUpdatesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexUpdatesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexUpdatesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexUpdatesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListInstantIndexUpdatesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntIndexUpdate[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listInstantIndexUpdates(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInstantIndexUpdates($proxyId, $id), $fetch);
+    }
+
+    /**
+     * Get a single update on from the specified index.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetInstantIndexUpdateBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetInstantIndexUpdateNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetInstantIndexUpdateUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetInstantIndexUpdateForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetInstantIndexUpdateInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetInstantIndexUpdateServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntIndexUpdate|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getInstantIndexUpdate(string $proxyId, string $id, int $updateId, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInstantIndexUpdate($proxyId, $id, $updateId), $fetch);
+    }
+
+    /**
      * Get a listing of available pricing groups.
      *
      * @param array $headerParameters {
@@ -9673,6 +10076,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function upsertContact(\Afosto\Sdk\Model\RelContactUpdate $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpsertContact($body), $fetch);
+    }
+
+    /**
+     * Delete a contact by id.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteContactBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteContactUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteContactForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteContactNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteContactInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteContactServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteContact(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteContact($id), $fetch);
     }
 
     /**

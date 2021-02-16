@@ -63,6 +63,9 @@ class OdrOrderStateNormalizer implements DenormalizerInterface, NormalizerInterf
             }
             $object->setFlow($values);
         }
+        if (property_exists($data, 'progress') && null !== $data->{'progress'}) {
+            $object->setProgress($this->denormalizer->denormalize($data->{'progress'}, 'Afosto\\Sdk\\Model\\OdrOrderStateProgress', 'json', $context));
+        }
 
         return $object;
     }
@@ -94,6 +97,9 @@ class OdrOrderStateNormalizer implements DenormalizerInterface, NormalizerInterf
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'flow'} = $values;
+        }
+        if (null !== $object->getProgress()) {
+            $data->{'progress'} = $this->normalizer->normalize($object->getProgress(), 'json', $context);
         }
 
         return $data;

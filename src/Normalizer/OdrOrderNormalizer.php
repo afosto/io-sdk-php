@@ -77,8 +77,20 @@ class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, 
             }
             $object->setTags($values_2);
         }
+        if (property_exists($data, 'stack_id') && null !== $data->{'stack_id'}) {
+            $object->setStackId($data->{'stack_id'});
+        }
         if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
+        }
+        if (property_exists($data, 'last_accepted_at') && null !== $data->{'last_accepted_at'}) {
+            $object->setLastAcceptedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'last_accepted_at'}));
+        }
+        if (property_exists($data, 'last_confirmed_at') && null !== $data->{'last_confirmed_at'}) {
+            $object->setLastConfirmedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'last_confirmed_at'}));
+        }
+        if (property_exists($data, 'last_canceled_at') && null !== $data->{'last_canceled_at'}) {
+            $object->setLastCanceledAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'last_canceled_at'}));
         }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -132,8 +144,20 @@ class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, 
             }
             $data->{'tags'} = $values_2;
         }
+        if (null !== $object->getStackId()) {
+            $data->{'stack_id'} = $object->getStackId();
+        }
         if (null !== $object->getType()) {
             $data->{'type'} = $object->getType();
+        }
+        if (null !== $object->getLastAcceptedAt()) {
+            $data->{'last_accepted_at'} = $object->getLastAcceptedAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getLastConfirmedAt()) {
+            $data->{'last_confirmed_at'} = $object->getLastConfirmedAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getLastCanceledAt()) {
+            $data->{'last_canceled_at'} = $object->getLastCanceledAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

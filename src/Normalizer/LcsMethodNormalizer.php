@@ -78,6 +78,9 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'is_carrier_location') && null !== $data->{'is_carrier_location'}) {
             $object->setIsCarrierLocation($data->{'is_carrier_location'});
         }
+        if (property_exists($data, 'is_neighbour_allowed') && null !== $data->{'is_neighbour_allowed'}) {
+            $object->setIsNeighbourAllowed($data->{'is_neighbour_allowed'});
+        }
         if (property_exists($data, 'provider_method_id') && null !== $data->{'provider_method_id'}) {
             $object->setProviderMethodId($data->{'provider_method_id'});
         }
@@ -133,6 +136,9 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         }
         if (null !== $object->getIsCarrierLocation()) {
             $data->{'is_carrier_location'} = $object->getIsCarrierLocation();
+        }
+        if (null !== $object->getIsNeighbourAllowed()) {
+            $data->{'is_neighbour_allowed'} = $object->getIsNeighbourAllowed();
         }
         if (null !== $object->getProviderMethodId()) {
             $data->{'provider_method_id'} = $object->getProviderMethodId();

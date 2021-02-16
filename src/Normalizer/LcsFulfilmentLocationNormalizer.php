@@ -44,6 +44,9 @@ class LcsFulfilmentLocationNormalizer implements DenormalizerInterface, Normaliz
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
+            $object->setReference($data->{'reference'});
+        }
         if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
             $object->setAddressId($data->{'address_id'});
         }
@@ -68,6 +71,9 @@ class LcsFulfilmentLocationNormalizer implements DenormalizerInterface, Normaliz
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
+        }
+        if (null !== $object->getReference()) {
+            $data->{'reference'} = $object->getReference();
         }
         if (null !== $object->getAddressId()) {
             $data->{'address_id'} = $object->getAddressId();

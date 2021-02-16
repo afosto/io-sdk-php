@@ -53,8 +53,8 @@ class OdrProjectionItemNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
         }
-        if (property_exists($data, 'revenue_amount') && null !== $data->{'revenue_amount'}) {
-            $object->setRevenueAmount($data->{'revenue_amount'});
+        if (property_exists($data, 'is_discounted') && null !== $data->{'is_discounted'}) {
+            $object->setIsDiscounted($data->{'is_discounted'});
         }
         if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
@@ -74,6 +74,9 @@ class OdrProjectionItemNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (property_exists($data, 'total') && null !== $data->{'total'}) {
             $object->setTotal($data->{'total'});
+        }
+        if (property_exists($data, 'total_revenue') && null !== $data->{'total_revenue'}) {
+            $object->setTotalRevenue($data->{'total_revenue'});
         }
 
         return $object;
@@ -97,8 +100,8 @@ class OdrProjectionItemNormalizer implements DenormalizerInterface, NormalizerIn
         if (null !== $object->getAmount()) {
             $data->{'amount'} = $object->getAmount();
         }
-        if (null !== $object->getRevenueAmount()) {
-            $data->{'revenue_amount'} = $object->getRevenueAmount();
+        if (null !== $object->getIsDiscounted()) {
+            $data->{'is_discounted'} = $object->getIsDiscounted();
         }
         if (null !== $object->getQuantity()) {
             $data->{'quantity'} = $object->getQuantity();
@@ -118,6 +121,9 @@ class OdrProjectionItemNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (null !== $object->getTotal()) {
             $data->{'total'} = $object->getTotal();
+        }
+        if (null !== $object->getTotalRevenue()) {
+            $data->{'total_revenue'} = $object->getTotalRevenue();
         }
 
         return $data;

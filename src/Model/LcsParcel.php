@@ -67,11 +67,23 @@ class LcsParcel
     /**
      * @var bool
      */
+    protected $isOutbound;
+    /**
+     * @var bool
+     */
     protected $isFinished;
     /**
      * @var string
      */
     protected $fileId;
+    /**
+     * @var \DateTime
+     */
+    protected $shipAt;
+    /**
+     * @var \DateTime
+     */
+    protected $finishedAt;
     /**
      * @var \DateTime
      */
@@ -243,6 +255,18 @@ class LcsParcel
         return $this;
     }
 
+    public function getIsOutbound(): ?bool
+    {
+        return $this->isOutbound;
+    }
+
+    public function setIsOutbound(?bool $isOutbound): self
+    {
+        $this->isOutbound = $isOutbound;
+
+        return $this;
+    }
+
     public function getIsFinished(): ?bool
     {
         return $this->isFinished;
@@ -263,6 +287,30 @@ class LcsParcel
     public function setFileId(?string $fileId): self
     {
         $this->fileId = $fileId;
+
+        return $this;
+    }
+
+    public function getShipAt(): ?\DateTime
+    {
+        return $this->shipAt;
+    }
+
+    public function setShipAt(?\DateTime $shipAt): self
+    {
+        $this->shipAt = $shipAt;
+
+        return $this;
+    }
+
+    public function getFinishedAt(): ?\DateTime
+    {
+        return $this->finishedAt;
+    }
+
+    public function setFinishedAt(?\DateTime $finishedAt): self
+    {
+        $this->finishedAt = $finishedAt;
 
         return $this;
     }

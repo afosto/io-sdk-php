@@ -64,11 +64,11 @@ class NormalizerFactory
         $normalizers[] = new OdrStepActionNormalizer();
         $normalizers[] = new OdrOrderNormalizer();
         $normalizers[] = new OdrOrderStateNormalizer();
+        $normalizers[] = new OdrOrderStateProgressNormalizer();
         $normalizers[] = new OdrOrderAcceptancesItemNormalizer();
         $normalizers[] = new OdrOrderCalculationsItemNormalizer();
         $normalizers[] = new OdrProcessingNormalizer();
         $normalizers[] = new OdrStackNormalizer();
-        $normalizers[] = new OdrStackReferenceNormalizer();
         $normalizers[] = new OdrStackStateNormalizer();
         $normalizers[] = new OdrOrderModelNormalizer();
         $normalizers[] = new OdrOrderAuthorizationResponseNormalizer();
@@ -458,6 +458,7 @@ class NormalizerFactory
         $normalizers[] = new LcsHandlingModelShipmentsItemNormalizer();
         $normalizers[] = new LcsHandlingListResponseNormalizer();
         $normalizers[] = new LcsHandlingListNormalizer();
+        $normalizers[] = new LcsHandlingListSortingLabelsItemNormalizer();
         $normalizers[] = new LcsListedHandlingListNormalizer();
         $normalizers[] = new LcsLocationPositionNormalizer();
         $normalizers[] = new LcsMethodNormalizer();
@@ -508,6 +509,20 @@ class NormalizerFactory
         $normalizers[] = new CntHtmlToPdfRequestSizeNormalizer();
         $normalizers[] = new CntHtmlToPdfRequestMarginNormalizer();
         $normalizers[] = new CntPdfNormalizer();
+        $normalizers[] = new CntInstantProxyNormalizer();
+        $normalizers[] = new CntCreateProxyRequestNormalizer();
+        $normalizers[] = new CntCreateIndexRequestNormalizer();
+        $normalizers[] = new CntListIndexNormalizer();
+        $normalizers[] = new CntIndexNormalizer();
+        $normalizers[] = new CntInputDocumentNormalizer();
+        $normalizers[] = new CntSearchRequestNormalizer();
+        $normalizers[] = new CntInstantFilterNormalizer();
+        $normalizers[] = new CntSearchResponseNormalizer();
+        $normalizers[] = new CntIndexResponseNormalizer();
+        $normalizers[] = new CntIndexSettingsNormalizer();
+        $normalizers[] = new CntIndexSettingsFiltersItemNormalizer();
+        $normalizers[] = new CntIndexUpdateTypeNormalizer();
+        $normalizers[] = new CntIndexUpdateNormalizer();
         $normalizers[] = new CatGroupNormalizer();
         $normalizers[] = new CatGroupCreateNormalizer();
         $normalizers[] = new CatGroupUpdateNormalizer();
@@ -627,6 +642,7 @@ class NormalizerFactory
         $normalizers[] = new LcsLocationsIdPositionsDeleteResponse200Normalizer();
         $normalizers[] = new LcsLocationsIdPositionsPutResponse200Normalizer();
         $normalizers[] = new LcsLocationsIdSkusPutResponse200Normalizer();
+        $normalizers[] = new CntInstantProxiesProxyIdIndexesIdPutBodyNormalizer();
         $normalizers[] = new CatGroupsIdPricesPutResponse200Normalizer();
         $normalizers[] = new CatVatProductsPutResponse200Normalizer();
 

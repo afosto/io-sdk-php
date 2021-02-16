@@ -51,7 +51,23 @@ class OdrOrder
     /**
      * @var string
      */
+    protected $stackId;
+    /**
+     * @var string
+     */
     protected $type;
+    /**
+     * @var \DateTime
+     */
+    protected $lastAcceptedAt;
+    /**
+     * @var \DateTime
+     */
+    protected $lastConfirmedAt;
+    /**
+     * @var \DateTime
+     */
+    protected $lastCanceledAt;
     /**
      * @var \DateTime
      */
@@ -187,6 +203,18 @@ class OdrOrder
         return $this;
     }
 
+    public function getStackId(): ?string
+    {
+        return $this->stackId;
+    }
+
+    public function setStackId(?string $stackId): self
+    {
+        $this->stackId = $stackId;
+
+        return $this;
+    }
+
     public function getType(): ?string
     {
         return $this->type;
@@ -195,6 +223,42 @@ class OdrOrder
     public function setType(?string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getLastAcceptedAt(): ?\DateTime
+    {
+        return $this->lastAcceptedAt;
+    }
+
+    public function setLastAcceptedAt(?\DateTime $lastAcceptedAt): self
+    {
+        $this->lastAcceptedAt = $lastAcceptedAt;
+
+        return $this;
+    }
+
+    public function getLastConfirmedAt(): ?\DateTime
+    {
+        return $this->lastConfirmedAt;
+    }
+
+    public function setLastConfirmedAt(?\DateTime $lastConfirmedAt): self
+    {
+        $this->lastConfirmedAt = $lastConfirmedAt;
+
+        return $this;
+    }
+
+    public function getLastCanceledAt(): ?\DateTime
+    {
+        return $this->lastCanceledAt;
+    }
+
+    public function setLastCanceledAt(?\DateTime $lastCanceledAt): self
+    {
+        $this->lastCanceledAt = $lastCanceledAt;
 
         return $this;
     }

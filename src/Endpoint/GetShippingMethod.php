@@ -71,12 +71,12 @@ class GetShippingMethod extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      * @throws \Afosto\Sdk\Exception\GetShippingMethodInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetShippingMethodServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\LcsMethod[]|null
+     * @return \Afosto\Sdk\Model\LcsMethod|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsMethod[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\LcsMethod', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\GetShippingMethodBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

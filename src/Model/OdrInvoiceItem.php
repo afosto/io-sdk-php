@@ -15,14 +15,6 @@ class OdrInvoiceItem
     /**
      * @var string
      */
-    protected $id;
-    /**
-     * @var string
-     */
-    protected $reference;
-    /**
-     * @var string
-     */
     protected $sku;
     /**
      * @var string
@@ -68,30 +60,6 @@ class OdrInvoiceItem
      * @var OdrCalculationOrderItem[]
      */
     protected $orderItems;
-
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    public function setId(?string $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    public function getReference(): ?string
-    {
-        return $this->reference;
-    }
-
-    public function setReference(?string $reference): self
-    {
-        $this->reference = $reference;
-
-        return $this;
-    }
 
     public function getSku(): ?string
     {

@@ -61,6 +61,10 @@ class LcsMethod
      */
     protected $isCarrierLocation;
     /**
+     * @var bool
+     */
+    protected $isNeighbourAllowed;
+    /**
      * @var string
      */
     protected $providerMethodId;
@@ -219,6 +223,18 @@ class LcsMethod
     public function setIsCarrierLocation(?bool $isCarrierLocation): self
     {
         $this->isCarrierLocation = $isCarrierLocation;
+
+        return $this;
+    }
+
+    public function getIsNeighbourAllowed(): ?bool
+    {
+        return $this->isNeighbourAllowed;
+    }
+
+    public function setIsNeighbourAllowed(?bool $isNeighbourAllowed): self
+    {
+        $this->isNeighbourAllowed = $isNeighbourAllowed;
 
         return $this;
     }

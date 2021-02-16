@@ -81,11 +81,20 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'is_in_transit') && null !== $data->{'is_in_transit'}) {
             $object->setIsInTransit($data->{'is_in_transit'});
         }
+        if (property_exists($data, 'is_outbound') && null !== $data->{'is_outbound'}) {
+            $object->setIsOutbound($data->{'is_outbound'});
+        }
         if (property_exists($data, 'is_finished') && null !== $data->{'is_finished'}) {
             $object->setIsFinished($data->{'is_finished'});
         }
         if (property_exists($data, 'file_id') && null !== $data->{'file_id'}) {
             $object->setFileId($data->{'file_id'});
+        }
+        if (property_exists($data, 'ship_at') && null !== $data->{'ship_at'}) {
+            $object->setShipAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'ship_at'}));
+        }
+        if (property_exists($data, 'finished_at') && null !== $data->{'finished_at'}) {
+            $object->setFinishedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'finished_at'}));
         }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -143,11 +152,20 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (null !== $object->getIsInTransit()) {
             $data->{'is_in_transit'} = $object->getIsInTransit();
         }
+        if (null !== $object->getIsOutbound()) {
+            $data->{'is_outbound'} = $object->getIsOutbound();
+        }
         if (null !== $object->getIsFinished()) {
             $data->{'is_finished'} = $object->getIsFinished();
         }
         if (null !== $object->getFileId()) {
             $data->{'file_id'} = $object->getFileId();
+        }
+        if (null !== $object->getShipAt()) {
+            $data->{'ship_at'} = $object->getShipAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getFinishedAt()) {
+            $data->{'finished_at'} = $object->getFinishedAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

@@ -40,6 +40,10 @@ class OdrOrderState
      * @var OdrOrderStep[]
      */
     protected $flow;
+    /**
+     * @var OdrOrderStateProgress
+     */
+    protected $progress;
 
     public function getIsLocked(): ?bool
     {
@@ -127,6 +131,18 @@ class OdrOrderState
     public function setFlow(?array $flow): self
     {
         $this->flow = $flow;
+
+        return $this;
+    }
+
+    public function getProgress(): ?OdrOrderStateProgress
+    {
+        return $this->progress;
+    }
+
+    public function setProgress(?OdrOrderStateProgress $progress): self
+    {
+        $this->progress = $progress;
 
         return $this;
     }

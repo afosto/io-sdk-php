@@ -15,11 +15,27 @@ class OdrStackState
     /**
      * @var bool
      */
+    protected $isAccepted;
+    /**
+     * @var bool
+     */
     protected $isConfirmed;
     /**
      * @var bool
      */
     protected $isFinished;
+
+    public function getIsAccepted(): ?bool
+    {
+        return $this->isAccepted;
+    }
+
+    public function setIsAccepted(?bool $isAccepted): self
+    {
+        $this->isAccepted = $isAccepted;
+
+        return $this;
+    }
 
     public function getIsConfirmed(): ?bool
     {

@@ -91,11 +91,23 @@ class OdrInvoice
     /**
      * @var \DateTime
      */
-    protected $invoicedAt;
-    /**
-     * @var \DateTime
-     */
     protected $paidAt;
+    /**
+     * @var string[]
+     */
+    protected $orderIds;
+    /**
+     * @var string[]
+     */
+    protected $coupons;
+    /**
+     * @var string
+     */
+    protected $calculationId;
+    /**
+     * @var string
+     */
+    protected $shipmentId;
     /**
      * @var \DateTime
      */
@@ -363,18 +375,6 @@ class OdrInvoice
         return $this;
     }
 
-    public function getInvoicedAt(): ?\DateTime
-    {
-        return $this->invoicedAt;
-    }
-
-    public function setInvoicedAt(?\DateTime $invoicedAt): self
-    {
-        $this->invoicedAt = $invoicedAt;
-
-        return $this;
-    }
-
     public function getPaidAt(): ?\DateTime
     {
         return $this->paidAt;
@@ -383,6 +383,66 @@ class OdrInvoice
     public function setPaidAt(?\DateTime $paidAt): self
     {
         $this->paidAt = $paidAt;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getOrderIds(): ?array
+    {
+        return $this->orderIds;
+    }
+
+    /**
+     * @param string[]|null $orderIds
+     */
+    public function setOrderIds(?array $orderIds): self
+    {
+        $this->orderIds = $orderIds;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getCoupons(): ?array
+    {
+        return $this->coupons;
+    }
+
+    /**
+     * @param string[]|null $coupons
+     */
+    public function setCoupons(?array $coupons): self
+    {
+        $this->coupons = $coupons;
+
+        return $this;
+    }
+
+    public function getCalculationId(): ?string
+    {
+        return $this->calculationId;
+    }
+
+    public function setCalculationId(?string $calculationId): self
+    {
+        $this->calculationId = $calculationId;
+
+        return $this;
+    }
+
+    public function getShipmentId(): ?string
+    {
+        return $this->shipmentId;
+    }
+
+    public function setShipmentId(?string $shipmentId): self
+    {
+        $this->shipmentId = $shipmentId;
 
         return $this;
     }

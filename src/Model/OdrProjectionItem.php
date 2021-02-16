@@ -33,9 +33,9 @@ class OdrProjectionItem
      */
     protected $amount;
     /**
-     * @var int
+     * @var bool
      */
-    protected $revenueAmount;
+    protected $isDiscounted;
     /**
      * @var int
      */
@@ -56,6 +56,10 @@ class OdrProjectionItem
      * @var int
      */
     protected $total;
+    /**
+     * @var int
+     */
+    protected $totalRevenue;
 
     public function getReference(): ?string
     {
@@ -117,14 +121,14 @@ class OdrProjectionItem
         return $this;
     }
 
-    public function getRevenueAmount(): ?int
+    public function getIsDiscounted(): ?bool
     {
-        return $this->revenueAmount;
+        return $this->isDiscounted;
     }
 
-    public function setRevenueAmount(?int $revenueAmount): self
+    public function setIsDiscounted(?bool $isDiscounted): self
     {
-        $this->revenueAmount = $revenueAmount;
+        $this->isDiscounted = $isDiscounted;
 
         return $this;
     }
@@ -191,6 +195,18 @@ class OdrProjectionItem
     public function setTotal(?int $total): self
     {
         $this->total = $total;
+
+        return $this;
+    }
+
+    public function getTotalRevenue(): ?int
+    {
+        return $this->totalRevenue;
+    }
+
+    public function setTotalRevenue(?int $totalRevenue): self
+    {
+        $this->totalRevenue = $totalRevenue;
 
         return $this;
     }

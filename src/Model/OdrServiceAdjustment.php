@@ -21,7 +21,7 @@ class OdrServiceAdjustment
      */
     protected $description;
     /**
-     * @var int
+     * @var float
      */
     protected $amount;
     /**
@@ -61,12 +61,12 @@ class OdrServiceAdjustment
         return $this;
     }
 
-    public function getAmount(): ?int
+    public function getAmount(): ?float
     {
         return $this->amount;
     }
 
-    public function setAmount(?int $amount): self
+    public function setAmount(?float $amount): self
     {
         $this->amount = $amount;
 

@@ -72,6 +72,9 @@ class OdrProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
             }
             $object->setVat($values_3);
         }
+        if (property_exists($data, 'customer') && null !== $data->{'customer'}) {
+            $object->setCustomer($this->denormalizer->denormalize($data->{'customer'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
+        }
         if (property_exists($data, 'vendor') && null !== $data->{'vendor'}) {
             $object->setVendor($this->denormalizer->denormalize($data->{'vendor'}, 'Afosto\\Sdk\\Model\\OdrContact', 'json', $context));
         }
@@ -130,6 +133,9 @@ class OdrProjectionNormalizer implements DenormalizerInterface, NormalizerInterf
                 $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
             $data->{'vat'} = $values_3;
+        }
+        if (null !== $object->getCustomer()) {
+            $data->{'customer'} = $this->normalizer->normalize($object->getCustomer(), 'json', $context);
         }
         if (null !== $object->getVendor()) {
             $data->{'vendor'} = $this->normalizer->normalize($object->getVendor(), 'json', $context);

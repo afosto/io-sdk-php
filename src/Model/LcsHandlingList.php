@@ -69,6 +69,10 @@ class LcsHandlingList
      */
     protected $items;
     /**
+     * @var LcsHandlingListSortingLabelsItem[]
+     */
+    protected $sortingLabels;
+    /**
      * @var \DateTime
      */
     protected $createdAt;
@@ -253,6 +257,24 @@ class LcsHandlingList
     public function setItems(?array $items): self
     {
         $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * @return LcsHandlingListSortingLabelsItem[]|null
+     */
+    public function getSortingLabels(): ?array
+    {
+        return $this->sortingLabels;
+    }
+
+    /**
+     * @param LcsHandlingListSortingLabelsItem[]|null $sortingLabels
+     */
+    public function setSortingLabels(?array $sortingLabels): self
+    {
+        $this->sortingLabels = $sortingLabels;
 
         return $this;
     }

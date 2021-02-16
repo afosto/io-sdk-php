@@ -23,7 +23,7 @@ class OdrPriceRuleEvaluation
      */
     protected $quantity;
     /**
-     * Invioce total.
+     * Invoice total.
      *
      * @var int
      */
@@ -94,7 +94,7 @@ class OdrPriceRuleEvaluation
     }
 
     /**
-     * Invioce total.
+     * Invoice total.
      */
     public function getAmount(): ?int
     {
@@ -102,7 +102,7 @@ class OdrPriceRuleEvaluation
     }
 
     /**
-     * Invioce total.
+     * Invoice total.
      */
     public function setAmount(?int $amount): self
     {

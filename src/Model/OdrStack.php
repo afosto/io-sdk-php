@@ -17,9 +17,13 @@ class OdrStack
      */
     protected $id;
     /**
-     * @var OdrStackReference
+     * @var string
      */
-    protected $reference;
+    protected $entityId;
+    /**
+     * @var string
+     */
+    protected $entityType;
     /**
      * @var OdrStackState
      */
@@ -45,14 +49,26 @@ class OdrStack
         return $this;
     }
 
-    public function getReference(): ?OdrStackReference
+    public function getEntityId(): ?string
     {
-        return $this->reference;
+        return $this->entityId;
     }
 
-    public function setReference(?OdrStackReference $reference): self
+    public function setEntityId(?string $entityId): self
     {
-        $this->reference = $reference;
+        $this->entityId = $entityId;
+
+        return $this;
+    }
+
+    public function getEntityType(): ?string
+    {
+        return $this->entityType;
+    }
+
+    public function setEntityType(?string $entityType): self
+    {
+        $this->entityType = $entityType;
 
         return $this;
     }
