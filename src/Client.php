@@ -717,6 +717,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * set the warehouse item on a product.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CancelOrderItemsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CancelOrderItemsNotFoundException
+     * @throws \Afosto\Sdk\Exception\CancelOrderItemsBadRequestException
+     * @throws \Afosto\Sdk\Exception\CancelOrderItemsForbiddenException
+     * @throws \Afosto\Sdk\Exception\CancelOrderItemsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CancelOrderItemsServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function cancelOrderItems(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CancelOrderItems($id, $body), $fetch);
+    }
+
+    /**
      * Returns a list of items.
      *
      * @param array $headerParameters {
