@@ -44,6 +44,10 @@ class OdrMethod
      * @var bool
      */
     protected $isDeferred = false;
+    /**
+     * @var int
+     */
+    protected $priority = 100;
 
     public function getCode(): ?string
     {
@@ -143,6 +147,18 @@ class OdrMethod
     public function setIsDeferred(?bool $isDeferred): self
     {
         $this->isDeferred = $isDeferred;
+
+        return $this;
+    }
+
+    public function getPriority(): ?int
+    {
+        return $this->priority;
+    }
+
+    public function setPriority(?int $priority): self
+    {
+        $this->priority = $priority;
 
         return $this;
     }
