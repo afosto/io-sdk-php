@@ -90,6 +90,9 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'is_enabled') && null !== $data->{'is_enabled'}) {
             $object->setIsEnabled($data->{'is_enabled'});
         }
+        if (property_exists($data, 'priority') && null !== $data->{'priority'}) {
+            $object->setPriority($data->{'priority'});
+        }
 
         return $object;
     }
@@ -148,6 +151,9 @@ class LcsMethodNormalizer implements DenormalizerInterface, NormalizerInterface,
         }
         if (null !== $object->getIsEnabled()) {
             $data->{'is_enabled'} = $object->getIsEnabled();
+        }
+        if (null !== $object->getPriority()) {
+            $data->{'priority'} = $object->getPriority();
         }
 
         return $data;

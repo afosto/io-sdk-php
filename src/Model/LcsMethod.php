@@ -76,6 +76,10 @@ class LcsMethod
      * @var bool
      */
     protected $isEnabled = false;
+    /**
+     * @var int
+     */
+    protected $priority = 100;
 
     public function getId(): ?string
     {
@@ -271,6 +275,18 @@ class LcsMethod
     public function setIsEnabled(?bool $isEnabled): self
     {
         $this->isEnabled = $isEnabled;
+
+        return $this;
+    }
+
+    public function getPriority(): ?int
+    {
+        return $this->priority;
+    }
+
+    public function setPriority(?int $priority): self
+    {
+        $this->priority = $priority;
 
         return $this;
     }
