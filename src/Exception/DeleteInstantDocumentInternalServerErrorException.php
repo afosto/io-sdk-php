@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class DeactivateInsantIndexInternalServerErrorException extends \RuntimeException implements ServerException
+class DeleteInstantDocumentInternalServerErrorException extends \RuntimeException implements ServerException
 {
     private $error;
 

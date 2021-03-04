@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class DeactivateInsantIndex extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class DeactivateInstantIndex extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     protected $proxy_id;
     protected $id;
@@ -49,12 +49,12 @@ class DeactivateInsantIndex extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexNotFoundException
-     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexBadRequestException
-     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexForbiddenException
-     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntListIndex|null
      */
@@ -64,22 +64,22 @@ class DeactivateInsantIndex extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
             return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\CntListIndex', 'json');
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\DeactivateInsantIndexUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\DeactivateInstantIndexUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\DeactivateInsantIndexNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\DeactivateInstantIndexNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\DeactivateInsantIndexBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\DeactivateInstantIndexBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
-            throw new \Afosto\Sdk\Exception\DeactivateInsantIndexForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\DeactivateInstantIndexForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (500 === $status) {
-            throw new \Afosto\Sdk\Exception\DeactivateInsantIndexInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\DeactivateInstantIndexInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (503 === $status) {
-            throw new \Afosto\Sdk\Exception\DeactivateInsantIndexServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\DeactivateInstantIndexServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

@@ -47,6 +47,9 @@ class CntSearchRequestNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'limit') && null !== $data->{'limit'}) {
             $object->setLimit($data->{'limit'});
         }
+        if (property_exists($data, 'threshold') && null !== $data->{'threshold'}) {
+            $object->setThreshold($data->{'threshold'});
+        }
         if (property_exists($data, 'indices') && null !== $data->{'indices'}) {
             $values = [];
             foreach ($data->{'indices'} as $value) {
@@ -54,12 +57,12 @@ class CntSearchRequestNormalizer implements DenormalizerInterface, NormalizerInt
             }
             $object->setIndices($values);
         }
-        if (property_exists($data, 'filter') && null !== $data->{'filter'}) {
+        if (property_exists($data, 'filters') && null !== $data->{'filters'}) {
             $values_1 = [];
-            foreach ($data->{'filter'} as $value_1) {
+            foreach ($data->{'filters'} as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\CntInstantFilter', 'json', $context);
             }
-            $object->setFilter($values_1);
+            $object->setFilters($values_1);
         }
         if (property_exists($data, 'facets') && null !== $data->{'facets'}) {
             $values_2 = [];
@@ -84,6 +87,9 @@ class CntSearchRequestNormalizer implements DenormalizerInterface, NormalizerInt
         if (null !== $object->getLimit()) {
             $data->{'limit'} = $object->getLimit();
         }
+        if (null !== $object->getThreshold()) {
+            $data->{'threshold'} = $object->getThreshold();
+        }
         if (null !== $object->getIndices()) {
             $values = [];
             foreach ($object->getIndices() as $value) {
@@ -91,12 +97,12 @@ class CntSearchRequestNormalizer implements DenormalizerInterface, NormalizerInt
             }
             $data->{'indices'} = $values;
         }
-        if (null !== $object->getFilter()) {
+        if (null !== $object->getFilters()) {
             $values_1 = [];
-            foreach ($object->getFilter() as $value_1) {
+            foreach ($object->getFilters() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
-            $data->{'filter'} = $values_1;
+            $data->{'filters'} = $values_1;
         }
         if (null !== $object->getFacets()) {
             $values_2 = [];

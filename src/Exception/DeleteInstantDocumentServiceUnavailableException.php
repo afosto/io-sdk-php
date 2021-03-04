@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Exception;
 
-class DeleteInstantDocmentServiceUnavailableException extends \RuntimeException implements ServerException
+class DeleteInstantDocumentServiceUnavailableException extends \RuntimeException implements ServerException
 {
     private $error;
 

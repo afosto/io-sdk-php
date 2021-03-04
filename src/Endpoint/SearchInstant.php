@@ -16,11 +16,17 @@ class SearchInstant extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     /**
      * Search documents. The proxy_id is a custom key for a tenant, ex: "afosto". The count is the combined count of the results in all selected indices.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $Accept
+     * }
      */
-    public function __construct(string $proxyId, \Afosto\Sdk\Model\CntSearchRequest $body)
+    public function __construct(string $proxyId, \Afosto\Sdk\Model\CntSearchRequest $body, array $headerParameters = [])
     {
         $this->proxy_id = $proxyId;
         $this->body = $body;
+        $this->headerParameters = $headerParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -43,6 +49,17 @@ class SearchInstant extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['Accept']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['Accept' => 'application/json']);
+        $optionsResolver->setAllowedTypes('Accept', ['string']);
+
+        return $optionsResolver;
     }
 
     /**

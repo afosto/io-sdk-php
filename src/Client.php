@@ -9577,18 +9577,18 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexNotFoundException
-     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexBadRequestException
-     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexForbiddenException
-     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\DeactivateInsantIndexServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexServiceUnavailableException
      *
      * @return \Afosto\Sdk\Model\CntListIndex|\Psr\Http\Message\ResponseInterface|null
      */
-    public function deactivateInsantIndex(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
+    public function deactivateInstantIndex(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeactivateInsantIndex($proxyId, $id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeactivateInstantIndex($proxyId, $id), $fetch);
     }
 
     /**
@@ -9635,22 +9635,27 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentNotFoundException
-     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentBadRequestException
-     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentForbiddenException
-     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocumentUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocumentNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocumentBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocumentForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocumentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocumentServiceUnavailableException
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function deleteInstantDocment(string $proxyId, string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    public function deleteInstantDocument(string $proxyId, string $id, array $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteInstantDocment($proxyId, $id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteInstantDocument($proxyId, $id, $body), $fetch);
     }
 
     /**
      * Search documents. The proxy_id is a custom key for a tenant, ex: "afosto". The count is the combined count of the results in all selected indices.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $Accept
+     * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -9663,9 +9668,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntSearchResponse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function searchInstant(string $proxyId, \Afosto\Sdk\Model\CntSearchRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function searchInstant(string $proxyId, \Afosto\Sdk\Model\CntSearchRequest $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchInstant($proxyId, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchInstant($proxyId, $body, $headerParameters), $fetch);
     }
 
     /**

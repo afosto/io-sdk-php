@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Endpoint;
 
-class DeleteInstantDocment extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
+class DeleteInstantDocument extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     protected $proxy_id;
     protected $id;
@@ -50,12 +50,12 @@ class DeleteInstantDocment extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
     /**
      * {@inheritdoc}
      *
-     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentNotFoundException
-     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentBadRequestException
-     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentForbiddenException
-     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\DeleteInstantDocmentServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocumentUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocumentNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocumentBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocumentForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocumentInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteInstantDocumentServiceUnavailableException
      *
      * @return null
      */
@@ -65,22 +65,22 @@ class DeleteInstantDocment extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
             return null;
         }
         if (401 === $status) {
-            throw new \Afosto\Sdk\Exception\DeleteInstantDocmentUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\DeleteInstantDocumentUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (404 === $status) {
-            throw new \Afosto\Sdk\Exception\DeleteInstantDocmentNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\DeleteInstantDocumentNotFoundException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (400 === $status) {
-            throw new \Afosto\Sdk\Exception\DeleteInstantDocmentBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\DeleteInstantDocumentBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (403 === $status) {
-            throw new \Afosto\Sdk\Exception\DeleteInstantDocmentForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\DeleteInstantDocumentForbiddenException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (500 === $status) {
-            throw new \Afosto\Sdk\Exception\DeleteInstantDocmentInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\DeleteInstantDocumentInternalServerErrorException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
         if (503 === $status) {
-            throw new \Afosto\Sdk\Exception\DeleteInstantDocmentServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
+            throw new \Afosto\Sdk\Exception\DeleteInstantDocumentServiceUnavailableException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
         }
     }
 }

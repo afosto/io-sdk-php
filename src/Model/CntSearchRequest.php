@@ -25,13 +25,17 @@ class CntSearchRequest
      */
     protected $limit;
     /**
+     * @var int
+     */
+    protected $threshold;
+    /**
      * @var string[]
      */
     protected $indices;
     /**
      * @var CntInstantFilter[]
      */
-    protected $filter;
+    protected $filters;
     /**
      * @var string[]
      */
@@ -73,6 +77,18 @@ class CntSearchRequest
         return $this;
     }
 
+    public function getThreshold(): ?int
+    {
+        return $this->threshold;
+    }
+
+    public function setThreshold(?int $threshold): self
+    {
+        $this->threshold = $threshold;
+
+        return $this;
+    }
+
     /**
      * @return string[]|null
      */
@@ -94,17 +110,17 @@ class CntSearchRequest
     /**
      * @return CntInstantFilter[]|null
      */
-    public function getFilter(): ?array
+    public function getFilters(): ?array
     {
-        return $this->filter;
+        return $this->filters;
     }
 
     /**
-     * @param CntInstantFilter[]|null $filter
+     * @param CntInstantFilter[]|null $filters
      */
-    public function setFilter(?array $filter): self
+    public function setFilters(?array $filters): self
     {
-        $this->filter = $filter;
+        $this->filters = $filters;
 
         return $this;
     }
