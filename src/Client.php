@@ -5272,6 +5272,191 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a list of available repositories.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $secret
+     * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListRepositoriesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListRepositoriesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListRepositoriesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListRepositoriesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListRepositoriesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListRepositoriesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\TplRepository[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listRepositories(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListRepositories($queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
+     * View a single repository.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $secret
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewRepositoryBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewRepositoryUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewRepositoryForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewRepositoryNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewRepositoryInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewRepositoryServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\TplRepository|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewRepository(string $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewRepository($id, $queryParameters), $fetch);
+    }
+
+    /**
+     * List a single repository's builds.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $secret
+     * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListBuildsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListBuildsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListBuildsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListBuildsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListBuildsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListBuildsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\TplBuild[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listBuilds(string $id, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListBuilds($id, $queryParameters, $headerParameters), $fetch);
+    }
+
+    /**
+     * List a single build.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewBuildBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewBuildUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewBuildForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewBuildNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewBuildInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewBuildServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\TplBuild|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewBuild(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewBuild($id), $fetch);
+    }
+
+    /**
+     * Returns a list of themes.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListThemesBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListThemesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListThemesForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListThemesNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListThemesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListThemesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\TplTheme[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listThemes(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListThemes($headerParameters), $fetch);
+    }
+
+    /**
+     * Add a theme.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateThemeBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateThemeUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateThemeForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateThemeNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateThemeInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateThemeServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\TplTheme|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createTheme(\Afosto\Sdk\Model\TplThemeCreateModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateTheme($body), $fetch);
+    }
+
+    /**
+     * Returns a list of themes.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewThemeBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewThemeUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewThemeForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewThemeNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewThemeInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewThemeServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\TplTheme[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewTheme(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewTheme($id), $fetch);
+    }
+
+    /**
+     * Update a theme.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateThemeBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateThemeUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateThemeForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateThemeNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateThemeInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateThemeServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\TplTheme|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateTheme(string $id, \Afosto\Sdk\Model\TplThemeUpdateModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateTheme($id, $body), $fetch);
+    }
+
+    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListProvidersBadRequestException

@@ -282,6 +282,17 @@ class NormalizerFactory
         $normalizers[] = new IamUserTokenRequestNormalizer();
         $normalizers[] = new IamUserTokenResponseNormalizer();
         $normalizers[] = new IamSignupNormalizer();
+        $normalizers[] = new TplRepositoryNormalizer();
+        $normalizers[] = new TplRepositoryInstallerNormalizer();
+        $normalizers[] = new TplBuildNormalizer();
+        $normalizers[] = new TplBuildErrorNormalizer();
+        $normalizers[] = new TplThemeUpdateModelNormalizer();
+        $normalizers[] = new TplGitReferenceNormalizer();
+        $normalizers[] = new TplGitReferenceTagNormalizer();
+        $normalizers[] = new TplGitReferenceBranchNormalizer();
+        $normalizers[] = new TplThemeCreateModelNormalizer();
+        $normalizers[] = new TplThemeNormalizer();
+        $normalizers[] = new TplThemeActiveBuildNormalizer();
         $normalizers[] = new OdrProviderNormalizer();
         $normalizers[] = new OdrProviderMethodNormalizer();
         $normalizers[] = new OdrMethodNormalizer();
