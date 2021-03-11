@@ -83,6 +83,10 @@ class LcsParcel
     /**
      * @var \DateTime
      */
+    protected $inTransitAt;
+    /**
+     * @var \DateTime
+     */
     protected $finishedAt;
     /**
      * @var \DateTime
@@ -299,6 +303,18 @@ class LcsParcel
     public function setShipAt(?\DateTime $shipAt): self
     {
         $this->shipAt = $shipAt;
+
+        return $this;
+    }
+
+    public function getInTransitAt(): ?\DateTime
+    {
+        return $this->inTransitAt;
+    }
+
+    public function setInTransitAt(?\DateTime $inTransitAt): self
+    {
+        $this->inTransitAt = $inTransitAt;
 
         return $this;
     }

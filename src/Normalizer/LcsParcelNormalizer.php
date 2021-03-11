@@ -93,6 +93,9 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'ship_at') && null !== $data->{'ship_at'}) {
             $object->setShipAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'ship_at'}));
         }
+        if (property_exists($data, 'in_transit_at') && null !== $data->{'in_transit_at'}) {
+            $object->setInTransitAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'in_transit_at'}));
+        }
         if (property_exists($data, 'finished_at') && null !== $data->{'finished_at'}) {
             $object->setFinishedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'finished_at'}));
         }
@@ -163,6 +166,9 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         }
         if (null !== $object->getShipAt()) {
             $data->{'ship_at'} = $object->getShipAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getInTransitAt()) {
+            $data->{'in_transit_at'} = $object->getInTransitAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getFinishedAt()) {
             $data->{'finished_at'} = $object->getFinishedAt()->format("Y-m-d\TH:i:sP");
