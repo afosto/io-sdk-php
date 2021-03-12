@@ -636,6 +636,7 @@ class NormalizerFactory
         $normalizers[] = new WmsTransfersTransferIdTransportsIdShipmentPutBodyNormalizer();
         $normalizers[] = new WmsInventoryPostBodyNormalizer();
         $normalizers[] = new WmsSearchItemsPostBodyNormalizer();
+        $normalizers[] = new OdrSessionsIdAuthenticatedPostBodyNormalizer();
         $normalizers[] = new OdrSessionsIdBillingGetResponse200Normalizer();
         $normalizers[] = new OdrSessionsIdShippingMethodsGetResponse200Normalizer();
         $normalizers[] = new OdrSessionsIdShippingWindowGetResponse200Normalizer();

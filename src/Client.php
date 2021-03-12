@@ -7379,6 +7379,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * set an authenticated user on a session.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SetAuthenticatedUserBadRequestException
+     * @throws \Afosto\Sdk\Exception\SetAuthenticatedUserUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SetAuthenticatedUserForbiddenException
+     * @throws \Afosto\Sdk\Exception\SetAuthenticatedUserNotFoundException
+     * @throws \Afosto\Sdk\Exception\SetAuthenticatedUserInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SetAuthenticatedUserServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrAuthenticationResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function setAuthenticatedUser(string $id, \Afosto\Sdk\Model\OdrSessionsIdAuthenticatedPostBody $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SetAuthenticatedUser($id, $body), $fetch);
+    }
+
+    /**
      * Lets an user authenticate their contact through username and password.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
