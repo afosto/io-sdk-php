@@ -10659,6 +10659,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Returns a  signed id token.
      *
+     * @param array $queryParameters {
+     *
+     *     @var string $client_id context which to create the identity for
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\CreateIdentityBadRequestException
@@ -10671,13 +10676,18 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\RelSignedTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createIdentity(\Afosto\Sdk\Model\RelCreateIdentityRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function createIdentity(\Afosto\Sdk\Model\RelCreateIdentityRequest $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateIdentity($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateIdentity($body, $queryParameters), $fetch);
     }
 
     /**
      * Returns a 204 if the there exists an identity.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $client_id context which to create the identity for
+     * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -10691,13 +10701,18 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function identityExists(\Afosto\Sdk\Model\RelIdentityExistsRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function identityExists(\Afosto\Sdk\Model\RelIdentityExistsRequest $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\IdentityExists($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\IdentityExists($body, $queryParameters), $fetch);
     }
 
     /**
      * Returns a  signed id token.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $client_id context which to create the identity for
+     * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -10710,13 +10725,18 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\RelSignedTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function authorizeIdentity(\Afosto\Sdk\Model\RelCreateIdentityRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function authorizeIdentity(\Afosto\Sdk\Model\RelCreateIdentityRequest $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AuthorizeIdentity($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\AuthorizeIdentity($body, $queryParameters), $fetch);
     }
 
     /**
      * Returns a new token to confirm identity or reset a password.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $client_id context which to create the identity for
+     * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -10729,13 +10749,18 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\RelTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createTokenIdentity(\Afosto\Sdk\Model\RelCreateTokenRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function createTokenIdentity(\Afosto\Sdk\Model\RelCreateTokenRequest $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateTokenIdentity($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateTokenIdentity($body, $queryParameters), $fetch);
     }
 
     /**
      * Pass a token to reset the password.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $client_id context which to create the identity for
+     * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -10748,13 +10773,18 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\RelSignedTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function resetIdentity(\Afosto\Sdk\Model\RelCreateResetRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function resetIdentity(\Afosto\Sdk\Model\RelCreateResetRequest $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ResetIdentity($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ResetIdentity($body, $queryParameters), $fetch);
     }
 
     /**
      * Mark the identity as verified.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $client_id context which to create the identity for
+     * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -10767,9 +10797,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\RelSignedTokenResponse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function verifyIdentity(\Afosto\Sdk\Model\RelCreateConfirmRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function verifyIdentity(\Afosto\Sdk\Model\RelCreateConfirmRequest $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\VerifyIdentity($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\VerifyIdentity($body, $queryParameters), $fetch);
     }
 
     public static function create($httpClient = null)

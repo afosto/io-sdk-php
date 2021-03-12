@@ -14,10 +14,16 @@ class VerifyIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 {
     /**
      * Mark the identity as verified.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $client_id context which to create the identity for
+     * }
      */
-    public function __construct(\Afosto\Sdk\Model\RelCreateConfirmRequest $body)
+    public function __construct(\Afosto\Sdk\Model\RelCreateConfirmRequest $body, array $queryParameters = [])
     {
         $this->body = $body;
+        $this->queryParameters = $queryParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -40,6 +46,17 @@ class VerifyIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['client_id']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('client_id', ['string']);
+
+        return $optionsResolver;
     }
 
     /**

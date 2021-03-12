@@ -14,10 +14,16 @@ class AuthorizeIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
 {
     /**
      * Returns a  signed id token.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $client_id context which to create the identity for
+     * }
      */
-    public function __construct(\Afosto\Sdk\Model\RelCreateIdentityRequest $body)
+    public function __construct(\Afosto\Sdk\Model\RelCreateIdentityRequest $body, array $queryParameters = [])
     {
         $this->body = $body;
+        $this->queryParameters = $queryParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -40,6 +46,17 @@ class AuthorizeIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['client_id']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('client_id', ['string']);
+
+        return $optionsResolver;
     }
 
     /**

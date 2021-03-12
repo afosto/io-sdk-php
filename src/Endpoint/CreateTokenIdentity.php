@@ -14,10 +14,16 @@ class CreateTokenIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
 {
     /**
      * Returns a new token to confirm identity or reset a password.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $client_id context which to create the identity for
+     * }
      */
-    public function __construct(\Afosto\Sdk\Model\RelCreateTokenRequest $body)
+    public function __construct(\Afosto\Sdk\Model\RelCreateTokenRequest $body, array $queryParameters = [])
     {
         $this->body = $body;
+        $this->queryParameters = $queryParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -40,6 +46,17 @@ class CreateTokenIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint imple
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['client_id']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('client_id', ['string']);
+
+        return $optionsResolver;
     }
 
     /**
