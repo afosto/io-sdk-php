@@ -8654,6 +8654,56 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Search for a set of fulfilment locations.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchLocationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchLocationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchLocationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchLocationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchLocationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchLocationsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\LcsFulfilmentLocation[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchLocations(\Afosto\Sdk\Model\LcsLocationSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchLocations($body, $headerParameters), $fetch);
+    }
+
+    /**
+     * Search for a set of parcels.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchParcelsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchParcelsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchParcelsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchParcelsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchParcelsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchParcelsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\LcsParcel[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchParcels(\Afosto\Sdk\Model\LcsParcelSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchParcels($body, $headerParameters), $fetch);
+    }
+
+    /**
      * List items on handling list.
      *
      * @param array $headerParameters {
@@ -8676,6 +8726,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function listListItems(\Afosto\Sdk\Model\LcsItemSearch $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListListItems($body, $headerParameters), $fetch);
+    }
+
+    /**
+     * Search for shipment methods.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchShipmentMethodsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchShipmentMethodsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchShipmentMethodsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchShipmentMethodsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchShipmentMethodsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchShipmentMethodsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\LcsMethod[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchShipmentMethods(\Afosto\Sdk\Model\LcsShipmentMethodSearch $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchShipmentMethods($body), $fetch);
     }
 
     /**

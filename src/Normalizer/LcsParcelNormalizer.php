@@ -68,6 +68,9 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'label') && null !== $data->{'label'}) {
             $object->setLabel($this->denormalizer->denormalize($data->{'label'}, 'Afosto\\Sdk\\Model\\LcsParcelLabel', 'json', $context));
         }
+        if (property_exists($data, 'shipment_id') && null !== $data->{'shipment_id'}) {
+            $object->setShipmentId($data->{'shipment_id'});
+        }
         if (property_exists($data, 'count') && null !== $data->{'count'}) {
             $object->setCount($data->{'count'});
         }
@@ -80,6 +83,9 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         }
         if (property_exists($data, 'is_in_transit') && null !== $data->{'is_in_transit'}) {
             $object->setIsInTransit($data->{'is_in_transit'});
+        }
+        if (property_exists($data, 'is_delivered') && null !== $data->{'is_delivered'}) {
+            $object->setIsDelivered($data->{'is_delivered'});
         }
         if (property_exists($data, 'is_outbound') && null !== $data->{'is_outbound'}) {
             $object->setIsOutbound($data->{'is_outbound'});
@@ -142,6 +148,9 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (null !== $object->getLabel()) {
             $data->{'label'} = $this->normalizer->normalize($object->getLabel(), 'json', $context);
         }
+        if (null !== $object->getShipmentId()) {
+            $data->{'shipment_id'} = $object->getShipmentId();
+        }
         if (null !== $object->getCount()) {
             $data->{'count'} = $object->getCount();
         }
@@ -154,6 +163,9 @@ class LcsParcelNormalizer implements DenormalizerInterface, NormalizerInterface,
         }
         if (null !== $object->getIsInTransit()) {
             $data->{'is_in_transit'} = $object->getIsInTransit();
+        }
+        if (null !== $object->getIsDelivered()) {
+            $data->{'is_delivered'} = $object->getIsDelivered();
         }
         if (null !== $object->getIsOutbound()) {
             $data->{'is_outbound'} = $object->getIsOutbound();

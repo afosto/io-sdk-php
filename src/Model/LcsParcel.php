@@ -53,6 +53,10 @@ class LcsParcel
      */
     protected $label;
     /**
+     * @var string
+     */
+    protected $shipmentId;
+    /**
      * @var int
      */
     protected $count;
@@ -64,6 +68,10 @@ class LcsParcel
      * @var bool
      */
     protected $isInTransit;
+    /**
+     * @var bool
+     */
+    protected $isDelivered;
     /**
      * @var bool
      */
@@ -217,6 +225,18 @@ class LcsParcel
         return $this;
     }
 
+    public function getShipmentId(): ?string
+    {
+        return $this->shipmentId;
+    }
+
+    public function setShipmentId(?string $shipmentId): self
+    {
+        $this->shipmentId = $shipmentId;
+
+        return $this;
+    }
+
     public function getCount(): ?int
     {
         return $this->count;
@@ -255,6 +275,18 @@ class LcsParcel
     public function setIsInTransit(?bool $isInTransit): self
     {
         $this->isInTransit = $isInTransit;
+
+        return $this;
+    }
+
+    public function getIsDelivered(): ?bool
+    {
+        return $this->isDelivered;
+    }
+
+    public function setIsDelivered(?bool $isDelivered): self
+    {
+        $this->isDelivered = $isDelivered;
 
         return $this;
     }

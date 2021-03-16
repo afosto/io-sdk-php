@@ -459,6 +459,12 @@ class NormalizerFactory
         $normalizers[] = new LcsListSearchConstraintNormalizer();
         $normalizers[] = new LcsShipmentSearchNormalizer();
         $normalizers[] = new LcsShipmentSearchConstraintNormalizer();
+        $normalizers[] = new LcsLocationSearchNormalizer();
+        $normalizers[] = new LcsLocationSearchConstraintNormalizer();
+        $normalizers[] = new LcsShipmentMethodSearchNormalizer();
+        $normalizers[] = new LcsShipmentMethodSearchConstraintNormalizer();
+        $normalizers[] = new LcsParcelSearchNormalizer();
+        $normalizers[] = new LcsParcelSearchConstraintNormalizer();
         $normalizers[] = new LcsItemSearchNormalizer();
         $normalizers[] = new LcsItemSearchConstraintNormalizer();
         $normalizers[] = new LcsLocationSkuNormalizer();
