@@ -24,6 +24,10 @@ class WmsAttachItemClaimRequest
      * @var string
      */
     protected $reference;
+    /**
+     * @var string
+     */
+    protected $state;
 
     public function getEntityType(): ?string
     {
@@ -57,6 +61,18 @@ class WmsAttachItemClaimRequest
     public function setReference(?string $reference): self
     {
         $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getState(): ?string
+    {
+        return $this->state;
+    }
+
+    public function setState(?string $state): self
+    {
+        $this->state = $state;
 
         return $this;
     }

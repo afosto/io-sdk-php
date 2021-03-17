@@ -47,6 +47,9 @@ class WmsAttachItemClaimRequestNormalizer implements DenormalizerInterface, Norm
         if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
+        if (property_exists($data, 'state') && null !== $data->{'state'}) {
+            $object->setState($data->{'state'});
+        }
 
         return $object;
     }
@@ -62,6 +65,9 @@ class WmsAttachItemClaimRequestNormalizer implements DenormalizerInterface, Norm
         }
         if (null !== $object->getReference()) {
             $data->{'reference'} = $object->getReference();
+        }
+        if (null !== $object->getState()) {
+            $data->{'state'} = $object->getState();
         }
 
         return $data;
