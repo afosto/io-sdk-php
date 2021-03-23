@@ -1047,6 +1047,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns list of active integrations.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $app_code
+     *     @var string $is_deleted
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListIntegrationsBadRequestException
@@ -1058,9 +1066,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\IntIntegration[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listIntegrations(string $fetch = self::FETCH_OBJECT)
+    public function listIntegrations(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListIntegrations(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListIntegrations($queryParameters), $fetch);
     }
 
     /**

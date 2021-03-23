@@ -12,6 +12,20 @@ namespace Afosto\Sdk\Endpoint;
 
 class ListIntegrations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
+    /**
+     * Returns list of active integrations.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $app_code
+     *     @var string $is_deleted
+     * }
+     */
+    public function __construct(array $queryParameters = [])
+    {
+        $this->queryParameters = $queryParameters;
+    }
+
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
 
     public function getMethod(): string
@@ -32,6 +46,18 @@ class ListIntegrations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['app_code', 'is_deleted']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['is_deleted' => '0']);
+        $optionsResolver->setAllowedTypes('app_code', ['string']);
+        $optionsResolver->setAllowedTypes('is_deleted', ['string']);
+
+        return $optionsResolver;
     }
 
     /**
