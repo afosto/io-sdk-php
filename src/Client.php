@@ -671,7 +671,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\AddItemsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\AddItemsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrSimpleOrderItem|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrSimpleOrderItem[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function addItems(string $id, array $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
@@ -796,6 +796,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function setClaim(string $id, array $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SetClaim($id, $body), $fetch);
+    }
+
+    /**
+     * Search orders by id.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchOrdersBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchOrdersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchOrdersForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchOrdersNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchOrdersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchOrdersServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrOrder[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchOrders(\Afosto\Sdk\Model\OdrOrderSearch $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchOrders($body), $fetch);
     }
 
     /**

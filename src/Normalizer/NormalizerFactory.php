@@ -102,6 +102,8 @@ class NormalizerFactory
         $normalizers[] = new OdrStackReferenceStateNormalizer();
         $normalizers[] = new OdrSearchNormalizer();
         $normalizers[] = new OdrSearchConstraintNormalizer();
+        $normalizers[] = new OdrOrderSearchNormalizer();
+        $normalizers[] = new OdrOrderSearchConstraintNormalizer();
         $normalizers[] = new OdrSearchFilterNormalizer();
         $normalizers[] = new OdrFilterSearchNormalizer();
         $normalizers[] = new OdrFilterSearchConstraintNormalizer();
