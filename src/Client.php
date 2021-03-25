@@ -8295,6 +8295,106 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Get a list of channels.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $is_deleted
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListChannelsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListChannelsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListChannelsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListChannelsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListChannelsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListChannelsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CatChannel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listChannels(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListChannels($queryParameters), $fetch);
+    }
+
+    /**
+     * Add a new channel.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CreateChannelBadRequestException
+     * @throws \Afosto\Sdk\Exception\CreateChannelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CreateChannelForbiddenException
+     * @throws \Afosto\Sdk\Exception\CreateChannelNotFoundException
+     * @throws \Afosto\Sdk\Exception\CreateChannelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CreateChannelServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CatChannel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function createChannel(\Afosto\Sdk\Model\CatCreateChannel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateChannel($body), $fetch);
+    }
+
+    /**
+     * Delete / disable an existing channel.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteChannelBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteChannelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteChannelForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteChannelNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteChannelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteChannelServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteChannel(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteChannel($id), $fetch);
+    }
+
+    /**
+     * Get a single channel.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ViewChannelBadRequestException
+     * @throws \Afosto\Sdk\Exception\ViewChannelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ViewChannelForbiddenException
+     * @throws \Afosto\Sdk\Exception\ViewChannelNotFoundException
+     * @throws \Afosto\Sdk\Exception\ViewChannelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ViewChannelServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CatChannel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function viewChannel(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewChannel($id), $fetch);
+    }
+
+    /**
+     * Update an existing channel.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateChannelBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateChannelUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateChannelForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateChannelNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateChannelInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateChannelServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CatChannel|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateChannel(string $id, \Afosto\Sdk\Model\CatUpdateChannel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateChannel($id, $body), $fetch);
+    }
+
+    /**
      * Lists all relays.
      *
      * @param array $queryParameters {

@@ -449,6 +449,9 @@ class NormalizerFactory
         $normalizers[] = new CntDefinitionModelNormalizer();
         $normalizers[] = new CntDefinitionNormalizer();
         $normalizers[] = new CntPaginationNormalizer();
+        $normalizers[] = new CatChannelNormalizer();
+        $normalizers[] = new CatCreateChannelNormalizer();
+        $normalizers[] = new CatUpdateChannelNormalizer();
         $normalizers[] = new MesRelayNormalizer();
         $normalizers[] = new MesRelayModelNormalizer();
         $normalizers[] = new MesRelayMessageNormalizer();
