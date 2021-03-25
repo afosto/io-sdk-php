@@ -29,6 +29,10 @@ class LcsParcelModel
      */
     protected $height;
     /**
+     * @var \DateTime
+     */
+    protected $shipAt;
+    /**
      * @var string
      */
     protected $trackingCode;
@@ -85,6 +89,18 @@ class LcsParcelModel
     public function setHeight(?int $height): self
     {
         $this->height = $height;
+
+        return $this;
+    }
+
+    public function getShipAt(): ?\DateTime
+    {
+        return $this->shipAt;
+    }
+
+    public function setShipAt(?\DateTime $shipAt): self
+    {
+        $this->shipAt = $shipAt;
 
         return $this;
     }

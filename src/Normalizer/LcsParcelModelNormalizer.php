@@ -50,6 +50,9 @@ class LcsParcelModelNormalizer implements DenormalizerInterface, NormalizerInter
         if (property_exists($data, 'height') && null !== $data->{'height'}) {
             $object->setHeight($data->{'height'});
         }
+        if (property_exists($data, 'ship_at') && null !== $data->{'ship_at'}) {
+            $object->setShipAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'ship_at'}));
+        }
         if (property_exists($data, 'tracking_code') && null !== $data->{'tracking_code'}) {
             $object->setTrackingCode($data->{'tracking_code'});
         }
@@ -77,6 +80,9 @@ class LcsParcelModelNormalizer implements DenormalizerInterface, NormalizerInter
         }
         if (null !== $object->getHeight()) {
             $data->{'height'} = $object->getHeight();
+        }
+        if (null !== $object->getShipAt()) {
+            $data->{'ship_at'} = $object->getShipAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getTrackingCode()) {
             $data->{'tracking_code'} = $object->getTrackingCode();

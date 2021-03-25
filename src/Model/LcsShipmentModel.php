@@ -45,6 +45,10 @@ class LcsShipmentModel
      */
     protected $shipAt;
     /**
+     * @var \DateTime
+     */
+    protected $estimatedShipAt;
+    /**
      * @var string
      */
     protected $methodId;
@@ -171,6 +175,18 @@ class LcsShipmentModel
     public function setShipAt(?\DateTime $shipAt): self
     {
         $this->shipAt = $shipAt;
+
+        return $this;
+    }
+
+    public function getEstimatedShipAt(): ?\DateTime
+    {
+        return $this->estimatedShipAt;
+    }
+
+    public function setEstimatedShipAt(?\DateTime $estimatedShipAt): self
+    {
+        $this->estimatedShipAt = $estimatedShipAt;
 
         return $this;
     }

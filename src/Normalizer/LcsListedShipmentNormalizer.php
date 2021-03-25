@@ -59,6 +59,9 @@ class LcsListedShipmentNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'ship_at') && null !== $data->{'ship_at'}) {
             $object->setShipAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'ship_at'}));
         }
+        if (property_exists($data, 'estimated_ship_at') && null !== $data->{'estimated_ship_at'}) {
+            $object->setEstimatedShipAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'estimated_ship_at'}));
+        }
         if (property_exists($data, 'expected_at') && null !== $data->{'expected_at'}) {
             $object->setExpectedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'expected_at'}));
         }
@@ -129,6 +132,9 @@ class LcsListedShipmentNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (null !== $object->getShipAt()) {
             $data->{'ship_at'} = $object->getShipAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getEstimatedShipAt()) {
+            $data->{'estimated_ship_at'} = $object->getEstimatedShipAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getExpectedAt()) {
             $data->{'expected_at'} = $object->getExpectedAt()->format("Y-m-d\TH:i:sP");

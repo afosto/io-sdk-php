@@ -74,6 +74,9 @@ class LcsShipmentModelNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'ship_at') && null !== $data->{'ship_at'}) {
             $object->setShipAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'ship_at'}));
         }
+        if (property_exists($data, 'estimated_ship_at') && null !== $data->{'estimated_ship_at'}) {
+            $object->setEstimatedShipAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'estimated_ship_at'}));
+        }
         if (property_exists($data, 'method_id') && null !== $data->{'method_id'}) {
             $object->setMethodId($data->{'method_id'});
         }
@@ -132,6 +135,9 @@ class LcsShipmentModelNormalizer implements DenormalizerInterface, NormalizerInt
         }
         if (null !== $object->getShipAt()) {
             $data->{'ship_at'} = $object->getShipAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getEstimatedShipAt()) {
+            $data->{'estimated_ship_at'} = $object->getEstimatedShipAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getMethodId()) {
             $data->{'method_id'} = $object->getMethodId();
