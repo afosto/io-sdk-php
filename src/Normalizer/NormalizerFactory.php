@@ -160,6 +160,14 @@ class NormalizerFactory
         $normalizers[] = new OdrPricingRuleConstraintNormalizer();
         $normalizers[] = new OdrPriceRuleEvaluationNormalizer();
         $normalizers[] = new OdrEvaluationItemNormalizer();
+        $normalizers[] = new OdrInvoiceSearchNormalizer();
+        $normalizers[] = new OdrInvoiceSearchConstraintNormalizer();
+        $normalizers[] = new OdrCalculationSearchNormalizer();
+        $normalizers[] = new OdrCalculationSearchConstraintNormalizer();
+        $normalizers[] = new OdrCouponCategorySearchNormalizer();
+        $normalizers[] = new OdrCouponCategorySearchConstraintNormalizer();
+        $normalizers[] = new OdrCouponSearchNormalizer();
+        $normalizers[] = new OdrCouponSearchConstraintNormalizer();
         $normalizers[] = new CntActionNormalizer();
         $normalizers[] = new CntColumnConfigNormalizer();
         $normalizers[] = new CntDatasetNormalizer();

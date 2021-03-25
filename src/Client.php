@@ -1527,6 +1527,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Search calculations by id.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchCalculationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchCalculationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchCalculationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchCalculationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchCalculationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchCalculationsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrCalculation[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchCalculations(\Afosto\Sdk\Model\OdrCalculationSearch $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchCalculations($body), $fetch);
+    }
+
+    /**
      * Returns a list of invoices.
      *
      * @param array $queryParameters {
@@ -1624,6 +1643,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function generatePdfInvoice(string $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GeneratePdfInvoice($id), $fetch);
+    }
+
+    /**
+     * Search invoices by ID.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchInvoicesBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchInvoicesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchInvoicesForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchInvoicesNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchInvoicesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchInvoicesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrInvoice[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchInvoices(\Afosto\Sdk\Model\OdrInvoiceSearch $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchInvoices($body), $fetch);
     }
 
     /**
@@ -1900,6 +1938,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Search coupons by code.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchCouponsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchCouponsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchCouponsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchCouponsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchCouponsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchCouponsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrCoupon[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchCoupons(\Afosto\Sdk\Model\OdrCouponSearch $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchCoupons($body), $fetch);
+    }
+
+    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetCouponCategoriesUnauthorizedException
@@ -1971,6 +2028,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function updateCouponCategory(string $id, \Afosto\Sdk\Model\OdrCouponCategoryModel $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateCouponCategory($id, $body), $fetch);
+    }
+
+    /**
+     * Search coupon categories by id.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchCouponCategoriesBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchCouponCategoriesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchCouponCategoriesForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchCouponCategoriesNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchCouponCategoriesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchCouponCategoriesServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrCouponCategory[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchCouponCategories(\Afosto\Sdk\Model\OdrCouponCategorySearch $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchCouponCategories($body), $fetch);
     }
 
     /**
