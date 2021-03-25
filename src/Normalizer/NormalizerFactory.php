@@ -602,6 +602,12 @@ class NormalizerFactory
         $normalizers[] = new RelAddressListNormalizer();
         $normalizers[] = new RelAddressModelNormalizer();
         $normalizers[] = new RelAddressNormalizer();
+        $normalizers[] = new RelAddressSearchNormalizer();
+        $normalizers[] = new RelAddressSearchConstraintNormalizer();
+        $normalizers[] = new RelPhoneNumberSearchNormalizer();
+        $normalizers[] = new RelPhoneNumberSearchConstraintNormalizer();
+        $normalizers[] = new RelOrganisationSearchNormalizer();
+        $normalizers[] = new RelOrganisationSearchConstraintNormalizer();
         $normalizers[] = new RelVersionNormalizer();
         $normalizers[] = new OdrOrdersIdAuthorizePostBodyNormalizer();
         $normalizers[] = new OdrOrdersIdFlowPutBodyNormalizer();

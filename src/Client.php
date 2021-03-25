@@ -10584,6 +10584,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Search addresses.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchAddressesBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchAddressesUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchAddressesForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchAddressesInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchAddressesServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\SearchAddressesNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\RelAddress[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchAddresses(\Afosto\Sdk\Model\RelAddressSearch $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchAddresses($body), $fetch);
+    }
+
+    /**
      * Get lat long parameters for party address.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -10728,6 +10747,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Search phone numbers.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchPhoneNumbersBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchPhoneNumbersUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchPhoneNumbersForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchPhoneNumbersInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchPhoneNumbersServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\SearchPhoneNumbersNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\RelPhoneNumber[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchPhoneNumbers(\Afosto\Sdk\Model\RelPhoneNumberSearch $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchPhoneNumbers($body), $fetch);
+    }
+
+    /**
      * Returns a list of organisation information.
      *
      * @param array $headerParameters {
@@ -10850,6 +10888,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function viewOrganisationVersions(string $id, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ViewOrganisationVersions($id), $fetch);
+    }
+
+    /**
+     * Search organisations.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchOrganisationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchOrganisationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchOrganisationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchOrganisationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchOrganisationsServiceUnavailableException
+     * @throws \Afosto\Sdk\Exception\SearchOrganisationsNotFoundException
+     *
+     * @return \Afosto\Sdk\Model\RelOrganisation[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchOrganisations(\Afosto\Sdk\Model\RelOrganisationSearch $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchOrganisations($body), $fetch);
     }
 
     /**
