@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class RelAddressResultsOptionsItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class RelAddressResultsOptionsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\RelAddressResultsOptionsItem' === $type;
+        return 'Afosto\\Sdk\\Model\\RelAddressResultsOptions' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\RelAddressResultsOptionsItem' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\RelAddressResultsOptions' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class RelAddressResultsOptionsItemNormalizer implements DenormalizerInterface, N
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\RelAddressResultsOptionsItem();
+        $object = new \Afosto\Sdk\Model\RelAddressResultsOptions();
         if (property_exists($data, 'value') && null !== $data->{'value'}) {
             $object->setValue($data->{'value'});
         }

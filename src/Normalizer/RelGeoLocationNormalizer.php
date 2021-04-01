@@ -45,13 +45,13 @@ class RelGeoLocationNormalizer implements DenormalizerInterface, NormalizerInter
             $object->setLong($data->{'long'});
         }
         if (property_exists($data, 'box') && null !== $data->{'box'}) {
-            $object->setBox($this->denormalizer->denormalize($data->{'box'}, 'Afosto\\Sdk\\Model\\RelGeoLocationBox', 'json', $context));
+            $object->setBox($this->denormalizer->denormalize($data->{'box'}, 'Afosto\\Sdk\\Model\\RelGeolocationBox', 'json', $context));
         }
         if (property_exists($data, 'is_precise') && null !== $data->{'is_precise'}) {
             $object->setIsPrecise($data->{'is_precise'});
         }
         if (property_exists($data, 'address') && null !== $data->{'address'}) {
-            $object->setAddress($this->denormalizer->denormalize($data->{'address'}, 'Afosto\\Sdk\\Model\\RelGeoLocationAddress', 'json', $context));
+            $object->setAddress($this->denormalizer->denormalize($data->{'address'}, 'Afosto\\Sdk\\Model\\RelGeolocationAddress', 'json', $context));
         }
 
         return $object;

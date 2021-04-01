@@ -75,16 +75,16 @@ class RelOrganisationUpdateModelNormalizer implements DenormalizerInterface, Nor
             $object->setPaymentSettings($this->denormalizer->denormalize($data->{'payment_settings'}, 'Afosto\\Sdk\\Model\\RelOrganisationPaymentSettings', 'json', $context));
         }
         if (property_exists($data, 'billing') && null !== $data->{'billing'}) {
-            $object->setBilling($this->denormalizer->denormalize($data->{'billing'}, 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelBilling', 'json', $context));
+            $object->setBilling($this->denormalizer->denormalize($data->{'billing'}, 'Afosto\\Sdk\\Model\\RelContactUpdateBilling', 'json', $context));
         }
         if (property_exists($data, 'shipping') && null !== $data->{'shipping'}) {
-            $object->setShipping($this->denormalizer->denormalize($data->{'shipping'}, 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelShipping', 'json', $context));
+            $object->setShipping($this->denormalizer->denormalize($data->{'shipping'}, 'Afosto\\Sdk\\Model\\RelContactUpdateShipping', 'json', $context));
         }
         if (property_exists($data, 'phone_numbers') && null !== $data->{'phone_numbers'}) {
-            $object->setPhoneNumbers($this->denormalizer->denormalize($data->{'phone_numbers'}, 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelPhoneNumbers', 'json', $context));
+            $object->setPhoneNumbers($this->denormalizer->denormalize($data->{'phone_numbers'}, 'Afosto\\Sdk\\Model\\RelContactUpdatePhoneNumbers', 'json', $context));
         }
         if (property_exists($data, 'administration') && null !== $data->{'administration'}) {
-            $object->setAdministration($this->denormalizer->denormalize($data->{'administration'}, 'Afosto\\Sdk\\Model\\RelOrganisationUpdateModelAdministration', 'json', $context));
+            $object->setAdministration($this->denormalizer->denormalize($data->{'administration'}, 'Afosto\\Sdk\\Model\\RelOrganisationUpdateAdministration', 'json', $context));
         }
 
         return $object;

@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class RelGeoLocationBoxNorthEastNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class RelGeolocationBoxSouthWestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\RelGeoLocationBoxNorthEast' === $type;
+        return 'Afosto\\Sdk\\Model\\RelGeolocationBoxSouthWest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\RelGeoLocationBoxNorthEast' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\RelGeolocationBoxSouthWest' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class RelGeoLocationBoxNorthEastNormalizer implements DenormalizerInterface, Nor
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\RelGeoLocationBoxNorthEast();
+        $object = new \Afosto\Sdk\Model\RelGeolocationBoxSouthWest();
         if (property_exists($data, 'lat') && null !== $data->{'lat'}) {
             $object->setLat($data->{'lat'});
         }

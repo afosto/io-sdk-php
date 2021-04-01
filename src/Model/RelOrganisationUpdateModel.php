@@ -51,19 +51,19 @@ class RelOrganisationUpdateModel
      */
     protected $paymentSettings;
     /**
-     * @var RelOrganisationUpdateModelBilling
+     * @var RelContactUpdateBilling
      */
     protected $billing;
     /**
-     * @var RelOrganisationUpdateModelShipping
+     * @var RelContactUpdateShipping
      */
     protected $shipping;
     /**
-     * @var RelOrganisationUpdateModelPhoneNumbers
+     * @var RelContactUpdatePhoneNumbers
      */
     protected $phoneNumbers;
     /**
-     * @var RelOrganisationUpdateModelAdministration
+     * @var RelOrganisationUpdateAdministration
      */
     protected $administration;
 
@@ -197,48 +197,48 @@ class RelOrganisationUpdateModel
         return $this;
     }
 
-    public function getBilling(): ?RelOrganisationUpdateModelBilling
+    public function getBilling(): ?RelContactUpdateBilling
     {
         return $this->billing;
     }
 
-    public function setBilling(?RelOrganisationUpdateModelBilling $billing): self
+    public function setBilling(?RelContactUpdateBilling $billing): self
     {
         $this->billing = $billing;
 
         return $this;
     }
 
-    public function getShipping(): ?RelOrganisationUpdateModelShipping
+    public function getShipping(): ?RelContactUpdateShipping
     {
         return $this->shipping;
     }
 
-    public function setShipping(?RelOrganisationUpdateModelShipping $shipping): self
+    public function setShipping(?RelContactUpdateShipping $shipping): self
     {
         $this->shipping = $shipping;
 
         return $this;
     }
 
-    public function getPhoneNumbers(): ?RelOrganisationUpdateModelPhoneNumbers
+    public function getPhoneNumbers(): ?RelContactUpdatePhoneNumbers
     {
         return $this->phoneNumbers;
     }
 
-    public function setPhoneNumbers(?RelOrganisationUpdateModelPhoneNumbers $phoneNumbers): self
+    public function setPhoneNumbers(?RelContactUpdatePhoneNumbers $phoneNumbers): self
     {
         $this->phoneNumbers = $phoneNumbers;
 
         return $this;
     }
 
-    public function getAdministration(): ?RelOrganisationUpdateModelAdministration
+    public function getAdministration(): ?RelOrganisationUpdateAdministration
     {
         return $this->administration;
     }
 
-    public function setAdministration(?RelOrganisationUpdateModelAdministration $administration): self
+    public function setAdministration(?RelOrganisationUpdateAdministration $administration): self
     {
         $this->administration = $administration;
 

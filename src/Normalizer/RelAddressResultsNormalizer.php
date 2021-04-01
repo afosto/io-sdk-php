@@ -41,7 +41,7 @@ class RelAddressResultsNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'options') && null !== $data->{'options'}) {
             $values = [];
             foreach ($data->{'options'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\RelAddressResultsOptionsItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\RelAddressResultsOptions', 'json', $context);
             }
             $object->setOptions($values);
         }

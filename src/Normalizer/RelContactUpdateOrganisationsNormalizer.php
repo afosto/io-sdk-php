@@ -44,7 +44,7 @@ class RelContactUpdateOrganisationsNormalizer implements DenormalizerInterface, 
         if (property_exists($data, 'secondary') && null !== $data->{'secondary'}) {
             $values = [];
             foreach ($data->{'secondary'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\RelContactUpdateOrganisationsSecondaryItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\RelContactUpdateOrganisationsPrimary', 'json', $context);
             }
             $object->setSecondary($values);
         }

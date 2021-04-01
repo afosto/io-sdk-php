@@ -17,7 +17,7 @@ class RelContactUpdateOrganisations
      */
     protected $primary;
     /**
-     * @var RelContactUpdateOrganisationsSecondaryItem[]
+     * @var RelContactUpdateOrganisationsPrimary[]
      */
     protected $secondary;
 
@@ -34,7 +34,7 @@ class RelContactUpdateOrganisations
     }
 
     /**
-     * @return RelContactUpdateOrganisationsSecondaryItem[]|null
+     * @return RelContactUpdateOrganisationsPrimary[]|null
      */
     public function getSecondary(): ?array
     {
@@ -42,7 +42,7 @@ class RelContactUpdateOrganisations
     }
 
     /**
-     * @param RelContactUpdateOrganisationsSecondaryItem[]|null $secondary
+     * @param RelContactUpdateOrganisationsPrimary[]|null $secondary
      */
     public function setSecondary(?array $secondary): self
     {

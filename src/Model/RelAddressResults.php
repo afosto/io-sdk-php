@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Model;
 class RelAddressResults
 {
     /**
-     * @var RelAddressResultsOptionsItem[]
+     * @var RelAddressResultsOptions[]
      */
     protected $options;
     /**
@@ -22,7 +22,7 @@ class RelAddressResults
     protected $result;
 
     /**
-     * @return RelAddressResultsOptionsItem[]|null
+     * @return RelAddressResultsOptions[]|null
      */
     public function getOptions(): ?array
     {
@@ -30,7 +30,7 @@ class RelAddressResults
     }
 
     /**
-     * @param RelAddressResultsOptionsItem[]|null $options
+     * @param RelAddressResultsOptions[]|null $options
      */
     public function setOptions(?array $options): self
     {

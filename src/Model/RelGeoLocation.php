@@ -21,7 +21,7 @@ class RelGeoLocation
      */
     protected $long;
     /**
-     * @var RelGeoLocationBox
+     * @var RelGeolocationBox
      */
     protected $box;
     /**
@@ -29,7 +29,7 @@ class RelGeoLocation
      */
     protected $isPrecise;
     /**
-     * @var RelGeoLocationAddress
+     * @var RelGeolocationAddress
      */
     protected $address;
 
@@ -57,12 +57,12 @@ class RelGeoLocation
         return $this;
     }
 
-    public function getBox(): ?RelGeoLocationBox
+    public function getBox(): ?RelGeolocationBox
     {
         return $this->box;
     }
 
-    public function setBox(?RelGeoLocationBox $box): self
+    public function setBox(?RelGeolocationBox $box): self
     {
         $this->box = $box;
 
@@ -81,12 +81,12 @@ class RelGeoLocation
         return $this;
     }
 
-    public function getAddress(): ?RelGeoLocationAddress
+    public function getAddress(): ?RelGeolocationAddress
     {
         return $this->address;
     }
 
-    public function setAddress(?RelGeoLocationAddress $address): self
+    public function setAddress(?RelGeolocationAddress $address): self
     {
         $this->address = $address;
 
