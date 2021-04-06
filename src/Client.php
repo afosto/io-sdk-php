@@ -5232,6 +5232,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *     @var string $scope
      *     @var string $tenant
      *     @var string $state
+     *     @var string $nonce
      * }
      *
      * @param array $headerParameters {
