@@ -44,6 +44,9 @@ class OdrSettingsNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'organisation') && null !== $data->{'organisation'}) {
             $object->setOrganisation($this->denormalizer->denormalize($data->{'organisation'}, 'Afosto\\Sdk\\Model\\OdrSettingsOrganisation', 'json', $context));
         }
+        if (property_exists($data, 'phone_number_id') && null !== $data->{'phone_number_id'}) {
+            $object->setPhoneNumberId($data->{'phone_number_id'});
+        }
         if (property_exists($data, 'coupons') && null !== $data->{'coupons'}) {
             $values = [];
             foreach ($data->{'coupons'} as $value) {
@@ -61,10 +64,10 @@ class OdrSettingsNormalizer implements DenormalizerInterface, NormalizerInterfac
             $object->setReturnUrl($data->{'return_url'});
         }
         if (property_exists($data, 'billing') && null !== $data->{'billing'}) {
-            $object->setBilling($this->denormalizer->denormalize($data->{'billing'}, 'Afosto\\Sdk\\Model\\OdrSettingsBilling', 'json', $context));
+            $object->setBilling($this->denormalizer->denormalize($data->{'billing'}, 'Afosto\\Sdk\\Model\\OdrOrderModelSettingsBilling', 'json', $context));
         }
         if (property_exists($data, 'shipping') && null !== $data->{'shipping'}) {
-            $object->setShipping($this->denormalizer->denormalize($data->{'shipping'}, 'Afosto\\Sdk\\Model\\OdrSettingsShipping', 'json', $context));
+            $object->setShipping($this->denormalizer->denormalize($data->{'shipping'}, 'Afosto\\Sdk\\Model\\OdrOrderSettingsShipping', 'json', $context));
         }
 
         return $object;
@@ -78,6 +81,9 @@ class OdrSettingsNormalizer implements DenormalizerInterface, NormalizerInterfac
         }
         if (null !== $object->getOrganisation()) {
             $data->{'organisation'} = $this->normalizer->normalize($object->getOrganisation(), 'json', $context);
+        }
+        if (null !== $object->getPhoneNumberId()) {
+            $data->{'phone_number_id'} = $object->getPhoneNumberId();
         }
         if (null !== $object->getCoupons()) {
             $values = [];

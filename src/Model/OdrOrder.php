@@ -33,11 +33,11 @@ class OdrOrder
      */
     protected $processing;
     /**
-     * @var OdrOrderAcceptancesItem[]
+     * @var OdrOrderAcceptances[]
      */
     protected $acceptances;
     /**
-     * @var OdrOrderCalculationsItem[]
+     * @var OdrOrderCalculations[]
      */
     protected $calculations;
     /**
@@ -138,7 +138,7 @@ class OdrOrder
     }
 
     /**
-     * @return OdrOrderAcceptancesItem[]|null
+     * @return OdrOrderAcceptances[]|null
      */
     public function getAcceptances(): ?array
     {
@@ -146,7 +146,7 @@ class OdrOrder
     }
 
     /**
-     * @param OdrOrderAcceptancesItem[]|null $acceptances
+     * @param OdrOrderAcceptances[]|null $acceptances
      */
     public function setAcceptances(?array $acceptances): self
     {
@@ -156,7 +156,7 @@ class OdrOrder
     }
 
     /**
-     * @return OdrOrderCalculationsItem[]|null
+     * @return OdrOrderCalculations[]|null
      */
     public function getCalculations(): ?array
     {
@@ -164,7 +164,7 @@ class OdrOrder
     }
 
     /**
-     * @param OdrOrderCalculationsItem[]|null $calculations
+     * @param OdrOrderCalculations[]|null $calculations
      */
     public function setCalculations(?array $calculations): self
     {

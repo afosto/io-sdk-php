@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrOrderAcceptancesItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrOrderAcceptancesNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\OdrOrderAcceptancesItem' === $type;
+        return 'Afosto\\Sdk\\Model\\OdrOrderAcceptances' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrOrderAcceptancesItem' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrOrderAcceptances' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class OdrOrderAcceptancesItemNormalizer implements DenormalizerInterface, Normal
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrOrderAcceptancesItem();
+        $object = new \Afosto\Sdk\Model\OdrOrderAcceptances();
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }

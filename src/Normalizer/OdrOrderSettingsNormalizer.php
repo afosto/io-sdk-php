@@ -42,7 +42,10 @@ class OdrOrderSettingsNormalizer implements DenormalizerInterface, NormalizerInt
             $object->setContact($this->denormalizer->denormalize($data->{'contact'}, 'Afosto\\Sdk\\Model\\OdrOrderSettingsContact', 'json', $context));
         }
         if (property_exists($data, 'organisation') && null !== $data->{'organisation'}) {
-            $object->setOrganisation($this->denormalizer->denormalize($data->{'organisation'}, 'Afosto\\Sdk\\Model\\OdrOrderSettingsOrganisation', 'json', $context));
+            $object->setOrganisation($this->denormalizer->denormalize($data->{'organisation'}, 'Afosto\\Sdk\\Model\\OdrOrderSettingsContact', 'json', $context));
+        }
+        if (property_exists($data, 'phone_number_id') && null !== $data->{'phone_number_id'}) {
+            $object->setPhoneNumberId($data->{'phone_number_id'});
         }
         if (property_exists($data, 'coupons') && null !== $data->{'coupons'}) {
             $values = [];
@@ -75,6 +78,9 @@ class OdrOrderSettingsNormalizer implements DenormalizerInterface, NormalizerInt
         }
         if (null !== $object->getOrganisation()) {
             $data->{'organisation'} = $this->normalizer->normalize($object->getOrganisation(), 'json', $context);
+        }
+        if (null !== $object->getPhoneNumberId()) {
+            $data->{'phone_number_id'} = $object->getPhoneNumberId();
         }
         if (null !== $object->getCoupons()) {
             $values = [];

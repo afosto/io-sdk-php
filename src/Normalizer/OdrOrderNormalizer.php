@@ -56,14 +56,14 @@ class OdrOrderNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'acceptances') && null !== $data->{'acceptances'}) {
             $values = [];
             foreach ($data->{'acceptances'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrOrderAcceptancesItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrOrderAcceptances', 'json', $context);
             }
             $object->setAcceptances($values);
         }
         if (property_exists($data, 'calculations') && null !== $data->{'calculations'}) {
             $values_1 = [];
             foreach ($data->{'calculations'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrOrderCalculationsItem', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrOrderCalculations', 'json', $context);
             }
             $object->setCalculations($values_1);
         }

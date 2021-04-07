@@ -21,6 +21,10 @@ class OdrSettings
      */
     protected $organisation;
     /**
+     * @var string
+     */
+    protected $phoneNumberId;
+    /**
      * @var string[]
      */
     protected $coupons;
@@ -37,11 +41,11 @@ class OdrSettings
      */
     protected $returnUrl;
     /**
-     * @var OdrSettingsBilling
+     * @var OdrOrderModelSettingsBilling
      */
     protected $billing;
     /**
-     * @var OdrSettingsShipping
+     * @var OdrOrderSettingsShipping
      */
     protected $shipping;
 
@@ -65,6 +69,18 @@ class OdrSettings
     public function setOrganisation(?OdrSettingsOrganisation $organisation): self
     {
         $this->organisation = $organisation;
+
+        return $this;
+    }
+
+    public function getPhoneNumberId(): ?string
+    {
+        return $this->phoneNumberId;
+    }
+
+    public function setPhoneNumberId(?string $phoneNumberId): self
+    {
+        $this->phoneNumberId = $phoneNumberId;
 
         return $this;
     }
@@ -123,24 +139,24 @@ class OdrSettings
         return $this;
     }
 
-    public function getBilling(): ?OdrSettingsBilling
+    public function getBilling(): ?OdrOrderModelSettingsBilling
     {
         return $this->billing;
     }
 
-    public function setBilling(?OdrSettingsBilling $billing): self
+    public function setBilling(?OdrOrderModelSettingsBilling $billing): self
     {
         $this->billing = $billing;
 
         return $this;
     }
 
-    public function getShipping(): ?OdrSettingsShipping
+    public function getShipping(): ?OdrOrderSettingsShipping
     {
         return $this->shipping;
     }
 
-    public function setShipping(?OdrSettingsShipping $shipping): self
+    public function setShipping(?OdrOrderSettingsShipping $shipping): self
     {
         $this->shipping = $shipping;
 

@@ -50,13 +50,10 @@ class NormalizerFactory
         $normalizers[] = new OdrSettingsNormalizer();
         $normalizers[] = new OdrSettingsContactNormalizer();
         $normalizers[] = new OdrSettingsOrganisationNormalizer();
-        $normalizers[] = new OdrSettingsBillingNormalizer();
-        $normalizers[] = new OdrSettingsBillingVatNormalizer();
-        $normalizers[] = new OdrSettingsShippingNormalizer();
-        $normalizers[] = new OdrSettingsShippingWindowNormalizer();
+        $normalizers[] = new OdrOrderModelSettingsBillingNormalizer();
+        $normalizers[] = new OdrOrderSettingsBillingVatNormalizer();
         $normalizers[] = new OdrOrderSettingsNormalizer();
         $normalizers[] = new OdrOrderSettingsContactNormalizer();
-        $normalizers[] = new OdrOrderSettingsOrganisationNormalizer();
         $normalizers[] = new OdrOrderSettingsBillingNormalizer();
         $normalizers[] = new OdrOrderSettingsShippingNormalizer();
         $normalizers[] = new OdrOrderSettingsShippingWindowNormalizer();
@@ -65,8 +62,8 @@ class NormalizerFactory
         $normalizers[] = new OdrOrderNormalizer();
         $normalizers[] = new OdrOrderStateNormalizer();
         $normalizers[] = new OdrOrderStateProgressNormalizer();
-        $normalizers[] = new OdrOrderAcceptancesItemNormalizer();
-        $normalizers[] = new OdrOrderCalculationsItemNormalizer();
+        $normalizers[] = new OdrOrderAcceptancesNormalizer();
+        $normalizers[] = new OdrOrderCalculationsNormalizer();
         $normalizers[] = new OdrProcessingNormalizer();
         $normalizers[] = new OdrStackNormalizer();
         $normalizers[] = new OdrStackStateNormalizer();

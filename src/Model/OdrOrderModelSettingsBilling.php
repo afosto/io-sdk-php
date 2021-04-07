@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrSettingsBilling
+class OdrOrderModelSettingsBilling
 {
     /**
      * @var string
@@ -29,7 +29,7 @@ class OdrSettingsBilling
      */
     protected $providerCode;
     /**
-     * @var OdrSettingsBillingVat
+     * @var OdrOrderSettingsBillingVat
      */
     protected $vat;
 
@@ -81,12 +81,12 @@ class OdrSettingsBilling
         return $this;
     }
 
-    public function getVat(): ?OdrSettingsBillingVat
+    public function getVat(): ?OdrOrderSettingsBillingVat
     {
         return $this->vat;
     }
 
-    public function setVat(?OdrSettingsBillingVat $vat): self
+    public function setVat(?OdrOrderSettingsBillingVat $vat): self
     {
         $this->vat = $vat;
 

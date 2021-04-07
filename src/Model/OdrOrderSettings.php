@@ -17,9 +17,13 @@ class OdrOrderSettings
      */
     protected $contact;
     /**
-     * @var OdrOrderSettingsOrganisation
+     * @var OdrOrderSettingsContact
      */
     protected $organisation;
+    /**
+     * @var string
+     */
+    protected $phoneNumberId;
     /**
      * @var string[]
      */
@@ -53,14 +57,26 @@ class OdrOrderSettings
         return $this;
     }
 
-    public function getOrganisation(): ?OdrOrderSettingsOrganisation
+    public function getOrganisation(): ?OdrOrderSettingsContact
     {
         return $this->organisation;
     }
 
-    public function setOrganisation(?OdrOrderSettingsOrganisation $organisation): self
+    public function setOrganisation(?OdrOrderSettingsContact $organisation): self
     {
         $this->organisation = $organisation;
+
+        return $this;
+    }
+
+    public function getPhoneNumberId(): ?string
+    {
+        return $this->phoneNumberId;
+    }
+
+    public function setPhoneNumberId(?string $phoneNumberId): self
+    {
+        $this->phoneNumberId = $phoneNumberId;
 
         return $this;
     }

@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrSettingsBillingNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrOrderModelSettingsBillingNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\OdrSettingsBilling' === $type;
+        return 'Afosto\\Sdk\\Model\\OdrOrderModelSettingsBilling' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrSettingsBilling' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrOrderModelSettingsBilling' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class OdrSettingsBillingNormalizer implements DenormalizerInterface, NormalizerI
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrSettingsBilling();
+        $object = new \Afosto\Sdk\Model\OdrOrderModelSettingsBilling();
         if (property_exists($data, 'address_id') && null !== $data->{'address_id'}) {
             $object->setAddressId($data->{'address_id'});
         }
@@ -51,7 +51,7 @@ class OdrSettingsBillingNormalizer implements DenormalizerInterface, NormalizerI
             $object->setProviderCode($data->{'provider_code'});
         }
         if (property_exists($data, 'vat') && null !== $data->{'vat'}) {
-            $object->setVat($this->denormalizer->denormalize($data->{'vat'}, 'Afosto\\Sdk\\Model\\OdrSettingsBillingVat', 'json', $context));
+            $object->setVat($this->denormalizer->denormalize($data->{'vat'}, 'Afosto\\Sdk\\Model\\OdrOrderSettingsBillingVat', 'json', $context));
         }
 
         return $object;

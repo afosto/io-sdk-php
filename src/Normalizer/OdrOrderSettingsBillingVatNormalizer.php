@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrSettingsBillingVatNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrOrderSettingsBillingVatNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\OdrSettingsBillingVat' === $type;
+        return 'Afosto\\Sdk\\Model\\OdrOrderSettingsBillingVat' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrSettingsBillingVat' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrOrderSettingsBillingVat' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,7 +37,7 @@ class OdrSettingsBillingVatNormalizer implements DenormalizerInterface, Normaliz
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrSettingsBillingVat();
+        $object = new \Afosto\Sdk\Model\OdrOrderSettingsBillingVat();
         if (property_exists($data, 'is_shift_disabled') && null !== $data->{'is_shift_disabled'}) {
             $object->setIsShiftDisabled($data->{'is_shift_disabled'});
         }
