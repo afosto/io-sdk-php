@@ -403,6 +403,9 @@ class NormalizerFactory
         $normalizers[] = new OdrSelectSessionShippingRequestNormalizer();
         $normalizers[] = new OdrSelectSessionShippingRequestContactNormalizer();
         $normalizers[] = new OdrSelectSessionShippingRequestOrganisationNormalizer();
+        $normalizers[] = new OdrSelectSessionPhonenumberRequestNormalizer();
+        $normalizers[] = new OdrSelectSessionPhonenumberRequestContactNormalizer();
+        $normalizers[] = new OdrSelectSessionPhonenumberRequestOrganisationNormalizer();
         $normalizers[] = new OdrGetSessionShippingResponseItemNormalizer();
         $normalizers[] = new OdrGetSessionShippingMethodResponseNormalizer();
         $normalizers[] = new OdrSelectSessionShippingPointRequestNormalizer();
@@ -417,6 +420,8 @@ class NormalizerFactory
         $normalizers[] = new OdrAuthorizationResponseNormalizer();
         $normalizers[] = new OdrCombinedAddressSetNormalizer();
         $normalizers[] = new OdrAddressSetNormalizer();
+        $normalizers[] = new OdrCombinedPhoneNumberSetNormalizer();
+        $normalizers[] = new OdrPhonenumberSetNormalizer();
         $normalizers[] = new OdrPointNormalizer();
         $normalizers[] = new OdrPointOpeningsItemNormalizer();
         $normalizers[] = new OdrPointOpeningsItemWindowsItemNormalizer();
@@ -658,6 +663,7 @@ class NormalizerFactory
         $normalizers[] = new WmsInventoryPostBodyNormalizer();
         $normalizers[] = new WmsSearchItemsPostBodyNormalizer();
         $normalizers[] = new OdrSessionsIdAuthenticatedPostBodyNormalizer();
+        $normalizers[] = new OdrSessionsIdPhonenumbersGetResponse200Normalizer();
         $normalizers[] = new OdrSessionsIdBillingGetResponse200Normalizer();
         $normalizers[] = new OdrSessionsIdShippingMethodsGetResponse200Normalizer();
         $normalizers[] = new OdrSessionsIdShippingWindowGetResponse200Normalizer();

@@ -10,51 +10,51 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class OdrCombinedAddressSet
+class OdrCombinedPhoneNumberSet
 {
     /**
-     * @var OdrAddressSet
+     * @var OdrPhonenumberSet
      */
     protected $contact;
     /**
-     * @var OdrAddressSet
+     * @var OdrPhonenumberSet
      */
     protected $organisation;
     /**
-     * @var OdrAddressSet
+     * @var OdrPhonenumberSet
      */
     protected $session;
 
-    public function getContact(): ?OdrAddressSet
+    public function getContact(): ?OdrPhonenumberSet
     {
         return $this->contact;
     }
 
-    public function setContact(?OdrAddressSet $contact): self
+    public function setContact(?OdrPhonenumberSet $contact): self
     {
         $this->contact = $contact;
 
         return $this;
     }
 
-    public function getOrganisation(): ?OdrAddressSet
+    public function getOrganisation(): ?OdrPhonenumberSet
     {
         return $this->organisation;
     }
 
-    public function setOrganisation(?OdrAddressSet $organisation): self
+    public function setOrganisation(?OdrPhonenumberSet $organisation): self
     {
         $this->organisation = $organisation;
 
         return $this;
     }
 
-    public function getSession(): ?OdrAddressSet
+    public function getSession(): ?OdrPhonenumberSet
     {
         return $this->session;
     }
 
-    public function setSession(?OdrAddressSet $session): self
+    public function setSession(?OdrPhonenumberSet $session): self
     {
         $this->session = $session;
 

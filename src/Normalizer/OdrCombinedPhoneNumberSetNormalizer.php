@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class OdrCombinedAddressSetNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class OdrCombinedPhoneNumberSetNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\OdrCombinedAddressSet' === $type;
+        return 'Afosto\\Sdk\\Model\\OdrCombinedPhoneNumberSet' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrCombinedAddressSet' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\OdrCombinedPhoneNumberSet' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,15 +37,15 @@ class OdrCombinedAddressSetNormalizer implements DenormalizerInterface, Normaliz
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\OdrCombinedAddressSet();
+        $object = new \Afosto\Sdk\Model\OdrCombinedPhoneNumberSet();
         if (property_exists($data, 'contact') && null !== $data->{'contact'}) {
-            $object->setContact($this->denormalizer->denormalize($data->{'contact'}, 'Afosto\\Sdk\\Model\\OdrAddressSet', 'json', $context));
+            $object->setContact($this->denormalizer->denormalize($data->{'contact'}, 'Afosto\\Sdk\\Model\\OdrPhonenumberSet', 'json', $context));
         }
         if (property_exists($data, 'organisation') && null !== $data->{'organisation'}) {
-            $object->setOrganisation($this->denormalizer->denormalize($data->{'organisation'}, 'Afosto\\Sdk\\Model\\OdrAddressSet', 'json', $context));
+            $object->setOrganisation($this->denormalizer->denormalize($data->{'organisation'}, 'Afosto\\Sdk\\Model\\OdrPhonenumberSet', 'json', $context));
         }
         if (property_exists($data, 'session') && null !== $data->{'session'}) {
-            $object->setSession($this->denormalizer->denormalize($data->{'session'}, 'Afosto\\Sdk\\Model\\OdrAddressSet', 'json', $context));
+            $object->setSession($this->denormalizer->denormalize($data->{'session'}, 'Afosto\\Sdk\\Model\\OdrPhonenumberSet', 'json', $context));
         }
 
         return $object;

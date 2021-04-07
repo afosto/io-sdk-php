@@ -7590,7 +7590,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetSessionPhonenumberInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetSessionPhonenumberServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrPhonenumber|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrSessionsIdPhonenumbersGetResponse200|\Psr\Http\Message\ResponseInterface|null
      */
     public function getSessionPhonenumber(string $id, string $fetch = self::FETCH_OBJECT)
     {
@@ -7614,6 +7614,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function createSessionPhoneNumber(string $id, \Afosto\Sdk\Model\OdrNewPhonenumber $body, string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateSessionPhoneNumber($id, $body), $fetch);
+    }
+
+    /**
+     * select a phonenumber.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SelectSessionPhonenumberBadRequestException
+     * @throws \Afosto\Sdk\Exception\SelectSessionPhonenumberUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SelectSessionPhonenumberForbiddenException
+     * @throws \Afosto\Sdk\Exception\SelectSessionPhonenumberNotFoundException
+     * @throws \Afosto\Sdk\Exception\SelectSessionPhonenumberInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SelectSessionPhonenumberServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrPhonenumber|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function selectSessionPhonenumber(string $id, \Afosto\Sdk\Model\OdrSelectSessionPhonenumberRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SelectSessionPhonenumber($id, $body), $fetch);
     }
 
     /**

@@ -54,12 +54,12 @@ class GetSessionPhonenumber extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
      * @throws \Afosto\Sdk\Exception\GetSessionPhonenumberInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetSessionPhonenumberServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrPhonenumber|null
+     * @return \Afosto\Sdk\Model\OdrSessionsIdPhonenumbersGetResponse200|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrPhonenumber', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrSessionsIdPhonenumbersGetResponse200', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\GetSessionPhonenumberBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));
