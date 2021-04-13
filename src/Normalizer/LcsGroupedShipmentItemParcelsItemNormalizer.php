@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsPointOpeningsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LcsGroupedShipmentItemParcelsItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsPointOpenings' === $type;
+        return 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemParcelsItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsPointOpenings' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemParcelsItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,16 +37,16 @@ class LcsPointOpeningsNormalizer implements DenormalizerInterface, NormalizerInt
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsPointOpenings();
-        if (property_exists($data, 'weekday') && null !== $data->{'weekday'}) {
-            $object->setWeekday($data->{'weekday'});
+        $object = new \Afosto\Sdk\Model\LcsGroupedShipmentItemParcelsItem();
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
+            $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'windows') && null !== $data->{'windows'}) {
+        if (property_exists($data, 'item_ids') && null !== $data->{'item_ids'}) {
             $values = [];
-            foreach ($data->{'windows'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsPointOpeningsWindows', 'json', $context);
+            foreach ($data->{'item_ids'} as $value) {
+                $values[] = $value;
             }
-            $object->setWindows($values);
+            $object->setItemIds($values);
         }
 
         return $object;
@@ -55,15 +55,15 @@ class LcsPointOpeningsNormalizer implements DenormalizerInterface, NormalizerInt
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getWeekday()) {
-            $data->{'weekday'} = $object->getWeekday();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getWindows()) {
+        if (null !== $object->getItemIds()) {
             $values = [];
-            foreach ($object->getWindows() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            foreach ($object->getItemIds() as $value) {
+                $values[] = $value;
             }
-            $data->{'windows'} = $values;
+            $data->{'item_ids'} = $values;
         }
 
         return $data;

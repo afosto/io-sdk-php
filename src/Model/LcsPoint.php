@@ -37,7 +37,7 @@ class LcsPoint
      */
     protected $address;
     /**
-     * @var LcsPointOpenings[]
+     * @var LcsPointOpeningsItem[]
      */
     protected $openings;
 
@@ -114,7 +114,7 @@ class LcsPoint
     }
 
     /**
-     * @return LcsPointOpenings[]|null
+     * @return LcsPointOpeningsItem[]|null
      */
     public function getOpenings(): ?array
     {
@@ -122,7 +122,7 @@ class LcsPoint
     }
 
     /**
-     * @param LcsPointOpenings[]|null $openings
+     * @param LcsPointOpeningsItem[]|null $openings
      */
     public function setOpenings(?array $openings): self
     {

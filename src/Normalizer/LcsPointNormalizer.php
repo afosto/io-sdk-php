@@ -59,7 +59,7 @@ class LcsPointNormalizer implements DenormalizerInterface, NormalizerInterface, 
         if (property_exists($data, 'openings') && null !== $data->{'openings'}) {
             $values = [];
             foreach ($data->{'openings'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsPointOpenings', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsPointOpeningsItem', 'json', $context);
             }
             $object->setOpenings($values);
         }

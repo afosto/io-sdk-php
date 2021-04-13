@@ -60,28 +60,28 @@ class LcsGroupedShipmentItemNormalizer implements DenormalizerInterface, Normali
         if (property_exists($data, 'references') && null !== $data->{'references'}) {
             $values_1 = [];
             foreach ($data->{'references'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\LcsShipmentItemModelReferences', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemReferencesItem', 'json', $context);
             }
             $object->setReferences($values_1);
         }
         if (property_exists($data, 'lists') && null !== $data->{'lists'}) {
             $values_2 = [];
             foreach ($data->{'lists'} as $value_2) {
-                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemLists', 'json', $context);
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemListsItem', 'json', $context);
             }
             $object->setLists($values_2);
         }
         if (property_exists($data, 'parcels') && null !== $data->{'parcels'}) {
             $values_3 = [];
             foreach ($data->{'parcels'} as $value_3) {
-                $values_3[] = $this->denormalizer->denormalize($value_3, 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemLists', 'json', $context);
+                $values_3[] = $this->denormalizer->denormalize($value_3, 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemParcelsItem', 'json', $context);
             }
             $object->setParcels($values_3);
         }
         if (property_exists($data, 'positions') && null !== $data->{'positions'}) {
             $values_4 = [];
             foreach ($data->{'positions'} as $value_4) {
-                $values_4[] = $this->denormalizer->denormalize($value_4, 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemPositions', 'json', $context);
+                $values_4[] = $this->denormalizer->denormalize($value_4, 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemPositionsItem', 'json', $context);
             }
             $object->setPositions($values_4);
         }

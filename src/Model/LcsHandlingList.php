@@ -69,7 +69,7 @@ class LcsHandlingList
      */
     protected $items;
     /**
-     * @var LcsHandlingListSortingLabels[]
+     * @var LcsHandlingListSortingLabelsItem[]
      */
     protected $sortingLabels;
     /**
@@ -262,7 +262,7 @@ class LcsHandlingList
     }
 
     /**
-     * @return LcsHandlingListSortingLabels[]|null
+     * @return LcsHandlingListSortingLabelsItem[]|null
      */
     public function getSortingLabels(): ?array
     {
@@ -270,7 +270,7 @@ class LcsHandlingList
     }
 
     /**
-     * @param LcsHandlingListSortingLabels[]|null $sortingLabels
+     * @param LcsHandlingListSortingLabelsItem[]|null $sortingLabels
      */
     public function setSortingLabels(?array $sortingLabels): self
     {

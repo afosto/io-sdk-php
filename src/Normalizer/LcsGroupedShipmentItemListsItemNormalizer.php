@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsServiceOptionNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LcsGroupedShipmentItemListsItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsServiceOption' === $type;
+        return 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemListsItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsServiceOption' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemListsItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,16 +37,16 @@ class LcsServiceOptionNormalizer implements DenormalizerInterface, NormalizerInt
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsServiceOption();
-        if (property_exists($data, 'option') && null !== $data->{'option'}) {
-            $object->setOption($data->{'option'});
+        $object = new \Afosto\Sdk\Model\LcsGroupedShipmentItemListsItem();
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
+            $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'configuration') && null !== $data->{'configuration'}) {
+        if (property_exists($data, 'item_ids') && null !== $data->{'item_ids'}) {
             $values = [];
-            foreach ($data->{'configuration'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsServiceOptionConfigurationItem', 'json', $context);
+            foreach ($data->{'item_ids'} as $value) {
+                $values[] = $value;
             }
-            $object->setConfiguration($values);
+            $object->setItemIds($values);
         }
 
         return $object;
@@ -55,15 +55,15 @@ class LcsServiceOptionNormalizer implements DenormalizerInterface, NormalizerInt
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getOption()) {
-            $data->{'option'} = $object->getOption();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getConfiguration()) {
+        if (null !== $object->getItemIds()) {
             $values = [];
-            foreach ($object->getConfiguration() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            foreach ($object->getItemIds() as $value) {
+                $values[] = $value;
             }
-            $data->{'configuration'} = $values;
+            $data->{'item_ids'} = $values;
         }
 
         return $data;

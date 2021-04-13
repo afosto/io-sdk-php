@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsServiceOptionConfigurationNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LcsShipmentItemModelReferencesItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsServiceOptionConfiguration' === $type;
+        return 'Afosto\\Sdk\\Model\\LcsShipmentItemModelReferencesItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsServiceOptionConfiguration' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsShipmentItemModelReferencesItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,12 @@ class LcsServiceOptionConfigurationNormalizer implements DenormalizerInterface, 
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsServiceOptionConfiguration();
-        if (property_exists($data, 'key') && null !== $data->{'key'}) {
-            $object->setKey($data->{'key'});
+        $object = new \Afosto\Sdk\Model\LcsShipmentItemModelReferencesItem();
+        if (property_exists($data, 'order_item_id') && null !== $data->{'order_item_id'}) {
+            $object->setOrderItemId($data->{'order_item_id'});
         }
-        if (property_exists($data, 'value') && null !== $data->{'value'}) {
-            $object->setValue($data->{'value'});
+        if (property_exists($data, 'claim_item_id') && null !== $data->{'claim_item_id'}) {
+            $object->setClaimItemId($data->{'claim_item_id'});
         }
 
         return $object;
@@ -51,11 +51,11 @@ class LcsServiceOptionConfigurationNormalizer implements DenormalizerInterface, 
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getKey()) {
-            $data->{'key'} = $object->getKey();
+        if (null !== $object->getOrderItemId()) {
+            $data->{'order_item_id'} = $object->getOrderItemId();
         }
-        if (null !== $object->getValue()) {
-            $data->{'value'} = $object->getValue();
+        if (null !== $object->getClaimItemId()) {
+            $data->{'claim_item_id'} = $object->getClaimItemId();
         }
 
         return $data;

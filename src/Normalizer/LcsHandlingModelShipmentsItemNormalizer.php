@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsHandlingListSortingLabelsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LcsHandlingModelShipmentsItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsHandlingListSortingLabels' === $type;
+        return 'Afosto\\Sdk\\Model\\LcsHandlingModelShipmentsItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsHandlingListSortingLabels' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsHandlingModelShipmentsItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,9 +37,9 @@ class LcsHandlingListSortingLabelsNormalizer implements DenormalizerInterface, N
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsHandlingListSortingLabels();
-        if (property_exists($data, 'shipment_id') && null !== $data->{'shipment_id'}) {
-            $object->setShipmentId($data->{'shipment_id'});
+        $object = new \Afosto\Sdk\Model\LcsHandlingModelShipmentsItem();
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
+            $object->setId($data->{'id'});
         }
         if (property_exists($data, 'label') && null !== $data->{'label'}) {
             $object->setLabel($data->{'label'});
@@ -51,8 +51,8 @@ class LcsHandlingListSortingLabelsNormalizer implements DenormalizerInterface, N
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getShipmentId()) {
-            $data->{'shipment_id'} = $object->getShipmentId();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
         }
         if (null !== $object->getLabel()) {
             $data->{'label'} = $object->getLabel();

@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsHandlingModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LcsPointOpeningsItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsHandlingModel' === $type;
+        return 'Afosto\\Sdk\\Model\\LcsPointOpeningsItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsHandlingModel' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsPointOpeningsItem' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,16 +37,16 @@ class LcsHandlingModelNormalizer implements DenormalizerInterface, NormalizerInt
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsHandlingModel();
-        if (property_exists($data, 'shipments') && null !== $data->{'shipments'}) {
-            $values = [];
-            foreach ($data->{'shipments'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsHandlingModelShipmentsItem', 'json', $context);
-            }
-            $object->setShipments($values);
+        $object = new \Afosto\Sdk\Model\LcsPointOpeningsItem();
+        if (property_exists($data, 'weekday') && null !== $data->{'weekday'}) {
+            $object->setWeekday($data->{'weekday'});
         }
-        if (property_exists($data, 'due_at') && null !== $data->{'due_at'}) {
-            $object->setDueAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'due_at'}));
+        if (property_exists($data, 'windows') && null !== $data->{'windows'}) {
+            $values = [];
+            foreach ($data->{'windows'} as $value) {
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsPointOpeningsItemWindowsItem', 'json', $context);
+            }
+            $object->setWindows($values);
         }
 
         return $object;
@@ -55,15 +55,15 @@ class LcsHandlingModelNormalizer implements DenormalizerInterface, NormalizerInt
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getShipments()) {
+        if (null !== $object->getWeekday()) {
+            $data->{'weekday'} = $object->getWeekday();
+        }
+        if (null !== $object->getWindows()) {
             $values = [];
-            foreach ($object->getShipments() as $value) {
+            foreach ($object->getWindows() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
-            $data->{'shipments'} = $values;
-        }
-        if (null !== $object->getDueAt()) {
-            $data->{'due_at'} = $object->getDueAt()->format("Y-m-d\TH:i:sP");
+            $data->{'windows'} = $values;
         }
 
         return $data;
