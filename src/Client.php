@@ -5609,7 +5609,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Returns a new signed upload url.
+     * Creates a new transaction.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *

@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Endpoint;
 class CreateTransaction extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
-     * Returns a new signed upload url.
+     * Creates a new transaction.
      */
     public function __construct(\Afosto\Sdk\Model\OdrTransactionModel $body)
     {

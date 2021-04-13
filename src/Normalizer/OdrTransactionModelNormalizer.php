@@ -65,6 +65,9 @@ class OdrTransactionModelNormalizer implements DenormalizerInterface, Normalizer
         if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
+        if (property_exists($data, 'channel_id') && null !== $data->{'channel_id'}) {
+            $object->setChannelId($data->{'channel_id'});
+        }
 
         return $object;
     }
@@ -98,6 +101,9 @@ class OdrTransactionModelNormalizer implements DenormalizerInterface, Normalizer
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
+        }
+        if (null !== $object->getChannelId()) {
+            $data->{'channel_id'} = $object->getChannelId();
         }
 
         return $data;

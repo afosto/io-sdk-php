@@ -48,6 +48,10 @@ class OdrTransactionModel
      * @var string
      */
     protected $clientId;
+    /**
+     * @var string
+     */
+    protected $channelId;
 
     public function getReference(): ?OdrReference
     {
@@ -159,6 +163,18 @@ class OdrTransactionModel
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
+
+        return $this;
+    }
+
+    public function getChannelId(): ?string
+    {
+        return $this->channelId;
+    }
+
+    public function setChannelId(?string $channelId): self
+    {
+        $this->channelId = $channelId;
 
         return $this;
     }
