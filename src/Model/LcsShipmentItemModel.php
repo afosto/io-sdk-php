@@ -41,7 +41,7 @@ class LcsShipmentItemModel
      */
     protected $service;
     /**
-     * @var LcsShipmentItemModelReferencesItem[]
+     * @var LcsShipmentItemModelReferences[]
      */
     protected $references;
 
@@ -136,7 +136,7 @@ class LcsShipmentItemModel
     }
 
     /**
-     * @return LcsShipmentItemModelReferencesItem[]|null
+     * @return LcsShipmentItemModelReferences[]|null
      */
     public function getReferences(): ?array
     {
@@ -144,7 +144,7 @@ class LcsShipmentItemModel
     }
 
     /**
-     * @param LcsShipmentItemModelReferencesItem[]|null $references
+     * @param LcsShipmentItemModelReferences[]|null $references
      */
     public function setReferences(?array $references): self
     {

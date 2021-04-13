@@ -91,7 +91,7 @@ class LcsHandlingListNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'sorting_labels') && null !== $data->{'sorting_labels'}) {
             $values_2 = [];
             foreach ($data->{'sorting_labels'} as $value_2) {
-                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\LcsHandlingListSortingLabelsItem', 'json', $context);
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\LcsHandlingListSortingLabels', 'json', $context);
             }
             $object->setSortingLabels($values_2);
         }

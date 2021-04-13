@@ -10,25 +10,25 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class LcsGroupedShipmentItemParcelsItem
+class LcsGroupedShipmentItemPositions
 {
     /**
      * @var string
      */
-    protected $id;
+    protected $code;
     /**
      * @var string[]
      */
     protected $itemIds;
 
-    public function getId(): ?string
+    public function getCode(): ?string
     {
-        return $this->id;
+        return $this->code;
     }
 
-    public function setId(?string $id): self
+    public function setCode(?string $code): self
     {
-        $this->id = $id;
+        $this->code = $code;
 
         return $this;
     }

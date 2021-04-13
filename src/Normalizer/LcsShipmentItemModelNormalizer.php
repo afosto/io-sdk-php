@@ -66,7 +66,7 @@ class LcsShipmentItemModelNormalizer implements DenormalizerInterface, Normalize
         if (property_exists($data, 'references') && null !== $data->{'references'}) {
             $values_1 = [];
             foreach ($data->{'references'} as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\LcsShipmentItemModelReferencesItem', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\LcsShipmentItemModelReferences', 'json', $context);
             }
             $object->setReferences($values_1);
         }

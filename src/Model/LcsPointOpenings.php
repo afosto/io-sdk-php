@@ -10,14 +10,14 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class LcsPointOpeningsItem
+class LcsPointOpenings
 {
     /**
      * @var float
      */
     protected $weekday;
     /**
-     * @var LcsPointOpeningsItemWindowsItem[]
+     * @var LcsPointOpeningsWindows[]
      */
     protected $windows;
 
@@ -34,7 +34,7 @@ class LcsPointOpeningsItem
     }
 
     /**
-     * @return LcsPointOpeningsItemWindowsItem[]|null
+     * @return LcsPointOpeningsWindows[]|null
      */
     public function getWindows(): ?array
     {
@@ -42,7 +42,7 @@ class LcsPointOpeningsItem
     }
 
     /**
-     * @param LcsPointOpeningsItemWindowsItem[]|null $windows
+     * @param LcsPointOpeningsWindows[]|null $windows
      */
     public function setWindows(?array $windows): self
     {

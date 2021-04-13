@@ -33,19 +33,19 @@ class LcsGroupedShipmentItem
      */
     protected $description;
     /**
-     * @var LcsGroupedShipmentItemReferencesItem[]
+     * @var LcsShipmentItemModelReferences[]
      */
     protected $references;
     /**
-     * @var LcsGroupedShipmentItemListsItem[]
+     * @var LcsGroupedShipmentItemLists[]
      */
     protected $lists;
     /**
-     * @var LcsGroupedShipmentItemParcelsItem[]
+     * @var LcsGroupedShipmentItemLists[]
      */
     protected $parcels;
     /**
-     * @var LcsGroupedShipmentItemPositionsItem[]
+     * @var LcsGroupedShipmentItemPositions[]
      */
     protected $positions;
     /**
@@ -144,7 +144,7 @@ class LcsGroupedShipmentItem
     }
 
     /**
-     * @return LcsGroupedShipmentItemReferencesItem[]|null
+     * @return LcsShipmentItemModelReferences[]|null
      */
     public function getReferences(): ?array
     {
@@ -152,7 +152,7 @@ class LcsGroupedShipmentItem
     }
 
     /**
-     * @param LcsGroupedShipmentItemReferencesItem[]|null $references
+     * @param LcsShipmentItemModelReferences[]|null $references
      */
     public function setReferences(?array $references): self
     {
@@ -162,7 +162,7 @@ class LcsGroupedShipmentItem
     }
 
     /**
-     * @return LcsGroupedShipmentItemListsItem[]|null
+     * @return LcsGroupedShipmentItemLists[]|null
      */
     public function getLists(): ?array
     {
@@ -170,7 +170,7 @@ class LcsGroupedShipmentItem
     }
 
     /**
-     * @param LcsGroupedShipmentItemListsItem[]|null $lists
+     * @param LcsGroupedShipmentItemLists[]|null $lists
      */
     public function setLists(?array $lists): self
     {
@@ -180,7 +180,7 @@ class LcsGroupedShipmentItem
     }
 
     /**
-     * @return LcsGroupedShipmentItemParcelsItem[]|null
+     * @return LcsGroupedShipmentItemLists[]|null
      */
     public function getParcels(): ?array
     {
@@ -188,7 +188,7 @@ class LcsGroupedShipmentItem
     }
 
     /**
-     * @param LcsGroupedShipmentItemParcelsItem[]|null $parcels
+     * @param LcsGroupedShipmentItemLists[]|null $parcels
      */
     public function setParcels(?array $parcels): self
     {
@@ -198,7 +198,7 @@ class LcsGroupedShipmentItem
     }
 
     /**
-     * @return LcsGroupedShipmentItemPositionsItem[]|null
+     * @return LcsGroupedShipmentItemPositions[]|null
      */
     public function getPositions(): ?array
     {
@@ -206,7 +206,7 @@ class LcsGroupedShipmentItem
     }
 
     /**
-     * @param LcsGroupedShipmentItemPositionsItem[]|null $positions
+     * @param LcsGroupedShipmentItemPositions[]|null $positions
      */
     public function setPositions(?array $positions): self
     {

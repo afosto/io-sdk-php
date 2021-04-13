@@ -39,7 +39,7 @@ class LcsShipmentModelNormalizer implements DenormalizerInterface, NormalizerInt
         }
         $object = new \Afosto\Sdk\Model\LcsShipmentModel();
         if (property_exists($data, 'addressing') && null !== $data->{'addressing'}) {
-            $object->setAddressing($this->denormalizer->denormalize($data->{'addressing'}, 'Afosto\\Sdk\\Model\\LcsShipmentModelAddressing', 'json', $context));
+            $object->setAddressing($this->denormalizer->denormalize($data->{'addressing'}, 'Afosto\\Sdk\\Model\\LcsShipmentUpdateModelAddressing', 'json', $context));
         }
         if (property_exists($data, 'is_outbound') && null !== $data->{'is_outbound'}) {
             $object->setIsOutbound($data->{'is_outbound'});
