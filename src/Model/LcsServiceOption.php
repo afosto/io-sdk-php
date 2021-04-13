@@ -17,7 +17,7 @@ class LcsServiceOption
      */
     protected $option;
     /**
-     * @var LcsServiceOptionConfigurationItem[]
+     * @var LcsServiceOptionConfiguration[]
      */
     protected $configuration;
 
@@ -34,7 +34,7 @@ class LcsServiceOption
     }
 
     /**
-     * @return LcsServiceOptionConfigurationItem[]|null
+     * @return LcsServiceOptionConfiguration[]|null
      */
     public function getConfiguration(): ?array
     {
@@ -42,7 +42,7 @@ class LcsServiceOption
     }
 
     /**
-     * @param LcsServiceOptionConfigurationItem[]|null $configuration
+     * @param LcsServiceOptionConfiguration[]|null $configuration
      */
     public function setConfiguration(?array $configuration): self
     {

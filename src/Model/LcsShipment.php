@@ -37,7 +37,7 @@ class LcsShipment
      */
     protected $orderId;
     /**
-     * @var LcsShipmentAddressing
+     * @var LcsListedShipmentAddressing
      */
     protected $addressing;
     /**
@@ -203,12 +203,12 @@ class LcsShipment
         return $this;
     }
 
-    public function getAddressing(): ?LcsShipmentAddressing
+    public function getAddressing(): ?LcsListedShipmentAddressing
     {
         return $this->addressing;
     }
 
-    public function setAddressing(?LcsShipmentAddressing $addressing): self
+    public function setAddressing(?LcsListedShipmentAddressing $addressing): self
     {
         $this->addressing = $addressing;
 

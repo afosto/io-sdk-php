@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsShipmentModelAddressingNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LcsPointOpeningsWindowsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsShipmentModelAddressing' === $type;
+        return 'Afosto\\Sdk\\Model\\LcsPointOpeningsWindows' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsShipmentModelAddressing' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsPointOpeningsWindows' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,12 @@ class LcsShipmentModelAddressingNormalizer implements DenormalizerInterface, Nor
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsShipmentModelAddressing();
-        if (property_exists($data, 'to') && null !== $data->{'to'}) {
-            $object->setTo($this->denormalizer->denormalize($data->{'to'}, 'Afosto\\Sdk\\Model\\LcsShipmentAddressing', 'json', $context));
+        $object = new \Afosto\Sdk\Model\LcsPointOpeningsWindows();
+        if (property_exists($data, 'start') && null !== $data->{'start'}) {
+            $object->setStart($data->{'start'});
         }
-        if (property_exists($data, 'from') && null !== $data->{'from'}) {
-            $object->setFrom($this->denormalizer->denormalize($data->{'from'}, 'Afosto\\Sdk\\Model\\LcsShipmentAddressing', 'json', $context));
+        if (property_exists($data, 'end') && null !== $data->{'end'}) {
+            $object->setEnd($data->{'end'});
         }
 
         return $object;
@@ -51,11 +51,11 @@ class LcsShipmentModelAddressingNormalizer implements DenormalizerInterface, Nor
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getTo()) {
-            $data->{'to'} = $this->normalizer->normalize($object->getTo(), 'json', $context);
+        if (null !== $object->getStart()) {
+            $data->{'start'} = $object->getStart();
         }
-        if (null !== $object->getFrom()) {
-            $data->{'from'} = $this->normalizer->normalize($object->getFrom(), 'json', $context);
+        if (null !== $object->getEnd()) {
+            $data->{'end'} = $object->getEnd();
         }
 
         return $data;

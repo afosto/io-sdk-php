@@ -44,7 +44,7 @@ class LcsServiceOptionNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'configuration') && null !== $data->{'configuration'}) {
             $values = [];
             foreach ($data->{'configuration'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsServiceOptionConfigurationItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsServiceOptionConfiguration', 'json', $context);
             }
             $object->setConfiguration($values);
         }

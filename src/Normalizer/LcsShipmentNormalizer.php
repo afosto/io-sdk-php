@@ -57,7 +57,7 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
             $object->setOrderId($data->{'order_id'});
         }
         if (property_exists($data, 'addressing') && null !== $data->{'addressing'}) {
-            $object->setAddressing($this->denormalizer->denormalize($data->{'addressing'}, 'Afosto\\Sdk\\Model\\LcsShipmentAddressing', 'json', $context));
+            $object->setAddressing($this->denormalizer->denormalize($data->{'addressing'}, 'Afosto\\Sdk\\Model\\LcsListedShipmentAddressing', 'json', $context));
         }
         if (property_exists($data, 'ship_at') && null !== $data->{'ship_at'}) {
             $object->setShipAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'ship_at'}));

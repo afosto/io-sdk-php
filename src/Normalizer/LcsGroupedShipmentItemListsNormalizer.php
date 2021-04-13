@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsGroupedShipmentItemPositionsItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LcsGroupedShipmentItemListsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemPositionsItem' === $type;
+        return 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemLists' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemPositionsItem' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemLists' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,9 +37,9 @@ class LcsGroupedShipmentItemPositionsItemNormalizer implements DenormalizerInter
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsGroupedShipmentItemPositionsItem();
-        if (property_exists($data, 'code') && null !== $data->{'code'}) {
-            $object->setCode($data->{'code'});
+        $object = new \Afosto\Sdk\Model\LcsGroupedShipmentItemLists();
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
+            $object->setId($data->{'id'});
         }
         if (property_exists($data, 'item_ids') && null !== $data->{'item_ids'}) {
             $values = [];
@@ -55,8 +55,8 @@ class LcsGroupedShipmentItemPositionsItemNormalizer implements DenormalizerInter
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getCode()) {
-            $data->{'code'} = $object->getCode();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
         }
         if (null !== $object->getItemIds()) {
             $values = [];

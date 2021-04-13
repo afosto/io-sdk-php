@@ -10,25 +10,25 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class LcsHandlingListSortingLabelsItem
+class LcsHandlingModelShipments
 {
     /**
      * @var string
      */
-    protected $shipmentId;
+    protected $id;
     /**
      * @var string
      */
     protected $label;
 
-    public function getShipmentId(): ?string
+    public function getId(): ?string
     {
-        return $this->shipmentId;
+        return $this->id;
     }
 
-    public function setShipmentId(?string $shipmentId): self
+    public function setId(?string $id): self
     {
-        $this->shipmentId = $shipmentId;
+        $this->id = $id;
 
         return $this;
     }

@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class LcsHandlingListSortingLabelsItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class LcsGroupedShipmentItemPositionsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\LcsHandlingListSortingLabelsItem' === $type;
+        return 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemPositions' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsHandlingListSortingLabelsItem' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\LcsGroupedShipmentItemPositions' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,12 +37,16 @@ class LcsHandlingListSortingLabelsItemNormalizer implements DenormalizerInterfac
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\LcsHandlingListSortingLabelsItem();
-        if (property_exists($data, 'shipment_id') && null !== $data->{'shipment_id'}) {
-            $object->setShipmentId($data->{'shipment_id'});
+        $object = new \Afosto\Sdk\Model\LcsGroupedShipmentItemPositions();
+        if (property_exists($data, 'code') && null !== $data->{'code'}) {
+            $object->setCode($data->{'code'});
         }
-        if (property_exists($data, 'label') && null !== $data->{'label'}) {
-            $object->setLabel($data->{'label'});
+        if (property_exists($data, 'item_ids') && null !== $data->{'item_ids'}) {
+            $values = [];
+            foreach ($data->{'item_ids'} as $value) {
+                $values[] = $value;
+            }
+            $object->setItemIds($values);
         }
 
         return $object;
@@ -51,11 +55,15 @@ class LcsHandlingListSortingLabelsItemNormalizer implements DenormalizerInterfac
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getShipmentId()) {
-            $data->{'shipment_id'} = $object->getShipmentId();
+        if (null !== $object->getCode()) {
+            $data->{'code'} = $object->getCode();
         }
-        if (null !== $object->getLabel()) {
-            $data->{'label'} = $object->getLabel();
+        if (null !== $object->getItemIds()) {
+            $values = [];
+            foreach ($object->getItemIds() as $value) {
+                $values[] = $value;
+            }
+            $data->{'item_ids'} = $values;
         }
 
         return $data;

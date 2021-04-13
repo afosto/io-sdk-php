@@ -41,7 +41,7 @@ class LcsHandlingModelNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'shipments') && null !== $data->{'shipments'}) {
             $values = [];
             foreach ($data->{'shipments'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsHandlingModelShipmentsItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\LcsHandlingModelShipments', 'json', $context);
             }
             $object->setShipments($values);
         }

@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Model;
 class LcsShipmentModel
 {
     /**
-     * @var LcsShipmentModelAddressing
+     * @var LcsShipmentUpdateModelAddressing
      */
     protected $addressing;
     /**
@@ -65,12 +65,12 @@ class LcsShipmentModel
      */
     protected $priorShipments;
 
-    public function getAddressing(): ?LcsShipmentModelAddressing
+    public function getAddressing(): ?LcsShipmentUpdateModelAddressing
     {
         return $this->addressing;
     }
 
-    public function setAddressing(?LcsShipmentModelAddressing $addressing): self
+    public function setAddressing(?LcsShipmentUpdateModelAddressing $addressing): self
     {
         $this->addressing = $addressing;
 
