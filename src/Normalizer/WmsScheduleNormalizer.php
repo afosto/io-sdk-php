@@ -50,6 +50,9 @@ class WmsScheduleNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'duration') && null !== $data->{'duration'}) {
             $object->setDuration($data->{'duration'});
         }
+        if (property_exists($data, 'timezone') && null !== $data->{'timezone'}) {
+            $object->setTimezone($data->{'timezone'});
+        }
         if (property_exists($data, 'available_weekdays') && null !== $data->{'available_weekdays'}) {
             $values = [];
             foreach ($data->{'available_weekdays'} as $value) {
@@ -82,6 +85,9 @@ class WmsScheduleNormalizer implements DenormalizerInterface, NormalizerInterfac
         }
         if (null !== $object->getDuration()) {
             $data->{'duration'} = $object->getDuration();
+        }
+        if (null !== $object->getTimezone()) {
+            $data->{'timezone'} = $object->getTimezone();
         }
         if (null !== $object->getAvailableWeekdays()) {
             $values = [];

@@ -60,6 +60,9 @@ class MesInboxNormalizer implements DenormalizerInterface, NormalizerInterface, 
             }
             $object->setFolders($values);
         }
+        if (property_exists($data, 'settings') && null !== $data->{'settings'}) {
+            $object->setSettings($this->denormalizer->denormalize($data->{'settings'}, 'Afosto\\Sdk\\Model\\MesInboxSettings', 'json', $context));
+        }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
@@ -94,6 +97,9 @@ class MesInboxNormalizer implements DenormalizerInterface, NormalizerInterface, 
                 $values[] = $value;
             }
             $data->{'folders'} = $values;
+        }
+        if (null !== $object->getSettings()) {
+            $data->{'settings'} = $this->normalizer->normalize($object->getSettings(), 'json', $context);
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

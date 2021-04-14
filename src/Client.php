@@ -1484,6 +1484,26 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Adds a new email, unauthenticated endpoint, spam protection using recaptcha.
+     *
+     * @param \Afosto\Sdk\Model\MesFormMailModel $body  Mail object
+     * @param string                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SubmitFormsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SubmitFormsNotFoundException
+     * @throws \Afosto\Sdk\Exception\SubmitFormsBadRequestException
+     * @throws \Afosto\Sdk\Exception\SubmitFormsForbiddenException
+     * @throws \Afosto\Sdk\Exception\SubmitFormsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SubmitFormsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\MesMail|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function submitForms(\Afosto\Sdk\Model\MesFormMailModel $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SubmitForms($body), $fetch);
+    }
+
+    /**
      * Returns a cost projection.
      *
      * @param array $queryParameters {
@@ -2417,6 +2437,66 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     public function getLines(string $id, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetLines($id, $headerParameters), $fetch);
+    }
+
+    /**
+     * Query audit and system logs.
+     *
+     * @param \Afosto\Sdk\Model\IamQuery $body  Log object
+     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\QueryLogsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\QueryLogsNotFoundException
+     * @throws \Afosto\Sdk\Exception\QueryLogsBadRequestException
+     * @throws \Afosto\Sdk\Exception\QueryLogsForbiddenException
+     * @throws \Afosto\Sdk\Exception\QueryLogsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\QueryLogsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\IamLog[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function queryLogs(\Afosto\Sdk\Model\IamQuery $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\QueryLogs($body), $fetch);
+    }
+
+    /**
+     * Tail logs based on server send events.
+     *
+     * @param \Afosto\Sdk\Model\IamQuery $body  Log object
+     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\TailLogsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\TailLogsNotFoundException
+     * @throws \Afosto\Sdk\Exception\TailLogsBadRequestException
+     * @throws \Afosto\Sdk\Exception\TailLogsForbiddenException
+     * @throws \Afosto\Sdk\Exception\TailLogsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\TailLogsServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function tailLogs(\Afosto\Sdk\Model\IamQuery $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\TailLogs($body), $fetch);
+    }
+
+    /**
+     * Export audit and system logs.
+     *
+     * @param \Afosto\Sdk\Model\IamQuery $body  Log object
+     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ExportLogsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ExportLogsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ExportLogsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ExportLogsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ExportLogsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ExportLogsServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function exportLogs(\Afosto\Sdk\Model\IamQuery $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ExportLogs($body), $fetch);
     }
 
     /**
@@ -4004,7 +4084,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListAuditLogInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListAuditLogServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\IamLog[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\IamAuditLog[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listAuditLog(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {

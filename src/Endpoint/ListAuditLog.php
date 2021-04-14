@@ -93,12 +93,12 @@ class ListAuditLog extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * @throws \Afosto\Sdk\Exception\ListAuditLogInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListAuditLogServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\IamLog[]|null
+     * @return \Afosto\Sdk\Model\IamAuditLog[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamLog[]', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\IamAuditLog[]', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\ListAuditLogUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

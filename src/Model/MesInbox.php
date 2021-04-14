@@ -37,6 +37,10 @@ class MesInbox
      */
     protected $folders;
     /**
+     * @var MesInboxSettings
+     */
+    protected $settings;
+    /**
      * @var \DateTime
      */
     protected $createdAt;
@@ -119,6 +123,18 @@ class MesInbox
     public function setFolders(?array $folders): self
     {
         $this->folders = $folders;
+
+        return $this;
+    }
+
+    public function getSettings(): ?MesInboxSettings
+    {
+        return $this->settings;
+    }
+
+    public function setSettings(?MesInboxSettings $settings): self
+    {
+        $this->settings = $settings;
 
         return $this;
     }

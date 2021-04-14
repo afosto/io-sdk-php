@@ -17,17 +17,21 @@ class WmsCreateScheduleRequest
      */
     protected $name;
     /**
-     * UTC timestamp.
+     * timestamp for the given timezone.
      *
      * @var string
      */
     protected $lastCall;
     /**
-     * UTC timestamp.
+     * timestamp for the given timezone.
      *
      * @var string
      */
     protected $arrival;
+    /**
+     * @var string
+     */
+    protected $timezone;
     /**
      * @var int
      */
@@ -56,7 +60,7 @@ class WmsCreateScheduleRequest
     }
 
     /**
-     * UTC timestamp.
+     * timestamp for the given timezone.
      */
     public function getLastCall(): ?string
     {
@@ -64,7 +68,7 @@ class WmsCreateScheduleRequest
     }
 
     /**
-     * UTC timestamp.
+     * timestamp for the given timezone.
      */
     public function setLastCall(?string $lastCall): self
     {
@@ -74,7 +78,7 @@ class WmsCreateScheduleRequest
     }
 
     /**
-     * UTC timestamp.
+     * timestamp for the given timezone.
      */
     public function getArrival(): ?string
     {
@@ -82,11 +86,23 @@ class WmsCreateScheduleRequest
     }
 
     /**
-     * UTC timestamp.
+     * timestamp for the given timezone.
      */
     public function setArrival(?string $arrival): self
     {
         $this->arrival = $arrival;
+
+        return $this;
+    }
+
+    public function getTimezone(): ?string
+    {
+        return $this->timezone;
+    }
+
+    public function setTimezone(?string $timezone): self
+    {
+        $this->timezone = $timezone;
 
         return $this;
     }

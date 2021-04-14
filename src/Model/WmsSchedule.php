@@ -17,21 +17,27 @@ class WmsSchedule
      */
     protected $id;
     /**
-     * UTC timestamp.
+     * timestamp for the given timezone.
      *
      * @var string
      */
     protected $lastCall;
     /**
-     * UTC timestamp.
+     * timestamp for the given timezone.
      *
      * @var string
      */
     protected $arrival;
     /**
+     * the amount of days it takes to arive at its destination.
+     *
      * @var int
      */
     protected $duration;
+    /**
+     * @var string
+     */
+    protected $timezone;
     /**
      * A Weekday specifies a day of the week (Sunday = 0, ...).
      *
@@ -56,7 +62,7 @@ class WmsSchedule
     }
 
     /**
-     * UTC timestamp.
+     * timestamp for the given timezone.
      */
     public function getLastCall(): ?string
     {
@@ -64,7 +70,7 @@ class WmsSchedule
     }
 
     /**
-     * UTC timestamp.
+     * timestamp for the given timezone.
      */
     public function setLastCall(?string $lastCall): self
     {
@@ -74,7 +80,7 @@ class WmsSchedule
     }
 
     /**
-     * UTC timestamp.
+     * timestamp for the given timezone.
      */
     public function getArrival(): ?string
     {
@@ -82,7 +88,7 @@ class WmsSchedule
     }
 
     /**
-     * UTC timestamp.
+     * timestamp for the given timezone.
      */
     public function setArrival(?string $arrival): self
     {
@@ -91,14 +97,32 @@ class WmsSchedule
         return $this;
     }
 
+    /**
+     * the amount of days it takes to arive at its destination.
+     */
     public function getDuration(): ?int
     {
         return $this->duration;
     }
 
+    /**
+     * the amount of days it takes to arive at its destination.
+     */
     public function setDuration(?int $duration): self
     {
         $this->duration = $duration;
+
+        return $this;
+    }
+
+    public function getTimezone(): ?string
+    {
+        return $this->timezone;
+    }
+
+    public function setTimezone(?string $timezone): self
+    {
+        $this->timezone = $timezone;
 
         return $this;
     }

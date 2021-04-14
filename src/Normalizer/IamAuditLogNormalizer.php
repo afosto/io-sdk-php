@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class IamLogNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class IamAuditLogNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\IamLog' === $type;
+        return 'Afosto\\Sdk\\Model\\IamAuditLog' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\IamLog' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\IamAuditLog' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,27 +37,24 @@ class IamLogNormalizer implements DenormalizerInterface, NormalizerInterface, De
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\IamLog();
+        $object = new \Afosto\Sdk\Model\IamAuditLog();
         if (property_exists($data, 'id') && null !== $data->{'id'}) {
             $object->setId($data->{'id'});
         }
-        if (property_exists($data, 'category') && null !== $data->{'category'}) {
-            $object->setCategory($data->{'category'});
-        }
-        if (property_exists($data, 'code') && null !== $data->{'code'}) {
-            $object->setCode($data->{'code'});
+        if (property_exists($data, 'method') && null !== $data->{'method'}) {
+            $object->setMethod($data->{'method'});
         }
         if (property_exists($data, 'resource') && null !== $data->{'resource'}) {
-            $object->setResource($this->denormalizer->denormalize($data->{'resource'}, 'Afosto\\Sdk\\Model\\IamLogResource', 'json', $context));
+            $object->setResource($data->{'resource'});
         }
-        if (property_exists($data, 'actor') && null !== $data->{'actor'}) {
-            $object->setActor($this->denormalizer->denormalize($data->{'actor'}, 'Afosto\\Sdk\\Model\\IamLogActor', 'json', $context));
+        if (property_exists($data, 'user') && null !== $data->{'user'}) {
+            $object->setUser($data->{'user'});
         }
         if (property_exists($data, 'metadata') && null !== $data->{'metadata'}) {
             $object->setMetadata($data->{'metadata'});
         }
-        if (property_exists($data, 'processed_at') && null !== $data->{'processed_at'}) {
-            $object->setProcessedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'processed_at'}));
+        if (property_exists($data, 'logged_at') && null !== $data->{'logged_at'}) {
+            $object->setLoggedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'logged_at'}));
         }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -72,23 +69,20 @@ class IamLogNormalizer implements DenormalizerInterface, NormalizerInterface, De
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
         }
-        if (null !== $object->getCategory()) {
-            $data->{'category'} = $object->getCategory();
-        }
-        if (null !== $object->getCode()) {
-            $data->{'code'} = $object->getCode();
+        if (null !== $object->getMethod()) {
+            $data->{'method'} = $object->getMethod();
         }
         if (null !== $object->getResource()) {
-            $data->{'resource'} = $this->normalizer->normalize($object->getResource(), 'json', $context);
+            $data->{'resource'} = $object->getResource();
         }
-        if (null !== $object->getActor()) {
-            $data->{'actor'} = $this->normalizer->normalize($object->getActor(), 'json', $context);
+        if (null !== $object->getUser()) {
+            $data->{'user'} = $object->getUser();
         }
         if (null !== $object->getMetadata()) {
             $data->{'metadata'} = $object->getMetadata();
         }
-        if (null !== $object->getProcessedAt()) {
-            $data->{'processed_at'} = $object->getProcessedAt()->format("Y-m-d\TH:i:sP");
+        if (null !== $object->getLoggedAt()) {
+            $data->{'logged_at'} = $object->getLoggedAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

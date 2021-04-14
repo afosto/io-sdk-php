@@ -50,6 +50,9 @@ class WmsUpdateScheduleRequestNormalizer implements DenormalizerInterface, Norma
         if (property_exists($data, 'arrival') && null !== $data->{'arrival'}) {
             $object->setArrival($data->{'arrival'});
         }
+        if (property_exists($data, 'timezone') && null !== $data->{'timezone'}) {
+            $object->setTimezone($data->{'timezone'});
+        }
         if (property_exists($data, 'duration') && null !== $data->{'duration'}) {
             $object->setDuration($data->{'duration'});
         }
@@ -85,6 +88,9 @@ class WmsUpdateScheduleRequestNormalizer implements DenormalizerInterface, Norma
         }
         if (null !== $object->getArrival()) {
             $data->{'arrival'} = $object->getArrival();
+        }
+        if (null !== $object->getTimezone()) {
+            $data->{'timezone'} = $object->getTimezone();
         }
         if (null !== $object->getDuration()) {
             $data->{'duration'} = $object->getDuration();

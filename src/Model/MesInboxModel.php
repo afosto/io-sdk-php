@@ -30,6 +30,10 @@ class MesInboxModel
      * @var string
      */
     protected $userId;
+    /**
+     * @var MesInboxSettings
+     */
+    protected $settings;
 
     public function getLabel(): ?string
     {
@@ -81,6 +85,18 @@ class MesInboxModel
     public function setUserId(?string $userId): self
     {
         $this->userId = $userId;
+
+        return $this;
+    }
+
+    public function getSettings(): ?MesInboxSettings
+    {
+        return $this->settings;
+    }
+
+    public function setSettings(?MesInboxSettings $settings): self
+    {
+        $this->settings = $settings;
 
         return $this;
     }

@@ -113,10 +113,12 @@ class NormalizerFactory
         $normalizers[] = new IntIntegrationModelNormalizer();
         $normalizers[] = new IntInstallResultNormalizer();
         $normalizers[] = new MesMailModelNormalizer();
+        $normalizers[] = new MesFormMailModelNormalizer();
         $normalizers[] = new MesContactModelNormalizer();
         $normalizers[] = new MesMailNormalizer();
         $normalizers[] = new MesInboxNormalizer();
         $normalizers[] = new MesInboxModelNormalizer();
+        $normalizers[] = new MesInboxSettingsNormalizer();
         $normalizers[] = new MesInboxUpdateModelNormalizer();
         $normalizers[] = new MesDnsRecordNormalizer();
         $normalizers[] = new MesDomainNormalizer();
@@ -181,6 +183,11 @@ class NormalizerFactory
         $normalizers[] = new CntBatchFileNormalizer();
         $normalizers[] = new CntLineErrorNormalizer();
         $normalizers[] = new CntColumnErrorNormalizer();
+        $normalizers[] = new IamLogNormalizer();
+        $normalizers[] = new IamLogResourceNormalizer();
+        $normalizers[] = new IamLogActorNormalizer();
+        $normalizers[] = new IamQueryNormalizer();
+        $normalizers[] = new IamQueryConstraintNormalizer();
         $normalizers[] = new CatMapCollectionNormalizer();
         $normalizers[] = new CatMapCollectionMissNormalizer();
         $normalizers[] = new CatMapNormalizer();
@@ -251,7 +258,7 @@ class NormalizerFactory
         $normalizers[] = new SplHubImageNormalizer();
         $normalizers[] = new SplNetworkDeviceNormalizer();
         $normalizers[] = new SplCreateNetworkDeviceNormalizer();
-        $normalizers[] = new IamLogNormalizer();
+        $normalizers[] = new IamAuditLogNormalizer();
         $normalizers[] = new CntDataflowTypeNormalizer();
         $normalizers[] = new CntDataflowNormalizer();
         $normalizers[] = new CntDataflowTriggerNormalizer();

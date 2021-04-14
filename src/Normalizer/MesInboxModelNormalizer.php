@@ -50,6 +50,9 @@ class MesInboxModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (property_exists($data, 'user_id') && null !== $data->{'user_id'}) {
             $object->setUserId($data->{'user_id'});
         }
+        if (property_exists($data, 'settings') && null !== $data->{'settings'}) {
+            $object->setSettings($this->denormalizer->denormalize($data->{'settings'}, 'Afosto\\Sdk\\Model\\MesInboxSettings', 'json', $context));
+        }
 
         return $object;
     }
@@ -68,6 +71,9 @@ class MesInboxModelNormalizer implements DenormalizerInterface, NormalizerInterf
         }
         if (null !== $object->getUserId()) {
             $data->{'user_id'} = $object->getUserId();
+        }
+        if (null !== $object->getSettings()) {
+            $data->{'settings'} = $this->normalizer->normalize($object->getSettings(), 'json', $context);
         }
 
         return $data;

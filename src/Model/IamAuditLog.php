@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class IamLog
+class IamAuditLog
 {
     /**
      * @var string
@@ -19,21 +19,15 @@ class IamLog
     /**
      * @var string
      */
-    protected $category;
+    protected $method;
     /**
-     * order.confirmed for AUDIT, E44532543 for ERROR, http statuscode for REQUEST.
-     *
      * @var string
-     */
-    protected $code;
-    /**
-     * @var IamLogResource
      */
     protected $resource;
     /**
-     * @var IamLogActor
+     * @var string
      */
-    protected $actor;
+    protected $user;
     /**
      * @var mixed
      */
@@ -41,7 +35,7 @@ class IamLog
     /**
      * @var \DateTime
      */
-    protected $processedAt;
+    protected $loggedAt;
     /**
      * @var \DateTime
      */
@@ -59,56 +53,38 @@ class IamLog
         return $this;
     }
 
-    public function getCategory(): ?string
+    public function getMethod(): ?string
     {
-        return $this->category;
+        return $this->method;
     }
 
-    public function setCategory(?string $category): self
+    public function setMethod(?string $method): self
     {
-        $this->category = $category;
+        $this->method = $method;
 
         return $this;
     }
 
-    /**
-     * order.confirmed for AUDIT, E44532543 for ERROR, http statuscode for REQUEST.
-     */
-    public function getCode(): ?string
-    {
-        return $this->code;
-    }
-
-    /**
-     * order.confirmed for AUDIT, E44532543 for ERROR, http statuscode for REQUEST.
-     */
-    public function setCode(?string $code): self
-    {
-        $this->code = $code;
-
-        return $this;
-    }
-
-    public function getResource(): ?IamLogResource
+    public function getResource(): ?string
     {
         return $this->resource;
     }
 
-    public function setResource(?IamLogResource $resource): self
+    public function setResource(?string $resource): self
     {
         $this->resource = $resource;
 
         return $this;
     }
 
-    public function getActor(): ?IamLogActor
+    public function getUser(): ?string
     {
-        return $this->actor;
+        return $this->user;
     }
 
-    public function setActor(?IamLogActor $actor): self
+    public function setUser(?string $user): self
     {
-        $this->actor = $actor;
+        $this->user = $user;
 
         return $this;
     }
@@ -131,14 +107,14 @@ class IamLog
         return $this;
     }
 
-    public function getProcessedAt(): ?\DateTime
+    public function getLoggedAt(): ?\DateTime
     {
-        return $this->processedAt;
+        return $this->loggedAt;
     }
 
-    public function setProcessedAt(?\DateTime $processedAt): self
+    public function setLoggedAt(?\DateTime $loggedAt): self
     {
-        $this->processedAt = $processedAt;
+        $this->loggedAt = $loggedAt;
 
         return $this;
     }
