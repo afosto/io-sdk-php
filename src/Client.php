@@ -2460,26 +2460,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Tail logs based on server send events.
-     *
-     * @param \Afosto\Sdk\Model\IamQuery $body  Log object
-     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\TailLogsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\TailLogsNotFoundException
-     * @throws \Afosto\Sdk\Exception\TailLogsBadRequestException
-     * @throws \Afosto\Sdk\Exception\TailLogsForbiddenException
-     * @throws \Afosto\Sdk\Exception\TailLogsInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\TailLogsServiceUnavailableException
-     *
-     * @return \Psr\Http\Message\ResponseInterface|null
-     */
-    public function tailLogs(\Afosto\Sdk\Model\IamQuery $body, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\TailLogs($body), $fetch);
-    }
-
-    /**
      * Export audit and system logs.
      *
      * @param \Afosto\Sdk\Model\IamQuery $body  Log object
