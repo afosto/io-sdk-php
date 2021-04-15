@@ -15,11 +15,17 @@ class QueryLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     /**
      * Query audit and system logs.
      *
-     * @param \Afosto\Sdk\Model\IamQuery $body Log object
+     * @param \Afosto\Sdk\Model\IamQuery $body             Log object
+     * @param array                      $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
      */
-    public function __construct(\Afosto\Sdk\Model\IamQuery $body)
+    public function __construct(\Afosto\Sdk\Model\IamQuery $body, array $headerParameters = [])
     {
         $this->body = $body;
+        $this->headerParameters = $headerParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -42,6 +48,18 @@ class QueryLogs extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jan
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['x-page', 'x-page-size']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['x-page' => '1', 'x-page-size' => '25']);
+        $optionsResolver->setAllowedTypes('x-page', ['string']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
+
+        return $optionsResolver;
     }
 
     /**

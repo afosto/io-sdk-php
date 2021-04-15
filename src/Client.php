@@ -2442,8 +2442,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Query audit and system logs.
      *
-     * @param \Afosto\Sdk\Model\IamQuery $body  Log object
-     * @param string                     $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\IamQuery $body             Log object
+     * @param array                      $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\QueryLogsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\QueryLogsNotFoundException
@@ -2454,9 +2460,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\IamLog[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function queryLogs(\Afosto\Sdk\Model\IamQuery $body, string $fetch = self::FETCH_OBJECT)
+    public function queryLogs(\Afosto\Sdk\Model\IamQuery $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\QueryLogs($body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\QueryLogs($body, $headerParameters), $fetch);
     }
 
     /**
