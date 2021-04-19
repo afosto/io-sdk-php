@@ -4256,25 +4256,6 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Get logs of a dataflow.
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\GetDataflowLogsBadRequestException
-     * @throws \Afosto\Sdk\Exception\GetDataflowLogsUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\GetDataflowLogsForbiddenException
-     * @throws \Afosto\Sdk\Exception\GetDataflowLogsNotFoundException
-     * @throws \Afosto\Sdk\Exception\GetDataflowLogsInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\GetDataflowLogsServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\CntDataflowLog[]|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function getDataflowLogs(string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetDataflowLogs($id), $fetch);
-    }
-
-    /**
      * Multi data loader.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
