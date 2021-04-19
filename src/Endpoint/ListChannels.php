@@ -68,12 +68,12 @@ class ListChannels extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * @throws \Afosto\Sdk\Exception\ListChannelsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListChannelsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\CatChannel|null
+     * @return \Afosto\Sdk\Model\CatChannel[]|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\CatChannel', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\CatChannel[]', 'json');
         }
         if (400 === $status) {
             throw new \Afosto\Sdk\Exception\ListChannelsBadRequestException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

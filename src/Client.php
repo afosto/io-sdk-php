@@ -8474,7 +8474,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ListChannelsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ListChannelsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\CatChannel|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\CatChannel[]|\Psr\Http\Message\ResponseInterface|null
      */
     public function listChannels(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
