@@ -61,7 +61,7 @@ class OdrGroupAttachNormalizer implements DenormalizerInterface, NormalizerInter
             $object->setIds($values);
         }
         if (property_exists($data, 'references') && null !== $data->{'references'}) {
-            $object->setReferences($this->denormalizer->denormalize($data->{'references'}, 'Afosto\\Sdk\\Model\\OdrGroupAttachReferences', 'json', $context));
+            $object->setReferences($this->denormalizer->denormalize($data->{'references'}, 'Afosto\\Sdk\\Model\\OdrGroupRouteReferences', 'json', $context));
         }
         if (property_exists($data, 'filters') && null !== $data->{'filters'}) {
             $values_1 = [];

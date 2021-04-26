@@ -16,6 +16,8 @@ class AttachWarehouseItems extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
 
     /**
      * set the warehouse item on a product.
+     *
+     * @param \Afosto\Sdk\Model\OdrAttachWarehouseItemsRequest[] $body
      */
     public function __construct(string $id, array $body)
     {

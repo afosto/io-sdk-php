@@ -44,6 +44,9 @@ class OdrCalculationsNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'number') && null !== $data->{'number'}) {
             $object->setNumber($data->{'number'});
         }
+        if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
+            $object->setReference($data->{'reference'});
+        }
         if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
             foreach ($data->{'items'} as $value) {
@@ -78,6 +81,9 @@ class OdrCalculationsNormalizer implements DenormalizerInterface, NormalizerInte
             }
             $object->setVat($values_3);
         }
+        if (property_exists($data, 'settings') && null !== $data->{'settings'}) {
+            $object->setSettings($this->denormalizer->denormalize($data->{'settings'}, 'Afosto\\Sdk\\Model\\OdrOrderCalculationSettings', 'json', $context));
+        }
         if (property_exists($data, 'currency') && null !== $data->{'currency'}) {
             $object->setCurrency($data->{'currency'});
         }
@@ -93,17 +99,14 @@ class OdrCalculationsNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'is_vat_shifted') && null !== $data->{'is_vat_shifted'}) {
             $object->setIsVatShifted($data->{'is_vat_shifted'});
         }
-        if (property_exists($data, 'is_authorized') && null !== $data->{'is_authorized'}) {
-            $object->setIsAuthorized($data->{'is_authorized'});
-        }
-        if (property_exists($data, 'is_invoiced') && null !== $data->{'is_invoiced'}) {
-            $object->setIsInvoiced($data->{'is_invoiced'});
-        }
         if (property_exists($data, 'is_prepaid') && null !== $data->{'is_prepaid'}) {
             $object->setIsPrepaid($data->{'is_prepaid'});
         }
         if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
+        }
+        if (property_exists($data, 'channel_id') && null !== $data->{'channel_id'}) {
+            $object->setChannelId($data->{'channel_id'});
         }
         if (property_exists($data, 'file_id') && null !== $data->{'file_id'}) {
             $object->setFileId($data->{'file_id'});
@@ -113,6 +116,26 @@ class OdrCalculationsNormalizer implements DenormalizerInterface, NormalizerInte
         }
         if (property_exists($data, 'pricing_at') && null !== $data->{'pricing_at'}) {
             $object->setPricingAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'pricing_at'}));
+        }
+        if (property_exists($data, 'invoiced_at') && null !== $data->{'invoiced_at'}) {
+            $object->setInvoicedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'invoiced_at'}));
+        }
+        if (property_exists($data, 'prepaid_at') && null !== $data->{'prepaid_at'}) {
+            $object->setPrepaidAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'prepaid_at'}));
+        }
+        if (property_exists($data, 'order_ids') && null !== $data->{'order_ids'}) {
+            $values_4 = [];
+            foreach ($data->{'order_ids'} as $value_4) {
+                $values_4[] = $value_4;
+            }
+            $object->setOrderIds($values_4);
+        }
+        if (property_exists($data, 'coupons') && null !== $data->{'coupons'}) {
+            $values_5 = [];
+            foreach ($data->{'coupons'} as $value_5) {
+                $values_5[] = $value_5;
+            }
+            $object->setCoupons($values_5);
         }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
             $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
@@ -132,6 +155,9 @@ class OdrCalculationsNormalizer implements DenormalizerInterface, NormalizerInte
         }
         if (null !== $object->getNumber()) {
             $data->{'number'} = $object->getNumber();
+        }
+        if (null !== $object->getReference()) {
+            $data->{'reference'} = $object->getReference();
         }
         if (null !== $object->getItems()) {
             $values = [];
@@ -167,6 +193,9 @@ class OdrCalculationsNormalizer implements DenormalizerInterface, NormalizerInte
             }
             $data->{'vat'} = $values_3;
         }
+        if (null !== $object->getSettings()) {
+            $data->{'settings'} = $this->normalizer->normalize($object->getSettings(), 'json', $context);
+        }
         if (null !== $object->getCurrency()) {
             $data->{'currency'} = $object->getCurrency();
         }
@@ -182,17 +211,14 @@ class OdrCalculationsNormalizer implements DenormalizerInterface, NormalizerInte
         if (null !== $object->getIsVatShifted()) {
             $data->{'is_vat_shifted'} = $object->getIsVatShifted();
         }
-        if (null !== $object->getIsAuthorized()) {
-            $data->{'is_authorized'} = $object->getIsAuthorized();
-        }
-        if (null !== $object->getIsInvoiced()) {
-            $data->{'is_invoiced'} = $object->getIsInvoiced();
-        }
         if (null !== $object->getIsPrepaid()) {
             $data->{'is_prepaid'} = $object->getIsPrepaid();
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
+        }
+        if (null !== $object->getChannelId()) {
+            $data->{'channel_id'} = $object->getChannelId();
         }
         if (null !== $object->getFileId()) {
             $data->{'file_id'} = $object->getFileId();
@@ -202,6 +228,26 @@ class OdrCalculationsNormalizer implements DenormalizerInterface, NormalizerInte
         }
         if (null !== $object->getPricingAt()) {
             $data->{'pricing_at'} = $object->getPricingAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getInvoicedAt()) {
+            $data->{'invoiced_at'} = $object->getInvoicedAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getPrepaidAt()) {
+            $data->{'prepaid_at'} = $object->getPrepaidAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getOrderIds()) {
+            $values_4 = [];
+            foreach ($object->getOrderIds() as $value_4) {
+                $values_4[] = $value_4;
+            }
+            $data->{'order_ids'} = $values_4;
+        }
+        if (null !== $object->getCoupons()) {
+            $values_5 = [];
+            foreach ($object->getCoupons() as $value_5) {
+                $values_5[] = $value_5;
+            }
+            $data->{'coupons'} = $values_5;
         }
         if (null !== $object->getCreatedAt()) {
             $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");

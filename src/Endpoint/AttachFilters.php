@@ -54,12 +54,12 @@ class AttachFilters extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      * @throws \Afosto\Sdk\Exception\AttachFiltersInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\AttachFiltersServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrFiltersPutResponse200|null
+     * @return \Afosto\Sdk\Model\OdrAttachFiltersResponse|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrFiltersPutResponse200', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrAttachFiltersResponse', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\AttachFiltersUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

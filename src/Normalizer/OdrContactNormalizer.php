@@ -38,6 +38,13 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrContact();
+        if (property_exists($data, 'tags') && null !== $data->{'tags'}) {
+            $values = [];
+            foreach ($data->{'tags'} as $value) {
+                $values[] = $value;
+            }
+            $object->setTags($values);
+        }
         if (property_exists($data, 'vat_country_code') && null !== $data->{'vat_country_code'}) {
             $object->setVatCountryCode($data->{'vat_country_code'});
         }
@@ -51,6 +58,13 @@ class OdrContactNormalizer implements DenormalizerInterface, NormalizerInterface
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getTags()) {
+            $values = [];
+            foreach ($object->getTags() as $value) {
+                $values[] = $value;
+            }
+            $data->{'tags'} = $values;
+        }
         if (null !== $object->getVatCountryCode()) {
             $data->{'vat_country_code'} = $object->getVatCountryCode();
         }

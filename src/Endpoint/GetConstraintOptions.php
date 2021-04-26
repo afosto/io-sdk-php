@@ -44,12 +44,12 @@ class GetConstraintOptions extends \Jane\OpenApiRuntime\Client\BaseEndpoint impl
      * @throws \Afosto\Sdk\Exception\GetConstraintOptionsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetConstraintOptionsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrOptionsRulesConstraintsGetResponse200|null
+     * @return \Afosto\Sdk\Model\OdrConstraintOptionsResponse|null
      */
     protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType)
     {
         if (200 === $status) {
-            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrOptionsRulesConstraintsGetResponse200', 'json');
+            return $serializer->deserialize($body, 'Afosto\\Sdk\\Model\\OdrConstraintOptionsResponse', 'json');
         }
         if (401 === $status) {
             throw new \Afosto\Sdk\Exception\GetConstraintOptionsUnauthorizedException($serializer->deserialize($body, 'Afosto\\Sdk\\Model\\Error', 'json'));

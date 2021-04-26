@@ -16,6 +16,8 @@ class SetClaim extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
 
     /**
      * set an claim on a order item.
+     *
+     * @param \Afosto\Sdk\Model\OdrSetClaimRequest[] $body
      */
     public function __construct(string $id, array $body)
     {

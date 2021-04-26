@@ -33,6 +33,10 @@ class OdrInvoice
      */
     protected $services;
     /**
+     * @var OdrInvoiceSettings
+     */
+    protected $settings;
+    /**
      * @var int
      */
     protected $subtotal;
@@ -76,6 +80,10 @@ class OdrInvoice
      * @var string
      */
     protected $clientId;
+    /**
+     * @var string
+     */
+    protected $channelId;
     /**
      * @var string
      */
@@ -185,6 +193,18 @@ class OdrInvoice
     public function setServices(?array $services): self
     {
         $this->services = $services;
+
+        return $this;
+    }
+
+    public function getSettings(): ?OdrInvoiceSettings
+    {
+        return $this->settings;
+    }
+
+    public function setSettings(?OdrInvoiceSettings $settings): self
+    {
+        $this->settings = $settings;
 
         return $this;
     }
@@ -329,6 +349,18 @@ class OdrInvoice
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
+
+        return $this;
+    }
+
+    public function getChannelId(): ?string
+    {
+        return $this->channelId;
+    }
+
+    public function setChannelId(?string $channelId): self
+    {
+        $this->channelId = $channelId;
 
         return $this;
     }

@@ -75,6 +75,10 @@ class OdrInvoiceListItem
     /**
      * @var string
      */
+    protected $channelId;
+    /**
+     * @var string
+     */
     protected $fileId;
     /**
      * @var mixed
@@ -289,6 +293,18 @@ class OdrInvoiceListItem
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
+
+        return $this;
+    }
+
+    public function getChannelId(): ?string
+    {
+        return $this->channelId;
+    }
+
+    public function setChannelId(?string $channelId): self
+    {
+        $this->channelId = $channelId;
 
         return $this;
     }

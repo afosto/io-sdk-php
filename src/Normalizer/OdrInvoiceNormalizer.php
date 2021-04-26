@@ -61,6 +61,9 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
             }
             $object->setServices($values_1);
         }
+        if (property_exists($data, 'settings') && null !== $data->{'settings'}) {
+            $object->setSettings($this->denormalizer->denormalize($data->{'settings'}, 'Afosto\\Sdk\\Model\\OdrInvoiceSettings', 'json', $context));
+        }
         if (property_exists($data, 'subtotal') && null !== $data->{'subtotal'}) {
             $object->setSubtotal($data->{'subtotal'});
         }
@@ -101,6 +104,9 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
+        }
+        if (property_exists($data, 'channel_id') && null !== $data->{'channel_id'}) {
+            $object->setChannelId($data->{'channel_id'});
         }
         if (property_exists($data, 'file_id') && null !== $data->{'file_id'}) {
             $object->setFileId($data->{'file_id'});
@@ -170,6 +176,9 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
             }
             $data->{'services'} = $values_1;
         }
+        if (null !== $object->getSettings()) {
+            $data->{'settings'} = $this->normalizer->normalize($object->getSettings(), 'json', $context);
+        }
         if (null !== $object->getSubtotal()) {
             $data->{'subtotal'} = $object->getSubtotal();
         }
@@ -210,6 +219,9 @@ class OdrInvoiceNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
+        }
+        if (null !== $object->getChannelId()) {
+            $data->{'channel_id'} = $object->getChannelId();
         }
         if (null !== $object->getFileId()) {
             $data->{'file_id'} = $object->getFileId();

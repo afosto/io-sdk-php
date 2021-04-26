@@ -15,7 +15,7 @@ class GetSessionSessionCalculation extends \Jane\OpenApiRuntime\Client\BaseEndpo
     protected $id;
 
     /**
-     * Returns a list of suggested billing addresses.
+     * Returns a calculation for the session.
      */
     public function __construct(string $id)
     {

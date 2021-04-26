@@ -37,7 +37,7 @@ class OdrGroupAttach
      */
     protected $ids;
     /**
-     * @var OdrGroupAttachReferences
+     * @var OdrGroupRouteReferences
      */
     protected $references;
     /**
@@ -131,12 +131,12 @@ class OdrGroupAttach
         return $this;
     }
 
-    public function getReferences(): ?OdrGroupAttachReferences
+    public function getReferences(): ?OdrGroupRouteReferences
     {
         return $this->references;
     }
 
-    public function setReferences(?OdrGroupAttachReferences $references): self
+    public function setReferences(?OdrGroupRouteReferences $references): self
     {
         $this->references = $references;
 

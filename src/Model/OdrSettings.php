@@ -17,7 +17,7 @@ class OdrSettings
      */
     protected $contact;
     /**
-     * @var OdrSettingsOrganisation
+     * @var OdrSettingsContact
      */
     protected $organisation;
     /**
@@ -61,12 +61,12 @@ class OdrSettings
         return $this;
     }
 
-    public function getOrganisation(): ?OdrSettingsOrganisation
+    public function getOrganisation(): ?OdrSettingsContact
     {
         return $this->organisation;
     }
 
-    public function setOrganisation(?OdrSettingsOrganisation $organisation): self
+    public function setOrganisation(?OdrSettingsContact $organisation): self
     {
         $this->organisation = $organisation;
 

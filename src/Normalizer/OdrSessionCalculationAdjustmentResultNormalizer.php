@@ -41,8 +41,8 @@ class OdrSessionCalculationAdjustmentResultNormalizer implements DenormalizerInt
         if (property_exists($data, 'is_applied_rule') && null !== $data->{'is_applied_rule'}) {
             $object->setIsAppliedRule($data->{'is_applied_rule'});
         }
-        if (property_exists($data, 'rule') && null !== $data->{'rule'}) {
-            $object->setRule($data->{'rule'});
+        if (property_exists($data, 'rule_id') && null !== $data->{'rule_id'}) {
+            $object->setRuleId($data->{'rule_id'});
         }
         if (property_exists($data, 'output') && null !== $data->{'output'}) {
             $object->setOutput($data->{'output'});
@@ -57,8 +57,8 @@ class OdrSessionCalculationAdjustmentResultNormalizer implements DenormalizerInt
         if (null !== $object->getIsAppliedRule()) {
             $data->{'is_applied_rule'} = $object->getIsAppliedRule();
         }
-        if (null !== $object->getRule()) {
-            $data->{'rule'} = $object->getRule();
+        if (null !== $object->getRuleId()) {
+            $data->{'rule_id'} = $object->getRuleId();
         }
         if (null !== $object->getOutput()) {
             $data->{'output'} = $object->getOutput();

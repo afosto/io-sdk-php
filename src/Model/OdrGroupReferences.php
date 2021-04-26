@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Model;
 class OdrGroupReferences
 {
     /**
-     * @var OdrGroupReferencesOrdersItem[]
+     * @var OdrGroupReferencesOrder[]
      */
     protected $orders;
     /**
@@ -26,7 +26,7 @@ class OdrGroupReferences
     protected $target;
 
     /**
-     * @return OdrGroupReferencesOrdersItem[]|null
+     * @return OdrGroupReferencesOrder[]|null
      */
     public function getOrders(): ?array
     {
@@ -34,7 +34,7 @@ class OdrGroupReferences
     }
 
     /**
-     * @param OdrGroupReferencesOrdersItem[]|null $orders
+     * @param OdrGroupReferencesOrder[]|null $orders
      */
     public function setOrders(?array $orders): self
     {

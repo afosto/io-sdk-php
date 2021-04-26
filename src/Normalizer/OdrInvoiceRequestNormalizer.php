@@ -44,6 +44,9 @@ class OdrInvoiceRequestNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
+        if (property_exists($data, 'channel_id') && null !== $data->{'channel_id'}) {
+            $object->setChannelId($data->{'channel_id'});
+        }
         if (property_exists($data, 'contact_id') && null !== $data->{'contact_id'}) {
             $object->setContactId($data->{'contact_id'});
         }
@@ -88,6 +91,9 @@ class OdrInvoiceRequestNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
+        }
+        if (null !== $object->getChannelId()) {
+            $data->{'channel_id'} = $object->getChannelId();
         }
         if (null !== $object->getContactId()) {
             $data->{'contact_id'} = $object->getContactId();

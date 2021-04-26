@@ -42,7 +42,7 @@ class OdrSettingsNormalizer implements DenormalizerInterface, NormalizerInterfac
             $object->setContact($this->denormalizer->denormalize($data->{'contact'}, 'Afosto\\Sdk\\Model\\OdrSettingsContact', 'json', $context));
         }
         if (property_exists($data, 'organisation') && null !== $data->{'organisation'}) {
-            $object->setOrganisation($this->denormalizer->denormalize($data->{'organisation'}, 'Afosto\\Sdk\\Model\\OdrSettingsOrganisation', 'json', $context));
+            $object->setOrganisation($this->denormalizer->denormalize($data->{'organisation'}, 'Afosto\\Sdk\\Model\\OdrSettingsContact', 'json', $context));
         }
         if (property_exists($data, 'phone_number_id') && null !== $data->{'phone_number_id'}) {
             $object->setPhoneNumberId($data->{'phone_number_id'});

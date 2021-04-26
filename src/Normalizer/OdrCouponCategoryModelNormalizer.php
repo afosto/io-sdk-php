@@ -42,7 +42,7 @@ class OdrCouponCategoryModelNormalizer implements DenormalizerInterface, Normali
             $object->setName($data->{'name'});
         }
         if (property_exists($data, 'defaults') && null !== $data->{'defaults'}) {
-            $object->setDefaults($this->denormalizer->denormalize($data->{'defaults'}, 'Afosto\\Sdk\\Model\\OdrCouponCategoryModelDefaults', 'json', $context));
+            $object->setDefaults($this->denormalizer->denormalize($data->{'defaults'}, 'Afosto\\Sdk\\Model\\OdrCouponCategoryDefaults', 'json', $context));
         }
 
         return $object;

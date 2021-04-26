@@ -47,6 +47,9 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
+        if (property_exists($data, 'channel_id') && null !== $data->{'channel_id'}) {
+            $object->setChannelId($data->{'channel_id'});
+        }
         if (property_exists($data, 'tags') && null !== $data->{'tags'}) {
             $values = [];
             foreach ($data->{'tags'} as $value) {
@@ -75,6 +78,9 @@ class OdrOrderModelNormalizer implements DenormalizerInterface, NormalizerInterf
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
+        }
+        if (null !== $object->getChannelId()) {
+            $data->{'channel_id'} = $object->getChannelId();
         }
         if (null !== $object->getTags()) {
             $values = [];

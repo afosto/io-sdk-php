@@ -25,7 +25,7 @@ class OdrCoupon
      */
     protected $categoryId;
     /**
-     * @var OdrCouponClaimsItem[]
+     * @var OdrCouponClaim[]
      */
     protected $claims;
     /**
@@ -74,7 +74,7 @@ class OdrCoupon
     }
 
     /**
-     * @return OdrCouponClaimsItem[]|null
+     * @return OdrCouponClaim[]|null
      */
     public function getClaims(): ?array
     {
@@ -82,7 +82,7 @@ class OdrCoupon
     }
 
     /**
-     * @param OdrCouponClaimsItem[]|null $claims
+     * @param OdrCouponClaim[]|null $claims
      */
     public function setClaims(?array $claims): self
     {

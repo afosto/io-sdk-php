@@ -13,9 +13,9 @@ namespace Afosto\Sdk\Model;
 class LcsParcelItem
 {
     /**
-     * @var string[]
+     * @var string
      */
-    protected $ids;
+    protected $id;
     /**
      * @var string
      */
@@ -29,20 +29,14 @@ class LcsParcelItem
      */
     protected $description;
 
-    /**
-     * @return string[]|null
-     */
-    public function getIds(): ?array
+    public function getId(): ?string
     {
-        return $this->ids;
+        return $this->id;
     }
 
-    /**
-     * @param string[]|null $ids
-     */
-    public function setIds(?array $ids): self
+    public function setId(?string $id): self
     {
-        $this->ids = $ids;
+        $this->id = $id;
 
         return $this;
     }

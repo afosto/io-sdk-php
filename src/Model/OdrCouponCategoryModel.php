@@ -17,7 +17,7 @@ class OdrCouponCategoryModel
      */
     protected $name;
     /**
-     * @var OdrCouponCategoryModelDefaults
+     * @var OdrCouponCategoryDefaults
      */
     protected $defaults;
 
@@ -33,12 +33,12 @@ class OdrCouponCategoryModel
         return $this;
     }
 
-    public function getDefaults(): ?OdrCouponCategoryModelDefaults
+    public function getDefaults(): ?OdrCouponCategoryDefaults
     {
         return $this->defaults;
     }
 
-    public function setDefaults(?OdrCouponCategoryModelDefaults $defaults): self
+    public function setDefaults(?OdrCouponCategoryDefaults $defaults): self
     {
         $this->defaults = $defaults;
 

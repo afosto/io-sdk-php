@@ -17,7 +17,7 @@ class OdrCouponModel
      */
     protected $code;
     /**
-     * @var OdrCouponModelUsage
+     * @var OdrCouponUsage
      */
     protected $usage;
     /**
@@ -41,12 +41,12 @@ class OdrCouponModel
         return $this;
     }
 
-    public function getUsage(): ?OdrCouponModelUsage
+    public function getUsage(): ?OdrCouponUsage
     {
         return $this->usage;
     }
 
-    public function setUsage(?OdrCouponModelUsage $usage): self
+    public function setUsage(?OdrCouponUsage $usage): self
     {
         $this->usage = $usage;
 

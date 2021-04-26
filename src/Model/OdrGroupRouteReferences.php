@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Model;
 class OdrGroupRouteReferences
 {
     /**
-     * @var OdrGroupRouteReferencesOrdersItem[]
+     * @var OdrGroupRouteReferencesOrder[]
      */
     protected $orders;
     /**
@@ -22,7 +22,7 @@ class OdrGroupRouteReferences
     protected $backorders;
 
     /**
-     * @return OdrGroupRouteReferencesOrdersItem[]|null
+     * @return OdrGroupRouteReferencesOrder[]|null
      */
     public function getOrders(): ?array
     {
@@ -30,7 +30,7 @@ class OdrGroupRouteReferences
     }
 
     /**
-     * @param OdrGroupRouteReferencesOrdersItem[]|null $orders
+     * @param OdrGroupRouteReferencesOrder[]|null $orders
      */
     public function setOrders(?array $orders): self
     {

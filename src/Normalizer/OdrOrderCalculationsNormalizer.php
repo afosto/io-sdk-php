@@ -50,6 +50,9 @@ class OdrOrderCalculationsNormalizer implements DenormalizerInterface, Normalize
         if (property_exists($data, 'client_id') && null !== $data->{'client_id'}) {
             $object->setClientId($data->{'client_id'});
         }
+        if (property_exists($data, 'channel_id') && null !== $data->{'channel_id'}) {
+            $object->setChannelId($data->{'channel_id'});
+        }
         if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
         }
@@ -83,6 +86,9 @@ class OdrOrderCalculationsNormalizer implements DenormalizerInterface, Normalize
         }
         if (null !== $object->getClientId()) {
             $data->{'client_id'} = $object->getClientId();
+        }
+        if (null !== $object->getChannelId()) {
+            $data->{'channel_id'} = $object->getChannelId();
         }
         if (null !== $object->getAmount()) {
             $data->{'amount'} = $object->getAmount();

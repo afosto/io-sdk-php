@@ -45,11 +45,11 @@ class OdrGroupRoute
      */
     protected $filters;
     /**
-     * @var OdrGroupRouteDeliveryRoutesItem[]
+     * @var OdrGroupRouteDeliveryRoute[]
      */
     protected $deliveryRoutes;
     /**
-     * @var OdrGroupRouteCollectRoutesItem[]
+     * @var OdrGroupRouteCollectRoute[]
      */
     protected $collectRoutes;
 
@@ -162,7 +162,7 @@ class OdrGroupRoute
     }
 
     /**
-     * @return OdrGroupRouteDeliveryRoutesItem[]|null
+     * @return OdrGroupRouteDeliveryRoute[]|null
      */
     public function getDeliveryRoutes(): ?array
     {
@@ -170,7 +170,7 @@ class OdrGroupRoute
     }
 
     /**
-     * @param OdrGroupRouteDeliveryRoutesItem[]|null $deliveryRoutes
+     * @param OdrGroupRouteDeliveryRoute[]|null $deliveryRoutes
      */
     public function setDeliveryRoutes(?array $deliveryRoutes): self
     {
@@ -180,7 +180,7 @@ class OdrGroupRoute
     }
 
     /**
-     * @return OdrGroupRouteCollectRoutesItem[]|null
+     * @return OdrGroupRouteCollectRoute[]|null
      */
     public function getCollectRoutes(): ?array
     {
@@ -188,7 +188,7 @@ class OdrGroupRoute
     }
 
     /**
-     * @param OdrGroupRouteCollectRoutesItem[]|null $collectRoutes
+     * @param OdrGroupRouteCollectRoute[]|null $collectRoutes
      */
     public function setCollectRoutes(?array $collectRoutes): self
     {

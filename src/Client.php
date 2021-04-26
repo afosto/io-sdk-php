@@ -700,7 +700,8 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * set the warehouse item on a product.
      *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\OdrAttachWarehouseItemsRequest[] $body
+     * @param string                                             $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\AttachWarehouseItemsUnauthorizedException
      * @throws \Afosto\Sdk\Exception\AttachWarehouseItemsNotFoundException
@@ -763,7 +764,8 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Define a WMS route for a set of order items.
      *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\OdrSetRouteRequest[] $body
+     * @param string                                 $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\SetRouteUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SetRouteNotFoundException
@@ -782,7 +784,8 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * set an claim on a order item.
      *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param \Afosto\Sdk\Model\OdrSetClaimRequest[] $body
+     * @param string                                 $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\SetClaimUnauthorizedException
      * @throws \Afosto\Sdk\Exception\SetClaimNotFoundException
@@ -967,7 +970,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\AttachFiltersInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\AttachFiltersServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrFiltersPutResponse200|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrAttachFiltersResponse|\Psr\Http\Message\ResponseInterface|null
      */
     public function attachFilters(array $body, string $fetch = self::FETCH_OBJECT)
     {
@@ -1814,7 +1817,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\GetConstraintOptionsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\GetConstraintOptionsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\OdrOptionsRulesConstraintsGetResponse200|\Psr\Http\Message\ResponseInterface|null
+     * @return \Afosto\Sdk\Model\OdrConstraintOptionsResponse|\Psr\Http\Message\ResponseInterface|null
      */
     public function getConstraintOptions(string $fetch = self::FETCH_OBJECT)
     {
@@ -7721,7 +7724,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Returns a list of suggested billing addresses.
+     * Returns a projections for the session.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -7740,7 +7743,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Returns a list of suggested billing addresses.
+     * Returns a calculation for the session.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *

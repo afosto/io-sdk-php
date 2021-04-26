@@ -25,6 +25,10 @@ class OdrOrderModel
      */
     protected $clientId;
     /**
+     * @var string
+     */
+    protected $channelId;
+    /**
      * @var string[]
      */
     protected $tags;
@@ -69,6 +73,18 @@ class OdrOrderModel
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
+
+        return $this;
+    }
+
+    public function getChannelId(): ?string
+    {
+        return $this->channelId;
+    }
+
+    public function setChannelId(?string $channelId): self
+    {
+        $this->channelId = $channelId;
 
         return $this;
     }

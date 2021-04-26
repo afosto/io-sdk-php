@@ -16,6 +16,8 @@ class SetRoute extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane
 
     /**
      * Define a WMS route for a set of order items.
+     *
+     * @param \Afosto\Sdk\Model\OdrSetRouteRequest[] $body
      */
     public function __construct(string $id, array $body)
     {

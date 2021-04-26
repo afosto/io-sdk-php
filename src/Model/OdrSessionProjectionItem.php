@@ -23,15 +23,19 @@ class OdrSessionProjectionItem
     /**
      * @var string
      */
+    protected $description;
+    /**
+     * @var string
+     */
     protected $type;
     /**
      * @var int
      */
     protected $amount;
     /**
-     * @var int
+     * @var bool
      */
-    protected $revenueAmount;
+    protected $isDiscounted;
     /**
      * @var int
      */
@@ -52,6 +56,14 @@ class OdrSessionProjectionItem
      * @var int
      */
     protected $total;
+    /**
+     * @var int
+     */
+    protected $totalRevenue;
+    /**
+     * @var OdrSessionCalculationStackItem[]
+     */
+    protected $orderItems;
 
     public function getReference(): ?string
     {
@@ -73,6 +85,18 @@ class OdrSessionProjectionItem
     public function setSku(?string $sku): self
     {
         $this->sku = $sku;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
@@ -101,14 +125,14 @@ class OdrSessionProjectionItem
         return $this;
     }
 
-    public function getRevenueAmount(): ?int
+    public function getIsDiscounted(): ?bool
     {
-        return $this->revenueAmount;
+        return $this->isDiscounted;
     }
 
-    public function setRevenueAmount(?int $revenueAmount): self
+    public function setIsDiscounted(?bool $isDiscounted): self
     {
-        $this->revenueAmount = $revenueAmount;
+        $this->isDiscounted = $isDiscounted;
 
         return $this;
     }
@@ -175,6 +199,36 @@ class OdrSessionProjectionItem
     public function setTotal(?int $total): self
     {
         $this->total = $total;
+
+        return $this;
+    }
+
+    public function getTotalRevenue(): ?int
+    {
+        return $this->totalRevenue;
+    }
+
+    public function setTotalRevenue(?int $totalRevenue): self
+    {
+        $this->totalRevenue = $totalRevenue;
+
+        return $this;
+    }
+
+    /**
+     * @return OdrSessionCalculationStackItem[]|null
+     */
+    public function getOrderItems(): ?array
+    {
+        return $this->orderItems;
+    }
+
+    /**
+     * @param OdrSessionCalculationStackItem[]|null $orderItems
+     */
+    public function setOrderItems(?array $orderItems): self
+    {
+        $this->orderItems = $orderItems;
 
         return $this;
     }

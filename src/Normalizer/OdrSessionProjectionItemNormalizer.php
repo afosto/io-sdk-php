@@ -44,14 +44,17 @@ class OdrSessionProjectionItemNormalizer implements DenormalizerInterface, Norma
         if (property_exists($data, 'sku') && null !== $data->{'sku'}) {
             $object->setSku($data->{'sku'});
         }
+        if (property_exists($data, 'description') && null !== $data->{'description'}) {
+            $object->setDescription($data->{'description'});
+        }
         if (property_exists($data, 'type') && null !== $data->{'type'}) {
             $object->setType($data->{'type'});
         }
         if (property_exists($data, 'amount') && null !== $data->{'amount'}) {
             $object->setAmount($data->{'amount'});
         }
-        if (property_exists($data, 'revenue_amount') && null !== $data->{'revenue_amount'}) {
-            $object->setRevenueAmount($data->{'revenue_amount'});
+        if (property_exists($data, 'is_discounted') && null !== $data->{'is_discounted'}) {
+            $object->setIsDiscounted($data->{'is_discounted'});
         }
         if (property_exists($data, 'quantity') && null !== $data->{'quantity'}) {
             $object->setQuantity($data->{'quantity'});
@@ -72,6 +75,16 @@ class OdrSessionProjectionItemNormalizer implements DenormalizerInterface, Norma
         if (property_exists($data, 'total') && null !== $data->{'total'}) {
             $object->setTotal($data->{'total'});
         }
+        if (property_exists($data, 'total_revenue') && null !== $data->{'total_revenue'}) {
+            $object->setTotalRevenue($data->{'total_revenue'});
+        }
+        if (property_exists($data, 'order_items') && null !== $data->{'order_items'}) {
+            $values_1 = [];
+            foreach ($data->{'order_items'} as $value_1) {
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Afosto\\Sdk\\Model\\OdrSessionCalculationStackItem', 'json', $context);
+            }
+            $object->setOrderItems($values_1);
+        }
 
         return $object;
     }
@@ -85,14 +98,17 @@ class OdrSessionProjectionItemNormalizer implements DenormalizerInterface, Norma
         if (null !== $object->getSku()) {
             $data->{'sku'} = $object->getSku();
         }
+        if (null !== $object->getDescription()) {
+            $data->{'description'} = $object->getDescription();
+        }
         if (null !== $object->getType()) {
             $data->{'type'} = $object->getType();
         }
         if (null !== $object->getAmount()) {
             $data->{'amount'} = $object->getAmount();
         }
-        if (null !== $object->getRevenueAmount()) {
-            $data->{'revenue_amount'} = $object->getRevenueAmount();
+        if (null !== $object->getIsDiscounted()) {
+            $data->{'is_discounted'} = $object->getIsDiscounted();
         }
         if (null !== $object->getQuantity()) {
             $data->{'quantity'} = $object->getQuantity();
@@ -112,6 +128,16 @@ class OdrSessionProjectionItemNormalizer implements DenormalizerInterface, Norma
         }
         if (null !== $object->getTotal()) {
             $data->{'total'} = $object->getTotal();
+        }
+        if (null !== $object->getTotalRevenue()) {
+            $data->{'total_revenue'} = $object->getTotalRevenue();
+        }
+        if (null !== $object->getOrderItems()) {
+            $values_1 = [];
+            foreach ($object->getOrderItems() as $value_1) {
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            }
+            $data->{'order_items'} = $values_1;
         }
 
         return $data;

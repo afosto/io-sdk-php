@@ -50,7 +50,7 @@ class OdrCouponNormalizer implements DenormalizerInterface, NormalizerInterface,
         if (property_exists($data, 'claims') && null !== $data->{'claims'}) {
             $values = [];
             foreach ($data->{'claims'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrCouponClaimsItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrCouponClaim', 'json', $context);
             }
             $object->setClaims($values);
         }

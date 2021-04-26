@@ -13,6 +13,10 @@ namespace Afosto\Sdk\Model;
 class OdrContact
 {
     /**
+     * @var string[]
+     */
+    protected $tags;
+    /**
      * @var string
      */
     protected $vatCountryCode = 'NL';
@@ -20,6 +24,24 @@ class OdrContact
      * @var OdrContactContact
      */
     protected $contact;
+
+    /**
+     * @return string[]|null
+     */
+    public function getTags(): ?array
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param string[]|null $tags
+     */
+    public function setTags(?array $tags): self
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
 
     public function getVatCountryCode(): ?string
     {

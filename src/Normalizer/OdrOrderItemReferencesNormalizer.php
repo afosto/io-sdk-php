@@ -41,7 +41,7 @@ class OdrOrderItemReferencesNormalizer implements DenormalizerInterface, Normali
         if (property_exists($data, 'orders') && null !== $data->{'orders'}) {
             $values = [];
             foreach ($data->{'orders'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrOrderItemReferencesOrdersItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrOrderItemReferencesOrder', 'json', $context);
             }
             $object->setOrders($values);
         }

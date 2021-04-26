@@ -44,6 +44,9 @@ class OdrCalculationStackItemNormalizer implements DenormalizerInterface, Normal
         if (property_exists($data, 'is_invoiced') && null !== $data->{'is_invoiced'}) {
             $object->setIsInvoiced($data->{'is_invoiced'});
         }
+        if (property_exists($data, 'invoice_id') && null !== $data->{'invoice_id'}) {
+            $object->setInvoiceId($data->{'invoice_id'});
+        }
 
         return $object;
     }
@@ -56,6 +59,9 @@ class OdrCalculationStackItemNormalizer implements DenormalizerInterface, Normal
         }
         if (null !== $object->getIsInvoiced()) {
             $data->{'is_invoiced'} = $object->getIsInvoiced();
+        }
+        if (null !== $object->getInvoiceId()) {
+            $data->{'invoice_id'} = $object->getInvoiceId();
         }
 
         return $data;

@@ -38,9 +38,6 @@ class OdrCalculationItemsNormalizer implements DenormalizerInterface, Normalizer
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrCalculationItems();
-        if (property_exists($data, 'id') && null !== $data->{'id'}) {
-            $object->setId($data->{'id'});
-        }
         if (property_exists($data, 'reference') && null !== $data->{'reference'}) {
             $object->setReference($data->{'reference'});
         }
@@ -95,9 +92,6 @@ class OdrCalculationItemsNormalizer implements DenormalizerInterface, Normalizer
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
-        }
         if (null !== $object->getReference()) {
             $data->{'reference'} = $object->getReference();
         }

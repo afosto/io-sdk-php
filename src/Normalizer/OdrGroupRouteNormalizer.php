@@ -73,14 +73,14 @@ class OdrGroupRouteNormalizer implements DenormalizerInterface, NormalizerInterf
         if (property_exists($data, 'delivery_routes') && null !== $data->{'delivery_routes'}) {
             $values_2 = [];
             foreach ($data->{'delivery_routes'} as $value_2) {
-                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\OdrGroupRouteDeliveryRoutesItem', 'json', $context);
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\OdrGroupRouteDeliveryRoute', 'json', $context);
             }
             $object->setDeliveryRoutes($values_2);
         }
         if (property_exists($data, 'collect_routes') && null !== $data->{'collect_routes'}) {
             $values_3 = [];
             foreach ($data->{'collect_routes'} as $value_3) {
-                $values_3[] = $this->denormalizer->denormalize($value_3, 'Afosto\\Sdk\\Model\\OdrGroupRouteCollectRoutesItem', 'json', $context);
+                $values_3[] = $this->denormalizer->denormalize($value_3, 'Afosto\\Sdk\\Model\\OdrGroupRouteCollectRoute', 'json', $context);
             }
             $object->setCollectRoutes($values_3);
         }

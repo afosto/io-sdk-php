@@ -21,6 +21,10 @@ class OdrCalculations
      */
     protected $number;
     /**
+     * @var string
+     */
+    protected $reference;
+    /**
      * @var OdrCalculationItems[]
      */
     protected $items;
@@ -45,6 +49,10 @@ class OdrCalculations
      */
     protected $vat;
     /**
+     * @var OdrOrderCalculationSettings
+     */
+    protected $settings;
+    /**
      * @var string
      */
     protected $currency;
@@ -67,19 +75,15 @@ class OdrCalculations
     /**
      * @var bool
      */
-    protected $isAuthorized;
-    /**
-     * @var bool
-     */
-    protected $isInvoiced;
-    /**
-     * @var bool
-     */
     protected $isPrepaid;
     /**
      * @var string
      */
     protected $clientId;
+    /**
+     * @var string
+     */
+    protected $channelId;
     /**
      * @var string
      */
@@ -92,6 +96,22 @@ class OdrCalculations
      * @var \DateTime
      */
     protected $pricingAt;
+    /**
+     * @var \DateTime
+     */
+    protected $invoicedAt;
+    /**
+     * @var \DateTime
+     */
+    protected $prepaidAt;
+    /**
+     * @var string[]
+     */
+    protected $orderIds;
+    /**
+     * @var string[]
+     */
+    protected $coupons;
     /**
      * @var \DateTime
      */
@@ -121,6 +141,18 @@ class OdrCalculations
     public function setNumber(?string $number): self
     {
         $this->number = $number;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(?string $reference): self
+    {
+        $this->reference = $reference;
 
         return $this;
     }
@@ -221,6 +253,18 @@ class OdrCalculations
         return $this;
     }
 
+    public function getSettings(): ?OdrOrderCalculationSettings
+    {
+        return $this->settings;
+    }
+
+    public function setSettings(?OdrOrderCalculationSettings $settings): self
+    {
+        $this->settings = $settings;
+
+        return $this;
+    }
+
     public function getCurrency(): ?string
     {
         return $this->currency;
@@ -281,30 +325,6 @@ class OdrCalculations
         return $this;
     }
 
-    public function getIsAuthorized(): ?bool
-    {
-        return $this->isAuthorized;
-    }
-
-    public function setIsAuthorized(?bool $isAuthorized): self
-    {
-        $this->isAuthorized = $isAuthorized;
-
-        return $this;
-    }
-
-    public function getIsInvoiced(): ?bool
-    {
-        return $this->isInvoiced;
-    }
-
-    public function setIsInvoiced(?bool $isInvoiced): self
-    {
-        $this->isInvoiced = $isInvoiced;
-
-        return $this;
-    }
-
     public function getIsPrepaid(): ?bool
     {
         return $this->isPrepaid;
@@ -325,6 +345,18 @@ class OdrCalculations
     public function setClientId(?string $clientId): self
     {
         $this->clientId = $clientId;
+
+        return $this;
+    }
+
+    public function getChannelId(): ?string
+    {
+        return $this->channelId;
+    }
+
+    public function setChannelId(?string $channelId): self
+    {
+        $this->channelId = $channelId;
 
         return $this;
     }
@@ -367,6 +399,66 @@ class OdrCalculations
     public function setPricingAt(?\DateTime $pricingAt): self
     {
         $this->pricingAt = $pricingAt;
+
+        return $this;
+    }
+
+    public function getInvoicedAt(): ?\DateTime
+    {
+        return $this->invoicedAt;
+    }
+
+    public function setInvoicedAt(?\DateTime $invoicedAt): self
+    {
+        $this->invoicedAt = $invoicedAt;
+
+        return $this;
+    }
+
+    public function getPrepaidAt(): ?\DateTime
+    {
+        return $this->prepaidAt;
+    }
+
+    public function setPrepaidAt(?\DateTime $prepaidAt): self
+    {
+        $this->prepaidAt = $prepaidAt;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getOrderIds(): ?array
+    {
+        return $this->orderIds;
+    }
+
+    /**
+     * @param string[]|null $orderIds
+     */
+    public function setOrderIds(?array $orderIds): self
+    {
+        $this->orderIds = $orderIds;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getCoupons(): ?array
+    {
+        return $this->coupons;
+    }
+
+    /**
+     * @param string[]|null $coupons
+     */
+    public function setCoupons(?array $coupons): self
+    {
+        $this->coupons = $coupons;
 
         return $this;
     }

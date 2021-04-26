@@ -15,7 +15,7 @@ class GetSessionSessionProjection extends \Jane\OpenApiRuntime\Client\BaseEndpoi
     protected $id;
 
     /**
-     * Returns a list of suggested billing addresses.
+     * Returns a projections for the session.
      */
     public function __construct(string $id)
     {

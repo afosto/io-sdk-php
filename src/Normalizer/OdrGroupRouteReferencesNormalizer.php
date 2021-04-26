@@ -41,7 +41,7 @@ class OdrGroupRouteReferencesNormalizer implements DenormalizerInterface, Normal
         if (property_exists($data, 'orders') && null !== $data->{'orders'}) {
             $values = [];
             foreach ($data->{'orders'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrGroupRouteReferencesOrdersItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\OdrGroupRouteReferencesOrder', 'json', $context);
             }
             $object->setOrders($values);
         }

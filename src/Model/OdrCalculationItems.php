@@ -15,10 +15,6 @@ class OdrCalculationItems
     /**
      * @var string
      */
-    protected $id;
-    /**
-     * @var string
-     */
     protected $reference;
     /**
      * @var string
@@ -68,18 +64,6 @@ class OdrCalculationItems
      * @var OdrCalculationStackItem[]
      */
     protected $orderItems;
-
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    public function setId(?string $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 
     public function getReference(): ?string
     {

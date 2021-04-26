@@ -42,7 +42,7 @@ class OdrCouponModelNormalizer implements DenormalizerInterface, NormalizerInter
             $object->setCode($data->{'code'});
         }
         if (property_exists($data, 'usage') && null !== $data->{'usage'}) {
-            $object->setUsage($this->denormalizer->denormalize($data->{'usage'}, 'Afosto\\Sdk\\Model\\OdrCouponModelUsage', 'json', $context));
+            $object->setUsage($this->denormalizer->denormalize($data->{'usage'}, 'Afosto\\Sdk\\Model\\OdrCouponUsage', 'json', $context));
         }
         if (property_exists($data, 'category_id') && null !== $data->{'category_id'}) {
             $object->setCategoryId($data->{'category_id'});
