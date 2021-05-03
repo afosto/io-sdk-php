@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class CntCreateProxyRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class CntListIndexFilterNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\CntCreateProxyRequest' === $type;
+        return 'Afosto\\Sdk\\Model\\CntListIndexFilter' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\CntCreateProxyRequest' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\CntListIndexFilter' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,16 +37,12 @@ class CntCreateProxyRequestNormalizer implements DenormalizerInterface, Normaliz
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\CntCreateProxyRequest();
+        $object = new \Afosto\Sdk\Model\CntListIndexFilter();
+        if (property_exists($data, 'type') && null !== $data->{'type'}) {
+            $object->setType($data->{'type'});
+        }
         if (property_exists($data, 'key') && null !== $data->{'key'}) {
             $object->setKey($data->{'key'});
-        }
-        if (property_exists($data, 'indexes') && null !== $data->{'indexes'}) {
-            $values = [];
-            foreach ($data->{'indexes'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CntInstantProxyIndex', 'json', $context);
-            }
-            $object->setIndexes($values);
         }
 
         return $object;
@@ -55,15 +51,11 @@ class CntCreateProxyRequestNormalizer implements DenormalizerInterface, Normaliz
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getType()) {
+            $data->{'type'} = $object->getType();
+        }
         if (null !== $object->getKey()) {
             $data->{'key'} = $object->getKey();
-        }
-        if (null !== $object->getIndexes()) {
-            $values = [];
-            foreach ($object->getIndexes() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
-            }
-            $data->{'indexes'} = $values;
         }
 
         return $data;

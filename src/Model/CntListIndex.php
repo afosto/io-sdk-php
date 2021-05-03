@@ -21,9 +21,13 @@ class CntListIndex
      */
     protected $name;
     /**
-     * @var bool
+     * @var \DateTime
      */
-    protected $isActive;
+    protected $createdAt;
+    /**
+     * @var \DateTime
+     */
+    protected $updatedAt;
 
     public function getId(): ?string
     {
@@ -49,14 +53,26 @@ class CntListIndex
         return $this;
     }
 
-    public function getIsActive(): ?bool
+    public function getCreatedAt(): ?\DateTime
     {
-        return $this->isActive;
+        return $this->createdAt;
     }
 
-    public function setIsActive(?bool $isActive): self
+    public function setCreatedAt(?\DateTime $createdAt): self
     {
-        $this->isActive = $isActive;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

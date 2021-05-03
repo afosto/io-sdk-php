@@ -12,14 +12,11 @@ namespace Afosto\Sdk\Endpoint;
 
 class CreateInstantIndex extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $proxy_id;
-
     /**
      * Create a new index.
      */
-    public function __construct(string $proxyId, \Afosto\Sdk\Model\CntCreateIndexRequest $body)
+    public function __construct(\Afosto\Sdk\Model\CntCreateIndexRequest $body)
     {
-        $this->proxy_id = $proxyId;
         $this->body = $body;
     }
 
@@ -32,7 +29,7 @@ class CreateInstantIndex extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 
     public function getUri(): string
     {
-        return str_replace(['{proxy_id}'], [$this->proxy_id], '/cnt/instant/proxies/{proxy_id}/indexes');
+        return '/cnt/instant/indexes';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

@@ -12,14 +12,14 @@ namespace Afosto\Sdk\Endpoint;
 
 class UpdateInstantProxy extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $proxy_id;
+    protected $id;
 
     /**
-     * Update a new proxy for the tenant.
+     * Update a proxy for the tenant.
      */
-    public function __construct(string $proxyId, \Afosto\Sdk\Model\CntCreateProxyRequest $body)
+    public function __construct(string $id, \Afosto\Sdk\Model\CntUpdateProxyRequest $body)
     {
-        $this->proxy_id = $proxyId;
+        $this->id = $id;
         $this->body = $body;
     }
 
@@ -32,7 +32,7 @@ class UpdateInstantProxy extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 
     public function getUri(): string
     {
-        return str_replace(['{proxy_id}'], [$this->proxy_id], '/cnt/instant/proxies/{proxy_id}');
+        return str_replace(['{id}'], [$this->id], '/cnt/instant/proxies/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

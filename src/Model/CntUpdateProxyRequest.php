@@ -10,28 +10,12 @@ declare(strict_types=1);
 
 namespace Afosto\Sdk\Model;
 
-class CntCreateProxyRequest
+class CntUpdateProxyRequest
 {
-    /**
-     * @var string
-     */
-    protected $key;
     /**
      * @var CntInstantProxyIndex[]
      */
     protected $indexes;
-
-    public function getKey(): ?string
-    {
-        return $this->key;
-    }
-
-    public function setKey(?string $key): self
-    {
-        $this->key = $key;
-
-        return $this;
-    }
 
     /**
      * @return CntInstantProxyIndex[]|null

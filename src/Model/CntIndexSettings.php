@@ -25,7 +25,7 @@ class CntIndexSettings
      */
     protected $rankingRules;
     /**
-     * @var CntIndexSettingsFiltersItem[]
+     * @var CntListIndexFilter[]
      */
     protected $filters;
 
@@ -84,7 +84,7 @@ class CntIndexSettings
     }
 
     /**
-     * @return CntIndexSettingsFiltersItem[]|null
+     * @return CntListIndexFilter[]|null
      */
     public function getFilters(): ?array
     {
@@ -92,7 +92,7 @@ class CntIndexSettings
     }
 
     /**
-     * @param CntIndexSettingsFiltersItem[]|null $filters
+     * @param CntListIndexFilter[]|null $filters
      */
     public function setFilters(?array $filters): self
     {

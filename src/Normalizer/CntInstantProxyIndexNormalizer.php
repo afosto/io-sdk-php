@@ -17,19 +17,19 @@ use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class CntInstantProxiesProxyIdIndexesIdPutBodyNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
+class CntInstantProxyIndexNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
 
     public function supportsDenormalization($data, $type, $format = null)
     {
-        return 'Afosto\\Sdk\\Model\\CntInstantProxiesProxyIdIndexesIdPutBody' === $type;
+        return 'Afosto\\Sdk\\Model\\CntInstantProxyIndex' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        return is_object($data) && 'Afosto\\Sdk\\Model\\CntInstantProxiesProxyIdIndexesIdPutBody' === get_class($data);
+        return is_object($data) && 'Afosto\\Sdk\\Model\\CntInstantProxyIndex' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -37,9 +37,12 @@ class CntInstantProxiesProxyIdIndexesIdPutBodyNormalizer implements Denormalizer
         if (!is_object($data)) {
             return null;
         }
-        $object = new \Afosto\Sdk\Model\CntInstantProxiesProxyIdIndexesIdPutBody();
-        if (property_exists($data, 'name') && null !== $data->{'name'}) {
-            $object->setName($data->{'name'});
+        $object = new \Afosto\Sdk\Model\CntInstantProxyIndex();
+        if (property_exists($data, 'index_id') && null !== $data->{'index_id'}) {
+            $object->setIndexId($data->{'index_id'});
+        }
+        if (property_exists($data, 'alias') && null !== $data->{'alias'}) {
+            $object->setAlias($data->{'alias'});
         }
 
         return $object;
@@ -48,8 +51,11 @@ class CntInstantProxiesProxyIdIndexesIdPutBodyNormalizer implements Denormalizer
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getName()) {
-            $data->{'name'} = $object->getName();
+        if (null !== $object->getIndexId()) {
+            $data->{'index_id'} = $object->getIndexId();
+        }
+        if (null !== $object->getAlias()) {
+            $data->{'alias'} = $object->getAlias();
         }
 
         return $data;

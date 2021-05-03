@@ -38,20 +38,20 @@ class CntIndexNormalizer implements DenormalizerInterface, NormalizerInterface, 
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntIndex();
-        if (property_exists($data, 'uid') && null !== $data->{'uid'}) {
-            $object->setUid($data->{'uid'});
+        if (property_exists($data, 'id') && null !== $data->{'id'}) {
+            $object->setId($data->{'id'});
         }
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
-        if (property_exists($data, 'primary_key') && null !== $data->{'primary_key'}) {
-            $object->setPrimaryKey($data->{'primary_key'});
+        if (property_exists($data, 'host') && null !== $data->{'host'}) {
+            $object->setHost($data->{'host'});
         }
         if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
-            $object->setCreatedAt($data->{'created_at'});
+            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
         }
         if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
-            $object->setUpdatedAt($data->{'updated_at'});
+            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
 
         return $object;
@@ -60,20 +60,20 @@ class CntIndexNormalizer implements DenormalizerInterface, NormalizerInterface, 
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getUid()) {
-            $data->{'uid'} = $object->getUid();
+        if (null !== $object->getId()) {
+            $data->{'id'} = $object->getId();
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
         }
-        if (null !== $object->getPrimaryKey()) {
-            $data->{'primary_key'} = $object->getPrimaryKey();
+        if (null !== $object->getHost()) {
+            $data->{'host'} = $object->getHost();
         }
         if (null !== $object->getCreatedAt()) {
-            $data->{'created_at'} = $object->getCreatedAt();
+            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
         }
         if (null !== $object->getUpdatedAt()) {
-            $data->{'updated_at'} = $object->getUpdatedAt();
+            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

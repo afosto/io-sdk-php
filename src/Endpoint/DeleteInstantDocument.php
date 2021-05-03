@@ -12,15 +12,13 @@ namespace Afosto\Sdk\Endpoint;
 
 class DeleteInstantDocument extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $proxy_id;
     protected $id;
 
     /**
      * Delete a list of documents from the specified index. Only those document IDs that were submitted will be removed.
      */
-    public function __construct(string $proxyId, string $id, array $body)
+    public function __construct(string $id, array $body)
     {
-        $this->proxy_id = $proxyId;
         $this->id = $id;
         $this->body = $body;
     }
@@ -34,7 +32,7 @@ class DeleteInstantDocument extends \Jane\OpenApiRuntime\Client\BaseEndpoint imp
 
     public function getUri(): string
     {
-        return str_replace(['{proxy_id}', '{id}'], [$this->proxy_id, $this->id], '/cnt/instant/proxies/{proxy_id}/indexes/{id}/documents/delete');
+        return str_replace(['{id}'], [$this->id], '/cnt/instant/indexes/{id}/documents/delete');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

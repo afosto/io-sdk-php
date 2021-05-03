@@ -12,19 +12,19 @@ namespace Afosto\Sdk\Endpoint;
 
 class SearchInstant extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $proxy_id;
+    protected $id;
 
     /**
-     * Search documents. The proxy_id is a custom key for a tenant, ex: "afosto". The count is the combined count of the results in all selected indices.
+     * Search documents: The id is the proxy key for a tenant, ex: "afosto". The count is the combined count of the results in all selected indices.
      *
      * @param array $headerParameters {
      *
      *     @var string $Accept
      * }
      */
-    public function __construct(string $proxyId, \Afosto\Sdk\Model\CntSearchRequest $body, array $headerParameters = [])
+    public function __construct(string $id, \Afosto\Sdk\Model\CntSearchRequest $body, array $headerParameters = [])
     {
-        $this->proxy_id = $proxyId;
+        $this->id = $id;
         $this->body = $body;
         $this->headerParameters = $headerParameters;
     }
@@ -38,7 +38,7 @@ class SearchInstant extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
 
     public function getUri(): string
     {
-        return str_replace(['{proxy_id}'], [$this->proxy_id], '/cnt/instant/search/{proxy_id}');
+        return str_replace(['{id}'], [$this->id], '/cnt/instant/search/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

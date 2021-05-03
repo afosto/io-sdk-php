@@ -12,15 +12,13 @@ namespace Afosto\Sdk\Endpoint;
 
 class DeleteInstantIndex extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $proxy_id;
     protected $id;
 
     /**
      * Delete a single index.
      */
-    public function __construct(string $proxyId, string $id)
+    public function __construct(string $id)
     {
-        $this->proxy_id = $proxyId;
         $this->id = $id;
     }
 
@@ -33,7 +31,7 @@ class DeleteInstantIndex extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 
     public function getUri(): string
     {
-        return str_replace(['{proxy_id}', '{id}'], [$this->proxy_id, $this->id], '/cnt/instant/proxies/{proxy_id}/indexes/{id}');
+        return str_replace(['{id}'], [$this->id], '/cnt/instant/indexes/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

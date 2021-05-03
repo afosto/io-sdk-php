@@ -17,11 +17,7 @@ class CntInstantProxy
      */
     protected $key;
     /**
-     * @var string
-     */
-    protected $tenantId;
-    /**
-     * @var CntListIndex[]
+     * @var CntInstantProxyIndex[]
      */
     protected $indexes;
     /**
@@ -45,20 +41,8 @@ class CntInstantProxy
         return $this;
     }
 
-    public function getTenantId(): ?string
-    {
-        return $this->tenantId;
-    }
-
-    public function setTenantId(?string $tenantId): self
-    {
-        $this->tenantId = $tenantId;
-
-        return $this;
-    }
-
     /**
-     * @return CntListIndex[]|null
+     * @return CntInstantProxyIndex[]|null
      */
     public function getIndexes(): ?array
     {
@@ -66,7 +50,7 @@ class CntInstantProxy
     }
 
     /**
-     * @param CntListIndex[]|null $indexes
+     * @param CntInstantProxyIndex[]|null $indexes
      */
     public function setIndexes(?array $indexes): self
     {

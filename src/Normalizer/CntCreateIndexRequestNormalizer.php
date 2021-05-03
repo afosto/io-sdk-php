@@ -38,9 +38,6 @@ class CntCreateIndexRequestNormalizer implements DenormalizerInterface, Normaliz
             return null;
         }
         $object = new \Afosto\Sdk\Model\CntCreateIndexRequest();
-        if (property_exists($data, 'id') && null !== $data->{'id'}) {
-            $object->setId($data->{'id'});
-        }
         if (property_exists($data, 'name') && null !== $data->{'name'}) {
             $object->setName($data->{'name'});
         }
@@ -51,9 +48,6 @@ class CntCreateIndexRequestNormalizer implements DenormalizerInterface, Normaliz
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
-        if (null !== $object->getId()) {
-            $data->{'id'} = $object->getId();
-        }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
         }

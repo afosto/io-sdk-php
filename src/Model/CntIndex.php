@@ -15,7 +15,7 @@ class CntIndex
     /**
      * @var string
      */
-    protected $uid;
+    protected $id;
     /**
      * @var string
      */
@@ -23,24 +23,24 @@ class CntIndex
     /**
      * @var string
      */
-    protected $primaryKey;
+    protected $host;
     /**
-     * @var string
+     * @var \DateTime
      */
     protected $createdAt;
     /**
-     * @var string
+     * @var \DateTime
      */
     protected $updatedAt;
 
-    public function getUid(): ?string
+    public function getId(): ?string
     {
-        return $this->uid;
+        return $this->id;
     }
 
-    public function setUid(?string $uid): self
+    public function setId(?string $id): self
     {
-        $this->uid = $uid;
+        $this->id = $id;
 
         return $this;
     }
@@ -57,36 +57,36 @@ class CntIndex
         return $this;
     }
 
-    public function getPrimaryKey(): ?string
+    public function getHost(): ?string
     {
-        return $this->primaryKey;
+        return $this->host;
     }
 
-    public function setPrimaryKey(?string $primaryKey): self
+    public function setHost(?string $host): self
     {
-        $this->primaryKey = $primaryKey;
+        $this->host = $host;
 
         return $this;
     }
 
-    public function getCreatedAt(): ?string
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(?string $createdAt): self
+    public function setCreatedAt(?\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getUpdatedAt(): ?string
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(?string $updatedAt): self
+    public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 

@@ -9962,9 +9962,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function deleteInstantProxy(string $proxyId, string $fetch = self::FETCH_OBJECT)
+    public function deleteInstantProxy(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteInstantProxy($proxyId), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteInstantProxy($id), $fetch);
     }
 
     /**
@@ -9981,13 +9981,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntInstantProxy|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getInstantProxy(string $proxyId, string $fetch = self::FETCH_OBJECT)
+    public function getInstantProxy(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInstantProxy($proxyId), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInstantProxy($id), $fetch);
     }
 
     /**
-     * Update a new proxy for the tenant.
+     * Update a proxy for the tenant.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -10000,14 +10000,12 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntInstantProxy|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateInstantProxy(string $proxyId, \Afosto\Sdk\Model\CntCreateProxyRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function updateInstantProxy(string $id, \Afosto\Sdk\Model\CntUpdateProxyRequest $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInstantProxy($proxyId, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInstantProxy($id, $body), $fetch);
     }
 
     /**
-     * List all indexes for the authenticated user.
-     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListInstantIndexesUnauthorizedException
@@ -10019,9 +10017,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntListIndex[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listInstantIndexes(string $proxyId, string $fetch = self::FETCH_OBJECT)
+    public function listInstantIndexes(string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInstantIndexes($proxyId), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInstantIndexes(), $fetch);
     }
 
     /**
@@ -10038,9 +10036,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntIndex|\Psr\Http\Message\ResponseInterface|null
      */
-    public function createInstantIndex(string $proxyId, \Afosto\Sdk\Model\CntCreateIndexRequest $body, string $fetch = self::FETCH_OBJECT)
+    public function createInstantIndex(\Afosto\Sdk\Model\CntCreateIndexRequest $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateInstantIndex($proxyId, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CreateInstantIndex($body), $fetch);
     }
 
     /**
@@ -10057,9 +10055,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function deleteInstantIndex(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
+    public function deleteInstantIndex(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteInstantIndex($proxyId, $id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteInstantIndex($id), $fetch);
     }
 
     /**
@@ -10076,9 +10074,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntIndex|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getInstantIndex(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
+    public function getInstantIndex(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInstantIndex($proxyId, $id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInstantIndex($id), $fetch);
     }
 
     /**
@@ -10095,47 +10093,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntIndex|\Psr\Http\Message\ResponseInterface|null
      */
-    public function updateInstantIndex(string $proxyId, string $id, \Afosto\Sdk\Model\CntInstantProxiesProxyIdIndexesIdPutBody $body, string $fetch = self::FETCH_OBJECT)
+    public function updateInstantIndex(string $id, \Afosto\Sdk\Model\CntUpdateIndexRequest $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInstantIndex($proxyId, $id, $body), $fetch);
-    }
-
-    /**
-     * Activate a single index.
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\ActivateInstantIndexUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\ActivateInstantIndexNotFoundException
-     * @throws \Afosto\Sdk\Exception\ActivateInstantIndexBadRequestException
-     * @throws \Afosto\Sdk\Exception\ActivateInstantIndexForbiddenException
-     * @throws \Afosto\Sdk\Exception\ActivateInstantIndexInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\ActivateInstantIndexServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\CntListIndex|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function activateInstantIndex(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ActivateInstantIndex($proxyId, $id), $fetch);
-    }
-
-    /**
-     * Deactivate a single index for the tenant.
-     *
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
-     *
-     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexUnauthorizedException
-     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexNotFoundException
-     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexBadRequestException
-     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexForbiddenException
-     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexInternalServerErrorException
-     * @throws \Afosto\Sdk\Exception\DeactivateInstantIndexServiceUnavailableException
-     *
-     * @return \Afosto\Sdk\Model\CntListIndex|\Psr\Http\Message\ResponseInterface|null
-     */
-    public function deactivateInstantIndex(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
-    {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeactivateInstantIndex($proxyId, $id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInstantIndex($id, $body), $fetch);
     }
 
     /**
@@ -10152,9 +10112,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function clearInstantIndex(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
+    public function clearInstantIndex(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ClearInstantIndex($proxyId, $id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ClearInstantIndex($id), $fetch);
     }
 
     /**
@@ -10172,9 +10132,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function upsertInstantDocument(string $proxyId, string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    public function upsertInstantDocument(string $id, array $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpsertInstantDocument($proxyId, $id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpsertInstantDocument($id, $body), $fetch);
     }
 
     /**
@@ -10191,13 +10151,13 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function deleteInstantDocument(string $proxyId, string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    public function deleteInstantDocument(string $id, array $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteInstantDocument($proxyId, $id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteInstantDocument($id, $body), $fetch);
     }
 
     /**
-     * Search documents. The proxy_id is a custom key for a tenant, ex: "afosto". The count is the combined count of the results in all selected indices.
+     * Search documents: The id is the proxy key for a tenant, ex: "afosto". The count is the combined count of the results in all selected indices.
      *
      * @param array $headerParameters {
      *
@@ -10215,9 +10175,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntSearchResponse|\Psr\Http\Message\ResponseInterface|null
      */
-    public function searchInstant(string $proxyId, \Afosto\Sdk\Model\CntSearchRequest $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function searchInstant(string $id, \Afosto\Sdk\Model\CntSearchRequest $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchInstant($proxyId, $body, $headerParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchInstant($id, $body, $headerParameters), $fetch);
     }
 
     /**
@@ -10234,9 +10194,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function resetInstantIndexSettings(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
+    public function resetInstantIndexSettings(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ResetInstantIndexSettings($proxyId, $id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ResetInstantIndexSettings($id), $fetch);
     }
 
     /**
@@ -10253,9 +10213,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntIndexSettings|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listInstantIndexSettings(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
+    public function listInstantIndexSettings(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInstantIndexSettings($proxyId, $id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInstantIndexSettings($id), $fetch);
     }
 
     /**
@@ -10272,9 +10232,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function updateInstantIndexSettings(string $proxyId, string $id, \Afosto\Sdk\Model\CntIndexSettings $body, string $fetch = self::FETCH_OBJECT)
+    public function updateInstantIndexSettings(string $id, \Afosto\Sdk\Model\CntIndexSettings $body, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInstantIndexSettings($proxyId, $id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInstantIndexSettings($id, $body), $fetch);
     }
 
     /**
@@ -10291,9 +10251,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntIndexUpdate[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listInstantIndexUpdates(string $proxyId, string $id, string $fetch = self::FETCH_OBJECT)
+    public function listInstantIndexUpdates(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInstantIndexUpdates($proxyId, $id), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInstantIndexUpdates($id), $fetch);
     }
 
     /**
@@ -10310,9 +10270,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntIndexUpdate|\Psr\Http\Message\ResponseInterface|null
      */
-    public function getInstantIndexUpdate(string $proxyId, string $id, int $updateId, string $fetch = self::FETCH_OBJECT)
+    public function getInstantIndexUpdate(string $id, int $updateId, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInstantIndexUpdate($proxyId, $id, $updateId), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetInstantIndexUpdate($id, $updateId), $fetch);
     }
 
     /**

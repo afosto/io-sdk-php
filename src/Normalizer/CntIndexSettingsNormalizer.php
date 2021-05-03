@@ -58,7 +58,7 @@ class CntIndexSettingsNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'filters') && null !== $data->{'filters'}) {
             $values_2 = [];
             foreach ($data->{'filters'} as $value_2) {
-                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\CntIndexSettingsFiltersItem', 'json', $context);
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Afosto\\Sdk\\Model\\CntListIndexFilter', 'json', $context);
             }
             $object->setFilters($values_2);
         }

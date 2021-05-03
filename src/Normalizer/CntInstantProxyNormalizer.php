@@ -41,13 +41,10 @@ class CntInstantProxyNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'key') && null !== $data->{'key'}) {
             $object->setKey($data->{'key'});
         }
-        if (property_exists($data, 'tenant_id') && null !== $data->{'tenant_id'}) {
-            $object->setTenantId($data->{'tenant_id'});
-        }
         if (property_exists($data, 'indexes') && null !== $data->{'indexes'}) {
             $values = [];
             foreach ($data->{'indexes'} as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CntListIndex', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Afosto\\Sdk\\Model\\CntInstantProxyIndex', 'json', $context);
             }
             $object->setIndexes($values);
         }
@@ -66,9 +63,6 @@ class CntInstantProxyNormalizer implements DenormalizerInterface, NormalizerInte
         $data = new \stdClass();
         if (null !== $object->getKey()) {
             $data->{'key'} = $object->getKey();
-        }
-        if (null !== $object->getTenantId()) {
-            $data->{'tenant_id'} = $object->getTenantId();
         }
         if (null !== $object->getIndexes()) {
             $values = [];

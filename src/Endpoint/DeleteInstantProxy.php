@@ -12,14 +12,14 @@ namespace Afosto\Sdk\Endpoint;
 
 class DeleteInstantProxy extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $proxy_id;
+    protected $id;
 
     /**
      * Delete a new proxy for the tenant.
      */
-    public function __construct(string $proxyId)
+    public function __construct(string $id)
     {
-        $this->proxy_id = $proxyId;
+        $this->id = $id;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -31,7 +31,7 @@ class DeleteInstantProxy extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 
     public function getUri(): string
     {
-        return str_replace(['{proxy_id}'], [$this->proxy_id], '/cnt/instant/proxies/{proxy_id}');
+        return str_replace(['{id}'], [$this->id], '/cnt/instant/proxies/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

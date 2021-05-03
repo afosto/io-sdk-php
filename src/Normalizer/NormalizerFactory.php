@@ -554,18 +554,21 @@ class NormalizerFactory
         $normalizers[] = new CntPdfNormalizer();
         $normalizers[] = new CntInstantProxyNormalizer();
         $normalizers[] = new CntCreateProxyRequestNormalizer();
+        $normalizers[] = new CntUpdateProxyRequestNormalizer();
+        $normalizers[] = new CntInstantProxyIndexNormalizer();
         $normalizers[] = new CntCreateIndexRequestNormalizer();
         $normalizers[] = new CntListIndexNormalizer();
         $normalizers[] = new CntIndexNormalizer();
+        $normalizers[] = new CntListIndexFilterNormalizer();
         $normalizers[] = new CntInputDocumentNormalizer();
         $normalizers[] = new CntSearchRequestNormalizer();
         $normalizers[] = new CntInstantFilterNormalizer();
         $normalizers[] = new CntSearchResponseNormalizer();
         $normalizers[] = new CntIndexResponseNormalizer();
         $normalizers[] = new CntIndexSettingsNormalizer();
-        $normalizers[] = new CntIndexSettingsFiltersItemNormalizer();
         $normalizers[] = new CntIndexUpdateTypeNormalizer();
         $normalizers[] = new CntIndexUpdateNormalizer();
+        $normalizers[] = new CntUpdateIndexRequestNormalizer();
         $normalizers[] = new CatGroupNormalizer();
         $normalizers[] = new CatGroupCreateNormalizer();
         $normalizers[] = new CatGroupUpdateNormalizer();
@@ -684,7 +687,6 @@ class NormalizerFactory
         $normalizers[] = new LcsLocationsIdPositionsDeleteResponse200Normalizer();
         $normalizers[] = new LcsLocationsIdPositionsPutResponse200Normalizer();
         $normalizers[] = new LcsLocationsIdSkusPutResponse200Normalizer();
-        $normalizers[] = new CntInstantProxiesProxyIdIndexesIdPutBodyNormalizer();
         $normalizers[] = new CatGroupsIdPricesPutResponse200Normalizer();
         $normalizers[] = new CatVatProductsPutResponse200Normalizer();
 

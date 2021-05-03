@@ -12,15 +12,13 @@ namespace Afosto\Sdk\Endpoint;
 
 class UpdateInstantIndexSettings extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $proxy_id;
     protected $id;
 
     /**
      * Update the settings of the specified index.
      */
-    public function __construct(string $proxyId, string $id, \Afosto\Sdk\Model\CntIndexSettings $body)
+    public function __construct(string $id, \Afosto\Sdk\Model\CntIndexSettings $body)
     {
-        $this->proxy_id = $proxyId;
         $this->id = $id;
         $this->body = $body;
     }
@@ -34,7 +32,7 @@ class UpdateInstantIndexSettings extends \Jane\OpenApiRuntime\Client\BaseEndpoin
 
     public function getUri(): string
     {
-        return str_replace(['{proxy_id}', '{id}'], [$this->proxy_id, $this->id], '/cnt/instant/proxies/{proxy_id}/indexes/{id}/settings');
+        return str_replace(['{id}'], [$this->id], '/cnt/instant/indexes/{id}/settings');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

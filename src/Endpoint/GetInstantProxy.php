@@ -12,14 +12,14 @@ namespace Afosto\Sdk\Endpoint;
 
 class GetInstantProxy extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $proxy_id;
+    protected $id;
 
     /**
      * Show a single proxy for the tenant.
      */
-    public function __construct(string $proxyId)
+    public function __construct(string $id)
     {
-        $this->proxy_id = $proxyId;
+        $this->id = $id;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -31,7 +31,7 @@ class GetInstantProxy extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 
     public function getUri(): string
     {
-        return str_replace(['{proxy_id}'], [$this->proxy_id], '/cnt/instant/proxies/{proxy_id}');
+        return str_replace(['{id}'], [$this->id], '/cnt/instant/proxies/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

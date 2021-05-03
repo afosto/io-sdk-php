@@ -12,16 +12,6 @@ namespace Afosto\Sdk\Endpoint;
 
 class ListInstantIndexes extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
-    protected $proxy_id;
-
-    /**
-     * List all indexes for the authenticated user.
-     */
-    public function __construct(string $proxyId)
-    {
-        $this->proxy_id = $proxyId;
-    }
-
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
 
     public function getMethod(): string
@@ -31,7 +21,7 @@ class ListInstantIndexes extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
 
     public function getUri(): string
     {
-        return str_replace(['{proxy_id}'], [$this->proxy_id], '/cnt/instant/proxies/{proxy_id}/indexes');
+        return '/cnt/instant/indexes';
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
