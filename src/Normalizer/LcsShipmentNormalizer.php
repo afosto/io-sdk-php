@@ -53,6 +53,9 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'contact_id') && null !== $data->{'contact_id'}) {
             $object->setContactId($data->{'contact_id'});
         }
+        if (property_exists($data, 'channel_id') && null !== $data->{'channel_id'}) {
+            $object->setChannelId($data->{'channel_id'});
+        }
         if (property_exists($data, 'order_id') && null !== $data->{'order_id'}) {
             $object->setOrderId($data->{'order_id'});
         }
@@ -160,6 +163,9 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
         }
         if (null !== $object->getContactId()) {
             $data->{'contact_id'} = $object->getContactId();
+        }
+        if (null !== $object->getChannelId()) {
+            $data->{'channel_id'} = $object->getChannelId();
         }
         if (null !== $object->getOrderId()) {
             $data->{'order_id'} = $object->getOrderId();

@@ -53,6 +53,9 @@ class LcsListedShipmentNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'contact_id') && null !== $data->{'contact_id'}) {
             $object->setContactId($data->{'contact_id'});
         }
+        if (property_exists($data, 'channel_id') && null !== $data->{'channel_id'}) {
+            $object->setChannelId($data->{'channel_id'});
+        }
         if (property_exists($data, 'addressing') && null !== $data->{'addressing'}) {
             $object->setAddressing($this->denormalizer->denormalize($data->{'addressing'}, 'Afosto\\Sdk\\Model\\LcsListedShipmentAddressing', 'json', $context));
         }
@@ -126,6 +129,9 @@ class LcsListedShipmentNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (null !== $object->getContactId()) {
             $data->{'contact_id'} = $object->getContactId();
+        }
+        if (null !== $object->getChannelId()) {
+            $data->{'channel_id'} = $object->getChannelId();
         }
         if (null !== $object->getAddressing()) {
             $data->{'addressing'} = $this->normalizer->normalize($object->getAddressing(), 'json', $context);

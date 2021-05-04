@@ -35,6 +35,10 @@ class LcsShipment
     /**
      * @var string
      */
+    protected $channelId;
+    /**
+     * @var string
+     */
     protected $orderId;
     /**
      * @var LcsListedShipmentAddressing
@@ -187,6 +191,18 @@ class LcsShipment
     public function setContactId(?string $contactId): self
     {
         $this->contactId = $contactId;
+
+        return $this;
+    }
+
+    public function getChannelId(): ?string
+    {
+        return $this->channelId;
+    }
+
+    public function setChannelId(?string $channelId): self
+    {
+        $this->channelId = $channelId;
 
         return $this;
     }
