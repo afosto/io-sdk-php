@@ -17,11 +17,16 @@ class GetProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     /**
      * Get the profiles by its key.
      *
-     * @param string $path The correlationID of a configuration where we are updating the configuration off
+     * @param string $path            The correlationID of a configuration where we are updating the configuration off
+     * @param array  $queryParameters {
+     *
+     *     @var string $channel_id the channel_id to resolve the channel in the path for
+     * }
      */
-    public function __construct(string $path)
+    public function __construct(string $path, array $queryParameters = [])
     {
         $this->path = $path;
+        $this->queryParameters = $queryParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -44,6 +49,17 @@ class GetProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['channel_id']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('channel_id', ['string']);
+
+        return $optionsResolver;
     }
 
     /**

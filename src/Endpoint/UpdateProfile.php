@@ -17,13 +17,18 @@ class UpdateProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     /**
      * Update the profile content.
      *
-     * @param string    $path The correlationID of a configuration where we are updating the configuration off
-     * @param \stdClass $body update a profile
+     * @param string    $path            The correlationID of a configuration where we are updating the configuration off
+     * @param \stdClass $body            update a profile
+     * @param array     $queryParameters {
+     *
+     *     @var string $channel_id the channel_id to resolve the channel in the path for
+     * }
      */
-    public function __construct(string $path, \stdClass $body)
+    public function __construct(string $path, \stdClass $body, array $queryParameters = [])
     {
         $this->path = $path;
         $this->body = $body;
+        $this->queryParameters = $queryParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -46,6 +51,17 @@ class UpdateProfile extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['channel_id']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('channel_id', ['string']);
+
+        return $optionsResolver;
     }
 
     /**

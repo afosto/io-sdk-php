@@ -3114,7 +3114,12 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Get the profiles by its key.
      *
-     * @param string $path  The correlationID of a configuration where we are updating the configuration off
+     * @param string $path            The correlationID of a configuration where we are updating the configuration off
+     * @param array  $queryParameters {
+     *
+     *     @var string $channel_id the channel_id to resolve the channel in the path for
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\GetProfileForbiddenException
@@ -3126,17 +3131,22 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function getProfile(string $path, string $fetch = self::FETCH_OBJECT)
+    public function getProfile(string $path, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetProfile($path), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetProfile($path, $queryParameters), $fetch);
     }
 
     /**
      * Update the profile content.
      *
-     * @param string    $path  The correlationID of a configuration where we are updating the configuration off
-     * @param \stdClass $body  update a profile
-     * @param string    $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     * @param string    $path            The correlationID of a configuration where we are updating the configuration off
+     * @param \stdClass $body            update a profile
+     * @param array     $queryParameters {
+     *
+     *     @var string $channel_id the channel_id to resolve the channel in the path for
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateProfileBadRequestException
      * @throws \Afosto\Sdk\Exception\UpdateProfileUnauthorizedException
@@ -3148,9 +3158,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function updateProfile(string $path, \stdClass $body, string $fetch = self::FETCH_OBJECT)
+    public function updateProfile(string $path, \stdClass $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateProfile($path, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateProfile($path, $body, $queryParameters), $fetch);
     }
 
     /**
