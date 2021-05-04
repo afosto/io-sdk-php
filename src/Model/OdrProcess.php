@@ -13,6 +13,14 @@ namespace Afosto\Sdk\Model;
 class OdrProcess
 {
     /**
+     * @var bool
+     */
+    protected $isPaid;
+    /**
+     * @var int
+     */
+    protected $amountPaid;
+    /**
      * Start will trigger the transaction, the client can follow the progress via x-task. Follow will send the client to the bank. Execute acutally performs the payment (refund-only). Void means no further actions are possible. Return is the same as [follow] indicating that the payment is complete.
      *
      * @var string
@@ -26,6 +34,30 @@ class OdrProcess
      * @var OdrAttempt[]
      */
     protected $attempts;
+
+    public function getIsPaid(): ?bool
+    {
+        return $this->isPaid;
+    }
+
+    public function setIsPaid(?bool $isPaid): self
+    {
+        $this->isPaid = $isPaid;
+
+        return $this;
+    }
+
+    public function getAmountPaid(): ?int
+    {
+        return $this->amountPaid;
+    }
+
+    public function setAmountPaid(?int $amountPaid): self
+    {
+        $this->amountPaid = $amountPaid;
+
+        return $this;
+    }
 
     /**
      * Start will trigger the transaction, the client can follow the progress via x-task. Follow will send the client to the bank. Execute acutally performs the payment (refund-only). Void means no further actions are possible. Return is the same as [follow] indicating that the payment is complete.

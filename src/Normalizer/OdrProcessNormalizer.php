@@ -38,6 +38,12 @@ class OdrProcessNormalizer implements DenormalizerInterface, NormalizerInterface
             return null;
         }
         $object = new \Afosto\Sdk\Model\OdrProcess();
+        if (property_exists($data, 'is_paid') && null !== $data->{'is_paid'}) {
+            $object->setIsPaid($data->{'is_paid'});
+        }
+        if (property_exists($data, 'amount_paid') && null !== $data->{'amount_paid'}) {
+            $object->setAmountPaid($data->{'amount_paid'});
+        }
         if (property_exists($data, 'action') && null !== $data->{'action'}) {
             $object->setAction($data->{'action'});
         }
@@ -58,6 +64,12 @@ class OdrProcessNormalizer implements DenormalizerInterface, NormalizerInterface
     public function normalize($object, $format = null, array $context = [])
     {
         $data = new \stdClass();
+        if (null !== $object->getIsPaid()) {
+            $data->{'is_paid'} = $object->getIsPaid();
+        }
+        if (null !== $object->getAmountPaid()) {
+            $data->{'amount_paid'} = $object->getAmountPaid();
+        }
         if (null !== $object->getAction()) {
             $data->{'action'} = $object->getAction();
         }

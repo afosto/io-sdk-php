@@ -41,6 +41,9 @@ class OdrAttemptNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'psp_reference') && null !== $data->{'psp_reference'}) {
             $object->setPspReference($data->{'psp_reference'});
         }
+        if (property_exists($data, 'amount_paid') && null !== $data->{'amount_paid'}) {
+            $object->setAmountPaid($data->{'amount_paid'});
+        }
         if (property_exists($data, 'started_at') && null !== $data->{'started_at'}) {
             $object->setStartedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'started_at'}));
         }
@@ -59,6 +62,9 @@ class OdrAttemptNormalizer implements DenormalizerInterface, NormalizerInterface
         $data = new \stdClass();
         if (null !== $object->getPspReference()) {
             $data->{'psp_reference'} = $object->getPspReference();
+        }
+        if (null !== $object->getAmountPaid()) {
+            $data->{'amount_paid'} = $object->getAmountPaid();
         }
         if (null !== $object->getStartedAt()) {
             $data->{'started_at'} = $object->getStartedAt()->format("Y-m-d\TH:i:sP");

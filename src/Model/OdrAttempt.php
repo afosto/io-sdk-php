@@ -17,6 +17,10 @@ class OdrAttempt
      */
     protected $pspReference;
     /**
+     * @var int
+     */
+    protected $amountPaid;
+    /**
      * @var \DateTime
      */
     protected $startedAt;
@@ -37,6 +41,18 @@ class OdrAttempt
     public function setPspReference(?string $pspReference): self
     {
         $this->pspReference = $pspReference;
+
+        return $this;
+    }
+
+    public function getAmountPaid(): ?int
+    {
+        return $this->amountPaid;
+    }
+
+    public function setAmountPaid(?int $amountPaid): self
+    {
+        $this->amountPaid = $amountPaid;
 
         return $this;
     }
