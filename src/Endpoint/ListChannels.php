@@ -19,10 +19,17 @@ class ListChannels extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      *
      *     @var string $is_deleted
      * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
      */
-    public function __construct(array $queryParameters = [])
+    public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
         $this->queryParameters = $queryParameters;
+        $this->headerParameters = $headerParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -54,6 +61,18 @@ class ListChannels extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults(['is_deleted' => '0']);
         $optionsResolver->setAllowedTypes('is_deleted', ['string']);
+
+        return $optionsResolver;
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['x-page', 'x-page-size']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('x-page', ['string']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
 
         return $optionsResolver;
     }

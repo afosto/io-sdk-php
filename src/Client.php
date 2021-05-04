@@ -8478,6 +8478,12 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *     @var string $is_deleted
      * }
      *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page
+     *     @var string $x-page-size
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListChannelsBadRequestException
@@ -8489,9 +8495,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CatChannel[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listChannels(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listChannels(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListChannels($queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListChannels($queryParameters, $headerParameters), $fetch);
     }
 
     /**
