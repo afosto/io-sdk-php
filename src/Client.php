@@ -586,6 +586,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Update tags for order.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\UpdateOrderTagsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderTagsNotFoundException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderTagsBadRequestException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderTagsForbiddenException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderTagsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\UpdateOrderTagsServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function updateOrderTags(string $id, array $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateOrderTags($id, $body), $fetch);
+    }
+
+    /**
      * Update the order state.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
