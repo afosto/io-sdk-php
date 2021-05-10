@@ -3525,6 +3525,97 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Delete an object at external storage.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $path
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\DeleteObjectBadRequestException
+     * @throws \Afosto\Sdk\Exception\DeleteObjectUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\DeleteObjectForbiddenException
+     * @throws \Afosto\Sdk\Exception\DeleteObjectNotFoundException
+     * @throws \Afosto\Sdk\Exception\DeleteObjectInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\DeleteObjectServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function deleteObject(int $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteObject($id, $queryParameters), $fetch);
+    }
+
+    /**
+     * Read the contents of an object at external storage.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $path
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ReadObjectBadRequestException
+     * @throws \Afosto\Sdk\Exception\ReadObjectUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ReadObjectForbiddenException
+     * @throws \Afosto\Sdk\Exception\ReadObjectNotFoundException
+     * @throws \Afosto\Sdk\Exception\ReadObjectInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ReadObjectServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function readObject(int $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ReadObject($id, $queryParameters), $fetch);
+    }
+
+    /**
+     * Clone an object to external storage.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\CloneObjectBadRequestException
+     * @throws \Afosto\Sdk\Exception\CloneObjectUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\CloneObjectForbiddenException
+     * @throws \Afosto\Sdk\Exception\CloneObjectNotFoundException
+     * @throws \Afosto\Sdk\Exception\CloneObjectInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\CloneObjectServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function cloneObject(int $id, \Afosto\Sdk\Model\CntObjectCloneRequest $body, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\CloneObject($id, $body), $fetch);
+    }
+
+    /**
+     * List objects at external storage.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $path
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListObjectsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListObjectsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListObjectsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListObjectsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListObjectsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListObjectsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntStorageObject[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listObjects(int $id, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListObjects($id, $queryParameters), $fetch);
+    }
+
+    /**
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListFilesystemStoragesBadRequestException

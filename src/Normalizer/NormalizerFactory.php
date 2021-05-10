@@ -234,6 +234,7 @@ class NormalizerFactory
         $normalizers[] = new IamPlanNormalizer();
         $normalizers[] = new IamTierNormalizer();
         $normalizers[] = new IamUsageRecordNormalizer();
+        $normalizers[] = new CntObjectCloneRequestNormalizer();
         $normalizers[] = new CntFilesystemLogNormalizer();
         $normalizers[] = new CntWatcherNormalizer();
         $normalizers[] = new CntWatcherSourceNormalizer();
