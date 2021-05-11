@@ -563,6 +563,7 @@ class NormalizerFactory
         $normalizers[] = new CntListIndexFilterNormalizer();
         $normalizers[] = new CntInputDocumentNormalizer();
         $normalizers[] = new CntSearchRequestNormalizer();
+        $normalizers[] = new CntSearchIndexRequestNormalizer();
         $normalizers[] = new CntInstantFilterNormalizer();
         $normalizers[] = new CntSearchResponseNormalizer();
         $normalizers[] = new CntIndexResponseNormalizer();

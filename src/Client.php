@@ -10402,6 +10402,30 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Search documents within a single index, without going throuh a proxy.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var string $Accept
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\SearchInstantIndexBadRequestException
+     * @throws \Afosto\Sdk\Exception\SearchInstantIndexUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\SearchInstantIndexNotFoundException
+     * @throws \Afosto\Sdk\Exception\SearchInstantIndexForbiddenException
+     * @throws \Afosto\Sdk\Exception\SearchInstantIndexInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\SearchInstantIndexServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\CntSearchResponse|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function searchInstantIndex(string $id, \Afosto\Sdk\Model\CntSearchIndexRequest $body, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\SearchInstantIndex($id, $body, $headerParameters), $fetch);
+    }
+
+    /**
      * Get a listing of available pricing groups.
      *
      * @param array $headerParameters {
