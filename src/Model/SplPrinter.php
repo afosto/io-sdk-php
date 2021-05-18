@@ -33,6 +33,10 @@ class SplPrinter
      */
     protected $connection;
     /**
+     * @var SplSettings
+     */
+    protected $settings;
+    /**
      * @var string
      */
     protected $inboxId;
@@ -105,6 +109,18 @@ class SplPrinter
     public function setConnection(?SplConnection $connection): self
     {
         $this->connection = $connection;
+
+        return $this;
+    }
+
+    public function getSettings(): ?SplSettings
+    {
+        return $this->settings;
+    }
+
+    public function setSettings(?SplSettings $settings): self
+    {
+        $this->settings = $settings;
 
         return $this;
     }

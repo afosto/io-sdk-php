@@ -2994,6 +2994,25 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns schema of settings.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\GetTypeSettingsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\GetTypeSettingsBadRequestException
+     * @throws \Afosto\Sdk\Exception\GetTypeSettingsForbiddenException
+     * @throws \Afosto\Sdk\Exception\GetTypeSettingsNotFoundException
+     * @throws \Afosto\Sdk\Exception\GetTypeSettingsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\GetTypeSettingsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\SplSettingsSchema|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function getTypeSettings(string $type, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\GetTypeSettings($type), $fetch);
+    }
+
+    /**
      * Update a printer to a new configuration.
      *
      * @param string                     $id    ID of printer to attach the inbox to

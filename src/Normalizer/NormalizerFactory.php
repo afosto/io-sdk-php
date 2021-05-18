@@ -214,6 +214,8 @@ class NormalizerFactory
         $normalizers[] = new SplPrinterModelNormalizer();
         $normalizers[] = new SplConnectionNormalizer();
         $normalizers[] = new SplInboxNormalizer();
+        $normalizers[] = new SplSettingsSchemaNormalizer();
+        $normalizers[] = new SplSettingsNormalizer();
         $normalizers[] = new CntProxyNormalizer();
         $normalizers[] = new CntProxyModelNormalizer();
         $normalizers[] = new CntProxyUpdateModelNormalizer();

@@ -25,9 +25,17 @@ class SplPrinterModel
      */
     protected $defaultEncoding;
     /**
+     * @var string
+     */
+    protected $timezone = 'Europe/Amsterdam';
+    /**
      * @var SplConnection
      */
     protected $connection;
+    /**
+     * @var SplSettings
+     */
+    protected $settings;
 
     public function getName(): ?string
     {
@@ -65,6 +73,18 @@ class SplPrinterModel
         return $this;
     }
 
+    public function getTimezone(): ?string
+    {
+        return $this->timezone;
+    }
+
+    public function setTimezone(?string $timezone): self
+    {
+        $this->timezone = $timezone;
+
+        return $this;
+    }
+
     public function getConnection(): ?SplConnection
     {
         return $this->connection;
@@ -73,6 +93,18 @@ class SplPrinterModel
     public function setConnection(?SplConnection $connection): self
     {
         $this->connection = $connection;
+
+        return $this;
+    }
+
+    public function getSettings(): ?SplSettings
+    {
+        return $this->settings;
+    }
+
+    public function setSettings(?SplSettings $settings): self
+    {
+        $this->settings = $settings;
 
         return $this;
     }

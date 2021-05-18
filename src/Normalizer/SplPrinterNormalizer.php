@@ -53,6 +53,9 @@ class SplPrinterNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'connection') && null !== $data->{'connection'}) {
             $object->setConnection($this->denormalizer->denormalize($data->{'connection'}, 'Afosto\\Sdk\\Model\\SplConnection', 'json', $context));
         }
+        if (property_exists($data, 'settings') && null !== $data->{'settings'}) {
+            $object->setSettings($this->denormalizer->denormalize($data->{'settings'}, 'Afosto\\Sdk\\Model\\SplSettings', 'json', $context));
+        }
         if (property_exists($data, 'inbox_id') && null !== $data->{'inbox_id'}) {
             $object->setInboxId($data->{'inbox_id'});
         }
@@ -86,6 +89,9 @@ class SplPrinterNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (null !== $object->getConnection()) {
             $data->{'connection'} = $this->normalizer->normalize($object->getConnection(), 'json', $context);
+        }
+        if (null !== $object->getSettings()) {
+            $data->{'settings'} = $this->normalizer->normalize($object->getSettings(), 'json', $context);
         }
         if (null !== $object->getInboxId()) {
             $data->{'inbox_id'} = $object->getInboxId();
