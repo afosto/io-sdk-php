@@ -54,7 +54,7 @@ class SplPrinterModelNormalizer implements DenormalizerInterface, NormalizerInte
             $object->setConnection($this->denormalizer->denormalize($data->{'connection'}, 'Afosto\\Sdk\\Model\\SplConnection', 'json', $context));
         }
         if (property_exists($data, 'settings') && null !== $data->{'settings'}) {
-            $object->setSettings($this->denormalizer->denormalize($data->{'settings'}, 'Afosto\\Sdk\\Model\\SplSettings', 'json', $context));
+            $object->setSettings($data->{'settings'});
         }
 
         return $object;
@@ -79,7 +79,7 @@ class SplPrinterModelNormalizer implements DenormalizerInterface, NormalizerInte
             $data->{'connection'} = $this->normalizer->normalize($object->getConnection(), 'json', $context);
         }
         if (null !== $object->getSettings()) {
-            $data->{'settings'} = $this->normalizer->normalize($object->getSettings(), 'json', $context);
+            $data->{'settings'} = $object->getSettings();
         }
 
         return $data;

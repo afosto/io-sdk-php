@@ -33,7 +33,7 @@ class SplPrinter
      */
     protected $connection;
     /**
-     * @var SplSettings
+     * @var mixed
      */
     protected $settings;
     /**
@@ -113,12 +113,18 @@ class SplPrinter
         return $this;
     }
 
-    public function getSettings(): ?SplSettings
+    /**
+     * @return mixed
+     */
+    public function getSettings()
     {
         return $this->settings;
     }
 
-    public function setSettings(?SplSettings $settings): self
+    /**
+     * @param mixed $settings
+     */
+    public function setSettings($settings): self
     {
         $this->settings = $settings;
 

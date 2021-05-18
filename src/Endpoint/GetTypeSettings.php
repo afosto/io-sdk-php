@@ -31,7 +31,7 @@ class GetTypeSettings extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
 
     public function getUri(): string
     {
-        return str_replace(['{type}'], [$this->type], '/spl/printers/settings/{type}');
+        return str_replace(['{type}'], [$this->type], '/spl/settings/printers/{type}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
