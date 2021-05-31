@@ -13,7 +13,7 @@ namespace Afosto\Sdk\Endpoint;
 class DeleteDirectory extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
     /**
-     * Deletes a direcotry.
+     * Deletes a directory.
      */
     public function __construct(\Afosto\Sdk\Model\CntDirectoryRequest $body)
     {

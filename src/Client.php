@@ -8255,7 +8255,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Deletes a direcotry.
+     * Deletes a directory.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
