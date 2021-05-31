@@ -1033,6 +1033,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns list of apps.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $x-page-size
+     *     @var int $x-page
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListAppsBadRequestException
@@ -1044,9 +1052,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\IntApp[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listApps(string $fetch = self::FETCH_OBJECT)
+    public function listApps(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListApps(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListApps($headerParameters), $fetch);
     }
 
     /**
@@ -1096,6 +1104,12 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *     @var string $is_deleted
      * }
      *
+     * @param array $headerParameters {
+     *
+     *     @var int $x-page-size
+     *     @var int $x-page
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListIntegrationsBadRequestException
@@ -1107,9 +1121,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\IntIntegration[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listIntegrations(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listIntegrations(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListIntegrations($queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListIntegrations($queryParameters, $headerParameters), $fetch);
     }
 
     /**

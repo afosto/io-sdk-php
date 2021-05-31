@@ -20,10 +20,17 @@ class ListIntegrations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      *     @var string $app_code
      *     @var string $is_deleted
      * }
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $x-page-size
+     *     @var int $x-page
+     * }
      */
-    public function __construct(array $queryParameters = [])
+    public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
         $this->queryParameters = $queryParameters;
+        $this->headerParameters = $headerParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -56,6 +63,18 @@ class ListIntegrations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
         $optionsResolver->setDefaults(['is_deleted' => '0']);
         $optionsResolver->setAllowedTypes('app_code', ['string']);
         $optionsResolver->setAllowedTypes('is_deleted', ['string']);
+
+        return $optionsResolver;
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['x-page-size', 'x-page']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['x-page-size' => 25, 'x-page' => 1]);
+        $optionsResolver->setAllowedTypes('x-page-size', ['int']);
+        $optionsResolver->setAllowedTypes('x-page', ['int']);
 
         return $optionsResolver;
     }
