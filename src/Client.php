@@ -8762,9 +8762,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function deleteRelay(string $id, \Afosto\Sdk\Model\MesRelayModel $body, string $fetch = self::FETCH_OBJECT)
+    public function deleteRelay(string $id, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteRelay($id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\DeleteRelay($id), $fetch);
     }
 
     /**

@@ -17,10 +17,9 @@ class DeleteRelay extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
     /**
      * Deletes a relay.
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\MesRelayModel $body)
+    public function __construct(string $id)
     {
         $this->id = $id;
-        $this->body = $body;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -37,7 +36,7 @@ class DeleteRelay extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        return $this->getSerializedBody($serializer);
+        return [[], null];
     }
 
     public function getExtraHeaders(): array
