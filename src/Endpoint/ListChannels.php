@@ -18,6 +18,7 @@ class ListChannels extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
      * @param array $queryParameters {
      *
      *     @var string $is_deleted
+     *     @var string $type
      * }
      *
      * @param array $headerParameters {
@@ -57,10 +58,11 @@ class ListChannels extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['is_deleted']);
+        $optionsResolver->setDefined(['is_deleted', 'type']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults(['is_deleted' => '0']);
         $optionsResolver->setAllowedTypes('is_deleted', ['string']);
+        $optionsResolver->setAllowedTypes('type', ['string']);
 
         return $optionsResolver;
     }

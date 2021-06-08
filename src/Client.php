@@ -8619,6 +8619,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param array $queryParameters {
      *
      *     @var string $is_deleted
+     *     @var string $type
      * }
      *
      * @param array $headerParameters {
