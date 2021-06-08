@@ -569,6 +569,7 @@ class NormalizerFactory
         $normalizers[] = new CntSearchResponseNormalizer();
         $normalizers[] = new CntIndexResponseNormalizer();
         $normalizers[] = new CntIndexSettingsNormalizer();
+        $normalizers[] = new CntIndexSettingsUpdateNormalizer();
         $normalizers[] = new CntIndexUpdateTypeNormalizer();
         $normalizers[] = new CntIndexUpdateNormalizer();
         $normalizers[] = new CntUpdateIndexRequestNormalizer();

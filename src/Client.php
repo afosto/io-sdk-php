@@ -10380,6 +10380,11 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     /**
      * Update the settings of the specified index.
      *
+     * @param array $queryParameters {
+     *
+     *     @var string $sync Add to wait for the asynchronous update to finish
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\UpdateInstantIndexSettingsUnauthorizedException
@@ -10391,9 +10396,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      */
-    public function updateInstantIndexSettings(string $id, \Afosto\Sdk\Model\CntIndexSettings $body, string $fetch = self::FETCH_OBJECT)
+    public function updateInstantIndexSettings(string $id, \Afosto\Sdk\Model\CntIndexSettingsUpdate $body, array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInstantIndexSettings($id, $body), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\UpdateInstantIndexSettings($id, $body, $queryParameters), $fetch);
     }
 
     /**

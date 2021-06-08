@@ -25,9 +25,29 @@ class CntIndexSettings
      */
     protected $rankingRules;
     /**
+     * @var string[]
+     */
+    protected $facetFields;
+    /**
+     * @var string
+     */
+    protected $distinctField;
+    /**
+     * @var string[]
+     */
+    protected $searchFields;
+    /**
+     * @var string[]
+     */
+    protected $displayFields;
+    /**
      * @var CntListIndexFilter[]
      */
     protected $filters;
+    /**
+     * @var \DateTime
+     */
+    protected $lastProcessedAt;
 
     /**
      * @return mixed
@@ -84,6 +104,72 @@ class CntIndexSettings
     }
 
     /**
+     * @return string[]|null
+     */
+    public function getFacetFields(): ?array
+    {
+        return $this->facetFields;
+    }
+
+    /**
+     * @param string[]|null $facetFields
+     */
+    public function setFacetFields(?array $facetFields): self
+    {
+        $this->facetFields = $facetFields;
+
+        return $this;
+    }
+
+    public function getDistinctField(): ?string
+    {
+        return $this->distinctField;
+    }
+
+    public function setDistinctField(?string $distinctField): self
+    {
+        $this->distinctField = $distinctField;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getSearchFields(): ?array
+    {
+        return $this->searchFields;
+    }
+
+    /**
+     * @param string[]|null $searchFields
+     */
+    public function setSearchFields(?array $searchFields): self
+    {
+        $this->searchFields = $searchFields;
+
+        return $this;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getDisplayFields(): ?array
+    {
+        return $this->displayFields;
+    }
+
+    /**
+     * @param string[]|null $displayFields
+     */
+    public function setDisplayFields(?array $displayFields): self
+    {
+        $this->displayFields = $displayFields;
+
+        return $this;
+    }
+
+    /**
      * @return CntListIndexFilter[]|null
      */
     public function getFilters(): ?array
@@ -97,6 +183,18 @@ class CntIndexSettings
     public function setFilters(?array $filters): self
     {
         $this->filters = $filters;
+
+        return $this;
+    }
+
+    public function getLastProcessedAt(): ?\DateTime
+    {
+        return $this->lastProcessedAt;
+    }
+
+    public function setLastProcessedAt(?\DateTime $lastProcessedAt): self
+    {
+        $this->lastProcessedAt = $lastProcessedAt;
 
         return $this;
     }

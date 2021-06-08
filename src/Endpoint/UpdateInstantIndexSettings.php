@@ -16,11 +16,17 @@ class UpdateInstantIndexSettings extends \Jane\OpenApiRuntime\Client\BaseEndpoin
 
     /**
      * Update the settings of the specified index.
+     *
+     * @param array $queryParameters {
+     *
+     *     @var string $sync Add to wait for the asynchronous update to finish
+     * }
      */
-    public function __construct(string $id, \Afosto\Sdk\Model\CntIndexSettings $body)
+    public function __construct(string $id, \Afosto\Sdk\Model\CntIndexSettingsUpdate $body, array $queryParameters = [])
     {
         $this->id = $id;
         $this->body = $body;
+        $this->queryParameters = $queryParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -43,6 +49,17 @@ class UpdateInstantIndexSettings extends \Jane\OpenApiRuntime\Client\BaseEndpoin
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getQueryOptionsResolver();
+        $optionsResolver->setDefined(['sync']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults([]);
+        $optionsResolver->setAllowedTypes('sync', ['string']);
+
+        return $optionsResolver;
     }
 
     /**
