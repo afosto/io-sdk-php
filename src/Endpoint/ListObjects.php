@@ -37,7 +37,7 @@ class ListObjects extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \J
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/cnt/filsystems/integrations/{id}/list');
+        return str_replace(['{id}'], [$this->id], '/cnt/filesystems/integrations/{id}/list');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array

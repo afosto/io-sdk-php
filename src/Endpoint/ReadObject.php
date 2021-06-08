@@ -37,7 +37,7 @@ class ReadObject extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
 
     public function getUri(): string
     {
-        return str_replace(['{id}'], [$this->id], '/cnt/filsystems/integrations/{id}');
+        return str_replace(['{id}'], [$this->id], '/cnt/filesystems/integrations/{id}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
