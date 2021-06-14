@@ -138,6 +138,7 @@ class NormalizerFactory
         $normalizers[] = new OdrServiceModelNormalizer();
         $normalizers[] = new OdrServiceVatConfigurationNormalizer();
         $normalizers[] = new OdrCalculatedInvoiceRequestNormalizer();
+        $normalizers[] = new OdrListedCalculationNormalizer();
         $normalizers[] = new OdrCalculationNormalizer();
         $normalizers[] = new OdrCalculationItemNormalizer();
         $normalizers[] = new OdrInvoiceItemNormalizer();

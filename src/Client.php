@@ -1564,6 +1564,31 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Returns a list of calculations.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $x-page
+     *     @var int $x-page-size
+     * }
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\ListCalculationsBadRequestException
+     * @throws \Afosto\Sdk\Exception\ListCalculationsUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\ListCalculationsForbiddenException
+     * @throws \Afosto\Sdk\Exception\ListCalculationsNotFoundException
+     * @throws \Afosto\Sdk\Exception\ListCalculationsInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\ListCalculationsServiceUnavailableException
+     *
+     * @return \Afosto\Sdk\Model\OdrListedCalculation[]|\Psr\Http\Message\ResponseInterface|null
+     */
+    public function listCalculations(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListCalculations($headerParameters), $fetch);
+    }
+
+    /**
      * Returns a calculation.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
