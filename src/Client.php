@@ -1568,8 +1568,8 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @param array $headerParameters {
      *
-     *     @var int $x-page
-     *     @var int $x-page-size
+     *     @var string $x-page the cursor
+     *     @var string $x-page-size the requested page size
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -1653,6 +1653,12 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *     @var string $order_id
      * }
      *
+     * @param array $headerParameters {
+     *
+     *     @var string $x-page the requested page id
+     *     @var string $x-page-size the requested page size
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListInvoicesBadRequestException
@@ -1664,9 +1670,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\OdrInvoiceListItem[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listInvoices(array $queryParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function listInvoices(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInvoices($queryParameters), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInvoices($queryParameters, $headerParameters), $fetch);
     }
 
     /**

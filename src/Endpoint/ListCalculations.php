@@ -17,8 +17,8 @@ class ListCalculations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
      *
      * @param array $headerParameters {
      *
-     *     @var int $x-page
-     *     @var int $x-page-size
+     *     @var string $x-page the cursor
+     *     @var string $x-page-size the requested page size
      * }
      */
     public function __construct(array $headerParameters = [])
@@ -53,9 +53,9 @@ class ListCalculations extends \Jane\OpenApiRuntime\Client\BaseEndpoint implemen
         $optionsResolver = parent::getHeadersOptionsResolver();
         $optionsResolver->setDefined(['x-page', 'x-page-size']);
         $optionsResolver->setRequired([]);
-        $optionsResolver->setDefaults(['x-page' => 1, 'x-page-size' => 25]);
-        $optionsResolver->setAllowedTypes('x-page', ['int']);
-        $optionsResolver->setAllowedTypes('x-page-size', ['int']);
+        $optionsResolver->setDefaults(['x-page' => '1', 'x-page-size' => '25']);
+        $optionsResolver->setAllowedTypes('x-page', ['string']);
+        $optionsResolver->setAllowedTypes('x-page-size', ['string']);
 
         return $optionsResolver;
     }
