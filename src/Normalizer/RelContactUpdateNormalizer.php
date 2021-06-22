@@ -41,6 +41,12 @@ class RelContactUpdateNormalizer implements DenormalizerInterface, NormalizerInt
         if (property_exists($data, 'email') && null !== $data->{'email'}) {
             $object->setEmail($data->{'email'});
         }
+        if (property_exists($data, 'audience') && null !== $data->{'audience'}) {
+            $object->setAudience($data->{'audience'});
+        }
+        if (property_exists($data, 'is_guest') && null !== $data->{'is_guest'}) {
+            $object->setIsGuest($data->{'is_guest'});
+        }
         if (property_exists($data, 'tags') && null !== $data->{'tags'}) {
             $values = [];
             foreach ($data->{'tags'} as $value) {
@@ -85,6 +91,12 @@ class RelContactUpdateNormalizer implements DenormalizerInterface, NormalizerInt
         $data = new \stdClass();
         if (null !== $object->getEmail()) {
             $data->{'email'} = $object->getEmail();
+        }
+        if (null !== $object->getAudience()) {
+            $data->{'audience'} = $object->getAudience();
+        }
+        if (null !== $object->getIsGuest()) {
+            $data->{'is_guest'} = $object->getIsGuest();
         }
         if (null !== $object->getTags()) {
             $values = [];
