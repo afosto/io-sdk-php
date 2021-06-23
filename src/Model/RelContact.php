@@ -27,11 +27,11 @@ class RelContact
     /**
      * @var string
      */
-    protected $audience;
+    protected $audience = 'default';
     /**
      * @var bool
      */
-    protected $isGuest = false;
+    protected $isGuest;
     /**
      * @var string[]
      */

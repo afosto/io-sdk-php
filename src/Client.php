@@ -10811,7 +10811,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Create a new or update an existing contact, based on it's emailaddress. Will only update the primary parts of lists. Doing so it will move the old primary to a secondary (on changes).
+     * Create or update an existing contact, based on its email address. This only updates the primary lists and moves existing primaries to the secondary lists when changed.
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *

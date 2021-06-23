@@ -19,7 +19,7 @@ class RelContactUpdate
     /**
      * @var string
      */
-    protected $audience;
+    protected $audience = 'default';
     /**
      * @var bool
      */
