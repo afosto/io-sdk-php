@@ -21,6 +21,7 @@ class GetServicePoint extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
      * @param array $queryParameters {
      *
      *     @var string $country_code
+     *     @var string $channel_id
      * }
      */
     public function __construct(string $id, string $carrier, array $queryParameters = [])
@@ -55,10 +56,11 @@ class GetServicePoint extends \Jane\OpenApiRuntime\Client\BaseEndpoint implement
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['country_code']);
+        $optionsResolver->setDefined(['country_code', 'channel_id']);
         $optionsResolver->setRequired(['country_code']);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('country_code', ['string']);
+        $optionsResolver->setAllowedTypes('channel_id', ['string']);
 
         return $optionsResolver;
     }

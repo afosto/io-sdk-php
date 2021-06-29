@@ -21,6 +21,7 @@ class ListServicePoints extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      *
      *     @var string $country_code
      *     @var string $postal_code
+     *     @var string $channel_id
      * }
      */
     public function __construct(string $carrier, array $queryParameters = [])
@@ -54,11 +55,12 @@ class ListServicePoints extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['country_code', 'postal_code']);
+        $optionsResolver->setDefined(['country_code', 'postal_code', 'channel_id']);
         $optionsResolver->setRequired(['country_code', 'postal_code']);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('country_code', ['string']);
         $optionsResolver->setAllowedTypes('postal_code', ['string']);
+        $optionsResolver->setAllowedTypes('channel_id', ['string']);
 
         return $optionsResolver;
     }

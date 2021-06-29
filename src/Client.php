@@ -9418,11 +9418,31 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * Manually trigger an invoice.
+     *
+     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
+     *
+     * @throws \Afosto\Sdk\Exception\TriggerShipmentInvoiceBadRequestException
+     * @throws \Afosto\Sdk\Exception\TriggerShipmentInvoiceUnauthorizedException
+     * @throws \Afosto\Sdk\Exception\TriggerShipmentInvoiceForbiddenException
+     * @throws \Afosto\Sdk\Exception\TriggerShipmentInvoiceNotFoundException
+     * @throws \Afosto\Sdk\Exception\TriggerShipmentInvoiceInternalServerErrorException
+     * @throws \Afosto\Sdk\Exception\TriggerShipmentInvoiceServiceUnavailableException
+     *
+     * @return \Psr\Http\Message\ResponseInterface|null
+     */
+    public function triggerShipmentInvoice(string $id, string $fetch = self::FETCH_OBJECT)
+    {
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\TriggerShipmentInvoice($id), $fetch);
+    }
+
+    /**
      * List all methods.
      *
      * @param array $queryParameters {
      *
      *     @var string $country_code
+     *     @var string $channel_id
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -9447,6 +9467,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param array $queryParameters {
      *
      *     @var string $country_code
+     *     @var string $channel_id
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -9915,6 +9936,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      *     @var string $country_code
      *     @var string $postal_code
+     *     @var string $channel_id
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -9939,6 +9961,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @param array $queryParameters {
      *
      *     @var string $country_code
+     *     @var string $channel_id
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
