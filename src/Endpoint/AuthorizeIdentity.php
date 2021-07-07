@@ -18,6 +18,7 @@ class AuthorizeIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
      * @param array $queryParameters {
      *
      *     @var string $client_id context which to create the identity for
+     *     @var string $channel_id context which to create the identity for
      * }
      */
     public function __construct(\Afosto\Sdk\Model\RelCreateIdentityRequest $body, array $queryParameters = [])
@@ -51,10 +52,11 @@ class AuthorizeIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint impleme
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['client_id']);
+        $optionsResolver->setDefined(['client_id', 'channel_id']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('client_id', ['string']);
+        $optionsResolver->setAllowedTypes('channel_id', ['string']);
 
         return $optionsResolver;
     }

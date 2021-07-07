@@ -47,11 +47,11 @@ class RelContactNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'email') && null !== $data->{'email'}) {
             $object->setEmail($data->{'email'});
         }
-        if (property_exists($data, 'audience') && null !== $data->{'audience'}) {
-            $object->setAudience($data->{'audience'});
-        }
         if (property_exists($data, 'is_guest') && null !== $data->{'is_guest'}) {
             $object->setIsGuest($data->{'is_guest'});
+        }
+        if (property_exists($data, 'audience') && null !== $data->{'audience'}) {
+            $object->setAudience($data->{'audience'});
         }
         if (property_exists($data, 'tags') && null !== $data->{'tags'}) {
             $values = [];
@@ -94,6 +94,9 @@ class RelContactNormalizer implements DenormalizerInterface, NormalizerInterface
         if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
             $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
         }
+        if (property_exists($data, 'deleted_at') && null !== $data->{'deleted_at'}) {
+            $object->setDeletedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'deleted_at'}));
+        }
 
         return $object;
     }
@@ -110,11 +113,11 @@ class RelContactNormalizer implements DenormalizerInterface, NormalizerInterface
         if (null !== $object->getEmail()) {
             $data->{'email'} = $object->getEmail();
         }
-        if (null !== $object->getAudience()) {
-            $data->{'audience'} = $object->getAudience();
-        }
         if (null !== $object->getIsGuest()) {
             $data->{'is_guest'} = $object->getIsGuest();
+        }
+        if (null !== $object->getAudience()) {
+            $data->{'audience'} = $object->getAudience();
         }
         if (null !== $object->getTags()) {
             $values = [];
@@ -156,6 +159,9 @@ class RelContactNormalizer implements DenormalizerInterface, NormalizerInterface
         }
         if (null !== $object->getUpdatedAt()) {
             $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getDeletedAt()) {
+            $data->{'deleted_at'} = $object->getDeletedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

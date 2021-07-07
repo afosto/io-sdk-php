@@ -18,6 +18,7 @@ class ResetIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
      * @param array $queryParameters {
      *
      *     @var string $client_id context which to create the identity for
+     *     @var string $channel_id context which to create the identity for
      * }
      */
     public function __construct(\Afosto\Sdk\Model\RelCreateResetRequest $body, array $queryParameters = [])
@@ -51,10 +52,11 @@ class ResetIdentity extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements 
     protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
     {
         $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['client_id']);
+        $optionsResolver->setDefined(['client_id', 'channel_id']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
         $optionsResolver->setAllowedTypes('client_id', ['string']);
+        $optionsResolver->setAllowedTypes('channel_id', ['string']);
 
         return $optionsResolver;
     }

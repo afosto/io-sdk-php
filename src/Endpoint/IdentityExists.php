@@ -14,16 +14,10 @@ class IdentityExists extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
 {
     /**
      * Returns a 204 if the there exists an identity.
-     *
-     * @param array $queryParameters {
-     *
-     *     @var string $client_id context which to create the identity for
-     * }
      */
-    public function __construct(\Afosto\Sdk\Model\RelIdentityExistsRequest $body, array $queryParameters = [])
+    public function __construct(\Afosto\Sdk\Model\RelIdentityExistsRequest $body)
     {
         $this->body = $body;
-        $this->queryParameters = $queryParameters;
     }
 
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
@@ -46,17 +40,6 @@ class IdentityExists extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
-    }
-
-    protected function getQueryOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
-    {
-        $optionsResolver = parent::getQueryOptionsResolver();
-        $optionsResolver->setDefined(['client_id']);
-        $optionsResolver->setRequired([]);
-        $optionsResolver->setDefaults([]);
-        $optionsResolver->setAllowedTypes('client_id', ['string']);
-
-        return $optionsResolver;
     }
 
     /**

@@ -25,13 +25,13 @@ class RelContact
      */
     protected $email;
     /**
-     * @var string
-     */
-    protected $audience = 'default';
-    /**
      * @var bool
      */
     protected $isGuest;
+    /**
+     * @var string
+     */
+    protected $audience = 'default';
     /**
      * @var string[]
      */
@@ -84,6 +84,10 @@ class RelContact
      * @var \DateTime
      */
     protected $updatedAt;
+    /**
+     * @var \DateTime
+     */
+    protected $deletedAt;
 
     public function getId(): ?string
     {
@@ -121,18 +125,6 @@ class RelContact
         return $this;
     }
 
-    public function getAudience(): ?string
-    {
-        return $this->audience;
-    }
-
-    public function setAudience(?string $audience): self
-    {
-        $this->audience = $audience;
-
-        return $this;
-    }
-
     public function getIsGuest(): ?bool
     {
         return $this->isGuest;
@@ -141,6 +133,18 @@ class RelContact
     public function setIsGuest(?bool $isGuest): self
     {
         $this->isGuest = $isGuest;
+
+        return $this;
+    }
+
+    public function getAudience(): ?string
+    {
+        return $this->audience;
+    }
+
+    public function setAudience(?string $audience): self
+    {
+        $this->audience = $audience;
 
         return $this;
     }
@@ -307,6 +311,18 @@ class RelContact
     public function setUpdatedAt(?\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getDeletedAt(): ?\DateTime
+    {
+        return $this->deletedAt;
+    }
+
+    public function setDeletedAt(?\DateTime $deletedAt): self
+    {
+        $this->deletedAt = $deletedAt;
 
         return $this;
     }

@@ -17,13 +17,13 @@ class RelContactUpdate
      */
     protected $email;
     /**
-     * @var string
-     */
-    protected $audience = 'default';
-    /**
      * @var bool
      */
     protected $isGuest = false;
+    /**
+     * @var string
+     */
+    protected $audience = 'default';
     /**
      * @var string[]
      */
@@ -81,18 +81,6 @@ class RelContactUpdate
         return $this;
     }
 
-    public function getAudience(): ?string
-    {
-        return $this->audience;
-    }
-
-    public function setAudience(?string $audience): self
-    {
-        $this->audience = $audience;
-
-        return $this;
-    }
-
     public function getIsGuest(): ?bool
     {
         return $this->isGuest;
@@ -101,6 +89,18 @@ class RelContactUpdate
     public function setIsGuest(?bool $isGuest): self
     {
         $this->isGuest = $isGuest;
+
+        return $this;
+    }
+
+    public function getAudience(): ?string
+    {
+        return $this->audience;
+    }
+
+    public function setAudience(?string $audience): self
+    {
+        $this->audience = $audience;
 
         return $this;
     }
