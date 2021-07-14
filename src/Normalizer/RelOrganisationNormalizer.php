@@ -92,6 +92,15 @@ class RelOrganisationNormalizer implements DenormalizerInterface, NormalizerInte
         if (property_exists($data, 'shipping') && null !== $data->{'shipping'}) {
             $object->setShipping($this->denormalizer->denormalize($data->{'shipping'}, 'Afosto\\Sdk\\Model\\RelAddressList', 'json', $context));
         }
+        if (property_exists($data, 'created_at') && null !== $data->{'created_at'}) {
+            $object->setCreatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'created_at'}));
+        }
+        if (property_exists($data, 'updated_at') && null !== $data->{'updated_at'}) {
+            $object->setUpdatedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'updated_at'}));
+        }
+        if (property_exists($data, 'deleted_at') && null !== $data->{'deleted_at'}) {
+            $object->setDeletedAt(\DateTime::createFromFormat("Y-m-d\TH:i:sP", $data->{'deleted_at'}));
+        }
 
         return $object;
     }
@@ -152,6 +161,15 @@ class RelOrganisationNormalizer implements DenormalizerInterface, NormalizerInte
         }
         if (null !== $object->getShipping()) {
             $data->{'shipping'} = $this->normalizer->normalize($object->getShipping(), 'json', $context);
+        }
+        if (null !== $object->getCreatedAt()) {
+            $data->{'created_at'} = $object->getCreatedAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getUpdatedAt()) {
+            $data->{'updated_at'} = $object->getUpdatedAt()->format("Y-m-d\TH:i:sP");
+        }
+        if (null !== $object->getDeletedAt()) {
+            $data->{'deleted_at'} = $object->getDeletedAt()->format("Y-m-d\TH:i:sP");
         }
 
         return $data;

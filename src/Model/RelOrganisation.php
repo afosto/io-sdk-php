@@ -74,6 +74,18 @@ class RelOrganisation
      * @var RelAddressList
      */
     protected $shipping;
+    /**
+     * @var \DateTime
+     */
+    protected $createdAt;
+    /**
+     * @var \DateTime
+     */
+    protected $updatedAt;
+    /**
+     * @var \DateTime
+     */
+    protected $deletedAt;
 
     public function getId(): ?string
     {
@@ -273,6 +285,42 @@ class RelOrganisation
     public function setShipping(?RelAddressList $shipping): self
     {
         $this->shipping = $shipping;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?\DateTime $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getDeletedAt(): ?\DateTime
+    {
+        return $this->deletedAt;
+    }
+
+    public function setDeletedAt(?\DateTime $deletedAt): self
+    {
+        $this->deletedAt = $deletedAt;
 
         return $this;
     }
