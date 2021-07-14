@@ -79,7 +79,15 @@ class LcsListedShipment
     /**
      * @var bool
      */
-    protected $isDelivered;
+    protected $isComplete;
+    /**
+     * @var bool
+     */
+    protected $isOvercomplete;
+    /**
+     * @var bool
+     */
+    protected $isCanceled;
     /**
      * @var string
      */
@@ -293,14 +301,38 @@ class LcsListedShipment
         return $this;
     }
 
-    public function getIsDelivered(): ?bool
+    public function getIsComplete(): ?bool
     {
-        return $this->isDelivered;
+        return $this->isComplete;
     }
 
-    public function setIsDelivered(?bool $isDelivered): self
+    public function setIsComplete(?bool $isComplete): self
     {
-        $this->isDelivered = $isDelivered;
+        $this->isComplete = $isComplete;
+
+        return $this;
+    }
+
+    public function getIsOvercomplete(): ?bool
+    {
+        return $this->isOvercomplete;
+    }
+
+    public function setIsOvercomplete(?bool $isOvercomplete): self
+    {
+        $this->isOvercomplete = $isOvercomplete;
+
+        return $this;
+    }
+
+    public function getIsCanceled(): ?bool
+    {
+        return $this->isCanceled;
+    }
+
+    public function setIsCanceled(?bool $isCanceled): self
+    {
+        $this->isCanceled = $isCanceled;
 
         return $this;
     }

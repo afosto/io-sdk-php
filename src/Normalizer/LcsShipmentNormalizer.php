@@ -74,26 +74,41 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (property_exists($data, 'stack_id') && null !== $data->{'stack_id'}) {
             $object->setStackId($data->{'stack_id'});
         }
+        if (property_exists($data, 'is_editable') && null !== $data->{'is_editable'}) {
+            $object->setIsEditable($data->{'is_editable'});
+        }
         if (property_exists($data, 'is_outbound') && null !== $data->{'is_outbound'}) {
             $object->setIsOutbound($data->{'is_outbound'});
+        }
+        if (property_exists($data, 'is_labeled') && null !== $data->{'is_labeled'}) {
+            $object->setIsLabeled($data->{'is_labeled'});
+        }
+        if (property_exists($data, 'is_serviced') && null !== $data->{'is_serviced'}) {
+            $object->setIsServiced($data->{'is_serviced'});
         }
         if (property_exists($data, 'is_complete') && null !== $data->{'is_complete'}) {
             $object->setIsComplete($data->{'is_complete'});
         }
-        if (property_exists($data, 'is_done') && null !== $data->{'is_done'}) {
-            $object->setIsDone($data->{'is_done'});
+        if (property_exists($data, 'is_overcomplete') && null !== $data->{'is_overcomplete'}) {
+            $object->setIsOvercomplete($data->{'is_overcomplete'});
         }
-        if (property_exists($data, 'is_listed') && null !== $data->{'is_listed'}) {
-            $object->setIsListed($data->{'is_listed'});
+        if (property_exists($data, 'is_boxed') && null !== $data->{'is_boxed'}) {
+            $object->setIsBoxed($data->{'is_boxed'});
         }
         if (property_exists($data, 'is_handled') && null !== $data->{'is_handled'}) {
             $object->setIsHandled($data->{'is_handled'});
         }
+        if (property_exists($data, 'is_listed') && null !== $data->{'is_listed'}) {
+            $object->setIsListed($data->{'is_listed'});
+        }
+        if (property_exists($data, 'is_finished') && null !== $data->{'is_finished'}) {
+            $object->setIsFinished($data->{'is_finished'});
+        }
         if (property_exists($data, 'is_in_transit') && null !== $data->{'is_in_transit'}) {
             $object->setIsInTransit($data->{'is_in_transit'});
         }
-        if (property_exists($data, 'is_cancelled') && null !== $data->{'is_cancelled'}) {
-            $object->setIsCancelled($data->{'is_cancelled'});
+        if (property_exists($data, 'is_canceled') && null !== $data->{'is_canceled'}) {
+            $object->setIsCanceled($data->{'is_canceled'});
         }
         if (property_exists($data, 'items') && null !== $data->{'items'}) {
             $values = [];
@@ -185,26 +200,41 @@ class LcsShipmentNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (null !== $object->getStackId()) {
             $data->{'stack_id'} = $object->getStackId();
         }
+        if (null !== $object->getIsEditable()) {
+            $data->{'is_editable'} = $object->getIsEditable();
+        }
         if (null !== $object->getIsOutbound()) {
             $data->{'is_outbound'} = $object->getIsOutbound();
+        }
+        if (null !== $object->getIsLabeled()) {
+            $data->{'is_labeled'} = $object->getIsLabeled();
+        }
+        if (null !== $object->getIsServiced()) {
+            $data->{'is_serviced'} = $object->getIsServiced();
         }
         if (null !== $object->getIsComplete()) {
             $data->{'is_complete'} = $object->getIsComplete();
         }
-        if (null !== $object->getIsDone()) {
-            $data->{'is_done'} = $object->getIsDone();
+        if (null !== $object->getIsOvercomplete()) {
+            $data->{'is_overcomplete'} = $object->getIsOvercomplete();
         }
-        if (null !== $object->getIsListed()) {
-            $data->{'is_listed'} = $object->getIsListed();
+        if (null !== $object->getIsBoxed()) {
+            $data->{'is_boxed'} = $object->getIsBoxed();
         }
         if (null !== $object->getIsHandled()) {
             $data->{'is_handled'} = $object->getIsHandled();
         }
+        if (null !== $object->getIsListed()) {
+            $data->{'is_listed'} = $object->getIsListed();
+        }
+        if (null !== $object->getIsFinished()) {
+            $data->{'is_finished'} = $object->getIsFinished();
+        }
         if (null !== $object->getIsInTransit()) {
             $data->{'is_in_transit'} = $object->getIsInTransit();
         }
-        if (null !== $object->getIsCancelled()) {
-            $data->{'is_cancelled'} = $object->getIsCancelled();
+        if (null !== $object->getIsCanceled()) {
+            $data->{'is_canceled'} = $object->getIsCanceled();
         }
         if (null !== $object->getItems()) {
             $values = [];

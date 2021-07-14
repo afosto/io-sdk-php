@@ -86,8 +86,14 @@ class LcsListedShipmentNormalizer implements DenormalizerInterface, NormalizerIn
         if (property_exists($data, 'is_in_transit') && null !== $data->{'is_in_transit'}) {
             $object->setIsInTransit($data->{'is_in_transit'});
         }
-        if (property_exists($data, 'is_delivered') && null !== $data->{'is_delivered'}) {
-            $object->setIsDelivered($data->{'is_delivered'});
+        if (property_exists($data, 'is_complete') && null !== $data->{'is_complete'}) {
+            $object->setIsComplete($data->{'is_complete'});
+        }
+        if (property_exists($data, 'is_overcomplete') && null !== $data->{'is_overcomplete'}) {
+            $object->setIsOvercomplete($data->{'is_overcomplete'});
+        }
+        if (property_exists($data, 'is_canceled') && null !== $data->{'is_canceled'}) {
+            $object->setIsCanceled($data->{'is_canceled'});
         }
         if (property_exists($data, 'secret') && null !== $data->{'secret'}) {
             $object->setSecret($data->{'secret'});
@@ -163,8 +169,14 @@ class LcsListedShipmentNormalizer implements DenormalizerInterface, NormalizerIn
         if (null !== $object->getIsInTransit()) {
             $data->{'is_in_transit'} = $object->getIsInTransit();
         }
-        if (null !== $object->getIsDelivered()) {
-            $data->{'is_delivered'} = $object->getIsDelivered();
+        if (null !== $object->getIsComplete()) {
+            $data->{'is_complete'} = $object->getIsComplete();
+        }
+        if (null !== $object->getIsOvercomplete()) {
+            $data->{'is_overcomplete'} = $object->getIsOvercomplete();
+        }
+        if (null !== $object->getIsCanceled()) {
+            $data->{'is_canceled'} = $object->getIsCanceled();
         }
         if (null !== $object->getSecret()) {
             $data->{'secret'} = $object->getSecret();
