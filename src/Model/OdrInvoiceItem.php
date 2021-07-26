@@ -13,6 +13,12 @@ namespace Afosto\Sdk\Model;
 class OdrInvoiceItem
 {
     /**
+     * The ID of this invoice item.
+     *
+     * @var string
+     */
+    protected $id;
+    /**
      * @var string
      */
     protected $sku;
@@ -60,6 +66,24 @@ class OdrInvoiceItem
      * @var OdrCalculationOrderItem[]
      */
     protected $orderItems;
+
+    /**
+     * The ID of this invoice item.
+     */
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    /**
+     * The ID of this invoice item.
+     */
+    public function setId(?string $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     public function getSku(): ?string
     {
