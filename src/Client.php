@@ -1454,7 +1454,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
-     * Update an existing email.
+     * Delete an email.
      *
      * @param string $id    Id that belongs to the email
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)

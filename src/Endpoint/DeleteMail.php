@@ -15,7 +15,7 @@ class DeleteMail extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Ja
     protected $id;
 
     /**
-     * Update an existing email.
+     * Delete an email.
      *
      * @param string $id Id that belongs to the email
      */
