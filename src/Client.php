@@ -7521,7 +7521,7 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsInternalServerErrorException
      * @throws \Afosto\Sdk\Exception\ReportClaimItemsServiceUnavailableException
      *
-     * @return \Afosto\Sdk\Model\WmsInventoryItem[]|\Psr\Http\Message\ResponseInterface|null
+     * @return \Psr\Http\Message\ResponseInterface|null
      */
     public function reportClaimItems(\Afosto\Sdk\Model\WmsTransferReport $body, string $fetch = self::FETCH_OBJECT)
     {
