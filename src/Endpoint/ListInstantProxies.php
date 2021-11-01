@@ -12,6 +12,20 @@ namespace Afosto\Sdk\Endpoint;
 
 class ListInstantProxies extends \Jane\OpenApiRuntime\Client\BaseEndpoint implements \Jane\OpenApiRuntime\Client\Psr7Endpoint
 {
+    /**
+     * List all proxies for a tenant.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $x-page-size
+     *     @var int $x-page
+     * }
+     */
+    public function __construct(array $headerParameters = [])
+    {
+        $this->headerParameters = $headerParameters;
+    }
+
     use \Jane\OpenApiRuntime\Client\Psr7EndpointTrait;
 
     public function getMethod(): string
@@ -32,6 +46,18 @@ class ListInstantProxies extends \Jane\OpenApiRuntime\Client\BaseEndpoint implem
     public function getExtraHeaders(): array
     {
         return ['Accept' => ['application/json']];
+    }
+
+    protected function getHeadersOptionsResolver(): \Symfony\Component\OptionsResolver\OptionsResolver
+    {
+        $optionsResolver = parent::getHeadersOptionsResolver();
+        $optionsResolver->setDefined(['x-page-size', 'x-page']);
+        $optionsResolver->setRequired([]);
+        $optionsResolver->setDefaults(['x-page-size' => 25, 'x-page' => 1]);
+        $optionsResolver->setAllowedTypes('x-page-size', ['int']);
+        $optionsResolver->setAllowedTypes('x-page', ['int']);
+
+        return $optionsResolver;
     }
 
     /**

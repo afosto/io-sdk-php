@@ -10127,6 +10127,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * List all proxies for a tenant.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $x-page-size
+     *     @var int $x-page
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListInstantProxiesUnauthorizedException
@@ -10138,9 +10146,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntInstantProxy[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listInstantProxies(string $fetch = self::FETCH_OBJECT)
+    public function listInstantProxies(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInstantProxies(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInstantProxies($headerParameters), $fetch);
     }
 
     /**
@@ -10220,6 +10228,14 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
     }
 
     /**
+     * List all indexes for the authenticated user.
+     *
+     * @param array $headerParameters {
+     *
+     *     @var int $x-page-size
+     *     @var int $x-page
+     * }
+     *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
      * @throws \Afosto\Sdk\Exception\ListInstantIndexesUnauthorizedException
@@ -10231,9 +10247,9 @@ class Client extends \Jane\OpenApiRuntime\Client\Psr7HttplugClient
      *
      * @return \Afosto\Sdk\Model\CntListIndex[]|\Psr\Http\Message\ResponseInterface|null
      */
-    public function listInstantIndexes(string $fetch = self::FETCH_OBJECT)
+    public function listInstantIndexes(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInstantIndexes(), $fetch);
+        return $this->executePsr7Endpoint(new \Afosto\Sdk\Endpoint\ListInstantIndexes($headerParameters), $fetch);
     }
 
     /**
